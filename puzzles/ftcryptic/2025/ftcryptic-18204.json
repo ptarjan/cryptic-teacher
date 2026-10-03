@@ -24,6 +24,9 @@
   "date": "2025-11-04",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,52 @@
      }
     ]
    },
-   "solution": "BUFFALOBILL"
+   "solution": "BUFFALOBILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUFFALO BILL",
+    "definitions": [
+     {
+      "text": "showman",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York diner, perhaps",
+      "gives": "BUFFALO",
+      "note": "Buffalo is a city in New York State, so a diner there is one example of a New York diner"
+     },
+     {
+      "clueFragment": "Check",
+      "gives": "BILL",
+      "note": "in American English a check is the bill at a restaurant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFFALO",
+      "BILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A customer asks for the check at a New York diner.",
+     "walkthrough": "The surface reads as one restaurant scene: the check you get in a Buffalo diner is, read literally, a Buffalo bill.",
+     "definitionFit": "Buffalo Bill Cody ran a famous travelling Wild West show, making him a celebrated American entertainer and impresario."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +105,78 @@
     "text": "Very cold beer for starters sailor served up: no drink for infants?",
     "enumeration": "8"
    },
-   "solution": "BABYCINO"
+   "solution": "BABYCINO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "BABYCINO",
+    "definitions": [
+     {
+      "text": "drink for infants?",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters come at the beginning, so only the opening letter of the word is wanted"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, something served up is brought upwards, so the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very cold",
+      "gives": "ICY",
+      "note": "very cold weather is icy"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of beer"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BABYCI",
+      "NO"
+     ],
+     "reversals": [
+      {
+       "from": "ICYBAB",
+       "to": "BABYCI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor serves a very cold beer as a starter, but there is nothing for the children to drink.",
+     "walkthrough": "Only the first three pieces are turned upwards; the final 'no' is simply tacked on after them.",
+     "definitionFit": "A babycino is frothed milk served in a small cup, a café treat for young children who copy adults drinking cappuccino."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +190,58 @@
     "text": "Ruby fastener’s cut out",
     "enumeration": "8"
    },
-   "solution": "FORTIETH"
+   "solution": "FORTIETH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORTIETH",
+    "definitions": [
+     {
+      "text": "Ruby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "container",
+      "note": "something that has cut into a word has pushed its way inside it, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "FORTH",
+      "note": "to go forth is to go out"
+     },
+     {
+      "clueFragment": "fastener",
+      "gives": "TIE",
+      "note": "a tie is something that fastens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "TIE",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's clasp on a ruby piece has been cut away.",
+     "walkthrough": "The 's stands for 'has': the fastener has cut into 'out'.",
+     "definitionFit": "A ruby wedding is the traditional name for a couple's fortieth anniversary, so ruby stands for that numbered milestone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ruby"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +255,49 @@
     "text": "Jungle Book character turning up in tale, Kaa",
     "enumeration": "5"
    },
-   "solution": "AKELA"
+   "solution": "AKELA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AKELA",
+    "definitions": [
+     {
+      "text": "Jungle Book character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is sitting in the run of letters that follows, spanning both words"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means the letters read upwards, from last to first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale, Kaa",
+      "gives": "ALEKA",
+      "note": "the letters straddle the end of tale and the start of Kaa"
+     }
+    ],
+    "explanation": {
+     "surface": "A character from The Jungle Book appears in a story about Kaa the python.",
+     "walkthrough": "Kaa is himself a Jungle Book character, which makes the surface feel like a definition of him.",
+     "definitionFit": "Akela is the old grey wolf who leads the Seeonee pack in Kipling's stories, later borrowed as the title of Cub Scout leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kaa"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +311,43 @@
     "text": "Peculiar, occasional delivery",
     "enumeration": "7"
    },
-   "solution": "ODDBALL"
+   "solution": "ODDBALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ODDBALL",
+    "definitions": [
+     {
+      "text": "Peculiar",
+      "at": 0
+     },
+     {
+      "text": "occasional delivery",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peculiar",
+      "note": "first meaning: eccentric, as an adjective"
+     },
+     {
+      "clueFragment": "occasional delivery",
+      "note": "second meaning, read as two words: an ..., a single unusual delivery bowled in cricket"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A delivery is a ball bowled in cricket; an occasional one is an odd ball.",
+     "definitionFit": "The adjective describes someone strange or eccentric, while the split phrase literally names a stray, untypical cricket bowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +361,65 @@
     "text": "Vet with small animal nuzzled by Pekinese, originally",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Vet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how the word begins, so just its opening letter is used"
+     },
+     {
+      "text": "nuzzled by",
+      "for": "container",
+      "note": "nuzzling means pressing close in, so one piece is snuggled inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small animal",
+      "gives": "INSECT",
+      "note": "an insect is a small creature"
+     },
+     {
+      "clueFragment": "Pekinese",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of Pekinese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet examines a small animal while a Pekinese dog nuzzles it.",
+     "walkthrough": "'Vet' looks like the animal doctor of the surface, but here it is the verb: to check over.",
+     "definitionFit": "To vet something is to examine it carefully before approval, the same sense as scrutinise or check over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vet"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +433,76 @@
     "text": "Red meat and sour cream initially mixed",
     "enumeration": "9"
    },
-   "solution": "LAMBRUSCO"
+   "solution": "LAMBRUSCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LAMBRUSCO",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to how the word begins, so only its first letter is kept"
+     },
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "things mixed are stirred together, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "LAMB",
+      "note": "lamb is a meat"
+     },
+     {
+      "clueFragment": "sour",
+      "gives": "SOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cream",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of cream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMB",
+      "RUSCO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOURC",
+       "gives": "RUSCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: red meat with soured cream stirred through.",
+     "walkthrough": "'Red meat' reads as one phrase, but 'Red' is the definition on its own.",
+     "definitionFit": "Lambrusco is a sparkling Italian red wine, so it is an example of a red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +516,40 @@
     "text": "Bizarre tipple",
     "enumeration": "3"
    },
-   "solution": "RUM"
+   "solution": "RUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUM",
+    "definitions": [
+     {
+      "text": "Bizarre",
+      "at": 0
+     },
+     {
+      "text": "tipple",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bizarre",
+      "note": "first meaning: odd, a chiefly British informal adjective"
+     },
+     {
+      "clueFragment": "tipple",
+      "note": "second meaning: a spirit distilled from sugar cane"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "In British slang the word means strange or odd, and as a noun it is the sugar-cane spirit sailors drank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +563,62 @@
     "text": "Bar that is welcoming a worker on tour",
     "enumeration": "6"
    },
-   "solution": "ROADIE"
+   "solution": "ROADIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROADIE",
+    "definitions": [
+     {
+      "text": "worker on tour",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one letter goes inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "ROD",
+      "note": "a rod is a bar"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "A",
+      "D",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub opens its doors to a touring worker.",
+     "walkthrough": "'Bar' suggests a pub but is a rod; the A slips between the second and third letters.",
+     "definitionFit": "A roadie travels with a band on tour, setting up and dismantling the stage equipment for each gig."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +632,55 @@
     "text": "King filmed following setter, long-distance runner",
     "enumeration": "6"
    },
-   "solution": "MEKONG"
+   "solution": "MEKONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEKONG",
+    "definitions": [
+     {
+      "text": "long-distance runner",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says one piece comes after the other in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "King filmed",
+      "gives": "KONG",
+      "note": "King Kong is the giant ape of the 1933 film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "KONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is filmed trailing the crossword setter, who is out jogging a marathon.",
+     "walkthrough": "'Runner' suggests an athlete, but a river runs too; this one is very long.",
+     "definitionFit": "The Mekong flows over four thousand kilometres through Southeast Asia, and rivers are said to run, so it is a long-distance runner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +694,40 @@
     "text": "Push boat",
     "enumeration": "5"
    },
-   "solution": "BARGE"
+   "solution": "BARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARGE",
+    "definitions": [
+     {
+      "text": "Push",
+      "at": 0
+     },
+     {
+      "text": "boat",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Push",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "boat",
+      "note": "second meaning: a flat-bottomed canal vessel"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means to shove rudely through, and as a noun it is a long flat cargo vessel on canals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +741,57 @@
     "text": "Flying bird makes for land",
     "enumeration": "9"
    },
-   "solution": "DISEMBARK"
+   "solution": "DISEMBARK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEMBARK",
+    "definitions": [
+     {
+      "text": "land",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flying",
+      "for": "anagram",
+      "note": "letters flying about are scattered, so they land in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird makes",
+      "gives": "BIRDMAKES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISEMBARK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIRDMAKES",
+       "gives": "DISEMBARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird in flight heads for the ground.",
+     "walkthrough": "'Land' as a bird's landing fits the surface, but here it means getting off a ship or plane.",
+     "definitionFit": "To land, as a passenger leaving a ship or aircraft, is to step off it on arrival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +805,54 @@
     "text": "Conscious going on strike, fragile stuff",
     "enumeration": "9"
    },
-   "solution": "CHINAWARE"
+   "solution": "CHINAWARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINAWARE",
+    "definitions": [
+     {
+      "text": "fragile stuff",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going on",
+      "for": "charade",
+      "note": "going on means placed after, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strike",
+      "gives": "CHIN",
+      "note": "to chin someone is to punch them on the chin"
+     },
+     {
+      "clueFragment": "Conscious",
+      "gives": "AWARE",
+      "note": "conscious means aware"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "AWARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fully alert workers walk out on strike, leaving delicate goods behind.",
+     "walkthrough": "'Going on strike' reads as an industrial action, but it means placed after a word for strike.",
+     "definitionFit": "China and porcelain crockery breaks easily, so a collective term for it is fragile stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +866,43 @@
     "text": "Rule controller called out?",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "Rule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "called out",
+      "for": "homophone",
+      "note": "something called out is spoken, so we want a word that is said the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "controller",
+      "gives": "REIGN",
+      "soundsLike": "REIN",
+      "note": "a rein is the strap that controls a horse"
+     }
+    ],
+    "explanation": {
+     "surface": "A rule that a supervisor has shouted.",
+     "definitionFit": "To reign is to rule as a monarch, and as a noun it names a period of rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "controller"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +916,73 @@
     "text": "A routine article reviewed by learner, genuine",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "genuine",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reviewed",
+      "for": "reversal",
+      "note": "to review is to look back over, so these letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "routine",
+      "gives": "RUT",
+      "note": "a rut is a dull routine"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, as on L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATURA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "ARUTAN",
+       "to": "NATURA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A routine piece of writing, checked over by a trainee, is authentic.",
+     "definitionFit": "Natural means real and unaffected, not artificial or fake, close in sense to authentic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +996,67 @@
     "text": "Rocky terrain around Washington drops",
     "enumeration": "9"
    },
-   "solution": "RAINWATER"
+   "solution": "RAINWATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RAINWATER",
+    "definitions": [
+     {
+      "text": "drops",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady, so the letters are shaken into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece goes outside, wrapping the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrain",
+      "gives": "TERRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for Washington State"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIN",
+      "WA",
+      "TER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERRAIN",
+       "gives": "RAINTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steep rocky land around Washington falls away.",
+     "walkthrough": "'Drops' suggests steep falls in the landscape, but it is a noun: drops of water.",
+     "definitionFit": "Rainwater falls as individual drops, so the plural noun drops describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1070,50 @@
     "text": "Trumpeter’s part that usually switches key, first of all",
     "enumeration": "4"
    },
-   "solution": "TUSK"
+   "solution": "TUSK",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TUSK",
+    "definitions": [
+     {
+      "text": "Trumpeter’s part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all means the first letter of every word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that usually switches key",
+      "gives": "TUSK",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUSK"
+     ]
+    },
+    "explanation": {
+     "surface": "A trumpet player's part that normally changes key.",
+     "walkthrough": "The trumpeter is not a musician but an elephant, which trumpets.",
+     "definitionFit": "Elephants trumpet, and a tusk is one of the long ivory teeth that form part of an elephant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trumpeter’s"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1127,54 @@
     "text": "Coloured fluid in wound, fetid",
     "enumeration": "8"
    },
-   "solution": "STINKING"
+   "solution": "STINKING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STINKING",
+    "definitions": [
+     {
+      "text": "fetid",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wound",
+      "gives": "STING",
+      "note": "a sting is a small wound"
+     },
+     {
+      "clueFragment": "Coloured fluid",
+      "gives": "INK",
+      "note": "ink is a coloured liquid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "INK",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Discoloured pus oozes from a foul-smelling wound.",
+     "definitionFit": "Fetid means foul-smelling, the same as reeking or stinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1194,66 @@
      }
     ]
    },
-   "solution": "INNEREAR"
+   "solution": "INNEREAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INNER EAR",
+    "definitions": [
+     {
+      "text": "Where hammer found",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the word, so only its last letter is used"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "violence",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of violence"
+     },
+     {
+      "clueFragment": "back",
+      "gives": "REAR",
+      "note": "the rear is the back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "E",
+      "REAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A hammer turns up at the back of a pub after a violent brawl.",
+     "walkthrough": "The hammer is the malleus, a tiny bone of the ear, not a weapon; strictly it sits in the middle ear.",
+     "definitionFit": "The malleus, called the hammer, is one of the small bones inside the ear, which the clue loosely places here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hammer"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1267,67 @@
     "text": "Record is in music player, spinning",
     "enumeration": "4"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DISC",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "spinning turns something round, so its letters face the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music player",
+      "gives": "CD",
+      "note": "a CD player plays music"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CD",
+       "to": "DC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record goes round and round in a music player.",
+     "walkthrough": "The surface is a turntable scene; the spinning belongs to the player's two letters.",
+     "definitionFit": "A disc is a gramophone record or compact disc, a flat round object carrying recorded music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1341,48 @@
     "text": "Fry fake fish",
     "enumeration": "7"
    },
-   "solution": "CODLING"
+   "solution": "CODLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CODLING",
+    "definitions": [
+     {
+      "text": "Fry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fake",
+      "gives": "COD",
+      "note": "cod as an adjective means mock or fake, as in cod Latin"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "ling is a fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to deep-fry imitation fish.",
+     "walkthrough": "'Fry' looks like a cooking verb but is the noun for young fish.",
+     "definitionFit": "Fry are young fish, and a codling is a young cod, so the singular is one of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fry"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1396,62 @@
     "text": "Cut toe drained, cut bandages",
     "enumeration": "7"
    },
-   "solution": "SHORTEN"
+   "solution": "SHORTEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SHORTEN",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "drained means emptied, so the inside is removed and only the ends kept"
+     },
+     {
+      "text": "bandages",
+      "for": "container",
+      "note": "a bandage wraps round something, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SHORN",
+      "note": "shorn means cut, as of hair or wool"
+     },
+     {
+      "clueFragment": "toe",
+      "gives": "TE",
+      "select": "outer",
+      "note": "outer letters of toe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOR",
+      "TE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut toe is drained and bandaged.",
+     "walkthrough": "The clue opens and ends in 'cut' twice: the first is the definition, the second a piece of wordplay.",
+     "definitionFit": "To shorten something is to make it shorter by trimming, as an editor cuts or abridges text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bandages"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1465,42 @@
     "text": "National matter",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUBJECT",
+    "definitions": [
+     {
+      "text": "National",
+      "at": 0
+     },
+     {
+      "text": "matter",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "National",
+      "note": "first meaning: a citizen"
+     },
+     {
+      "clueFragment": "matter",
+      "note": "second meaning: the topic being discussed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'National' is a noun here: a person belonging to a nation.",
+     "definitionFit": "A national of a country is its citizen or subject, and a matter under discussion is its topic or subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "National"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1514,61 @@
     "text": "Capital is no longer bloody after revolution",
     "enumeration": "6"
    },
-   "solution": "WARSAW"
+   "solution": "WARSAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WARSAW",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the letters face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is no longer",
+      "gives": "WAS",
+      "note": "what is no longer the case was so"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RAW",
+      "note": "raw meat is bloody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "SAW"
+     ],
+     "reversals": [
+      {
+       "from": "WASRAW",
+       "to": "WARSAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capital city that has stopped being violent once its revolution is over.",
+     "walkthrough": "'After revolution' sounds like history, fitting a city with a bloody past.",
+     "definitionFit": "A definition by example: the Polish seat of government is one of many national capitals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1582,61 @@
     "text": "Wordy images consuming brief part",
     "enumeration": "6"
    },
-   "solution": "PROLIX"
+   "solution": "PROLIX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PROLIX",
+    "definitions": [
+     {
+      "text": "Wordy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means swallowing up, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "images",
+      "gives": "PIX",
+      "note": "pix is informal for pictures"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "an actor's part is a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROL",
+      "IX"
+     ]
+    },
+    "explanation": {
+     "surface": "Long-winded pictures take up just a small portion.",
+     "walkthrough": "There is a nice joke: a wordy definition paired with a 'brief' indicator.",
+     "definitionFit": "Prolix writing uses too many words, so it is verbose or long-winded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1650,47 @@
     "text": "Sign school hasn’t opened",
     "enumeration": "5"
    },
-   "solution": "ARROW"
+   "solution": "ARROW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARROW",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t opened",
+      "for": "deletion",
+      "note": "not opened means the opening, its first letter, is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "HARROW",
+      "note": "Harrow is a famous English private school in north-west London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice says the school is still closed.",
+     "definitionFit": "An arrow is a pointing symbol used on signs to show direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1704,62 @@
     "text": "Though soldier entering river, rookie stepping out",
     "enumeration": "9"
    },
-   "solution": "DEBUTANTE"
+   "solution": "DEBUTANTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEBUTANTE",
+    "definitions": [
+     {
+      "text": "rookie stepping out",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so these pieces go within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     },
+     {
+      "clueFragment": "Though",
+      "gives": "BUT",
+      "note": "though and but both introduce a contrast"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "a soldier ant is a kind of ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BUT",
+      "ANT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A new recruit wades into a river, though, and steps out again.",
+     "walkthrough": "The two middle pieces go between the second and third letters of the river.",
+     "definitionFit": "A debutante is a young woman making her first appearance in society, a newcomer stepping out at her coming-out ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "soldier"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1773,43 @@
     "text": "Groups of bones caught by scimitars, initially",
     "enumeration": "5"
    },
-   "solution": "TARSI"
+   "solution": "TARSI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TARSI",
+    "definitions": [
+     {
+      "text": "Groups of bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "hidden_word",
+      "note": "caught by means held within the following run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scimitars, initially",
+      "gives": "TARSI",
+      "note": "the letters straddle the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Bones broken at the start by sword blows.",
+     "walkthrough": "'Initially' looks like a first-letter signal, but it only lends its I to the hidden run.",
+     "definitionFit": "Tarsi is the plural of tarsus, the cluster of small bones in the ankle, so each is a group of bones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1823,66 @@
     "text": "A rose I designed featuring shining diamond, say?",
     "enumeration": "9"
    },
-   "solution": "SOLITAIRE"
+   "solution": "SOLITAIRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SOLITAIRE",
+    "definitions": [
+     {
+      "text": "diamond, say?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means arranged to a plan, so the letters are reworked"
+     },
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "featuring means including, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A rose I",
+      "gives": "AROSEI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shining",
+      "gives": "LIT",
+      "note": "lit means shining, illuminated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "LIT",
+      "AIRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AROSEI",
+       "gives": "SOAIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's brooch shaped as a rose, set with a sparkling diamond.",
+     "definitionFit": "A solitaire is a single gem, usually a diamond, set on its own in a ring; the question mark flags diamond as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1896,45 @@
     "text": "Lift level announced?",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "announced means spoken out, so the word wanted sounds like the one clued"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "level",
+      "gives": "RAISE",
+      "soundsLike": "RAZE",
+      "note": "to raze a building is to level it to the ground"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether a lift's floor number has been called out.",
+     "walkthrough": "'Level' wants to be a floor served by the lift; it is the verb meaning flatten.",
+     "definitionFit": "To raise something is to lift it higher, a direct synonym as verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1948,43 @@
     "text": "Increase boxes, did you say?",
     "enumeration": "3"
    },
-   "solution": "WAX"
+   "solution": "WAX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WAX",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what was said means the answer is a word that sounds like another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxes",
+      "gives": "WAX",
+      "soundsLike": "WHACKS",
+      "note": "to box someone is to hit them, and hits are whacks"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone checks if they heard right that sales of boxes have gone up.",
+     "definitionFit": "The moon waxes as it grows larger, so the verb means to grow or become bigger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +2004,63 @@
      }
     ]
    },
-   "solution": "RIGHTWINGER"
+   "solution": "RIGHTWINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RIGHT-WINGER",
+    "definitions": [
+     {
+      "text": "footballer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting dropped",
+      "for": "deletion",
+      "note": "dropped means left out, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proper",
+      "gives": "RIGHT",
+      "note": "right means correct or proper"
+     },
+     {
+      "clueFragment": "misery",
+      "gives": "WHINGER",
+      "note": "in British English a misery is a moaner, and a whinger is a habitual complainer"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "WINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A real grump, a tough player axed from the football team.",
+     "walkthrough": "'Misery' is the British word for a gloomy complainer, here a whinger, which loses its H.",
+     "definitionFit": "A right winger plays on the right flank of a football team, so is one type of player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   }
  ]
 }
