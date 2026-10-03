@@ -43,6 +43,8 @@
 # have to be launchctl instead, never as well — see daily_update.sh's header.
 
 set -uo pipefail
+# The whole burn yields to the bridge: its checks and syncs as well as its runs.
+renice -n 19 $$ >/dev/null
 # The pool reaps whichever run finishes first with `wait -n -p`, which is bash 5.1.
 if (( BASH_VERSINFO[0] * 100 + BASH_VERSINFO[1] < 501 )); then
   echo "ERROR: tools/prereset_backfill.sh needs bash 5.1+ for wait -n -p; this is $BASH_VERSION"
