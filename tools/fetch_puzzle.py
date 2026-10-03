@@ -1949,10 +1949,6 @@ SOURCE_CLUE_WRONG = {
         "Char leaves in hot water 7 If so U.S. inn suffers",
         "Char leaves in hot water? If so U.S. inn suffers",
         "OCR misread: the question mark after water was read as 7"),
-    ("times-13777", "12-across"): (
-        "Administers corporal pun- punishment on and off",
-        "Administers corporal punishment on and off",
-        "OCR misread: the scan repeats the start of punishment across a line break"),
     ("times-13777", "13-down"): (
         "Mab, I levant from this love bate sort of relationship",
         "Mab, I levant from this love-hate sort of relationship",

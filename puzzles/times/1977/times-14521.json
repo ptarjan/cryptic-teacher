@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "32 entries, 60 crossings, 0 conflicts, agrees with the 1 answers the paper printed"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,44 @@
     "text": "Fit new electrical safety device? Rubbish!",
     "enumeration": "6"
    },
-   "solution": "REFUSE"
+   "solution": "REFUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFUSE",
+    "definitions": [
+     {
+      "text": "Fit new electrical safety device",
+      "at": 0
+     },
+     {
+      "text": "Rubbish",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit new electrical safety device",
+      "note": "first meaning: read as ..., to put in a fresh fuse"
+     },
+     {
+      "clueFragment": "Rubbish",
+      "note": "second meaning: household waste"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone fixing a blown plug decides the whole job is a waste of time.",
+     "walkthrough": "The first half is a whimsical verb: to re-fuse is to fit a fuse again. Same spelling, different stress.",
+     "definitionFit": "Refuse is household waste or garbage, a standard noun meaning things thrown away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +89,67 @@
     "text": "Bags of women quote upset in rules",
     "enumeration": "9"
    },
-   "solution": "RETICULES"
+   "solution": "RETICULES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RETICULES",
+    "definitions": [
+     {
+      "text": "Bags of women",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word for quote is read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the turned word is placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "rules",
+      "gives": "RULES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETIC",
+      "ULES"
+     ],
+     "reversals": [
+      {
+       "from": "CITE",
+       "to": "ETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handbag-maker's offhand remark gets mangled inside the regulations.",
+     "walkthrough": "'Upset' suits a down clue, where the word is literally turned upside down. The insertion lands after the first letter of the outer word.",
+     "definitionFit": "Reticules were small drawstring handbags carried by ladies, especially in the eighteenth and nineteenth centuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +163,72 @@
     "text": "Fine point about a minion food shortages",
     "enumeration": "7"
    },
-   "solution": "FAMINES"
+   "solution": "FAMINES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "FAMINES",
+    "definitions": [
+     {
+      "text": "food shortages",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round something, so the first pair of words wraps around the next letters"
+     },
+     {
+      "text": "minion",
+      "for": "charade",
+      "note": "the clue as printed appears garbled here; this word seems to supply only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "FINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "S",
+      "note": "S is south, a compass point"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "minion",
+      "gives": "M",
+      "select": "first",
+      "note": "its initial letter; the clue text looks corrupted at this point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AM",
+      "INES"
+     ]
+    },
+    "explanation": {
+     "surface": "A small fine is levied on a lowly underling during hard times.",
+     "walkthrough": "FINES holds AM after its first letter. The printed clue seems damaged (perhaps 'a.m.' was intended), so this parse is a best fit for the letters.",
+     "definitionFit": "Famines are periods when a region suffers severe scarcity of food, so they are food shortages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +248,49 @@
      }
     ]
    },
-   "solution": "SPAREPARTS"
+   "solution": "SPAREPARTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARE PARTS",
+    "definitions": [
+     {
+      "text": "Replacements",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thin",
+      "gives": "SPARE",
+      "note": "a spare figure is lean or thin"
+     },
+     {
+      "clueFragment": "sections",
+      "gives": "PARTS",
+      "note": "sections are parts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARE",
+      "PARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic hunting replacement components for a thin, sectioned machine.",
+     "definitionFit": "Spare parts are components kept to swap in when originals fail, so they are replacements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thin"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +304,51 @@
     "text": "Roman conspirator goes to pub for a mineral",
     "enumeration": "8"
    },
-   "solution": "CINNABAR"
+   "solution": "CINNABAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CINNABAR",
+    "definitions": [
+     {
+      "text": "a mineral",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "goes to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman conspirator",
+      "gives": "CINNA",
+      "note": "Cinna was one of the plotters against Julius Caesar"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINNA",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "One of Caesar's assassins heads to the tavern in search of a rock.",
+     "definitionFit": "Cinnabar is the red ore of mercury, mercuric sulphide, a naturally occurring mineral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +388,39 @@
     "text": "Cloth cap?",
     "enumeration": "7"
    },
-   "solution": "BIRETTA"
+   "solution": "BIRETTA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIRETTA",
+    "definitions": [
+     {
+      "text": "Cloth cap?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cloth cap",
+      "note": "surface reading: a flat cap made of fabric, the working man's headgear"
+     },
+     {
+      "clueFragment": "Cloth",
+      "note": "setter's reading: the cloth means the clergy, so this is headgear worn by priests"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The cloth' is an idiom for the clergy, so the cap belongs to a clergyman rather than being made of fabric.",
+     "definitionFit": "A biretta is the square stiff hat with ridges worn by Roman Catholic priests and other clergy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cloth"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +434,52 @@
     "text": "Urge Ronald to provide music",
     "enumeration": "5"
    },
-   "solution": "RONDO"
+   "solution": "RONDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RONDO",
+    "definitions": [
+     {
+      "text": "music",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "Urge",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ronald",
+      "gives": "RON",
+      "note": "Ron is the short form of Ronald"
+     },
+     {
+      "clueFragment": "provide",
+      "gives": "DO",
+      "note": "to do lunches is to provide them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RON",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone presses Ronald to put on some entertainment.",
+     "walkthrough": "The urging is the cry 'Ron, do!', telling Ronald to provide.",
+     "definitionFit": "A rondo is a musical form whose main theme keeps returning, often the last movement of a sonata."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Urge"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +493,49 @@
     "text": "Requests in capacity of King's Scholar",
     "enumeration": "4"
    },
-   "solution": "ASKS"
+   "solution": "ASKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASKS",
+    "definitions": [
+     {
+      "text": "Requests",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capacity of",
+      "gives": "AS",
+      "note": "acting as means acting in the capacity of"
+     },
+     {
+      "clueFragment": "King's Scholar",
+      "gives": "KS",
+      "note": "KS is the abbreviation for King's Scholar, a pupil holding a royal scholarship at Eton and similar schools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarship boy at a royal foundation puts in some formal requests.",
+     "definitionFit": "Asks as a verb means makes requests; both are third-person forms of seeking something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capacity"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +555,53 @@
      }
     ]
    },
-   "solution": "TOMCATS"
+   "solution": "TOMCATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOM-CATS",
+    "definitions": [
+     {
+      "text": "Domestic animals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "doing something strangely means doing it in an odd, unexpected way, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act most",
+      "gives": "ACTMOST",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOMCATS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTMOST",
+       "gives": "TOMCATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pets behave in the oddest way.",
+     "definitionFit": "Tomcats are male household cats, which are pets kept at home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +621,58 @@
      }
     ]
    },
-   "solution": "PIGIRON"
+   "solution": "PIGIRON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIG-IRON",
+    "definitions": [
+     {
+      "text": "Foundry product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one word sits inside another"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to pin is to fix in place"
+     },
+     {
+      "clueFragment": "banking system",
+      "gives": "GIRO",
+      "note": "giro is the British credit-transfer banking system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "GIRO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An ironworks finds its bank account in a mess.",
+     "walkthrough": "Giro is the old British Post Office credit-transfer system. 'Fix' looks like a predicament here, but it is the verb meaning fasten.",
+     "definitionFit": "Pig iron is crude iron cast in moulds straight from the blast furnace, a basic output of ironworks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +686,49 @@
     "text": "Study translation for a change",
     "enumeration": "10"
    },
-   "solution": "CONVERSION"
+   "solution": "CONVERSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVERSION",
+    "definitions": [
+     {
+      "text": "a change",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is an old word for to study or learn"
+     },
+     {
+      "clueFragment": "translation",
+      "gives": "VERSION",
+      "note": "a version can be a translation, as in the Authorised Version"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VERSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Working on a translation to vary one's routine.",
+     "definitionFit": "A conversion is a transformation from one form, belief or use into another, so it is a change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +742,40 @@
     "text": "This man gets sat on",
     "enumeration": "4"
    },
-   "solution": "OTTO"
+   "solution": "OTTO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OTTO",
+    "definitions": [
+     {
+      "text": "This man gets sat on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This man gets sat on",
+      "note": "surface reading: some poor fellow is always squashed or suppressed"
+     },
+     {
+      "clueFragment": "This man",
+      "note": "setter's reading: a boy's name followed by the word man spells a padded footstool people sit on"
+     }
+    ],
+    "explanation": {
+     "surface": "A downtrodden fellow who is always being suppressed.",
+     "walkthrough": "Add MAN to the answer and you get an ottoman, an upholstered seat, which does get sat on.",
+     "definitionFit": "Otto is a man's given name, so the answer is a man who, with man added, becomes furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +795,47 @@
      }
     ]
    },
-   "solution": "PINENEEDLE"
+   "solution": "PINENEEDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINE-NEEDLE",
+    "definitions": [
+     {
+      "text": "from a conifer",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long",
+      "gives": "PINE",
+      "note": "to pine is to long for"
+     },
+     {
+      "clueFragment": "goad",
+      "gives": "NEEDLE",
+      "note": "to needle is to goad or provoke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINE",
+      "NEEDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lengthy prod made from an evergreen tree.",
+     "walkthrough": "'Long' looks like an adjective describing the goad but is the verb meaning yearn.",
+     "definitionFit": "A pine needle is the thin leaf that comes from a pine, which is a cone-bearing evergreen tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +849,65 @@
     "text": "Sailors discovering the French motor on board",
     "enumeration": "7"
    },
-   "solution": "LASCARS"
+   "solution": "LASCARS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LASCARS",
+    "definitions": [
+     {
+      "text": "Sailors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "container",
+      "note": "on board means aboard, carried inside the vessel, so the vehicle goes within the ship's letters"
+     }
+    ],
+    "linkWords": [
+     "discovering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the (feminine)"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "SS",
+      "note": "SS stands for steamship, the vessel one is on board"
+     },
+     {
+      "clueFragment": "motor",
+      "gives": "CAR",
+      "note": "a motor is a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "S",
+      "CAR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Seamen find a French car stowed on their vessel.",
+     "walkthrough": "SS is the standard abbreviation for steamship; CAR goes inside it after LA.",
+     "definitionFit": "Lascars were East Indian seamen employed on European ships, so they were sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovering"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +921,75 @@
     "text": "In certain circumstances cling madly to the girth",
     "enumeration": "9"
    },
-   "solution": "SURCINGLE"
+   "solution": "SURCINGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SURCINGLE",
+    "definitions": [
+     {
+      "text": "girth",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "madly",
+      "for": "anagram",
+      "note": "madly means wildly or crazily, so the letters of the word it follows are scrambled"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In, paired with circumstances, says one piece is held within another"
+     },
+     {
+      "text": "circumstances",
+      "for": "container",
+      "note": "read as circum-stances, surrounding positions, it signals one thing standing around another"
+     }
+    ],
+    "linkWords": [
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "cling",
+      "gives": "CINGL",
+      "note": "the letters of cling rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "CINGL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLING",
+       "gives": "CINGL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Under some conditions, a rider clings frantically to the horse's belly strap.",
+     "walkthrough": "The scrambled letters sit inside SURE, before its final E.",
+     "definitionFit": "A surcingle is a strap passed round a horse's body to hold a blanket or saddle, which is a girth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circumstances"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1003,67 @@
     "text": "At one time disguised as mimic",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "mimic",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disguised",
+      "for": "anagram",
+      "note": "something disguised has its appearance altered, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TIME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMITATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATITIME",
+       "gives": "IMITATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once upon a time someone went in disguise as an impersonator.",
+     "walkthrough": "'At one time' reads as a single phrase meaning formerly, but it is three pieces of fodder with one turned into a numeral.",
+     "definitionFit": "To imitate is to copy someone's manner or speech, which is what mimicking means as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1077,56 @@
     "text": "Taxi Peter contrived to root out",
     "enumeration": "9"
    },
-   "solution": "EXTIRPATE"
+   "solution": "EXTIRPATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXTIRPATE",
+    "definitions": [
+     {
+      "text": "root out",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contrived",
+      "for": "anagram",
+      "note": "something contrived is artificially arranged or engineered, so the letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taxi Peter",
+      "gives": "TAXIPETER",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTIRPATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAXIPETER",
+       "gives": "EXTIRPATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cab driver called Peter schemes to dig something up.",
+     "definitionFit": "To extirpate is to destroy completely or pull up by the roots, so it means eradicate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Taxi"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1140,59 @@
     "text": "Small motor-bike for love-in bird",
     "enumeration": "7"
    },
-   "solution": "SCOOTER"
+   "solution": "SCOOTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCOOTER",
+    "definitions": [
+     {
+      "text": "Small motor-bike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the word in tells us that one piece is placed inside the bird's name"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "SCOTER",
+      "note": "the scoter is a dark sea duck"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "O",
+      "OTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping a small motorcycle for a bird at a love-in.",
+     "walkthrough": "'Love-in' looks like a sixties gathering, but it means love goes in. O sits after SC of the duck's name.",
+     "definitionFit": "A scooter is a light motorcycle with small wheels and a low step-through frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "love-in"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1206,47 @@
     "text": "Casual labourer away-from work",
     "enumeration": "7"
    },
-   "solution": "OFFHAND"
+   "solution": "OFFHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFHAND",
+    "definitions": [
+     {
+      "text": "Casual",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "away-from work",
+      "gives": "OFF",
+      "note": "someone off is away from work"
+     },
+     {
+      "clueFragment": "labourer",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary worker who has stopped working.",
+     "walkthrough": "'Casual labourer' looks like one phrase meaning a temp; split it, and casual is the definition.",
+     "definitionFit": "Offhand describes a manner that is careless, unconcerned or brusque, the same as casual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Casual"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1260,50 @@
     "text": "Gray as oriental law expert",
     "enumeration": "7"
    },
-   "solution": "ELEGIST"
+   "solution": "ELEGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELEGIST",
+    "definitions": [
+     {
+      "text": "Gray",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oriental",
+      "gives": "E",
+      "note": "E for eastern"
+     },
+     {
+      "clueFragment": "law expert",
+      "gives": "LEGIST",
+      "note": "a legist is someone versed in law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEGIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A grey-haired eastern lawyer.",
+     "walkthrough": "Gray is Thomas Gray, author of the famous 'Elegy Written in a Country Churchyard'.",
+     "definitionFit": "Thomas Gray is best known for his Elegy, so he serves as an example of a writer of elegies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gray"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1317,53 @@
     "text": "Have a drink, eluding involvement",
     "enumeration": "7"
    },
-   "solution": "INDULGE"
+   "solution": "INDULGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDULGE",
+    "definitions": [
+     {
+      "text": "Have a drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involvement",
+      "for": "anagram",
+      "note": "involvement suggests being tangled or wound up together, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eluding",
+      "gives": "ELUDING",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDULGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELUDING",
+       "gives": "INDULGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a tipple to avoid getting caught up in something.",
+     "definitionFit": "Indulge is an informal euphemism for drinking alcohol, as in 'I don't indulge, thanks'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "involvement"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1377,40 @@
     "text": "Trouble and strife in E London",
     "enumeration": "4"
    },
-   "solution": "WIFE"
+   "solution": "WIFE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WIFE",
+    "definitions": [
+     {
+      "text": "Trouble and strife",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble and strife in E London",
+      "note": "surface reading: unrest and conflict in the East End"
+     },
+     {
+      "clueFragment": "Trouble and strife",
+      "note": "setter's reading: this is Cockney rhyming slang, the speech of East London, for a spouse"
+     }
+    ],
+    "explanation": {
+     "surface": "Disturbances and fighting break out in the East End.",
+     "walkthrough": "Cockney rhyming slang, from London's East End, replaces a word with a phrase that rhymes with it.",
+     "definitionFit": "In Cockney rhyming slang 'trouble and strife' rhymes with and stands for a man's married partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trouble"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1424,45 @@
     "text": "Horse of lamentable type, I hear",
     "enumeration": "5"
    },
-   "solution": "WALER"
+   "solution": "WALER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WALER",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I hear",
+      "for": "homophone",
+      "note": "I hear means what follows is judged by its sound when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of lamentable type",
+      "gives": "WALER",
+      "soundsLike": "WAILER",
+      "note": "one who wails is of the lamenting type"
+     }
+    ],
+    "explanation": {
+     "surface": "A horse of a pitiful sort, so I'm told.",
+     "walkthrough": "'Lamentable' looks like 'pitiful', but here it means given to lamenting.",
+     "definitionFit": "A Waler is a riding horse bred in New South Wales, Australia, used widely as a cavalry mount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lamentable"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1482,50 @@
      }
     ]
    },
-   "solution": "MINDREADER"
+   "solution": "MINDREADER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIND-READER",
+    "definitions": [
+     {
+      "text": "telepathy expert",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warning",
+      "gives": "MIND",
+      "note": "'Mind!' is a warning, as in mind the gap"
+     },
+     {
+      "clueFragment": "Library",
+      "gives": "READER",
+      "note": "a reader is a library user, holding a reader's ticket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIND",
+      "READER"
+     ]
+    },
+    "explanation": {
+     "surface": "A library posts a notice warning patrons against psychics.",
+     "walkthrough": "'Against' means placed beside, so the warning goes next to the library user.",
+     "definitionFit": "A mind reader claims to know others' thoughts, which is what telepathy involves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1539,44 @@
     "text": "Curtail provision of port",
     "enumeration": "4"
    },
-   "solution": "DOCK"
+   "solution": "DOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOCK",
+    "definitions": [
+     {
+      "text": "Curtail",
+      "at": 0
+     },
+     {
+      "text": "provision of port",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curtail",
+      "note": "first meaning: cut short, as with a tail or wages"
+     },
+     {
+      "clueFragment": "provision of port",
+      "note": "second meaning: the berth a harbour provides for ships"
+     }
+    ],
+    "explanation": {
+     "surface": "Cutting back on the supply of fortified wine.",
+     "walkthrough": "'Port' looks like the drink, making provision sound like a supply; it is the harbour.",
+     "definitionFit": "To dock is to cut short a tail or pay; a dock is the enclosed berth a harbour offers ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1590,47 @@
     "text": "There's a heap of post on the carpet",
     "enumeration": "4"
    },
-   "solution": "PILE"
+   "solution": "PILE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PILE",
+    "definitions": [
+     {
+      "text": "a heap of post",
+      "at": 8
+     },
+     {
+      "text": "on the carpet",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a heap of post",
+      "note": "first meaning: a stack of letters"
+     },
+     {
+      "clueFragment": "on the carpet",
+      "note": "second meaning: the raised soft surface of a rug"
+     }
+    ],
+    "explanation": {
+     "surface": "The morning mail lies in a mound on the hall rug.",
+     "walkthrough": "The picture is one stack of letters on the floor; the carpet also supplies the second meaning.",
+     "definitionFit": "A pile is a stack of things heaped up, and also the raised tufts or nap forming a rug's surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1644,40 @@
     "text": "Is the.baker at work or not ?",
     "enumeration": "7"
    },
-   "solution": "LOAFING"
+   "solution": "LOAFING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LOAFING",
+    "definitions": [
+     {
+      "text": "Is the.baker at work or not ?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is the.baker at work or not ?",
+      "note": "surface reading: an enquiry about whether the baker is on duty today"
+     },
+     {
+      "clueFragment": "baker at work",
+      "note": "setter's reading: a working baker shapes loaves, yet the same word means idling, so it covers both work and its absence"
+     }
+    ],
+    "explanation": {
+     "surface": "A customer asks whether the baker has come in today.",
+     "walkthrough": "The answer is a pun: making loaves is the baker's job, but the word usually means lazing about.",
+     "definitionFit": "Loafing means idling or lounging about, and whimsically it could mean making loaves of bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1691,38 @@
     "text": "Due to pronunciation— comme ça?",
     "enumeration": "7"
    },
-   "solution": "CEDILLA"
+   "solution": "CEDILLA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CEDILLA",
+    "definitions": [
+     {
+      "text": "Due to pronunciation— comme ça?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Due to pronunciation",
+      "note": "surface reading: something that happens because of how a word is spoken"
+     },
+     {
+      "clueFragment": "comme ça",
+      "note": "setter's reading: the hook under the c of ça, there to make it sound like s, is the mark meant"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shrugs in French about why a word is said a certain way.",
+     "walkthrough": "Comme ça is French for 'like this'; the mark under the c is shown in the clue itself.",
+     "definitionFit": "A cedilla is the hook placed under c in French and other languages to show it sounds as s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1736,44 @@
     "text": "Saved by buying off Pawnee ?",
     "enumeration": "8"
    },
-   "solution": "REDEEMED"
+   "solution": "REDEEMED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDEEMED",
+    "definitions": [
+     {
+      "text": "Saved",
+      "at": 0
+     },
+     {
+      "text": "by buying off Pawnee ?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saved",
+      "note": "first meaning: rescued, especially from sin"
+     },
+     {
+      "clueFragment": "by buying off Pawnee",
+      "note": "second meaning: recovered from pawn by paying back the one who holds the pledge"
+     }
+    ],
+    "explanation": {
+     "surface": "A captive was rescued by paying a ransom to a Native American tribe.",
+     "walkthrough": "'Pawnee' looks like the Native American people, but here it is the person who receives a pawned item.",
+     "definitionFit": "Redeemed means rescued from sin, and also bought back an item left with a pawnbroker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pawnee"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +1787,54 @@
     "text": "Cancel permit to enter river",
     "enumeration": "6"
    },
-   "solution": "DELETE"
+   "solution": "DELETE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELETE",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter something is to go inside it, so one word is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland and another on the England-Wales border"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to let is to permit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A licence to go into the river is withdrawn.",
+     "definitionFit": "To delete is to strike out or remove text, so it means cancel or erase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "permit"
+    }
+   }
   }
  ]
 }
