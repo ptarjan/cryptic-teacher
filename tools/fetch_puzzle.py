@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("ftcryptic-8476", "4-across"): (
+        "Pole taking are returned shabby case",
+        "Pole taking cab returned shabby case",
+        "OCR misread: the wordplay needs CAB between S and BARD"),
     ("times-16360", "5-down"): (
         "Cockney's description of Dobermann n is faulty",
         "Cockney's description of Dobermann is faulty",
