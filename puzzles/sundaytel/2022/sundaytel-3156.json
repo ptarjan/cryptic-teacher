@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Pit animal working in extremes of poverty",
     "enumeration": "4"
    },
-   "solution": "PONY"
+   "solution": "PONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PONY",
+    "definitions": [
+     {
+      "text": "Pit animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outside letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it goes inside the other's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poverty",
+      "gives": "PY",
+      "select": "outer",
+      "note": "first and last letters of poverty"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A beast toiling down a mine in grinding poverty.",
+     "walkthrough": "Pit ponies once hauled coal underground in British mines.",
+     "definitionFit": "Small horses were used for hauling coal underground, hence the phrase pit pony for a mine-working horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +104,50 @@
     "text": "Walk in street, then turn round",
     "enumeration": "6"
    },
-   "solution": "STROLL"
+   "solution": "STROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STROLL",
+    "definitions": [
+     {
+      "text": "Walk",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation for street"
+     },
+     {
+      "clueFragment": "turn round",
+      "gives": "ROLL",
+      "note": "to roll is to turn over and over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walks along a street and then turns back.",
+     "definitionFit": "A leisurely, unhurried walk taken for pleasure is described by this noun or verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +161,45 @@
     "text": "Outstanding poem recited?",
     "enumeration": "4"
    },
-   "solution": "OWED"
+   "solution": "OWED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OWED",
+    "definitions": [
+     {
+      "text": "Outstanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recited?",
+      "for": "homophone",
+      "note": "something recited is spoken out, so the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem",
+      "gives": "OWED",
+      "soundsLike": "ODE",
+      "note": "an ode is a lyric poem; say it and it matches a word with a different spelling"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a remarkable poem was read aloud.",
+     "walkthrough": "'Outstanding' looks like praise for the poem, but here it means unpaid, as of a debt.",
+     "definitionFit": "An outstanding bill is one still unpaid, money that remains due to a creditor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Outstanding"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +213,54 @@
     "text": "Line of latitude runs into field",
     "enumeration": "6"
    },
-   "solution": "TROPIC"
+   "solution": "TROPIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROPIC",
+    "definitions": [
+     {
+      "text": "Line of latitude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "running into something means going inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "TOPIC",
+      "note": "a field of study or discussion is a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OPIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A surveyor's line of latitude cuts across a farmer's field.",
+     "definitionFit": "Cancer and Capricorn are the two parallels named this way, circles marking where the sun is overhead at solstice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +274,72 @@
     "text": "Private, secret I broadcast about love",
     "enumeration": "8"
    },
-   "solution": "ESOTERIC"
+   "solution": "ESOTERIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESOTERIC",
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "seed that is broadcast is scattered widely, so the letters are thrown into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "being about something means surrounding it, so the scrambled letters go round another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "SECRET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "O",
+      "TERIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECRETI",
+       "gives": "ESTERIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses they have spread a private secret about a romance.",
+     "walkthrough": "'Secret' looks like a second definition next to 'Private', but it is the letters to be scattered.",
+     "definitionFit": "Esoteric knowledge is understood only by a small inner circle, so it is restricted and not public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +353,62 @@
     "text": "Old capital lifts heart of Dutch queen",
     "enumeration": "10"
    },
-   "solution": "WINCHESTER"
+   "solution": "WINCHESTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WINCHESTER",
+    "definitions": [
+     {
+      "text": "Old capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lifts",
+      "gives": "WINCHES",
+      "note": "winches are lifting machines; as a verb, winches means hoists"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "T",
+      "select": "middle",
+      "note": "the centre letter of Dutch"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the crossword queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WINCHES",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old capital cheers a Dutch queen's heart.",
+     "walkthrough": "'Lifts heart' reads as cheering up, but 'lifts' is a verb for hoisting and 'heart of' picks a letter. The city was the capital of Wessex and early England.",
+     "definitionFit": "This Hampshire cathedral city was the royal seat of Alfred the Great's kingdom of Wessex, an early English capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lifts"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +422,51 @@
     "text": "Fighter beaten up was hot",
     "enumeration": "8"
    },
-   "solution": "SOUTHPAW"
+   "solution": "SOUTHPAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHPAW",
+    "definitions": [
+     {
+      "text": "Fighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beaten",
+      "for": "anagram",
+      "note": "something beaten is knocked out of shape, so the letters are battered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up was hot",
+      "gives": "UPWASHOT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPWASHOT",
+       "gives": "SOUTHPAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer, beaten up, was left sweating hot.",
+     "walkthrough": "'Up' reads as part of 'beaten up', but it is part of the letters to rearrange.",
+     "definitionFit": "A left-handed boxer, who leads with the right and leaves the left for power, is given this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +480,55 @@
     "text": "Loyalist group kept in touch",
     "enumeration": "7"
    },
-   "solution": "PATRIOT"
+   "solution": "PATRIOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PATRIOT",
+    "definitions": [
+     {
+      "text": "Loyalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in something else is held inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touch",
+      "gives": "PAT",
+      "note": "a pat is a light touch"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "TRIO",
+      "note": "a trio is a group of three"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "TRIO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A loyalist faction stays in contact.",
+     "walkthrough": "'Group kept in touch' sounds like a band staying in contact; it is a three-piece group placed inside a light tap.",
+     "definitionFit": "Someone devoted to and ready to defend their country shows national loyalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touch"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +542,44 @@
     "text": "Country: one moving with urgency, did you say?",
     "enumeration": "6"
    },
-   "solution": "RUSSIA"
+   "solution": "RUSSIA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RUSSIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what was said points to the spoken form, so the word is matched by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one moving with urgency",
+      "gives": "RUSSIA",
+      "soundsLike": "RUSHER",
+      "note": "someone who hurries is one who rushes; spoken in a non-rhotic accent it matches a place name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone checks whether they heard a nation called a hurried mover.",
+     "walkthrough": "The match works in a British accent, where the final r of the hurrying word is not pronounced.",
+     "definitionFit": "The largest nation on earth by area, spanning eastern Europe and northern Asia, is this state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -164,7 +599,44 @@
      }
     ]
    },
-   "solution": "MYFOOT"
+   "solution": "MYFOOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MY FOOT",
+    "definitions": [
+     {
+      "text": "Absolutely not",
+      "at": 0
+     },
+     {
+      "text": "where I put sock",
+      "at": 15,
+      "note": "a literal place, read as two plain words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Absolutely not",
+      "note": "first meaning: an exclamation of scornful disbelief"
+     },
+     {
+      "clueFragment": "where I put sock",
+      "note": "second meaning: read literally, the part of my body a sock goes on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation mark sells the first meaning as indignant protest; the second is the phrase read word for word.",
+     "definitionFit": "The phrase is a British exclamation of contemptuous denial, and literally names the body part where hosiery is worn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sock"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +650,51 @@
     "text": "Drop, then fix, mug",
     "enumeration": "8"
    },
-   "solution": "DIPSTICK"
+   "solution": "DIPSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIPSTICK",
+    "definitions": [
+     {
+      "text": "mug",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "DIP",
+      "note": "a dip is a fall or drop"
+     },
+     {
+      "clueFragment": "fix",
+      "gives": "STICK",
+      "note": "to stick is to fasten or fix in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIP",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions: lower a cup, then glue it, then the mug.",
+     "walkthrough": "A mug is a gullible fool in British slang, not a cup.",
+     "definitionFit": "The word is informal slang for a stupid or foolish person, just as a mug is a dupe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +718,81 @@
      }
     ]
    },
-   "solution": "CHILLICONCARNE"
+   "solution": "CHILLICONCARNE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "CHILLI CON CARNE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its centre letter, so only that one is kept"
+     },
+     {
+      "text": "sprayed",
+      "for": "anagram",
+      "note": "something sprayed is scattered in all directions, so the letters land in a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means surrounding it, so the rearranged letters wrap another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "CHILL",
+      "note": "a chill is coldness"
+     },
+     {
+      "clueFragment": "ice on can",
+      "gives": "ICEONCAN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "dirty",
+      "gives": "R",
+      "select": "middle",
+      "note": "the centre letter of dirty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHILL",
+      "ICONCA",
+      "R",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICEONCAN",
+       "gives": "ICONCANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cold ice sprayed on a can around a grimy dish, like a kitchen cleaning mishap.",
+     "walkthrough": "'Cold' sits beside 'ice' as if both were about temperature, but it supplies the first word on its own.",
+     "definitionFit": "This spicy Tex-Mex stew of minced beef, beans and peppers is a well-known meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +806,68 @@
     "text": "Penny in Angola, the new 50p is like this",
     "enumeration": "10"
    },
-   "solution": "HEPTAGONAL"
+   "solution": "HEPTAGONAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEPTAGONAL",
+    "definitions": [
+     {
+      "text": "50p is like this",
+      "at": 25,
+      "note": "describes the coin's shape, so it stands for an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something made new is remade, so these letters are put in a fresh order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p is the abbreviation for a penny"
+     },
+     {
+      "clueFragment": "Angola, the",
+      "gives": "ANGOLATHE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "P",
+      "TAGONAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGOLATHE",
+       "gives": "HETAGONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penny turns up in Angola, and Britain's new fifty-pence coin looks like this.",
+     "walkthrough": "The British 50p (fifty-pence coin) has seven curved sides. 'The new' reads as describing the coin, but 'the' is letters and 'new' signals rearrangement.",
+     "definitionFit": "The fifty-pence coin has seven sides, and a seven-sided figure is described by this geometric adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 14,
@@ -230,7 +881,62 @@
     "text": "Patent finished on sixth of inventions",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Patent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sixth of",
+      "for": "letter_selection",
+      "note": "the sixth of a word is its letter in sixth position, so just that one is kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "OVER",
+      "note": "something finished is over"
+     },
+     {
+      "clueFragment": "inventions",
+      "gives": "T",
+      "select": 6,
+      "note": "the sixth letter of inventions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A patent is granted after an inventor's sixth invention.",
+     "walkthrough": "'Patent' suggests intellectual property beside 'inventions', but here it is the adjective meaning obvious.",
+     "definitionFit": "Patent as an adjective means plain and evident, so something done openly and unconcealed fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Patent"
+    }
+   }
   },
   {
    "number": 15,
@@ -244,7 +950,40 @@
     "text": "See predicament",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     },
+     {
+      "text": "predicament",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "note": "first meaning: to notice or catch sight of"
+     },
+     {
+      "clueFragment": "predicament",
+      "note": "second meaning: a tricky situation, as in a tight one"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is a verb for noticing something and a noun for an awkward difficult situation, as in being in a tight one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -258,7 +997,66 @@
     "text": "Bully has broken heart: and all fingers and thumbs!",
     "enumeration": "8"
    },
-   "solution": "THREATEN"
+   "solution": "THREATEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THREATEN",
+    "definitions": [
+     {
+      "text": "Bully",
+      "at": 0,
+      "note": "a verb here: to intimidate"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces, so the letters are put back in a new order"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "all fingers and thumbs",
+      "gives": "TEN",
+      "note": "eight fingers plus two thumbs make ten digits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREA",
+      "TEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "THREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heartbroken bully who is also hopelessly clumsy.",
+     "walkthrough": "'All fingers and thumbs' is an idiom for clumsy, but here it is read literally as a count of digits.",
+     "definitionFit": "To bully someone is to intimidate them, often by warning of harm, which is what this verb describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thumbs"
+    }
+   }
   },
   {
    "number": 17,
@@ -272,7 +1070,60 @@
     "text": "Flower in back of plot, unwanted plant",
     "enumeration": "5"
    },
-   "solution": "TWEED"
+   "solution": "TWEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TWEED",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so just that one is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of plot"
+     },
+     {
+      "clueFragment": "unwanted plant",
+      "gives": "WEED",
+      "note": "a weed is a plant growing where it is not wanted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower growing at the back of a garden plot turns out to be a weed.",
+     "walkthrough": "A flower here is something that flows, a river: the Tweed runs along the border between England and Scotland.",
+     "definitionFit": "In crosswords a flower is a river, and this one forms part of the Anglo-Scottish border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 18,
@@ -286,7 +1137,65 @@
     "text": "European city needs empty road developed",
     "enumeration": "7"
    },
-   "solution": "DRESDEN"
+   "solution": "DRESDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DRESDEN",
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has lost its inside, so only its first and last letters remain"
+     },
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so these letters are reorganised"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needs",
+      "gives": "NEEDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "select": "outer",
+      "note": "road with its middle removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESDEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEEDSRD",
+       "gives": "DRESDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city planner says a European city needs its empty road developed.",
+     "definitionFit": "This capital of the German state of Saxony, on the Elbe, is famous for its rebuilt baroque centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "needs"
+    }
+   }
   },
   {
    "number": 19,
@@ -300,7 +1209,57 @@
     "text": "Dear: slash price in the end",
     "enumeration": "4"
    },
-   "solution": "CUTE"
+   "solution": "CUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUTE",
+    "definitions": [
+     {
+      "text": "Dear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so just that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slash",
+      "gives": "CUT",
+      "note": "to slash is to cut"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop sign: expensive, so slash the price eventually.",
+     "walkthrough": "'Dear' and 'price' suggest expensive goods, but dear here means sweet and lovable.",
+     "definitionFit": "Dear can mean endearing or lovable, and something sweetly attractive is described this way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dear"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1283,44 @@
      }
     ]
    },
-   "solution": "ACROSSTHEBOARD"
+   "solution": "ACROSSTHEBOARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACROSS-THE-BOARD",
+    "definitions": [
+     {
+      "text": "Comprehensive",
+      "at": 0
+     },
+     {
+      "text": "where castle may have gone?",
+      "at": 14,
+      "note": "a cryptic description of a chess move"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comprehensive",
+      "note": "first meaning: applying to everyone or everything equally"
+     },
+     {
+      "clueFragment": "where castle may have gone?",
+      "note": "second meaning: a chess castle, or rook, can travel the full width of the chequered playing surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A castle is the rook in chess, which moves in straight lines and can sweep the full length of the board.",
+     "definitionFit": "The phrase describes changes applying to all categories equally, and literally the path of a rook sweeping the chessboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "castle"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1334,55 @@
     "text": "Icy edge in sight",
     "enumeration": "6"
    },
-   "solution": "SLIPPY"
+   "solution": "SLIPPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLIPPY",
+    "definitions": [
+     {
+      "text": "Icy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sight",
+      "gives": "SPY",
+      "note": "to spy is to catch sight of"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "LIP",
+      "note": "the lip of a cup or cliff is its edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LIP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "An icy ledge comes into view.",
+     "walkthrough": "The answer is informal British for slippery.",
+     "definitionFit": "An icy pavement is slick and hard to keep a footing on, which this informal British word describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sight"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1396,55 @@
     "text": "Rowing crew steer ahead of bridge",
     "enumeration": "6"
    },
-   "solution": "OXFORD"
+   "solution": "OXFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OXFORD",
+    "definitions": [
+     {
+      "text": "Rowing crew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "one piece ahead of another comes before it in the order of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steer",
+      "gives": "OX",
+      "note": "a steer is a castrated bull, an ox"
+     },
+     {
+      "clueFragment": "bridge",
+      "gives": "FORD",
+      "note": "a ford is a shallow crossing place over a river, a way to bridge it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A rowing crew steers their boat toward a bridge.",
+     "walkthrough": "'Steer' looks like what a cox does, but it is the animal. The Boat Race is an annual rowing contest between Oxford and Cambridge universities.",
+     "definitionFit": "The university eight that races Cambridge each spring on the Thames is known by its university's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "steer"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1458,53 @@
     "text": "Prude finding liar most devious",
     "enumeration": "8"
    },
-   "solution": "MORALIST"
+   "solution": "MORALIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MORALIST",
+    "definitions": [
+     {
+      "text": "Prude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devious",
+      "for": "anagram",
+      "note": "something devious takes a winding, crooked route, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liar most",
+      "gives": "LIARMOST",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIARMOST",
+       "gives": "MORALIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prudish person decides that a liar is the most devious of all.",
+     "definitionFit": "A prude is someone preoccupied with propriety who preaches and judges the conduct of others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liar"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1518,40 @@
     "text": "Mark, irritating little thing",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICK",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     },
+     {
+      "text": "irritating little thing",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "note": "first meaning: a check mark showing something is correct"
+     },
+     {
+      "clueFragment": "irritating little thing",
+      "note": "second meaning: a small bloodsucking parasite, also slang for an annoying person"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is a checkmark beside a correct item and also a tiny blood-sucking arachnid that bites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1565,41 @@
     "text": "Failing, move to the other side",
     "enumeration": "6"
    },
-   "solution": "DEFECT"
+   "solution": "DEFECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEFECT",
+    "definitions": [
+     {
+      "text": "Failing",
+      "at": 0
+     },
+     {
+      "text": "move to the other side",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failing",
+      "note": "first meaning, as a noun: a flaw or shortcoming"
+     },
+     {
+      "clueFragment": "move to the other side",
+      "note": "second meaning, as a verb: desert to the opposing camp"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is a noun for a flaw or imperfection, and a verb for deserting one's country for an enemy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Failing"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1613,43 @@
     "text": "Cook a little quiche, finally",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHEF",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "a little of something is just a part of it, so the letters are found within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiche, finally",
+      "gives": "CHEF",
+      "note": "found across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook finally gets round to making a small quiche.",
+     "walkthrough": "'Finally' looks like an end-letter instruction but only supplies letters to the hidden string.",
+     "definitionFit": "A professional cook, especially the one in charge of a restaurant kitchen, has this job title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1669,48 @@
      }
     ]
    },
-   "solution": "MAKEUP"
+   "solution": "MAKEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAKE-UP",
+    "definitions": [
+     {
+      "text": "foundation, for example",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Build",
+      "gives": "MAKE",
+      "note": "to build something is to make it"
+     },
+     {
+      "clueFragment": "higher",
+      "gives": "UP",
+      "note": "something higher is further up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAKE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder raising the foundations of a house higher.",
+     "walkthrough": "'Build' and 'foundation' sound like construction, but foundation is the cosmetic base applied to the skin.",
+     "definitionFit": "Foundation is a cosmetic cream applied to the face, one kind of cosmetics in general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foundation"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1724,59 @@
     "text": "Article stopping tooth decay in birds",
     "enumeration": "8"
    },
-   "solution": "CANARIES"
+   "solution": "CANARIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANARIES",
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, sitting inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tooth decay",
+      "gives": "CARIES",
+      "note": "caries is the dental term for tooth decay"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist's report on a filling that stops decay in pet birds.",
+     "walkthrough": "'Stopping' works twice: a dental stopping is a filling, and here it means plugging one piece inside another.",
+     "definitionFit": "These small yellow finches, kept as cage songbirds, are a kind of bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stopping"
+    }
+   }
   }
  ]
 }
