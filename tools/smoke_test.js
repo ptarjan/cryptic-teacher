@@ -71,6 +71,31 @@ const reported = (mark) => beacons.slice(mark).map((b) => b.body.parts);
 // used everywhere this test drives the picker.
 const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   .find((p) => p.id === id) || { number: id }).number;
+// The literal text of each `html:` template in app.js, cut at every ${…}
+// placeholder (nested templates inside a placeholder are skipped whole).
+function rungTemplateProse(src) {
+  const out = [];
+  for (const m of src.matchAll(/html:\s*`/g)) {
+    let i = m.index + m[0].length, lit = "";
+    while (i < src.length && src[i] !== "`") {
+      if (src[i] === "$" && src[i + 1] === "{") {
+        out.push(lit);
+        lit = "";
+        let depth = 1;
+        i += 2;
+        while (i < src.length && depth) {
+          if (src[i] === "`") { i++; while (i < src.length && src[i] !== "`") i++; }
+          else if (src[i] === "{") depth++;
+          else if (src[i] === "}") depth--;
+          i++;
+        }
+      } else lit += src[i++];
+    }
+    out.push(lit);
+  }
+  return out;
+}
+
 // The ladder, read off app.js's ordered LABELS map rather than copied here. The
 // map's key order is the ladder's order — app.js sorts by Object.keys(LABELS)
 // and tools/build_readme.py numbers README.md off the same map — so this file
@@ -2470,7 +2495,11 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
     }
     assert(cds.length, "the corpus still has a cryptic definition to check");
-    const LADDER_PROSE = CLUE_TYPES.families.flatMap(f => [f.blurb, f.label])
+    // The fixed prose is the family blurbs and every literal stretch of the
+    // rungs' html templates in app.js: "picture something else at first" is
+    // not a leak of FIRST.
+    const LADDER_PROSE = [...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
+      ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " "))]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
