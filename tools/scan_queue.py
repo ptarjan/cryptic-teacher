@@ -18,6 +18,7 @@ import contextlib
 import datetime
 import fcntl
 import multiprocessing
+import sys
 import time
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 
@@ -61,10 +62,15 @@ def lock(ledger, wait_for_it=False):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
         try:
-            fcntl.flock(f, fcntl.LOCK_EX | (0 if wait_for_it else fcntl.LOCK_NB))
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
-            yield False
-            return
+            if not wait_for_it:
+                yield False
+                return
+            # Said before blocking, so a log that stops here says why.
+            print(f"{time.strftime('%H:%M:%S')} waiting for another run's hold on {path}",
+                  file=sys.stderr, flush=True)
+            fcntl.flock(f, fcntl.LOCK_EX)
         yield True
 
 

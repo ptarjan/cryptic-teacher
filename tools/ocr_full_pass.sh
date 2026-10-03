@@ -27,6 +27,8 @@
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 
+# Every line reaches the log as it is printed, never at a slice's end.
+export PYTHONUNBUFFERED=1
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-2}"
 # 1ef1de8 (lost list headings, misread clue numbers laid by the grid).
@@ -48,14 +50,16 @@ publish() {  # publish <what>: commit and push the puzzles filed so far
 slices() {  # slices <what> <filer command...>: run the filer until nothing is left
   local what="$1" out rc
   shift
+  out=$(mktemp) || return 1
   while :; do
     echo "=== $what: slice from $(date '+%F %T') ==="
-    out=$(nice -n 10 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1)
-    rc=$?
-    echo "$out"
+    # Streamed as it goes (a line per source read), so the log shows what it
+    # is doing now; the copy in $out is read for the slice's tally.
+    nice -n 10 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
+    rc=${PIPESTATUS[0]}
     publish "$what" || echo "commit failed for $what"
-    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
-    grep -q "left for the next run" <<<"$out" || return 0
+    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; rm -f "$out"; return 1; }
+    grep -q "left for the next run" "$out" || { rm -f "$out"; return 0; }
   done
 }
 

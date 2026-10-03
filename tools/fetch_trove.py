@@ -80,6 +80,12 @@ class ArticleError(RuntimeError):
 
 
 RETRIES, BACKOFF = 4, 5.0   # tries per request; sleep BACKOFF * 3**n between
+#: No article holds the queue: a request that fails once the article has had
+#: this long is not retried, and the article is left for the next run.
+ITEM_SECONDS = 300
+#: This many articles failing back to back means Trove itself is down: the
+#: run stops (exit 4) instead of failing through the rest.
+FAILURES_IN_A_ROW = 10
 
 
 class Trove:
@@ -93,6 +99,8 @@ class Trove:
             urllib.request.HTTPCookieProcessor(self.jar))
         self.op.addheaders = [("User-Agent", UA), ("Referer", BASE + "/")]
         self.requests, self.seconds = 0, 0.0
+        #: time.time() after which a failed request is not retried.
+        self.deadline = float("inf")
 
     def _open(self, url, headers):
         wait = self.last + self.delay - time.time()
@@ -111,10 +119,14 @@ class Trove:
 
     def _open_retry(self, url, headers):
         """_open, retried with backoff on timeouts, resets and HTTP 5xx."""
-        err = ""
+        err, tries = "", 0
         for n in range(RETRIES):
             if n:
-                time.sleep(BACKOFF * 3 ** (n - 1))
+                pause = BACKOFF * 3 ** (n - 1)
+                if time.time() + pause > self.deadline:
+                    break
+                time.sleep(pause)
+            tries += 1
             try:
                 status, body = self._open(url, headers)
             except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
@@ -123,7 +135,7 @@ class Trove:
             if status < 500:
                 return status, body
             err = f"HTTP {status}: {body[:100]!r}"
-        raise Transient(f"{err} for {url} after {RETRIES} tries")
+        raise Transient(f"{err} for {url} after {tries} tries")
 
     def get(self, url, headers=None, ok=(200,)):
         if url.startswith("/"):
@@ -279,19 +291,39 @@ def pending_zones(out, zones):
                   and os.path.exists(os.path.join(out, r["article"], "meta.json")))
 
 
-def fetch_all_zones(tv, out, zones, ids, limit=None):
-    """fetch_zones() for up to `limit` of `ids`; returns the number that failed.
-    One article's failure is named and the rest go on; it is retried next run."""
-    failed = 0
-    for aid in ids[:limit]:
+def each_article(tv, ids, one, what):
+    """Call one(aid) for each id and print the line it returns (None: nothing
+    to do). Returns (failed, stopped). An article gets ITEM_SECONDS of
+    retries; one that still fails is named with its error and left for the
+    next run, and the rest go on, unless FAILURES_IN_A_ROW fail back to back
+    (stopped)."""
+    failed = in_a_row = 0
+    for aid in ids:
+        t = time.time()
+        tv.deadline = t + ITEM_SECONDS
         try:
-            fetch_zones(tv, out, zones, aid)
+            said = one(aid)
         except Exception as e:  # noqa: BLE001 -- one article's failure is reported, not fatal
             failed += 1
-            print(f"FAILED zones {aid}: {type(e).__name__}: {e}", flush=True)
+            in_a_row += 1
+            print(f"FAILED {what} {aid} after {time.time() - t:.0f}s, left for the next run: "
+                  f"{type(e).__name__}: {e}", flush=True)
+            if in_a_row >= FAILURES_IN_A_ROW:
+                print(f"stopping: {in_a_row} articles in a row failed; Trove looks down", flush=True)
+                return failed, True
             continue
-        print(f"{aid}: {len(zone_images(zones, aid))} zones", flush=True)
-    return failed
+        in_a_row = 0
+        if said:
+            print(said, flush=True)
+    return failed, False
+
+
+def fetch_all_zones(tv, out, zones, ids, limit=None):
+    """fetch_zones() for up to `limit` of `ids`, through each_article()."""
+    def one(aid):
+        fetch_zones(tv, out, zones, aid)
+        return f"{aid}: {len(zone_images(zones, aid))} zones"
+    return each_article(tv, ids[:limit], one, "zones")
 
 
 def main():
@@ -309,11 +341,11 @@ def main():
     a = ap.parse_args()
     tv = Trove(a.out, a.delay, ZONE_WIDTH if a.cmd == "zones" else a.grid_width)
     t0 = time.time()
-    failed = 0
+    failed, stopped = 0, False
     if a.cmd == "zones":
         ids = a.args or pending_zones(a.out, a.zones_out)
         print(f"{len(ids)} article(s) need clue zones", flush=True)
-        failed = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit)
+        failed, stopped = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit)
     elif a.cmd == "search":
         year = a.year or int(a.args[0])
         total, hits = tv.search(a.query, a.title, year)
@@ -336,24 +368,22 @@ def main():
         if a.year:
             with open(os.path.join(a.out, "index", f"{a.year}.jsonl")) as f:
                 ids += [json.loads(line)["id"] for line in f]
-        for aid in ids[:a.limit]:
+
+        def one(aid):
             if os.path.exists(os.path.join(a.out, str(aid), "meta.json")):
-                continue
+                return None
             t = time.time()
-            try:
-                m = tv.fetch_article(aid)
-            except (Transient, ArticleError) as e:
-                failed += 1
-                print(f"FAILED article {aid}: {e}", flush=True)
-                continue
+            m = tv.fetch_article(aid)
             g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
-            print(f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s")
+            return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s"
+        failed, stopped = each_article(tv, ids[:a.limit], one, "article")
     tv.jar.save(ignore_discard=True, ignore_expires=True)
     if failed:
         print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
     print(f"{tv.requests} requests, {tv.seconds:.1f}s in HTTP, {time.time() - t0:.1f}s wall",
           file=sys.stderr)
+    return 4 if stopped else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

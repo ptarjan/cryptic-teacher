@@ -1164,6 +1164,11 @@ def complete(puzzle):
         suspect((e.get("clue") or {}).get("text", "")) for e in puzzle["entries"])
 
 
+def progress(line):
+    """One line per source as it is read, to stderr, so a long run's log moves."""
+    print(f"{time.strftime('%H:%M:%S')} {line}", file=sys.stderr, flush=True)
+
+
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
         source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None):
     """File what is new under `cache`: complete puzzles into the corpus, ones
@@ -1225,6 +1230,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             unscanned[d] = fh
     for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers):
         scans[rels[d]] = found
+        progress(f"scanned {rels[d]}: {len(found['puzzles'])} puzzle(s)")
         known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d]}
     if unscanned and write:
         save(ledger, known)
@@ -1283,6 +1289,10 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             known[rel]["vlm"] = seen_by
         if write:
             save(ledger, known)
+        progress(f"read {rel}: " + ("; ".join(
+            f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
+                                 v.get("skip") or v.get("refused") or v.get("refusedWrite") or v.get("id") or "read")[:60]
+            for v in verdicts) or "nothing filed"))
     if write:
         save(ledger, known)
     tally = report(known[rels[d]] for d in dirs)
