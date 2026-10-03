@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Nurse once rejected account, avoiding a lie",
     "enumeration": "6"
    },
-   "solution": "NESTLE"
+   "solution": "NESTLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NESTLE",
+    "definitions": [
+     {
+      "text": "lie",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the abbreviation for the old nurse is read from right to left"
+     },
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding means steering clear of, so the article is left out of the word for an account"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse once",
+      "gives": "SEN",
+      "note": "SEN, State Enrolled Nurse, was a former British nursing grade"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "TALE",
+      "note": "an account is a story told"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, and removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NES",
+      "TLE"
+     ],
+     "reversals": [
+      {
+       "from": "SEN",
+       "to": "NES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former nurse turned down someone's account because it contained a falsehood.",
+     "walkthrough": "'a lie' reads as one phrase, but 'a' is the letter removed and 'lie' is the definition: NES + TLE = NESTLE.",
+     "definitionFit": "To nestle is to settle down snugly and comfortably, so it can stand for lie in the sense of resting cosily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lie"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +121,43 @@
      }
     ]
    },
-   "solution": "NOTHALF"
+   "solution": "NOTHALF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOT HALF",
+    "definitions": [
+     {
+      "text": "Nowhere near",
+      "at": 0
+     },
+     {
+      "text": "a pint?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nowhere near",
+      "note": "first meaning: not nearly"
+     },
+     {
+      "clueFragment": "a pint?",
+      "note": "second, playful meaning: a full pint is not a half in pub terms"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In a British pub beer comes in pints and halves, so a pint is, literally, not a half; the question mark flags the whimsy.",
+     "definitionFit": "The phrase is used to mean not nearly or not by a long way, matching nowhere near in sense and grammar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pint"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +171,58 @@
     "text": "Snow under motorway traffic's restricting",
     "enumeration": "5"
    },
-   "solution": "SWAMP"
+   "solution": "SWAMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWAMP",
+    "definitions": [
+     {
+      "text": "Snow under",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means hemming in, so the word for traffic holds the abbreviation inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traffic",
+      "gives": "SWAP",
+      "note": "to traffic is to trade or exchange"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the abbreviation for motorway, as in the M1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWA",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Snowfall on a motorway is keeping the traffic down to a crawl.",
+     "walkthrough": "'Snow under' looks like weather, but it is the definition, meaning to overwhelm: SWA(M)P.",
+     "definitionFit": "To be snowed under or swamped is to be overwhelmed with more work or demands than one can handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Snow"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +236,70 @@
     "text": "Solitary figure, batter's last seen chasing just over 50?",
     "enumeration": "5"
    },
-   "solution": "LONER"
+   "solution": "LONER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LONER",
+    "definitions": [
+     {
+      "text": "Solitary figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last points to the final letter of the cricketing word only"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "chasing means following behind, so this letter comes after the rest"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "just over",
+      "gives": "ONE",
+      "note": "fifty and one more makes just over fifty"
+     },
+     {
+      "clueFragment": "batter's",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of batter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ONE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket commentator notes a lone batsman left standing just past his half-century.",
+     "walkthrough": "The cricket picture of a batter passing fifty is decoration: L + ONE + R.",
+     "definitionFit": "A loner is a person who prefers to be alone and keeps apart from others, a solitary individual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "batter's"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +313,71 @@
     "text": "One's backing \"boring Arsenal\" making pledge",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "pledge",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the short form of one is read in reverse"
+     },
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so the reversed pair sits inside the store word"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal",
+      "gives": "DEPOT",
+      "note": "an arsenal is a store for weapons, a depot"
+     },
+     {
+      "clueFragment": "One's",
+      "gives": "IS",
+      "note": "one is I, so one's is I'S, here I + S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPO",
+      "SI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan backs a dull Arsenal side, staking money on them.",
+     "walkthrough": "Arsenal looks like the football club but is a weapons store: DEPO(SI)T.",
+     "definitionFit": "A deposit is a sum handed over as security or a first instalment, effectively a pledge of good faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Arsenal"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +397,50 @@
      }
     ]
    },
-   "solution": "DIEDOWN"
+   "solution": "DIEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIE DOWN",
+    "definitions": [
+     {
+      "text": "Let up",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stopped",
+      "gives": "DIED",
+      "note": "an engine that died stopped"
+     },
+     {
+      "clueFragment": "personal",
+      "gives": "OWN",
+      "note": "one's own things are personal to one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIED",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eased off and fell silent when the conversation turned personal.",
+     "definitionFit": "When a storm or noise dies down it lessens and abates, which is what letting up means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "personal"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +460,40 @@
      }
     ]
    },
-   "solution": "POINTSOUT"
+   "solution": "POINTSOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POINTS OUT",
+    "definitions": [
+     {
+      "text": "Alludes to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alludes to",
+      "note": "first meaning: draws attention to or indicates"
+     },
+     {
+      "clueFragment": "potential clue for \"In post\"",
+      "note": "second, setter's reading: the letters of POINTS jumbled up give the two words in quotes, so the answer could itself clue them"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hints at what might make a good crossword clue for a phrase.",
+     "walkthrough": "This is a reverse anagram: read the answer as an instruction, the word 'points' with 'out' as its signal, and it yields IN POST.",
+     "definitionFit": "To point out something is to indicate or mention it, close to referring or alluding to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "potential"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +507,69 @@
     "text": "Craven Cottage's base overwhelmed by bias to a smaller degree",
     "enumeration": "9"
    },
-   "solution": "SPINELESS"
+   "solution": "SPINELESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPINELESS",
+    "definitions": [
+     {
+      "text": "Craven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base",
+      "for": "letter_selection",
+      "note": "in a down clue the base of a word is its bottom, final letter"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "overwhelmed by means covered from above, so this letter sits beneath the word for bias in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bias",
+      "gives": "SPIN",
+      "note": "spin is a slanted, biased presentation"
+     },
+     {
+      "clueFragment": "Cottage's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Cottage"
+     },
+     {
+      "clueFragment": "to a smaller degree",
+      "gives": "LESS",
+      "note": "less means to a smaller extent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "E",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fulham's ground Craven Cottage is swamped by a slanting crowd, just a little.",
+     "walkthrough": "Craven Cottage is Fulham FC's London stadium, so 'Craven' looks part of a name, but it alone is the definition: SPIN + E + LESS.",
+     "definitionFit": "Craven means cowardly and lacking courage, and spineless describes someone with no backbone or resolve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Craven"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +583,60 @@
     "text": "Switches eyewear after time, no good in the van",
     "enumeration": "7"
    },
-   "solution": "TOGGLES"
+   "solution": "TOGGLES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TOGGLES",
+    "definitions": [
+     {
+      "text": "Switches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no good in the van",
+      "for": "deletion",
+      "note": "the van is the front, so the abbreviation for good goes from the start of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "eyewear",
+      "gives": "GOGGLES",
+      "note": "goggles are protective eyewear"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OGGLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A delivery driver changes glasses later on, finding the spare pair useless.",
+     "walkthrough": "'after time' puts T first; the G removed is the leading one: T + OGGLES.",
+     "definitionFit": "A toggle is a switch that flips between two states, so switches and toggles are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +650,47 @@
     "text": "Actress in Queen Vic, Mrs Cotton?",
     "enumeration": "6"
    },
-   "solution": "BARDOT"
+   "solution": "BARDOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARDOT",
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Queen Vic",
+      "gives": "BAR",
+      "note": "the Queen Vic is the pub in the British soap EastEnders, and a pub has a bar"
+     },
+     {
+      "clueFragment": "Mrs Cotton",
+      "gives": "DOT",
+      "note": "Dot Cotton was a long-running EastEnders character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "DOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A trivia question asks which actress played Mrs Cotton in the Queen Vic.",
+     "walkthrough": "Both pieces come from EastEnders, a London-set BBC soap: BAR + DOT gives Brigitte Bardot.",
+     "definitionFit": "Brigitte Bardot is a famous French film star of the 1950s and 1960s, an example of an actress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Actress"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +710,43 @@
      }
     ]
    },
-   "solution": "TRAINFARE"
+   "solution": "TRAINFARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAIN FARE",
+    "definitions": [
+     {
+      "text": "travel expense",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to get a ref",
+      "note": "setter's reading: rearranging the word fare (train meaning shape or direct) yields the letters of a ref"
+     },
+     {
+      "clueFragment": "travel expense",
+      "note": "plain meaning: the cost of a rail ticket"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders how a referee is going to get to the match and who pays.",
+     "walkthrough": "A reverse anagram: the answer read as an instruction, 'train' shaping the word fare, produces A REF.",
+     "definitionFit": "Money paid for a journey by rail is a cost incurred in travelling, so it is a travel expense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ref"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +760,42 @@
     "text": "Covering panic in government circles",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "hidden_word",
+      "note": "circles means surrounds, so the phrase before it encloses the answer within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panic in government",
+      "gives": "ICING",
+      "note": "the letters run across the end of panic, the whole of in and the start of government"
+     }
+    ],
+    "explanation": {
+     "surface": "Officials scramble to hide a crisis that has broken out in Whitehall.",
+     "definitionFit": "Icing is the sugary layer spread over a cake, a coating or covering on top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circles"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +815,61 @@
      }
     ]
    },
-   "solution": "ASPIRED"
+   "solution": "ASPIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASPIRED",
+    "definitions": [
+     {
+      "text": "Intended",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to appear in",
+      "for": "container",
+      "note": "appearing in something means being placed inside it, so the tower goes within the era"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "A",
+      "note": "A, ampere, is the unit of electric current"
+     },
+     {
+      "clueFragment": "column coming to a point",
+      "gives": "SPIRE",
+      "note": "a spire is a tall tapering structure ending in a point"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "D",
+      "note": "with current, AD (anno Domini) marks the present era's times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPIRE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column in The Times wanted to make a sharp point.",
+     "walkthrough": "'current Times' together give AD, the label for our present era, and the spire sits between the two letters: A(SPIRE)D.",
+     "definitionFit": "To have aspired is to have aimed or hoped to achieve something, much as one intended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +883,53 @@
     "text": "Channel swimmer, according to Spooner, gets breakfast food",
     "enumeration": "7"
    },
-   "solution": "OATMEAL"
+   "solution": "OATMEAL",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "OATMEAL",
+    "definitions": [
+     {
+      "text": "breakfast food",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds of the pair are exchanged"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Channel swimmer",
+      "gives": "OATMEAL",
+      "soundsLike": "MOAT EEL",
+      "note": "an eel swimming in a moat, a castle's water channel; swapping the starts gives the answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OATMEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-Channel swimmer fuels up with porridge before setting off.",
+     "walkthrough": "'Channel' suggests the English Channel, but it is a moat.",
+     "definitionFit": "Oatmeal is ground oats cooked as porridge, a staple eaten first thing in the morning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +943,67 @@
     "text": "Curt president became the one oddly neglected by history",
     "enumeration": "9"
    },
-   "solution": "FORGOTTEN"
+   "solution": "FORGOTTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FORGOTTEN",
+    "definitions": [
+     {
+      "text": "neglected by history",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Curt",
+      "for": "deletion",
+      "note": "curt suggests cut short, so the president's name loses its last letter"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly asks for the letters in odd positions of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "president",
+      "gives": "FORD",
+      "note": "Gerald Ford was US president"
+     },
+     {
+      "clueFragment": "became",
+      "gives": "GOT",
+      "note": "as in 'got angry', became angry"
+     },
+     {
+      "clueFragment": "the one",
+      "gives": "TEN",
+      "select": "alternate",
+      "note": "letters one, three and five of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "GOT",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A brusque president turned into the one person history chose to ignore.",
+     "definitionFit": "Something forgotten is no longer remembered, just as a figure history neglected has slipped from memory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Curt"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1023,51 @@
      }
     ]
    },
-   "solution": "REDCARPET"
+   "solution": "REDCARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED CARPET",
+    "definitions": [
+     {
+      "text": "ruddy strip",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Racecourse",
+      "gives": "REDCAR",
+      "note": "Redcar is a racecourse in North Yorkshire"
+     },
+     {
+      "clueFragment": "kiss and cuddle",
+      "gives": "PET",
+      "note": "to pet is to kiss and caress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDCAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of canoodling at the races ends in a blushing striptease.",
+     "walkthrough": "'ruddy strip' looks like an embarrassed undressing, but it describes a red runner: REDCAR + PET.",
+     "definitionFit": "A red carpet is a long red rug laid for dignitaries, literally a strip of reddish material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +1091,50 @@
      }
     ]
    },
-   "solution": "ONTHENAIL"
+   "solution": "ONTHENAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE NAIL",
+    "definitions": [
+     {
+      "text": "Exactly",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cream",
+      "for": "anagram",
+      "note": "to cream ingredients is to beat them together, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat online",
+      "gives": "HATONLINE",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATONLINE",
+       "gives": "ONTHENAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An off-white hat bought over the internet turns out just right.",
+     "definitionFit": "Paying on the nail means paying promptly and precisely, so the idiom means exactly or right on time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cream"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1148,61 @@
     "text": "Signs books, not the first name in there",
     "enumeration": "5"
    },
-   "solution": "OMENS"
+   "solution": "OMENS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OMENS",
+    "definitions": [
+     {
+      "text": "Signs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first tells us to drop the opening letter of the word for books"
+     },
+     {
+      "text": "in there",
+      "for": "container",
+      "note": "in there means placed inside what remains of the books word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "TOMES",
+      "note": "tomes are large books"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OME",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An author signs copies of a book, but not the first name on the list.",
+     "walkthrough": "'Signs books' reads as an author at a signing, but 'Signs' alone is the definition: (T)OMES around N.",
+     "definitionFit": "Omens are portents or indications of what is to come, the sense in which signs foretell the future."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Signs"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1216,50 @@
     "text": "Vet's motor, early car model",
     "enumeration": "5"
    },
-   "solution": "AUDIT"
+   "solution": "AUDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDIT",
+    "definitions": [
+     {
+      "text": "Vet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motor",
+      "gives": "AUDI",
+      "note": "an Audi is a make of car"
+     },
+     {
+      "clueFragment": "early car model",
+      "gives": "T",
+      "note": "the Ford Model T was an early mass-produced car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A veterinarian drives an old-fashioned car.",
+     "walkthrough": "'Vet' looks like the animal doctor but is the verb to examine.",
+     "definitionFit": "To audit accounts is to inspect them closely, and to vet something is likewise to check it carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vet's"
+    }
+   }
   },
   {
    "number": 17,
@@ -345,7 +1273,67 @@
     "text": "Advanced cronyism at the top – Conservative resorts to charges",
     "enumeration": "7"
    },
-   "solution": "ACCUSES"
+   "solution": "ACCUSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ACCUSES",
+    "definitions": [
+     {
+      "text": "charges",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the top",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "cronyism",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cronyism"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "resorts to",
+      "gives": "USES",
+      "note": "to resort to something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "C",
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician, faced with rampant cronyism, falls back on making allegations.",
+     "definitionFit": "To accuse someone is to charge them with wrongdoing, so accuses and charges are verb synonyms here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resorts"
+    }
+   }
   },
   {
    "number": 18,
@@ -359,7 +1347,55 @@
     "text": "Whiff of toes after running",
     "enumeration": "9"
    },
-   "solution": "FORETASTE"
+   "solution": "FORETASTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORETASTE",
+    "definitions": [
+     {
+      "text": "Whiff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "running suggests things moving about and out of place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toes after",
+      "gives": "TOESAFTER",
+      "note": "the letters as printed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOESAFTER",
+       "gives": "FORETASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner's feet smell after a jog.",
+     "walkthrough": "'Whiff of toes' looks like one smelly phrase, but 'of' only links the definition to the anagram.",
+     "definitionFit": "A whiff can mean a slight hint of something to come, which is a foretaste or early sample."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Whiff"
+    }
+   }
   },
   {
    "number": 18,
@@ -373,7 +1409,71 @@
     "text": "Races through channel north of river in punt",
     "enumeration": "7"
    },
-   "solution": "FLUTTER"
+   "solution": "FLUTTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FLUTTER",
+    "definitions": [
+     {
+      "text": "punt",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something means passing inside it, so the races sit within the channel"
+     },
+     {
+      "text": "north of",
+      "for": "charade",
+      "note": "in a down clue north of means placed above, so the river letter comes last"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "FLUE",
+      "note": "a flue is a duct or channel for smoke"
+     },
+     {
+      "clueFragment": "Races",
+      "gives": "TT",
+      "note": "the TT, Tourist Trophy, are motorbike races on the Isle of Man"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLU",
+      "TT",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Boats race through a waterway above a river where someone is punting.",
+     "walkthrough": "'punt' suggests a flat boat on the river, but it means a bet: FLU(TT)E + R.",
+     "definitionFit": "A flutter is a small gamble, and a punt in British slang is also a modest bet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "punt"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1487,55 @@
     "text": "I'm sorry to break part of ladder put up again",
     "enumeration": "6"
    },
-   "solution": "REHUNG"
+   "solution": "REHUNG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHUNG",
+    "definitions": [
+     {
+      "text": "put up again",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so the apology goes into the ladder part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of ladder",
+      "gives": "RUNG",
+      "note": "a rung is a step of a ladder"
+     },
+     {
+      "clueFragment": "I'm sorry",
+      "gives": "EH",
+      "note": "eh? is what you say for I'm sorry, could you repeat that?"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EH",
+      "UNG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises for snapping a ladder step and has to put it back.",
+     "walkthrough": "'I'm sorry' is the request to repeat, not an apology: R(EH)UNG.",
+     "definitionFit": "Pictures or curtains that are rehung have been hung up a second time, i.e. put up again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sorry"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1549,59 @@
     "text": "Spain allows you historically to fill small holes",
     "enumeration": "7"
    },
-   "solution": "EYELETS"
+   "solution": "EYELETS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EYELETS",
+    "definitions": [
+     {
+      "text": "small holes",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fill",
+      "for": "container",
+      "note": "filling something means going into its middle, so the old pronoun is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     },
+     {
+      "clueFragment": "you historically",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     },
+     {
+      "clueFragment": "allows",
+      "gives": "LETS",
+      "note": "to let is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YE",
+      "LETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Spain once let people plug little gaps.",
+     "definitionFit": "Eyelets are small reinforced openings for laces or cords, so they are small holes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fill"
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1615,60 @@
     "text": "Guy you texted lapping up each word of congratulations",
     "enumeration": "7"
    },
-   "solution": "CHAPEAU"
+   "solution": "CHAPEAU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAPEAU",
+    "definitions": [
+     {
+      "text": "word of congratulations",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lapping up",
+      "for": "container",
+      "note": "lapping up means taking in, so the text-speak letter and guy take in the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "CHAP",
+      "note": "a chap is a man, a guy"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the abbreviation for each"
+     },
+     {
+      "clueFragment": "you texted",
+      "gives": "U",
+      "note": "U is text-speak for you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "EA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A man you messaged is drinking in each word of praise you send.",
+     "walkthrough": "Chapeau is French for hat; saying it is the verbal equivalent of tipping your hat to someone.",
+     "definitionFit": "Chapeau, French for hat, is used as an exclamation meaning hats off to you, a word of praise and congratulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lapping"
+    }
+   }
   },
   {
    "number": 22,
@@ -429,7 +1682,58 @@
     "text": "Hard men keen, it's said, to display testosterone?",
     "enumeration": "7"
    },
-   "solution": "HORMONE"
+   "solution": "HORMONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HORMONE",
+    "definitions": [
+     {
+      "text": "testosterone?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said refers to how a word is spoken, so we want a spelling that matches the sound"
+     }
+    ],
+    "linkWords": [
+     "to display"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR, other ranks, means soldiers who are not officers"
+     },
+     {
+      "clueFragment": "keen",
+      "gives": "MONE",
+      "soundsLike": "MOAN",
+      "note": "to keen is to wail in grief, to moan"
+     }
+    ],
+    "explanation": {
+     "surface": "Macho men eager to show off how much testosterone they have.",
+     "walkthrough": "'keen' looks like eager, but it is the verb to lament. The question mark marks testosterone as one example.",
+     "definitionFit": "Testosterone is a chemical messenger produced in the body, one example of a hormone, as the question mark signals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "keen"
+    }
+   }
   },
   {
    "number": 23,
@@ -443,7 +1747,67 @@
     "text": "Have a go at climbing hill while getting drunk",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "Have a go at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing means going upward, which in a down clue means reading the word from the bottom"
+     },
+     {
+      "text": "getting drunk",
+      "for": "container",
+      "note": "something drunk is taken inside, so the reversed hill swallows the word for while"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     },
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as means while, as in 'as I walked'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TOR",
+       "to": "ROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker tries scaling a hill while tipsy.",
+     "walkthrough": "'Have a go at' suggests attempting, but it means to criticise: RO(AS)T.",
+     "definitionFit": "To roast someone is to criticise or mock them harshly, the informal sense of having a go at them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 24,
@@ -457,7 +1821,54 @@
     "text": "As it happens nothing tops fruit",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tops",
+      "for": "charade",
+      "note": "in a down clue tops means sits above, so the zero letter goes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "As it happens",
+      "gives": "LIVE",
+      "note": "a live broadcast is shown as it happens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "By coincidence, nothing beats fruit.",
+     "walkthrough": "'As it happens' looks like a throwaway phrase meaning by chance, but it means in real time.",
+     "definitionFit": "The olive is the small stone fruit of the olive tree, eaten or pressed for oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "happens"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1882,55 @@
     "text": "Photograph of old detective probing host",
     "enumeration": "5"
    },
-   "solution": "SEPIA"
+   "solution": "SEPIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEPIA",
+    "definitions": [
+     {
+      "text": "Photograph of old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "probing means poking into, so the detective goes inside the word for host"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "host",
+      "gives": "SEA",
+      "note": "a host is a great number, as is a sea of faces"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "PI",
+      "note": "PI is a private investigator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "PI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An old photo of a detective questioning a party host.",
+     "walkthrough": "'of old' belongs with the definition, not the detective: SE(PI)A.",
+     "definitionFit": "Early photographs were often brown-toned prints, and a sepia is such an old-fashioned print."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1944,72 @@
     "text": "Pencilled in number five, not using force to save bit of ink",
     "enumeration": "9"
    },
-   "solution": "TENTATIVE"
+   "solution": "TENTATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "TENTATIVE",
+    "definitions": [
+     {
+      "text": "Pencilled in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not using force",
+      "for": "deletion",
+      "note": "not using means doing without, so the physics abbreviation for force is dropped"
+     },
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "saving something means keeping it safe within, so the pair of number words holds the ink piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "bit of ink",
+      "gives": "TAT",
+      "note": "tat is short for tattoo, a piece of ink on skin"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "FIVE",
+      "note": "taken as written, then F for force removed"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the symbol for force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "TAT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diary entry for an appointment at five, written in pencil rather than pen.",
+     "walkthrough": "'Pencilled in' looks like part of the diary scene, but it is the definition; a tattoo is informally called ink, hence the bit of ink.",
+     "definitionFit": "Plans pencilled in are provisional and may change, which is what tentative means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ink"
+    }
+   }
   },
   {
    "number": 27,
@@ -499,7 +2023,58 @@
     "text": "Rookie compiler's admitting decisive argument",
     "enumeration": "7"
    },
-   "solution": "SETTLER"
+   "solution": "SETTLER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SETTLER",
+    "definitions": [
+     {
+      "text": "decisive argument",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the compiler word takes the learner letter inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compiler",
+      "gives": "SETTER",
+      "note": "a crossword compiler is a setter"
+     },
+     {
+      "clueFragment": "Rookie",
+      "gives": "L",
+      "note": "L is a learner, as on British learner-driver plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETT",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice crossword setter concedes a point that ends the debate.",
+     "walkthrough": "SETT(L)ER.",
+     "definitionFit": "A settler is a remark or fact that closes a dispute for good, a clinching or decisive argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 28,
@@ -513,7 +2088,77 @@
     "text": "Rest and recuperation primarily taken by those abroad",
     "enumeration": "6"
    },
-   "solution": "OTHERS"
+   "solution": "OTHERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "OTHERS",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the word counts"
+     },
+     {
+      "text": "taken by",
+      "for": "container",
+      "note": "taken by means held within, so the single letter goes inside the jumbled word"
+     },
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad means scattered widely, so these letters go astray from their order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those",
+      "gives": "THOSE",
+      "note": "the letters as printed"
+     },
+     {
+      "clueFragment": "recuperation",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of recuperation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTHE",
+      "R",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THOSE",
+       "gives": "OTHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People overseas are taking time off to recover.",
+     "walkthrough": "'Rest and recuperation' reads as one stock phrase, but 'Rest' is the definition and 'and' only joins it to the wordplay.",
+     "definitionFit": "The rest means the remaining people or things, which is what others means in 'the others'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   }
  ]
 }
