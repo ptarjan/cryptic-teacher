@@ -101,9 +101,12 @@ class Fetcher:
         self.delay = delay
         self.last = 0.0
 
-    def get(self, url, what):
-        """GET url politely; returns bytes, raises HTTPError on 404/403/400."""
-        for attempt, wait in enumerate(RETRY_WAITS + (None,)):
+    def get(self, url, what, retry=True):
+        """GET url politely; returns bytes, raises HTTPError on 404/403/400.
+
+        retry=False raises on the first failure instead of waiting and retrying.
+        """
+        for attempt, wait in enumerate(RETRY_WAITS + (None,) if retry else (None,)):
             gap = self.last + self.delay - time.monotonic()
             if gap > 0:
                 time.sleep(gap)
@@ -240,14 +243,28 @@ def append(out, fname, fields):
         f.write("\t".join(str(x).replace("\t", " ").replace("\n", " ") for x in fields) + "\n")
 
 
+def fetch_first(fx, bases, suffix, what):
+    for i, base in enumerate(bases):
+        last = i == len(bases) - 1
+        try:
+            return fx.get(base + suffix, what, retry=last)
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            if last:
+                raise
+            log(f"  {what}: {base.split('/')[2]} failed ({e}); trying the next server")
+
+
 def fetch_edition(fx, item, meta, name):
     q = urllib.parse.quote
     d = os.path.join(fx.out, item, slug_of(item, name))
-    base = f"https://archive.org/download/{q(item)}/{q(name)}"
+    # /download/ redirects to a mirror that can answer 500 for hours; the item's
+    # own d1/d2 servers are tried first, with no retry, and /download/ is last.
+    bases = [f"https://{meta[k]}{meta['dir']}/{q(name)}" for k in ("d1", "d2") if meta.get(k) and meta.get("dir")]
+    bases.append(f"https://archive.org/download/{q(item)}/{q(name)}")
     for suffix, local in (("_djvu.txt", "djvu.txt.gz"), ("_djvu.xml", "djvu.xml.gz")):
         path = os.path.join(d, local)
         if not os.path.exists(path):
-            write_atomic(path, gzip.compress(fx.get(base + suffix, name + suffix), 6))
+            write_atomic(path, gzip.compress(fetch_first(fx, bases, suffix, name + suffix), 6))
     with gzip.open(os.path.join(d, "djvu.xml.gz")) as f:
         pages = page_texts(f.read())
     hits = []
