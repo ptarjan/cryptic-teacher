@@ -20,8 +20,11 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 60 crossings, 0 conflicts, agrees with the 10 answers the paper printed"
+  "check": "32 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,45 @@
      }
     ]
    },
-   "solution": "TEEOFF"
+   "solution": "TEEOFF",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEE OFF",
+    "definitions": [
+     {
+      "text": "Start on course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is speech, so the phrase before it is to be spoken and matched by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without refreshment",
+      "gives": "TEEOFF",
+      "soundsLike": "TEA OFF",
+      "note": "with tea off the menu there is no refreshment"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer begins a round without stopping for a drink.",
+     "walkthrough": "'Tea off' and the golfing phrase are said the same way; only the spelling of the first word changes.",
+     "definitionFit": "In golf, players begin each hole by striking the ball from the raised peg, so the phrase means to begin a round."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "refreshment"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +96,64 @@
     "text": "Music makers produce sombre tone, mostly inharmonious",
     "enumeration": "9"
    },
-   "solution": "TROMBONES"
+   "solution": "TROMBONES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TROMBONES",
+    "definitions": [
+     {
+      "text": "Music makers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter of the word just before is dropped"
+     },
+     {
+      "text": "inharmonious",
+      "for": "anagram",
+      "note": "letters out of harmony are jumbled, so they must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sombre",
+      "gives": "SOMBRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tone",
+      "gives": "TON",
+      "note": "the word tone without its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMBRETON",
+       "gives": "TROMBONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band's instruments are making a gloomy, out-of-tune noise.",
+     "definitionFit": "Trombones are brass instruments, and any instrument is something that makes music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inharmonious"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +167,51 @@
     "text": "Put in charge of part of field event, rustic style",
     "enumeration": "7"
    },
-   "solution": "ENTRUST"
+   "solution": "ENTRUST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTRUST",
+    "definitions": [
+     {
+      "text": "Put in charge of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of tells us the letters are a stretch lying inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field",
+      "note": "surface padding: the letters start in the next word"
+     },
+     {
+      "clueFragment": "event, rustic",
+      "gives": "ENTRUST",
+      "note": "the letters run across the end of one word and the start of the next"
+     },
+     {
+      "clueFragment": "style",
+      "note": "surface padding completing the picture of a country sports day"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is handed responsibility for an item at a country sports day.",
+     "walkthrough": "The answer sits in evENT RUSTic, ignoring the comma.",
+     "definitionFit": "To give someone responsibility for a task or a thing is to place it in their care, which is the verb's meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +225,39 @@
     "text": "His takings are illicit in the main",
     "enumeration": "10"
    },
-   "solution": "FREEBOOTER"
+   "solution": "FREEBOOTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FREEBOOTER",
+    "definitions": [
+     {
+      "text": "His takings are illicit in the main",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His takings are illicit in the main",
+      "note": "surface reading: a man who mostly earns his money dishonestly"
+     },
+     {
+      "clueFragment": "in the main",
+      "note": "setter's reading: the main is the open sea, where this robber seized his loot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In the main' reads as 'for the most part', but the main is an old word for the sea, where a pirate plunders ships.",
+     "definitionFit": "A pirate or buccaneer who plunders vessels for booty takes his gains illegally on the high seas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +271,58 @@
     "text": "Withdrew action when settlement admitted .",
     "enumeration": "8"
    },
-   "solution": "DECAMPED"
+   "solution": "DECAMPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECAMPED",
+    "definitions": [
+     {
+      "text": "Withdrew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "something admitted is let inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an action"
+     },
+     {
+      "clueFragment": "settlement",
+      "gives": "CAMP",
+      "note": "a camp is a temporary settlement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CAMP",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Legal action was dropped once an agreement had been conceded.",
+     "walkthrough": "'Settlement' wants to be a legal agreement that ends an action; here it is a place where people settle.",
+     "definitionFit": "To leave suddenly, often secretly, is to pull out, so the past tense matches withdrew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "settlement"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +336,60 @@
     "text": "Puts ginger in spirits to blend -- some cocktail!",
     "enumeration": "9"
    },
-   "solution": "EMBOLDENS"
+   "solution": "EMBOLDENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMBOLDENS",
+    "definitions": [
+     {
+      "text": "Puts ginger in spirits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cocktail",
+      "for": "anagram",
+      "note": "a cocktail is a mixture, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blend",
+      "gives": "BLEND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "SOME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLENDSOME",
+       "gives": "EMBOLDENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman adds ginger to liquor to create a mixed drink.",
+     "walkthrough": "Ginger here is spirit or pluck, and spirits are a person's mood, not liquor.",
+     "definitionFit": "To give someone courage or nerve is to lift their mood with fresh pluck, which is the verb's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ginger"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +403,55 @@
     "text": "Competent student in lincoln",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Competent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lincoln",
+      "gives": "ABE",
+      "note": "Abe, short for Abraham, the first name of President Lincoln"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, a student driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A capable pupil studying in the city of Lincoln.",
+     "walkthrough": "L goes inside ABE; Lincoln is read as Abraham Lincoln, not the English city.",
+     "definitionFit": "Having the skill or capacity to do something well is to be capable and qualified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lincoln"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +465,67 @@
     "text": "Ceremonial display, one that is uplifting in Italy",
     "enumeration": "7"
    },
-   "solution": "POMPEII"
+   "solution": "POMPEII",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "POMPEII",
+    "definitions": [
+     {
+      "text": "in Italy",
+      "at": 42,
+      "note": "the definition is a description: a place found in Italy"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down clue something lifted up is read from bottom to top, so it runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ceremonial display",
+      "gives": "POMP",
+      "note": "pomp is ceremonial splendour"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., Latin id est"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMP",
+      "EII"
+     ],
+     "reversals": [
+      {
+       "from": "IIE",
+       "to": "EII"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand ceremony in Italy proves inspiring.",
+     "walkthrough": "'That is' is the abbreviation i.e.; with the one before it, both are read bottom to top in this down clue.",
+     "definitionFit": "The Roman town buried by Vesuvius lies near Naples, a site located in that country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +539,43 @@
     "text": "Fine macaroni",
     "enumeration": "5"
    },
-   "solution": "DANDY"
+   "solution": "DANDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DANDY",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     },
+     {
+      "text": "macaroni",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "note": "first meaning: excellent, first-rate"
+     },
+     {
+      "clueFragment": "macaroni",
+      "note": "second meaning: an 18th-century fop who copied continental fashions"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Macaroni is not pasta here: it was the name for a vain, overdressed young man in Georgian England, as in Yankee Doodle.",
+     "definitionFit": "As an adjective the word means splendid; as a noun it is a man obsessed with clothes, as a macaroni was."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "macaroni"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +589,58 @@
     "text": "To move briskly .when climbing is wrong",
     "enumeration": "4"
    },
-   "solution": "TROT"
+   "solution": "TROT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TROT",
+    "definitions": [
+     {
+      "text": "To move briskly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down clue means reading upwards, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong in law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROT"
+     ],
+     "reversals": [
+      {
+       "from": "TORT",
+       "to": "TROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hurrying is a mistake when going uphill.",
+     "walkthrough": "TORT read upwards gives the answer.",
+     "definitionFit": "A horse's pace between walking and cantering, or any person jogging along, is a quick steady gait."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +654,50 @@
     "text": ") A tour we arranged to last longer",
     "enumeration": "7"
    },
-   "solution": "OUTWEAR"
+   "solution": "OUTWEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTWEAR",
+    "definitions": [
+     {
+      "text": "to last longer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into an order, here a new one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A tour we",
+      "gives": "ATOURWE",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATOURWE",
+       "gives": "OUTWEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We organised a trip that went on longer than planned.",
+     "definitionFit": "To outlast something, especially in wear and use, is to survive beyond it in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tour"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +711,43 @@
     "text": "Huntsman twice repeating gospel",
     "enumeration": "7"
    },
-   "solution": "BELLMAN"
+   "solution": "BELLMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELLMAN",
+    "definitions": [
+     {
+      "text": "Huntsman",
+      "at": 0
+     },
+     {
+      "text": "twice repeating gospel",
+      "at": 9,
+      "note": "a description of the character: one who makes a thing gospel by saying it, then repeating it twice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Huntsman",
+      "note": "first meaning: the leader of the hunt in Lewis Carroll's The Hunting of the Snark"
+     },
+     {
+      "clueFragment": "twice repeating gospel",
+      "note": "second meaning: that same leader's rule, 'What I tell you three times is true'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Carroll's The Hunting of the Snark the leader declares 'What I tell you three times is true': say it, then repeat it twice, and it is gospel.",
+     "definitionFit": "The captain of Carroll's nonsense expedition hunts the Snark and rings a bell, so he is a huntsman by role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Huntsman"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +761,43 @@
     "text": "Common law man in the flying squad?",
     "enumeration": "10"
    },
-   "solution": "BLUEBOTTLE"
+   "solution": "BLUEBOTTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLUEBOTTLE",
+    "definitions": [
+     {
+      "text": "Common law man",
+      "at": 0
+     },
+     {
+      "text": "in the flying squad?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Common law man",
+      "note": "first meaning: old slang for a police officer, from the blue uniform"
+     },
+     {
+      "clueFragment": "in the flying squad?",
+      "note": "second meaning: a large buzzing fly, a member of a squad that flies"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Common here means slang, and the Flying Squad is a real London police unit, which makes the fly sound like a detective.",
+     "definitionFit": "The word is dated British slang for a constable and also the name of a metallic blue fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +811,43 @@
     "text": "Extremely light",
     "enumeration": "4"
    },
-   "solution": "VERY"
+   "solution": "VERY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VERY",
+    "definitions": [
+     {
+      "text": "Extremely",
+      "at": 0
+     },
+     {
+      "text": "light",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "note": "first meaning: to a great degree"
+     },
+     {
+      "clueFragment": "light",
+      "note": "second meaning: a flare fired from a pistol"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests 'extremely light' as in weight, but the second sense is the signal flare.",
+     "definitionFit": "As an adverb the word intensifies like exceedingly; a signalling flare shot from a pistol carries the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +867,43 @@
      }
     ]
    },
-   "solution": "FAIRMINDED"
+   "solution": "FAIRMINDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR-MINDED",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     },
+     {
+      "text": "like Bill Brewer and companions",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "note": "first meaning: impartial, fair in judgement"
+     },
+     {
+      "clueFragment": "like Bill Brewer and companions",
+      "note": "second meaning: the riders in the folk song Widecombe Fair, who had a mind to go to the fair"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bill Brewer, Jan Stewer and the rest borrow Tom Pearce's grey mare to ride to Widecombe Fair in the Devon folk song, so they were set on the fair.",
+     "definitionFit": "Being impartial and even-handed is being just, and the hyphenated word also jokingly means intent on going to a fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brewer"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +917,49 @@
     "text": "Secure employment in broadcasting organisation",
     "enumeration": "7"
    },
-   "solution": "NETWORK"
+   "solution": "NETWORK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NETWORK",
+    "definitions": [
+     {
+      "text": "broadcasting organisation",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "NET",
+      "note": "to net is to secure, as a catch or a profit"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "WORK",
+      "note": "work is employment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET",
+      "WORK"
+     ]
+    },
+    "explanation": {
+     "surface": "Landing a job at a TV or radio company.",
+     "definitionFit": "A chain of linked television or radio stations sharing programmes is the usual name for a broadcaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Secure"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +973,46 @@
     "text": "Chief manufacturer in Warwick, perhaps",
     "enumeration": "9"
    },
-   "solution": "KINGMAKER"
+   "solution": "KINGMAKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KINGMAKER",
+    "definitions": [
+     {
+      "text": "Chief manufacturer",
+      "at": 0
+     },
+     {
+      "text": "Warwick, perhaps",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief manufacturer",
+      "note": "first meaning, read cryptically: one who makes a ruler"
+     },
+     {
+      "clueFragment": "Warwick, perhaps",
+      "note": "second meaning: the Earl of Warwick, who set up and deposed kings in the Wars of the Roses"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Warwick looks like the English town with a factory; it is Richard Neville, Earl of Warwick, nicknamed for his power over the throne.",
+     "definitionFit": "A person with power to install rulers or leaders, as Warwick did with Edward IV and Henry VI, earns this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Warwick"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1026,50 @@
     "text": "Time to make melody, taking off the record",
     "enumeration": "7"
    },
-   "solution": "ERASING"
+   "solution": "ERASING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERASING",
+    "definitions": [
+     {
+      "text": "taking off the record",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "make melody",
+      "gives": "SING",
+      "note": "to sing is to make melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA",
+      "SING"
+     ]
+    },
+    "explanation": {
+     "surface": "It is time to make music, wiping the old recording.",
+     "walkthrough": "'Off the record' suggests secrecy; here it is literally wiping a tape.",
+     "definitionFit": "Wiping data from a tape or document removes it, and the gerund matches the -ing of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1089,50 @@
      }
     ]
    },
-   "solution": "GREATBEAR"
+   "solution": "GREATBEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREAT BEAR",
+    "definitions": [
+     {
+      "text": "gathering of stars",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "needed for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "GREAT",
+      "note": "great means large"
+     },
+     {
+      "clueFragment": "stand",
+      "gives": "BEAR",
+      "note": "to bear is to stand, as in 'I can't stand it'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREAT",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A big stage is required for a meeting of celebrities.",
+     "walkthrough": "Stars means celebrities in the surface, but the gathering is a constellation.",
+     "definitionFit": "Ursa Major, the constellation containing the Plough, is a named group of stars in the northern sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1146,68 @@
     "text": "Noticed ambassador with bottle opener inside drinking establishment",
     "enumeration": "7"
    },
-   "solution": "SHESEEN"
+   "solution": "SHEBEEN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SHEBEEN",
+    "definitions": [
+     {
+      "text": "drinking establishment",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the pieces just before it within the first word"
+     },
+     {
+      "text": "opener",
+      "for": "letter_selection",
+      "note": "an opener is what starts something, so take the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noticed",
+      "gives": "SEEN",
+      "note": "seen means noticed"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE is His Excellency, an ambassador's title"
+     },
+     {
+      "clueFragment": "bottle",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of bottle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HE",
+      "B",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat was spotted with a corkscrew in a bar.",
+     "walkthrough": "'Bottle opener' looks like a corkscrew but means only the opening letter of bottle.",
+     "definitionFit": "An unlicensed bar or illicit drinking den, a term from Ireland and South Africa, is a place selling alcohol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1221,49 @@
     "text": "Provided with means to wind up incurred debts",
     "enumeration": "7"
    },
-   "solution": "ENDOWED"
+   "solution": "ENDOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDOWED",
+    "definitions": [
+     {
+      "text": "Provided with means",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wind up",
+      "gives": "END",
+      "note": "to wind up is to end"
+     },
+     {
+      "clueFragment": "incurred debts",
+      "gives": "OWED",
+      "note": "having incurred debts, one owed money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is given money to settle the debts they have run up.",
+     "definitionFit": "Being endowed is having been given funds or a permanent income, so one is supplied with resources."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1277,77 @@
     "text": "Dickensian needing no notes after thus accepting credit",
     "enumeration": "7"
    },
-   "solution": "SCROOGE"
+   "solution": "SCROOGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCROOGE",
+    "definitions": [
+     {
+      "text": "Dickensian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking something in, so one piece goes inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the earlier-named pieces behind the ones named later"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the abbreviation for credit"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "GE",
+      "note": "G and E are two musical notes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CR",
+      "O",
+      "O",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Dickens character who will not spend on extras once he has borrowed money.",
+     "walkthrough": "'No notes' looks like 'no money', apt for a miser, but it is a zero followed by two notes of the scale.",
+     "definitionFit": "Ebenezer, the miser of A Christmas Carol, is a character created by Dickens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1361,58 @@
     "text": "Bill enters Open to play without restraint",
     "enumeration": "7"
    },
-   "solution": "OVERACT"
+   "solution": "OVERACT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERACT",
+    "definitions": [
+     {
+      "text": "play without restraint",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "a thing that enters goes into another, so it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Open",
+      "gives": "OVERT",
+      "note": "overt means open, not hidden"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC is short for account, a bill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "AC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer called Bill plays freely at the Open championship.",
+     "walkthrough": "Open is capitalised to suggest the golf tournament, and Bill to look like a man's name; both are ordinary words here.",
+     "definitionFit": "Hamming it up on stage means exaggerating a role, performing with too little restraint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1426,39 @@
     "text": "Highly placed idols of the theatre",
     "enumeration": "4"
    },
-   "solution": "GODS"
+   "solution": "GODS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GODS",
+    "definitions": [
+     {
+      "text": "Highly placed idols of the theatre",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Highly placed idols of the theatre",
+      "note": "surface reading: top stars of the stage"
+     },
+     {
+      "clueFragment": "Highly placed",
+      "note": "setter's reading: the highest gallery seats in a theatre, which share their name with deities"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Idols suggests celebrated actors, but they are divine beings, and the cheapest seats up in the top gallery carry the same name.",
+     "definitionFit": "Deities worshipped as idols share their name with the top tier of a theatre, the cheap seats up near the ceiling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "idols"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1472,39 @@
     "text": "Maxim for a writer",
     "enumeration": "5"
    },
-   "solution": "GORKI"
+   "solution": "GORKI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GORKI",
+    "definitions": [
+     {
+      "text": "Maxim for a writer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maxim for a writer",
+      "note": "surface reading: a wise saying suited to an author"
+     },
+     {
+      "clueFragment": "Maxim",
+      "note": "setter's reading: Maxim is the first name of a Russian author, so the clue asks for his surname"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Maxim looks like a proverb, but it is a forename: the Russian novelist and playwright of The Lower Depths, also spelt with a Y.",
+     "definitionFit": "The pen name of Alexei Peshkov, Maxim, belonged to a Soviet novelist and playwright, so it names an author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maxim"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1518,57 @@
     "text": "I am going before top part of the building is let",
     "enumeration": "10"
    },
-   "solution": "IMPEDIMENT"
+   "solution": "IMPEDIMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEDIMENT",
+    "definitions": [
+     {
+      "text": "let",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going before",
+      "for": "charade",
+      "note": "going before places the first piece ahead of the next one"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "I'm, the contraction of I am"
+     },
+     {
+      "clueFragment": "top part of the building",
+      "gives": "PEDIMENT",
+      "note": "a pediment is the triangular gable topping a classical building's front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PEDIMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "I am in front of the building's upper storey, which is up for rent.",
+     "walkthrough": "Let is not about renting: it is the old noun for a hindrance, as in 'without let or hindrance' and a let in tennis.",
+     "definitionFit": "An obstruction or hindrance is the archaic meaning of the noun, surviving in legal phrasing and in tennis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1582,53 @@
     "text": "Nobleman in real trouble",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trouble",
+      "for": "anagram",
+      "note": "a word in trouble is thrown into disorder, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "EARL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat is in genuine difficulty.",
+     "definitionFit": "A British peer ranking above a viscount and below a marquess holds a title of nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1642,58 @@
     "text": "Vessel in support of airman seen in ditch",
     "enumeration": "4"
    },
-   "solution": "FOSS"
+   "solution": "FOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOSS",
+    "definitions": [
+     {
+      "text": "ditch",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in support of",
+      "for": "charade",
+      "note": "in a down clue a support goes underneath, so this piece follows the one it holds up"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airman",
+      "gives": "FO",
+      "note": "FO is Flying Officer, an RAF rank"
+     },
+     {
+      "clueFragment": "Vessel",
+      "gives": "SS",
+      "note": "SS is steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat assisting a pilot who has come down in the water.",
+     "walkthrough": "'Ditch' suggests an aircraft ditching at sea; it is the definition. The word is a variant spelling of fosse, a moat.",
+     "definitionFit": "A fosse or foss is a long trench or moat dug as a defence, which is a kind of trench."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ditch"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1707,59 @@
     "text": "Kind of music absorbing pussy's companion is fitting for boat trip",
     "enumeration": "7"
    },
-   "solution": "ROWLOCK"
+   "solution": "ROWLOCK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROWLOCK",
+    "definitions": [
+     {
+      "text": "fitting for boat trip",
+      "at": 45,
+      "note": "read as a fitting for a boat trip"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking something in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of music",
+      "gives": "ROCK",
+      "note": "rock is a kind of music"
+     },
+     {
+      "clueFragment": "pussy's companion",
+      "gives": "OWL",
+      "note": "Edward Lear's poem The Owl and the Pussy-cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OWL",
+      "OCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Music that takes in a cat's friend is suitable for a cruise.",
+     "walkthrough": "OWL goes inside RO...CK. The Owl and the Pussy-cat went to sea in a boat, which ties the surface together.",
+     "definitionFit": "The U-shaped pivot on a gunwale holding an oar is a fitting on a rowing boat for an outing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pussy's"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1773,70 @@
     "text": "Send out carpet with reverse backing included",
     "enumeration": "7"
    },
-   "solution": "RADIATE"
+   "solution": "RADIATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RADIATE",
+    "definitions": [
+     {
+      "text": "Send out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse",
+      "for": "reversal",
+      "note": "reverse means turn backwards, so the next word is read from its end"
+     },
+     {
+      "text": "included",
+      "for": "container",
+      "note": "something included is put inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carpet",
+      "gives": "RATE",
+      "note": "to carpet or rate someone is to scold them"
+     },
+     {
+      "clueFragment": "backing",
+      "gives": "AID",
+      "note": "aid is backing or support"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "DIA",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Delivering a rug with its underlay fitted the wrong way round.",
+     "walkthrough": "Carpet is the verb, to reprimand, and rate is an old verb with the same meaning; backing is support, not underlay.",
+     "definitionFit": "To emit heat, light or energy outwards in all directions from a centre is to give it out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1850,51 @@
     "text": "Productive activity needing plant and flower experiment",
     "enumeration": "8"
    },
-   "solution": "INDUSTRY"
+   "solution": "INDUSTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDUSTRY",
+    "definitions": [
+     {
+      "text": "Productive activity needing plant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "INDUS",
+      "note": "a flower is something that flows, a river: the Indus"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TRY",
+      "note": "a try is an attempt or experiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDUS",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's hobby involves growing things and trying out blooms.",
+     "walkthrough": "Flower is a crossword favourite for a river, read as flow-er.",
+     "definitionFit": "Manufacturing is economic work that depends on factories and machinery, the plant of the trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +1908,39 @@
     "text": "He runs daily",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "He runs daily",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He runs daily",
+      "note": "surface reading: a man who goes jogging every day"
+     },
+     {
+      "clueFragment": "daily",
+      "note": "setter's reading: a daily is a newspaper, and he is the person in charge of one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Runs suggests jogging and daily an adverb, but daily is the noun for a newspaper published every day.",
+     "definitionFit": "The person in charge of a newspaper's content directs its staff and decides what goes to print."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   }
  ]
 }
