@@ -988,6 +988,41 @@ def paper_of(d):
 BLOCK_ABOVE = 0.6
 
 
+def issues_between(a, b):
+    """How many issues (six a week, none on Sunday) follow day `a` up to and
+    including the later day `b`."""
+    weeks, rest = divmod((b - a).days, 7)
+    return weeks * 6 + sum((a + datetime.timedelta(days=i)).weekday() != 6 for i in range(1, rest + 1))
+
+
+def held_dates(series):
+    """{number: date} of every dated puzzle filed in a series."""
+    out = {}
+    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
+        date = json.loads(p.read_text()).get("date")
+        if date:
+            out[int(p.stem.split("-")[1])] = datetime.date.fromisoformat(date[:10])
+    return out
+
+
+def placed(n, day, held):
+    """(number, None) that an edition of `day` read as No `n` files as, or
+    (None, why) it cannot file. The edition's date is trusted over a number
+    OCR read: when the nearest filed puzzles either side run unbroken, one
+    number an issue, the date fixes the number; otherwise No `n` must sit in
+    date order among them and not be filed for another day."""
+    before = max(((d, m) for m, d in held.items() if d < day), default=None)
+    after = min(((d, m) for m, d in held.items() if d > day), default=None)
+    if before and after and after[1] - before[1] == issues_between(before[0], after[0]):
+        return before[1] + issues_between(before[0], day), None
+    if n in held and held[n] != day:
+        return None, f"No {n} is already filed for {held[n]}, not {day}"
+    if before and n <= before[1] or after and n >= after[1]:
+        return None, (f"No {n} on {day} is out of date order with "
+                      f"{' and '.join(f'No {m} on {d}' for d, m in (before, after) if d)}")
+    return n, None
+
+
 def issue_day(day, n, numbers):
     """The date of No `n` in an edition dated `day` holding `numbers`: an item
     can bind the next days' papers too, so each number above the lowest is one
@@ -1007,6 +1042,13 @@ def read_puzzle(d, found, hit, solutions):
         verdict["refused"] = (f"No {n} is not near the {paper.expected(day)} the date "
                               f"{day} implies: the item's date is wrong")
         return verdict, None
+    number, why = placed(n, day, held_dates(paper.series))
+    if why:
+        verdict["refused"] = why
+        return verdict, None
+    if number != n:
+        verdict["read_as"], n = n, number
+        verdict["number"] = n
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf})[leaf]
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"])
