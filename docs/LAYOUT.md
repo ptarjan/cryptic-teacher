@@ -1332,5 +1332,7 @@ tools/clue_index.py                          which puzzle files share clues: nor
                                              text -> puzzle ids
 tools/test_placeholder_clues.sh              a puzzle whose clues are pointers at clues printed
                                              elsewhere has no clues
+tools/sweep_series.py                        probe every number of a Guardian series between
+                                             two bounds, file what is served
 ```
 <!-- LAYOUT-END -->
