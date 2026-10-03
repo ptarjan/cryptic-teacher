@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Select the French relish",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PICKLE",
+    "definitions": [
+     {
+      "text": "relish",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Select",
+      "gives": "PICK",
+      "note": "to pick is to select"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing a French condiment from a menu.",
+     "definitionFit": "A pickle is a sharp preserved vegetable condiment, one type of relish served alongside food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Select"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,76 @@
     "text": "Catch up with 1 across left incomplete",
     "enumeration": "7"
    },
-   "solution": "PARTIAL"
+   "solution": "PARTIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARTIAL",
+    "definitions": [
+     {
+      "text": "incomplete",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "TRAP",
+      "note": "to trap is to catch"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "across",
+      "gives": "A",
+      "note": "A is the usual abbreviation for across"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "I",
+      "A",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "TRAP",
+       "to": "PART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Catching up with the answer to the first across clue, left unfinished.",
+     "walkthrough": "'1 across' looks like a cross-reference to the first across clue, but it is read literally as I and A.",
+     "definitionFit": "Partial means only in part, not total, which is a direct synonym of incomplete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "1"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,68 @@
     "text": "Tweet about redhead with cool clothing",
     "enumeration": "5"
    },
-   "solution": "CHIRP"
+   "solution": "CHIRP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CHIRP",
+    "definitions": [
+     {
+      "text": "Tweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing wraps around a body, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, Latin for about"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "HIP",
+      "note": "hip means fashionable, cool"
+     },
+     {
+      "clueFragment": "redhead",
+      "gives": "R",
+      "select": "first",
+      "note": "the head of red, its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HI",
+      "R",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A social-media post about a fashionable redhead in chilly-weather clothes.",
+     "walkthrough": "'Redhead' reads as a person but gives just R. 'Tweet' suggests a social-media post; here it is a bird's sound.",
+     "definitionFit": "A chirp is a short high-pitched sound made by a small bird, the same as a tweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tweet"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +253,50 @@
      }
     ]
    },
-   "solution": "LOCALNEWS"
+   "solution": "LOCALNEWS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOCAL NEWS",
+    "definitions": [
+     {
+      "text": "things happening near home",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around, so the letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We call son",
+      "gives": "WECALLSON",
+      "note": "all nine letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WECALLSON",
+       "gives": "LOCALNEWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent saying they phone their son about events back home.",
+     "definitionFit": "Local news reports what is going on in one's own neighbourhood or town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +310,76 @@
     "text": "Lady's half cut after quite strange drink",
     "enumeration": "7"
    },
-   "solution": "TEQUILA"
+   "solution": "TEQUILA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEQUILA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is out of its normal form, so the letters of the neighbouring word are rearranged"
+     },
+     {
+      "text": "half cut",
+      "for": "deletion",
+      "note": "cutting something in half keeps only one of its two halves, so half the word goes"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first piece behind the jumbled piece in the answer"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Lady",
+      "gives": "LADY",
+      "note": "taken as written; only its first half survives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEQUI",
+      "LA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUITE",
+       "gives": "TEQUI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy lady (half cut is British slang for drunk) after a rather odd drink.",
+     "walkthrough": "'Half cut' reads as British slang for drunk, fitting the drinking scene, but it is wordplay: keep only the first half of the woman's word.",
+     "definitionFit": "Tequila is a Mexican spirit distilled from agave, so it is an example of an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +399,64 @@
      }
     ]
    },
-   "solution": "TAKENIN"
+   "solution": "TAKENIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TAKEN IN",
+    "definitions": [
+     {
+      "text": "absorbed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crammed in",
+      "for": "container",
+      "note": "things crammed in are packed inside a container, so the pieces go inside another word"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High grade",
+      "gives": "A",
+      "note": "A is the top grade"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken means range of knowledge, as in 'beyond my ken'"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AKEN",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A top-grade student crams facts and finds they can be absorbed.",
+     "walkthrough": "'Can' looks like the verb going with 'be absorbed'; only 'be' joins, while can is a tin.",
+     "definitionFit": "Something taken in has been absorbed, whether information understood or liquid soaked up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +470,56 @@
     "text": "Share question on team regularly",
     "enumeration": "5"
    },
-   "solution": "QUOTA"
+   "solution": "QUOTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "QUOTA",
+    "definitions": [
+     {
+      "text": "Share",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "QU is a short form of question"
+     },
+     {
+      "clueFragment": "on team",
+      "gives": "OTA",
+      "select": "alternate",
+      "note": "first, third and fifth letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "OTA"
+     ]
+    },
+    "explanation": {
+     "surface": "Sharing a question with the team on a regular basis.",
+     "walkthrough": "'On' looks like a link word, but its letters are part of the run taken alternately.",
+     "definitionFit": "A quota is a fixed allotted portion, one person's or group's share of a total."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +533,78 @@
     "text": "Feeling for Greenlander with temperature inside home about zero",
     "enumeration": "9"
    },
-   "solution": "INTUITION"
+   "solution": "INTUITION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INTUITION",
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside puts one piece within another"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the second word wraps around a letter"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greenlander",
+      "gives": "INUIT",
+      "note": "the Inuit are the indigenous people of Greenland"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "UIT",
+      "I",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Sympathy for an Inuit whose house is freezing, with the temperature at about zero.",
+     "walkthrough": "T goes into INUIT and O into IN, then the two halves join.",
+     "definitionFit": "Intuition is an instinctive sense or hunch, a gut feeling not reached by reasoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feeling"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +618,65 @@
     "text": "Allowed one good journalist to follow soldiers",
     "enumeration": "6"
    },
-   "solution": "AGREED"
+   "solution": "AGREED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGREED",
+    "definitions": [
+     {
+      "text": "Allowed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow is to come after, so the editor is placed after the soldiers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "RE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A decent reporter was permitted to travel behind the troops.",
+     "definitionFit": "Allowed and agreed both describe something that has been consented to or permitted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Allowed"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +690,42 @@
     "text": "Rats maybe found inside? Never mind!",
     "enumeration": "6"
    },
-   "solution": "VERMIN"
+   "solution": "VERMIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VERMIN",
+    "definitions": [
+     {
+      "text": "Rats maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found inside",
+      "for": "hidden_word",
+      "note": "the solution is found inside the next words, carried whole across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never mind",
+      "gives": "VERMIN",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinks they spotted rats indoors, then shrugs it off.",
+     "definitionFit": "Vermin are pest animals such as rats and mice, so rats are an example, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mind"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +745,58 @@
      }
     ]
    },
-   "solution": "RAINCHECK"
+   "solution": "RAINCHECK",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RAIN CHECK",
+    "definitions": [
+     {
+      "text": "ticket that's valid later",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so we want a word that is pronounced like the word for rule"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first puts the spoken piece at the front, ahead of the word for examine"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "RAIN",
+      "soundsLike": "REIGN",
+      "note": "to reign is to rule; it is pronounced like the wet weather word"
+     },
+     {
+      "clueFragment": "Examine",
+      "gives": "CHECK",
+      "note": "to check is to examine"
+     }
+    ],
+    "explanation": {
+     "surface": "An official inspecting a ticket and quoting the rule that it can be used on a later date.",
+     "walkthrough": "The clue lists the examine piece first, but 'first' moves the rule piece to the front.",
+     "definitionFit": "A rain check was originally a ticket stub giving re-entry to a game postponed by rain, so a voucher usable on another occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +810,70 @@
     "text": "Animal taking over English river's eating tons",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OTTER",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating takes material inside itself, so one piece goes into the middle of another"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "TT",
+      "note": "T is a ton, so two of them for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "TT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal by an English river, gulping down huge quantities of food.",
+     "walkthrough": "Fittingly the Otter is also a river in Devon, but here the river is just R. The plural 'tons' gives two Ts, which sit inside E and R.",
+     "definitionFit": "The otter is a fish-eating aquatic mammal of the weasel family, so it is an example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +887,66 @@
     "text": "Urge politician to block stupid lie",
     "enumeration": "5"
    },
-   "solution": "IMPEL"
+   "solution": "IMPEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMPEL",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "a stupid version of a word is muddled, so its letters are scrambled"
+     },
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "to block a passage is to sit in the middle of it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lie",
+      "gives": "IEL",
+      "note": "the letters of lie rearranged"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "EL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIE",
+       "gives": "IEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressing a member of parliament to stop a foolish falsehood spreading.",
+     "definitionFit": "To impel someone is to drive or push them into action, the same as urging them on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +970,71 @@
      }
     ]
    },
-   "solution": "MANYATIME"
+   "solution": "MANYATIME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MANY A TIME",
+    "definitions": [
+     {
+      "text": "Often",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a circle is to draw round something, so one piece goes around another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "MA is an informal word for mother"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is one of the algebraic unknowns"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "TIME",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AN",
+      "Y",
+      "A",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother talking about a mysterious period of history.",
+     "walkthrough": "'Describing' means drawing round, as in geometry, not telling about; Mum's word wraps around the next two pieces.",
+     "definitionFit": "The phrase is an old-fashioned idiom meaning frequently, on numerous occasions, which is what often means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +1048,60 @@
     "text": "Bird comes down shortly before light",
     "enumeration": "7"
    },
-   "solution": "LANTERN"
+   "solution": "LANTERN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LANTERN",
+    "definitions": [
+     {
+      "text": "light",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the shortened piece ahead of the bird"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comes down",
+      "gives": "LAND",
+      "note": "to land is to come down from the air"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "TERN",
+      "note": "the tern is a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAN",
+      "TERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird flies down to land just before daybreak.",
+     "walkthrough": "'Light' looks like dawn in the surface; it is a noun for a lamp. The bird is named first in the clue but comes last.",
+     "definitionFit": "A lantern is a portable lamp in a protective case, so it is a kind of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +1121,64 @@
      }
     ]
    },
-   "solution": "NUMBERONE"
+   "solution": "NUMBERONE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NUMBER ONE",
+    "definitions": [
+     {
+      "text": "Chart-topping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "making a comeback means coming back, so the name is written backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "NUMBER",
+      "note": "a number is a song in a show or set"
+     },
+     {
+      "clueFragment": "Eno",
+      "gives": "ENO",
+      "note": "the musician Brian Eno, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMBER",
+      "ONE"
+     ],
+     "reversals": [
+      {
+       "from": "ENO",
+       "to": "ONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brian Eno returns to music with a hit that tops the charts.",
+     "walkthrough": "'Chart-topping song' wants to be the whole definition, but the song is the first half of the wordplay.",
+     "definitionFit": "A number one is a record at the top of the charts, so the phrase serves as an adjective meaning chart-topping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1192,67 @@
     "text": "Idiot returned money with reduction",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NITWIT",
+    "definitions": [
+     {
+      "text": "Idiot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "reduction",
+      "for": "deletion",
+      "note": "a reduction makes the word smaller, so its last letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old slang for money"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "taken as written, to be shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "WIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool handed back cash minus a discount.",
+     "walkthrough": "'With' looks like a link word but is part of the wordplay, losing its final H.",
+     "definitionFit": "Nitwit is an informal word for a stupid person, a synonym of idiot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1276,78 @@
      }
     ]
    },
-   "solution": "TALEOFWOE"
+   "solution": "TALEOFWOE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "container"
+    ],
+    "answer": "TALE OF WOE",
+    "definitions": [
+     {
+      "text": "Sad story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken out, so a word sounding like the verb for dog is needed"
+     },
+     {
+      "text": "seized by",
+      "for": "container",
+      "note": "something seized by another is held within it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "TALE",
+      "soundsLike": "TAIL",
+      "note": "to tail someone is to dog them, follow closely"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "abbreviation for old"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "FOE",
+      "note": "a foe is an enemy"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALE",
+      "O",
+      "F",
+      "W",
+      "OE"
+     ]
+    },
+    "explanation": {
+     "surface": "News of a dog and some old women captured by a hostile force.",
+     "walkthrough": "'Dog' is a verb meaning follow. Only the women go inside FOE; the O stands before it.",
+     "definitionFit": "A tale of woe is an account of misfortunes, a sad story, often told to win sympathy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1361,49 @@
     "text": "Delighted with a thought",
     "enumeration": "6"
    },
-   "solution": "AMUSED"
+   "solution": "AMUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMUSED",
+    "definitions": [
+     {
+      "text": "Delighted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thought",
+      "gives": "MUSED",
+      "note": "to muse is to think deeply, so mused means thought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MUSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pleased with an idea that has just occurred to them.",
+     "definitionFit": "Being amused means entertained or tickled, a close match for delighted in the sense of pleased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thought"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1423,45 @@
      }
     ]
    },
-   "solution": "DROPSIN"
+   "solution": "DROPSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROPS IN",
+    "definitions": [
+     {
+      "text": "calls",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "gives": "DROP",
+      "note": "to drop is to decline or fall"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "SIN",
+      "note": "sin is wrongdoing, evil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROP",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "definitionFit": "To drop in is to pay a casual visit, the sense of calls as in 'calls on a friend'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1475,66 @@
     "text": "North American scientific establishment rejected church correspondence",
     "enumeration": "7"
    },
-   "solution": "BALANCE"
+   "solution": "BALANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BALANCE",
+    "definitions": [
+     {
+      "text": "correspondence",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected things are sent back, so these two pieces are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North American",
+      "gives": "NA",
+      "note": "abbreviation for North American"
+     },
+     {
+      "clueFragment": "scientific establishment",
+      "gives": "LAB",
+      "note": "a lab is a scientific laboratory"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALAN",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NALAB",
+       "to": "BALAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American research institute turns down letters from a church.",
+     "walkthrough": "'Correspondence' suggests letters but is used in its sense of agreement or match.",
+     "definitionFit": "Balance and correspondence both mean an equality or harmony between two things, so they are synonyms in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "correspondence"
+    }
+   }
   },
   {
    "number": 19,
@@ -377,7 +1548,60 @@
     "text": "King and Queen welcomed in niche bread shop",
     "enumeration": "6"
    },
-   "solution": "BAKERY"
+   "solution": "BAKERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BAKERY",
+    "definitions": [
+     {
+      "text": "bread shop",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed in",
+      "for": "container",
+      "note": "someone welcomed in is let inside, so the pair go within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "niche",
+      "gives": "BAY",
+      "note": "a bay is a recess or alcove"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is king in chess"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "KER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Royalty are welcomed into a cosy little bread shop.",
+     "definitionFit": "A bakery is a shop where bread and cakes are made and sold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "niche"
+    }
+   }
   },
   {
    "number": 20,
@@ -391,7 +1615,55 @@
     "text": "Absolutely demand extremes of loyalty",
     "enumeration": "7"
    },
-   "solution": "EXACTLY"
+   "solution": "EXACTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXACTLY",
+    "definitions": [
+     {
+      "text": "Absolutely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demand",
+      "gives": "EXACT",
+      "note": "to exact is to demand, as in exacting payment"
+     },
+     {
+      "clueFragment": "loyalty",
+      "gives": "LY",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXACT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "An insistence on total, extreme loyalty.",
+     "definitionFit": "Exactly and absolutely are both emphatic replies of complete agreement, as in 'Absolutely!'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   },
   {
    "number": 21,
@@ -405,7 +1677,64 @@
     "text": "Heading off and travelling #amazed",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "amazed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading off",
+      "for": "deletion",
+      "note": "with its heading off, a word loses its first letter"
+     },
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling letters move about, so they land in a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "#",
+      "gives": "HASHTAG",
+      "note": "the symbol is called a hashtag on social media"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGHAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHTAG",
+       "gives": "AGHAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A social-media post tagged amazed, sent by someone setting off on a trip.",
+     "walkthrough": "The # symbol looks like a typo or tag; it is the wordplay, read as its name. Drop the H, then rearrange.",
+     "definitionFit": "Aghast means filled with shock or horror, a strong form of being amazed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1748,81 @@
     "text": "Grouses about window finally breaking, putting a thousand on estimate",
     "enumeration": "9"
    },
-   "solution": "GUESSWORK"
+   "solution": "GUESSWORK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GUESSWORK",
+    "definitions": [
+     {
+      "text": "estimate",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word it qualifies"
+     },
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "breaking smashes the order of the letters so they are rebuilt"
+     },
+     {
+      "text": "putting",
+      "for": "charade",
+      "note": "putting something on a piece adds it at the end in a down-the-page sense of placing"
+     }
+    ],
+    "linkWords": [
+     "about",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grouses",
+      "gives": "GROUSES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "window",
+      "gives": "W",
+      "select": "last",
+      "note": "the final letter of window"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "K",
+      "note": "K stands for a thousand, from kilo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUESSWOR",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GROUSESW",
+       "gives": "GUESSWOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moans about a broken window, then adds a thousand pounds to the repair estimate.",
+     "definitionFit": "Guesswork is reckoning without exact facts, which is what an estimate is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grouses"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1836,43 @@
     "text": "Locates reported tourist attractions",
     "enumeration": "5"
    },
-   "solution": "SITES"
+   "solution": "SITES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SITES",
+    "definitions": [
+     {
+      "text": "Locates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken aloud, so the answer sounds like the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tourist attractions",
+      "gives": "SITES",
+      "soundsLike": "SIGHTS",
+      "note": "sights are places tourists visit"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone finds well-known tourist spots.",
+     "definitionFit": "To site something is to place or position it, which is what locates means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Locates"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1886,42 @@
     "text": "Home game includes last in a series",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "last in a series",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "the phrase includes the solution, carried whole inside its run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home game",
+      "gives": "OMEGA",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A home fixture that is the final match of a run.",
+     "definitionFit": "Omega is the final letter of the Greek alphabet, hence the end or last of a sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 25,
@@ -461,7 +1935,71 @@
     "text": "Equal odds in final game against English partners",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "Equal odds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final",
+      "for": "letter_selection",
+      "note": "final points to the last letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of game"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V is versus, against"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "abbreviation for English"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "NS",
+      "note": "North and South are partners in bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "V",
+      "E",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker gives even odds for the last match between two English sides.",
+     "walkthrough": "'Final game' sounds like a cup final; it gives only the last letter of game.",
+     "definitionFit": "Evens is the betting price where the stake wins an equal amount, odds of one to one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 26,
@@ -475,7 +2013,49 @@
     "text": "Seaman's forbidden in the vicinity",
     "enumeration": "5"
    },
-   "solution": "ABOUT"
+   "solution": "ABOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOUT",
+    "definitions": [
+     {
+      "text": "in the vicinity",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaman",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "forbidden",
+      "gives": "OUT",
+      "note": "out means not allowed, as in 'that is out'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is barred from being anywhere nearby.",
+     "definitionFit": "About, as in 'there are wolves about', means somewhere close by, nearby or around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forbidden"
+    }
+   }
   },
   {
    "number": 27,
@@ -489,7 +2069,63 @@
     "text": "Most intelligent rodent without hesitation in desert",
     "enumeration": "9"
    },
-   "solution": "SHREWDEST"
+   "solution": "SHREWDEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SHREWDEST",
+    "definitions": [
+     {
+      "text": "Most intelligent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without tells us to remove a piece from the word it governs"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rodent",
+      "gives": "SHREW",
+      "note": "the shrew is a small mammal often loosely called a rodent"
+     },
+     {
+      "clueFragment": "desert",
+      "gives": "DESERT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHREW",
+      "DEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The cleverest small creature, which never hesitates in the desert.",
+     "walkthrough": "'In' joins the shrew to the shortened desert, which loses ER.",
+     "definitionFit": "Shrewd means sharp and astute, so the superlative is a synonym of most intelligent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 28,
@@ -503,7 +2139,53 @@
     "text": "Tortured senator for disloyalty",
     "enumeration": "7"
    },
-   "solution": "TREASON"
+   "solution": "TREASON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREASON",
+    "definitions": [
+     {
+      "text": "disloyalty",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tortured",
+      "for": "anagram",
+      "note": "something tortured is twisted out of shape, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senator",
+      "gives": "SENATOR",
+      "note": "all seven letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENATOR",
+       "gives": "TREASON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician tortured for betraying the state.",
+     "definitionFit": "Treason is betrayal of one's country or ruler, the gravest form of political disloyalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tortured"
+    }
+   }
   },
   {
    "number": 29,
@@ -517,7 +2199,47 @@
     "text": "Producer of milk with thick top",
     "enumeration": "6"
    },
-   "solution": "JERSEY"
+   "solution": "JERSEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JERSEY",
+    "definitions": [
+     {
+      "text": "Producer of milk",
+      "at": 0
+     },
+     {
+      "text": "thick top",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Producer of milk",
+      "note": "first meaning: a breed of dairy cow from the Channel Islands"
+     },
+     {
+      "clueFragment": "thick top",
+      "note": "second meaning: a warm knitted pullover"
+     }
+    ],
+    "explanation": {
+     "surface": "A milk bottle with a creamy layer on top.",
+     "walkthrough": "The surface suggests rich milk with cream on top; a jersey is both a dairy cow and a knitted sweater.",
+     "definitionFit": "Jersey cows are famous for rich milk, and a jersey is a heavy knitted garment worn on the upper body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   }
  ]
 }
