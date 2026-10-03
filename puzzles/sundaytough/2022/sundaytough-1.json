@@ -24,6 +24,9 @@
   "date": "2022-02-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "Wine in cafeteria’s drunk rejecting beer essentially",
     "enumeration": "8"
    },
-   "solution": "FRASCATI"
+   "solution": "FRASCATI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FRASCATI",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters of the word that follows are wanted"
+     },
+     {
+      "text": "rejecting",
+      "for": "deletion",
+      "note": "to reject something is to throw it out, so those letters are taken away from the fodder"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about out of line, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cafeteria’s",
+      "gives": "CAFETERIAS",
+      "note": "the word plus its S, taken as written"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the two central letters of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRASCATI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAFTRIAS",
+       "gives": "FRASCATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a cafe drinks white wine because they have turned down a beer.",
+     "walkthrough": "Remove the two Es from CAFETERIAS and rearrange the remaining eight letters to get FRASCATI.",
+     "definitionFit": "Frascati is a dry white Italian wine made in the hills near Rome, a specific example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +122,72 @@
     "text": "New Orleans, not capital of Louisiana, mind",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "mind",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital of",
+      "for": "letter_selection",
+      "note": "a capital is a head letter, so only the opening letter of the state name is meant"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "saying a letter is not there tells us to leave it out of the city name"
+     },
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "making something new means remaking it, so the remaining letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orleans",
+      "gives": "ORLEANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Louisiana",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of the state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OREANS",
+       "gives": "REASON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note about the city of New Orleans and the state capital of Louisiana, which is not New Orleans.",
+     "walkthrough": "'New Orleans' reads as the city's name, but 'New' is the anagram signal. The capital of Louisiana is indeed Baton Rouge, which helps the surface.",
+     "definitionFit": "Reason as a noun means the faculty of thinking or sanity, as in losing one's reason, which matches mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +201,56 @@
     "text": "Cure fish, covering five",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLVE",
+    "definitions": [
+     {
+      "text": "Cure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a covering goes round something, so the first word wraps the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SOLE",
+      "note": "a sole is a flatfish"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for curing or preserving fish while covering five of them.",
+     "walkthrough": "'Cure fish' suggests salting or smoking; cure is the definition, in the sense of fixing a problem.",
+     "definitionFit": "To cure a problem is to fix it or put it right, and to solve a difficulty is likewise to remedy it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cure"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +264,59 @@
     "text": "Stars with capital supported by attorney",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry a thing supported by another sits on top of it, so the later piece goes underneath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "the capital city of Italy"
+     },
+     {
+      "clueFragment": "attorney",
+      "gives": "DA",
+      "note": "a DA is a district attorney in the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "ROME",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A film star is backed by a lawyer in the capital.",
+     "definitionFit": "Andromeda is a constellation, a named group of stars in the northern sky, and also contains a galaxy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +330,66 @@
     "text": "I’m stupid going topless after masculine giant",
     "enumeration": "7"
    },
-   "solution": "IMMENSE"
+   "solution": "IMMENSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IMMENSE",
+    "definitions": [
+     {
+      "text": "giant",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going topless",
+      "for": "deletion",
+      "note": "going without a top means losing the first letter of the word just before"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another simply follows it in sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written without the apostrophe"
+     },
+     {
+      "clueFragment": "masculine",
+      "gives": "M",
+      "note": "M is the grammatical abbreviation for masculine"
+     },
+     {
+      "clueFragment": "stupid",
+      "gives": "DENSE",
+      "note": "dense means slow-witted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "M",
+      "ENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-confessed fool strips off after a macho giant does.",
+     "definitionFit": "Giant used as an adjective means huge or enormous in size, a straightforward synonym for vast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +403,64 @@
     "text": "Deny about glass having large split",
     "enumeration": "6"
    },
-   "solution": "REFUTE"
+   "solution": "REFUTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REFUTE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split",
+      "for": "deletion",
+      "note": "to split is to leave, so the letter for large departs from the glass word"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "glass",
+      "gives": "FLUTE",
+      "note": "a flute is a tall narrow wine glass"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone denies anything to do with a big glass that has cracked.",
+     "walkthrough": "'Split' looks like it describes a broken glass, but it means the L has left.",
+     "definitionFit": "To refute a claim is to deny it or prove it wrong, so both verbs express rejecting an accusation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +474,56 @@
     "text": "Determined learner dons felt sorry for",
     "enumeration": "5"
    },
-   "solution": "RULED"
+   "solution": "RULED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RULED",
+    "definitions": [
+     {
+      "text": "Determined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don clothing is to put it on, so the outer word is worn around the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt sorry for",
+      "gives": "RUED",
+      "note": "rued means regretted"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, as on a British learner driver's L-plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "L",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A resolute student puts on felt clothing, feeling regretful.",
+     "walkthrough": "'Dons' and 'felt' suggest clothing and university teachers; felt belongs to the phrase felt sorry for.",
+     "definitionFit": "A judge who has ruled has decided or determined the matter officially, giving a verdict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +537,48 @@
     "text": "Fluid weighs down sponges",
     "enumeration": "9"
    },
-   "solution": "FREELOADS"
+   "solution": "FREELOADS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREELOADS",
+    "definitions": [
+     {
+      "text": "sponges",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fluid",
+      "gives": "FREE",
+      "note": "fluid in the sense of loose, not fixed or rigid"
+     },
+     {
+      "clueFragment": "weighs down",
+      "gives": "LOADS",
+      "note": "to load is to burden or weigh down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "LOADS"
+     ]
+    },
+    "explanation": {
+     "surface": "Liquid makes sponges heavy as they soak it up.",
+     "walkthrough": "'Fluid' looks like an anagram signal, and 'sponges' like the bath item; sponges is a verb meaning cadges.",
+     "definitionFit": "Someone who sponges lives off others without paying, which is exactly what a person who freeloads does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sponges"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +592,54 @@
     "text": "Give warning of time with hour consumed",
     "enumeration": "8"
    },
-   "solution": "THREATEN"
+   "solution": "THREATEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THREATEN",
+    "definitions": [
+     {
+      "text": "Give warning of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "HR",
+      "note": "HR is the abbreviation for hour"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "EATEN",
+      "note": "consumed as food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HR",
+      "EATEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone warns that time has been used up along with an hour.",
+     "definitionFit": "Clouds that threaten rain signal or forebode it, so the verb means to be a sign of something coming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +653,45 @@
     "text": "Legendary great was unsurpassed",
     "enumeration": "6"
    },
-   "solution": "FABLED"
+   "solution": "FABLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FABLED",
+    "definitions": [
+     {
+      "text": "Legendary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great",
+      "gives": "FAB",
+      "note": "fab is slang for fabulous or great"
+     },
+     {
+      "clueFragment": "was unsurpassed",
+      "gives": "LED",
+      "note": "someone who led was out in front of everyone else"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAB",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary great sportsman who was never beaten.",
+     "definitionFit": "Something fabled is famous from stories and myths, so it is legendary in both the literal and the praising sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +705,51 @@
     "text": "Reportedly consider plant in earth bearer of fruit",
     "enumeration": "8"
    },
-   "solution": "MULBERRY"
+   "solution": "MULBERRY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MULBERRY",
+    "definitions": [
+     {
+      "text": "bearer of fruit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we want the sound of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consider",
+      "gives": "MUL",
+      "soundsLike": "MULL",
+      "note": "to mull is to think something over"
+     },
+     {
+      "clueFragment": "plant in earth",
+      "gives": "BERRY",
+      "soundsLike": "BURY",
+      "note": "to bury is to put in the ground"
+     }
+    ],
+    "explanation": {
+     "surface": "Gardening advice: think about putting a plant in the ground that will bear fruit.",
+     "walkthrough": "'Plant' looks like the definition, but it belongs to the wordplay; the definition is the last three words.",
+     "definitionFit": "The mulberry is a tree that produces dark edible fruits, so it is literally a bearer of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +763,62 @@
     "text": "Swimmer getting round me, admit disappointment",
     "enumeration": "8"
    },
-   "solution": "COMEDOWN"
+   "solution": "COMEDOWN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COMEDOWN",
+    "definitions": [
+     {
+      "text": "disappointment",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting round",
+      "for": "container",
+      "note": "getting round something means surrounding it, so the swimmer wraps the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swimmer",
+      "gives": "COD",
+      "note": "a cod is a fish"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "admit",
+      "gives": "OWN",
+      "note": "to own up is to admit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ME",
+      "D",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer confesses that overtaking them was a letdown.",
+     "walkthrough": "Swimmer is a crossword stock term for a fish.",
+     "definitionFit": "A comedown is a fall in status or a letdown after high expectations, so it is a disappointment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +832,67 @@
     "text": "Cook runs everything turning bread for many",
     "enumeration": "6"
    },
-   "solution": "DOLLAR"
+   "solution": "DOLLAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DOLLAR",
+    "definitions": [
+     {
+      "text": "bread for many",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so these two words are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook",
+      "gives": "DO",
+      "note": "to do food is to cook it"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "LLAR"
+     ],
+     "reversals": [
+      {
+       "from": "RALL",
+       "to": "LLAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook makes use of everything while toasting bread for a crowd.",
+     "walkthrough": "Bread is slang for money; 'for many' is fair because the dollar is the currency of many countries.",
+     "definitionFit": "Bread is slang for cash, and the dollar is the money used by Americans, Australians and others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +912,52 @@
      }
     ]
    },
-   "solution": "CREMECARAMEL"
+   "solution": "CREMECARAMEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CREME CARAMEL",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not complete",
+      "for": "hidden_word",
+      "note": "we take not the complete words but a run of letters from inside them"
+     },
+     {
+      "text": "reviewed",
+      "for": "reversal",
+      "note": "to review is to look back over, so the run of letters is read backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem, a race Mercedes",
+      "gives": "LEMARACEMERC",
+      "note": "the tail of the first word, then two whole words, then the start of the car name"
+     }
+    ],
+    "explanation": {
+     "surface": "A racing team reviews a problem with its Mercedes, which is described as sweet.",
+     "walkthrough": "Read the letters from problem through Mercedes backwards and CREME CARAMEL appears.",
+     "definitionFit": "Crème caramel is a baked custard with caramel sauce, served as a dessert, which in Britain is often called a sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +971,75 @@
     "text": "Charlie cut up taking in mug’s cracks",
     "enumeration": "9"
    },
-   "solution": "CREVASSES"
+   "solution": "CREVASSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "CREVASSES",
+    "definitions": [
+     {
+      "text": "cracks",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry going up means reading from bottom to top, so this word runs backwards"
+     },
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "SEVER",
+      "note": "to sever is to cut off"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "ASS",
+      "note": "a mug is a fool or dupe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REV",
+      "ASS",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEVER",
+       "to": "REVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie is upset at someone's cracked mug.",
+     "walkthrough": "'Cut up' reads as upset, and mug as a cup; mug is a fool, and the 's simply attaches it.",
+     "definitionFit": "Crevasses are deep cracks or fissures in a glacier, so the plural noun matches cracks exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1053,56 @@
     "text": "Woolly area, manic effects peculiar to Uncle Sam",
     "enumeration": "9"
    },
-   "solution": "AMERICANA"
+   "solution": "AMERICANA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMERICANA",
+    "definitions": [
+     {
+      "text": "effects peculiar to Uncle Sam",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Woolly",
+      "for": "anagram",
+      "note": "woolly means fuzzy and muddled, so the following letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "AREA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "manic",
+      "gives": "MANIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AREA MANIC",
+       "gives": "AMERICANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fuzzy, frantic patch of land with oddities belonging to Uncle Sam.",
+     "walkthrough": "Uncle Sam is the personification of the United States; effects here means possessions.",
+     "definitionFit": "Americana are artefacts and objects characteristic of American culture, things belonging distinctively to the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "effects"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1116,74 @@
     "text": "Notice third of Japanese greet with head slightly lowered",
     "enumeration": "8"
    },
-   "solution": "PERCEIVE"
+   "solution": "PERCEIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "PERCEIVE",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "third of",
+      "for": "letter_selection",
+      "note": "a third of a word here means its letter in position three"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with puts the two parts side by side, one following the other"
+     },
+     {
+      "text": "head slightly lowered",
+      "for": "anagram",
+      "note": "the leading letter drops down one place, a small rearrangement of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese",
+      "gives": "P",
+      "select": 3,
+      "note": "the third letter of the word"
+     },
+     {
+      "clueFragment": "greet",
+      "gives": "RECEIVE",
+      "note": "to receive guests is to greet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ERCEIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RECEIVE",
+       "gives": "ERCEIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Etiquette advice: in Japan, greet people with a slight bow of the head.",
+     "walkthrough": "The bow of the surface becomes the instruction: move the first letter of RECEIVE down one place to give ERCEIVE.",
+     "definitionFit": "To notice something is to become aware of it through the senses, which is what perceiving means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lowered"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1197,64 @@
     "text": "Patron‘s complaint about new player",
     "enumeration": "12"
    },
-   "solution": "BENEFACTRESS"
+   "solution": "BENEFACTRESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BENEFACTRESS",
+    "definitions": [
+     {
+      "text": "Patron",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the complaint surrounds the next abbreviation"
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complaint",
+      "gives": "BEEF",
+      "note": "a beef is a grievance, informally"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "player",
+      "gives": "ACTRESS",
+      "note": "a player in a theatre is an actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "N",
+      "EF",
+      "ACTRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre patron grumbles about a newly cast actor.",
+     "definitionFit": "A benefactress is a woman who gives money or support, a sponsor, which is what a patron does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1268,62 @@
     "text": "One advising better way to stop extreme monarch",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "One advising better",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper plugs a gap, so this piece is pushed into the middle of the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extreme",
+      "gives": "TIP",
+      "note": "the tip is the extreme end of something"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, Queen Elizabeth"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIP",
+      "ST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An adviser suggests a better way to halt a tyrannical king.",
+     "walkthrough": "'Better' reads as improved, but here it means a person who bets.",
+     "definitionFit": "A tipster gives racing or betting tips to gamblers, so is someone who advises those placing bets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1337,48 @@
     "text": "Aluminium provides protection to warning devices",
     "enumeration": "6"
    },
-   "solution": "ALARMS"
+   "solution": "ALARMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALARMS",
+    "definitions": [
+     {
+      "text": "warning devices",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aluminium",
+      "gives": "AL",
+      "note": "Al is the chemical symbol for aluminium"
+     },
+     {
+      "clueFragment": "provides protection",
+      "gives": "ARMS",
+      "note": "to arm someone is to equip them with weapons for protection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "ARMS"
+     ]
+    },
+    "explanation": {
+     "surface": "Aluminium casing shields warning devices.",
+     "definitionFit": "Alarms are bells, sirens or buzzers that sound to alert people to danger, so they are devices that warn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1392,56 @@
     "text": "Start to shuffle game pieces",
     "enumeration": "6"
    },
-   "solution": "SCRAPS"
+   "solution": "SCRAPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRAPS",
+    "definitions": [
+     {
+      "text": "pieces",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shuffle",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "CRAPS",
+      "note": "craps is a dice game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRAPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Begin a game by shuffling the counters.",
+     "walkthrough": "'Shuffle' looks like an anagram signal, but only its first letter is used.",
+     "definitionFit": "Scraps are small leftover bits or fragments of something, so the plural noun matches pieces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shuffle"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1455,54 @@
     "text": "Enclosure for animal houses belonging to sentimental person",
     "enumeration": "5"
    },
-   "solution": "SOFTY"
+   "solution": "SOFTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOFTY",
+    "definitions": [
+     {
+      "text": "sentimental person",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "a house holds its occupants within, so the enclosure goes round the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enclosure for animal",
+      "gives": "STY",
+      "note": "a sty is a pen for pigs"
+     },
+     {
+      "clueFragment": "belonging to",
+      "gives": "OF",
+      "note": "of expresses possession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OF",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pen for an animal is home to a soft-hearted owner's pet.",
+     "definitionFit": "A softy is a soft-hearted, easily moved person, someone tender and emotional rather than tough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1516,61 @@
     "text": "Clerical errors, at first, overlooked by playwright",
     "enumeration": "8"
    },
-   "solution": "PRIESTLY"
+   "solution": "PRIESTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PRIESTLY",
+    "definitions": [
+     {
+      "text": "Clerical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     },
+     {
+      "text": "overlooked by",
+      "for": "deletion",
+      "note": "something overlooked is missed out, so the playwright's name loses that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "errors",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "playwright",
+      "gives": "PRIESTLEY",
+      "note": "J. B. Priestley wrote An Inspector Calls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIESTLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright misses some typing errors in his script.",
+     "walkthrough": "J. B. Priestley was an English playwright; dropping the E of his name gives the adjective.",
+     "definitionFit": "Priestly describes what relates to priests or clergy, so it is a synonym for clerical in the church sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clerical"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1584,76 @@
     "text": "Steve, forgetting woman, with lifted toilet seat",
     "enumeration": "5"
    },
-   "solution": "STOOL"
+   "solution": "STOOL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "STOOL",
+    "definitions": [
+     {
+      "text": "seat",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgetting",
+      "for": "deletion",
+      "note": "forgetting something leaves it out, so the woman is dropped from the name"
+     },
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry lifting a word turns it to read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steve",
+      "gives": "STEVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "EVE",
+      "note": "Eve, the first woman"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "loo is British slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOO",
+       "to": "OOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steve, ignoring his wife's wishes, has left the toilet seat up.",
+     "walkthrough": "'Toilet seat' reads as one thing; toilet belongs to the wordplay and seat is the definition.",
+     "definitionFit": "A stool is a simple seat without a back or arms, a particular kind of seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1673,67 @@
      }
     ]
    },
-   "solution": "HISSYFIT"
+   "solution": "HISSYFIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HISSY FIT",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests scattered about, so these letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shy",
+      "gives": "SHY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "FIT",
+      "note": "parts that mate with each other fit together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HISSY",
+      "FIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISSHY",
+       "gives": "HISSY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet animal is timid around its partner.",
+     "walkthrough": "'Pet' looks like an animal, but it is the old word for a sulk or bad temper.",
+     "definitionFit": "A pet in older usage is a fit of sulking or peevishness, and a hissy fit is a tantrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1747,46 @@
     "text": "A provision of meals in craft",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "in craft",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "provision of meals",
+      "gives": "BOARD",
+      "note": "board as in full board, meals provided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Meals are served on a ship or plane.",
+     "definitionFit": "Being aboard means being on or inside a ship, plane or other vessel, which is what in craft describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1800,59 @@
     "text": "Floury sandwiches small and miserable",
     "enumeration": "6"
    },
-   "solution": "MEASLY"
+   "solution": "MEASLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEASLY",
+    "definitions": [
+     {
+      "text": "miserable",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich has bread on both sides of a filling, so the first word encloses the next"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Floury",
+      "gives": "MEALY",
+      "note": "mealy means powdery like flour"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEA",
+      "S",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Floury sandwiches that are small and sad, as at a poor buffet.",
+     "walkthrough": "'Sandwiches' reads as food, but it is a verb meaning encloses.",
+     "definitionFit": "Measly means paltry or contemptibly small, and miserable can mean pitifully meagre, as in a miserable tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1866,70 @@
     "text": "Parts containing plug, lead of some unsuitable for cars",
     "enumeration": "8"
    },
-   "solution": "ROADLESS"
+   "solution": "ROADLESS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROADLESS",
+    "definitions": [
+     {
+      "text": "unsuitable for cars",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the first word goes round the next"
+     },
+     {
+      "text": "lead of",
+      "for": "letter_selection",
+      "note": "the lead of a word is its front, so only its first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parts",
+      "gives": "ROLES",
+      "note": "parts played by actors"
+     },
+     {
+      "clueFragment": "plug",
+      "gives": "AD",
+      "note": "a plug is a piece of publicity, an advertisement"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AD",
+      "LES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Car parts with a plug and lead, some of them unfit for cars.",
+     "walkthrough": "'Plug' and 'lead' suggest electrical car parts; plug is an advertisement and lead means first letter.",
+     "definitionFit": "Roadless country has no roads at all, so there is nowhere motor vehicles could be driven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plug"
+    }
+   }
   }
  ]
 }
