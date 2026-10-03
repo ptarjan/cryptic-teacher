@@ -32,7 +32,9 @@ for e in base["entries"]:
     for c in cells(e):
         covered[c] = covered.get(c, 0) + 1
 # A model answer with a cell no other light crosses, and one with a checked cell.
-model = [e for e in base["entries"] if entry_id(e) not in printed and not e.get("group")]
+done = base["solutions"].get("reopened") or {}
+model = [e for e in base["entries"] if entry_id(e) not in printed and not e.get("group")
+         and e.get("solution") and entry_id(e) not in done]
 free = next((e, i) for e in model for i, c in enumerate(cells(e)) if covered[c] == 1)
 held = next((e, i) for e in model for i, c in enumerate(cells(e)) if covered[c] > 1)
 
@@ -118,7 +120,7 @@ check("a null model answer is reopenable, a null printed one is not", R.reopenab
 again = R.reopen(copy.deepcopy(ran), [eid])
 check("reopening blanks it and records what it was",
       "solution" not in next(x for x in again["entries"] if entry_id(x) == eid)
-      and again["solutions"]["reopened"] == {eid: right})
+      and again["solutions"]["reopened"] == {**done, eid: right})
 # The burn reopens the committed file, the run's annotations discarded.
 bare = copy.deepcopy(again)
 for x in bare["entries"]:
