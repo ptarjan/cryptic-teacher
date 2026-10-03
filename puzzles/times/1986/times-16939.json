@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "28 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,7 +48,43 @@
      }
     ]
    },
-   "solution": "OLDWIVESTALE"
+   "solution": "OLDWIVESTALE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD WIVES TALE",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     },
+     {
+      "text": "tall story",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel",
+      "note": "first meaning: Arnold Bennett's 1908 novel about two sisters in the Potteries"
+     },
+     {
+      "clueFragment": "tall story",
+      "note": "second meaning: a piece of folklore or superstition passed on without evidence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Novel' looks like an adjective describing the story, but it is a definition in its own right: the title of a book by Arnold Bennett.",
+     "definitionFit": "The phrase names Bennett's novel and is also the idiom for an unfounded traditional belief, which is a kind of tall story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 1,
@@ -59,7 +98,57 @@
     "text": "Offer too much for love -- a word that is the same in Latin",
     "enumeration": "7"
    },
-   "solution": "OVERBID"
+   "solution": "OVERBID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERBID",
+    "definitions": [
+     {
+      "text": "Offer too much",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis scoring, which looks like the letter O"
+     },
+     {
+      "clueFragment": "a word",
+      "gives": "VERB",
+      "note": "a verb is a part of speech, and verbum is Latin for a word"
+     },
+     {
+      "clueFragment": "the same in Latin",
+      "gives": "ID",
+      "note": "id. abbreviates the Latin idem, meaning the same"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERB",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover pays over the odds, and the setter muses on a word that is identical in Latin.",
+     "walkthrough": "ID is the scholarly abbreviation of idem, used in footnotes to mean the same source again.",
+     "definitionFit": "To overbid is to make a bid higher than the thing is worth, at auction or in cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +162,51 @@
     "text": "Resident has 500 boots",
     "enumeration": "7"
    },
-   "solution": "DWELLER"
+   "solution": "DWELLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DWELLER",
+    "definitions": [
+     {
+      "text": "Resident",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "boots",
+      "gives": "WELLER",
+      "note": "Sam Weller is the boots, the shoe-cleaning servant, at the White Hart inn in Dickens's Pickwick Papers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living here owns five hundred pairs of footwear.",
+     "walkthrough": "'Boots' looks like footwear but is a job title: an inn's boots cleaned guests' shoes, and Dickens's most famous boots is Sam Weller.",
+     "definitionFit": "A dweller is someone who lives in a place, so a resident of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boots"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +220,65 @@
     "text": "Bar could be in credit by end of account",
     "enumeration": "9"
    },
-   "solution": "INTERDICT"
+   "solution": "INTERDICT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INTERDICT",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of points to the final letter of the word that follows"
+     },
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests the letters might turn into something else if rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in credit",
+      "gives": "INCREDIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of account"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCREDIT T",
+       "gives": "INTERDICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A banking picture: the balance is positive by the time the statement closes.",
+     "definitionFit": "To interdict is to forbid or prohibit, which is one sense of to bar someone from something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +292,54 @@
     "text": "Rules of conduct of the race not new",
     "enumeration": "5"
    },
-   "solution": "ETHIC"
+   "solution": "ETHIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETHIC",
+    "definitions": [
+     {
+      "text": "Rules of conduct",
+      "at": 0,
+      "note": "plural phrase for a singular noun: an ethic is a set of such rules"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us a letter standing for the following word must be removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the race",
+      "gives": "ETHNIC",
+      "note": "ethnic means relating to a race or people"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETH",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A code of behaviour belonging to a people, nothing modern about it.",
+     "definitionFit": "An ethic is a moral principle or body of principles governing how a person behaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +353,51 @@
     "text": "Stalky &Co., for example, awarded eight lines",
     "enumeration": "7"
    },
-   "solution": "TRIOLET"
+   "solution": "TRIOLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIOLET",
+    "definitions": [
+     {
+      "text": "eight lines",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for example"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stalky &Co.",
+      "gives": "TRIO",
+      "note": "Kipling's Stalky & Co. is about three schoolboy friends, so they make a trio"
+     },
+     {
+      "clueFragment": "awarded",
+      "gives": "LET",
+      "note": "let means allowed or granted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIO",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Kipling's schoolboys are given eight lines as a punishment.",
+     "walkthrough": "Stalky & Co. is Kipling's 1899 book about Stalky, Beetle and M'Turk at boarding school. The eight lines look like a school imposition but are a poem.",
+     "definitionFit": "A triolet is a short French verse form of exactly eight lines with only two rhymes and repeated lines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +417,52 @@
      }
     ]
    },
-   "solution": "LIEDOWN"
+   "solution": "LIEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE DOWN",
+    "definitions": [
+     {
+      "text": "the rest",
+      "at": 28,
+      "note": "noun phrase for a verb phrase: to lie down is to take a rest"
+     }
+    ],
+    "linkWords": [
+     "Then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Told an untruth",
+      "gives": "LIED",
+      "note": "lied is the past tense meaning told an untruth"
+     },
+     {
+      "clueFragment": "admit",
+      "gives": "OWN",
+      "note": "to own (up to) something is to admit it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIED",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a fib and is then urged to confess everything else.",
+     "walkthrough": "'The rest' reads as the remainder of the confession, but it means a period of rest.",
+     "definitionFit": "Taking a lie-down is having a short rest, typically on a bed or sofa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +476,50 @@
     "text": "Parry on demo has to retrace his steps",
     "enumeration": "12"
    },
-   "solution": "COUNTERMARCH"
+   "solution": "COUNTERMARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUNTERMARCH",
+    "definitions": [
+     {
+      "text": "retrace his steps",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "on",
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parry",
+      "gives": "COUNTER",
+      "note": "to counter a blow is to parry it"
+     },
+     {
+      "clueFragment": "demo",
+      "gives": "MARCH",
+      "note": "a demonstration is often a protest march"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTER",
+      "MARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A fencer's parry during a protest forces him to back off.",
+     "definitionFit": "A countermarch is a military manoeuvre in which a column turns and marches back the way it came."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parry"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +533,56 @@
     "text": "Everyone is wearing plain stuff",
     "enumeration": "7"
    },
-   "solution": "OVEREAT"
+   "solution": "OVEREAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVEREAT",
+    "definitions": [
+     {
+      "text": "stuff",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is wearing",
+      "for": "container",
+      "note": "something being worn sits inside its clothing, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain",
+      "gives": "OVERT",
+      "note": "overt means plain to see, open"
+     },
+     {
+      "clueFragment": "Everyone",
+      "gives": "EA",
+      "note": "ea. abbreviates each, which here stands for everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "EA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody is dressed in simple material.",
+     "walkthrough": "'Stuff' looks like a noun meaning fabric, which suits the clothing picture, but it is a verb.",
+     "definitionFit": "To stuff oneself is to eat far too much, which is exactly what overeating means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +596,39 @@
     "text": "She is an Official Receiver",
     "enumeration": "7"
    },
-   "solution": "HEIRESS"
+   "solution": "HEIRESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEIRESS",
+    "definitions": [
+     {
+      "text": "She is an Official Receiver",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She is an Official Receiver",
+      "note": "surface reading: a woman holds the government post that winds up bankrupt estates"
+     },
+     {
+      "clueFragment": "Official Receiver",
+      "note": "setter's reading: a woman who is legally entitled to receive an estate when someone dies"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Official Receiver is a real British post administering bankruptcies; here it simply means a woman officially in line to receive property.",
+     "definitionFit": "A woman who will legally inherit property is the person officially designated to receive it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Receiver"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +648,39 @@
      }
     ]
    },
-   "solution": "SYDNEYCARTON"
+   "solution": "SYDNEYCARTON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SYDNEY CARTON",
+    "definitions": [
+     {
+      "text": "Dickensian who did his best at the end",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dickensian who did his best at the end",
+      "note": "surface reading: some Dickens character who tried hard as things finished"
+     },
+     {
+      "clueFragment": "did his best at the end",
+      "note": "setter's reading: the hero of A Tale of Two Cities who goes to the guillotine saying it is a far, far better thing that he does than he has ever done"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue alludes to the closing line of A Tale of Two Cities, where the dissolute lawyer redeems himself by dying in another man's place.",
+     "definitionFit": "The character's famous last words claim his sacrifice is the best deed of his life, done at its very end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +694,66 @@
     "text": "Swindler's impressive capture of bishop with rook",
     "enumeration": "7"
    },
-   "solution": "NOBBLER"
+   "solution": "NOBBLER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NOBBLER",
+    "definitions": [
+     {
+      "text": "Swindler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capture of",
+      "for": "container",
+      "note": "a capture holds its prize inside, so the next piece is taken into the word before"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impressive",
+      "gives": "NOBLE",
+      "note": "noble means grand or impressive"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "B",
+      "BLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess move: a fine capture of a bishop using the rook.",
+     "walkthrough": "To nobble is British slang for to cheat, or to tamper with a racehorse or bribe a juror.",
+     "definitionFit": "A nobbler is one who nobbles, that is cheats or tampers dishonestly, so a swindler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +767,49 @@
     "text": "Cold oil can become gluey",
     "enumeration": "7"
    },
-   "solution": "COLLOID"
+   "solution": "COLLOID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLLOID",
+    "definitions": [
+     {
+      "text": "gluey",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can become",
+      "for": "anagram",
+      "note": "can become says these letters are able to turn into a new word when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold oil",
+      "gives": "COLDOIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COLDOIL",
+       "gives": "COLLOID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chilled oil thickens into something sticky.",
+     "definitionFit": "As an adjective the word means glue-like or gelatinous; its root is the Greek kolla, glue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +823,42 @@
     "text": "By the sound of it, a mountain duck",
     "enumeration": "5"
    },
-   "solution": "EIDER"
+   "solution": "EIDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EIDER",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "the phrase asks us to judge by hearing, so we want a word pronounced like the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mountain",
+      "gives": "EIDER",
+      "soundsLike": "IDA",
+      "note": "Mount Ida is a mountain in Crete, and another near Troy"
+     }
+    ],
+    "explanation": {
+     "surface": "A duck that, from its call, seems to live on a peak.",
+     "definitionFit": "The eider is a large sea duck whose soft down is used to fill quilts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +872,66 @@
     "text": "I'm going to change about 39 books -- it's a weakness",
     "enumeration": "9"
    },
-   "solution": "IMPOTENCE"
+   "solution": "IMPOTENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMPOTENCE",
+    "definitions": [
+     {
+      "text": "weakness",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps round the next"
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "PENCE",
+      "note": "pence are small coins, loose change"
+     },
+     {
+      "clueFragment": "39 books",
+      "gives": "OT",
+      "note": "the Old Testament has 39 books in the Protestant canon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "OT",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to swap roughly 39 volumes, then confesses a failing.",
+     "walkthrough": "'Change' looks like a verb but means coins, and 'about' looks like approximately but is the wrapping signal.",
+     "definitionFit": "Impotence is powerlessness or lack of strength, so a weakness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +945,49 @@
     "text": "Long to have one or another fruit",
     "enumeration": "9"
    },
-   "solution": "PINEAPPLE"
+   "solution": "PINEAPPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINEAPPLE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to have one or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long",
+      "gives": "PINE",
+      "note": "to pine for something is to long for it"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "APPLE",
+      "note": "another fruit: the apple, with the closing word doing double duty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINE",
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craves a single piece of fruit, or else a different kind.",
+     "definitionFit": "The pineapple is a tropical plant whose large juicy fruit has a spiky skin and leafy crown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1001,41 @@
     "text": "The cocktail island",
     "enumeration": "9"
    },
-   "solution": "MANHATTAN"
+   "solution": "MANHATTAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANHATTAN",
+    "definitions": [
+     {
+      "text": "The cocktail",
+      "at": 0
+     },
+     {
+      "text": "island",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The cocktail",
+      "note": "first meaning: a drink of whiskey, sweet vermouth and bitters"
+     },
+     {
+      "clueFragment": "island",
+      "note": "second meaning: the island at the heart of New York City"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a bar on an island; the two words name the same thing in different senses.",
+     "definitionFit": "The drink is named after the New York borough, which occupies an island between the Hudson and East rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1049,46 @@
     "text": "A born idiot - that's a certainty",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "A born idiot",
+      "at": 0
+     },
+     {
+      "text": "a certainty",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A born idiot",
+      "note": "first meaning: an old term for a person simple-minded from birth"
+     },
+     {
+      "clueFragment": "a certainty",
+      "note": "second meaning: something sure to succeed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is declared a fool from birth, beyond any doubt.",
+     "definitionFit": "Archaically a natural was a person of low intelligence from birth; colloquially a natural is a sure thing or born winner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "certainty"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1102,69 @@
     "text": "A very full volume torn to pieces - what an insult!",
     "enumeration": "7"
    },
-   "solution": "AFFRONT"
+   "solution": "AFFRONT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AFFRONT",
+    "definitions": [
+     {
+      "text": "what an insult!",
+      "at": 36,
+      "note": "the exclamation stands for the noun insult"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pieces",
+      "for": "anagram",
+      "note": "something in pieces has been broken up, so its letters are reassembled in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very full volume",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical marking for very loud"
+     },
+     {
+      "clueFragment": "torn",
+      "gives": "TORN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FF",
+      "RONT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORN",
+       "gives": "RONT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge tome has been ripped apart, and the owner is outraged.",
+     "walkthrough": "'Volume' looks like a book, which suits the tearing, but here it means loudness.",
+     "definitionFit": "An affront is a deliberate insult or slight to someone's dignity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1178,50 @@
     "text": "Continent as detailed in poetry",
     "enumeration": "5"
    },
-   "solution": "AFRIC"
+   "solution": "AFRIC",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion"
+    ],
+    "answer": "AFRIC",
+    "definitions": [
+     {
+      "text": "Continent as detailed in poetry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "read as de-tailed, it says the word loses its tail, its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continent",
+      "gives": "AFRICA",
+      "note": "a continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFRIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A continent as it is described in verse.",
+     "walkthrough": "'Detailed' reads as described minutely, but split it as de-tailed. Poets such as Milton shorten the name to fit the metre.",
+     "definitionFit": "Afric is the archaic poetic form of the continent's name, found in older English verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1235,39 @@
     "text": "The sort of place where holidaymakers board",
     "enumeration": "7"
    },
-   "solution": "AIRPORT"
+   "solution": "AIRPORT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AIRPORT",
+    "definitions": [
+     {
+      "text": "The sort of place where holidaymakers board",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The sort of place where holidaymakers board",
+      "note": "surface reading: a guest house or resort where tourists take board and lodging"
+     },
+     {
+      "clueFragment": "board",
+      "note": "setter's reading: board means get on, as passengers do a plane"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Board' suggests board and lodging at a seaside boarding house; it means climbing aboard a flight.",
+     "definitionFit": "Travellers leaving on holiday get on their planes at this kind of terminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1281,48 @@
     "text": "The wine served up in Jordan is terrible",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "The wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue served up means brought upwards, so the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jordan is terrible",
+      "gives": "ANISTER",
+      "note": "the run of letters spanning these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "The wine offered in Jordan is awful.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1336,70 @@
     "text": "Volunteers in the Air Force get one a drink",
     "enumeration": "7"
    },
-   "solution": "RATAFIA"
+   "solution": "RATAFIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RATAFIA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Air Force",
+      "gives": "RAF",
+      "note": "the Royal Air Force"
+     },
+     {
+      "clueFragment": "Volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "TA",
+      "F",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Reservists serving with the RAF buy someone a drink.",
+     "walkthrough": "TA is the Territorial Army, Britain's part-time volunteer reserve.",
+     "definitionFit": "Ratafia is a sweet liqueur flavoured with almonds or fruit kernels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1413,62 @@
     "text": "Country where the bread rises miraculously",
     "enumeration": "5"
    },
-   "solution": "ANNAM"
+   "solution": "ANNAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ANNAM",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rises",
+      "for": "reversal",
+      "note": "in a down clue rising means going upwards, so the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bread",
+      "gives": "MANNA",
+      "note": "the bread that fell from heaven for the Israelites"
+     },
+     {
+      "clueFragment": "miraculously",
+      "note": "surface padding that hints at the heavenly bread of Exodus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNAM"
+     ],
+     "reversals": [
+      {
+       "from": "MANNA",
+       "to": "ANNAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A land where loaves rise as if by a miracle.",
+     "walkthrough": "'Rises' suggests dough rising in the oven; it is the upward reading. 'Miraculously' only points to the heavenly bread of Exodus.",
+     "definitionFit": "Annam was a historic kingdom and later French protectorate forming central Vietnam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rises"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1482,65 @@
     "text": "Having no Home Guard., Harrogate improvised this gas-charger",
     "enumeration": "7"
    },
-   "solution": "AERATOR"
+   "solution": "AERATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AERATOR",
+    "definitions": [
+     {
+      "text": "gas-charger",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having no",
+      "for": "deletion",
+      "note": "having no says some letters are taken away"
+     },
+     {
+      "text": "improvised",
+      "for": "anagram",
+      "note": "something improvised is made up on the spot, so the letters are thrown together afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harrogate",
+      "gives": "HARROGATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Home Guard",
+      "gives": "HG",
+      "note": "HG abbreviates the Home Guard, Britain's wartime volunteer force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AERATOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARROATE",
+       "gives": "AERATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Without its wartime defenders, the Yorkshire spa town knocked up a gadget for fizzy drinks.",
+     "walkthrough": "Harrogate is a spa town in North Yorkshire.",
+     "definitionFit": "An aerator charges a liquid with air or gas, as in making carbonated water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guard"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1554,57 @@
     "text": "Maritime missile is nothing to rabbit on about",
     "enumeration": "7"
    },
-   "solution": "HARPOON"
+   "solution": "HARPOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARPOON",
+    "definitions": [
+     {
+      "text": "Maritime missile",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabbit",
+      "gives": "HARP",
+      "note": "to rabbit is British slang for chatter on, and to harp is to go on about something"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like O"
+     },
+     {
+      "clueFragment": "on about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARP",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A sea-going weapon is said to be no big deal.",
+     "walkthrough": "To rabbit (on) is British slang for to talk at tiresome length.",
+     "definitionFit": "A harpoon is a barbed spear thrown or fired at whales and large fish at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1618,55 @@
     "text": "Condition a terrorist is in",
     "enumeration": "7"
    },
-   "solution": "PROVISO"
+   "solution": "PROVISO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVISO",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a terrorist",
+      "gives": "PROVO",
+      "note": "a Provo was a member of the Provisional IRA"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROV",
+      "IS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A report on the state of a captured gunman.",
+     "walkthrough": "'Is in' reads as part of the sentence; 'is' is the inserted piece and 'in' the signal.",
+     "definitionFit": "A proviso is a stipulation or clause attached to an agreement, a condition that must be met."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Condition"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1680,52 @@
     "text": "Ancient lady killer can set Myrtle in a whirl",
     "enumeration": "12"
    },
-   "solution": "CLYTEMNESTRA"
+   "solution": "CLYTEMNESTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLYTEMNESTRA",
+    "definitions": [
+     {
+      "text": "Ancient lady killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a whirl",
+      "for": "anagram",
+      "note": "whirling spins things round, so the letters are tumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can set Myrtle",
+      "gives": "CANSETMYRTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANSETMYRTLE",
+       "gives": "CLYTEMNESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A murderess could send poor Myrtle spinning.",
+     "walkthrough": "'Lady killer' suggests a womaniser, but it means a woman who kills.",
+     "definitionFit": "In Greek myth this queen of Mycenae murdered her husband Agamemnon on his return from Troy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killer"
+    }
+   }
   }
  ]
 }
