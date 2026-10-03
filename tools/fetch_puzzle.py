@@ -3162,6 +3162,14 @@ SOURCE_CLUE_WRONG = {
         "Takea turn for the worse. Screw up the inflation rate",
         "Take a turn for the worse. Screw up the inflation rate",
         "OCR misread: the first definition needs Take a, two words"),
+    ("times-17908", "4-across"): (
+        "No strings attached if be works in gloves?#",
+        "No strings attached if he works in gloves?",
+        "OCR misread: the glove puppeteer needs he, and a stray # after the question mark"),
+    ("times-17908", "19-across"): (
+        "William Cantwar's double in retreat",
+        "William Cantuar's double in retreat",
+        "OCR misread: Cantuar is the Archbishop of Canterbury's signature, as Laud signed"),
 }
 
 
