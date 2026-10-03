@@ -1889,6 +1889,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16347", "1-across"): (
+        "Degree was Ok. though very far from hot",
+        "Degree was 0K, though very far from hot",
+        "OCR misread: the clue turns on 0K, zero kelvin, not the word OK"),
+    ("times-16347", "8-across"): (
+        "Mark .000, meaning just the, opposite",
+        "Mark 1,000, meaning just the opposite",
+        "OCR misread: the wordplay needs 1,000 for M"),
     ("times-16150", "15-down"): (
         "Pale as I ac, proverbially",
         "Pale as 1 ac, proverbially",
