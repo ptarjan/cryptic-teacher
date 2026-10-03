@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17711", "5-down"): (
+        "Bird in battle with small tropical) predators",
+        "Bird in battle with (small tropical) predators",
+        "OCR misread: the opening bracket of the parenthesis was dropped"),
     ("times-17652", "7-down"): (
         "Tied late in a knot, being fastidious",
         "Tied lace in a knot, being fastidious",
