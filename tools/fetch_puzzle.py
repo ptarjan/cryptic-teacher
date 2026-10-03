@@ -2328,6 +2328,10 @@ SOURCE_CLUE_WRONG = {
         "Forces vandalized work of art (6t",
         "Forces vandalized work of art",
         "OCR misread: the trailing (6t is a duplicated enumeration"),
+    ("times-16376", "19-down"): (
+        "Agaric, maybe, confused with 1 5's first reformer",
+        "Alaric, maybe, confused with 15's first reformer",
+        "OCR misread: the anagram needs ALARIC plus D, the first letter of 15 (DEFAULTER)"),
     ("times-16391", "12-across"): (
         "Spirit of brave fellow ) outmanoeuvred",
         "Spirit of brave fellow I outmanoeuvred",
