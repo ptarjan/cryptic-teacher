@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,55 @@
     "text": "Feature covering a series",
     "enumeration": "5"
    },
-   "solution": "CHAIN"
+   "solution": "CHAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAIN",
+    "definitions": [
+     {
+      "text": "series",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "something covering another thing wraps around it, so the feature goes on the outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature",
+      "gives": "CHIN",
+      "note": "a facial feature"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine feature article spanning several instalments of a series.",
+     "walkthrough": "'Feature' reads as an article, but it is a part of the face, which goes around the A.",
+     "definitionFit": "A connected sequence of linked events or shops is called a chain, a close synonym for a series."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +97,70 @@
     "text": "Tories welcomed by peer turned up in seaside resort",
     "enumeration": "8"
    },
-   "solution": "BRIGHTON"
+   "solution": "BRIGHTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BRIGHTON",
+    "definitions": [
+     {
+      "text": "seaside resort",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "being welcomed by someone means being taken in by them, so one piece sits inside the other"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom upwards, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "NOB",
+      "note": "a nob is an aristocrat, a person of high rank"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "RIGHT",
+      "note": "the Tories are the political right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIGHT",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOB",
+       "to": "BON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conservative politicians are greeted by a lord at a seaside town, perhaps for a party conference.",
+     "walkthrough": "Brighton is a resort on England's south coast that often hosts party conferences.",
+     "definitionFit": "Brighton is a well-known English coastal town where holidaymakers visit the beach, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +174,43 @@
     "text": "Quickly advance money for service",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "Quickly advance",
+      "at": 0
+     },
+     {
+      "text": "money for service",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quickly advance",
+      "note": "first meaning: rush forward, as cavalry do"
+     },
+     {
+      "clueFragment": "money for service",
+      "note": "second meaning: the fee asked for work done"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone pays upfront in a hurry for a service.",
+     "definitionFit": "Cavalry rushing forward make an attack by that name, and a price levied for work is the same word as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +224,56 @@
     "text": "Error knocking beer over",
     "enumeration": "4"
    },
-   "solution": "SLIP"
+   "solution": "SLIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLIP",
+    "definitions": [
+     {
+      "text": "Error",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "knocking something over turns it upside down, which in a down clue flips the word end to end"
+     }
+    ],
+    "linkWords": [
+     "knocking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "PILS",
+      "note": "Pils is a pale lager, short for Pilsner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIP"
+     ],
+     "reversals": [
+      {
+       "from": "PILS",
+       "to": "SLIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy mistake: someone knocks over a pint of beer.",
+     "definitionFit": "A small mistake or lapse, as in a slip of the tongue, is a mild mistake of this kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beer"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +287,42 @@
     "text": "Quickly climb salad plant",
     "enumeration": "6"
    },
-   "solution": "ROCKET"
+   "solution": "ROCKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKET",
+    "definitions": [
+     {
+      "text": "Quickly climb",
+      "at": 0
+     },
+     {
+      "text": "salad plant",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quickly climb",
+      "note": "first meaning: shoot upward fast, as prices do"
+     },
+     {
+      "clueFragment": "salad plant",
+      "note": "second meaning: a peppery leaf also called arugula"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener's instruction to shin up a plant used in salads.",
+     "definitionFit": "Prices that soar suddenly are said to do this verb, and the peppery leaf Americans call arugula shares the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climb"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +336,56 @@
     "text": "A strong drink, then pursue battle",
     "enumeration": "9"
    },
-   "solution": "AGINCOURT"
+   "solution": "AGINCOURT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGINCOURT",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strong drink",
+      "gives": "GIN",
+      "note": "a spirit"
+     },
+     {
+      "clueFragment": "pursue",
+      "gives": "COURT",
+      "note": "to court is to woo or seek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIN",
+      "COURT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff drink before going off to chase someone into a fight.",
+     "walkthrough": "'Then' only joins the pieces; the last word is the definition.",
+     "definitionFit": "Agincourt was the 1415 clash where Henry V's English army defeated the French, a famous historic engagement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pursue"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +399,50 @@
     "text": "Former leader of Christian body in a bad way",
     "enumeration": "9"
    },
-   "solution": "CHURCHILL"
+   "solution": "CHURCHILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHURCHILL",
+    "definitions": [
+     {
+      "text": "Former leader",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christian body",
+      "gives": "CHURCH",
+      "note": "a denomination of Christians"
+     },
+     {
+      "clueFragment": "in a bad way",
+      "gives": "ILL",
+      "note": "unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHURCH",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-head of a church organisation who has fallen on hard times.",
+     "walkthrough": "'Former leader' suggests a retired bishop, but it is the British wartime prime minister.",
+     "definitionFit": "Winston Churchill was Britain's prime minister during the Second World War, so he is a past national head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +456,43 @@
     "text": "Approximate location off the fairway",
     "enumeration": "5"
    },
-   "solution": "ROUGH"
+   "solution": "ROUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROUGH",
+    "definitions": [
+     {
+      "text": "Approximate",
+      "at": 0
+     },
+     {
+      "text": "location off the fairway",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Approximate",
+      "note": "first meaning: not exact, as in a ballpark estimate"
+     },
+     {
+      "clueFragment": "location off the fairway",
+      "note": "second meaning: the longer grass bordering a golf hole"
+     }
+    ],
+    "explanation": {
+     "surface": "Giving a vague idea of where a golf ball landed.",
+     "definitionFit": "A guess that is not exact is called this, and golfers use the same word for long grass beside the mown strip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Approximate"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +506,43 @@
     "text": "People driving opera?",
     "enumeration": "6"
    },
-   "solution": "CARMEN"
+   "solution": "CARMEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARMEN",
+    "definitions": [
+     {
+      "text": "People driving",
+      "at": 0
+     },
+     {
+      "text": "opera",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People driving",
+      "note": "first meaning: read as two words, men in cars"
+     },
+     {
+      "clueFragment": "opera",
+      "note": "second meaning: Bizet's opera about a Spanish gypsy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the first sense is a made-up split of the word into car plus men.",
+     "definitionFit": "Bizet's Carmen is one of the most performed works in the operatic repertoire, set in Seville."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "driving"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +556,45 @@
     "text": "Double in Hanover, in Germany",
     "enumeration": "6"
    },
-   "solution": "RINGER"
+   "solution": "RINGER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "letter_selection"
+    ],
+    "answer": "RINGER",
+    "definitions": [
+     {
+      "text": "Double",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spread across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hanover, in Germany",
+      "gives": "RINGER",
+      "select": "middle",
+      "note": "the letters run across the end of the first word, all of the second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A lookalike spotted in a German city.",
+     "walkthrough": "The comma is ignored; the run starts at the last letter of Hanover.",
+     "definitionFit": "A dead ringer is someone who looks exactly like another person, a lookalike or body double."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Double"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +608,57 @@
     "text": "Number of boards where leader gets behind strategy",
     "enumeration": "8"
    },
-   "solution": "PLANKING"
+   "solution": "PLANKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANKING",
+    "definitions": [
+     {
+      "text": "Number of boards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets behind",
+      "for": "charade",
+      "note": "getting behind something means coming after it, so this piece is placed second"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strategy",
+      "gives": "PLAN",
+      "note": "a scheme"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "KING",
+      "note": "a monarch leads a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A board of directors where the chief executive backs the company strategy.",
+     "walkthrough": "'Number of boards' sounds like a company count; it means timber planks taken together.",
+     "definitionFit": "Planking is a collective noun for a quantity of timber planks laid together, as on a deck or floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "boards"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +672,59 @@
     "text": "Pressure someone initially put on lock",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Pressure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of someone"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure applied by a person on a door lock.",
+     "walkthrough": "'Lock' looks like part of a door; it is a curl of hair.",
+     "definitionFit": "Stress is strain or tension, whether physical force on a structure or mental strain on a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +738,44 @@
     "text": "Swimmer gave off nasty odour",
     "enumeration": "5"
    },
-   "solution": "SMELT"
+   "solution": "SMELT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMELT",
+    "definitions": [
+     {
+      "text": "Swimmer",
+      "at": 0
+     },
+     {
+      "text": "gave off nasty odour",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swimmer",
+      "note": "first meaning: a small silvery fish"
+     },
+     {
+      "clueFragment": "gave off nasty odour",
+      "note": "second meaning: the British past tense of a verb for stinking"
+     }
+    ],
+    "explanation": {
+     "surface": "A swimmer who came out of the pool reeking.",
+     "walkthrough": "In crosswords 'swimmer' often means a fish. British English uses this past tense where Americans say smelled.",
+     "definitionFit": "The smelt is a small fish of the salmon family, and the same word is a past tense of a verb meaning to stink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swimmer"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +789,46 @@
     "text": "Canine attached to sheep",
     "enumeration": "6"
    },
-   "solution": "MUTTON"
+   "solution": "MUTTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUTTON",
+    "definitions": [
+     {
+      "text": "sheep",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canine",
+      "gives": "MUTT",
+      "note": "a mongrel dog"
+     },
+     {
+      "clueFragment": "attached to",
+      "gives": "ON",
+      "note": "on can mean fixed to, as with a lid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUTT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog attached to a sheep, perhaps a sheepdog on duty.",
+     "definitionFit": "Mutton is the meat of a mature sheep, so the word stands for the animal as food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attached"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +848,51 @@
      }
     ]
    },
-   "solution": "STAPLEGUN"
+   "solution": "STAPLEGUN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAPLE GUN",
+    "definitions": [
+     {
+      "text": "Fastener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixing",
+      "for": "anagram",
+      "note": "fixing can mean rigging or arranging, so the letters are reorganised"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plugs, neat",
+      "gives": "PLUGSNEAT",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLUGSNEAT",
+       "gives": "STAPLEGUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of delight at a gadget that fastens plugs into place.",
+     "walkthrough": "'Fastener fixing' looks like the description of a tool; 'fixing' is the anagram signal.",
+     "definitionFit": "A staple gun drives wire clips into wood or card to hold things together, a tool for fastening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fixing"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +906,45 @@
     "text": "School finished off, reportedly?",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ETON",
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard or said by others, so the sound of the words matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished off",
+      "gives": "ETON",
+      "soundsLike": "EATEN",
+      "note": "food finished off has been consumed entirely"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that a school has been closed down.",
+     "walkthrough": "Eton is the famous English private boarding school near Windsor.",
+     "definitionFit": "Eton College is a long-established English boarding institution for boys, a well-known example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +958,42 @@
     "text": "Authoritarian back on ship",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Authoritarian",
+      "at": 0
+     },
+     {
+      "text": "back on ship",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authoritarian",
+      "note": "first meaning: strict and severe"
+     },
+     {
+      "clueFragment": "back on ship",
+      "note": "second meaning: the rear part of a vessel"
+     }
+    ],
+    "explanation": {
+     "surface": "A dictator returns aboard a vessel.",
+     "definitionFit": "A strict, severe manner is described by this adjective, and sailors use it for the rear end of a boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1007,54 @@
     "text": "Snack is near to cook",
     "enumeration": "6"
    },
-   "solution": "SARNIE"
+   "solution": "SARNIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SARNIE",
+    "definitions": [
+     {
+      "text": "Snack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cook",
+      "for": "anagram",
+      "note": "to cook can mean to falsify or tamper with, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is near",
+      "gives": "ISNEAR",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISNEAR",
+       "gives": "SARNIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light bite is close by, ready to be made.",
+     "walkthrough": "A sarnie is British slang for a sandwich.",
+     "definitionFit": "A sarnie is informal British English for a sandwich, a light quick meal eaten between proper meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1068,43 @@
     "text": "Acid sweet",
     "enumeration": "4"
    },
-   "solution": "TART"
+   "solution": "TART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TART",
+    "definitions": [
+     {
+      "text": "Acid",
+      "at": 0
+     },
+     {
+      "text": "sweet",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acid",
+      "note": "first meaning: sharp or sour in taste"
+     },
+     {
+      "clueFragment": "sweet",
+      "note": "second meaning: a pastry dessert with a filling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like opposites of flavour; the answer is sour as an adjective and a dessert as a noun.",
+     "definitionFit": "A sharp sour taste is described by this adjective, and a pastry pudding with fruit or jam filling is the noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1118,70 @@
     "text": "Underwear hamster chewed up, including first of lingerie",
     "enumeration": "8"
    },
-   "solution": "THERMALS"
+   "solution": "THERMALS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "THERMALS",
+    "definitions": [
+     {
+      "text": "Underwear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of points to the opening letter of the word that follows"
+     },
+     {
+      "text": "chewed up",
+      "for": "anagram",
+      "note": "something chewed up is mangled out of shape, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "including"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hamster",
+      "gives": "HAMSTER",
+      "note": "taken as written, to be jumbled"
+     },
+     {
+      "clueFragment": "lingerie",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lingerie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THERMALS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAMSTERL",
+       "gives": "THERMALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet hamster has gnawed through a drawer of undies, lingerie included.",
+     "walkthrough": "The added letter joins the pet's letters before the jumble.",
+     "definitionFit": "Thermals are warm long-sleeved vests and long johns worn beneath clothes in cold weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hamster"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1195,52 @@
     "text": "Web user prised off",
     "enumeration": "6"
    },
-   "solution": "SPIDER"
+   "solution": "SPIDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPIDER",
+    "definitions": [
+     {
+      "text": "Web user",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off can mean gone wrong or bad, so the letters are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prised",
+      "gives": "PRISED",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRISED",
+       "gives": "SPIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An internet user has been forcibly removed from something.",
+     "walkthrough": "'Web user' suggests someone online; it is a creature that spins a web.",
+     "definitionFit": "A spider spins silk traps to catch insects, so it is literally an animal that makes use of a web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Web"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1254,59 @@
     "text": "Fuel drops onto middle of fuselage",
     "enumeration": "6"
    },
-   "solution": "DIESEL"
+   "solution": "DIESEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIESEL",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of takes only the central letters of the following word"
+     }
+    ],
+    "linkWords": [
+     "onto"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drops",
+      "gives": "DIES",
+      "note": "drops dead, or dies away"
+     },
+     {
+      "clueFragment": "fuselage",
+      "gives": "EL",
+      "select": "middle",
+      "note": "the central two of the eight letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIES",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Fuel drips onto the centre of an aircraft's body.",
+     "walkthrough": "In a down clue, 'onto' puts the first piece above, so before, the second.",
+     "definitionFit": "Diesel is the heavy oil burnt in compression-ignition engines of lorries and some cars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1320,64 @@
     "text": "Wood where coloured egg rolled over",
     "enumeration": "6"
    },
-   "solution": "TINDER"
+   "solution": "TINDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TINDER",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolled over",
+      "for": "reversal",
+      "note": "something rolled over is turned end to end, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coloured",
+      "gives": "RED",
+      "note": "a colour"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "REDNIT",
+       "to": "TINDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painted Easter egg rolling across the woodland floor.",
+     "walkthrough": "'Coloured egg' looks like an Easter egg, but the two words are separate pieces.",
+     "definitionFit": "Tinder is dry kindling such as wood shavings used to light a fire, so it is wood of a kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coloured"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1391,49 @@
     "text": "Original vessel in US city",
     "enumeration": "6"
    },
-   "solution": "NEWARK"
+   "solution": "NEWARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWARK",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Original",
+      "gives": "NEW",
+      "note": "novel, fresh"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "Noah's boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A first boat arriving at an American port.",
+     "definitionFit": "Newark is a large city in New Jersey, across the river from New York, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Original"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1447,56 @@
     "text": "For a start, sinner isn’t — one of these?",
     "enumeration": "5"
    },
-   "solution": "SAINT"
+   "solution": "SAINT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SAINT",
+    "definitions": [
+     {
+      "text": "For a start, sinner isn’t — one of these?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For a start",
+      "for": "letter_selection",
+      "note": "for a start points to the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sinner",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "AINT",
+      "note": "ain't is informal for isn't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry remark that a sinner is, to begin with, no holy person.",
+     "walkthrough": "The whole clue doubles as the definition: a sinner is by definition not a holy person.",
+     "definitionFit": "A canonised holy person is the opposite of a wrongdoer, so whoever does wrong cannot be counted among them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1510,55 @@
     "text": "Very hot always inside cold-blooded animal",
     "enumeration": "8"
    },
-   "solution": "FEVERISH"
+   "solution": "FEVERISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEVERISH",
+    "definitions": [
+     {
+      "text": "Very hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one piece within the other, which wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold-blooded animal",
+      "gives": "FISH",
+      "note": "fish are cold-blooded"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "for ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EVER",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold-blooded creature that is, oddly, always very hot.",
+     "definitionFit": "Someone running a high temperature with a fever is burning up, so the adjective means hot from illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "always"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1572,42 @@
     "text": "White joint",
     "enumeration": "4"
    },
-   "solution": "HOCK"
+   "solution": "HOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOCK",
+    "definitions": [
+     {
+      "text": "White",
+      "at": 0
+     },
+     {
+      "text": "joint",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "White",
+      "note": "first meaning: a German white wine from the Rhine"
+     },
+     {
+      "clueFragment": "joint",
+      "note": "second meaning: the ankle joint of a horse's hind leg"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hock is the traditional British name for white Rhine wine; 'white' alone stands for a white wine.",
+     "definitionFit": "Rhenish wine is called hock in Britain, and the same word names the ankle-like bend in an animal's hind leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1621,64 @@
     "text": "Flap cut back in marsupial",
     "enumeration": "6"
    },
-   "solution": "WOMBAT"
+   "solution": "WOMBAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WOMBAT",
+    "definitions": [
+     {
+      "text": "marsupial",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the reverse direction, so the letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flap",
+      "gives": "TAB",
+      "note": "a small tab or flap of material"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "MOW",
+      "note": "to mow is to cut grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOM",
+      "BAT"
+     ],
+     "reversals": [
+      {
+       "from": "TABMOW",
+       "to": "WOMBAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slit flap in an animal's pouch.",
+     "walkthrough": "'Flap' looks like a pouch opening; it is a small tag of material.",
+     "definitionFit": "The wombat is a burrowing Australian animal that carries its young in a pouch, an example of a marsupial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flap"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,7 +1692,51 @@
     "text": "Lovely piece of furniture pushed the wrong way",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "hidden_word",
+      "note": "a piece of something is a fragment, so the answer is a small run of letters from the words"
+     },
+     {
+      "text": "the wrong way",
+      "for": "reversal",
+      "note": "going the wrong way means backwards, so the letters must be read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "furniture pushed",
+      "gives": "REPUS",
+      "select": "middle",
+      "note": "the last two letters of the first word and first three of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A lovely chair or table shoved around in the wrong direction.",
+     "walkthrough": "'Piece of furniture' reads as one item; 'piece of' is the signal to look inside the words.",
+     "definitionFit": "Super is an informal adjective of approval meaning excellent or wonderful, a near synonym for lovely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1750,51 @@
     "text": "Slicer: one formed marks on board",
     "enumeration": "9"
    },
-   "solution": "SCORELINE"
+   "solution": "SCORELINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCORELINE",
+    "definitions": [
+     {
+      "text": "marks on board",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "formed",
+      "for": "anagram",
+      "note": "formed means shaped or made up, so the letters are built into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slicer: one",
+      "gives": "SLICERONE",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLICERONE",
+       "gives": "SCORELINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slicing tool that cut grooves into a wooden board.",
+     "walkthrough": "'Marks on board' suggests knife cuts; it means the score shown on a scoreboard.",
+     "definitionFit": "A scoreline is the result of a match as displayed, the points or goals posted on the scoreboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "board"
+    }
+   }
   }
  ]
 }
