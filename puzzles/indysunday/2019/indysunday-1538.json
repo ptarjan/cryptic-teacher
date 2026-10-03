@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "At regular intervals, cook treat, edible pods",
     "enumeration": "4"
    },
-   "solution": "OKRA"
+   "solution": "OKRA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OKRA",
+    "definitions": [
+     {
+      "text": "edible pods",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At regular intervals",
+      "for": "letter_selection",
+      "note": "taking letters at a fixed spacing means every second letter of the following words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cook treat",
+      "gives": "OKRA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OKRA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to cook a treat made from edible pods.",
+     "definitionFit": "Okra is a vegetable consisting of the long green seed pods of a plant eaten cooked, as in gumbo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +101,45 @@
      }
     ]
    },
-   "solution": "ONTHEWHOLE"
+   "solution": "ONTHEWHOLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ON THE WHOLE",
+    "definitions": [
+     {
+      "text": "generally",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to audience",
+      "for": "homophone",
+      "note": "something presented to an audience is heard rather than seen, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How one might describe flag on course",
+      "gives": "ONTHEWHOLE",
+      "soundsLike": "ON THE HOLE",
+      "note": "on a golf course the flag stands in the hole, so it is described as on the hole"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tells listeners in general terms where the golf flag is.",
+     "walkthrough": "The 'course' is a golf course, where a flagstick marks each hole; 'hole' and 'whole' sound identical.",
+     "definitionFit": "The phrase is an idiom meaning taking everything into account, broadly speaking, in most respects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +153,41 @@
     "text": "Disparage summary",
     "enumeration": "7"
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNDOWN",
+    "definitions": [
+     {
+      "text": "Disparage",
+      "at": 0
+     },
+     {
+      "text": "summary",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disparage",
+      "note": "first meaning: to criticise unfairly, a phrasal verb"
+     },
+     {
+      "clueFragment": "summary",
+      "note": "second meaning: a brief account of the main points, as a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb form is written as two words and the noun often as one, but the letters are the same.",
+     "definitionFit": "As a verb it means belittle or criticise; as a noun it means a quick outline of the key facts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +211,84 @@
      }
     ]
    },
-   "solution": "OVERTHETOP"
+   "solution": "OVERTHETOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "OVER-THE-TOP",
+    "definitions": [
+     {
+      "text": "excessive",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a group is at its front, so only the first letter is taken"
+     },
+     {
+      "text": "is misplaced",
+      "for": "anagram",
+      "note": "letters that are misplaced are out of their proper positions and must be rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters wrap round another piece"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obvious",
+      "gives": "OVERT",
+      "note": "overt means open and plainly visible"
+     },
+     {
+      "clueFragment": "hope",
+      "gives": "HOPE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of Tories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "HE",
+      "T",
+      "OP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOPE",
+       "gives": "HEOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political commentator says the Conservative leader's optimism is obviously misplaced and overblown.",
+     "walkthrough": "'Leader of Tories' looks like a party boss in the surface, but it supplies just one letter that sits inside the shuffled word.",
+     "definitionFit": "Over-the-top is an informal phrase for exaggerated or going far beyond what is reasonable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hope"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +302,43 @@
     "text": "Outburst? It's usually observed in front of a court",
     "enumeration": "6"
    },
-   "solution": "VOLLEY"
+   "solution": "VOLLEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VOLLEY",
+    "definitions": [
+     {
+      "text": "Outburst",
+      "at": 0
+     },
+     {
+      "text": "It's usually observed in front of a court",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outburst",
+      "note": "first meaning: a sudden barrage, as of words or shots"
+     },
+     {
+      "clueFragment": "It's usually observed in front of a court",
+      "note": "second meaning: in tennis this shot is typically played near the net, at the front of the court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half reads like a description of a crowd outside a law court, but the court is a tennis court.",
+     "definitionFit": "A volley is a burst of many things at once, such as abuse or gunfire, and also a tennis stroke hit before the ball bounces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +352,51 @@
     "text": "Beer yard brewed - it's full of yeast",
     "enumeration": "8"
    },
-   "solution": "RYEBREAD"
+   "solution": "RYEBREAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RYEBREAD",
+    "definitions": [
+     {
+      "text": "it's full of yeast",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients together, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer yard",
+      "gives": "BEERYARD",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEERYARD",
+       "gives": "RYEBREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beer made in a yard is brewing with plenty of yeast.",
+     "walkthrough": "Brewing beer also uses yeast, so the whole surface stays in the same kitchen.",
+     "definitionFit": "This dark loaf is leavened with yeast, so a description of something packed with yeast fits it cryptically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +410,47 @@
     "text": "Short journey in spring",
     "enumeration": "3"
    },
-   "solution": "HOP"
+   "solution": "HOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOP",
+    "definitions": [
+     {
+      "text": "Short journey",
+      "at": 0
+     },
+     {
+      "text": "spring",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short journey",
+      "note": "first meaning: a brief trip, especially a short flight"
+     },
+     {
+      "clueFragment": "spring",
+      "note": "second meaning: a jump or leap"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone takes a brief trip in springtime.",
+     "walkthrough": "Spring looks like the season, but it is the verb or noun for a leap.",
+     "definitionFit": "The word means both a quick trip somewhere and a small jump on one foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +464,80 @@
     "text": "What post is replaced with no end of fuss as feature by canal?",
     "enumeration": "7"
    },
-   "solution": "TOWPATH"
+   "solution": "TOWPATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TOWPATH",
+    "definitions": [
+     {
+      "text": "feature by canal",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is replaced",
+      "for": "anagram",
+      "note": "letters that are replaced are put back in different positions, so they are rearranged"
+     },
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means lacking, so one letter is struck out of the collection"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the one taken"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "WHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "post",
+      "gives": "POST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fuss",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of fuss, which is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOWPATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHATPOT",
+       "gives": "TOWPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks which signpost was swapped quietly along the canal.",
+     "walkthrough": "WHAT POST loses one S, then the seven letters are rearranged.",
+     "definitionFit": "A towpath is the track running alongside a canal, once used by horses pulling barges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "replaced"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +551,42 @@
     "text": "Nice, perhaps, tip in prospect?",
     "enumeration": "4"
    },
-   "solution": "PORT"
+   "solution": "PORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORT",
+    "definitions": [
+     {
+      "text": "Nice, perhaps",
+      "at": 0
+     },
+     {
+      "text": "tip in prospect",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice, perhaps",
+      "note": "first meaning: Nice is a harbour city on the French Riviera, an example of this"
+     },
+     {
+      "clueFragment": "tip in prospect",
+      "note": "second meaning, read cryptically: the end of a voyage, the destination a ship sees ahead"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nice is the French city, not the adjective; the question mark warns that the second half is a playful description of a ship's destination.",
+     "definitionFit": "Nice is a Mediterranean harbour town, and a harbour is the place a voyage ends, its endpoint coming into view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +600,64 @@
     "text": "Triumphal building, notion originally dismissed by right-winger, senior minister",
     "enumeration": "10"
    },
-   "solution": "ARCHDEACON"
+   "solution": "ARCHDEACON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ARCHDEACON",
+    "definitions": [
+     {
+      "text": "senior minister",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally dismissed",
+      "for": "deletion",
+      "note": "the original part of a word is its opening, and dismissing it sends that first letter away"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Triumphal building",
+      "gives": "ARCH",
+      "note": "a triumphal arch is a monumental structure"
+     },
+     {
+      "clueFragment": "notion",
+      "gives": "IDEA",
+      "note": "a notion is an idea; its first letter goes"
+     },
+     {
+      "clueFragment": "right-winger",
+      "gives": "CON",
+      "note": "short for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "DEA",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand building's concept is rejected by a conservative senior politician.",
+     "walkthrough": "'Minister' suggests government, but here it is a church minister.",
+     "definitionFit": "An archdeacon is a senior Anglican cleric ranking just below a bishop, and clergy are called ministers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +671,59 @@
     "text": "Figure leading exercise mostly in part of plant",
     "enumeration": "7"
    },
-   "solution": "TENDRIL"
+   "solution": "TENDRIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TENDRIL",
+    "definitions": [
+     {
+      "text": "part of plant",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "leading",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure",
+      "gives": "TEN",
+      "note": "a figure is a number"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "DRILL",
+      "note": "a drill is a training exercise; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "DRIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness instructor leads most of a workout inside a greenhouse.",
+     "walkthrough": "'Leading' places the number in front of the exercise.",
+     "definitionFit": "A tendril is the slender coiling shoot a climbing plant uses to grip supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +737,75 @@
     "text": "Give authority to newly created peer, woman ignoring a Nationalist",
     "enumeration": "7"
    },
-   "solution": "EMPOWER"
+   "solution": "EMPOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EMPOWER",
+    "definitions": [
+     {
+      "text": "Give authority to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly created",
+      "for": "anagram",
+      "note": "something newly created is made fresh, so these letters are formed into a new arrangement"
+     },
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring means leaving out, so those letters are not used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "PEER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "WOMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, then removed"
+     },
+     {
+      "clueFragment": "Nationalist",
+      "gives": "N",
+      "note": "N is the abbreviation for Nationalist, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPOWER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEERWOM",
+       "gives": "EMPOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recently ennobled woman is given power while snubbing a nationalist politician.",
+     "walkthrough": "PEER plus WOMAN without A and N leaves seven letters to rearrange.",
+     "definitionFit": "To empower someone is to grant them power or official authority to act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "created"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +819,64 @@
     "text": "Husband has to manage in retreat for a long time",
     "enumeration": "5"
    },
-   "solution": "EPOCH"
+   "solution": "EPOCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EPOCH",
+    "definitions": [
+     {
+      "text": "a long time",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "an army in retreat goes back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "to manage",
+      "gives": "COPE",
+      "note": "to cope is to manage or get by"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPOC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HCOPE",
+       "to": "EPOCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband must get by on a retreat for a lengthy period.",
+     "definitionFit": "An epoch is an era, a lengthy period of history or geological time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +890,74 @@
     "text": "Refined painter, say, in middle of beano is French?",
     "enumeration": "8"
    },
-   "solution": "EUROPEAN"
+   "solution": "EUROPEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EUROPEAN",
+    "definitions": [
+     {
+      "text": "French?",
+      "at": 44,
+      "note": "an example of the answer, flagged by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier pieces sit inside the following letters"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters, leaving out both ends"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refined",
+      "gives": "U",
+      "note": "U means upper-class, so refined"
+     },
+     {
+      "clueFragment": "painter, say",
+      "gives": "ROPE",
+      "note": "a painter is a rope tied to a boat's bow"
+     },
+     {
+      "clueFragment": "beano",
+      "gives": "EAN",
+      "select": "middle",
+      "note": "the three central letters of beano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "U",
+      "ROPE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An elegant artist at a lively party turns out to be French.",
+     "walkthrough": "A painter here is a mooring line, not an artist. A beano is British slang for a party; U for upper-class is a crossword convention.",
+     "definitionFit": "The French are one example of the continent's peoples, which the question mark acknowledges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "painter"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +977,77 @@
      }
     ]
    },
-   "solution": "PEACHMELBA"
+   "solution": "PEACHMELBA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PEACH MELBA",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "a meal that is prepared is put together, so the letters are reworked"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "including something puts it inside, so one letter goes within the others"
+     },
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter comes first, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheap meal",
+      "gives": "CHEAPMEAL",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "broth",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of broth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEACHMEL",
+      "B",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEAPMEAL",
+       "gives": "PEACHMELA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A budget dinner is cooked with soup to start and a pudding to finish.",
+     "walkthrough": "CHEAP MEAL rearranged, with B slipped in before the final A.",
+     "definitionFit": "Peach Melba is a classic sweet course of peaches, raspberry sauce and vanilla ice cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1071,50 @@
      }
     ]
    },
-   "solution": "ENDOFSTORY"
+   "solution": "ENDOFSTORY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "END OF STORY",
+    "definitions": [
+     {
+      "text": "there's no more to say",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is mismanaged",
+      "for": "anagram",
+      "note": "something mismanaged is badly handled and gets jumbled out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food's entry",
+      "gives": "FOODSENTRY",
+      "note": "the ten letters to be rearranged, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FOODSENTRY",
+       "gives": "ENDOFSTORY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant critic complains the food came out badly, and won't discuss it further.",
+     "definitionFit": "The phrase is an idiom used to close a discussion firmly, declaring the matter settled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entry"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1128,43 @@
     "text": "Obstruct growth in deregulated housing",
     "enumeration": "6"
    },
-   "solution": "HINDER"
+   "solution": "HINDER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINDER",
+    "definitions": [
+     {
+      "text": "Obstruct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means holding inside, so the letters sit within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "growth in deregulated",
+      "gives": "HINDER",
+      "note": "the letters run across the end of growth, all of in, and the start of deregulated"
+     }
+    ],
+    "explanation": {
+     "surface": "An economist warns that deregulated housing markets hold back growth.",
+     "walkthrough": "'Housing' looks like the property market, but it is the signal to look inside the words.",
+     "definitionFit": "To hinder is to hamper or impede, getting in the way of progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1178,63 @@
     "text": "Damage a skimpy garment cut in gruelling event",
     "enumeration": "8"
    },
-   "solution": "MARATHON"
+   "solution": "MARATHON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MARATHON",
+    "definitions": [
+     {
+      "text": "gruelling event",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is trimmed short, so the final letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damage",
+      "gives": "MAR",
+      "note": "to mar is to spoil or damage"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "skimpy garment",
+      "gives": "THONG",
+      "note": "a thong is a minimal piece of underwear or swimwear; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "A",
+      "THON"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner's tiny outfit gets ripped during a punishing race.",
+     "definitionFit": "A marathon is a long-distance race of about 26 miles, and by extension any exhausting task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1248,71 @@
     "text": "Candidate with a small point about ME country",
     "enumeration": "8"
    },
-   "solution": "ASPIRANT"
+   "solution": "ASPIRANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPIRANT",
+    "definitions": [
+     {
+      "text": "Candidate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so these letters surround the country"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "PT is the abbreviation for point"
+     },
+     {
+      "clueFragment": "ME country",
+      "gives": "IRAN",
+      "note": "ME is the Middle East, and this is one of its countries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "P",
+      "IRAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate makes a minor point about a Middle Eastern nation.",
+     "walkthrough": "ME is the standard abbreviation for the Middle East; 'about' wraps the abbreviated point round the country.",
+     "definitionFit": "An aspirant is someone who hopes to attain a position, much like an applicant or hopeful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1332,75 @@
      }
     ]
    },
-   "solution": "LYRICIST"
+   "solution": "LYRICIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LYRICIST",
+    "definitions": [
+     {
+      "text": "Musical contributor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "anagram",
+      "note": "in places the one among the letters that are then rearranged"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, as seed is sown, so the letters are thrown into a new order"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so one letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Strictly",
+      "gives": "STRICTLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "single tango",
+      "gives": "T",
+      "note": "tango is T in the phonetic alphabet; only one of the two goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LYRICIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISRICTLY",
+       "gives": "LYRICIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contestant on the televised dance show performs without doing a tango.",
+     "walkthrough": "Strictly Come Dancing is a popular British TV ballroom contest; here its name supplies letters.",
+     "definitionFit": "A lyricist writes the words for songs, contributing to musicals and other compositions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1414,65 @@
     "text": "Pitch up with cards for set of photographers",
     "enumeration": "7"
    },
-   "solution": "RATPACK"
+   "solution": "RATPACK",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RATPACK",
+    "definitions": [
+     {
+      "text": "set of photographers",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pitch",
+      "gives": "TAR",
+      "note": "pitch is a black tarry substance"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "PACK",
+      "note": "a pack is a deck of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "PACK"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets up a tent with a deck of cards for a group of camera people.",
+     "walkthrough": "'Pitch up' suggests arriving or camping; pitch is the tarry substance.",
+     "definitionFit": "The rat pack is a disparaging term for the pack of press photographers who pursue celebrities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pitch"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1486,57 @@
     "text": "Hospital within reach in poor quarter",
     "enumeration": "6"
    },
-   "solution": "GHETTO"
+   "solution": "GHETTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GHETTO",
+    "definitions": [
+     {
+      "text": "poor quarter",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means inside, so one letter sits among the others"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     },
+     {
+      "clueFragment": "reach",
+      "gives": "GETTO",
+      "note": "to reach a place is to get to it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "H",
+      "ETTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital is within reach in a deprived neighbourhood.",
+     "walkthrough": "G, then H, then ETTO.",
+     "definitionFit": "A ghetto is a deprived, crowded district of a city, where a minority group lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1550,64 @@
     "text": "Eastern woman's entering light shade in capital",
     "enumeration": "7"
    },
-   "solution": "TEHERAN"
+   "solution": "TEHERAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TEHERAN",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so these letters are placed in the shade"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "woman's",
+      "gives": "HER",
+      "note": "a woman's possessions are hers"
+     },
+     {
+      "clueFragment": "light shade",
+      "gives": "TAN",
+      "note": "tan is a light brown colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "E",
+      "HER",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An oriental woman steps into a pale shadow in a capital city.",
+     "definitionFit": "Teheran, an older spelling of Tehran, is the capital city of Iran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1621,64 @@
     "text": "Strong material hoisted above second exit",
     "enumeration": "6"
    },
-   "solution": "EGRESS"
+   "solution": "EGRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EGRESS",
+    "definitions": [
+     {
+      "text": "exit",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoisted",
+      "for": "reversal",
+      "note": "in a down clue, something hoisted is lifted upward, so it reads from the bottom"
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong material",
+      "gives": "SERGE",
+      "note": "serge is a hard-wearing twilled fabric"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGRES",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SERGE",
+       "to": "EGRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Durable cloth is hauled up over a backup way out.",
+     "walkthrough": "'Above' places the reversed fabric before S in this down entry.",
+     "definitionFit": "Egress is a formal word for a way out or the act of leaving a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1692,48 @@
     "text": "Substitute with good reputation",
     "enumeration": "8"
    },
-   "solution": "STANDING"
+   "solution": "STANDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDING",
+    "definitions": [
+     {
+      "text": "reputation",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Substitute",
+      "gives": "STANDIN",
+      "note": "a stand-in takes another person's place"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANDIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A replacement player arrives with a fine reputation.",
+     "definitionFit": "Someone's standing is their status or esteem in the eyes of others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1747,51 @@
     "text": "People objectively in cycle showing moral character",
     "enumeration": "5"
    },
-   "solution": "ETHOS"
+   "solution": "ETHOS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ETHOS",
+    "definitions": [
+     {
+      "text": "moral character",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in cycle",
+      "for": "cycling",
+      "note": "a cycle goes round and round, so the last letter moves round to the front"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People objectively",
+      "gives": "THOSE",
+      "note": "as in 'those who wait', a pronoun for people that can serve as an object"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETHOS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fair-minded cyclists show their good character.",
+     "walkthrough": "Move the final E of THOSE round to the start.",
+     "definitionFit": "An ethos is the distinctive spirit and guiding beliefs of a person, group or culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1805,46 @@
     "text": "Social division announced for group of players",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "group of players",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so it is the sound that matters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social division",
+      "gives": "CAST",
+      "soundsLike": "CASTE",
+      "note": "a caste is a hereditary social class"
+     }
+    ],
+    "explanation": {
+     "surface": "A class divide is declared within a group of performers.",
+     "definitionFit": "The cast is the set of actors appearing in a play or film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1858,61 @@
     "text": "A research site followed by a scholar in US state",
     "enumeration": "7"
    },
-   "solution": "ALABAMA"
+   "solution": "ALABAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALABAMA",
+    "definitions": [
+     {
+      "text": "US state",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "followed by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "research site",
+      "gives": "LAB",
+      "note": "a lab is where research is done"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scholar",
+      "gives": "MA",
+      "note": "an MA, Master of Arts, is a scholarly degree holder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LAB",
+      "A",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic visits a laboratory in a southern American state.",
+     "definitionFit": "Alabama is a state in the south-east of the United States, capital Montgomery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1926,42 @@
     "text": "Skill shown in spectacular theatre",
     "enumeration": "3"
    },
-   "solution": "ART"
+   "solution": "ART",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ART",
+    "definitions": [
+     {
+      "text": "Skill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown in",
+      "for": "hidden_word",
+      "note": "shown in means displayed inside, so the letters lie within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spectacular theatre",
+      "gives": "ART",
+      "note": "straddling the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Talent is on display in a dazzling stage production.",
+     "definitionFit": "Art can mean a practical craft or knack, as in the art of conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1975,56 @@
     "text": "English doctor on film gets ban",
     "enumeration": "7"
    },
-   "solution": "EMBARGO"
+   "solution": "EMBARGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBARGO",
+    "definitions": [
+     {
+      "text": "ban",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a medical degree"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ARGO",
+      "note": "Argo is the 2012 Ben Affleck film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A British physician appearing in a movie is barred.",
+     "definitionFit": "An embargo is an official prohibition, especially on trade with a particular country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 30,
@@ -505,7 +2048,84 @@
      }
     ]
    },
-   "solution": "TAKETOTASK"
+   "solution": "TAKETOTASK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TAKE TO TASK",
+    "definitions": [
+     {
+      "text": "Reprove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the last letter is taken"
+     },
+     {
+      "text": "loosely",
+      "for": "anagram",
+      "note": "loosely means without fixed form, so the letters are freely rearranged"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn is put on around you, so these letters go inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "skate",
+      "gives": "SKATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rink",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of rink"
+     },
+     {
+      "clueFragment": "young child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "TOT",
+      "ASK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASKATEK",
+       "gives": "TAKEASK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler wobbling on an ice skate near the rink's edge gets a telling-off.",
+     "walkthrough": "The child sits inside the rearranged letters, splitting them into the two outer words of the phrase.",
+     "definitionFit": "To take someone to task is an idiom for scolding or criticising them severely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 31,
@@ -519,7 +2139,53 @@
     "text": "Diplomat disowning old jealousy",
     "enumeration": "4"
    },
-   "solution": "ENVY"
+   "solution": "ENVY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENVY",
+    "definitions": [
+     {
+      "text": "jealousy",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disowning",
+      "for": "deletion",
+      "note": "disowning means rejecting, so that letter is cast out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diplomat",
+      "gives": "ENVOY",
+      "note": "an envoy is a diplomatic messenger"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENV",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambassador rejects resentment from the past.",
+     "definitionFit": "Envy is resentful longing for what someone else has, closely akin to jealousy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Diplomat"
+    }
+   }
   }
  ]
 }
