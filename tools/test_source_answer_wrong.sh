@@ -254,7 +254,11 @@ for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
         bad.append(f"{pid} {eid}: no such entry")
     elif fetcher.clue_words(entry["clue"].get("text")) != fetcher.clue_words(printed):
         bad.append(f"{pid} {eid}: stored {entry['clue'].get('text')!r}, table prints {printed!r}")
-    if fetcher.clue_words(served) == fetcher.clue_words(printed) or len(why) < 40:
+    # Compared as text: a stray full stop OCR put in a clue is worth mending.
+    # A misread needs only a short note ("OCR misread: a stray r before
+    # painter"); any other correction must argue its case.
+    floor = 25 if why.startswith("OCR misread: ") else 40
+    if served.strip() == printed.strip() or len(why) < floor:
         bad.append(f"{pid} {eid}: corrects nothing, or the note is not evidence")
     # An OCR'd clue's correction mends a misread, never rewords the clue.
     puzzle = path and fetcher.read_puzzle_file(path)
