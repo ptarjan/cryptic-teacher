@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Mr Simpson’s favourite plum pudding",
     "enumeration": "4"
    },
-   "solution": "DUFF"
+   "solution": "DUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUFF",
+    "definitions": [
+     {
+      "text": "Mr Simpson’s favourite",
+      "at": 0
+     },
+     {
+      "text": "plum pudding",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Simpson’s favourite",
+      "note": "first meaning: the beer Homer Simpson drinks in the cartoon The Simpsons"
+     },
+     {
+      "clueFragment": "plum pudding",
+      "note": "second meaning: plum ... is a boiled suet pudding with raisins"
+     }
+    ],
+    "explanation": {
+     "surface": "Homer Simpson's favourite dessert is a plum pudding.",
+     "walkthrough": "The phrase reads as one dish; it is two separate meanings of one short word.",
+     "definitionFit": "The cartoon's beer brand carries this name, and a plum duff is a traditional British steamed pudding with dried fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plum"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +93,60 @@
      }
     ]
    },
-   "solution": "DRAGQUEEN"
+   "solution": "DRAGQUEEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "DRAG QUEEN",
+    "definitions": [
+     {
+      "text": "entertainer",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "something fluid is not fixed in shape, so the letters flow into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "these letters plus the answer make up the fodder"
+     },
+     {
+      "clueFragment": "quasi-gender",
+      "gives": "QUASIGENDER",
+      "note": "taken as written, eleven letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAGQUEEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUASIGENDER",
+       "gives": "ISDRAGQUEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a performer counts as gender-fluid.",
+     "walkthrough": "The clue reads 'IS + this entertainer = quasi-gender, mixed up': rearrange QUASIGENDER and take away IS.",
+     "definitionFit": "A drag queen is a performer, usually a man, who entertains in exaggerated female costume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +160,56 @@
     "text": "Supplier of bouquets primate wrapped in pink paper",
     "enumeration": "7"
    },
-   "solution": "FLORIST"
+   "solution": "FLORIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLORIST",
+    "definitions": [
+     {
+      "text": "Supplier of bouquets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapped in",
+      "for": "container",
+      "note": "wrapped in puts one piece inside the other, as flowers go in paper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pink paper",
+      "gives": "FT",
+      "note": "the Financial Times, printed on pink paper"
+     },
+     {
+      "clueFragment": "primate",
+      "gives": "LORIS",
+      "note": "a loris is a small nocturnal primate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LORIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower seller wraps a monkey in pink paper.",
+     "walkthrough": "The FT, the Financial Times, is a British newspaper printed on salmon-pink paper.",
+     "definitionFit": "A florist is a shopkeeper who sells cut flowers and makes up arrangements of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +223,44 @@
     "text": "Broadcaster’s ironic, not ready for old people",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "ready for old people",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcaster’s",
+      "for": "homophone",
+      "note": "a broadcaster speaks over the air, so we want the sound of the words rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ironic, not",
+      "gives": "RHINO",
+      "soundsLike": "WRY NO",
+      "note": "ironic is wry, and not is no; said together they make the sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio presenter's ironic remark, not ready for an elderly audience.",
+     "walkthrough": "'Ready' is old slang for cash, and so is RHINO; 'for old people' marks the word as dated.",
+     "definitionFit": "Both words are dated British slang for money, so the older generation would recognise one as a synonym of the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 3,
@@ -101,7 +280,74 @@
      }
     ]
    },
-   "solution": "REDPEPPER"
+   "solution": "REDPEPPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RED PEPPER",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To begin with",
+      "for": "letter_selection",
+      "note": "only the very beginning of the next word is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about"
+     },
+     {
+      "clueFragment": "dieticians",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "PEP",
+      "note": "go and pep both mean energy, vim"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in 'five pounds a head'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "D",
+      "PEP",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "Nutritionists first get involved with a vegetable.",
+     "walkthrough": "'Go' is energy here, and 'a' stands for 'each', as in five pounds a head.",
+     "definitionFit": "A red pepper is a ripe sweet capsicum, eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +361,62 @@
     "text": "People start to heal rifts after some time",
     "enumeration": "7"
    },
-   "solution": "INHABIT"
+   "solution": "INHABIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INHABIT",
+    "definitions": [
+     {
+      "text": "People",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of the next word is all that is kept"
+     },
+     {
+      "text": "rifts",
+      "for": "container",
+      "note": "a rift splits something apart, so this letter splits the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after some time",
+      "gives": "INABIT",
+      "note": "in a bit means after a short while"
+     },
+     {
+      "clueFragment": "heal",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "H",
+      "ABIT"
+     ]
+    },
+    "explanation": {
+     "surface": "People begin to mend their quarrels after a while.",
+     "walkthrough": "'People' looks like a plural noun but is a verb, meaning to fill with inhabitants.",
+     "definitionFit": "To people a place is to occupy it or live there, the same verb sense as dwelling in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +430,43 @@
     "text": "Maybe Stretch Limo Man appearing after November?",
     "enumeration": "5"
    },
-   "solution": "OSCAR"
+   "solution": "OSCAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OSCAR",
+    "definitions": [
+     {
+      "text": "Maybe Stretch Limo Man",
+      "at": 0
+     },
+     {
+      "text": "appearing after November",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Stretch Limo Man",
+      "note": "first meaning: Monsieur ..., the man ferried around in a white stretch limo in the film Holy Motors"
+     },
+     {
+      "clueFragment": "appearing after November",
+      "note": "second meaning: the NATO phonetic alphabet word for the letter after N"
+     }
+    ],
+    "explanation": {
+     "surface": "A man in a stretch limousine arrives in December.",
+     "walkthrough": "A stretch limo also suggests an awards night, where the statuette shares the name.",
+     "definitionFit": "In radio spelling, November stands for N and the next code word stands for O; the film character carries the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "November"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +480,51 @@
     "text": "Expert presented with fine clock",
     "enumeration": "4"
    },
-   "solution": "FACE"
+   "solution": "FACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FACE",
+    "definitions": [
+     {
+      "text": "clock",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "presented with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "Expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist is handed a fine timepiece.",
+     "walkthrough": "'Clock' looks like a timepiece but is slang for a person's face.",
+     "definitionFit": "In British slang, clock is a noun for someone's mug or visage, from the round dial of a timepiece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clock"
+    }
+   }
   },
   {
    "number": 6,
@@ -163,7 +544,39 @@
      }
     ]
    },
-   "solution": "FIRSTGEAR"
+   "solution": "FIRSTGEAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FIRST GEAR",
+    "definitions": [
+     {
+      "text": "Pull out in this layette?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pull out in this",
+      "note": "surface reading: the gear a driver uses to move off from the kerb"
+     },
+     {
+      "clueFragment": "layette",
+      "note": "setter's reading: a layette is a newborn's set of clothes, the very earliest outfit a baby owns"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A motoring phrase is reread as the infant's earliest wardrobe.",
+     "definitionFit": "Cars pull away in the lowest ratio, and a baby's starter wardrobe is likewise its initial kit or clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "layette"
+    }
+   }
   },
   {
    "number": 7,
@@ -177,7 +590,58 @@
     "text": "Inside of church tends to purify",
     "enumeration": "7"
    },
-   "solution": "CLEANSE"
+   "solution": "CLEANSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEANSE",
+    "definitions": [
+     {
+      "text": "purify",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Inside of",
+      "for": "container",
+      "note": "inside of puts one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "tends",
+      "gives": "LEANS",
+      "note": "to tend towards is to lean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEANS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A church interior tends to purify those who enter.",
+     "walkthrough": "'Inside of church' looks like a noun phrase; it means put a word inside CE.",
+     "definitionFit": "To cleanse is to make clean or free from impurity, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tends"
+    }
+   }
   },
   {
    "number": 8,
@@ -201,7 +665,50 @@
      }
     ]
    },
-   "solution": "AROUNDTHECORNER"
+   "solution": "AROUNDTHECORNER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AROUND THE CORNER",
+    "definitions": [
+     {
+      "text": "nearby",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Jockey",
+      "for": "anagram",
+      "note": "to jockey is to manoeuvre and shift about, so the letters are jostled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can do turn here or",
+      "gives": "CANDOTURNHEREOR",
+      "note": "all fifteen letters are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANDOTURNHEREOR",
+       "gives": "AROUNDTHECORNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing jockey can make a turn here or close by.",
+     "definitionFit": "Something just round the bend from here is a short distance away, close at hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jockey"
+    }
+   }
   },
   {
    "number": 9,
@@ -215,7 +722,70 @@
     "text": "Newly sent off techniques for cooking savoury food",
     "enumeration": "6"
    },
-   "solution": "QUICHE"
+   "solution": "QUICHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "QUICHE",
+    "definitions": [
+     {
+      "text": "savoury food",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Newly",
+      "for": "anagram",
+      "note": "newly arranged: the word sent may appear in any order within the larger word"
+     },
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "sent off means those letters are dismissed and taken away"
+     },
+     {
+      "text": "for cooking",
+      "for": "anagram",
+      "note": "cooking means mixing up, so what remains is stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sent",
+      "gives": "SENT",
+      "note": "these letters are removed, wherever they sit"
+     },
+     {
+      "clueFragment": "techniques",
+      "gives": "TECHNIQUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUICHE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHIQUE",
+       "gives": "QUICHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Recently dispatched methods for preparing a savoury dish.",
+     "walkthrough": "Take S, E, N and T out of TECHNIQUES, leaving C, H, I, Q, U, E, then rearrange those to get QUICHE.",
+     "definitionFit": "A quiche is an open tart with an egg custard filling, a classic savoury dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newly"
+    }
+   }
   },
   {
    "number": 10,
@@ -229,7 +799,58 @@
     "text": "Singer making a single exception has got the knack",
     "enumeration": "8"
    },
-   "solution": "BARITONE"
+   "solution": "BARITONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARITONE",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has got",
+      "for": "container",
+      "note": "the phrase holds something inside it, as a person has got a thing in hand"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a single exception",
+      "gives": "BARONE",
+      "note": "bar one means with one exception"
+     },
+     {
+      "clueFragment": "the knack",
+      "gives": "IT",
+      "note": "to have 'it' is to have the knack or flair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "IT",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer who, with a single exception, has mastered the knack.",
+     "walkthrough": "'Bar one' means except one; the inserted piece sits between its two words.",
+     "definitionFit": "A baritone is a male vocalist whose range lies between tenor and bass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exception"
+    }
+   }
   },
   {
    "number": 11,
@@ -243,7 +864,67 @@
     "text": "Warehouse property taken back inside cycling shelter",
     "enumeration": "8"
    },
-   "solution": "ENTREPOT"
+   "solution": "ENTREPOT",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "ENTREPOT",
+    "definitions": [
+     {
+      "text": "Warehouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves the front letter of the word round to the back"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "TENT",
+      "note": "a tent is a shelter"
+     },
+     {
+      "clueFragment": "property taken back",
+      "gives": "REPO",
+      "note": "a repo is goods repossessed, taken back by a lender"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "REPO",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENT",
+       "gives": "ENTT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warehouse's contents are repossessed and stored in a bike shelter.",
+     "walkthrough": "Cycling moves the first letter of the shelter to the back before the insertion.",
+     "definitionFit": "An entrepot is a port or depot where goods are stored before re-export, effectively a trading storehouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 12,
@@ -263,7 +944,49 @@
      }
     ]
    },
-   "solution": "RATTLEBAG"
+   "solution": "RATTLEBAG",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "RATTLEBAG",
+    "definitions": [
+     {
+      "text": "Jangler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "named by Spooner",
+      "for": "spoonerism",
+      "note": "Spooner swapped the opening sounds of words, so the initial consonants change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the military newspaper",
+      "gives": "RATTLEBAG",
+      "soundsLike": "BATTLE RAG",
+      "note": "a rag is a newspaper, and battle suggests military"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATTLEBAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy army publication, as Reverend Spooner would name it.",
+     "definitionFit": "A rattlebag is a rattle, a toy or device that makes a jangling, clattering noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Jangler"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +1000,47 @@
     "text": "Was staggering about, controlled by MDMA?",
     "enumeration": "6"
    },
-   "solution": "REELED"
+   "solution": "REELED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REELED",
+    "definitions": [
+     {
+      "text": "Was staggering",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "controlled by MDMA",
+      "gives": "ELED",
+      "note": "MDMA is ecstasy, E; something controlled by it is E-led"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ELED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was lurching around, under the influence of the drug ecstasy.",
+     "definitionFit": "To reel is to stagger or sway unsteadily, so the past tense means was staggering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "controlled"
+    }
+   }
   },
   {
    "number": 13,
@@ -297,7 +1060,55 @@
      }
     ]
    },
-   "solution": "REMBRANDT"
+   "solution": "REMBRANDT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REMBRANDT",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a down entry's word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What was epitomised by vocals of Stipe",
+      "gives": "REMBRAND",
+      "note": "Michael Stipe's voice was the signature of the American band R.E.M., their brand"
+     },
+     {
+      "clueFragment": "Tempo’s",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMBRAND",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what Michael Stipe's singing stood for, and a band's leading artist.",
+     "definitionFit": "Rembrandt van Rijn was the great seventeenth-century Dutch painter, so an artist of the highest rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vocals"
+    }
+   }
   },
   {
    "number": 14,
@@ -311,7 +1122,43 @@
     "text": "Direct to the SE?",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOWNRIGHT",
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0
+     },
+     {
+      "text": "to the SE",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Direct",
+      "note": "first meaning: blunt, straightforward"
+     },
+     {
+      "clueFragment": "to the SE",
+      "note": "second meaning: south-east on a map is down and to the right"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Direct to' looks like an instruction to send something south-east; the question mark flags the map reading.",
+     "definitionFit": "Downright describes plain, outspoken speech; read as two words it gives a map position, lower and rightward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Direct"
+    }
+   }
   },
   {
    "number": 15,
@@ -325,7 +1172,54 @@
     "text": "Wise old man unveiling a supermarket?",
     "enumeration": "6"
    },
-   "solution": "NESTOR"
+   "solution": "NESTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NESTOR",
+    "definitions": [
+     {
+      "text": "Wise old man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unveiling",
+      "for": "deletion",
+      "note": "to unveil is to strip off the covering, so the outermost letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "ONE",
+      "note": "a is one"
+     },
+     {
+      "clueFragment": "supermarket",
+      "gives": "STORE",
+      "note": "a supermarket is a store"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NESTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sage launches a supermarket at its grand opening.",
+     "walkthrough": "ONE STORE loses its first and last letters.",
+     "definitionFit": "Nestor is the aged, sage counsellor of Homer's Iliad, and his name is used for any venerable adviser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unveiling"
+    }
+   }
   },
   {
    "number": 16,
@@ -345,7 +1239,55 @@
      }
     ]
    },
-   "solution": "ENROUTE"
+   "solution": "ENROUTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EN ROUTE",
+    "definitions": [
+     {
+      "text": "along the way",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be consumed",
+      "for": "deletion",
+      "note": "consumed means eaten up and gone, so that letter disappears"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like beef Wellington",
+      "gives": "ENCROUTE",
+      "note": "beef Wellington is cooked in a pastry crust, en croute"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c, short for circa, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ROUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Like a beef Wellington that is about to be eaten on a journey.",
+     "walkthrough": "'About to be consumed' reads as one phrase; split it after 'about'.",
+     "definitionFit": "En route is French for on the road, meaning during a journey towards somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 17,
@@ -359,7 +1301,54 @@
     "text": "Cat spat on men on Saturday",
     "enumeration": "8"
    },
-   "solution": "TOMORROW"
+   "solution": "TOMORROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOMORROW",
+    "definitions": [
+     {
+      "text": "on Saturday",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "spat",
+      "gives": "ROW",
+      "note": "a spat is a row, a quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "OR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A tomcat spits at some men on a Saturday.",
+     "walkthrough": "In an across clue 'on' means placed after. The definition only works if today is Friday, hence the indirect phrasing.",
+     "definitionFit": "Speaking on a Friday, the next day is Saturday, so the coming day stands in for that weekday."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spat"
+    }
+   }
   },
   {
    "number": 17,
@@ -373,7 +1362,49 @@
     "text": "Part of regalia specifically attached to old instrument",
     "enumeration": "7"
    },
-   "solution": "THEORBO"
+   "solution": "THEORBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEORBO",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of regalia specifically",
+      "gives": "THEORB",
+      "note": "the orb is one of the crown jewels, and 'specifically' marks the definite article"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEORB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of the royal regalia is fixed to an antique instrument.",
+     "definitionFit": "A theorbo is a large Baroque lute with an extended neck, a plucked stringed instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "specifically"
+    }
+   }
   },
   {
    "number": 18,
@@ -387,7 +1418,55 @@
     "text": "Not fully occupying a position on energy scale",
     "enumeration": "7"
    },
-   "solution": "RANKINE"
+   "solution": "RANKINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RANKINE",
+    "definitions": [
+     {
+      "text": "scale",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not fully",
+      "for": "deletion",
+      "note": "not fully means incomplete, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occupying a position",
+      "gives": "RANKING",
+      "note": "a team ranking third is occupying that position"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANKIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Not quite reaching a place on an energy scale.",
+     "walkthrough": "'On' means placed after, as this is a down clue.",
+     "definitionFit": "The Rankine scale is an absolute temperature scale using Fahrenheit-sized degrees, named after engineer William Rankine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 19,
@@ -401,7 +1480,61 @@
     "text": "For a period in gym perhaps rotation occupies writer",
     "enumeration": "8"
    },
-   "solution": "TROLLOPE"
+   "solution": "TROLLOPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROLLOPE",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupies",
+      "for": "container",
+      "note": "to occupy is to sit within a space, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For",
+      "gives": "TO",
+      "note": "for and to both mean towards or intended for"
+     },
+     {
+      "clueFragment": "a period in gym perhaps",
+      "gives": "PE",
+      "note": "physical education is a school lesson, or period, often held in a gym"
+     },
+     {
+      "clueFragment": "rotation",
+      "gives": "ROLL",
+      "note": "a roll is a turning over, a rotation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROLL",
+      "O",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gymnastic roll keeps an author busy during a gym lesson.",
+     "walkthrough": "PE, physical education, is a school subject taught in a timetabled period.",
+     "definitionFit": "Anthony Trollope was a Victorian English novelist, author of the Barchester Chronicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 20,
@@ -415,7 +1548,56 @@
     "text": "What lorry’s loaded with is upholstery material",
     "enumeration": "5"
    },
-   "solution": "ORRIS"
+   "solution": "ORRIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORRIS",
+    "definitions": [
+     {
+      "text": "upholstery material",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What",
+      "for": "letter_selection",
+      "note": "what a vehicle is loaded with is its cargo, the letters carried inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lorry’s loaded with",
+      "gives": "ORR",
+      "select": "middle",
+      "note": "the inner letters of lorry"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORR",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what cargo a truck carries, and answering with a fabric for furniture.",
+     "walkthrough": "'Loaded with' points at the inside of the word lorry, its middle three letters.",
+     "definitionFit": "Orris is a gold or silver lace or braid, used as trimming in upholstery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loaded"
+    }
+   }
   },
   {
    "number": 21,
@@ -429,7 +1611,43 @@
     "text": "Bean counter “unnerving”? Just a bit",
     "enumeration": "6"
    },
-   "solution": "RUNNER"
+   "solution": "RUNNER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RUNNER",
+    "definitions": [
+     {
+      "text": "Bean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Just a bit",
+      "for": "hidden_word",
+      "note": "only a fragment of the quoted words is wanted, a run of letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter “unnerving",
+      "gives": "RUNNER",
+      "note": "the last letter of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An accountant finds it only slightly unnerving.",
+     "walkthrough": "'Bean counter' is a fixed phrase for an accountant, so it hides that 'Bean' alone is the definition.",
+     "definitionFit": "The runner bean is a common climbing vegetable, so the first word of its name stands for the bean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bean"
+    }
+   }
   },
   {
    "number": 22,
@@ -449,7 +1667,68 @@
      }
     ]
    },
-   "solution": "NUMBERCRUNCHING"
+   "solution": "NUMBERCRUNCHING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NUMBER-CRUNCHING",
+    "definitions": [
+     {
+      "text": "working out?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the outer piece lets another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeling less",
+      "gives": "NUMBER",
+      "note": "with less feeling is more numb"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "crisis",
+      "gives": "CRUNCH",
+      "note": "a crunch is a crisis point"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during, as in 'in the night'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMBER",
+      "CRUNCH",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling worse, someone admits to a crisis during a gym workout.",
+     "walkthrough": "NUMBER is numb with an -er ending, not the counting word. The question mark warns that 'working out' means calculating, not exercise.",
+     "definitionFit": "Number-crunching is heavy arithmetic or calculation, which is a kind of working out sums."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 23,
@@ -469,7 +1748,68 @@
      }
     ]
    },
-   "solution": "BERG"
+   "solution": "BERG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "BERG",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overture from",
+      "for": "letter_selection",
+      "note": "an overture opens a work, so the opening letters of the following words are taken"
+     },
+     {
+      "text": "omits",
+      "for": "deletion",
+      "note": "to omit is to leave out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to live is to be"
+     },
+     {
+      "clueFragment": "Ring",
+      "gives": "RING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "its new",
+      "gives": "IN",
+      "select": "first",
+      "note": "first letters of these two words, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "R",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A live Ring cycle drops the overture from a new composer's work.",
+     "walkthrough": "BERING loses I and N. The Ring is Wagner's opera cycle, which lures the solver to Wagner.",
+     "definitionFit": "Alban Berg was an Austrian twentieth-century composer of the Second Viennese School, who wrote Wozzeck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overture"
+    }
+   }
   },
   {
    "number": 24,
@@ -483,7 +1823,49 @@
     "text": "Small and perfectly formed carnivore",
     "enumeration": "5"
    },
-   "solution": "STOAT"
+   "solution": "STOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOAT",
+    "definitions": [
+     {
+      "text": "carnivore",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "formed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "perfectly",
+      "gives": "TOAT",
+      "note": "to a T means perfectly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small and perfectly formed predator, as the compliment goes.",
+     "definitionFit": "The stoat is a small flesh-eating mammal of the weasel family, so it is a meat-eating animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perfectly"
+    }
+   }
   },
   {
    "number": 25,
@@ -497,7 +1879,45 @@
     "text": "Squeezes tangerine? Extract thereof",
     "enumeration": "4"
    },
-   "solution": "ZEST"
+   "solution": "ZEST",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "hidden_word"
+    ],
+    "answer": "ZEST",
+    "definitions": [
+     {
+      "text": "Squeezes tangerine? Extract thereof",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extract",
+      "for": "hidden_word",
+      "note": "to extract is to draw something out from within, here a run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squeezes tangerine",
+      "gives": "ZEST",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Squeezing a tangerine, and what you get from it.",
+     "walkthrough": "The whole clue is the definition and the wordplay at once: the letters sit inside the fruit's words, as the peel's oils come from the fruit.",
+     "definitionFit": "Zest is the fragrant outer peel of citrus, scraped or squeezed out to give its oils for flavour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Extract"
+    }
+   }
   }
  ]
 }
