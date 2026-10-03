@@ -31,8 +31,8 @@ cd "$(dirname "$0")/.." || exit 1
 export PYTHONUNBUFFERED=1
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-2}"
-# Trove filer: clue numbers put in order, glued clues split, OCR slips
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-03T06:18:00+00:00}"
+# Scan filer: readings screened against the grid, VLM picks held to the readers
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-03T14:14:00+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
