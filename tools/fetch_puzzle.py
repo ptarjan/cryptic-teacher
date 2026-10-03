@@ -1889,6 +1889,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17717", "3-down"): (
+        "Submission for honour in case review is required 19).",
+        "Submission for honour in case review is required",
+        "OCR misread: the enumeration (9) was read into the clue as 19)."),
+    ("times-17717", "8-down"): (
+        "Segregate, oddly, for holiday eating (6,3",
+        "Segregate, oddly, for holiday eating",
+        "OCR misread: the enumeration (6,3) was read into the clue"),
+    ("times-17717", "12-across"): (
+        "Chap requiring cake and endless lea? Right",
+        "Chap requiring cake and endless tea? Right",
+        "OCR misread: the wordplay needs TEA shortened to TE"),
     ("times-17716", "18-down"): (
         "Order of very quiet trails?",
         "Order of very quiet traits?",
