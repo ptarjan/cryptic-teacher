@@ -2226,6 +2226,22 @@ SOURCE_CLUE_WRONG = {
         "Amplify' a negative point of view?",
         "Amplify a negative point of view?",
         "OCR misread: a stray apostrophe after Amplify"),
+    ("times-16647", "1-across"): (
+        "Quiet approach fora progressive party",
+        "Quiet approach for a progressive party",
+        "OCR misread: for a is two words"),
+    ("times-16647", "3-down"): (
+        "Subscribe to a picket - that's a clue! (8",
+        "Subscribe to a picket - that's a clue!",
+        "OCR misread: the trailing (8 is a doubled enumeration"),
+    ("times-16647", "10-across"): (
+        "Expatriate repels me., I admit",
+        "Expatriate repels me, I admit",
+        "OCR misread: a stray full stop after me"),
+    ("times-16647", "20-across"): (
+        "The under-lens skate back to town",
+        "The under-tens skate back to town",
+        "OCR misread: a Yarborough is a bridge hand of under-tens, no card above nine"),
 }
 
 
