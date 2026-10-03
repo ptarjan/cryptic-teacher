@@ -47,12 +47,14 @@ eval "$fn"
 # builders there are skipped whole: that case is about which file is left
 # unresolved, and building nothing leaves the same one. Each full build costs
 # minutes on a runner, and this test was the slowest in the suite.
-skip_builds=
+# only_build names the one builder a case needs and skips the rest.
+skip_builds="" only_build=""
 python3() {
   case "$1" in
     tools/build_seo_pages.py) return 0 ;;
     tools/build_*.py|tools/fetch_puzzle.py|tools/stamp_assets.py)
-      [ -n "$skip_builds" ] && return 0 ;;
+      [ -n "$skip_builds" ] && return 0
+      [ -n "$only_build" ] && [ "$1" != "$only_build" ] && return 0 ;;
   esac
   command python3 "$@"
 }
@@ -106,6 +108,36 @@ check "nothing left uncommitted" "$(git status --porcelain)" ""
 # bytes.
 check "the asset stamps match what was rebuilt" \
   "$(python3 tools/stamp_assets.py --check 2>&1)" "asset stamps up to date"
+
+echo "a file master deleted while the night wrote to it stays deleted:"
+# 2026-10-02: master retired tools/data/abbreviations.json and its layout row
+# while the nightly rewrote the file. The modify/delete left it in the index,
+# build_readme.py refused a tracked file with no row, and the day stranded.
+# Only build_readme.py runs: it is the builder that refused.
+rebase_running && git rebase --abort
+only_build=tools/build_readme.py
+retired=tools/data/difficulty_check.json
+git checkout -q -B upstream3 "$base"
+git rm -q "$retired"
+grep -vF "\"$retired\"" tools/build_readme.py > "$sand/br.py" && cp "$sand/br.py" tools/build_readme.py
+poke README.md "$corpus" '**Corpus** — upstream-side'
+git commit -qam "master retired $retired"
+git checkout -q -B nightly3 "$base"
+printf '\n' >> "$retired"
+poke README.md "$corpus" '**Corpus** — nightly-side'
+printf '\n<!-- the night'"'"'s own work -->\n' >> APP.md
+git commit -qam "the night rewrote $retired"
+git rebase -q upstream3 >/dev/null 2>&1
+check "the rebase did stop on both" \
+  "$(git diff --name-only --diff-filter=U | tr '\n' ' ')" "README.md $retired "
+rebuild_generated_conflicts; check "returns zero" "$?" "0"
+check "the rebase finished" "$(rebase_running && echo yes)" ""
+check "the retired file is not resurrected" \
+  "$(git ls-files -- "$retired")$( [ -e "$retired" ] && echo ' on disk')" ""
+check "the night's own change survived" \
+  "$(grep -c "the night's own work" APP.md)" "1"
+check "nothing left uncommitted" "$(git status --porcelain)" ""
+only_build=
 
 echo "a conflict no builder owns is left alone:"
 # A case above that failed leaves its rebase running; start clean so its

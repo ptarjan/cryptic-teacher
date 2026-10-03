@@ -129,7 +129,40 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # the same thing on both. Every mktemp below is written this way.
 RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-daily.XXXXXX")"
 exec > >(tee -a "$RUN_LOG") 2>&1
-trap 'sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+trap 'phase_report; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+
+# Where the night's wall clock went. Every step section opens with
+# `phase <name> [minutes]`, and the exit trap prints each phase's duration, so a
+# long run says which phase took the time. A phase given minutes is plain
+# compute driven by tonight's inputs, and running past them means it is
+# re-processing something it already did: that alerts, naming the phase. The
+# phases that call claude are left unbudgeted; their calls are capped one by
+# one and the weekly usage gate caps the total.
+PHASES="" phase_name="" phase_start=$SECONDS phase_budget=""
+phase() {
+  [ -n "$phase_name" ] &&
+    PHASES+="$phase_name $((SECONDS - phase_start)) ${phase_budget:-0}"$'\n'
+  phase_name="$1" phase_budget="${2:-}" phase_start=$SECONDS
+  [ -n "$phase_name" ] && echo "--- phase $phase_name ($((SECONDS / 60))m in) ---"
+  return 0
+}
+phase_report() {
+  phase ""
+  local name secs budget over=""
+  echo "=== phases, $((SECONDS / 60))m in all ==="
+  while read -r name secs budget; do
+    [ -n "$name" ] || continue
+    printf '  %-14s %5dm %02ds\n' "$name" $((secs / 60)) $((secs % 60))
+    [ "$budget" -gt 0 ] && [ "$secs" -gt $((budget * 60)) ] &&
+      over+=" $name took $((secs / 60))m (budget ${budget}m);"
+  done <<<"$PHASES"
+  [ -n "$over" ] || return 0
+  # The slowest timed steps travel in the message, so it says why as well as where.
+  local slow
+  slow=$(sed -nE 's/^(.*: rc=[0-9]+ in ([0-9]+)s)$/\2 \1/p' "$RUN_LOG" |
+    sort -rn | head -4 | cut -d' ' -f2- | cut -c1-160)
+  alert "the nightly ran $((SECONDS / 60))m, and these compute phases ran past their budget:$over${slow:+ Its slowest steps:}"$'\n'"$slow"
+}
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
@@ -139,6 +172,7 @@ echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 # night — see tools/blind_annotate.py.
 python3 tools/blind_annotate.py restore
 
+phase fetch 30
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
 # Run independently on purpose: one source going down should not cost us the
 # others. None failing stops the run — there is usually a backlog worth
@@ -169,6 +203,7 @@ if [ "$(printf %s "$fetch_broken" | wc -w)" -ge "$(printf %s "$FETCHERS" | wc -w
   alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
 fi
 
+phase blog-chains 30
 # --- 1b. The Times and the Telegraph, rebuilt from the blogs that solve them ---
 # Neither paper publishes its grids, so each puzzle is a chain rather than a
 # fetch: cache the new blog posts, parse them, rebuild each grid from its
@@ -206,11 +241,14 @@ blog_chain() {
   return $step_rc
 }
 blog_filed=0
-blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
-  parse_timesforthetimes.py times_grids.py file_times_puzzles.py && blog_filed=1
-# The Telegraph's rebuild is bounded, newest untried first: tonight's posts
-# and a slice of the ~10,000-puzzle archive behind them.
+# Both rebuilds are bounded, newest untried first: tonight's posts, then a
+# slice of the archive behind them. Unbounded, a parser change that lets
+# hundreds of old posts parse is ground through in one night.
+TIMES_PER_NIGHT="${TIMES_PER_NIGHT:-40}"
 TELEGRAPH_PER_NIGHT="${TELEGRAPH_PER_NIGHT:-40}"
+blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
+  parse_timesforthetimes.py "times_grids.py --limit $TIMES_PER_NIGHT" \
+  file_times_puzzles.py && blog_filed=1
 blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
   "times_grids.py --blog bigdave44 --limit $TELEGRAPH_PER_NIGHT" \
   file_telegraph_puzzles.py && blog_filed=1
@@ -227,6 +265,7 @@ GLOBE_XVAL_PER_NIGHT="${GLOBE_XVAL_PER_NIGHT:-60}"
 blog_chain Globe "cross_validate.py globe --fetch --limit $GLOBE_XVAL_PER_NIGHT" "cross_validate.py globe"
 [ $blog_filed -eq 1 ] && python3 tools/fetch_puzzle.py --reindex
 
+phase ft 30
 # --- 1c. The Financial Times, rebuilt from fifteensquared's write-ups ---
 # The same chain in one tool: tools/ft_puzzles.py parses the cached posts,
 # rebuilds the newest untried grids and files what passes. Bounded, because
@@ -246,6 +285,7 @@ else
 fi
 rm -f "$ft_out"
 
+phase cross-validate 30
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
 # Each pair above compares ours with one other copy. This puts every copy we
 # hold to a vote: the paper's own feed, app or page, fifteensquared,
@@ -256,6 +296,7 @@ rm -f "$ft_out"
 blog_chain Corroboration "cross_validate.py all --new --apply" \
   && git status --porcelain -- puzzles | grep -q . && python3 tools/fetch_puzzle.py --reindex
 
+phase blog-facts 30
 # --- 1d. Blog hints, re-read off the caches the fetches above just topped up ---
 # tools/blog_facts.py joins every cached write-up to the puzzle it explains and
 # writes tools/data/blog_facts/, which the site's hints and the validator's
@@ -273,6 +314,7 @@ echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
   alert "tools/blog_facts.py failed (rc=$step_rc), so tonight's new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
 rm -f "$facts_out"
 
+phase snitch 30
 # --- 1e. The SNITCH's ratings of the Times, which the difficulty index is
 # checked against and the Times badges quote a range from. One page, so a
 # failure only means last night's ratings stand; the commit's `git add -A`
@@ -317,6 +359,7 @@ coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a
 integrity=$(python3 tools/puzzle_integrity.py --quiet 2>&1) ||
   alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
 
+phase solutions 30
 # --- 2. pick up solutions that have since been published (prize puzzles, and
 #     every Everyman — its competition window withholds answers for about a
 #     week, same shape of problem as the Guardian prize below it) ---
@@ -357,6 +400,7 @@ off the right answer."
   fi
 fi
 
+phase minute 30
 # --- 2b. refresh the Minute Cryptic reference corpus ---
 # Their hint ladder is the same shape as ours and better written, so we keep a
 # local copy of their 55 worked examples to write against; it also archives
@@ -376,6 +420,7 @@ else
        "today's clue is only offered today and will not be recoverable"
 fi
 
+phase annotate
 # --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
 # Newest-first, deliberately. Oldest-first looks tidier — the backlog drains in
 # order — but it means today's puzzle is always the LAST one to get hints, so the
@@ -679,6 +724,7 @@ annotate_alert() {  # $1 = puzzle, $2 = what happened, $3 = session id
 # `ann_rc = 124` branch — but the night still has to say it happened.
 lost_ids=""
 
+phase misses
 # --- 2c. learn from the misses step 2 graded ---
 # A graded miss is a sample of a class: the reading, rule or check that let a
 # wrong answer through will let the next one through too. Each miss gets one
@@ -737,6 +783,7 @@ MISSES
   rm -f "$misslog"
 fi
 
+phase solve
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---
 # Runs before the annotation loop and feeds it: a grid solved tonight joins the
 # front of the capped backlog queue (`pending`, behind `fresh`), because it is
@@ -1083,6 +1130,7 @@ if [ -n "$stop_reason" ]; then
   fi
 fi
 
+phase reports
 # --- 3c. the bad-hint queue: fix what solvers reported, don't just relay it ---
 # Ahead of the commit on purpose. An alert is a fix that has not happened yet:
 # a solver reports a wrong hint, a human reads about it hours later, and the
@@ -1147,6 +1195,7 @@ nobody is seeing them. No solver is quoted below — this is why the read failed
 $bad_hints"
 fi
 
+phase commit 30
 # --- 4. validate, reindex, commit ---
 python3 tools/fetch_puzzle.py --reindex
 # Tonight's work is judged on tonight's work. This used to validate the whole
@@ -1275,6 +1324,20 @@ if [ -n "$(git status --porcelain)" ]; then
     # after a rebase finishes, so it says "in progress" for the rest of the day.
     [ -d "$(git rev-parse --git-path rebase-merge)" ] ||
       [ -d "$(git rev-parse --git-path rebase-apply)" ] || return 1
+    # A path master deleted that this run wrote to (modify/delete; `DU`, since
+    # in a rebase "us" is master) stays deleted: master retired the file, and
+    # what this run wrote there came from tools master has since changed not to
+    # write it. Before the builders, because a conflicted path is still in the
+    # index, and build_readme.py refuses a tracked file with no layout row.
+    local gone path
+    gone=$(git status --porcelain --untracked-files=no | sed -n 's/^DU //p') || return 1
+    while IFS= read -r path; do
+      [ -n "$path" ] || continue
+      echo "rebase: master deleted $path; tonight's write to it is dropped"
+      git rm -q -- "$path" || return 1
+    done <<GONE
+$gone
+GONE
     # stamp_assets.py last, and not optional: index.html's ?v= is the content
     # hash of the very files this rebuild rewrites, so skipping it pushes a page
     # that points every cache at bytes that no longer exist.
@@ -1290,7 +1353,7 @@ if [ -n "$(git status --porcelain)" ]; then
     # substitution, `git diff` is still running while the loop stages, and it
     # takes .git/index.lock to refresh the index — every add after the first
     # then dies on "Another git process seems to be running".
-    local conflicted path
+    local conflicted
     conflicted=$(git diff --name-only --diff-filter=U) || return 1
     while IFS= read -r path; do
       [ -n "$path" ] || continue
