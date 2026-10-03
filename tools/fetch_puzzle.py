@@ -1889,6 +1889,22 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-15118", "1-across"): (
+        "\"Goodfellow with measure 'that provides material for the house",
+        "Good fellow with measure that provides material for the house",
+        "OCR misread: stray quote marks, and the wordplay needs good fellow, a brick, as two words"),
+    ("times-15118", "2-down"): (
+        "Like Gray's tower, I con tended",
+        "Like Gray's tower, I contended",
+        "OCR misread: the wordplay needs contended, VIED, as one word"),
+    ("times-15118", "10-across"): (
+        "Facial mark, what it shows of .one's pedigree",
+        "Facial mark, what it shows of one's pedigree",
+        "OCR misread: a stray full stop before one's"),
+    ("times-15118", "26-across"): (
+        "Suspicion of fashionable monarch accepting money 7).",
+        "Suspicion of fashionable monarch accepting money",
+        "OCR misread: stray characters 7). after money"),
     ("times-13807", "17-across"): (
         "David's church 13",
         "David's church 18",
