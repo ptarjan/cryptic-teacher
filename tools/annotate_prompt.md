@@ -21,7 +21,11 @@ annotation is fixed, there to read, and the check refuses a change to it.
 
 Write annotations only; do not write a script to produce them. Each entry's
 `"solution"` is ground truth: your parse must produce exactly those letters, and if it
-does not, the parse is wrong, so rethink it rather than stretch it.
+does not, the parse is wrong, so rethink it rather than stretch it. The exception is
+a solution marked `(MODEL)`, a cold solve's guess: if no parse gives it and the clue
+plainly gives another word, set `answer` to that word. The check accepts it only if
+it agrees with every crossing and printed answer; correct a crossing `(MODEL)`
+answer the same way if its clue gives that letter.
 
 The clue text is the source's, with one exception. When the puzzle's
 `source.retrievedFrom` is `newspaper` or `book`, its clues are OCR of a scan, and a

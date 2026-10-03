@@ -597,6 +597,13 @@ tools/solve_packet.py                        the clues and the grid’s crossing
 tools/solve_prompt.md                        the method the model follows
 tools/apply_solution.py                      writes a blind solve in only if every crossing
                                              letter agrees
+tools/reopen_answers.py                      blanks the model answers an annotate run found no
+                                             parse for, once each, so the burn solves them
+                                             again instead of parking the puzzle
+tools/test_model_answers.sh                  an annotator’s correction of a model answer lands
+                                             only if every crossing and printed answer still
+                                             agrees; a reopen happens once and never to a
+                                             printed answer
 tools/solve_misses.py                        lists the graded misses no diagnosis has looked
                                              at, packs one up for it, records the verdict, and
                                              keeps each cold solve’s output until its key

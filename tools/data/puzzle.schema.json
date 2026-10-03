@@ -908,7 +908,7 @@
    }
   },
   "solutions": {
-   "description": "Whose answers are in the grid. `blog`, `url`, `model`, `date`, `check` and `officialKey` back an origin that is not the publisher's: a writeup carries blog, url, date and check; a model solve carries model, date and check; any other origin carries none of them (tools/provenance.py check).",
+   "description": "Whose answers are in the grid. `blog`, `url`, `model`, `date`, `check`, `officialKey`, `printed`, `corrected` and `reopened` back an origin that is not the publisher's: a writeup carries blog, url, date and check; a model solve carries model, date and check; any other origin carries none of them (tools/provenance.py check).",
    "type": "object",
    "required": [
     "origin"
@@ -949,6 +949,34 @@
      "type": "string",
      "minLength": 1,
      "description": "\"never\" when no official key will ever exist (tools/series.py)."
+    },
+    "printed": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {"type": "string", "pattern": "^[A-Z]+$"},
+     "description": "Entry id -> the answer the paper printed, where a model filled around some: these stay ground truth and the grid must agree with every one (tools/provenance.py check)."
+    },
+    "corrected": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": ["entry", "was", "now", "date"],
+      "additionalProperties": false,
+      "properties": {
+       "entry": {"type": "string", "minLength": 1},
+       "was": {"type": "string", "pattern": "^[A-Z]+$"},
+       "now": {"type": "string", "pattern": "^[A-Z]+$"},
+       "date": {"type": "string", "minLength": 1}
+      }
+     },
+     "description": "Model answers the annotator replaced because the clue gives another word, each checked against every crossing and printed answer (tools/apply_annotations.py)."
+    },
+    "reopened": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {"type": "string", "pattern": "^[A-Z]*$"},
+     "description": "Entry id -> the model answer no parse supported, sent back to be solved again (tools/reopen_answers.py). Once per entry."
     }
    }
   },

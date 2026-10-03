@@ -49,6 +49,7 @@ import blog_post  # noqa: E402
 import clue_types  # noqa: E402
 import definitions  # noqa: E402
 import groups  # noqa: E402
+import provenance  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series  # noqa: E402
 import validate_annotations  # noqa: E402
@@ -136,8 +137,10 @@ def to_write(puzzle, before):
     return only
 
 
-def view_line(e, leaders):
-    """One entry as a line: id | group | SOLUTION | clue (enumeration)."""
+def view_line(e, leaders, model=()):
+    """One entry as a line: id | group | SOLUTION | clue (enumeration). An
+    answer in `model` is marked (MODEL): a cold solve's, which the run may
+    correct (apply_annotations.model_corrections)."""
     clue = e["clue"]
     words = clue.get("text") or "(no clue printed)"
     if clue.get("enumeration"):
@@ -146,6 +149,8 @@ def view_line(e, leaders):
     group = "+".join(e["group"]) if e.get("group") else (
         f"in {leaders[eid]}" if eid in leaders else "-")
     solution = e.get("solution") or "?"
+    if eid in model:
+        solution += " (MODEL)"
     if e.get("solutionConfidence"):
         solution += f" ({e['solutionConfidence']})"
     if e.get("alteration"):
@@ -176,7 +181,10 @@ def write_view(path):
     if only is not None:
         view["annotateOnly"] = only
     leaders = groups.leader_of(puzzle["entries"])
-    view["entries"] = [view_line(e, leaders) for e in puzzle["entries"]]
+    printed = provenance.printed_answers(puzzle)
+    model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}
+             if provenance.solution_origin_from_file(puzzle) == "model" else set())
+    view["entries"] = [view_line(e, leaders, model) for e in puzzle["entries"]]
     kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
             if e.get("annotation") and only is not None and entry_id(e) not in only}
     if kept:
