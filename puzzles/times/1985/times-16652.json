@@ -21,10 +21,27 @@
   "model": "opus",
   "date": "2026-10-03",
   "check": "30 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "20-down",
+    "was": "SCOURED",
+    "now": "SHEARED",
+    "date": "2026-10-03"
+   },
+   {
+    "entry": "22-across",
+    "was": "SAGO",
+    "now": "FARE",
+    "date": "2026-10-03"
+   }
+  ],
   "reopened": {
    "20-down": "SCOURED"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +55,39 @@
     "text": "Marine festivity?",
     "enumeration": "13"
    },
-   "solution": "JOLLIFICATION"
+   "solution": "JOLLIFICATION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JOLLIFICATION",
+    "definitions": [
+     {
+      "text": "Marine festivity?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marine festivity?",
+      "note": "surface reading: a celebration held at sea or by the coast"
+     },
+     {
+      "clueFragment": "Marine",
+      "note": "setter's reading: a Jolly is old slang for a Royal Marine, so a Marine's party is a jolly occasion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "JOLLIFICATION is merrymaking, and Jolly is old naval slang for a Royal Marine, which is where the question mark points.",
+     "definitionFit": "Jollification is a word for festive merrymaking or a celebration, so any festivity qualifies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Marine"
+    }
+   }
   },
   {
    "number": 1,
@@ -58,7 +107,39 @@
      }
     ]
    },
-   "solution": "JOHNGALSWORTHY"
+   "solution": "JOHNGALSWORTHY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JOHN GALSWORTHY",
+    "definitions": [
+     {
+      "text": "Foresight, we hear, was his most lucrative asset",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foresight, we hear, was his most lucrative asset",
+      "note": "surface reading: an investor whose shrewd planning paid off best"
+     },
+     {
+      "clueFragment": "Foresight, we hear",
+      "note": "setter's reading: said aloud, Foresight is Forsyte, as in The Forsyte Saga, a novel sequence that earned its author a fortune"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "JOHN GALSWORTHY wrote The Forsyte Saga, his best-selling work; 'we hear' turns Foresight into Forsyte.",
+     "definitionFit": "The English novelist won the Nobel Prize largely on the strength of his Forsyte family chronicles, which earned him most money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Foresight"
+    }
+   }
   },
   {
    "number": 2,
@@ -72,7 +153,55 @@
     "text": "Where we find the French sick at heart?",
     "enumeration": "5"
    },
-   "solution": "LILLE"
+   "solution": "LILLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LILLE",
+    "definitions": [
+     {
+      "text": "Where we find the French sick at heart?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "container",
+      "note": "something at the heart of a phrase sits in its middle, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "sick means ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ILL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about where unhappy French people can be found.",
+     "walkthrough": "The whole clue doubles as the definition: LILLE is a French city, a place full of the French, here with ILL at its heart.",
+     "definitionFit": "Lille is a large city in northern France, so it is a place where French people are found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 3,
@@ -86,7 +215,64 @@
     "text": "Cochran, for example, rocked Paris and Rome with one",
     "enumeration": "10"
    },
-   "solution": "IMPRESARIO"
+   "solution": "IMPRESARIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPRESARIO",
+    "definitions": [
+     {
+      "text": "Cochran, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocked",
+      "for": "anagram",
+      "note": "rocked means shaken up, so the letters of the two cities get jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris",
+      "gives": "PARIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARISROMEI",
+       "gives": "IMPRESARIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Cochran causes a stir in two European capitals.",
+     "walkthrough": "Charles B. Cochran was a famous British theatrical producer of revues and musicals between the wars.",
+     "definitionFit": "An impresario organises and finances stage shows, and Cochran was a celebrated example of such a showman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocked"
+    }
+   }
   },
   {
    "number": 4,
@@ -100,7 +286,65 @@
     "text": "Base for soldier climbing up to peer",
     "enumeration": "7"
    },
-   "solution": "IGNOBLE"
+   "solution": "IGNOBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "IGNOBLE",
+    "definitions": [
+     {
+      "text": "Base",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing up",
+      "for": "reversal",
+      "note": "in a down clue climbing up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     },
+     {
+      "clueFragment": "peer",
+      "gives": "NOBLE",
+      "note": "a peer is a nobleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IG",
+      "NOBLE"
+     ],
+     "reversals": [
+      {
+       "from": "GI",
+       "to": "IG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is promoted, climbing the ranks to the peerage.",
+     "walkthrough": "'Base' looks like a military camp to go with the soldier, but it means low or dishonourable.",
+     "definitionFit": "Base and ignoble both describe conduct that is mean, dishonourable and lacking in moral worth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Base"
+    }
+   }
   },
   {
    "number": 5,
@@ -114,7 +358,74 @@
     "text": "Appalling article by sergeant-major gets over a pound",
     "enumeration": "7"
    },
-   "solution": "ABYSMAL"
+   "solution": "ABYSMAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABYSMAL",
+    "definitions": [
+     {
+      "text": "Appalling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue one piece written over another comes above it in the grid"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sergeant-major",
+      "gives": "SM",
+      "note": "SM is the abbreviation for sergeant-major"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the abbreviation for a pound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BY",
+      "SM",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A sergeant-major is shocked by a report that costs only a pound.",
+     "definitionFit": "Abysmal is an informal synonym for appalling, describing something extremely bad or dreadful in quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 6,
@@ -128,7 +439,65 @@
     "text": "This image is the same in central Thailand",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "This image",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central",
+      "for": "letter_selection",
+      "note": "central asks only for the middle letters of the country's name"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the same",
+      "gives": "DO",
+      "note": "do. is short for ditto, meaning the same"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "IL",
+      "select": "middle",
+      "note": "the two middle letters of the eight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A statue or picture that looks identical in the heart of Thailand.",
+     "walkthrough": "The ditto mark in lists is written do., so 'the same' gives the abbreviation; 'image' makes the solver think of photographs, not a statue of a god.",
+     "definitionFit": "An idol is an image or statue worshipped as a god, such as a Buddha figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "same"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +511,63 @@
     "text": "Elgin may be a chivalrous man, though careless",
     "enumeration": "9"
    },
-   "solution": "NEGLIGENT"
+   "solution": "NEGLIGENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEGLIGENT",
+    "definitions": [
+     {
+      "text": "careless",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may be",
+      "for": "anagram",
+      "note": "may be suggests the name could become something else, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elgin",
+      "gives": "ELGIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a chivalrous man",
+      "gives": "GENT",
+      "note": "a gent, or gentleman, is courteous and chivalrous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEGLI",
+      "GENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELGIN",
+       "gives": "NEGLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lord Elgin, famous for removing the Marbles, is gallant but sloppy.",
+     "definitionFit": "Negligent means failing to take proper care, which is exactly what careless describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Elgin"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +581,61 @@
     "text": "Government's employees have training initially in meiosis",
     "enumeration": "14"
    },
-   "solution": "UNDERSTATEMENT"
+   "solution": "UNDERSTATEMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNDERSTATEMENT",
+    "definitions": [
+     {
+      "text": "meiosis",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for just the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "have",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Government's employees",
+      "gives": "UNDERSTATEMEN",
+      "note": "people employed by government are men under the state"
+     },
+     {
+      "clueFragment": "training",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERSTATEMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Civil servants receive a little training in cell division.",
+     "walkthrough": "'Meiosis' looks biological, but in rhetoric it is a figure of speech that deliberately makes something seem less than it is.",
+     "definitionFit": "In rhetoric meiosis is deliberate playing down of something's importance, the same figure as litotes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meiosis"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +649,67 @@
     "text": "It provides little for him at first - then him and her",
     "enumeration": "9"
    },
-   "solution": "HALFPENNY"
+   "solution": "HALFPENNY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HALFPENNY",
+    "definitions": [
+     {
+      "text": "It provides little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks only for the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "then",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "him",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of him"
+     },
+     {
+      "clueFragment": "him",
+      "gives": "ALF",
+      "note": "a man's name standing for any him"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "PENNY",
+      "note": "a woman's name standing for any her"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ALF",
+      "PENNY"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling account of provision for a man and then a couple.",
+     "walkthrough": "H, then two first names, ALF and PENNY, make HALFPENNY.",
+     "definitionFit": "A halfpenny was a British coin worth half of one penny, so it buys very little indeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "him"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +723,51 @@
     "text": "Instrument decapitating a buccaneer",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitating",
+      "for": "deletion",
+      "note": "decapitating cuts off the head, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buccaneer",
+      "gives": "MORGAN",
+      "note": "Sir Henry Morgan was a notorious Welsh buccaneer in the Caribbean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tool used to behead a pirate.",
+     "walkthrough": "'Instrument' looks like an executioner's tool, but it is a musical one.",
+     "definitionFit": "The organ is a keyboard musical instrument with pipes, found in churches and concert halls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Instrument"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +781,59 @@
     "text": "Mirth about the bishop - it's a parish plot!",
     "enumeration": "5"
    },
-   "solution": "GLEBE"
+   "solution": "GLEBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLEBE",
+    "definitions": [
+     {
+      "text": "it's a parish plot",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mirth",
+      "gives": "GLEE",
+      "note": "glee is merriment"
+     },
+     {
+      "clueFragment": "the bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLE",
+      "B",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Merriment surrounds the bishop, as if a church scheme were afoot.",
+     "walkthrough": "'Plot' suggests a scheme, but here it is a piece of land.",
+     "definitionFit": "Glebe is land assigned to a parish clergyman as part of his living, a plot belonging to the parish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +847,47 @@
     "text": "Overhaul boat and cause a strike",
     "enumeration": "4"
    },
-   "solution": "BUMP"
+   "solution": "BUMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUMP",
+    "definitions": [
+     {
+      "text": "Overhaul boat",
+      "at": 0
+     },
+     {
+      "text": "cause a strike",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overhaul boat",
+      "note": "first meaning: in college ... races, catching and touching the boat ahead"
+     },
+     {
+      "clueFragment": "cause a strike",
+      "note": "second meaning: knock into something"
+     }
+    ],
+    "explanation": {
+     "surface": "Repairing a vessel leads to industrial action.",
+     "walkthrough": "'Overhaul' looks like repair work, but it means overtake; 'strike' looks like a walkout, but it is a blow.",
+     "definitionFit": "In Oxford and Cambridge rowing races a crew scores by touching the boat in front, and a knock or collision is also called this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Overhaul"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +901,53 @@
     "text": "Rich man sacrifices son for low life here",
     "enumeration": "4"
    },
-   "solution": "DIVE"
+   "solution": "DIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIVE",
+    "definitions": [
+     {
+      "text": "low life here",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacrifices",
+      "for": "deletion",
+      "note": "to sacrifice something is to give it up, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rich man",
+      "gives": "DIVES",
+      "note": "Dives is the rich man in the parable of Lazarus"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy man gives up his son for a lowly existence.",
+     "walkthrough": "Removing S from DIVES leaves DIVE.",
+     "definitionFit": "A dive is a disreputable bar or club, a haunt where seedy lowlifes gather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +961,63 @@
     "text": "Advertise new pet with uncommon glamour",
     "enumeration": "10"
    },
-   "solution": "PROMULGATE"
+   "solution": "PROMULGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROMULGATE",
+    "definitions": [
+     {
+      "text": "Advertise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh form, so these letters are rearranged"
+     },
+     {
+      "text": "uncommon",
+      "for": "anagram",
+      "note": "uncommon means unusual, so these letters take an unusual order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet",
+      "gives": "PET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "glamour",
+      "gives": "GLAMOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETGLAMOUR",
+       "gives": "PROMULGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert showcases a novel animal with rare allure.",
+     "definitionFit": "To promulgate is to make widely known or proclaim publicly, as advertising makes something known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +1031,65 @@
     "text": "Fee paid by boat people to see king behind bars?",
     "enumeration": "7"
    },
-   "solution": "LOCKAGE"
+   "solution": "LOCKAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOCKAGE",
+    "definitions": [
+     {
+      "text": "Fee paid by boat people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "container",
+      "note": "behind bars means locked inside, so one piece is shut within the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or see"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "bars",
+      "gives": "CAGE",
+      "note": "a cage is an enclosure of bars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "C",
+      "K",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Boat passengers pay to see a king in prison.",
+     "walkthrough": "'Boat people' suggests refugees; here they are canal users paying a toll at the locks.",
+     "definitionFit": "Lockage is the toll charged to vessels for passing through the locks of a canal or river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "people"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1103,54 @@
     "text": "Husks overburden small island bird",
     "enumeration": "9"
    },
-   "solution": "CHAFFINCH"
+   "solution": "CHAFFINCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAFFINCH",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overburden",
+      "for": "charade",
+      "note": "in a down clue something that burdens another lies over it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husks",
+      "gives": "CHAFF",
+      "note": "chaff is the husks separated from grain"
+     },
+     {
+      "clueFragment": "small island",
+      "gives": "INCH",
+      "note": "inch is a Scottish word for a small island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAFF",
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Grain husks weigh heavily on a tiny island where a bird lives.",
+     "walkthrough": "INCH, a small island, is common in Scottish place names such as Inchcolm.",
+     "definitionFit": "The chaffinch is a common European finch, a small songbird with a pinkish breast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Husks"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1164,49 @@
     "text": "Generous free gifts supplied by a big steamer",
     "enumeration": "7"
    },
-   "solution": "LARGESS"
+   "solution": "LARGESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LARGESS",
+    "definitions": [
+     {
+      "text": "Generous free gifts",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supplied by a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "LARGE",
+      "note": "big means large"
+     },
+     {
+      "clueFragment": "steamer",
+      "gives": "SS",
+      "note": "SS, steamship, prefixes a steamer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARGE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Handouts generously delivered by a great ship.",
+     "definitionFit": "Largess is generosity in giving, and also the money or presents bestowed so freely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steamer"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1220,47 @@
     "text": "Lamentation heard at this form of hunting",
     "enumeration": "7"
    },
-   "solution": "WHALING"
+   "solution": "WHALING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHALING",
+    "definitions": [
+     {
+      "text": "this form of hunting",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we go by the sound of the word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lamentation",
+      "gives": "WHALING",
+      "soundsLike": "WAILING",
+      "note": "lamentation is crying and moaning"
+     }
+    ],
+    "explanation": {
+     "surface": "Mourning cries are raised in protest at a cruel hunt.",
+     "definitionFit": "Whaling is the hunting of whales at sea for their oil and meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lamentation"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1274,39 @@
     "text": "Who's breaking its rules? It's me",
     "enumeration": "7"
    },
-   "solution": "GRAMMAR"
+   "solution": "GRAMMAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRAMMAR",
+    "definitions": [
+     {
+      "text": "Who's breaking its rules? It's me",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who's breaking its rules?",
+      "note": "surface reading: someone asks who is flouting regulations and owns up"
+     },
+     {
+      "clueFragment": "It's me",
+      "note": "setter's reading: strict pedants insist on It is I, so the confession itself breaks a rule of language"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer-giver's reply 'It's me' is the very offence, since a traditional rule demands 'It is I'.",
+     "definitionFit": "Grammar is the system of rules governing how words combine, the rules that 'It's me' is said to break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rules"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1320,56 @@
     "text": "Napier's problem at Burlington House? No. it's in the Orient",
     "enumeration": "7"
    },
-   "solution": "SUMATRA"
+   "solution": "SUMATRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMATRA",
+    "definitions": [
+     {
+      "text": "it's in the Orient",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "No."
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Napier's problem",
+      "gives": "SUM",
+      "note": "John Napier, inventor of logarithms, would set a sum"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Burlington House",
+      "gives": "RA",
+      "note": "Burlington House in London is home of the Royal Academy, RA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "AT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematician puzzles over something at a London gallery, then is told it is in the East.",
+     "walkthrough": "John Napier was a Scottish mathematician; the Royal Academy of Arts occupies Burlington House on Piccadilly.",
+     "definitionFit": "Sumatra is a large Indonesian island in South-East Asia, part of what was called the Orient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Napier's"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1383,61 @@
     "text": "Stripped most of 22 in an outhouse",
     "enumeration": "7"
    },
-   "solution": "SCOURED"
+   "solution": "SHEARED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SHEARED",
+    "definitions": [
+     {
+      "text": "Stripped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word means nearly all of it, so one letter, here the front one, is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something put in a building sits inside it, so the shorter piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "22",
+      "gives": "FARE",
+      "note": "the answer to 22 across, provisions or food"
+     },
+     {
+      "clueFragment": "an outhouse",
+      "gives": "SHED",
+      "note": "a shed is a small outbuilding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "ARE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was robbed of most of their supplies while in a garden shed.",
+     "walkthrough": "'Most of' here trims the front of the word, not the usual tail. Shearing is what strips a sheep of its fleece.",
+     "definitionFit": "A sheep that is sheared has its fleece clipped off, so it is stripped of its wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stripped"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1451,54 @@
     "text": "Among engineers, a condition of common occurrence",
     "enumeration": "4"
    },
-   "solution": "RIFE"
+   "solution": "RIFE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIFE",
+    "definitions": [
+     {
+      "text": "of common occurrence",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Among",
+      "for": "container",
+      "note": "something among others is placed in their midst"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers"
+     },
+     {
+      "clueFragment": "a condition",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IF",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A routine situation among army engineers.",
+     "definitionFit": "Rife describes something widespread, happening frequently, usually something undesirable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "condition"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1512,48 @@
     "text": "Provisions from the region of 20 ac",
     "enumeration": "4"
    },
-   "solution": "SAGO"
+   "solution": "FARE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FARE",
+    "definitions": [
+     {
+      "text": "Provisions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking something from a longer phrase means using only part of it, so the end is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the region of 20 ac",
+      "gives": "FAREAST",
+      "note": "Sumatra, the answer at 20 across, lies in the Far East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for supplies shipped from the area around an Indonesian island.",
+     "walkthrough": "The region holding Sumatra is the Far East; keep its opening four letters. SAGO, a Sumatran food, tempts first, but it has no wordplay and wrecks 20 down.",
+     "definitionFit": "Fare is food and drink offered or eaten, the same sense as provisions laid in for a household."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "region"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1567,53 @@
     "text": "Vague directions to follow game",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "Vague",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places these pieces after the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "LOO",
+      "note": "loo is an old card game"
+     },
+     {
+      "clueFragment": "directions",
+      "gives": "SE",
+      "note": "south and east, two compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Unclear instructions on what comes after a game.",
+     "definitionFit": "Loose can mean imprecise or inexact, as in a loose translation, which is vague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1627,53 @@
     "text": "Permitting everyone to leave, being overdue",
     "enumeration": "5"
    },
-   "solution": "OWING"
+   "solution": "OWING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OWING",
+    "definitions": [
+     {
+      "text": "being overdue",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "those leaving depart, so these letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permitting",
+      "gives": "ALLOWING",
+      "note": "permitting means allowing"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWING"
+     ]
+    },
+    "explanation": {
+     "surface": "Letting everybody go home while running late.",
+     "walkthrough": "Removing ALL from ALLOWING leaves OWING.",
+     "definitionFit": "A debt that is owing remains unpaid, so a sum owing is overdue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Permitting"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1687,42 @@
     "text": "Consume a little Highland water",
     "enumeration": "4"
    },
-   "solution": "BURN"
+   "solution": "BURN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BURN",
+    "definitions": [
+     {
+      "text": "Consume",
+      "at": 0
+     },
+     {
+      "text": "a little Highland water",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consume",
+      "note": "first meaning: use up as fuel"
+     },
+     {
+      "clueFragment": "a little Highland water",
+      "note": "second meaning: the Scottish word for a stream"
+     }
+    ],
+    "explanation": {
+     "surface": "Drinking a drop of Scotch water.",
+     "definitionFit": "Fire consumes what it destroys, and in Scotland a small stream or brook has this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Consume"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1736,42 @@
     "text": "Brahmin, possibly, in a clash in Dundee",
     "enumeration": "5"
    },
-   "solution": "HINDU"
+   "solution": "HINDU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINDU",
+    "definitions": [
+     {
+      "text": "Brahmin, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer lies inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a clash in Dundee",
+      "gives": "HINDU",
+      "note": "the letters run across the word ends"
+     }
+    ],
+    "explanation": {
+     "surface": "A high-caste visitor is caught up in a fight in a Scottish city.",
+     "definitionFit": "A Brahmin is a member of the highest Hindu caste, so is an example of a follower of that religion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clash"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1785,60 @@
     "text": "5 Some say it's but a substitute for fresh German air",
     "enumeration": "9"
    },
-   "solution": "MARGARINE"
+   "solution": "MARGARINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARGARINE",
+    "definitions": [
+     {
+      "text": "Some say it's but a substitute",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means new, so the letters are made anew in another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "GERMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GERMANAIR",
+       "gives": "MARGARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a breath of Bavarian air is a poor replacement.",
+     "walkthrough": "'Substitute' looks like the start of 'substitute for fresh air', but the definition ends there: the spread is a stand-in for butter.",
+     "definitionFit": "Margarine was made as a cheaper alternative to butter, and many people regard it as a poor imitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1852,51 @@
     "text": "A ton load? No, a fraction of that",
     "enumeration": "13"
    },
-   "solution": "HUNDREDWEIGHT"
+   "solution": "HUNDREDWEIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUNDREDWEIGHT",
+    "definitions": [
+     {
+      "text": "a fraction of that",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "No,"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A ton",
+      "gives": "HUNDRED",
+      "note": "a ton is slang for a hundred"
+     },
+     {
+      "clueFragment": "load",
+      "gives": "WEIGHT",
+      "note": "a load is a weight carried"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUNDRED",
+      "WEIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a load weighs a ton, and is told it is far less.",
+     "walkthrough": "'Ton' reads as weight, but in the wordplay it is the slang for a hundred.",
+     "definitionFit": "The imperial unit of 112 pounds is one twentieth of a long ton, a small part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ton"
+    }
+   }
   }
  ]
 }
