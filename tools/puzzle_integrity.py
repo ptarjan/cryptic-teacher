@@ -26,7 +26,8 @@ The flags, in the order they matter:
             clues (clue_index.THRESHOLD): a page that served another puzzle's
             clues under a new id, which DUPLICATE misses when one clue differs.
             Found through an index of clue text -> ids, not pairwise.
-            clue_index.REPRINTS lists the pairs known to be a setter's rerun.
+            clue_index.REPRINTS lists the pairs known to be a setter's rerun,
+            clue_index.SYNDICATED the series that reprint another's puzzles.
   LENGTH    an answer that contradicts the length the data itself states. Two
             statements exist per entry and both are checked: the grid's `length`
             field, and the (5,4)-style enumeration at the end of the clue. On a
