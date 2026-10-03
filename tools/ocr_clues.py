@@ -801,6 +801,22 @@ def line_end_hyphen(m):
     return a + b if name else f"{a}-{b}"
 
 
+def unhyphen(text):
+    """A reading returned unbroken (the VLM's: it runs a clue's printed lines
+    together) with each hyphen that broke a word over a line end joined
+    ("pre-decessor", "ob-vious"). "A-B" is "AB" when AB is a word and the
+    corpus's clues never print it hyphenated (tools/data/clue_compounds.tsv).
+    A form they do print ("back-street", "sea-bird", "co-operate") stands as
+    read: the scans' older print hyphenates compounds today's clues close.
+    Not for a reading that keeps the print's lines: there a hyphen inside a
+    line is the print's own ("counter-charges"), and clean() joins the line
+    ends."""
+    def join(m):
+        a, b = m.group(1), m.group(2)
+        return a + b if is_word(a + b) and not compound(a, b)[0] else m.group(0)
+    return re.sub(r"(?<![\w-])([A-Za-z]+)-([a-z]+)(?![\w-])", join, text)
+
+
 HEADING = re.compile(r"^\W*(?:clues\s+)?(?:across|down)\W*$", re.IGNORECASE | re.MULTILINE)
 
 
