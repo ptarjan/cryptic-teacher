@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Vehicle with endless job when reversing gets driving aid",
     "enumeration": "6"
    },
-   "solution": "SATNAV"
+   "solution": "SATNAV",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SATNAV",
+    "definitions": [
+     {
+      "text": "driving aid",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "a word with no end has lost its final letter"
+     },
+     {
+      "text": "when reversing",
+      "for": "reversal",
+      "note": "reversing a vehicle sends it backwards, so the joined letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "TASK",
+      "note": "a task is a job"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "NAV"
+     ],
+     "reversals": [
+      {
+       "from": "VANTAS",
+       "to": "SATNAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver reversing a van after an endless shift ends up relying on a navigation gadget.",
+     "walkthrough": "TASK loses its last letter, then VAN and TAS together are read backwards to give SATNAV.",
+     "definitionFit": "A satnav is the satellite navigation device fitted in cars to guide motorists along routes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +119,67 @@
      }
     ]
    },
-   "solution": "STAMPOUT"
+   "solution": "STAMPOUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STAMP OUT",
+    "definitions": [
+     {
+      "text": "Completely dispose of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means only half of the preceding word survives, the other half dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "host",
+      "gives": "HOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "sulky expression",
+      "gives": "POUT",
+      "note": "a pout is a sulky pushing out of the lips"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "M",
+      "POUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants to be rid of a party host whose face has fallen into a sulk.",
+     "walkthrough": "HOST loses its first half, HO, leaving ST.",
+     "definitionFit": "To stamp out something is to eradicate it entirely, as a fire or a rebellion is crushed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +193,81 @@
     "text": "Screen set wrongly around Italian writer close to stage",
     "enumeration": "8"
    },
-   "solution": "TELEVISE"
+   "solution": "TELEVISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TELEVISE",
+    "definitions": [
+     {
+      "text": "Screen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "something set wrongly is put in the wrong order, so these letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around tells us the rearranged letters wrap themselves about the writer"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "close here means the end, so only the final letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "Italian writer",
+      "gives": "LEVI",
+      "note": "Primo Levi was an Italian writer and chemist"
+     },
+     {
+      "clueFragment": "stage",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "LEVI",
+      "S",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage set has been badly assembled around an Italian author near the theatre.",
+     "walkthrough": "The rearranged letters are split so that the writer sits inside them, and the closing letter of stage is tacked on last.",
+     "definitionFit": "To screen a programme is to broadcast it, which is what televising an event means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Screen"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +281,56 @@
     "text": "Decrepit car bachelor abandons in fury",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANGER",
+    "definitions": [
+     {
+      "text": "fury",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandons",
+      "for": "deletion",
+      "note": "whatever abandons the word walks out of it, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decrepit car",
+      "gives": "BANGER",
+      "note": "a banger is British slang for an old, worn-out car"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor, as in BA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man storms off and leaves his clapped-out car behind in a rage.",
+     "walkthrough": "The B at the front of BANGER is taken away.",
+     "definitionFit": "Fury and anger are synonyms, both naming a strong feeling of rage or wrath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandons"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +344,63 @@
     "text": "Novelist dismisses second politician being friendly",
     "enumeration": "8"
    },
-   "solution": "AMICABLE"
+   "solution": "AMICABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AMICABLE",
+    "definitions": [
+     {
+      "text": "friendly",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismisses",
+      "for": "deletion",
+      "note": "to dismiss is to send away, so the named letter is removed from the novelist"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novelist",
+      "gives": "AMIS",
+      "note": "Kingsley and Martin Amis were both English novelists"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "CABLE",
+      "note": "Vince Cable, former leader of the Liberal Democrats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMI",
+      "CABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer sacks a second political figure, yet stays on good terms with them.",
+     "walkthrough": "AMIS drops its S to leave AMI.",
+     "definitionFit": "Amicable describes relations that are cordial and good-natured, which is what friendly conveys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +420,50 @@
      }
     ]
    },
-   "solution": "MARTINSHEEN"
+   "solution": "MARTINSHEEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARTIN SHEEN",
+    "definitions": [
+     {
+      "text": "US actor",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "something disrupted is thrown into disorder, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shame intern",
+      "gives": "SHAMEINTERN",
+      "note": "anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHAMEINTERN",
+       "gives": "MARTINSHEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An embarrassing intern throws a film actor's day into chaos.",
+     "definitionFit": "Martin Sheen is an American star of Apocalypse Now and The West Wing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intern"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +477,67 @@
     "text": "Comedy writer with help sent up summaries of work",
     "enumeration": "9"
    },
-   "solution": "COMPENDIA"
+   "solution": "COMPENDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "COMPENDIA",
+    "definitions": [
+     {
+      "text": "summaries of work",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent up",
+      "for": "reversal",
+      "note": "in a down entry, sending something up means reading it from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comedy",
+      "gives": "COM",
+      "note": "com is the short form of comedy, as in romcom"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PEN",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic author whose assistant has mocked him produces digests of his work.",
+     "walkthrough": "'Sent up' looks like mockery but, in a down clue, it turns only the word for help upside down.",
+     "definitionFit": "Compendia, the plural of compendium, are concise collections giving the essence of a larger body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Comedy"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +551,47 @@
     "text": "Opening in lower part, it's said",
     "enumeration": "6"
    },
-   "solution": "BREACH"
+   "solution": "BREACH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BREACH",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said points to how the word is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lower part",
+      "gives": "BREACH",
+      "soundsLike": "BREECH",
+      "note": "the breech is the lower rear part, as of the body or a gun"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reports a gap or hole in the bottom of something.",
+     "definitionFit": "A breach is a gap or rupture made in a wall or defence, an opening forced through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +605,61 @@
     "text": "Like four, say, left close to poverty in a uniform way",
     "enumeration": "6"
    },
-   "solution": "EVENLY"
+   "solution": "EVENLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVENLY",
+    "definitions": [
+     {
+      "text": "in a uniform way",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter alone is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like four, say",
+      "gives": "EVEN",
+      "note": "four is an example of an even number"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "poverty",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of poverty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A family of four is left on the brink of poverty, all treated the same way.",
+     "definitionFit": "Evenly means equally or regularly, without variation, which is doing something uniformly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "four"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +673,61 @@
     "text": "Claim litre, say, in drink",
     "enumeration": "6"
    },
-   "solution": "ALLEGE"
+   "solution": "ALLEGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALLEGE",
+    "definitions": [
+     {
+      "text": "Claim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the word for drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is a drink"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L is the abbreviation for litre"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg, for example, is what say can mean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "L",
+      "EG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asserts that a litre of something was in their drink.",
+     "definitionFit": "To allege is to assert something without proof, which is to claim it is so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +741,55 @@
     "text": "Price set by music company once before opening",
     "enumeration": "8"
    },
-   "solution": "PREMIERE"
+   "solution": "PREMIERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREMIERE",
+    "definitions": [
+     {
+      "text": "opening",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "set by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Price",
+      "gives": "PR",
+      "note": "pr is a dictionary abbreviation for price"
+     },
+     {
+      "clueFragment": "music company",
+      "gives": "EMI",
+      "note": "EMI is a British record label"
+     },
+     {
+      "clueFragment": "once before",
+      "gives": "ERE",
+      "note": "ere is an old word for before; once marks it as archaic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "EMI",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A record label fixes the ticket cost in advance of a show's first night.",
+     "definitionFit": "A premiere is the first public performance of a film or play, its opening night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +803,72 @@
     "text": "A VIP or tenor primarily at work?",
     "enumeration": "9"
    },
-   "solution": "PAVAROTTI"
+   "solution": "PAVAROTTI",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PAVAROTTI",
+    "definitions": [
+     {
+      "text": "A VIP or tenor primarily at work?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the initial letter alone is used"
+     },
+     {
+      "text": "work",
+      "for": "anagram",
+      "note": "letters set to work are worked over and rearranged into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A VIP or",
+      "gives": "AVIPOR",
+      "note": "anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tenor"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAVAROTTI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AVIPORTAT",
+       "gives": "PAVAROTTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a celebrity singer busy performing.",
+     "walkthrough": "The whole clue is both wordplay and definition: Luciano Pavarotti was a star tenor and certainly a VIP on stage.",
+     "definitionFit": "Luciano Pavarotti was the famous Italian operatic tenor, a very important person when performing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +888,70 @@
      }
     ]
    },
-   "solution": "TRANSITCAMP"
+   "solution": "TRANSITCAMP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRANSIT CAMP",
+    "definitions": [
+     {
+      "text": "area for refugees?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes round",
+      "for": "container",
+      "note": "goes round means the first word encircles what follows"
+     },
+     {
+      "text": "tatters",
+      "for": "anagram",
+      "note": "something in tatters is torn to pieces, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vagrant",
+      "gives": "TRAMP",
+      "note": "a tramp is a vagrant"
+     },
+     {
+      "clueFragment": "cast in",
+      "gives": "CASTIN",
+      "note": "anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ANSITC",
+      "AMP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASTIN",
+       "gives": "ANSITC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homeless wanderer wraps himself in ragged discards in some district.",
+     "walkthrough": "The question mark flags that a transit camp houses displaced people generally, not only refugees.",
+     "definitionFit": "A transit camp is a temporary site housing displaced people or refugees while they await relocation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +965,43 @@
     "text": "In the audience, forty do well",
     "enumeration": "5"
    },
-   "solution": "EXCEL"
+   "solution": "EXCEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EXCEL",
+    "definitions": [
+     {
+      "text": "do well",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In the audience",
+      "for": "homophone",
+      "note": "an audience hears the words, so the clue relies on sound not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forty",
+      "gives": "EXCEL",
+      "soundsLike": "XL",
+      "note": "XL is forty in Roman numerals"
+     }
+    ],
+    "explanation": {
+     "surface": "Forty people in the audience perform well.",
+     "definitionFit": "To excel is to be outstanding or perform exceptionally, which is doing well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1015,71 @@
     "text": "Abroad a certain director encapsulating predicament is without rival",
     "enumeration": "11"
    },
-   "solution": "UNSURPASSED"
+   "solution": "UNSURPASSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNSURPASSED",
+    "definitions": [
+     {
+      "text": "without rival",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encapsulating",
+      "for": "container",
+      "note": "encapsulating means enclosing, so one word wraps around the next"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abroad a",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "predicament",
+      "gives": "PASS",
+      "note": "a pass is a predicament, as in a pretty pass"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "D is the abbreviation for director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SUR",
+      "PASS",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director overseas, in a fix, is said to have no equal.",
+     "walkthrough": "'A certain director' looks like one phrase but splits into separate pieces; 'abroad' signals that a is translated into French.",
+     "definitionFit": "Unsurpassed means never exceeded by anyone, so having no equal or competitor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Abroad"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1099,49 @@
      }
     ]
    },
-   "solution": "REDCARPET"
+   "solution": "REDCARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED CARPET",
+    "definitions": [
+     {
+      "text": "special treatment",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North Yorkshire resort",
+      "gives": "REDCAR",
+      "note": "Redcar is a seaside town in North Yorkshire"
+     },
+     {
+      "clueFragment": "dog, maybe",
+      "gives": "PET",
+      "note": "a dog is an example of a pet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDCAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog at a seaside resort in northern England is pampered.",
+     "definitionFit": "Getting the red carpet means a lavish welcome, from the carpet rolled out for dignitaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1155,62 @@
     "text": "Malign type on ward guarding pair of inmates",
     "enumeration": "8"
    },
-   "solution": "SINISTER"
+   "solution": "SINISTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SINISTER",
+    "definitions": [
+     {
+      "text": "Malign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pair of",
+      "for": "letter_selection",
+      "note": "a pair is two, so just the first two letters of the next word are kept"
+     },
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "a guard surrounds what it protects, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type on ward",
+      "gives": "SISTER",
+      "note": "a sister is a senior nurse in charge of a hospital ward"
+     },
+     {
+      "clueFragment": "inmates",
+      "gives": "IN",
+      "select": "first",
+      "note": "the first two letters of inmates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "ISTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked figure on a prison or hospital wing keeps watch over two detainees.",
+     "walkthrough": "In British hospitals a sister is the senior nurse running a ward; she encloses IN as SI...STER.",
+     "definitionFit": "Sinister and malign both describe something evil or harmful in intent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ward"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1224,43 @@
     "text": "Some painter compromised means of exchange in block?",
     "enumeration": "8"
    },
-   "solution": "INTERCOM"
+   "solution": "INTERCOM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTERCOM",
+    "definitions": [
+     {
+      "text": "means of exchange in block?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the answer is a run of letters within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painter compromised",
+      "gives": "INTERCOM",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist's integrity has been damaged by trading in a block of flats.",
+     "walkthrough": "The question mark signals that 'block' means a block of flats, where an entry phone lets residents talk to callers.",
+     "definitionFit": "An intercom is a communication system linking rooms, such as the door entry phone in an apartment building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1274,67 @@
     "text": "Son in ground operated in hopeless state",
     "enumeration": "11"
    },
-   "solution": "DESPERATION"
+   "solution": "DESPERATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DESPERATION",
+    "definitions": [
+     {
+      "text": "hopeless state",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first in places the son inside the rearranged letters"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground has been crushed into bits, so the following letters are reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operated in",
+      "gives": "OPERATEDIN",
+      "note": "anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "PERATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPERATEDIN",
+       "gives": "DEPERATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son had an operation on the ground in a desperate situation.",
+     "walkthrough": "'operated in' looks like plain narrative but is the fodder; the final 'in' belongs to it, not to the definition.",
+     "definitionFit": "Desperation is a condition of despair where one has lost hope, a hopeless state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1348,41 @@
     "text": "Gloom opposing counterpart",
     "enumeration": "6"
    },
-   "solution": "SHADOW"
+   "solution": "SHADOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHADOW",
+    "definitions": [
+     {
+      "text": "Gloom",
+      "at": 0
+     },
+     {
+      "text": "opposing counterpart",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloom",
+      "note": "first meaning: darkness or shade"
+     },
+     {
+      "clueFragment": "opposing counterpart",
+      "note": "second meaning: an opposition politician matched to a government minister"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British politics the opposition party names a 'shadow' for each minister, such as the shadow chancellor.",
+     "definitionFit": "A shadow is an area of darkness, and also the opposition spokesperson who mirrors a minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1396,64 @@
     "text": "A king includes four points in response",
     "enumeration": "6"
    },
-   "solution": "ANSWER"
+   "solution": "ANSWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANSWER",
+    "definitions": [
+     {
+      "text": "response",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means takes inside, so the points sit within the outer letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is the abbreviation for rex, Latin for king"
+     },
+     {
+      "clueFragment": "four points",
+      "gives": "NSWE",
+      "note": "the four compass points north, south, west and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NSWE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch embraces four ideas in his reply.",
+     "walkthrough": "A and R surround the four compass letters.",
+     "definitionFit": "An answer is a reply or reaction to a question, which is what a response means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1467,60 @@
     "text": "Woman with husband put back dye",
     "enumeration": "5"
    },
-   "solution": "HENNA"
+   "solution": "HENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HENNA",
+    "definitions": [
+     {
+      "text": "dye",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means set in the opposite direction, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "ANNE",
+      "note": "Anne is a woman's name"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNEH",
+       "to": "HENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife and husband reapply colour to their hair.",
+     "definitionFit": "Henna is a reddish-brown colouring made from a plant, used on hair and skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1534,76 @@
     "text": "Cautious figure beginning to triumph with retro musical",
     "enumeration": "9"
    },
-   "solution": "TENTATIVE"
+   "solution": "TENTATIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TENTATIVE",
+    "definitions": [
+     {
+      "text": "Cautious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, which alone is kept"
+     },
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so the show's name is read right to left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a number, or figure"
+     },
+     {
+      "clueFragment": "triumph",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of triumph"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "EVITA",
+      "note": "Evita is the Lloyd Webber musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "T",
+      "ATIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITA",
+       "to": "ATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careful performer's figure starts to win out with an old-fashioned stage show.",
+     "definitionFit": "Tentative means hesitant and provisional, acting carefully without full commitment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retro"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1617,60 @@
     "text": "Artist after retirement managed Scottish island",
     "enumeration": "5"
    },
-   "solution": "ARRAN"
+   "solution": "ARRAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ARRAN",
+    "definitions": [
+     {
+      "text": "Scottish island",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after retirement",
+      "for": "reversal",
+      "note": "retirement is a withdrawal or going back, so the letters are written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the standard abbreviation for an artist"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran means managed, as a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "RAN"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter who has retired ran a Scottish island.",
+     "definitionFit": "Arran is an island in the Firth of Clyde off the west coast of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1684,46 @@
     "text": "Make light of miserable drama",
     "enumeration": "8"
    },
-   "solution": "DOWNPLAY"
+   "solution": "DOWNPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNPLAY",
+    "definitions": [
+     {
+      "text": "Make light of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miserable",
+      "gives": "DOWN",
+      "note": "down means depressed, miserable"
+     },
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "PLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs off an unhappy stage production.",
+     "definitionFit": "To downplay something is to minimise its importance, which is to make light of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drama"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1737,68 @@
     "text": "Reviewer right to probe name largely in charge",
     "enumeration": "6"
    },
-   "solution": "CRITIC"
+   "solution": "CRITIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "CRITIC",
+    "definitions": [
+     {
+      "text": "Reviewer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to probe",
+      "for": "container",
+      "note": "to probe is to poke inside, so the letter goes into the following word"
+     },
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means mostly, so all but the final letter remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "CITE",
+      "note": "to cite is to name, as a source or example"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "IT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer is entitled to investigate a big name in authority.",
+     "walkthrough": "'Name' is a verb here, meaning to mention or quote, not a noun.",
+     "definitionFit": "A critic writes judgements of books, films or plays, which is the job of a reviewer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "probe"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1812,61 @@
     "text": "Kitchen features paid activity, post for cooking",
     "enumeration": "8"
    },
-   "solution": "WORKTOPS"
+   "solution": "WORKTOPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WORKTOPS",
+    "definitions": [
+     {
+      "text": "Kitchen features",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients up, and to cook can mean to falsify, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paid activity",
+      "gives": "WORK",
+      "note": "work is what one is paid to do"
+     },
+     {
+      "clueFragment": "post",
+      "gives": "POST",
+      "note": "anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORK",
+      "TOPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POST",
+       "gives": "TOPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen advert lists features: a paid job and a job vacancy for a chef.",
+     "walkthrough": "'For cooking' reads as part of the kitchen picture but signals the anagram.",
+     "definitionFit": "Worktops are the flat counter surfaces in a kitchen where food is prepared."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1880,49 @@
     "text": "Article cut for NI town",
     "enumeration": "6"
    },
-   "solution": "ANTRIM"
+   "solution": "ANTRIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTRIM",
+    "definitions": [
+     {
+      "text": "NI town",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "TRIM",
+      "note": "to trim is to cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TRIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece is shortened for a Northern Irish town.",
+     "definitionFit": "Antrim is a town north-west of Belfast in Northern Ireland, abbreviated NI."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   }
  ]
 }
