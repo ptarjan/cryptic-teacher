@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "We leave waitress organising apples and pears",
     "enumeration": "6"
    },
-   "solution": "STAIRS"
+   "solution": "STAIRS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STAIRS",
+    "definitions": [
+     {
+      "text": "apples and pears",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leave",
+      "for": "deletion",
+      "note": "to leave is to go away, so the first pair of words departs from the longer word"
+     },
+     {
+      "text": "organising",
+      "for": "anagram",
+      "note": "organising puts things into a fresh order, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written, the letters to remove"
+     },
+     {
+      "clueFragment": "waitress",
+      "gives": "WAITRESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAIRS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AITRSS",
+       "gives": "STAIRS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stops a waitress from sorting out the fruit display.",
+     "walkthrough": "Removing W and E from WAITRESS leaves AITRSS to rearrange. 'Apples and pears' is Cockney rhyming slang, a London habit of replacing a word with a phrase that rhymes with it.",
+     "definitionFit": "In Cockney rhyming slang the phrase rhymes with the word it replaces, so the fruit pair stands for flights of steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "apples"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +112,51 @@
    "group": [
     "2-down",
     "22-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TELLTALE",
+    "definitions": [
+     {
+      "text": "Whistle-blower",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archer?",
+      "gives": "TELL",
+      "note": "William Tell, the legendary Swiss archer who shot an apple from his son's head"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELL",
+      "TALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who exposes wrongdoing tells a story about a person named Archer.",
+     "walkthrough": "Read 'story about Archer' as a story about the archer: Tell's tale. The question mark warns that Archer is an example, William Tell, and 's stands for 'is'.",
+     "definitionFit": "Someone who reports others' misdeeds to authority is called a telltale, much like an informer exposing wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Archer"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +170,42 @@
     "text": "Meet some splinter section",
     "enumeration": "9"
    },
-   "solution": "INTERSECT"
+   "solution": "INTERSECT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTERSECT",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following words is used, a run of letters lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "splinter section",
+      "gives": "INTERSECT",
+      "note": "the letters run across the two words, dropping the outer ones"
+     }
+    ],
+    "explanation": {
+     "surface": "Members of a breakaway faction gather for a meeting.",
+     "definitionFit": "Lines or roads that cross each other are said to meet at the point where they cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "splinter"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +219,50 @@
     "text": "Endless fruit for Muslim ruler",
     "enumeration": "6"
    },
-   "solution": "SULTAN"
+   "solution": "SULTAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SULTAN",
+    "definitions": [
+     {
+      "text": "Muslim ruler",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter of the next word is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "SULTANA",
+      "note": "a sultana is a dried grape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SULTAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A never-ending supply of fruit is laid on for a ruler.",
+     "definitionFit": "The title is used for the sovereign of various Islamic states, such as Oman or Brunei."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +282,69 @@
      }
     ]
    },
-   "solution": "DEBTFREE"
+   "solution": "DEBTFREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DEBT FREE",
+    "definitions": [
+     {
+      "text": "back in the black",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its proper shape, so the letters of the company name are scrambled"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter only of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Betfred",
+      "gives": "BETFRED",
+      "note": "Betfred is a British chain of betting shops, taken as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBTFREE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BETFREDE",
+       "gives": "DEBTFREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler whose bookmaker cleaned them out has finally paid everything off.",
+     "walkthrough": "Betfred is a big British bookmaker, so the surface tells a gambling story; its letters with the E from 'me' rearrange.",
+     "definitionFit": "Being in the black means having a positive balance; returning there means owing nothing to anyone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Betfred"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +368,50 @@
      }
     ]
    },
-   "solution": "DEARJOHNLETTERS"
+   "solution": "DEARJOHNLETTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEAR JOHN LETTERS",
+    "definitions": [
+     {
+      "text": "old farewell texts",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised version has been reworked, so the three words' letters are rewritten in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The elder Trojans",
+      "gives": "THEELDERTROJANS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEELDERTROJANS",
+       "gives": "DEARJOHNLETTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Older citizens of Troy rewrote some ancient goodbye messages.",
+     "definitionFit": "Such a letter is a written message from a partner ending the relationship, famously sent to soldiers abroad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Trojans"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +425,70 @@
     "text": "Roof of bus station rebuilt for plant expert",
     "enumeration": "8"
    },
-   "solution": "BOTANIST"
+   "solution": "BOTANIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BOTANIST",
+    "definitions": [
+     {
+      "text": "plant expert",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Roof of",
+      "for": "letter_selection",
+      "note": "in a down entry the roof is the top, so just the first letter of the next word"
+     },
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "something rebuilt is put together again differently, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bus",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of bus"
+     },
+     {
+      "clueFragment": "station",
+      "gives": "STATION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OTANIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STATION",
+       "gives": "OTANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bus station's roof is renovated to suit someone who studies greenery.",
+     "definitionFit": "A scientist who specialises in the study of vegetation and flowers is a specialist in botany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebuilt"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +502,42 @@
     "text": "Fast ships",
     "enumeration": "5"
    },
-   "solution": "FLEET"
+   "solution": "FLEET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLEET",
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     },
+     {
+      "text": "ships",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast",
+      "note": "first meaning: swift, nimble"
+     },
+     {
+      "clueFragment": "ships",
+      "note": "second meaning: a navy's group of vessels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a description of speedy vessels, but each word is its own meaning.",
+     "definitionFit": "The word is a literary adjective for swift movement and also a noun for a body of naval vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +557,67 @@
      }
     ]
    },
-   "solution": "EYEPOPPING"
+   "solution": "EYEPOPPING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EYE-POPPING",
+    "definitions": [
+     {
+      "text": "Spectacular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rise of",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading from the bottom upwards, so the name is turned round"
+     },
+     {
+      "text": "second half",
+      "for": "deletion",
+      "note": "only the second half of the following word survives, its first half thrown away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popeye",
+      "gives": "POPEYE",
+      "note": "the spinach-eating cartoon sailor, taken as written"
+     },
+     {
+      "clueFragment": "dropping",
+      "gives": "DROPPING",
+      "note": "taken as written; its last four letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYEPOP",
+      "PING"
+     ],
+     "reversals": [
+      {
+       "from": "POPEYE",
+       "to": "EYEPOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatic headline about the cartoon sailor's rise and his ratings dropping.",
+     "walkthrough": "'Dropping' looks like an instruction to delete something; here it is simply the word whose back half, PING, is used.",
+     "definitionFit": "Something astonishing enough to make your eyes bulge is striking, impressive and sensational."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +631,70 @@
     "text": "Little 7 is poorly accommodated in a loft conversion",
     "enumeration": "8"
    },
-   "solution": "FLOTILLA"
+   "solution": "FLOTILLA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLOTILLA",
+    "definitions": [
+     {
+      "text": "Little 7",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodated in",
+      "for": "container",
+      "note": "to be accommodated in a place is to be housed inside it, so one piece sits within the other"
+     },
+     {
+      "text": "conversion",
+      "for": "anagram",
+      "note": "a loft conversion remodels the space, so these letters are refashioned into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a loft",
+      "gives": "ALOFT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "ILL",
+      "note": "feeling poorly is being ill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOT",
+      "ILL",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALOFT",
+       "gives": "FLOTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone small and unwell is badly housed in a converted attic.",
+     "walkthrough": "'Little 7' sends you to 7-down, FLEET; a little fleet is the answer. 'Poorly' looks like an adverb but means ill.",
+     "definitionFit": "A small group of ships or boats is a diminutive naval force, the word coming from Spanish for a small fleet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +708,47 @@
     "text": "Draw shade in layers",
     "enumeration": "6"
    },
-   "solution": "TIERED"
+   "solution": "TIERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIERED",
+    "definitions": [
+     {
+      "text": "in layers",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Draw",
+      "gives": "TIE",
+      "note": "a draw in sport is a tie"
+     },
+     {
+      "clueFragment": "shade",
+      "gives": "RED",
+      "note": "red is a shade, or colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist sketches and shades with built-up layers of colour.",
+     "walkthrough": "'Draw' and 'shade' read as art instructions; they are a sporting result and a colour.",
+     "definitionFit": "Arranged in rows or levels one above another, like a wedding cake built in stacked stages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +768,70 @@
      }
     ]
    },
-   "solution": "ROADJUNCTION"
+   "solution": "ROADJUNCTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ROAD JUNCTION",
+    "definitions": [
+     {
+      "text": "Crossing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the name is used, so its last letter goes"
+     },
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled has been messed up, so the surviving letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jordan",
+      "gives": "JORDAN",
+      "note": "the country, or river, taken as written"
+     },
+     {
+      "clueFragment": "sycophancy",
+      "gives": "UNCTION",
+      "note": "unction is an excessive, oily show of earnestness or flattery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROADJ",
+      "UNCTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JORDA",
+       "gives": "ROADJ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trip across the River Jordan is nearly ruined by fawning hangers-on.",
+     "walkthrough": "'Crossing Jordan' looks like a single phrase about the river; Crossing alone is the definition.",
+     "definitionFit": "A place where two or more streets meet or cross over is a crossroads, a kind of intersection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crossing"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +851,43 @@
      }
     ]
    },
-   "solution": "BABYBOOMER"
+   "solution": "BABYBOOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BABY BOOMER",
+    "definitions": [
+     {
+      "text": "Young kangaroo",
+      "at": 0
+     },
+     {
+      "text": "who may now be holder of a bus pass",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young kangaroo",
+      "note": "first meaning, read literally: a boomer is a large male kangaroo, so its infant"
+     },
+     {
+      "clueFragment": "who may now be holder of a bus pass",
+      "note": "second meaning: someone born in the post-war birth surge, now old enough for free travel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A boomer is Australian slang for a big male kangaroo. In Britain, pensioners get a free bus pass, which the post-1945 generation is now reaching.",
+     "definitionFit": "The phrase names a person born during the population surge after the Second World War, now reaching pension age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kangaroo"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +905,57 @@
    "group": [
     "13-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BASELINE",
+    "definitions": [
+     {
+      "text": "Starting point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking top",
+      "for": "deletion",
+      "note": "lacking its top means the drink's first letter is missing"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swiss city",
+      "gives": "BASEL",
+      "note": "Basel is a city in northern Switzerland on the Rhine"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "WINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASEL",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swiss city tour begins somewhere that has run out of good wine.",
+     "definitionFit": "A reference level from which progress or change is measured is the initial benchmark for comparison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +969,52 @@
     "text": "What may be banned in summer is tights and slippers accompaniment",
     "enumeration": "8"
    },
-   "solution": "HOSEPIPE"
+   "solution": "HOSEPIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOSEPIPE",
+    "definitions": [
+     {
+      "text": "What may be banned in summer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tights",
+      "gives": "HOSE",
+      "note": "hose is an old word for stockings or tights"
+     },
+     {
+      "clueFragment": "slippers accompaniment",
+      "gives": "PIPE",
+      "note": "pipe and slippers is the traditional picture of a cosy evening at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOSE",
+      "PIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders which summer clothing gets banned: tights, slippers, and the like.",
+     "walkthrough": "In dry British summers water companies impose a hosepipe ban, forbidding garden watering. 'Pipe and slippers' is a stock image of a man relaxing at home.",
+     "definitionFit": "During droughts British water firms forbid using garden watering tubes, so this item is what a summer ban targets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "tights"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1028,74 @@
     "text": "Look back in despair, suffering as Britain is now",
     "enumeration": "9"
    },
-   "solution": "POLARISED"
+   "solution": "POLARISED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram"
+    ],
+    "answer": "POLARISED",
+    "definitions": [
+     {
+      "text": "as Britain is now",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the short word for look is read from end to start"
+     },
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering suggests being in a bad state, so the combined letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo, as in 'lo and behold', means look"
+     },
+     {
+      "clueFragment": "despair",
+      "gives": "DESPAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLARISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDESPAIR",
+       "gives": "POLARISED"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LO",
+       "to": "OL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looks back in despair at how Britain is suffering at present.",
+     "walkthrough": "'Look back in despair' echoes the play Look Back in Anger. The definition describes the country's divided state since Brexit.",
+     "definitionFit": "A nation sharply split into two opposing camps, as after the Brexit vote, is described as divided into extremes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1109,77 @@
     "text": "Bum smoothing cream at first new in make-up",
     "enumeration": "8"
    },
-   "solution": "SCROUNGE"
+   "solution": "SCROUNGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SCROUNGE",
+    "definitions": [
+     {
+      "text": "Bum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letters of the two words just before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means one letter is placed inside the cosmetic"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoothing",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of smoothing"
+     },
+     {
+      "clueFragment": "cream",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cream"
+     },
+     {
+      "clueFragment": "make-up",
+      "gives": "ROUGE",
+      "note": "rouge is a red cosmetic for the cheeks"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ROU",
+      "N",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A beauty routine: new cream applied to smooth the bottom.",
+     "walkthrough": "'Bum' looks like the British slang for buttocks, which suits the cream; here it is a verb meaning to cadge.",
+     "definitionFit": "To bum a cigarette or a lift is to cadge it, getting something free by begging or sponging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bum"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1193,53 @@
     "text": "Slimy act represented as 'spiritual'",
     "enumeration": "8"
    },
-   "solution": "MYSTICAL"
+   "solution": "MYSTICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MYSTICAL",
+    "definitions": [
+     {
+      "text": "spiritual",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means presented afresh, so the letters are set out in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slimy act",
+      "gives": "SLIMYACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLIMYACT",
+       "gives": "MYSTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some unpleasant behaviour is passed off as a matter of the soul.",
+     "definitionFit": "Relating to the soul, religious mysteries or hidden truths beyond ordinary understanding is otherworldly and mystic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slimy"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1266,55 @@
     "text": "Promise onboard weapons",
     "enumeration": "6"
    },
-   "solution": "SWORDS"
+   "solution": "SWORDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWORDS",
+    "definitions": [
+     {
+      "text": "weapons",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "onboard",
+      "for": "container",
+      "note": "something onboard is inside a vessel, so the next word goes within the ship's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "onboard",
+      "gives": "SS",
+      "note": "SS stands for steamship, the vessel"
+     },
+     {
+      "clueFragment": "Promise",
+      "gives": "WORD",
+      "note": "to give your word is to promise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WORD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A pledge that arms are carried on the ship.",
+     "walkthrough": "Being on board means being inside the ship, SS, so the promise sits inside it.",
+     "definitionFit": "Long bladed hand weapons used for cutting and thrusting, such as sabres and rapiers, are arms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "onboard"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1334,68 @@
      }
     ]
    },
-   "solution": "CONTROLTOWER"
+   "solution": "CONTROLTOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CONTROL TOWER",
+    "definitions": [
+     {
+      "text": "which is critical to airport operations",
+      "at": 35,
+      "note": "a descriptive clause standing in for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half",
+      "for": "deletion",
+      "note": "only half of the following word is kept, the rest dropped"
+     },
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing something new, so those letters are assembled in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contribute",
+      "gives": "CONTRIBUTE",
+      "note": "taken as written; its first five letters are kept"
+     },
+     {
+      "clueFragment": "to lower",
+      "gives": "TOLOWER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTR",
+      "OLTOWER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOLOWER",
+       "gives": "OLTOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to chip in towards a lower building that matters to how an airport runs.",
+     "walkthrough": "'Building' looks like the noun being defined; it is the instruction to rearrange 'to lower'.",
+     "definitionFit": "The tall structure housing air traffic controllers directs every take-off and landing, so airports cannot run without it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1409,57 @@
     "text": "President's bottom, bottom President",
     "enumeration": "5"
    },
-   "solution": "TRUMP"
+   "solution": "TRUMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUMP",
+    "definitions": [
+     {
+      "text": "President",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s bottom",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom is the last letter, so only the end of the first word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of the first President"
+     },
+     {
+      "clueFragment": "bottom,",
+      "gives": "RUMP",
+      "note": "the rump is the bottom, or backside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude jibe about a US president, calling him a backside.",
+     "walkthrough": "The repeated words do different jobs: the first 'bottom' selects a letter, the second means backside.",
+     "definitionFit": "Donald Trump served as the forty-fifth and forty-seventh holder of the United States' highest office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1486,70 @@
     "text": "Attack one politician with a plastic gun",
     "enumeration": "6"
    },
-   "solution": "IMPUGN"
+   "solution": "IMPUGN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IMPUGN",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "GUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "UGN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUN",
+       "gives": "UGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assault on a politician carried out with a toy gun.",
+     "walkthrough": "'Plastic' looks like it describes the gun; it tells you to rearrange its letters.",
+     "definitionFit": "To impugn someone's motives is to challenge or dispute them verbally, calling them into question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1563,65 @@
     "text": "How to get to Brussels? Possibly, routes are endless",
     "enumeration": "8"
    },
-   "solution": "EUROSTAR"
+   "solution": "EUROSTAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EUROSTAR",
+    "definitions": [
+     {
+      "text": "How to get to Brussels?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several possible versions, so the letters may be reordered"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means the final letter of the preceding word is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routes",
+      "gives": "ROUTES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUROSTAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROUTESAR",
+       "gives": "EUROSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller asking the way to Belgium's capital hears the routes are countless.",
+     "walkthrough": "Eurostar is the high-speed train through the Channel Tunnel linking London with Paris and Brussels.",
+     "definitionFit": "The cross-Channel rail service runs direct trains from London, so it is a way of reaching Belgium's capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1635,45 @@
     "text": "Listened to musicians' covers",
     "enumeration": "8"
    },
-   "solution": "WRAPPERS"
+   "solution": "WRAPPERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRAPPERS",
+    "definitions": [
+     {
+      "text": "covers",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Listened to",
+      "for": "homophone",
+      "note": "something listened to is taken in by ear, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musicians",
+      "gives": "WRAPPERS",
+      "soundsLike": "RAPPERS",
+      "note": "rappers are hip-hop musicians; the W is silent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone played the musicians' cover versions.",
+     "walkthrough": "'Covers' suggests cover versions of songs, but it is the definition: paper or plastic packaging.",
+     "definitionFit": "Paper or plastic sheets used to enclose sweets or parcels serve as protective packaging around them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1687,50 @@
     "text": "Bugger study — it's very wet",
     "enumeration": "6"
    },
-   "solution": "SODDEN"
+   "solution": "SODDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SODDEN",
+    "definitions": [
+     {
+      "text": "very wet",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bugger",
+      "gives": "SOD",
+      "note": "sod and bugger are both mild British swearwords for a nuisance person"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a study or private room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated cry on finding the study flooded.",
+     "walkthrough": "As exclamations, 'bugger' and 'sod' are interchangeable British expletives.",
+     "definitionFit": "Soaked through with water, like a lawn after heavy rain, is saturated and drenched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bugger"
+    }
+   }
   }
  ]
 }
