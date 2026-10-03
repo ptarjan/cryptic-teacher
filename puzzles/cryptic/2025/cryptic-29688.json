@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Export case of aged wine",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Export case of",
+      "for": "deletion",
+      "note": "to export is to send out, so the outer casing of the word that follows is shipped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aged",
+      "gives": "PASTIT",
+      "note": "someone past it is too old, worn out by age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine merchant ships a crate of well-matured wine abroad.",
+     "walkthrough": "PAST IT loses its first and last letters to leave ASTI.",
+     "definitionFit": "Asti is a sparkling white from Piedmont in northern Italy, named after its home town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Export"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +91,56 @@
     "text": "Pleasant spot close to Epping Forest",
     "enumeration": "6"
    },
-   "solution": "GARDEN"
+   "solution": "GARDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GARDEN",
+    "definitions": [
+     {
+      "text": "Pleasant spot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epping",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of Epping"
+     },
+     {
+      "clueFragment": "Forest",
+      "gives": "ARDEN",
+      "note": "the Forest of Arden, setting of As You Like It"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ARDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions to a nice place near Epping Forest, a woodland on London's north-east edge.",
+     "walkthrough": "'close to' reads as 'near' in the surface but means 'the end of' here.",
+     "definitionFit": "A garden is a cultivated, agreeable plot, so it can be described loosely as a pleasant place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +154,54 @@
     "text": "Doctor in lab coat’s making drugs",
     "enumeration": "10"
    },
-   "solution": "BOTANICALS"
+   "solution": "BOTANICALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOTANICALS",
+    "definitions": [
+     {
+      "text": "drugs",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in lab coat’s",
+      "gives": "INLABCOATS",
+      "note": "taken letter by letter, including the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INLABCOATS",
+       "gives": "BOTANICALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor wearing a white coat in the laboratory is manufacturing medicines.",
+     "walkthrough": "'Doctor' looks like the person in the lab coat, but it is the verb that scrambles the following letters.",
+     "definitionFit": "Botanicals are medicinal preparations made from plants, a kind of herbal remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +221,52 @@
      }
     ]
    },
-   "solution": "BEDBUG"
+   "solution": "BEDBUG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEDBUG",
+    "definitions": [
+     {
+      "text": "Bloodsucker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of 2",
+      "gives": "BED",
+      "note": "2 is GARDEN, and a flower bed is part of one"
+     },
+     {
+      "clueFragment": "The Listener",
+      "gives": "BUG",
+      "note": "a bug is a hidden microphone that listens in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BED",
+      "BUG"
+     ]
+    },
+    "explanation": {
+     "surface": "A parasite turns up in a garden, alongside a copy of The Listener, the old BBC magazine.",
+     "walkthrough": "The Listener was a BBC weekly magazine; the italics and capitals hide a plain eavesdropping device.",
+     "definitionFit": "The bedbug is a small insect that feeds on human blood at night, so it is a parasite of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Listener"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +280,70 @@
     "text": "Quickly getting up to drink port in Californian city",
     "enumeration": "8"
    },
-   "solution": "PASADENA"
+   "solution": "PASADENA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PASADENA",
+    "definitions": [
+     {
+      "text": "Californian city",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting up",
+      "for": "reversal",
+      "note": "in a down entry, getting up means the word rises and so reads from bottom to top"
+     },
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "drinking takes something inside, so one word swallows the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quickly",
+      "gives": "ASAP",
+      "note": "as soon as possible"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "ADEN",
+      "note": "Aden is a port in Yemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "ADEN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ASAP",
+       "to": "PASA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries out of bed to have a glass of port somewhere in California.",
+     "walkthrough": "ASAP turned upward becomes PASA, which then holds ADEN.",
+     "definitionFit": "Pasadena is a city in Los Angeles County, home of the Rose Bowl, so it fits a city in California."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +357,45 @@
     "text": "Country music legend on the radio",
     "enumeration": "4"
    },
-   "solution": "MALI"
+   "solution": "MALI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MALI",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "on the radio we only hear words, so the sound is wanted rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music legend",
+      "gives": "MALI",
+      "soundsLike": "MARLEY",
+      "note": "Bob Marley, the reggae legend, said in a non-rhotic accent"
+     }
+    ],
+    "explanation": {
+     "surface": "A country music star is being played on the radio.",
+     "walkthrough": "'Country music' reads as one phrase, but 'Country' is the definition and 'music legend' the wordplay.",
+     "definitionFit": "Mali is a landlocked West African state, so it is a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +409,74 @@
     "text": "Building pressure upset Olivia Newton-John’s finale",
     "enumeration": "8"
    },
-   "solution": "PAVILION"
+   "solution": "PAVILION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PAVILION",
+    "definitions": [
+     {
+      "text": "Building",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so its letters are jumbled"
+     },
+     {
+      "text": "’s finale",
+      "for": "letter_selection",
+      "note": "a finale is the closing part, so only the last letter of the name is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "Olivia",
+      "gives": "OLIVIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Newton-John",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter of John"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AVILIO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLIVIA",
+       "gives": "AVILIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure builds as Olivia Newton-John's closing number upsets the crowd.",
+     "walkthrough": "Only the final letter of Newton-John is used, the N at the very end.",
+     "definitionFit": "A pavilion is a light ornamental structure, such as a garden summerhouse or a cricket ground's clubhouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Building"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +490,43 @@
     "text": "2 PM",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "2",
+      "at": 0
+     },
+     {
+      "text": "PM",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "note": "2-down is GARDEN, and the first meaning is the Biblical garden"
+     },
+     {
+      "clueFragment": "PM",
+      "note": "second meaning: Anthony ..., British Prime Minister 1955-57"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "PM looks like a time of day; here it stands for Prime Minister.",
+     "definitionFit": "Eden is the paradise garden of Genesis, and Anthony Eden held Britain's top political office after Churchill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +546,62 @@
      }
     ]
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "Neighbours maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so the preceding letters are recast in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "propose a",
+      "gives": "PROPOSEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "academy",
+      "gives": "A",
+      "note": "A is a common abbreviation for academy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOAPOPER",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROPOSEA",
+       "gives": "SOAPOPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Residents next door suggest founding a new school.",
+     "walkthrough": "Neighbours is a long-running Australian TV serial, hidden here as the people next door.",
+     "definitionFit": "Neighbours is an example of a long-running melodramatic television serial, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Neighbours"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +615,51 @@
     "text": "Gong in A minor",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "Gong",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "minor",
+      "gives": "WARD",
+      "note": "a ward is a minor in the care of a guardian or court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A gong sounds in the key of A minor.",
+     "walkthrough": "'A minor' reads as a musical key, but it splits into the letter and a child under guardianship.",
+     "definitionFit": "Gong is British slang for a medal or honour, and an award is a prize of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +673,61 @@
     "text": "Home help heading to the West Country",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading to the West",
+      "for": "reversal",
+      "note": "in an across entry west is leftward, so the word travels backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A domestic helper is moving to the West Country, England's south-western counties.",
+     "walkthrough": "'West Country' reads as one region; the split makes 'Country' the definition.",
+     "definitionFit": "India is a large nation of South Asia, so it is a country in the plain sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +741,44 @@
     "text": "South American technique for deforesting 25/2?",
     "enumeration": "9"
    },
-   "solution": "BRAZILIAN"
+   "solution": "BRAZILIAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRAZILIAN",
+    "definitions": [
+     {
+      "text": "South American",
+      "at": 0
+     },
+     {
+      "text": "technique for deforesting 25/2?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American",
+      "note": "first meaning: a person from the largest country in South America"
+     },
+     {
+      "clueFragment": "technique for deforesting 25/2?",
+      "note": "second meaning: a style of bikini wax removing almost all pubic hair"
+     }
+    ],
+    "explanation": {
+     "surface": "A method from South America for clearing rainforest.",
+     "walkthrough": "25/2 is LADY GARDEN, British slang for a woman's pubic area; deforesting it is a full wax.",
+     "definitionFit": "The word names someone from Brazil and also a wax that strips nearly all pubic hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deforesting"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +792,60 @@
     "text": "Dynamic leader of council escapes suspension",
     "enumeration": "7"
    },
-   "solution": "HANGING"
+   "solution": "HANGING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "HANGING",
+    "definitions": [
+     {
+      "text": "suspension",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader is whatever goes in front, so only the opening letter of the next word counts"
+     },
+     {
+      "text": "escapes",
+      "for": "deletion",
+      "note": "something that escapes gets away, so that letter leaves the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dynamic",
+      "gives": "CHANGING",
+      "note": "something dynamic is constantly altering"
+     },
+     {
+      "clueFragment": "council",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of council"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANGING"
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic council chief avoids being suspended from office.",
+     "walkthrough": "CHANGING loses its C to leave HANGING.",
+     "definitionFit": "Hanging is the act of suspending something, as with pictures on a wall or curtains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspension"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +859,51 @@
     "text": "Centre of World Cycling",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HEART",
+    "definitions": [
+     {
+      "text": "Centre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so the final letter of the word moves round to the front"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "World",
+      "gives": "EARTH",
+      "note": "the world is the Earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEART"
+     ]
+    },
+    "explanation": {
+     "surface": "The headquarters of world cycling, the sport's global governing body.",
+     "walkthrough": "The H at the end of EARTH moves to the front.",
+     "definitionFit": "The heart of something is its middle or core, as in the heart of the city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cycling"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +917,65 @@
     "text": "Incredibly genial host ultimately raising spirits",
     "enumeration": "7"
    },
-   "solution": "ELATING"
+   "solution": "ELATING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ELATING",
+    "definitions": [
+     {
+      "text": "raising spirits",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Incredibly",
+      "for": "anagram",
+      "note": "something incredible is beyond belief, so the letters end up in an unlikely order"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the last letter of the word before it is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genial",
+      "gives": "GENIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "host",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of host"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELATING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENIALT",
+       "gives": "ELATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wonderfully friendly host ends up lifting everyone's mood.",
+     "definitionFit": "Elating means making someone happy and excited, which lifts their mood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Incredibly"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +989,55 @@
     "text": "Hostelries stocking popular fruit",
     "enumeration": "10"
    },
-   "solution": "AUBERGINES"
+   "solution": "AUBERGINES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUBERGINES",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocking",
+      "for": "container",
+      "note": "a shop stocking goods holds them inside, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hostelries",
+      "gives": "AUBERGES",
+      "note": "an auberge is a French inn"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUBERG",
+      "IN",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Inns keep a supply of a well-liked fruit.",
+     "walkthrough": "An auberge is a French country inn, a word English borrowed for upmarket restaurants with rooms.",
+     "definitionFit": "Botanically the eggplant is a berry, so it counts as a fruit despite being cooked like a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hostelries"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1051,50 @@
     "text": "Cheesemonger (21) holding saw",
     "enumeration": "5"
    },
-   "solution": "GNOME"
+   "solution": "GNOME",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GNOME",
+    "definitions": [
+     {
+      "text": "saw",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the word holds the letters inside it, so they are lifted out of its middle"
+     },
+     {
+      "text": "(21)",
+      "for": "reversal",
+      "note": "21-across means comes up, and in a down entry coming up reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheesemonger",
+      "gives": "EMONG",
+      "note": "letters from inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheese seller is holding a cutting saw.",
+     "walkthrough": "The cross-reference to 21 stands in for its answer TURNS UP, a reversal signal in a down clue.",
+     "definitionFit": "A gnome is a maxim, and a saw is also an old proverbial saying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1108,55 @@
     "text": "A record covered by synth-pop group",
     "enumeration": "5"
    },
-   "solution": "ALPHA"
+   "solution": "ALPHA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALPHA",
+    "definitions": [
+     {
+      "text": "A",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered is wrapped inside, so the group's name surrounds the record"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "synth-pop group",
+      "gives": "AHA",
+      "note": "a-ha, the Norwegian band behind Take On Me"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "a long-playing record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LP",
+      "HA"
+     ]
+    },
+    "explanation": {
+     "surface": "A synth-pop band covers somebody's record.",
+     "walkthrough": "'A' looks like an article, but it is the definition; a-ha are the Norwegian band of Take On Me.",
+     "definitionFit": "Alpha is the first letter of the Greek alphabet and the radio code word for that first letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1170,64 @@
     "text": "Cookie Monster finally coming out and having a good time",
     "enumeration": "8"
    },
-   "solution": "PARTYING"
+   "solution": "PARTYING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PARTYING",
+    "definitions": [
+     {
+      "text": "having a good time",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the closing letter of the word before is used"
+     },
+     {
+      "text": "coming out",
+      "for": "deletion",
+      "note": "coming out means leaving, so that letter departs from the longer word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cookie",
+      "gives": "PARTYRING",
+      "note": "Party Rings are British iced biscuits"
+     },
+     {
+      "clueFragment": "Monster",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of Monster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARTYING"
+     ]
+    },
+    "explanation": {
+     "surface": "Cookie Monster at last comes out and enjoys himself.",
+     "walkthrough": "Party Rings are colourful iced ring-shaped biscuits popular at British children's parties; drop the R.",
+     "definitionFit": "Partying means celebrating at a party, enjoying oneself in a lively way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cookie"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1241,49 @@
     "text": "Leaves side unfinished",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the end is missing, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "TEAM",
+      "note": "a side is a team in sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A team walks off the pitch without completing the match.",
+     "walkthrough": "'Leaves' looks like a verb meaning departs; it is the noun for the dried plant.",
+     "definitionFit": "Tea is sold as dried leaves of the tea plant, so the plural noun names it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1303,65 @@
      }
     ]
    },
-   "solution": "TAPWATER"
+   "solution": "TAPWATER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TAP WATER",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so the letter sits within the word for a parent"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PATER",
+      "note": "pater is Latin and old public-school slang for father"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "Whiskey is W in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "P",
+      "W",
+      "ATER"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad raises a toast with a glass of whiskey.",
+     "walkthrough": "'cheers' here is the British thank-you, not a toast.",
+     "definitionFit": "Tap water is plain water from a household faucet, which people drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1375,49 @@
     "text": "Get rid of turn in game",
     "enumeration": "5"
    },
-   "solution": "BINGO"
+   "solution": "BINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BINGO",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get rid of",
+      "gives": "BIN",
+      "note": "to bin is to throw away"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "a go is a turn in a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A player wants to throw away their turn during a game.",
+     "definitionFit": "Bingo is a numbers game where players mark off called numbers on cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1437,55 @@
      }
     ]
    },
-   "solution": "TURNSUP"
+   "solution": "TURNSUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TURNS UP",
+    "definitions": [
+     {
+      "text": "Comes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed within, so the letter goes inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpredictable event",
+      "gives": "TURNUP",
+      "note": "a turn-up for the books is a surprise"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "S",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finishes runner-up in a race with an unexpected result.",
+     "walkthrough": "'Comes second' reads as a placing; 'Comes' alone is the definition.",
+     "definitionFit": "To turn up is to arrive or appear, so it means comes, as in 'he turns up late'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1499,58 @@
     "text": "This place is protecting land for vegetation",
     "enumeration": "7"
    },
-   "solution": "HERBAGE"
+   "solution": "HERBAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERBAGE",
+    "definitions": [
+     {
+      "text": "vegetation",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is protecting",
+      "for": "container",
+      "note": "protecting something means wrapping around it, so one word surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This place",
+      "gives": "HERE",
+      "note": "here is this place"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "BAG",
+      "note": "to land a prize or catch is to bag it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "BAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A site is safeguarding its ground for plant life, like a nature reserve.",
+     "walkthrough": "'land' looks like a noun for ground; here it is the verb meaning catch.",
+     "definitionFit": "Herbage is herbaceous plant growth such as grass used for grazing, so it is green vegetation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1564,66 @@
     "text": "American band fixed up with joint in studio",
     "enumeration": "6"
    },
-   "solution": "HAMMER"
+   "solution": "HAMMER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HAMMER",
+    "definitions": [
+     {
+      "text": "studio",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixed up",
+      "for": "reversal",
+      "note": "in a down entry, up means rising, so the band's name reads from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "HAM",
+      "note": "a ham is a joint of pork"
+     },
+     {
+      "clueFragment": "American band",
+      "gives": "REM",
+      "note": "R.E.M., the American rock band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "MER"
+     ],
+     "reversals": [
+      {
+       "from": "REM",
+       "to": "MER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US band is set up with a spliff while recording.",
+     "walkthrough": "Hammer is the British studio famed for horror films.",
+     "definitionFit": "Hammer Film Productions is a British film studio, known for horror pictures with Christopher Lee and Vincent Price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1637,65 @@
     "text": "Approach acting with the heart of Vincent Price",
     "enumeration": "6"
    },
-   "solution": "ACCOST"
+   "solution": "ACCOST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCOST",
+    "definitions": [
+     {
+      "text": "Approach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letter of the name is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting",
+      "gives": "A",
+      "note": "A is an abbreviation for acting, as in a rank held temporarily"
+     },
+     {
+      "clueFragment": "Vincent",
+      "gives": "C",
+      "select": "middle",
+      "note": "the middle letter of Vincent"
+     },
+     {
+      "clueFragment": "Price",
+      "gives": "COST",
+      "note": "price is cost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "COST"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer approaches their role with the soul of horror star Vincent Price.",
+     "walkthrough": "Vincent Price is a horror actor, so 'Price' looks like part of a name; it is a separate word for cost.",
+     "definitionFit": "To accost is to go up to someone and speak to them, often boldly, so to approach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Price"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1715,51 @@
      }
     ]
    },
-   "solution": "ROYALPALM"
+   "solution": "ROYALPALM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROYAL PALM",
+    "definitions": [
+     {
+      "text": "inhabitant of the Caribbean",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean around, so the letters are turned round into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moral play",
+      "gives": "MORALPLAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MORALPLAY",
+       "gives": "ROYALPALM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A morality play concerning someone who lives in the Caribbean.",
+     "walkthrough": "'inhabitant' suggests a person, but it is a tree that grows there.",
+     "definitionFit": "The royal palm is a tall tree native to the Caribbean islands, so it lives there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "inhabitant"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1773,53 @@
     "text": "Surprise female slipping out of dress",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROCK",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slipping out of",
+      "for": "deletion",
+      "note": "slipping out of something means leaving it, so that letter is taken from the garment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "FROCK",
+      "note": "a frock is a dress"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A shock as a woman wriggles out of her dress.",
+     "walkthrough": "'Surprise' is a verb here, matching the verb ROCK.",
+     "definitionFit": "To rock someone is to shake or stun them emotionally, so to astonish them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Surprise"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1833,54 @@
     "text": "Spooner delivering paper for mistress",
     "enumeration": "4"
    },
-   "solution": "LADY"
+   "solution": "LADY",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "LADY",
+    "definitions": [
+     {
+      "text": "mistress",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner swapped the opening sounds of words, so the sounds are exchanged"
+     }
+    ],
+    "linkWords": [
+     "delivering",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "LADY",
+      "soundsLike": "LAY DEE",
+      "note": "a paper is a daily, said as day-lee, with its two syllables' opening sounds swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LADY"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner the paperboy delivers a newspaper to someone's lover.",
+     "walkthrough": "A daily is a newspaper published every day; swapping the D and L sounds gives the answer.",
+     "definitionFit": "A lady can be the mistress of a household, the woman in charge, as in lady of the house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mistress"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1894,69 @@
     "text": "Scoundrel following Nickelback to suffer",
     "enumeration": "5"
    },
-   "solution": "INCUR"
+   "solution": "INCUR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INCUR",
+    "definitions": [
+     {
+      "text": "suffer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so the symbol reads backwards"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the scoundrel's word is placed second"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nickelback",
+      "gives": "NI",
+      "note": "Ni is the chemical symbol for nickel, and the band name ends with the reversal signal"
+     },
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "CUR",
+      "note": "a cur is a contemptible person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR"
+     ],
+     "reversals": [
+      {
+       "from": "NI",
+       "to": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain trailing the band Nickelback is in for pain.",
+     "walkthrough": "Nickelback is a Canadian rock band; split it into the metal and a reversal signal.",
+     "definitionFit": "To incur a cost or penalty is to bring it on oneself, so to suffer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nickelback"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1970,56 @@
     "text": "Friend doesn’t finish English wine",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROSE",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doesn’t finish",
+      "for": "deletion",
+      "note": "not finishing means stopping short, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "ROSS",
+      "note": "Ross is a character in the sitcom Friends"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal leaves an English wine unfinished.",
+     "walkthrough": "The capital F hints at the sitcom Friends, where Ross Geller is one of the six friends.",
+     "definitionFit": "Rosé is pink wine, made with brief contact with red grape skins; the grid drops the accent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Friend"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +2033,62 @@
     "text": "American on vacation bitten by police dog",
     "enumeration": "5"
    },
-   "solution": "CANID"
+   "solution": "CANID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CANID",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacation means emptying, so the word loses its insides and keeps only its outer letters"
+     },
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "something bitten is held in the jaws, so the other word closes round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "CID",
+      "note": "Criminal Investigation Department, British detectives"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AN",
+      "select": "outer",
+      "note": "first and last letters of American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A US tourist on holiday is bitten by a police dog.",
+     "walkthrough": "'police dog' looks like one phrase, but 'police' is wordplay and 'dog' the definition.",
+     "definitionFit": "A canid is any member of the dog family Canidae, including wolves and foxes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 29,
@@ -511,7 +2102,64 @@
     "text": "Iron perhaps introduced into otherwise square meal",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELEVENSES",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced into",
+      "for": "container",
+      "note": "introducing something into another puts it inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "otherwise",
+      "gives": "ELSE",
+      "note": "else means otherwise"
+     },
+     {
+      "clueFragment": "Iron perhaps",
+      "gives": "EVEN",
+      "note": "to iron is to smooth or even out, one way of evening"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of square"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "EVEN",
+      "SE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Ironing is wedged into an otherwise hearty full dinner.",
+     "walkthrough": "'square meal' reads as one phrase, but 'square' only supplies its first letter and 'meal' alone is the definition.",
+     "definitionFit": "Elevenses is a British mid-morning snack, a light meal around eleven o'clock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   }
  ]
 }
