@@ -1283,6 +1283,9 @@ tools/test_errata.sh                         a paper's erratum in the preamble f
                                              it stay, and the write gate refuses one left behind
 tools/boilerplate.py                         a preamble's publishing boilerplate is not
                                              something a solver needs
+tools/test_clue_page_instructions.sh         a 2005-08 Guardian prize's special instructions
+                                             are read off the old-site clue page its note links
+                                             to and filed with the note
 tools/test_boilerplate.sh                    a paper's publishing boilerplate in the preamble
                                              goes; a puzzle's instructions, tributes and kept
                                              errata stay; the write gate refuses it
