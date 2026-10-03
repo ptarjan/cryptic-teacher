@@ -2250,10 +2250,6 @@ SOURCE_CLUE_WRONG = {
         "Instrument decapitating a buccaneer 5.",
         "Instrument decapitating a buccaneer",
         "OCR misread: the trailing 5. is a doubled enumeration"),
-    ("times-16652", "27-across"): (
-        "5 Some say it's but a substitute",
-        "Some say it's but a substitute for fresh German air",
-        "OCR misread: the leading 5 is a stray enumeration"),
     ("times-16658", "13-across"): (
         "Relative eve-opener in a Mediterranean resort",
         "Relative eye-opener in a Mediterranean resort",
