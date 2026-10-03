@@ -94,6 +94,12 @@ tools/fetch_wayback.py                       recovers Guardian puzzles older tha
                                              keeps, out of the Wayback Machine’s captures
 tools/fetch_globeandmail.py                  the Globe and Mail’s cryptic, a Times of London
                                              syndication, decoded from its Amuse Labs player
+tools/fetch_times_feed.py                    the Times Quick Cryptic from the Times’s own web
+                                             player feed, grids and answers as printed, back to
+                                             No 1; fills the numbers the blog wrote no clues for
+tools/test_fetch_times_feed.sh               proves the Times feed's data.json becomes a puzzle
+                                             with its lights placed and enumerations kept, and
+                                             that a light with no clue is refused
 tools/fetch_privateeye.py                    Private Eye’s Cyclops — the grid from the paper,
                                              the answers joined from fifteensquared, which is
                                              the only place they are published
