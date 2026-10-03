@@ -1906,6 +1906,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18198", "25-down"): (
+        "Extra section for table lakes two pages",
+        "Extra section for table takes two pages",
+        "OCR misread: the double definition needs a link verb 'takes' between its halves"),
     ("times-18199", "11-across"): (
         "In retribution, smear with car? Not on!",
         "In retribution, smear with tar? Not on!",
