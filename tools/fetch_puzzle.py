@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17389", "7-down"): (
+        "Perfect enunciation by 3 trader",
+        "Perfect enunciation by a trader",
+        "OCR misread: the wordplay needs 'a trader', who would say 'I deal'"),
     ("times-17384", "9-across"): (
         "Fool-rest can be used in wrestling",
         "Foot-rest can be used in wrestling",
