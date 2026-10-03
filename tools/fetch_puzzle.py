@@ -1425,16 +1425,19 @@ def _spare_light(entry, lead, entries):
     own cell count printed beside the pointer, not a claim to be a whole answer.
 
     A light the paper has already put in somebody else's group is not spare
-    either. It may end a second answer only when its own clue names both
-    leaders (leaders_named), and then the paper already grouped it; otherwise
-    taking it would be quietly deciding which answer loses it —
-    cryptic-24951's 24-across THE reads "See 16" yet sits in 18-down's LET THE
-    DOG SEE THE RABBIT.
+    either, unless its own clue names both leaders (leaders_named) and `lead`
+    is one of them: then it ends both answers. cryptic-23753's 51-across LIKE
+    reads "See 6 and 48 down" while the page groups it with 6-across alone, and
+    48-down WAR's "(7)" is WARLIKE. Taking a light whose clue names one leader
+    would be quietly deciding which answer loses it — cryptic-24951's
+    24-across THE reads "See 16" yet sits in 18-down's LET THE DOG SEE THE
+    RABBIT.
     """
     group = entry.get("group") or []
-    if len(group) > 1 and entry_id(lead) not in group:
-        return False
     clue = entry["clue"].get("text", "")
+    if (len(group) > 1 and entry_id(lead) not in group
+            and leaders_named(clue) < 2):
+        return False
     if is_continuation(clue):
         return _points_at(entry, lead, entries)
     if clue.strip():
