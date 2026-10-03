@@ -383,6 +383,31 @@ solve_applied() {
   echo "  [$id] solved, annotating it next"
 }
 
+# Blank the model answers an annotate run left null ($2...), commit and push
+# that, and queue the puzzle to be solved again next. Non-zero, with the file
+# put back, when any step fails; the caller then parks the puzzle as before.
+reopen_answers() {
+  local id="$1" out
+  shift
+  if ! out=$(python3 tools/reopen_answers.py "$id" "$@" 2>&1); then
+    alert "pre-reset backfill could not reopen $id's unparsed model answers ($*), so it is parked instead: $(printf '%s' "$out" | tail -3)"
+    discard_puzzle "$id"
+    return 1
+  fi
+  git add -A -- "$(puzzle_spec "$id")"
+  if ! out=$(git commit -q -m "$(printf 'Reopen %s %s\n\nNo parse was found for these model answers, so they go back to be solved again, once.\n\n%s' "$id" "$*" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+    alert "pre-reset backfill could not commit reopening $id ($*), so it is parked instead: $(printf '%s' "$out" | tail -5)"
+    git reset -q -- "$(puzzle_spec "$id")"
+    discard_puzzle "$id"
+    return 1
+  fi
+  tools/push_puzzle_commit.sh ||
+    alert "pre-reset backfill committed reopening $id but could not push it — the pool's next sync retries. See .prereset.log."
+  SOLVED_HERE="${SOLVED_HERE/ $id / }"
+  queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
+  echo "  [$id] $out; solving it again next"
+}
+
 # One puzzle's file as a git pathspec: puzzles/<series>/<year>/<id>.json in
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
@@ -842,6 +867,17 @@ commit_puzzle() {
     # alert for; quoting it verbatim is what marks it claimed.
     alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     tail -5 /tmp/ct-prereset-validate.txt
+    # A model's answer the run could not parse may be the wrong word, and a
+    # failure record would hold it until its inputs change, which is never. So
+    # those answers are blanked and the puzzle solved again instead, once per
+    # entry (tools/reopen_answers.py); read before the discard, off the run's file.
+    local reopen
+    reopen=$(python3 tools/reopen_answers.py "$num" --which) || reopen=""
+    if [ -n "$reopen" ]; then
+      discard_puzzle "$num"
+      # shellcheck disable=SC2086 # $reopen is a list of entry ids
+      reopen_answers "$num" $reopen && return 1
+    fi
     # Recorded against the puzzle's inputs, not the window: this run finished
     # and was rejected, which is the one failure that says something about the
     # grid. It stays out of the queue until those inputs change.

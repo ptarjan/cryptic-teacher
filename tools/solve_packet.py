@@ -21,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 from groups import entry_id  # noqa: E402
-from provenance import solution_detail  # noqa: E402
+from provenance import printed_answers  # noqa: E402
 
 
 def crossing_map(entries):
@@ -59,12 +59,16 @@ def packet(puzzle):
     # The answers the paper printed, where it printed some (a scan that kept
     # part of its answer grid): the fill must agree with them. A previous model
     # fill is not shown, since this solve may replace it.
-    printed = not solution_detail(puzzle)
+    printed = printed_answers(puzzle)
+    reopened = (puzzle.get("solutions") or {}).get("reopened") or {}
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):
         lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
-        if printed and e.get("solution"):
-            lines.append(f"    printed answer: {e['solution']}")
+        if entry_id(e) in printed:
+            lines.append(f"    printed answer: {printed[entry_id(e)]}")
+        elif reopened.get(entry_id(e)):
+            lines.append(f"    an earlier solve's {reopened[entry_id(e)]} was sent back: no parse "
+                         f"of this clue was found for it. Keep it only if you can derive it")
         pairs = sorted(cross.get(entry_id(e), []))
         if pairs:
             lines.append("    crossings: " + "; ".join(
