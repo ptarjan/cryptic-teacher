@@ -1893,6 +1893,26 @@ SOURCE_CLUE_WRONG = {
         "Order of very quiet trails?",
         "Order of very quiet traits?",
         "OCR misread: the anagram needs TRAITS with PP to make TRAPPIST"),
+    ("times-17715", "3-down"): (
+        "Pooh's vocal effort - 2 new sort for all of us",
+        "Pooh's vocal effort - a new sort for all of us",
+        "OCR misread: the wordplay needs A between HUM and N"),
+    ("times-17715", "4-down"): (
+        "Trouble-maker vexatious 10 flighty types",
+        "Trouble-maker vexatious to flighty types",
+        "OCR misread: the definition needs the word to, not 10"),
+    ("times-17715", "23-across"): (
+        "Rogue introducing king 10 church body",
+        "Rogue introducing king to church body",
+        "OCR misread: the wordplay needs king put to NAVE, not 10"),
+    ("times-17715", "6-down"): (
+        "I I's dresses associated with certain races",
+        "50's dresses associated with certain races",
+        "OCR misread: sack dresses were a 1950s fashion"),
+    ("times-17715", "8-down"): (
+        "Operatic heroine not_quite conforming to standard",
+        "Operatic heroine not quite conforming to standard",
+        "OCR misread: a stray underscore joins not and quite"),
     ("times-17653", "3-down"): (
         "Factors,.. perhaps, involved in' home affairs",
         "Factors, perhaps, involved in home affairs",
