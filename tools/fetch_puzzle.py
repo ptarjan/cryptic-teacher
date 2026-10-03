@@ -1889,6 +1889,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17020", "28-across"): (
+        "Cook nearby with (the hard biscuit",
+        "Cook nearby with the hard biscuit",
+        "OCR misread: a stray '(' before 'the', which is anagram fodder"),
+    ("times-17020", "15-down"): (
+        "Ready to pay (this for poor chap's pudding?",
+        "Ready to pay this for poor chap's pudding?",
+        "OCR misread: a stray '(' before 'this'"),
     ("times-17000", "12-across"): (
         "Complaint of youth in 12 springtime?",
         "Complaint of youth in springtime?",
