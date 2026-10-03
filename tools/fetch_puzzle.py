@@ -1889,6 +1889,26 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17387", "2-down"): (
+        "Tincture for an archbishop based on 3 holy book",
+        "Tincture for an archbishop based on a holy book",
+        "OCR misread: the wordplay needs 'a' (LAUD + A + NUM)"),
+    ("times-17387", "3-down"): (
+        "Language of Scotsman supporting (Christian martyr?",
+        "Language of Scotsman supporting Christian martyr",
+        "OCR misread: stray '(' and '?' around the martyr ALBAN"),
+    ("times-17387", "10-across"): (
+        "Highly, ornate old penny replaced by new coin",
+        "Highly ornate old penny replaced by new coin",
+        "OCR misread: stray comma splits 'Highly ornate' (FLORID)"),
+    ("times-17387", "17-down"): (
+        "Artefacts remain in a ru perhaps? On the contrary",
+        "Artefacts remain in a rut perhaps? On the contrary",
+        "OCR misread: the wordplay needs 'a rut' shuffled inside STAY"),
+    ("times-17387", "25-across"): (
+        "Be effective — fall away to lee-ward",
+        "Be effective — fall away to leeward",
+        "OCR misread: line-break hyphen in leeward"),
     ("times-17393", "25-down"): (
         "Part of Night in fastest airliner",
         "Part of flight in fastest airliner",
