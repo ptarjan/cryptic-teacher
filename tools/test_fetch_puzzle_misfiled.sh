@@ -74,6 +74,8 @@ check("a page whose id is another number is refused, saying both",
 served["id"] = "crosswords/quiptic/591"
 check("a page whose id is another series is refused",
       raises(fp.check_served, 591, served) is not None)
+check("the same page passes when that series is the one asked for",
+      raises(fp.check_served, 591, served, "quiptic") is None)
 def clues(prefix, n=10):
     return [{"clue": {"text": f"{prefix} clue number {i} (5)"}} for i in range(n)]
 

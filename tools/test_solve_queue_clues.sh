@@ -116,7 +116,9 @@ rows = [("ct-blank", "2026-09-09", False, {"present": 0, "total": 28}),
         # order among the days rather than crash on.
         ("ct-reprint", {"year": 1973}, False, None),
         # And a puzzle with no date at all (a cyclops not yet dated).
-        ("ct-nodate", {}, False, None)]
+        ("ct-nodate", {}, False, None),
+        # A series' first puzzle, older than all of them, which goes first.
+        ("quiptic-1", "1999-11-23", False, None)]
 json.dump({"puzzles": [
     {"id": i, **(d if isinstance(d, dict) else {"date": d}), "hasSolutions": s,
      **({"clues": c} if c else {})}
@@ -127,14 +129,16 @@ run() (  # the block itself against the sandbox; the skip note goes to $sand/not
     eval "$pick" 2>"$sand/note" && printf '%s\n' "$unsolved"
 )
 check "the blank grid and the half-blank one are not handed to a model" \
-  "$(run 9)" "ct-most ct-gap ct-whole ct-reprint ct-nodate"
+  "$(run 9)" "quiptic-1 ct-most ct-gap ct-whole ct-reprint ct-nodate"
 check "and the log says why, by name and by count" \
   "$(grep -c 'ct-blank (0/28 clues), ct-half (14/28 clues)' "$sand/note")" "1"
 check "a puzzle missing one clue of 28 is still a solvable grid" \
   "$(grep -c 'ct-gap\|ct-most\|ct-whole' "$sand/note")" "0"
 check "a puzzle that failed on its current inputs stays out" "$(run 9 | grep -c ct-tried)" "0"
 check "a puzzle with answers is still out of the queue" "$(run 9 | grep -c ct-answered)" "0"
-check "SOLVE_MAX still bounds the night" "$(run 2)" "ct-most ct-gap"
+check "SOLVE_MAX still bounds the night" "$(run 2)" "quiptic-1 ct-most"
+check "a series' No 1 goes ahead of the newest-first order" \
+  "$(run 9 | cut -d' ' -f1)" "quiptic-1"
 
 echo "a year-dated reprint is queued, but behind every puzzle dated by the day"
 # Both halves matter and they pull opposite ways. Dropped from the queue, a book
@@ -145,7 +149,7 @@ check "it is in the queue at all" "$(run 9 | grep -c ct-reprint)" "1"
 check "and it is behind every dated puzzle, ahead only of the undated" \
   "$(run 9 | tr ' ' '\n' | tail -2 | head -1)" "ct-reprint"
 check "so a night short of budget spends it on the dated ones" \
-  "$(run 3)" "ct-most ct-gap ct-whole"
+  "$(run 3)" "quiptic-1 ct-most ct-gap"
 
 echo "and a grid solved tonight joins the ANNOTATION queue by the same rule"
 # Step 3a prepends what it solved, on the grounds that it is the newest puzzle

@@ -10,7 +10,8 @@ on it is counted: memory over the size of a run, and idle cores over a run's
 measured CPU.
 
 The queue order is the round-robin tools/prereset_backfill.sh builds, with the
-puzzles a lockout cut off first, then the partly annotated ones, fewest clues
+puzzles a lockout cut off first, then each series' first puzzle
+(series.is_first_issue), then the partly annotated ones, fewest clues
 missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
 notable tag (tools/puzzle_tags.py), then the indicator cover
 (tools/indicator_cover.py).
@@ -27,6 +28,8 @@ import re
 import sys
 import time
 from pathlib import Path
+
+import series
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -431,9 +434,10 @@ def self_test():
         # puzzles a lockout cut off still resume first
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
-    bad = cover_self_test(covers) + width_self_test() + tag_self_test()
+    bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
+           + first_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2)
+         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -612,6 +616,29 @@ def spend_self_test():
     return bad
 
 
+# (queue, pinned) -> pinned after first_issues()
+FIRST_CASES = [
+    # a series' No 1 goes ahead of newer puzzles, behind a cut-off resume
+    (["cryptic-30000", "everyman-1", "quiptic-2"], ["r"], ["r", "everyman-1"]),
+    # the declared first issue counts, a 1 under a renumbering does not
+    (["timesclub-1", "timesclub-20000"], [], ["timesclub-20000"]),
+    # no first issue where the number is a date, a reprint or a book position
+    (["metro-20250403", "globeandmail-1", "book-1001", "book-1"], [], []),
+    # pinned once, not twice
+    (["listener-1"], ["listener-1"], ["listener-1"]),
+]
+
+
+def first_self_test():
+    bad = 0
+    for queue, pinned, want in FIRST_CASES:
+        got = first_issues(queue, list(pinned))
+        if got != want:
+            print(f"FAIL first_issues({queue}, {pinned}) = {got} (want {want})", file=sys.stderr)
+            bad += 1
+    return bad
+
+
 # (queue, pinned, {id: notable tags}) -> pinned after promote()
 TAG_CASES = [
     (["a", "b", "c"], [], {"c": ["special-rules"]}, ["c"]),
@@ -725,6 +752,13 @@ def tagged_puzzles(index_path=INDEX):
     return out
 
 
+def first_issues(queue, pinned):
+    """pinned, then the queue's series-first puzzles in queue order. Paul,
+    2026-10-02: "Puzzle 1 is a special puzzle ... our solver should
+    prioritize them"."""
+    return pinned + [pid for pid in queue if series.is_first_issue(pid) and pid not in pinned]
+
+
 def promote(queue, pinned, tagged):
     """pinned, then the queue's tagged puzzles in queue order: the new pinned."""
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
@@ -744,7 +778,8 @@ def partly_annotated(index_path=INDEX):
 
 
 def cover_first(pinned):
-    """The ids on stdin, reordered: pinned first, then the partly annotated
+    """The ids on stdin, reordered: pinned first, then each series' first
+    puzzle, then the partly annotated
     puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
     notable tag, then the indicator cover, then the rest as they came. The
     summary goes to stderr, which is the burn's log."""
@@ -752,6 +787,7 @@ def cover_first(pinned):
     queue = sys.stdin.read().split()
     ctc = ctc_puzzles()
     partial = partly_annotated()
+    pinned = first_issues(queue, pinned)
     pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),
                              key=partial.get)
     pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]

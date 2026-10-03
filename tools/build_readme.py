@@ -123,6 +123,8 @@ LAYOUT = [
     ("fetching", "tools/test_source_answer_wrong.sh", "proves the table of answers the PAPER got wrong still corrects the letters it names, still leaves every other light alone, and names itself stale rather than overriding a key the paper has since fixed"),
     ("fetching", "tools/coverage_report.py", "counts what we hold of every series and names the ones that have gone quiet, were never backfilled, or are full of holes"),
     ("fetching", "tools/extend_archive.py", "walks the archives backwards to keep the annotation queue deeper than the job's best week"),
+    ("fetching", "tools/first_issue.py", "asks each series' source for its No 1 on every run while we lack it, and says where it looked when that fails"),
+    ("fetching", "tools/test_first_issue.sh", "runs first_issue.py's self-test: a row in SOURCES for every series with a first issue, and a 404 reported with where it looked"),
     ("fetching", "tools/fetch_minutecryptic.js", "Minute Cryptic’s daily hints, as a corpus to be measured against"),
     ("fetching", "tools/recover_minutecryptic.py", "refills days that capture missed from Minute Cryptic’s own video titles, dated by clue number because the upload date lags"),
     ("fetching", "tools/fetch_fifteensquared.py", "caches the blog that covers six of our series, and its comments — fetched once each, at their 20-second crawl delay"),
