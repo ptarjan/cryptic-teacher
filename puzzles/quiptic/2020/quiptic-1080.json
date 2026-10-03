@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Gold beats yttrium in stiff test",
     "enumeration": "7"
    },
-   "solution": "AUTOPSY"
+   "solution": "AUTOPSY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUTOPSY",
+    "definitions": [
+     {
+      "text": "stiff test",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "beats",
+      "gives": "TOPS",
+      "note": "to top a rival is to beat them"
+     },
+     {
+      "clueFragment": "yttrium",
+      "gives": "Y",
+      "note": "Y is the chemical symbol for yttrium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TOPS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry lab result: gold outperforms yttrium in some tough materials test.",
+     "walkthrough": "A stiff is slang for a corpse, so the stiff test is the post-mortem examination, not a test of rigidity.",
+     "definitionFit": "A corpse is called a stiff in slang, and a post-mortem examination of one is exactly what this medical procedure is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stiff"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,42 @@
     "text": "Oblivious in Cameroun — a war expected",
     "enumeration": "7"
    },
-   "solution": "UNAWARE"
+   "solution": "UNAWARE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNAWARE",
+    "definitions": [
+     {
+      "text": "Oblivious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameroun — a war expected",
+      "gives": "UNAWARE",
+      "note": "the letters run across the end of Cameroun, the words a and war, and the start of expected"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone in Cameroon is unaware that conflict is on the way.",
+     "definitionFit": "Being oblivious means having no knowledge or awareness of what is happening around you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,73 @@
     "text": "Mock the art set without frames and colour",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OCHRE",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without frames",
+      "for": "letter_selection",
+      "note": "a picture without its frame loses its outer edge, so each word drops its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mock",
+      "gives": "OC",
+      "select": "middle",
+      "note": "the inner two letters of mock"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "H",
+      "select": "middle",
+      "note": "the middle letter of the"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "R",
+      "select": "middle",
+      "note": "the middle letter of art"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "H",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at a gallery's art collection, unframed paintings and all, and their colours.",
+     "walkthrough": "'Frames' looks like picture frames in an art-themed surface, but it means the outside letters of each word.",
+     "definitionFit": "This earthy yellow-brown pigment is a named shade used by painters, so it is an example of a colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frames"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,61 @@
     "text": "Castrate violently without using a spray",
     "enumeration": "7"
    },
-   "solution": "SCATTER"
+   "solution": "SCATTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCATTER",
+    "definitions": [
+     {
+      "text": "spray",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without using a",
+      "for": "deletion",
+      "note": "doing without one particular letter means it must be dropped from the word before it"
+     },
+     {
+      "text": "violently",
+      "for": "anagram",
+      "note": "violent treatment throws things about, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Castrate",
+      "gives": "CASTRATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCATTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CSTRATE",
+       "gives": "SCATTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim instruction to neuter an animal roughly without using a spray.",
+     "walkthrough": "One of the two As in the eight-letter word is removed, and the seven letters left are rearranged.",
+     "definitionFit": "To spray and to scatter are both verbs for sending small particles flying out over a wide area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Castrate"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,63 @@
     "text": "Sense corruption by church centre",
     "enumeration": "7"
    },
-   "solution": "ESSENCE"
+   "solution": "ESSENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESSENCE",
+    "definitions": [
+     {
+      "text": "centre",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corruption",
+      "for": "anagram",
+      "note": "corruption spoils the original form, so the letters of the word before are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sense",
+      "gives": "ESSEN",
+      "note": "the letters of sense, rearranged"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSEN",
+      "CE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENSE",
+       "gives": "ESSEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the church's community centre is morally corrupting.",
+     "definitionFit": "The essence of something is its core or heart, the central part that makes it what it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +367,63 @@
     "text": "Think about head of rival firm",
     "enumeration": "6"
    },
-   "solution": "STURDY"
+   "solution": "STURDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STURDY",
+    "definitions": [
+     {
+      "text": "firm",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Think",
+      "gives": "STUDY",
+      "note": "to study is to think something over"
+     },
+     {
+      "clueFragment": "rival",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of rival"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STU",
+      "R",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "A businessman considers the chief executive of a competing firm.",
+     "walkthrough": "'Firm' looks like a company, matching the rival in the surface, but it is the adjective meaning strong.",
+     "definitionFit": "Something firm is solid and strongly built, which is the adjective's usual meaning for robust furniture or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +443,58 @@
      }
     ]
    },
-   "solution": "EATINGOUT"
+   "solution": "EATINGOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EATING OUT",
+    "definitions": [
+     {
+      "text": "Going to a restaurant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dine",
+      "gives": "EAT",
+      "note": "to dine is to eat"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "painful disease",
+      "gives": "GOUT",
+      "note": "gout is a painful inflammation of the joints"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAT",
+      "IN",
+      "GOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between a meal out and staying in to dine while suffering from a painful ailment.",
+     "walkthrough": "The surface sets going out against dining at home, yet the at-home words supply part of the phrase for dining out.",
+     "definitionFit": "The phrase describes having a meal away from home, typically paying for food served at a café or bistro."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +508,70 @@
     "text": "Guilty party's rip-off concealed by religious group",
     "enumeration": "7"
    },
-   "solution": "CULPRIT"
+   "solution": "CULPRIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CULPRIT",
+    "definitions": [
+     {
+      "text": "Guilty party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something gone off is spoiled, so the letters of the word before are rearranged"
+     },
+     {
+      "text": "concealed by",
+      "for": "container",
+      "note": "something concealed is covered over, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious group",
+      "gives": "CULT",
+      "note": "a cult is a small religious group"
+     },
+     {
+      "clueFragment": "rip",
+      "gives": "PRI",
+      "note": "the letters of rip, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "LPRI",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIP",
+       "gives": "PRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guilty party's swindle has been covered up by a religious sect.",
+     "walkthrough": "Rip-off reads as one word meaning a swindle, but it splits into the fodder and its anagram signal.",
+     "definitionFit": "The person responsible for a crime or wrongdoing is the one to blame, the offender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rip-off"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +591,51 @@
      }
     ]
    },
-   "solution": "BEYONDDISPUTE"
+   "solution": "BEYONDDISPUTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEYOND DISPUTE",
+    "definitions": [
+     {
+      "text": "Absolutely!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composition",
+      "for": "anagram",
+      "note": "a composition is something put together, so the letters before are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did you pen best",
+      "gives": "DIDYOUPENBEST",
+      "note": "all thirteen letters, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIDYOUPENBEST",
+       "gives": "BEYONDDISPUTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is asked whether they wrote the finest piece, and answers that they certainly did.",
+     "walkthrough": "'Composition' fits the writing surface as a piece of music or an essay, but it signals the reordering.",
+     "definitionFit": "Saying absolutely is an emphatic agreement, and a fact that is certain allows no argument or doubt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +649,53 @@
     "text": "Commandos on hotel window",
     "enumeration": "4"
    },
-   "solution": "SASH"
+   "solution": "SASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SASH",
+    "definitions": [
+     {
+      "text": "window",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, placed on means put next to, so the pieces join side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commandos",
+      "gives": "SAS",
+      "note": "the SAS, the Special Air Service, is the British Army's special forces regiment"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Special forces raid a hotel by coming through the window.",
+     "walkthrough": "A sash window, common in British houses, has panes that slide up and down; the frame holding them is the sash.",
+     "definitionFit": "A sash is a sliding frame of glass, and sash is common shorthand for the whole vertical-sliding type of glazing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +709,71 @@
     "text": "Consider the same sick lady outside as well enough",
     "enumeration": "10"
    },
-   "solution": "ADEQUATELY"
+   "solution": "ADEQUATELY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ADEQUATELY",
+    "definitions": [
+     {
+      "text": "well enough",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sick",
+      "for": "anagram",
+      "note": "being sick upsets things, so the letters of the following word are mixed up"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside means wrapping round, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady",
+      "gives": "ADLY",
+      "note": "the letters of lady, rearranged"
+     },
+     {
+      "clueFragment": "Consider the same",
+      "gives": "EQUATE",
+      "note": "to equate things is to consider them the same"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "EQUATE",
+      "LY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LADY",
+       "gives": "ADLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor regards an ill woman standing outside as recovered enough.",
+     "walkthrough": "'Well enough' seems to describe the sick lady's health, but it is an adverb meaning sufficiently.",
+     "definitionFit": "Doing something sufficiently, to an acceptable but not outstanding standard, is doing it in a satisfactory way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +787,61 @@
     "text": "Warning! Tiger possibly bitten half the street!",
     "enumeration": "6"
    },
-   "solution": "CAVEAT"
+   "solution": "CAVEAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CAVEAT",
+    "definitions": [
+     {
+      "text": "Warning!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half is wanted, so the second part of the word is cut away"
+     },
+     {
+      "text": "bitten",
+      "for": "container",
+      "note": "something bitten is held in the jaws, so one piece is gripped inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiger possibly",
+      "gives": "CAT",
+      "note": "a tiger is one kind of big cat; possibly signals an example"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "AVENUE",
+      "note": "an avenue is a street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AVE",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A panicked alert that a tiger has attacked half the people living on a road.",
+     "definitionFit": "This Latin-derived word is a formal caution or proviso, a notice given to beware of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bitten"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +855,61 @@
     "text": "Currency unknown following gold standard",
     "enumeration": "8"
    },
-   "solution": "ORDINARY"
+   "solution": "ORDINARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORDINARY",
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after means the earlier pieces are placed behind the later one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "Currency",
+      "gives": "DINAR",
+      "note": "the dinar is the currency of several countries"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an unknown quantity in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "DINAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An economics remark about an unknown currency coming after the gold standard.",
+     "walkthrough": "'Gold standard' reads as one monetary term, but gold is wordplay and standard is the definition.",
+     "definitionFit": "Standard as an adjective means normal or usual, not special, which is the common everyday sense here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +933,63 @@
      }
     ]
    },
-   "solution": "LETITRIDE"
+   "solution": "LETITRIDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LET IT RIDE",
+    "definitions": [
+     {
+      "text": "Took no action",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupidly",
+      "for": "anagram",
+      "note": "doing something stupidly makes a mess of it, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rent",
+      "gives": "LET",
+      "note": "to let a property is to rent it out"
+     },
+     {
+      "clueFragment": "I tried",
+      "gives": "ITRIDE",
+      "note": "the letters of I tried, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "ITRIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITRIED",
+       "gives": "ITRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant admits they foolishly tried doing nothing about the rent.",
+     "definitionFit": "The idiom means allowing a situation to continue without intervening, simply leaving matters alone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +1003,70 @@
     "text": "Now's the wrong time to constrain mass communications",
     "enumeration": "9"
    },
-   "solution": "IMMEDIATE"
+   "solution": "IMMEDIATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMMEDIATE",
+    "definitions": [
+     {
+      "text": "Now",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is not in proper order, so the letters of the next word are rearranged"
+     },
+     {
+      "text": "to constrain",
+      "for": "container",
+      "note": "constraining something holds it in, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "IMTE",
+      "note": "the letters of time, rearranged"
+     },
+     {
+      "clueFragment": "mass communications",
+      "gives": "MEDIA",
+      "note": "the mass media are newspapers, radio and television"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MEDIA",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIME",
+       "gives": "IMTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that this is a bad moment to restrict the press and broadcasting.",
+     "walkthrough": "'Mass' wants to be M on its own, but mass communications together are the media.",
+     "definitionFit": "Something happening without any delay happens at once, at the present moment rather than later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1080,51 @@
     "text": "When life begins to be a bit like a stronghold?",
     "enumeration": "5"
    },
-   "solution": "FORTY"
+   "solution": "FORTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORTY",
+    "definitions": [
+     {
+      "text": "When life begins",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stronghold",
+      "gives": "FORT",
+      "note": "a fort is a stronghold"
+     },
+     {
+      "clueFragment": "a bit like",
+      "gives": "Y",
+      "note": "the suffix -y means somewhat like, as in a summery day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry question about whether middle age makes one rather like a fortress.",
+     "walkthrough": "The definition refers to the saying that life begins at this age.",
+     "definitionFit": "The proverb says life begins at this birthday, so the number is the age the saying names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1138,45 @@
     "text": "Dodger may be lucky",
     "enumeration": "5"
    },
-   "solution": "JAMMY"
+   "solution": "JAMMY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JAMMY",
+    "definitions": [
+     {
+      "text": "Dodger may be",
+      "at": 0,
+      "note": "an adjective describing the noun, not a synonym of it"
+     },
+     {
+      "text": "lucky",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dodger may be",
+      "note": "first meaning: a ... Dodger is a British biscuit with a jam filling"
+     },
+     {
+      "clueFragment": "lucky",
+      "note": "second meaning: British slang for fortunate"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who dodges trouble could well be fortunate.",
+     "walkthrough": "A Jammy Dodger is a popular British shortbread biscuit sandwiched with jam; jammy is also UK slang for undeservedly lucky.",
+     "definitionFit": "The word is the brand name's first half and also British slang for fortunate in an undeserved way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dodger"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1190,59 @@
     "text": "Wonderful magazine, incompletely edited",
     "enumeration": "7"
    },
-   "solution": "AMAZING"
+   "solution": "AMAZING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AMAZING",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incompletely",
+      "for": "deletion",
+      "note": "something incomplete is missing its end, so the final letter is dropped"
+     },
+     {
+      "text": "edited",
+      "for": "anagram",
+      "note": "edited text has been reworked, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magazine",
+      "gives": "MAGAZINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMAZING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAGAZIN",
+       "gives": "AMAZING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a magazine, even though it has only been partly edited.",
+     "definitionFit": "Both adjectives describe something remarkable, causing great surprise and delight in a positive way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edited"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1256,64 @@
     "text": "Back soldiers with the wild distinctive mark",
     "enumeration": "9"
    },
-   "solution": "SIGNATURE"
+   "solution": "SIGNATURE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIGNATURE",
+    "definitions": [
+     {
+      "text": "distinctive mark",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "going back means reading in the opposite direction, so the next word is turned around"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "GIS",
+      "note": "GIs are American soldiers"
+     },
+     {
+      "clueFragment": "the wild",
+      "gives": "NATURE",
+      "note": "the wild is untamed nature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIG",
+      "NATURE"
+     ],
+     "reversals": [
+      {
+       "from": "GIS",
+       "to": "SIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An appeal to support the troops alongside wildlife, perhaps for a campaign badge.",
+     "walkthrough": "'Back' looks like a verb meaning support, but it turns the soldiers around.",
+     "definitionFit": "A characteristic feature by which something is identified, like a signature dish or style, is its distinctive mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1327,52 @@
     "text": "Studs in tatty clothing not for them",
     "enumeration": "7"
    },
-   "solution": "NUDISTS"
+   "solution": "NUDISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUDISTS",
+    "definitions": [
+     {
+      "text": "clothing not for them",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tatty",
+      "for": "anagram",
+      "note": "tatty means worn and shabby, so the letters are knocked out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Studs in",
+      "gives": "STUDSIN",
+      "note": "both words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STUDSIN",
+       "gives": "NUDISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Studs on shabby clothes are not to some people's taste.",
+     "walkthrough": "The surface suggests fashion, with studs as decorations on clothes; the definition is the last four words read together.",
+     "definitionFit": "People who go without garments on principle are those for whom wearing things is not wanted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Studs"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1386,52 @@
     "text": "Alter in the case of quiet mimic",
     "enumeration": "7"
    },
-   "solution": "RESHAPE"
+   "solution": "RESHAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESHAPE",
+    "definitions": [
+     {
+      "text": "Alter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the case of",
+      "gives": "RE",
+      "note": "re means concerning, in the case of"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     },
+     {
+      "clueFragment": "mimic",
+      "gives": "APE",
+      "note": "to ape someone is to mimic them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SH",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to change things where a silent impersonator is concerned.",
+     "definitionFit": "To give something a new form is to change or modify it, which is what altering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1445,51 @@
     "text": "Moving right up the rat menace",
     "enumeration": "6"
    },
-   "solution": "THREAT"
+   "solution": "THREAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THREAT",
+    "definitions": [
+     {
+      "text": "menace",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Moving right up",
+      "for": "anagram",
+      "note": "in a down clue moving one letter up means shifting it earlier, rearranging the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the rat",
+      "gives": "THERAT",
+      "note": "both words, with one letter to be moved"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THERAT",
+       "gives": "THREAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pushing a rat up the drain causes a menace to someone.",
+     "walkthrough": "Only one letter moves: the R of the rat goes one place higher, ahead of the E.",
+     "definitionFit": "A menace is a danger or source of harm, something that intimidates or endangers people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1503,48 @@
     "text": "Certainly no inflatable in difficulty",
     "enumeration": "8"
    },
-   "solution": "HARDSHIP"
+   "solution": "HARDSHIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARDSHIP",
+    "definitions": [
+     {
+      "text": "Certainly no inflatable",
+      "at": 0,
+      "note": "a cryptic two-word description, not a dictionary sense"
+     },
+     {
+      "text": "difficulty",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly no inflatable",
+      "note": "first meaning: a rigid vessel is certainly not a rubber dinghy"
+     },
+     {
+      "clueFragment": "difficulty",
+      "note": "second meaning: suffering or severe privation"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone without a rubber dinghy is clearly in a fix.",
+     "walkthrough": "Split into two words, the answer describes a solid boat, the opposite of an inflatable one.",
+     "definitionFit": "Severe suffering or privation, a period of trouble or struggle, is a state of difficulty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflatable"
+    }
+   }
   },
   {
    "number": 24,
@@ -377,7 +1558,53 @@
     "text": "Enquire after barrier material",
     "enumeration": "6"
    },
-   "solution": "DAMASK"
+   "solution": "DAMASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMASK",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed behind, so the first piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrier",
+      "gives": "DAM",
+      "note": "a dam is a barrier across water"
+     },
+     {
+      "clueFragment": "Enquire",
+      "gives": "ASK",
+      "note": "to enquire is to ask"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks questions about what a barrier is made from.",
+     "definitionFit": "This is a rich patterned fabric, originally from Damascus, so it is a kind of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 25,
@@ -391,7 +1618,50 @@
     "text": "Socialiser in 1009 — the Queen!",
     "enumeration": "5"
    },
-   "solution": "MIXER"
+   "solution": "MIXER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIXER",
+    "definitions": [
+     {
+      "text": "Socialiser",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1009",
+      "gives": "MIX",
+      "note": "M is 1000 and IX is 9 in Roman numerals"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIX",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical claim that a sociable figure was around in 1009, royalty included.",
+     "walkthrough": "The date looks like a year, but it is just a number written in Roman numerals.",
+     "definitionFit": "A good mixer is a sociable person who mingles easily with others at gatherings and parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "1009"
+    }
+   }
   },
   {
    "number": 26,
@@ -405,7 +1675,70 @@
     "text": "Matilda's magic not starting, backfires and smokes",
     "enumeration": "10"
    },
-   "solution": "CIGARETTES"
+   "solution": "CIGARETTES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CIGARETTES",
+    "definitions": [
+     {
+      "text": "smokes",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "not starting means the word loses its first letter"
+     },
+     {
+      "text": "backfires",
+      "for": "reversal",
+      "note": "something that backfires goes the wrong way, so everything before is read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matilda's",
+      "gives": "SETTER",
+      "note": "Matilda is the setter of this puzzle; the possessive simply joins the pieces"
+     },
+     {
+      "clueFragment": "magic",
+      "gives": "MAGIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIGA",
+      "RETTES"
+     ],
+     "reversals": [
+      {
+       "from": "SETTERAGIC",
+       "to": "CIGARETTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's conjuring trick fails to start, goes wrong and produces only smoke.",
+     "walkthrough": "Setters often refer to themselves by their pseudonym; here Matilda simply means the setter.",
+     "definitionFit": "Smokes is informal for tobacco rolled in paper, the usual things a smoker lights up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Matilda's"
+    }
+   }
   },
   {
    "number": 27,
@@ -419,7 +1752,51 @@
     "text": "Kiss on Mother's Day — in December?",
     "enumeration": "4"
    },
-   "solution": "XMAS"
+   "solution": "XMAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "XMAS",
+    "definitions": [
+     {
+      "text": "Day — in December?",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kiss",
+      "gives": "X",
+      "note": "X stands for a kiss at the end of a letter"
+     },
+     {
+      "clueFragment": "Mother's",
+      "gives": "MAS",
+      "note": "ma is mother, plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "MAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about why someone's kissing their mother in December, when Mother's Day is in spring.",
+     "walkthrough": "'Mother's Day' looks like a fixed phrase, but Day belongs to the definition.",
+     "definitionFit": "Xmas Day falls on the twenty-fifth of December, so the answer is the festival a day in that month names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1816,62 @@
      }
     ]
    },
-   "solution": "AGREETO"
+   "solution": "AGREETO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGREE TO",
+    "definitions": [
+     {
+      "text": "Okay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laos",
+      "gives": "AO",
+      "select": "middle",
+      "note": "the two middle letters of Laos"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "GREET",
+      "note": "to greet someone is to welcome them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GREET",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller finds a friendly greeting deep inside Laos is fine.",
+     "walkthrough": "'Okay' looks like an adjective, but here it is a verb meaning approve.",
+     "definitionFit": "To okay a proposal is to approve or consent to it, which is the meaning of the phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Okay"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +1885,74 @@
     "text": "Seized power held by American, rude bastard",
     "enumeration": "7"
    },
-   "solution": "USURPED"
+   "solution": "USURPED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "USURPED",
+    "definitions": [
+     {
+      "text": "Seized",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bastard",
+      "for": "anagram",
+      "note": "a bastard form is a corrupted one, so the letters of the word before are rearranged"
+     },
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped within it, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "URED",
+      "note": "the letters of rude, rearranged"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "UR",
+      "P",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUDE",
+       "gives": "URED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coup: power grabbed by an uncouth American scoundrel.",
+     "walkthrough": "'Seized power' looks like the full definition, but power gives a letter.",
+     "definitionFit": "To usurp is to take a throne or position by force, so the past tense means took or grabbed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   }
  ]
 }
