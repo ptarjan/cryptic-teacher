@@ -545,8 +545,9 @@ pool_interval_start() {
   POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   wide=$(wave_width)
-  # Ahead of the round-robin: each series' first puzzle, then Cracking the Cryptic's puzzles, then the puzzles
-  # with a notable tag (tools/puzzle_tags.py), then the puzzles that give an
+  # Ahead of the round-robin: each series' first puzzle, then the puzzles
+  # without answers, oldest first, then the partly annotated puzzles, then
+  # Cracking the Cryptic's puzzles, then the puzzles with a notable tag (tools/puzzle_tags.py), then the puzzles that give an
   # indicator on /indicators/ its first annotated clue (tools/indicator_cover.py). Cut-off puzzles stay first. Anything but a whole
   # permutation back leaves the order as it was. A dry run plans once.
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
