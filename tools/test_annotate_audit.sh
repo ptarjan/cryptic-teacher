@@ -7,7 +7,7 @@
 # must not wake it again unless it has clearly grown, and a line must be
 # named by the check that wrote it rather than by its wording.
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 python3 - <<'EOF'
 import sys
 sys.path.insert(0, "tools")
