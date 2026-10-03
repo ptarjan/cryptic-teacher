@@ -242,6 +242,8 @@ rm -f /tmp/slw_stale.err
 echo "every SOURCE_CLUE_WRONG key holds its printed clue on disk"
 out6=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import fetch_puzzle as fetcher
+import provenance
+import validate_annotations as V
 from groups import entry_id
 
 bad = []
@@ -254,6 +256,11 @@ for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
         bad.append(f"{pid} {eid}: stored {entry['clue'].get('text')!r}, table prints {printed!r}")
     if fetcher.clue_words(served) == fetcher.clue_words(printed) or len(why) < 40:
         bad.append(f"{pid} {eid}: corrects nothing, or the note is not evidence")
+    # An OCR'd clue's correction mends a misread, never rewords the clue.
+    puzzle = path and fetcher.read_puzzle_file(path)
+    if puzzle and puzzle["source"].get("retrievedFrom") in provenance.OCR_CHANNELS and \
+            V.edit_distance(fetcher.clue_words(served), fetcher.clue_words(printed)) > V.OCR_MISREAD_EDITS:
+        bad.append(f"{pid} {eid}: an OCR clue reworded, not a misread mended")
 print("BAD", "; ".join(bad) or "none")
 PY
 )

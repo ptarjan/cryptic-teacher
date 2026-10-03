@@ -122,6 +122,22 @@ next(e for e in other["entries"] if entry_id(e) == entry_id(lead))["clue"]["text
 errs = []
 V.check_clue_unchanged(other, committed, errs)
 say("unfiled_rewording_of_filed_light_fails", len(errs) == 1)
+# An OCR'd clue (a scan's reading) takes a correction of a misread letter or
+# two, never a rewording.
+ocr_held = copy.deepcopy(reworded)
+ocr_held["source"]["retrievedFrom"] = "newspaper"
+errs = []
+V.check_clue_unchanged(ocr_held, committed, errs)
+say("ocr_rewording_filed_fails", len(errs) == 1 and "OCR" in errs[0])
+text = lead["clue"]["text"]
+misread = text[:-1] + ("x" if text[-1] != "x" else "y")
+fetch_puzzle.SOURCE_CLUE_WRONG[key] = (text, misread, "OCR misread: test")
+ocr_fixed = copy.deepcopy(held)
+ocr_fixed["source"]["retrievedFrom"] = "newspaper"
+next(e for e in ocr_fixed["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = misread
+errs = []
+V.check_clue_unchanged(ocr_fixed, committed, errs)
+say("ocr_misread_filed_passes", not errs)
 del fetch_puzzle.SOURCE_CLUE_WRONG[key]
 
 # features: absent warns (and counts against the ratchet), present is quiet.
@@ -388,6 +404,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          view_keeps_solutions apply_keeps_solutions_detail \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
+         ocr_rewording_filed_fails ocr_misread_filed_passes \
          preview_names_validator_errors patch_deletes_its_file \
          light_answer_named_fails function_word_light_passes \
          unlinked_still_whole_answer_only light_name_unnamed \

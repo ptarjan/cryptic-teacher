@@ -68,6 +68,7 @@ import clue_types  # noqa: E402
 import definitions  # where each definition sits; tools/definitions.py
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 import groups  # noqa: E402 — linked answers; tools/groups.py
+import provenance  # noqa: E402 — where each puzzle came from; tools/provenance.py
 import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
 from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
@@ -2476,13 +2477,29 @@ def committed_entries(path):
     return {entry_id(e): e for e in json.loads(shown.stdout).get("entries", [])}
 
 
+#: The letters an OCR'd clue's SOURCE_CLUE_WRONG correction may change: a
+#: misread letter or two ("judge" for "fudge", "rn" for "m"), never a reword.
+OCR_MISREAD_EDITS = 3
+
+
+def edit_distance(a, b):
+    """Levenshtein distance between two strings."""
+    row = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        prev, row[0] = row[0], i
+        for j, cb in enumerate(b, 1):
+            prev, row[j] = row[j], min(row[j] + 1, row[j - 1] + 1, prev + (ca != cb))
+    return row[-1]
+
+
 def check_clue_unchanged(puzzle, path, errors):
     """An annotation explains the clue it was written against, and the clue is
     the source's. An annotated entry whose clue's words differ from the
     committed file's is a run that rewrote the clue to suit its parse, unless
     the new words are the ones fetch_puzzle.SOURCE_CLUE_WRONG prints for that
     light: a correction filed there is what every re-fetch writes, so the
-    annotation written for it stands in the same run. Typography (quotes,
+    annotation written for it stands in the same run. An OCR'd clue
+    (provenance.OCR_CHANNELS) takes one only within OCR_MISREAD_EDITS letters. Typography (quotes,
     dashes, accents, spacing) is not a different clue."""
     committed = committed_entries(path)
     if committed is None:
@@ -2494,7 +2511,16 @@ def check_clue_unchanged(puzzle, path, errors):
                 or clue_words(was[entry_id(e)]) == clue_words(now)):
             continue
         filed = corrected_clue(puzzle.get("id"), entry_id(e))
+        ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
         if filed is not None and clue_words(filed) == clue_words(e["clue"].get("text")):
+            misread = edit_distance(clue_words(was[entry_id(e)]), clue_words(filed))
+            if not ocr or misread <= OCR_MISREAD_EDITS:
+                continue
+            errors.append(
+                f"{entry_id(e)}: SOURCE_CLUE_WRONG changes {misread} letters of the "
+                f"OCR's {was[entry_id(e)]!r}; a misread is at most {OCR_MISREAD_EDITS} "
+                f"(judge for fudge). A clue that needs more is not the OCR's to mend: "
+                f"put it back and leave the entry null")
             continue
         errors.append(
             f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "
