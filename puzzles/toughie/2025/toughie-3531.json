@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,78 @@
     "text": "Allied Forces ultimately stopped working after current advances",
     "enumeration": "5"
    },
-   "solution": "SIDED"
+   "solution": "SIDED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "SIDED",
+    "definitions": [
+     {
+      "text": "Allied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word before it, so only its final letter is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the forces piece in front, with the working phrase coming second"
+     },
+     {
+      "text": "advances",
+      "for": "anagram",
+      "note": "the current symbol moves forward to an earlier place in the word for stopping work, rearranging its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forces",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of Forces"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "stopped working",
+      "gives": "DED",
+      "note": "a machine that stopped working DIED; here its I is lifted out to move forward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIED",
+       "gives": "IDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime report: the Allied Forces finally ground to a halt after an advance.",
+     "walkthrough": "DIED has its I moved forward to make IDED, then S goes in front: SIDED.",
+     "definitionFit": "If you have sided with someone, you have taken their part and become their ally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +121,71 @@
     "text": "Wind is up and legendary bird leaves",
     "enumeration": "8"
    },
-   "solution": "SIROCCOS"
+   "solution": "SIROCCOS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIROCCOS",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0,
+      "note": "singular in the clue, but the answer is plural; 'Wind is' reads as a plural description"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "legendary bird",
+      "gives": "ROC",
+      "note": "the roc is the giant bird of Arabian legend"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "COS",
+      "note": "cos is a variety of lettuce, so its leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "ROC",
+      "COS"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gale picks up and a mythical bird takes off.",
+     "walkthrough": "'Leaves' looks like a verb for the bird departing; it is a noun, the lettuce COS.",
+     "definitionFit": "Siroccos are hot dusty winds that blow from North Africa across the Mediterranean into southern Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +199,57 @@
     "text": "Almost remove financial support for court – it's dead",
     "enumeration": "7"
    },
-   "solution": "DEFUNCT"
+   "solution": "DEFUNCT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DEFUNCT",
+    "definitions": [
+     {
+      "text": "dead",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the phrase is dropped"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remove financial support",
+      "gives": "DEFUN",
+      "note": "to DEFUND is to remove financial support; the last letter goes"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFUN",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly cutting a court's funding, which is said to be dead anyway.",
+     "definitionFit": "Something defunct no longer exists or functions; it is extinct or no longer alive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +263,63 @@
     "text": "Dance music's introduction is right for rattles",
     "enumeration": "10"
    },
-   "solution": "DISCOMFITS"
+   "solution": "DISCOMFITS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISCOMFITS",
+    "definitions": [
+     {
+      "text": "rattles",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening letter, so just that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "DISCO",
+      "note": "disco is a style of dance music, and a dance"
+     },
+     {
+      "clueFragment": "music's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of music"
+     },
+     {
+      "clueFragment": "is right for",
+      "gives": "FITS",
+      "note": "something that fits is right for the purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISCO",
+      "M",
+      "FITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ explains that the opening of a disco track is good for maracas.",
+     "walkthrough": "'Rattles' looks like percussion instruments; it is a verb meaning unsettles.",
+     "definitionFit": "To discomfit someone is to make them uneasy or embarrassed, which is what unnerving them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rattles"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +333,69 @@
     "text": "Report from term in Saint Martins circulated",
     "enumeration": "8"
    },
-   "solution": "TRANSMIT"
+   "solution": "TRANSMIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRANSMIT",
+    "definitions": [
+     {
+      "text": "Report",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "term in",
+      "for": "letter_selection",
+      "note": "a term is an end point, so the end of the following word supplies one letter"
+     },
+     {
+      "text": "circulated",
+      "for": "anagram",
+      "note": "things circulated are moved around, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of Saint"
+     },
+     {
+      "clueFragment": "Martins",
+      "gives": "MARTINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANSMIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TMARTINS",
+       "gives": "TRANSMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A term report from St Martin's school is passed round.",
+     "walkthrough": "'Term' looks like a school term; it means the end of Saint.",
+     "definitionFit": "To transmit news is to pass it on or broadcast it, as a report does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +415,63 @@
      }
     ]
    },
-   "solution": "RUBBERSTAMPING"
+   "solution": "RUBBERSTAMPING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUBBER-STAMPING",
+    "definitions": [
+     {
+      "text": "automatically approving",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub's",
+      "gives": "PUBS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barring",
+      "gives": "BARRING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Met",
+      "gives": "MET",
+      "note": "taken as written; the Met is London's police force"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUBS BARRING MET",
+       "gives": "RUBBERSTAMPING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy pub refuses entry while the Metropolitan Police nod everything through.",
+     "definitionFit": "Rubber-stamping is giving approval routinely, without real scrutiny, like an official stamp applied by habit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +485,46 @@
     "text": "Pet's drink",
     "enumeration": "4"
    },
-   "solution": "NECK"
+   "solution": "NECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NECK",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     },
+     {
+      "text": "drink",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet",
+      "note": "first meaning: to kiss and cuddle"
+     },
+     {
+      "clueFragment": "drink",
+      "note": "second meaning: to swallow quickly, informally"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a dog's water bowl; 's is 'is', linking two verbs.",
+     "definitionFit": "Informally the word means both to kiss amorously and to down a drink quickly in one go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pet's"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +538,61 @@
     "text": "Usher connected to marriage – making relations quiet",
     "enumeration": "7"
    },
-   "solution": "MARSHAL"
+   "solution": "MARSHAL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MARSHAL",
+    "definitions": [
+     {
+      "text": "Usher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "substitution",
+      "note": "making one thing into another signals that one part is changed for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "connected to marriage",
+      "gives": "MARITAL",
+      "note": "marital means relating to marriage"
+     },
+     {
+      "clueFragment": "relations",
+      "gives": "IT",
+      "note": "IT is slang for sex, sexual relations"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "SH",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding usher steers the in-laws towards silence.",
+     "walkthrough": "In MARITAL, the IT (sex) is replaced by SH (quiet).",
+     "definitionFit": "A marshal guides and arranges people at an event, the job an usher does at ceremonies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +606,64 @@
     "text": "Retiring as Cambridge University rejected papers",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIMID",
+    "definitions": [
+     {
+      "text": "Retiring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cambridge University",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology is in Cambridge, Massachusetts"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "ID papers prove identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIM",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "MIT",
+       "to": "TIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy applicant hears that Cambridge has turned down their documents.",
+     "walkthrough": "Cambridge University seems to be the English one; it is MIT, in Cambridge, Massachusetts.",
+     "definitionFit": "A retiring person is shy and avoids attention, which is what being timid means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +677,62 @@
     "text": "Supply easel through us – stock ends here",
     "enumeration": "14"
    },
-   "solution": "SLAUGHTERHOUSE"
+   "solution": "SLAUGHTERHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLAUGHTERHOUSE",
+    "definitions": [
+     {
+      "text": "stock ends here",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, so the letters are bent flexibly into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "easel",
+      "gives": "EASEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "THROUGH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EASEL THROUGH US",
+       "gives": "SLAUGHTERHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art shop instruction to send an easel via us, as the stock runs out here.",
+     "walkthrough": "'Supply' looks like a verb meaning provide; it is the adverb from supple.",
+     "definitionFit": "Livestock is killed at an abattoir, so it is where farm animals' lives come to an end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supply"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +746,64 @@
     "text": "Rejection of material describing loud American",
     "enumeration": "7"
    },
-   "solution": "REFUSAL"
+   "solution": "REFUSAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REFUSAL",
+    "definitions": [
+     {
+      "text": "Rejection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so one word encircles the others"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "REAL",
+      "note": "material things are real, tangible"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte, loud in music"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "F",
+      "US",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor turns down cloth that portrays a brash American.",
+     "walkthrough": "'Material' suggests fabric, but here it is the adjective meaning real.",
+     "definitionFit": "A refusal is a saying no, which is a rejection of an offer or request."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +817,71 @@
     "text": "Run on dollar came after banks withdraw – this helps keep books in order",
     "enumeration": "7"
    },
-   "solution": "BUCKRAM"
+   "solution": "BUCKRAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUCKRAM",
+    "definitions": [
+     {
+      "text": "this helps keep books in order",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, on means written after, so the run abbreviation is placed second behind the money word"
+     },
+     {
+      "text": "banks withdraw",
+      "for": "letter_selection",
+      "note": "the banks are the edges of the word, and when they withdraw only the inner letters remain"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dollar",
+      "gives": "BUCK",
+      "note": "buck is slang for a dollar"
+     },
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "came",
+      "gives": "AM",
+      "select": "middle",
+      "note": "the word came without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUCK",
+      "R",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A run on the dollar followed a bank collapse, which is how books get balanced.",
+     "walkthrough": "The surface is about finance and bookkeeping; the books are actual bound volumes.",
+     "definitionFit": "Buckram is stiff cotton or linen cloth used in bookbinding, holding volumes together and in shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +895,72 @@
     "text": "Difficult to understand on TV – could broadcast without English",
     "enumeration": "10"
    },
-   "solution": "CONVOLUTED"
+   "solution": "CONVOLUTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONVOLUTED",
+    "definitions": [
+     {
+      "text": "Difficult to understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "seed broadcast is scattered widely, so the letters are scattered into a fresh order"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the shuffled letters go around another letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on TV",
+      "gives": "ONTV",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "could",
+      "gives": "COULD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONVOLUT",
+      "E",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONTVCOULD",
+       "gives": "CONVOLUTD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV programme too complicated to follow could go out minus its English.",
+     "walkthrough": "'Without' looks like it removes English; in its old sense outside, it puts the shuffled letters round E.",
+     "definitionFit": "Something convoluted is tangled and intricate, hence hard to follow or make sense of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +974,46 @@
     "text": "Country clubs cheated",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAD",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in cards"
+     },
+     {
+      "clueFragment": "cheated",
+      "gives": "HAD",
+      "note": "to be had is to be cheated or conned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A national golf association accused of cheating.",
+     "definitionFit": "Chad is a landlocked nation in north-central Africa, south of Libya."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +1027,57 @@
     "text": "Firm having bronze toilets for functions",
     "enumeration": "10"
    },
-   "solution": "COTANGENTS"
+   "solution": "COTANGENTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COTANGENTS",
+    "definitions": [
+     {
+      "text": "functions",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "having",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "CO is short for company"
+     },
+     {
+      "clueFragment": "bronze",
+      "gives": "TAN",
+      "note": "a tan is a bronze colour"
+     },
+     {
+      "clueFragment": "toilets",
+      "gives": "GENTS",
+      "note": "the gents is a men's public lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "TAN",
+      "GENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A company fits bronze fittings in its toilets for corporate events.",
+     "walkthrough": "'Functions' suggests parties; it is the mathematical sense.",
+     "definitionFit": "Cotangents are trigonometric functions, each the reciprocal of a tangent of an angle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "functions"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1105,62 @@
      }
     ]
    },
-   "solution": "OUTOFTHISWORLD"
+   "solution": "OUTOFTHISWORLD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUT OF THIS WORLD",
+    "definitions": [
+     {
+      "text": "Ace",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who's",
+      "gives": "WHOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old fruit",
+      "gives": "OLDFRUIT",
+      "note": "taken as written; old fruit is a dated British form of address, like old chap"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHOS OLDFRUIT TO",
+       "gives": "OUTOFTHISWORLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doctor Who calls his companion Ace 'old fruit' in the TV series.",
+     "walkthrough": "Ace was a companion of the Seventh Doctor in Doctor Who; here 'Ace' is the adjective for brilliant.",
+     "definitionFit": "Ace as an adjective means superb, and something out of this world is extraordinarily good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1174,78 @@
     "text": "Looks himself up online – Fergus upset about OnlyFans having removed content",
     "enumeration": "8"
    },
-   "solution": "EGOSURFS"
+   "solution": "EGOSURFS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EGOSURFS",
+    "definitions": [
+     {
+      "text": "Looks himself up online",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the name's letters are jumbled"
+     },
+     {
+      "text": "removed content",
+      "for": "letter_selection",
+      "note": "with the content taken out only the two outside letters of the word are left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters surround the other piece"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fergus",
+      "gives": "FERGUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "OnlyFans",
+      "gives": "OS",
+      "select": "outer",
+      "note": "the first and last letters of OnlyFans"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "OS",
+      "URFS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FERGUS",
+       "gives": "EGURFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fergus is upset to find OnlyFans has taken his material down, so he googles himself.",
+     "walkthrough": "'Content' looks like OnlyFans material in the surface; here it just means the inside letters of the word.",
+     "definitionFit": "To egosurf is to search the internet for mentions of your own name, a vanity search."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1281,95 @@
    "group": [
     "17-across",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PUT THE CAT AMONG THE PIGEONS",
+    "definitions": [
+     {
+      "text": "caused trouble",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters come out in some new order"
+     },
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "away means gone, so the letter for right is taken out of the fodder"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golf shot",
+      "gives": "PUTT",
+      "note": "a putt is a gentle golf stroke on the green"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "CHAMPION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTT",
+      "HECATAMONGTHEPIGEONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAMPIONHASTOGETGEEN",
+       "gives": "HECATAMONGTHEPIGEONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf champion has to reach the green at once after a stray shot causes havoc.",
+     "walkthrough": "'Golf shot' tempts a bunker or drive; it is the putt, and 'green' is fodder not a golf location. R leaves the anagram letters.",
+     "definitionFit": "The idiom means to say or do something that stirs up alarm, controversy or disturbance among a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1383,58 @@
     "text": "First-class courier on first half of schedule",
     "enumeration": "7"
    },
-   "solution": "UPSCALE"
+   "solution": "UPSCALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UPSCALE",
+    "definitions": [
+     {
+      "text": "First-class",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first half of",
+      "for": "letter_selection",
+      "note": "only the opening half of the word in question is wanted, the rest is discarded"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courier",
+      "gives": "UPS",
+      "note": "UPS is the American parcel courier United Parcel Service"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "CALE",
+      "select": "first",
+      "note": "a schedule is a calendar, whose first four of eight letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPS",
+      "CALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A premium delivery service runs to timetable.",
+     "definitionFit": "Upscale is the American term for upmarket, aimed at wealthy customers, high-quality and luxurious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "courier"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1448,63 @@
     "text": "Arboreal creature must stop tot climbing – there's no time at all",
     "enumeration": "7"
    },
-   "solution": "OPOSSUM"
+   "solution": "OPOSSUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "OPOSSUM",
+    "definitions": [
+     {
+      "text": "Arboreal creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means the letters are read upwards, in reverse"
+     },
+     {
+      "text": "no time at all",
+      "for": "deletion",
+      "note": "no time at all means every T, the abbreviation for time, is thrown out"
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "must stop tot",
+      "gives": "MUSTSTOPTOT",
+      "note": "the three words taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPOSSUM"
+     ],
+     "reversals": [
+      {
+       "from": "MUSSOPO",
+       "to": "OPOSSUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent warns that a tree-dwelling animal must keep the toddler from climbing, with no time to lose.",
+     "walkthrough": "Removing all four Ts from MUSTSTOPTOT leaves MUSSOPO, which reads upwards as OPOSSUM.",
+     "definitionFit": "The opossum is an American marsupial that lives largely in trees, hanging by its tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1518,40 @@
     "text": "Support others",
     "enumeration": "4"
    },
-   "solution": "REST"
+   "solution": "REST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REST",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "others",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: a prop on which something leans"
+     },
+     {
+      "clueFragment": "others",
+      "note": "second meaning: the remainder, everybody else"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means a stand or prop, as in an armrest, and also the remaining ones of a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1565,54 @@
     "text": "Go back over playground area with parking",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "Go back over",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playground",
+      "gives": "REC",
+      "note": "the rec is the recreation ground"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign symbol for parking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "A",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Revisiting a play area that has a car park.",
+     "definitionFit": "To recap is to summarise the main points again, reviewing what has already been said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1645,50 @@
     "text": "Greek character chasing fine cheese",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "chasing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is the seventh letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ETA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek fellow running after a fine cheese.",
+     "walkthrough": "Chasing puts the Greek letter after F.",
+     "definitionFit": "Feta is a white, crumbly brined cheese made from sheep's or goat's milk in Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1702,58 @@
     "text": "Nice estate having, say, Earl Grey and Darjeeling – posh",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHATEAU",
+    "definitions": [
+     {
+      "text": "Nice estate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having",
+     "say"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earl Grey",
+      "gives": "CHA",
+      "note": "Earl Grey is a tea, and cha is slang for tea"
+     },
+     {
+      "clueFragment": "Darjeeling",
+      "gives": "TEA",
+      "note": "Darjeeling is a tea"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, the posh usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "TEA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart property where Earl Grey and Darjeeling are served, very upper-crust.",
+     "walkthrough": "'Say' marks both teas as examples. 'Nice' looks like pleasant, but it is the French city.",
+     "definitionFit": "A chateau is a French country house with its lands, so a property near the Riviera city fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 24,
@@ -436,7 +1773,61 @@
      }
     ]
    },
-   "solution": "NONUSER"
+   "solution": "NONUSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NON-USER",
+    "definitions": [
+     {
+      "text": "drug-free individual",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking in means holding something within, so these letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "responsibility",
+      "gives": "ONUS",
+      "note": "an onus is a duty or responsibility"
+     },
+     {
+      "clueFragment": "medical TV show",
+      "gives": "ER",
+      "note": "ER is the American hospital drama series"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ONUS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A new hospital drama shoulders the job of portraying someone clean of drugs.",
+     "definitionFit": "A non-user is someone who does not take drugs, a clean or abstaining person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -450,7 +1841,47 @@
     "text": "On reflection consider a perpetrator somewhat willing",
     "enumeration": "8"
    },
-   "solution": "PREPARED"
+   "solution": "PREPARED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PREPARED",
+    "definitions": [
+     {
+      "text": "willing",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On reflection",
+      "for": "reversal",
+      "note": "a reflection shows things in mirror image, so the letters are read backwards"
+     },
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means part of, so the letters sit inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consider a perpetrator",
+      "gives": "DERAPERP",
+      "note": "the letters spanning the end of consider, the word a, and the start of perpetrator"
+     }
+    ],
+    "explanation": {
+     "surface": "Thinking it over, a culprit might be partly cooperative.",
+     "definitionFit": "If you are prepared to do something, you are ready and disposed to do it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -464,7 +1895,65 @@
     "text": "Pits us back against politicians?",
     "enumeration": "5"
    },
-   "solution": "SUMPS"
+   "solution": "SUMPS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUMPS",
+    "definitions": [
+     {
+      "text": "Pits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the short word is read in the other direction"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politicians",
+      "gives": "MPS",
+      "note": "MPs are Members of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "MPS"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sets us up against the politicians?",
+     "walkthrough": "'Pits' looks like a verb, setting one against another; it is a plural noun.",
+     "definitionFit": "Sumps are pits or wells that collect drainage water or oil, as in an engine or mine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pits"
+    }
+   }
   }
  ]
 }
