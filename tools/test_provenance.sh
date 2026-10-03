@@ -248,9 +248,13 @@ import copy
 import fetch_puzzle
 import provenance as p
 
-# cryptic-30078 is annotated; cyclops-550 has no hints at all.
+# cryptic-30078 is annotated; `bare` is it with every hint taken out, since
+# the burn annotates any real unhinted puzzle out from under the test.
 hinted = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cryptic-30078"))
-bare = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle("cyclops-550"))
+bare = copy.deepcopy(hinted)
+bare.pop("annotatedBy", None)
+for e in bare["entries"]:
+    e.pop("annotation", None)
 print("HINTED_PRISTINE", len(p.check(hinted)))
 
 
