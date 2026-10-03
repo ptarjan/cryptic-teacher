@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,71 @@
     "text": "Hurried back to business with spasm — given drug",
     "enumeration": "8"
    },
-   "solution": "NARCOTIC"
+   "solution": "NARCOTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NARCOTIC",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word for hurried is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with",
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurried",
+      "gives": "RAN",
+      "note": "hurried means ran"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a business"
+     },
+     {
+      "clueFragment": "spasm",
+      "gives": "TIC",
+      "note": "a tic is an involuntary muscular spasm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAR",
+      "CO",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "RAN",
+       "to": "NAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushing back to work with a twitch is handed some medication.",
+     "definitionFit": "A narcotic is a drug that dulls the senses, such as opium or morphine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +116,78 @@
     "text": "Tale is unusually neat — about code cracking",
     "enumeration": "8"
    },
-   "solution": "ANECDOTE"
+   "solution": "ANECDOTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANECDOTE",
+    "definitions": [
+     {
+      "text": "Tale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means in an odd way, so the letters of neat are put in an odd order"
+     },
+     {
+      "text": "cracking",
+      "for": "anagram",
+      "note": "something cracking breaks apart, so the letters of code are rearranged too"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first jumble wraps round the second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neat",
+      "gives": "NEAT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "code",
+      "gives": "CODE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ECDO",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAT",
+       "gives": "ANTE"
+      },
+      {
+       "fodder": "CODE",
+       "gives": "ECDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neatly told story about breaking a secret code.",
+     "definitionFit": "An anecdote is a short, amusing account of a real incident, which is a kind of tale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +207,48 @@
      }
     ]
    },
-   "solution": "COMPANIONWAY"
+   "solution": "COMPANIONWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMPANION-WAY",
+    "definitions": [
+     {
+      "text": "to reach cabin thereby",
+      "at": 11,
+      "note": "describes the thing as a route: the way by which to reach a cabin"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mate",
+      "gives": "COMPANION",
+      "note": "a mate is a companion"
+     },
+     {
+      "clueFragment": "means",
+      "gives": "WAY",
+      "note": "a means is a way of doing something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMPANION",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's mate explains how to get down to a cabin.",
+     "walkthrough": "Mate looks nautical, a ship's officer, but here it is just a friend.",
+     "definitionFit": "A companionway is the staircase on a ship leading from the deck down to the cabins below."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mate"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +262,62 @@
     "text": "Will maker try to up?",
     "enumeration": "8"
    },
-   "solution": "TESTATOR"
+   "solution": "TESTATOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TESTATOR",
+    "definitions": [
+     {
+      "text": "Will maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom upwards, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "TEST",
+      "note": "to try something is to test it"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "ROTA",
+      "note": "the scan reads 'to' here, but the answer needs rota, a duty roster; the printed word looks lost in the OCR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "ATOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTA",
+       "to": "ATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person drawing up a will is urged to try harder.",
+     "walkthrough": "The scanned clue is faulty: the printed clue almost certainly read 'try rota up', with rota written upwards after the word for try.",
+     "definitionFit": "A testator is the person who makes a legal will leaving property to heirs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +331,39 @@
     "text": "Whence the ray seen by gogglers?",
     "enumeration": "7"
    },
-   "solution": "CATHODE"
+   "solution": "CATHODE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CATHODE",
+    "definitions": [
+     {
+      "text": "Whence the ray seen by gogglers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whence the ray",
+      "note": "surface reading: where does a beam of light come from"
+     },
+     {
+      "clueFragment": "seen by gogglers",
+      "note": "setter's reading: gogglers stare at the goggle-box, an old television, whose picture tube fires an electron beam from a negative electrode"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Goggle-box is British slang for a television; old sets had a tube whose ray of electrons came from this electrode.",
+     "definitionFit": "Cathode rays are electron streams emitted from a negative electrode, the source of the picture in old TV tubes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gogglers"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +377,58 @@
     "text": "Algerian port gets half the fruit",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ORANGE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half means only the first two of the four letters in gets are used"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Algerian port",
+      "gives": "ORAN",
+      "note": "Oran is a large port city on Algeria's Mediterranean coast"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "GE",
+      "select": "first",
+      "note": "the front portion of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORAN",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A North African harbour receives half its cargo of citrus.",
+     "definitionFit": "An orange is a round citrus fruit with a tough bright skin, an everyday example of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +442,40 @@
     "text": "Famous Venetian game",
     "enumeration": "4"
    },
-   "solution": "POLO"
+   "solution": "POLO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLO",
+    "definitions": [
+     {
+      "text": "Famous Venetian",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous Venetian",
+      "note": "first meaning: Marco, the merchant traveller who went to China"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: a team sport played on horseback with mallets"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Marco Polo was the celebrated explorer from Venice, and the word also names the horseback ball sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -139,7 +489,39 @@
     "text": "Need of a seer?",
     "enumeration": "8"
    },
-   "solution": "EYESIGHT"
+   "solution": "EYESIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EYESIGHT",
+    "definitions": [
+     {
+      "text": "Need of a seer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need of a seer",
+      "note": "surface reading: what a prophet requires, such as second sight"
+     },
+     {
+      "clueFragment": "seer",
+      "note": "setter's reading: a seer is simply someone who sees, and they need working vision"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Seer suggests a fortune-teller, but read literally it is anyone who sees.",
+     "definitionFit": "Anyone who sees requires the faculty of vision, which this word names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seer"
+    }
+   }
   },
   {
    "number": 9,
@@ -153,7 +535,77 @@
     "text": "Bitterness of a close friend about motorway return",
     "enumeration": "8"
    },
-   "solution": "ACRIMONY"
+   "solution": "ACRIMONY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ACRIMONY",
+    "definitions": [
+     {
+      "text": "Bitterness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return trip goes back the other way, so the motorway's name is read backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the friend's letters wrap round the motorway"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "close friend",
+      "gives": "CRONY",
+      "note": "a crony is a close friend or pal"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's first motorway, written MI in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CR",
+      "IM",
+      "ONY"
+     ],
+     "reversals": [
+      {
+       "from": "MI",
+       "to": "IM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sour falling-out with a pal on the drive home along the motorway.",
+     "walkthrough": "The M1 is the London to Leeds motorway; its 1 is read as the letter I.",
+     "definitionFit": "Acrimony is harsh, angry ill feeling between people, which is a kind of bitterness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 10,
@@ -167,7 +619,59 @@
     "text": "Appear to view maid as helpless",
     "enumeration": "4"
    },
-   "solution": "SEEM"
+   "solution": "SEEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEEM",
+    "definitions": [
+     {
+      "text": "Appear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helpless",
+      "for": "deletion",
+      "note": "help-less splits as minus the word for help, so that word comes out of the maid"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to view",
+      "gives": "SEE",
+      "note": "to view is to see"
+     },
+     {
+      "clueFragment": "maid",
+      "gives": "MAID",
+      "note": "taken as written, before the help is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant looks hopelessly incapable.",
+     "walkthrough": "Helpless is read as help-less: AID, a word for help, is taken out of MAID, leaving M.",
+     "definitionFit": "To seem is to give an outward impression, so it is a close synonym of to appear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "helpless"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +685,47 @@
     "text": "Chucks the game,, perhaps",
     "enumeration": "12"
    },
-   "solution": "PITCHANDTOSS"
+   "solution": "PITCHANDTOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PITCHANDTOSS",
+    "definitions": [
+     {
+      "text": "Chucks",
+      "at": 0
+     },
+     {
+      "text": "the game",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chucks",
+      "note": "first meaning: throws, as two verbs joined, one for each sense of throwing"
+     },
+     {
+      "clueFragment": "the game",
+      "note": "second meaning: an old gambling game of throwing coins at a mark"
+     },
+     {
+      "clueFragment": "perhaps",
+      "note": "surface padding, warning that the first meaning is a loose rendering"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The game is played by pitching coins towards a mark and then tossing them; 'perhaps' warns that the first meaning is only a loose rendering of chucks.",
+     "definitionFit": "To pitch and to toss are both ways to throw, and the phrase also names a coin-throwing gambling game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chucks"
+    }
+   }
   },
   {
    "number": 12,
@@ -195,7 +739,60 @@
     "text": "Modify Manet's varied dispositions",
     "enumeration": "12"
    },
-   "solution": "TEMPERAMENTS"
+   "solution": "TEMPERAMENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TEMPERAMENTS",
+    "definitions": [
+     {
+      "text": "dispositions",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "varied means changed, so the letters of the painter's name are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modify",
+      "gives": "TEMPER",
+      "note": "to temper is to modify or moderate"
+     },
+     {
+      "clueFragment": "Manet's",
+      "gives": "MANETS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPER",
+      "AMENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANETS",
+       "gives": "AMENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Changing the moods of the French painter's work.",
+     "definitionFit": "Temperaments are people's characteristic natures or moods, which is what dispositions means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Manet's"
+    }
+   }
   },
   {
    "number": 13,
@@ -209,7 +806,43 @@
     "text": "Headwear overlooked by driver?",
     "enumeration": "6"
    },
-   "solution": "BONNET"
+   "solution": "BONNET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BONNET",
+    "definitions": [
+     {
+      "text": "Headwear",
+      "at": 0
+     },
+     {
+      "text": "overlooked by driver",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Headwear",
+      "note": "first meaning: a hat tied under the chin"
+     },
+     {
+      "clueFragment": "overlooked by driver",
+      "note": "second meaning: the hinged engine cover a motorist looks over through the windscreen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Overlooked looks like 'ignored', but it is literal: the driver looks out over this part of the car. In American English it is the hood.",
+     "definitionFit": "The word names both a brimmed hat tied under the chin and the hinged cover over a car engine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 14,
@@ -223,7 +856,39 @@
     "text": "Fancies being retired, maybe",
     "enumeration": "8"
    },
-   "solution": "DREAMING"
+   "solution": "DREAMING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DREAMING",
+    "definitions": [
+     {
+      "text": "Fancies being retired, maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancies being retired",
+      "note": "surface reading: fanciful ideas about life after giving up work"
+     },
+     {
+      "clueFragment": "retired, maybe",
+      "note": "setter's reading: having fancies while retired to bed, asleep, as one may when the lights are out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Retired suggests leaving work, but here it means gone to bed, where fancies come in sleep.",
+     "definitionFit": "The fancies a sleeper has after going to bed are dreams, so having them is this activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 15,
@@ -237,7 +902,66 @@
     "text": "Roused by mistake about five, eats greedily",
     "enumeration": "7"
    },
-   "solution": "DEVOURS"
+   "solution": "DEVOURS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEVOURS",
+    "definitions": [
+     {
+      "text": "eats greedily",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by mistake",
+      "for": "anagram",
+      "note": "something put together by mistake is jumbled, so the letters of roused are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roused",
+      "gives": "ROUSED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "V",
+      "OURS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROUSED",
+       "gives": "DEOURS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone woken in error at five o'clock wolfs down breakfast.",
+     "definitionFit": "To devour is to eat hungrily and quickly, gulping food down, which is eating greedily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roused"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +981,58 @@
      }
     ]
    },
-   "solution": "DATEPALM"
+   "solution": "DATEPALM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DATE-PALM",
+    "definitions": [
+     {
+      "text": "bears fruit",
+      "at": 36,
+      "note": "describes the answer by what it does: a tree that bears fruit"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appointment",
+      "gives": "DATE",
+      "note": "a date is an appointment"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "Mr French",
+      "gives": "M",
+      "note": "M is the abbreviation for Monsieur, the French for Mr"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DATE",
+      "PAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting with a pal and a Frenchman proves fruitful.",
+     "walkthrough": "Bears fruit sounds like 'succeeds', but it is literal: the answer is something that produces fruit.",
+     "definitionFit": "A date palm is a tall tree that produces dates, so it is a thing that bears fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1052,54 @@
      }
     ]
    },
-   "solution": "FAREAST"
+   "solution": "FAREAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAR EAST",
+    "definitions": [
+     {
+      "text": "China and Japan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so the word for are goes inside the word for quickly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quickly",
+      "gives": "FAST",
+      "note": "fast means quickly"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ARE",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "Chinese and Japanese exports are flooding in rapidly.",
+     "definitionFit": "China and Japan are examples of countries in the eastern Asian region known collectively by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1113,65 @@
     "text": "Marriage, a nice arrangement, gives 'everyone support",
     "enumeration": "8"
    },
-   "solution": "ALLIANCE"
+   "solution": "ALLIANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALLIANCE",
+    "definitions": [
+     {
+      "text": "Marriage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement sets things in a new order, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "gives",
+     "support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     },
+     {
+      "clueFragment": "a nice",
+      "gives": "ANICE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "IANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANICE",
+       "gives": "IANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding, nicely arranged, gets everybody's backing.",
+     "walkthrough": "In a down answer the jumbled letters sit below and support the word for everyone.",
+     "definitionFit": "An alliance is a union or bond, and a marriage is an alliance between two people or families."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1185,52 @@
     "text": "Miss Cole corrects an absurdity",
     "enumeration": "8"
    },
-   "solution": "SOLECISM"
+   "solution": "SOLECISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLECISM",
+    "definitions": [
+     {
+      "text": "an absurdity",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrects",
+      "for": "anagram",
+      "note": "to correct something is to alter it, so the letters are changed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss Cole",
+      "gives": "MISSCOLE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MISSCOLE",
+       "gives": "SOLECISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolteacher fixes a ridiculous mistake.",
+     "walkthrough": "Miss Cole sounds like the teacher marking the error; her name supplies the letters.",
+     "definitionFit": "A solecism is a blunder in grammar or etiquette, an incongruity that looks absurd to the observer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "corrects"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1244,51 @@
     "text": "Smith's job to give direction on garden work",
     "enumeration": "7"
    },
-   "solution": "SHOEING"
+   "solution": "SHOEING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOEING",
+    "definitions": [
+     {
+      "text": "Smith's job",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "direction",
+      "gives": "S",
+      "note": "S is south, a compass direction"
+     },
+     {
+      "clueFragment": "garden work",
+      "gives": "HOEING",
+      "note": "hoeing is weeding a garden with a hoe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOEING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Smith is tasked with directing the gardening.",
+     "walkthrough": "Smith looks like a surname, but it is a blacksmith or farrier, who fits horseshoes.",
+     "definitionFit": "A farrier or blacksmith fits iron shoes to horses, so this task is that tradesman's work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smith's"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1302,50 @@
     "text": "Value of little cap in Staffordshire town",
     "enumeration": "8"
    },
-   "solution": "TAMWORTH"
+   "solution": "TAMWORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAMWORTH",
+    "definitions": [
+     {
+      "text": "Staffordshire town",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little cap",
+      "gives": "TAM",
+      "note": "a tam is a soft Scottish cap, short for tam-o'-shanter"
+     },
+     {
+      "clueFragment": "Value",
+      "gives": "WORTH",
+      "note": "value means worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAM",
+      "WORTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Pricing a small hat bought in a Midlands town.",
+     "walkthrough": "The clue puts value first, but the cap's letters come first in the answer, as 'value of' a cap reads cap then value.",
+     "definitionFit": "Tamworth is a market town in Staffordshire, an English county in the West Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1359,50 @@
     "text": "Sell a litre after conversion",
     "enumeration": "6"
    },
-   "solution": "RETAIL"
+   "solution": "RETAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETAIL",
+    "definitions": [
+     {
+      "text": "Sell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after conversion",
+      "for": "anagram",
+      "note": "a conversion turns something into another form, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a litre",
+      "gives": "ALITRE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALITRE",
+       "gives": "RETAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Selling a litre once it has been changed to metric.",
+     "definitionFit": "To retail is to sell goods to the public in small quantities, rather than wholesale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conversion"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1416,43 @@
     "text": "Apt and responsible",
     "enumeration": "6"
    },
-   "solution": "LIABLE"
+   "solution": "LIABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIABLE",
+    "definitions": [
+     {
+      "text": "Apt",
+      "at": 0
+     },
+     {
+      "text": "responsible",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apt",
+      "note": "first meaning: inclined or likely to do something"
+     },
+     {
+      "clueFragment": "responsible",
+      "note": "second meaning: legally answerable for something"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The adjective means both likely to do something and legally answerable, as in being held accountable for a debt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1476,43 @@
      }
     ]
    },
-   "solution": "PLAYSTHEGAME"
+   "solution": "PLAYSTHEGAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAYS THE GAME",
+    "definitions": [
+     {
+      "text": "Takes action in court, perhaps",
+      "at": 0
+     },
+     {
+      "text": "behaves honourably",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Takes action in court, perhaps",
+      "note": "first meaning: competes on a tennis or squash court, not in a court of law"
+     },
+     {
+      "clueFragment": "behaves honourably",
+      "note": "second meaning: acts fairly and by the rules"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Takes action in court suggests suing someone; 'perhaps' flags that the court is a sports court where a match is under way.",
+     "definitionFit": "The phrase literally describes taking part in a sporting contest and idiomatically means acting fairly and decently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1526,49 @@
     "text": "Jack to be given Provost's address",
     "enumeration": "4"
    },
-   "solution": "ABBE"
+   "solution": "ABBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABBE",
+    "definitions": [
+     {
+      "text": "Provost's address",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "AB",
+      "note": "a jack is a sailor, and AB, able seaman, is the usual crossword sailor"
+     },
+     {
+      "clueFragment": "to be",
+      "gives": "BE",
+      "note": "taken as written, without the to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "BE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is told to adopt a grand title.",
+     "definitionFit": "Abbé is the French title used in addressing a cleric, such as the provost of a church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1582,52 @@
     "text": "Retired man among the clientele?",
     "enumeration": "4"
    },
-   "solution": "NEIL"
+   "solution": "NEIL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NEIL",
+    "definitions": [
+     {
+      "text": "man",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "hidden_word",
+      "note": "among means sitting within, so the answer lies inside the letters of the next word"
+     },
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so the concealed letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clientele",
+      "gives": "LIEN",
+      "note": "the run of letters in the middle of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A pensioner sits among the customers.",
+     "walkthrough": "Retired suggests a pensioner, but it tells you to read backwards: clIENTele hides NEIL reversed.",
+     "definitionFit": "Neil is a common male first name, and a crossword man is often any name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1641,50 @@
     "text": "West African gives money to ancient European",
     "enumeration": "8"
    },
-   "solution": "LIBERIAN"
+   "solution": "LIBERIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIBERIAN",
+    "definitions": [
+     {
+      "text": "West African",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gives",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "L",
+      "note": "L stands for libra, the pound in old British money"
+     },
+     {
+      "clueFragment": "ancient European",
+      "gives": "IBERIAN",
+      "note": "the Iberians were an ancient people of Spain and Portugal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IBERIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from West Africa hands cash to an old Spaniard.",
+     "definitionFit": "A Liberian is a citizen of Liberia, a country on the coast of West Africa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1698,65 @@
     "text": "Gin-opening general gets a little merry",
     "enumeration": "8"
    },
-   "solution": "GLEESOME"
+   "solution": "GLEESOME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GLEESOME",
+    "definitions": [
+     {
+      "text": "merry",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the start, so only the first letter of gin is used"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gin",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the drink"
+     },
+     {
+      "clueFragment": "general",
+      "gives": "LEE",
+      "note": "Robert E Lee was the Confederate general in the American Civil War"
+     },
+     {
+      "clueFragment": "a little",
+      "gives": "SOME",
+      "note": "a little means some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LEE",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A general who opens the gin becomes a bit tipsy.",
+     "definitionFit": "Gleesome is an old literary word for full of glee, so it means joyful and merry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "merry"
+    }
+   }
   }
  ]
 }
