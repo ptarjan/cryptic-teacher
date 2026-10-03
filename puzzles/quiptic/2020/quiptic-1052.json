@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,74 @@
     "text": "Business mass market leaders entered in force",
     "enumeration": "8"
    },
-   "solution": "COMMERCE"
+   "solution": "COMMERCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "COMMERCE",
+    "definitions": [
+     {
+      "text": "Business",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only the front of market is wanted"
+     },
+     {
+      "text": "entered in",
+      "for": "container",
+      "note": "what has entered something now sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "CO",
+      "note": "first part of COERCE, to force"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the physics symbol for mass"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of market"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "ERCE",
+      "note": "rest of COERCE, to force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "M",
+      "ERCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A business report on the mass market, where the leading firms have entered into force.",
+     "walkthrough": "COERCE, to force, takes M and M inside it to make COMMERCE.",
+     "definitionFit": "Commerce is trade, the buying and selling of goods, which is the activity of business in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +117,47 @@
     "text": "Eggs are declared done",
     "enumeration": "3"
    },
-   "solution": "OVA"
+   "solution": "OVA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OVA",
+    "definitions": [
+     {
+      "text": "Eggs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "declared",
+      "for": "homophone",
+      "note": "something declared is spoken out, so we want a word that is said like the next one"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done",
+      "gives": "OVA",
+      "soundsLike": "OVER",
+      "note": "done means finished, which is over; in a non-rhotic accent it is said like the plural of ovum"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone announces that the eggs on the stove are cooked.",
+     "definitionFit": "Ova is the plural of ovum, the biological term for a female reproductive cell or egg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "done"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +171,54 @@
     "text": "Brilliant soldier hacked into computer",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hacked into",
+      "for": "container",
+      "note": "a hacker gets inside a system, so the soldier breaks into the middle of the computer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer",
+      "gives": "MAC",
+      "note": "a Mac is an Apple computer"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A gifted serviceman breaks into a computer system.",
+     "definitionFit": "Magic is used informally as an adjective of praise meaning wonderful or excellent, chiefly in British speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hacked"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +242,73 @@
      }
     ]
    },
-   "solution": "RINGSABELL"
+   "solution": "RINGSABELL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RINGS A BELL",
+    "definitions": [
+     {
+      "text": "sounds familiar",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "music that is played is performed in a new way, so these letters are rearranged"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening of the word lute, so only its first letter counts"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "SINGLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lute",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RINGSABELL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINGLEBARL",
+       "gives": "RINGSABELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One bar of music strummed on a lute strikes the listener as a tune they know.",
+     "definitionFit": "To ring a bell is an idiom meaning to stir a vague memory, so something that does it seems known already."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Single"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +322,50 @@
     "text": "Key line in legal contract",
     "enumeration": "6"
    },
-   "solution": "ESCROW"
+   "solution": "ESCROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESCROW",
+    "definitions": [
+     {
+      "text": "legal contract",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "ESC",
+      "note": "Esc is the escape key on a computer keyboard"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "ROW",
+      "note": "a row is a line of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESC",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A crucial clause in a legal agreement.",
+     "walkthrough": "'Key line' reads as an important sentence; Key is a keyboard key and line a row.",
+     "definitionFit": "An escrow is a bond or deed held by a third party until a condition is met, a kind of legal agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +379,66 @@
     "text": "Friends perhaps come on site, having absolutely no English",
     "enumeration": "6"
    },
-   "solution": "SITCOM"
+   "solution": "SITCOM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SITCOM",
+    "definitions": [
+     {
+      "text": "Friends perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer one piece written on another is placed after it"
+     },
+     {
+      "text": "having absolutely no",
+      "for": "deletion",
+      "note": "absolutely none means every instance is stripped out of both words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "site",
+      "gives": "SITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "come",
+      "gives": "COME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIT",
+      "COM"
+     ]
+    },
+    "explanation": {
+     "surface": "Some friends are invited round to a site, none of whom speak English.",
+     "walkthrough": "'Absolutely no' means every E goes, not just one; in an across answer, 'on' puts the first word after the second.",
+     "definitionFit": "Friends was a long-running American situation comedy, so it is an example of the genre, signalled by perhaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Friends"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +452,60 @@
     "text": "Decline to raise grand for film",
     "enumeration": "4"
    },
-   "solution": "SKIN"
+   "solution": "SKIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SKIN",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raise",
+      "for": "container",
+      "note": "in a down answer, raising a letter lifts it higher up the column, into an earlier spot within the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "gives": "SINK",
+      "note": "to sink is to decline or go down"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "K",
+      "note": "K, for thousand, is slang for a grand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "K",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to put up a thousand pounds to fund a movie.",
+     "walkthrough": "Take the K off the bottom of SINK and lift it up to sit after the S, giving SKIN.",
+     "definitionFit": "A film is a thin layer covering a surface, as is a skin, such as the one on custard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +525,69 @@
      }
     ]
    },
-   "solution": "TIDALWAVE"
+   "solution": "TIDALWAVE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "TIDAL WAVE",
+    "definitions": [
+     {
+      "text": "it could swamp her",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged in",
+      "for": "container",
+      "note": "someone engaged in an activity is inside it, so this letter goes among the others"
+     },
+     {
+      "text": "streaming",
+      "for": "anagram",
+      "note": "streaming suggests flowing about freely, so the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "LIVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "W",
+      "note": "W is an abbreviation for woman"
+     },
+     {
+      "clueFragment": "data",
+      "gives": "DATA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIDALWAVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIVEWDATA",
+       "gives": "TIDALWAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is caught up in a flood of live data so huge it might overwhelm her.",
+     "definitionFit": "A huge sea surge floods over the shore, overwhelming anyone standing there, so it is something that could drown a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "streaming"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +601,64 @@
     "text": "Working to create a large base for theatre event",
     "enumeration": "11"
    },
-   "solution": "OPERATIONAL"
+   "solution": "OPERATIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATIONAL",
+    "definitions": [
+     {
+      "text": "Working",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base for",
+      "for": "charade",
+      "note": "in a down answer the base sits at the bottom, so these letters come underneath the other piece"
+     }
+    ],
+    "linkWords": [
+     "to create"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre event",
+      "gives": "OPERATION",
+      "note": "an operating theatre is where surgery, an operation, takes place"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERATION",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is busy building a big platform for a stage show.",
+     "walkthrough": "'Theatre event' suggests a play, but the theatre is a hospital operating theatre.",
+     "definitionFit": "Equipment that is operational is functioning and ready for use, which is what working means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +678,46 @@
      }
     ]
    },
-   "solution": "BANGON"
+   "solution": "BANGON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BANG ON",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 5
+     },
+     {
+      "text": "discuss at tedious length",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "note": "first meaning: exactly correct, a British informal phrase"
+     },
+     {
+      "clueFragment": "discuss at tedious length",
+      "note": "second meaning: to keep talking about something boringly"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone insists it is proper to go on and on about a subject.",
+     "definitionFit": "Spot on is a British informal synonym for exactly correct, while to go on and on is the phrasal verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +731,44 @@
     "text": "…  issue some would prefer to observe in silence",
     "enumeration": "8"
    },
-   "solution": "CHILDREN"
+   "solution": "CHILDREN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHILDREN",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 3
+     },
+     {
+      "text": "some would prefer to observe in silence",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue",
+      "note": "first meaning: offspring, as in died without issue"
+     },
+     {
+      "clueFragment": "some would prefer to observe in silence",
+      "note": "second meaning: a cryptic nod to the old saying that the young should be seen and not heard"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue, a topic some people would rather watch quietly than talk about.",
+     "walkthrough": "The ellipsis joins this to the clue before, but the clue stands alone; 'observe' means see, and 'in silence' means not heard.",
+     "definitionFit": "Issue is a legal and formal word for offspring, the sons and daughters of a parent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +782,51 @@
     "text": "One following US soccer's development",
     "enumeration": "9"
    },
-   "solution": "SUCCESSOR"
+   "solution": "SUCCESSOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUCCESSOR",
+    "definitions": [
+     {
+      "text": "One following",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "development",
+      "for": "anagram",
+      "note": "development changes something into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US soccer's",
+      "gives": "USSOCCERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USSOCCERS",
+       "gives": "SUCCESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who follows the growth of football in America.",
+     "walkthrough": "'One following' looks like a fan, but it is the definition.",
+     "definitionFit": "A successor is a person who comes after another in a role or position, so they follow on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +846,50 @@
      }
     ]
    },
-   "solution": "URBANLEGEND"
+   "solution": "URBANLEGEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "URBAN LEGEND",
+    "definitions": [
+     {
+      "text": "It's just not true",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rogue",
+      "for": "anagram",
+      "note": "a rogue behaves wildly and out of line, so the letters are thrown into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angel burned",
+      "gives": "ANGELBURNED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGELBURNED",
+       "gives": "URBANLEGEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked fallen angel was burnt? Someone protests the story is false.",
+     "definitionFit": "An urban legend is a widely circulated but untrue modern story, believed because it is passed on as fact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rogue"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +903,54 @@
     "text": "Severe judge imprisons learner  …",
     "enumeration": "5"
    },
-   "solution": "BLEAK"
+   "solution": "BLEAK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLEAK",
+    "definitions": [
+     {
+      "text": "Severe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisons",
+      "for": "container",
+      "note": "a prisoner is held inside, so one piece is shut within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "BEAK",
+      "note": "beak is British slang for a magistrate or judge"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, as on British learner-driver plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "EAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh judge sends a learner to jail.",
+     "definitionFit": "Bleak describes harsh, cold and unforgiving conditions, as severe weather or a severe outlook is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +970,42 @@
      }
     ]
    },
-   "solution": "PASSEDOVER"
+   "solution": "PASSEDOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASSED OVER",
+    "definitions": [
+     {
+      "text": "Died",
+      "at": 0
+     },
+     {
+      "text": "ignored",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Died",
+      "note": "first meaning: a euphemism for having passed away"
+     },
+     {
+      "clueFragment": "ignored",
+      "note": "second meaning: not chosen, as when overlooked for promotion"
+     }
+    ],
+    "explanation": {
+     "surface": "A sad fate: someone died unnoticed by the world.",
+     "definitionFit": "Passed over is a gentle euphemism for death, and also means being bypassed or not selected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1019,64 @@
     "text": "…  who got arrested by constable for having spots",
     "enumeration": "6"
    },
-   "solution": "BLOBBY"
+   "solution": "BLOBBY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLOBBY",
+    "definitions": [
+     {
+      "text": "having spots",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got arrested by",
+      "for": "container",
+      "note": "someone arrested is held by the police officer, so one piece is gripped inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constable",
+      "gives": "B",
+      "note": "first letter of BOBBY, a British police constable"
+     },
+     {
+      "clueFragment": "who",
+      "gives": "L",
+      "note": "who refers back through the ellipsis to the learner in the previous clue, which is L"
+     },
+     {
+      "clueFragment": "constable",
+      "gives": "OBBY",
+      "note": "rest of BOBBY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OBBY"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue, the learner is arrested by a policeman for having pimples.",
+     "walkthrough": "A bobby is a British policeman; L goes inside BOBBY after its first letter.",
+     "definitionFit": "Blobby means covered in blobs, small round marks, so it describes something dotted with spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "who"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1100,43 @@
      }
     ]
    },
-   "solution": "ONTHELEFT"
+   "solution": "ONTHELEFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE LEFT",
+    "definitions": [
+     {
+      "text": "Socialist",
+      "at": 0
+     },
+     {
+      "text": "driving side in the UK",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Socialist",
+      "note": "first meaning: politically left-wing"
+     },
+     {
+      "clueFragment": "driving side in the UK",
+      "note": "second meaning: British traffic keeps to that side of the road"
+     }
+    ],
+    "explanation": {
+     "surface": "A left-wing activist is a driving force in British politics.",
+     "definitionFit": "The political left describes socialist views, and British cars keep to the left-hand lane of the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "driving"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1150,49 @@
     "text": "Goodbye note found on floor in Japan",
     "enumeration": "6"
    },
-   "solution": "TATAMI"
+   "solution": "TATAMI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATAMI",
+    "definitions": [
+     {
+      "text": "floor in Japan",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goodbye",
+      "gives": "TATA",
+      "note": "ta-ta is an informal British way of saying farewell"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATA",
+      "MI"
+     ]
+    },
+    "explanation": {
+     "surface": "A farewell message is discovered lying on the floor of a Japanese house.",
+     "definitionFit": "Tatami are woven straw mats used as the traditional floor covering in Japanese rooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1206,59 @@
     "text": "Decide to have new leader for plant",
     "enumeration": "6"
    },
-   "solution": "NETTLE"
+   "solution": "NETTLE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NETTLE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "substitution",
+      "note": "a leader stands at the front, so the opening letter of the word is the one replaced"
+     }
+    ],
+    "linkWords": [
+     "to have",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decide",
+      "gives": "SETTLE",
+      "note": "to settle a matter is to decide it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm decides to install a new boss at its plant.",
+     "walkthrough": "S at the head of SETTLE is replaced by N.",
+     "definitionFit": "The nettle is a common wild herb with stinging hairs on its leaves, so it is a type of plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1272,66 @@
     "text": "It's behind atrocities these Russian extremists create",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "behind",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists",
+      "for": "letter_selection",
+      "note": "extremes are the ends of a word, so only the first and last letters of each are kept"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "create"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atrocities",
+      "gives": "AS",
+      "select": "outer",
+      "note": "the two ends of atrocities"
+     },
+     {
+      "clueFragment": "these",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the two ends of these"
+     },
+     {
+      "clueFragment": "Russian",
+      "gives": "RN",
+      "select": "outer",
+      "note": "the two ends of Russian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TE",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims Russian extremists are behind a wave of atrocities.",
+     "definitionFit": "Astern is a nautical word meaning at or towards the back of a ship, so it means at the rear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1345,49 @@
     "text": "Service provided by leading store",
     "enumeration": "6"
    },
-   "solution": "UPKEEP"
+   "solution": "UPKEEP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPKEEP",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leading",
+      "gives": "UP",
+      "note": "a side that is up is ahead or leading"
+     },
+     {
+      "clueFragment": "store",
+      "gives": "KEEP",
+      "note": "to keep something is to store it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "KEEP"
+     ]
+    },
+    "explanation": {
+     "surface": "Customer service offered by a big department store.",
+     "definitionFit": "Upkeep is the maintenance of something in good condition, the work done when a car or machine is serviced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1401,46 @@
     "text": "Social outcast is a bit of a people person",
     "enumeration": "5"
    },
-   "solution": "LEPER"
+   "solution": "LEPER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEPER",
+    "definitions": [
+     {
+      "text": "Social outcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "hidden_word",
+      "note": "a bit of something is a fragment of it, so the letters lie within the words that follow"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people person",
+      "gives": "LEPER",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An irony: the shunned loner turns out to be rather sociable.",
+     "definitionFit": "A leper is figuratively a person shunned and avoided by others, from the historic exclusion of those with leprosy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "person"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1454,51 @@
     "text": "Manoeuvring flaps used a lot",
     "enumeration": "9"
    },
-   "solution": "SPADEFULS"
+   "solution": "SPADEFULS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPADEFULS",
+    "definitions": [
+     {
+      "text": "a lot",
+      "at": 23,
+      "note": "a lot is a singular phrase, the answer a plural noun meaning large amounts"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Manoeuvring",
+      "for": "anagram",
+      "note": "manoeuvring moves things about into new positions, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flaps used",
+      "gives": "FLAPSUSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLAPSUSED",
+       "gives": "SPADEFULS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot frequently works the wing flaps while flying.",
+     "definitionFit": "Spadefuls are amounts held on a spade, so the word is used informally for large quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flaps"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1512,62 @@
     "text": "Reduced numbers affect town's referral centres",
     "enumeration": "5"
    },
-   "solution": "FEWER"
+   "solution": "FEWER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FEWER",
+    "definitions": [
+     {
+      "text": "Reduced numbers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centres",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only those core letters are taken from each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affect",
+      "gives": "FE",
+      "select": "middle",
+      "note": "the middle two letters of affect"
+     },
+     {
+      "clueFragment": "town's",
+      "gives": "W",
+      "select": "middle",
+      "note": "the middle letter of towns"
+     },
+     {
+      "clueFragment": "referral",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the middle two letters of referral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "W",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Cuts in staff hit the local referral centres.",
+     "definitionFit": "Fewer means a smaller count of countable things, so it describes a reduced quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centres"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1581,49 @@
     "text": "Match power with attitude",
     "enumeration": "4"
    },
-   "solution": "PAIR"
+   "solution": "PAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAIR",
+    "definitions": [
+     {
+      "text": "Match",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "AIR",
+      "note": "an air is a manner or attitude, as in an air of confidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting fixture full of strength and swagger.",
+     "definitionFit": "To pair things is to put them together as a couple, which is the verb sense of match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1637,59 @@
     "text": "Influence American to abandon holiday passion",
     "enumeration": "8"
    },
-   "solution": "LEVERAGE"
+   "solution": "LEVERAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LEVERAGE",
+    "definitions": [
+     {
+      "text": "Influence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so that letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "LEAVE",
+      "note": "leave is time off work"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is an abbreviation for American"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "RAGE",
+      "note": "rage is a fierce passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVE",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American is persuaded to give up a passion for holidays.",
+     "definitionFit": "Leverage is power to sway decisions, as when one party has an advantage over another in negotiation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Influence"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1703,40 @@
     "text": "Regularly gave wino rum for them",
     "enumeration": "6"
    },
-   "solution": "VOWELS"
+   "solution": "VOWELS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VOWELS",
+    "definitions": [
+     {
+      "text": "Regularly gave wino rum for them",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regularly gave wino rum",
+      "note": "surface reading: someone kept supplying a drunk with spirits"
+     },
+     {
+      "clueFragment": "for them",
+      "note": "setter's reading: every other letter of gave wino rum spells out the five letters a, e, i, o and u"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone habitually handed a drunk a bottle of rum.",
+     "walkthrough": "Taking alternate letters from gave wino rum gives A E I O U, so 'them' are those letters.",
+     "definitionFit": "The letters picked out are the five classic open-mouthed speech sounds of the alphabet, which is what the answer names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1750,42 @@
     "text": "Floral tribute carried by Raleigh",
     "enumeration": "3"
    },
-   "solution": "LEI"
+   "solution": "LEI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEI",
+    "definitions": [
+     {
+      "text": "Floral tribute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "hidden_word",
+      "note": "something carried is held within, so the letters sit inside the name that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raleigh",
+      "gives": "LEI",
+      "note": "found in the middle of the name"
+     }
+    ],
+    "explanation": {
+     "surface": "Sir Walter Raleigh bears a wreath of flowers.",
+     "definitionFit": "A lei is a Hawaiian garland of flowers placed around the neck as a welcome or honour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raleigh"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1799,48 @@
     "text": "Journalist Poirot identified going back inside",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Journalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "inside tells us the letters lie within the run of words given"
+     },
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "going back means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poirot identified",
+      "gives": "ROTIDE",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A reporter is named by the detective Poirot as returning to the house.",
+     "definitionFit": "An editor works in the press, preparing and overseeing written content, so they are a newspaper professional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Journalist"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +1854,73 @@
     "text": "Image primarily printed on rag has quality",
     "enumeration": "8"
    },
-   "solution": "PORTRAIT"
+   "solution": "PORTRAIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PORTRAIT",
+    "definitions": [
+     {
+      "text": "Image",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so each of the next words gives its opening letter"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "printed",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of printed"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of on"
+     },
+     {
+      "clueFragment": "rag",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of rag"
+     },
+     {
+      "clueFragment": "quality",
+      "gives": "TRAIT",
+      "note": "a trait is a characteristic or quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "R",
+      "TRAIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture printed in a tabloid newspaper turns out to be good.",
+     "walkthrough": "A rag is slang for a low-quality newspaper.",
+     "definitionFit": "A portrait is a painting or photograph of a person, so it is a kind of picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rag"
+    }
+   }
   }
  ]
 }
