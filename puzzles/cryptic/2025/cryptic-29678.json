@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,41 @@
     "text": "… is one description of this grid",
     "enumeration": "6"
    },
-   "solution": "SQUARE"
+   "solution": "SQUARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUARE",
+    "definitions": [
+     {
+      "text": "…",
+      "at": 0
+     },
+     {
+      "text": "one description of this grid",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "…",
+      "note": "first meaning: the ellipsis carries on from the City clue at 30 across, completing a London place name"
+     },
+     {
+      "clueFragment": "one description of this grid",
+      "note": "second meaning: the grid is fifteen cells by fifteen, equal sides"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ellipsis follows on from LEICESTER, giving Leicester Square in London's West End. The answer is the theme: 1 stands for it in A1, 1 relative and France's No.1.",
+     "definitionFit": "Leicester Square is a famous London public space, and a grid with equal rows and columns has a four-sided equal shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +90,67 @@
      }
     ]
    },
-   "solution": "BADSHAPE"
+   "solution": "BADSHAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BAD SHAPE",
+    "definitions": [
+     {
+      "text": "Poor Nick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly tells us to keep only the letters in odd positions of the following name"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beal",
+      "gives": "BA",
+      "select": "alternate",
+      "note": "first and third letters of Beal"
+     },
+     {
+      "clueFragment": "phased",
+      "gives": "PHASED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BADSHAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAPHASED",
+       "gives": "BADSHAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Nick Beal is being quietly moved out of a job, which seems a shame.",
+     "walkthrough": "'Nick' looks like the first name of Nick Beal, but it is the British word for condition, as in 'in good nick'.",
+     "definitionFit": "In British slang nick means condition, so poor condition is being in bad shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +164,65 @@
     "text": "Lime and dash of Drambuie in Between The Sheets",
     "enumeration": "6"
    },
-   "solution": "LINDEN"
+   "solution": "LINDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LINDEN",
+    "definitions": [
+     {
+      "text": "Lime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dash of",
+      "for": "letter_selection",
+      "note": "a dash is a small splash, so only the opening letter of the drink is used"
+     },
+     {
+      "text": "in Between",
+      "for": "container",
+      "note": "placed in between two parts means it sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Sheets",
+      "gives": "LINEN",
+      "note": "bed sheets are household linen"
+     },
+     {
+      "clueFragment": "Drambuie",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of Drambuie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "D",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail recipe: lime and a splash of Drambuie in a Between The Sheets.",
+     "walkthrough": "Between The Sheets is a real cocktail, which makes the clue read like a recipe. Drambuie is a Scotch whisky liqueur.",
+     "definitionFit": "The linden is another name for the lime tree, so the tree and the fruit name share a word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lime"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +236,54 @@
     "text": "Yankee bet losing a mint?",
     "enumeration": "7"
    },
-   "solution": "PERFECT"
+   "solution": "PERFECT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PERFECT",
+    "definitions": [
+     {
+      "text": "mint",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means the bet's name drops the letter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee bet",
+      "gives": "PERFECTA",
+      "note": "an American bet on the first two finishers in exact order"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERFECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter's yankee bet costs them a fortune.",
+     "walkthrough": "A yankee is also a British multiple bet, but here Yankee just means American; the American name for that bet is perfecta.",
+     "definitionFit": "Something in mint condition is flawless, as good as new, so mint works as an adjective for flawless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +297,59 @@
     "text": "Mum’s keeping mum in solicitors",
     "enumeration": "6"
    },
-   "solution": "MADAMS"
+   "solution": "MADAMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MADAMS",
+    "definitions": [
+     {
+      "text": "solicitors",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something inside, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum’s",
+      "gives": "MAS",
+      "note": "mum is MA, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "DAM",
+      "note": "a dam is an animal's mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "DAM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother keeps quiet when dealing with lawyers.",
+     "walkthrough": "'Keeping mum' looks like the idiom for keeping quiet, and solicitors look like British lawyers.",
+     "definitionFit": "Brothel-keepers solicit custom for their business, so in a cheeky sense they are people who solicit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solicitors"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +363,56 @@
     "text": "Italian speciality sandwiches A1",
     "enumeration": "6"
    },
-   "solution": "PIAZZA"
+   "solution": "PIAZZA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIAZZA",
+    "definitions": [
+     {
+      "text": "1",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich holds its filling between two slices, so the letter goes inside the dish"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian speciality",
+      "gives": "PIZZA",
+      "note": "Italy's famous dish"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "A",
+      "ZZA"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian dish that is top quality, A1 in fact.",
+     "walkthrough": "A1 looks like a mark of excellence, but it splits: the A goes inside, and 1 refers to the answer to 1 down, SQUARE.",
+     "definitionFit": "An Italian town square is called a piazza, the open public space in the middle of a town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "A1"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +426,67 @@
     "text": "Surprisingly see quail heading for Somerset Levels",
     "enumeration": "9"
    },
-   "solution": "EQUALISES"
+   "solution": "EQUALISES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EQUALISES",
+    "definitions": [
+     {
+      "text": "Levels",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "a surprising arrangement is an unexpected one, so the letters are rearranged"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see quail",
+      "gives": "SEEQUAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Somerset",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Somerset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUALISES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEQUAILS",
+       "gives": "EQUALISES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher is surprised to spot a quail on the Somerset Levels.",
+     "walkthrough": "The Somerset Levels are flat wetlands in south-west England, so 'Levels' looks like part of a place name.",
+     "definitionFit": "To level things is to make them even, and equalises means makes equal, the same action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Levels"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +500,61 @@
     "text": "Ace compère introducing bargain regularly",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "Ace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "the host introduces what goes in the middle of the act, placing the letters inside"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, taking every second letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compère",
+      "gives": "MC",
+      "note": "a compère is a master of ceremonies"
+     },
+     {
+      "clueFragment": "bargain",
+      "gives": "AGI",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of bargain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AGI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A top-class host introduces the bargain round of a game show.",
+     "definitionFit": "Both are informal British words of praise meaning excellent or brilliant, as in 'that was magic'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ace"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +574,39 @@
      }
     ]
    },
-   "solution": "PASSEDOFF"
+   "solution": "PASSEDOFF",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PASSED OFF",
+    "definitions": [
+     {
+      "text": "Misrepresented",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Misrepresented in spades?",
+      "note": "surface reading: lied about something in great quantity"
+     },
+     {
+      "clueFragment": "in spades?",
+      "note": "setter's reading: the word spades is the past tense of pass put off its letter order, a jumbled version of passed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A reverse clue: the answer read as wordplay describes the clue. Take 'passed', knock it off (shuffle it) and you get 'spades'.",
+     "definitionFit": "To pass something off is to present it falsely as something else, which is to misrepresent it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +620,71 @@
     "text": "Australia cheers maiden over – it’s a cracker!",
     "enumeration": "5"
    },
-   "solution": "MATZO"
+   "solution": "MATZO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MATZO",
+    "definitions": [
+     {
+      "text": "a cracker",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down-the-page sense over means turned the other way, so the string is read backwards"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "Oz is the informal name for Australia"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AT",
+      "ZO"
+     ],
+     "reversals": [
+      {
+       "from": "OZTAM",
+       "to": "MATZO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Australia cheers a maiden over in cricket and the commentator calls it a cracker.",
+     "walkthrough": "Over looks like the cricket over that follows maiden, but it reverses everything. A cracker in British English can mean an excellent thing.",
+     "definitionFit": "Matzo is the flat unleavened bread eaten at Passover, a thin crisp biscuit-like cracker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +698,62 @@
     "text": "Ferret loves tucking into rabbit skin",
     "enumeration": "4"
    },
-   "solution": "ROOT"
+   "solution": "ROOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROOT",
+    "definitions": [
+     {
+      "text": "Ferret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into something means going inside it, as food into a mouth"
+     },
+     {
+      "text": "skin",
+      "for": "letter_selection",
+      "note": "the skin of a word is its outside, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rabbit",
+      "gives": "RT",
+      "select": "outer",
+      "note": "first and last letters of rabbit"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "OO",
+      "note": "love is zero in tennis, written as the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A ferret loves eating rabbit, skin and all.",
+     "walkthrough": "Ferret looks like the animal, but it is the verb meaning to search about.",
+     "definitionFit": "To ferret is to rummage or search busily, and to root around means the same kind of digging search."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ferret"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +767,56 @@
     "text": "Stay in control hosting mother",
     "enumeration": "6"
    },
-   "solution": "REMAIN"
+   "solution": "REMAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMAIN",
+    "definitions": [
+     {
+      "text": "Stay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host has guests inside the home, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "a rein controls a horse, as in keep a rein on"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone decides to keep control while their mother comes to stay.",
+     "definitionFit": "Both verbs mean to continue in the same place or state rather than leaving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +830,48 @@
     "text": "Ford save part of vehicle",
     "enumeration": "8"
    },
-   "solution": "CROSSBAR"
+   "solution": "CROSSBAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSBAR",
+    "definitions": [
+     {
+      "text": "part of vehicle",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ford",
+      "gives": "CROSS",
+      "note": "to ford a river is to cross it"
+     },
+     {
+      "clueFragment": "save",
+      "gives": "BAR",
+      "note": "save and bar both mean except, as in all bar one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Ford car has a part that needs saving.",
+     "walkthrough": "Ford looks like the car maker, which seems to fit the vehicle, but it is the verb meaning wade across.",
+     "definitionFit": "A bicycle frame has a horizontal top tube between saddle and handlebars, called the crossbar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +885,52 @@
     "text": "Halle Berry essentially turned up making a bit of noise",
     "enumeration": "3"
    },
-   "solution": "BEL"
+   "solution": "BEL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BEL",
+    "definitions": [
+     {
+      "text": "a bit of noise",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "hidden_word",
+      "note": "essentially points to the inner essence of the words, the letters at their meeting point"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Halle Berry",
+      "gives": "LEB",
+      "note": "the end of Halle and the start of Berry"
+     }
+    ],
+    "explanation": {
+     "surface": "The actress Halle Berry turns up and causes a stir.",
+     "walkthrough": "Halle Berry is the American film actress.",
+     "definitionFit": "The bel is a unit measuring sound intensity, ten decibels, so it is a measure of loudness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Berry"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +944,54 @@
     "text": "Revolutionary way to inject drug",
     "enumeration": "3"
    },
-   "solution": "RED"
+   "solution": "RED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RED",
+    "definitions": [
+     {
+      "text": "Revolutionary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to inject",
+      "for": "container",
+      "note": "injecting puts something inside, so a letter goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel has a radical approach to taking drugs.",
+     "definitionFit": "Red is the label for a communist or radical left-winger, the colour of revolution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inject"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1005,68 @@
     "text": "As nice as pie about Romeo",
     "enumeration": "7"
    },
-   "solution": "ARSENIC"
+   "solution": "ARSENIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARSENIC",
+    "definitions": [
+     {
+      "text": "As",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pie",
+      "for": "anagram",
+      "note": "printer's pie is type spilled into a jumble, so the letters are mixed"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters surround the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice as",
+      "gives": "NICEAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "SENIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICEAS",
+       "gives": "ASENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something is as nice as pie for Romeo, and lovers' food in that play ends in poison.",
+     "walkthrough": "'As' looks like an ordinary word starting a simile, but it is the chemical symbol, and the definition. Pie is the anagram signal, from printer's pie.",
+     "definitionFit": "As is the chemical symbol for the element arsenic, number 33 in the periodic table."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "As"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1080,43 @@
     "text": "The basics of kebab cooking",
     "enumeration": "3"
    },
-   "solution": "ABC"
+   "solution": "ABC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ABC",
+    "definitions": [
+     {
+      "text": "The basics",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken from within, so the letters lie inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kebab cooking",
+      "gives": "ABC",
+      "note": "the end of kebab and the start of cooking"
+     }
+    ],
+    "explanation": {
+     "surface": "A beginner's guide to cooking kebabs.",
+     "walkthrough": "'Cooking' looks like an anagram signal, but the letters are found intact.",
+     "definitionFit": "The ABC of a subject is its fundamentals, the first things a learner needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1130,51 @@
     "text": "Regular TV series",
     "enumeration": "3"
    },
-   "solution": "SET"
+   "solution": "SET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SET",
+    "definitions": [
+     {
+      "text": "Regular",
+      "at": 0
+     },
+     {
+      "text": "TV",
+      "at": 8
+     },
+     {
+      "text": "series",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regular",
+      "note": "first meaning: fixed"
+     },
+     {
+      "clueFragment": "TV",
+      "note": "second meaning: a television receiver"
+     },
+     {
+      "clueFragment": "series",
+      "note": "third meaning: a group of matching things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This has three definitions, not two. The surface reads as a regular television show.",
+     "definitionFit": "The word means fixed or routine, a television receiver, and a collection of things belonging together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "series"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1188,49 @@
     "text": "Creep taking the p___ out of Nick",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "Creep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking the p___ out of",
+      "for": "deletion",
+      "note": "taking a letter out of a word means removing it, here the one written with blanks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nick",
+      "gives": "PINCH",
+      "note": "nick and pinch both mean steal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A creep is mocking someone named Nick.",
+     "walkthrough": "Taking the p___ looks like the British idiom 'taking the piss', meaning mocking, but it says to remove the letter P.",
+     "definitionFit": "To inch is to move forward very slowly, the same as to creep along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1244,59 @@
     "text": "Vehicle touring Italy endlessly getting stuck",
     "enumeration": "7"
    },
-   "solution": "STALLED"
+   "solution": "STALLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STALLED",
+    "definitions": [
+     {
+      "text": "getting stuck",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour a place is to go around it, so the vehicle surrounds the country"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without ends means both the first and last letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "SLED",
+      "note": "a sled is a vehicle on runners"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "TAL",
+      "note": "Italy without its outside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A car on a tour of Italy keeps breaking down.",
+     "definitionFit": "When an engine stalls or a process stalls it stops moving forward, which is to be stuck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1310,71 @@
     "text": "Wingers from Liverpool ultimately take seconds to get dispossessed",
     "enumeration": "8"
    },
-   "solution": "LANDLESS"
+   "solution": "LANDLESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LANDLESS",
+    "definitions": [
+     {
+      "text": "dispossessed",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wingers from",
+      "for": "letter_selection",
+      "note": "wingers play on the flanks, so the outside letters of the city are wanted"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liverpool",
+      "gives": "LANDL",
+      "note": "the two wingers are L and L, written in full with the and"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of take"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "SS",
+      "note": "S is the abbreviation for second, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDL",
+      "E",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Liverpool's wingers are slow and keep losing the ball.",
+     "walkthrough": "The outer letters of Liverpool are L and L, and the 'and' goes into the answer too. Wingers are wide attacking players in football.",
+     "definitionFit": "Someone dispossessed has had property taken away, and a person with no property of land is landless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wingers"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1388,70 @@
     "text": "Header from Rooney inspired by United great one assumes",
     "enumeration": "7"
    },
-   "solution": "USURPER"
+   "solution": "USURPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "USURPER",
+    "definitions": [
+     {
+      "text": "one assumes",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Header from",
+      "for": "letter_selection",
+      "note": "the header of a name is its opening letter"
+     },
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "inspired literally means breathed in, so the letter is taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for united"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "SUPER",
+      "note": "super and great both mean excellent"
+     },
+     {
+      "clueFragment": "Rooney",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rooney"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SU",
+      "R",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Rooney header for Manchester United inspired by a great player.",
+     "walkthrough": "Wayne Rooney is a former Manchester United striker; the football picture hides that header means first letter.",
+     "definitionFit": "To usurp is to assume a position or power wrongfully, so one who assumes a throne is a usurper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Header"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1465,59 @@
     "text": "16 stuck away savings",
     "enumeration": "8"
    },
-   "solution": "CUTBACKS"
+   "solution": "CUTBACKS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUTBACKS",
+    "definitions": [
+     {
+      "text": "savings",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "anagram",
+      "note": "away suggests the letters are knocked out of place and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "16",
+      "gives": "ABC",
+      "note": "the answer to 16 down"
+     },
+     {
+      "clueFragment": "stuck",
+      "gives": "STUCK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUTBACKS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABCSTUCK",
+       "gives": "CUTBACKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stuck their savings away out of sight.",
+     "walkthrough": "16 is the answer to 16 down, ABC, not 16 across.",
+     "definitionFit": "Cutbacks are reductions in spending, made to save money, so as a plural noun they are savings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1531,61 @@
     "text": "1 relative briefly holding licence to kill",
     "enumeration": "6"
    },
-   "solution": "UNCOOL"
+   "solution": "UNCOOL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "UNCOOL",
+    "definitions": [
+     {
+      "text": "1",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the word is dropped"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having inside, so the shortened word surrounds the code"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "UNCL",
+      "note": "uncle is a relative, cut short"
+     },
+     {
+      "clueFragment": "licence to kill",
+      "gives": "OO",
+      "note": "James Bond's 00 code number marks a licence to kill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNC",
+      "OO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative briefly holds a licence to kill, like a secret agent.",
+     "walkthrough": "1 refers to the answer to 1 down, SQUARE, here meaning old-fashioned.",
+     "definitionFit": "Calling someone square means they are conventional and unfashionable, which is the same as uncool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1599,68 @@
     "text": "Chuck Berry at last embraces Alfa Romeo’s digital system",
     "enumeration": "6"
    },
-   "solution": "BINARY"
+   "solution": "BINARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BINARY",
+    "definitions": [
+     {
+      "text": "digital system",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last means at the end, so the closing letter is used"
+     },
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chuck",
+      "gives": "BIN",
+      "note": "to chuck something is to bin it"
+     },
+     {
+      "clueFragment": "Berry",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of Berry"
+     },
+     {
+      "clueFragment": "Alfa Romeo’s",
+      "gives": "AR",
+      "note": "Alfa and Romeo are A and R in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIN",
+      "AR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Rock and roller Chuck Berry finally gets into an Alfa Romeo sports car.",
+     "walkthrough": "Chuck Berry is the rock and roll guitarist, and Alfa Romeo the Italian car maker; both names split apart.",
+     "definitionFit": "Computers store data as digits in base two, using only zero and one, which is the binary number system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chuck"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1680,64 @@
      }
     ]
    },
-   "solution": "RUNUPS"
+   "solution": "RUNUPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUN-UPS",
+    "definitions": [
+     {
+      "text": "Approaches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "around means the other way round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "SPUN",
+      "note": "spun is the past tense of spin, meaning turned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NUPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPUN",
+       "to": "NUPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player's approach changes as the game turns around.",
+     "walkthrough": "Only the word for turned is read backwards; the game abbreviation stays in front.",
+     "definitionFit": "Run-ups are the approaches an athlete or bowler makes before a jump or delivery, or the period leading to an event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1751,61 @@
     "text": "F1 supporting engineers to recover?",
     "enumeration": "6"
    },
-   "solution": "REFACE"
+   "solution": "REFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFACE",
+    "definitions": [
+     {
+      "text": "to recover?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, supporting means sitting underneath, so these letters come after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "F",
+      "gives": "F",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "ACE",
+      "note": "an ace is a one in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Formula 1 engineers help a crashed driver recover.",
+     "walkthrough": "F1 looks like motor racing, but the F stays and the 1 becomes a card. The question mark flags the split reading of recover.",
+     "definitionFit": "To reface a surface is to put a new face on it, which is literally to re-cover it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "F1"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1819,60 @@
     "text": "France’s No.1 seed finally is set down",
     "enumeration": "6"
    },
-   "solution": "PLACED"
+   "solution": "PLACED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLACED",
+    "definitions": [
+     {
+      "text": "set down",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so only the closing letter is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France’s No.1",
+      "gives": "PLACE",
+      "note": "1 is the answer to 1 down, SQUARE, which in French is place"
+     },
+     {
+      "clueFragment": "seed",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of seed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "France's top seed is knocked out of a tennis tournament.",
+     "walkthrough": "France's No.1 looks like a top tennis player, but it is the French word for a town square.",
+     "definitionFit": "To place something is to put or set it down in a position, so placed matches the past participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seed"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1886,59 @@
     "text": "Ice cream with the last piece of Christmas cake",
     "enumeration": "5"
    },
-   "solution": "SCONE"
+   "solution": "SCONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCONE",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the last piece of",
+      "for": "letter_selection",
+      "note": "the last piece of a word is its closing letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of Christmas"
+     },
+     {
+      "clueFragment": "Ice cream",
+      "gives": "CONE",
+      "note": "ice cream is served in a cone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has ice cream with the final slice of Christmas cake.",
+     "walkthrough": "'Christmas cake' looks like a single dish, but cake is the definition on its own.",
+     "definitionFit": "A scone is a small plain baked British teatime item, a kind of small cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Christmas"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1952,72 @@
     "text": "Battle in North American city centre following return of Trump",
     "enumeration": "9"
    },
-   "solution": "TRAFALGAR"
+   "solution": "TRAFALGAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAFALGAR",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "centre means the middle part, dropping the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "FART",
+      "note": "trump is British slang for breaking wind"
+     },
+     {
+      "clueFragment": "North American city",
+      "gives": "ALGAR",
+      "select": "middle",
+      "note": "Calgary, in Canada, without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAF",
+      "ALGAR"
+     ],
+     "reversals": [
+      {
+       "from": "FART",
+       "to": "TRAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political fight in a North American city after Trump's return to office.",
+     "walkthrough": "Trump looks like the American president, but it is the British word for a fart.",
+     "definitionFit": "The naval Battle of Trafalgar in 1805 was Nelson's victory over the French and Spanish fleets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +2031,39 @@
     "text": "Boundaries from 11",
     "enumeration": "5"
    },
-   "solution": "FOURS"
+   "solution": "FOURS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOURS",
+    "definitions": [
+     {
+      "text": "Boundaries from 11",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boundaries from 11",
+      "note": "surface reading: limits taken from another clue in the grid"
+     },
+     {
+      "clueFragment": "11",
+      "note": "setter's reading: 11 down names a famous England cricketer, and these are the shots he scores runs with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "11 is the answer to 11 down, ROOT: Joe Root is an England batter, and hitting fours is what he does.",
+     "definitionFit": "In cricket a ball hit along the ground over the rope is a boundary worth four runs, called a four."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boundaries"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2077,67 @@
     "text": "Endless secrets and lies condemned City",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LEICESTER",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "with no ends means both outside letters of the word are dropped"
+     },
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "condemned things are broken up, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secrets",
+      "gives": "ECRET",
+      "note": "secrets without its first and last letters"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "LIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEICESTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ECRETLIES",
+       "gives": "LEICESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A city is condemned for its endless secrets and lies.",
+     "definitionFit": "Leicester is a city in the English East Midlands, the county town of Leicestershire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "condemned"
+    }
+   }
   }
  ]
 }
