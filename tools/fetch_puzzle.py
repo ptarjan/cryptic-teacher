@@ -2065,6 +2065,22 @@ SOURCE_CLUE_WRONG = {
         "The ceremonies dou't sound sinister",
         "The ceremonies don't sound sinister",
         "OCR misread: the wordplay needs don't, not sinister being right"),
+    ("times-16984", "4-down"): (
+        "Character loved by Landor 5",
+        "Character loved by Landor",
+        "OCR misread: the stray 5 is scan debris after the clue"),
+    ("times-16984", "3-down"): (
+        "Tail-enders put up to defend .",
+        "Tail-enders put up to defend",
+        "OCR misread: the stray full stop is scan debris"),
+    ("times-16984", "21-down"): (
+        "Summits of Alpine peaks including, curiously enough. Snowdon.",
+        "Summits of Alpine peaks including, curiously enough, Snowdon",
+        "OCR misread: the full stop before Snowdon is a comma; the first letters run on to Snowdon"),
+    ("times-16984", "15-down"): (
+        "He tattles. blowing up what's new",
+        "He tattles, blowing up what's new",
+        "OCR misread: the full stop after tattles is a comma"),
     ("times-16975", "10-across"): (
         "Inclination to be in the pub, assume",
         "Inclination to be in the pub, I assume",
