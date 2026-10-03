@@ -1981,6 +1981,18 @@ SOURCE_CLUE_WRONG = {
         "Offer 21 tune changes-",
         "Offer 21 tune changes",
         "OCR misread: a stray hyphen after changes"),
+    ("times-14945", "4-down"): (
+        "Forger's device to foul au E London footballer",
+        "Forger's device to foul an E London footballer",
+        "OCR misread: the surface needs the article an before E London"),
+    ("times-14945", "5-down"): (
+        "Guilty one put right 100 misapplied",
+        "Guilty one put right 151 misapplied",
+        "OCR misread: the anagram needs CLI, the Roman numeral 151, with PUT and R"),
+    ("times-14945", "3-down"): (
+        "Not all Shaw's plays were 5so nice",
+        "Not all Shaw's plays were so nice",
+        "OCR misread: a stray mark before so; the clue reads plays were so nice"),
     ("times-14603", "12-across"): (
         "Paper surely not for lie head of the class?",
         "Paper surely not for the head of the class?",
