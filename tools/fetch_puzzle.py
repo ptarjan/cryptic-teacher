@@ -2204,6 +2204,14 @@ SOURCE_CLUE_WRONG = {
         "Shallow, like a forked — , said Falsiaff",
         "Shallow, like a forked — , said Falstaff",
         "OCR misread: the quotation is Falstaff's, not Falsiaff"),
+    ("times-16178", "1-across"): (
+        "Fresh backing 10 port in Buckinghamshire",
+        "Fresh backing to port in Buckinghamshire",
+        "OCR misread: the wordplay needs NEW reversed joined to a port, so to, not 10"),
+    ("times-16178", "16-across"): (
+        "Cheat is a bestial person -- holds back ≤500",
+        "Cheat is a bestial person -- holds back 550",
+        "OCR misread: the wordplay needs 550, LD in Roman numerals, reversed inside SWINE"),
     ("telegraph-18338", "8-across"): (
         "A 'gadfly that would be welcome in the doldrums",
         "A gadfly that would be welcome in the doldrums",
