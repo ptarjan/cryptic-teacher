@@ -1889,6 +1889,30 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17381", "3-down"): (
+        "Go into biding when girl's father comes up with fruit",
+        "Go into hiding when girl's father comes up with fruit",
+        "OCR misread: the definition is 'Go into hiding'"),
+    ("times-17381", "5-across"): (
+        "Frightful woman to return soldier to ship (61 .",
+        "Frightful woman to return soldier to ship",
+        "OCR misread: stray '(61 .' after the clue, a mangled (6)"),
+    ("times-17381", "7-down"): (
+        "Delighted with extremely economic stationery, say",
+        "Delighted with extremely economic stationary, say",
+        "OCR misread: the wordplay needs stationary (STATIC), not stationery"),
+    ("times-17381", "13-across"): (
+        "Light, up one red tiara perhaps",
+        "Light up one red tiara perhaps",
+        "OCR misread: stray comma splits the definition 'Light up'"),
+    ("times-17381", "25-across"): (
+        "Case given essential backing in -Lincoln",
+        "Case given essential backing in Lincoln",
+        "OCR misread: stray hyphen before Lincoln"),
+    ("times-17381", "27-across"): (
+        "A period in debt, then turned to something different (8",
+        "A period in debt, then turned to something different",
+        "OCR misread: stray '(8' after the clue, a duplicated (8)"),
     ("times-17020", "28-across"): (
         "Cook nearby with (the hard biscuit",
         "Cook nearby with the hard biscuit",
