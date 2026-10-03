@@ -54,7 +54,7 @@ import series  # noqa: E402
 import validate_annotations  # noqa: E402
 from apply_annotations import (  # noqa: E402
     annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
-from fetch_puzzle import has_words, read_puzzle_file, resolve_puzzle  # noqa: E402
+from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
@@ -128,8 +128,9 @@ def to_write(puzzle, before):
     missing: the run takes the whole puzzle."""
     continuations = groups.leader_of(puzzle["entries"])
     clues = [e for e in puzzle["entries"] if entry_id(e) not in continuations]
+    readable = {entry_id(e) for e in clued(clues)}
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
-            or (not e.get("annotation") and has_words(e["clue"].get("text", "")))]
+            or (not e.get("annotation") and entry_id(e) in readable)]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
     return only
