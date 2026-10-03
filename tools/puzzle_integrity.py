@@ -156,8 +156,8 @@ import enumeration  # noqa: E402
 from clue_index import ClueIndex  # noqa: E402
 import boilerplate  # noqa: E402
 import errata  # noqa: E402
-from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, group_orders,  # noqa: E402
-                          has_words, is_bare_letters, is_continuation,
+from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, corrected_clue,  # noqa: E402
+                          duplicated_clues, group_orders, has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
 import puzzle_schema  # noqa: E402
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
@@ -1097,6 +1097,24 @@ def check_puzzle(puzzle, today, flags):
     check_alterations(puzzle, flags)
     check_puzzle_text(puzzle, flags)
     check_preamble(puzzle, flags)
+    check_duplicated_clues(puzzle, flags)
+
+
+def check_duplicated_clues(puzzle, flags):
+    """An OCR-read puzzle (provenance.OCR_CHANNELS) holds no clue on two
+    lights (fetch_puzzle.duplicated_clues), where it is a misread that lost the
+    others' clues, unless fetch_puzzle.SOURCE_CLUE_WRONG prints one of them.
+    Elsewhere each light's clue is served as text, and a clue on two lights
+    is the setter's."""
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    for ids in duplicated_clues(puzzle.get("entries") or []):
+        if any(corrected_clue(puzzle.get("id"), i) is not None for i in ids):
+            continue
+        flags.append(("SHAPE", puzzle.get("id"), f"{', '.join(ids)}: one clue read onto "
+                      f"{len(ids)} lights, so the others' clues were lost: file it on the light "
+                      f"it fits and the rest blank (ocr_clues.one_light_each), or the printed "
+                      f"clue in tools/fetch_puzzle.py SOURCE_CLUE_WRONG"))
 
 
 def check_rewrite(old, new, flags):
@@ -1105,7 +1123,11 @@ def check_rewrite(old, new, flags):
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
-    was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or [])}
+    # A clue on two lights of an OCR reading was lost on all but one: blanking
+    # it loses nothing.
+    lost = {i for ids in duplicated_clues(old.get("entries") or []) for i in ids} \
+        if (old.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS else set()
+    was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or []) if entry_id(e) not in lost}
     for e in new.get("entries") or []:
         if has_words(was.get(entry_id(e))) and not has_words(e["clue"].get("text", "")):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "

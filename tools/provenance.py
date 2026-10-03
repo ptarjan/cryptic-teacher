@@ -169,6 +169,12 @@ RETRIEVAL_CHANNELS = {
     "unknown": "the corpus cannot say which of the above it was",
 }
 
+#: The channels whose clue text is OCR of a printed page: there a clue can be
+#: misread (fetch_puzzle.SOURCE_CLUE_WRONG mends a letter or two) or read onto
+#: two lights, losing the other's (puzzle_integrity.check_duplicated_clues).
+#: A publisher's feed, a blog and a capture serve each light's clue as text.
+OCR_CHANNELS = ("newspaper", "book")
+
 # The acquisition methods, named as the command that actually ran, each with the
 # channel it reads through. The channel is a property of the TOOL, so it is
 # stated here once and derived rather than stored twice — nothing may write a

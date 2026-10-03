@@ -376,5 +376,52 @@ PY
 same "another puzzle's answers over a held file are refused" "$(field ANOTHER "$out8")" "1"
 same "one corrected answer is not another puzzle" "$(field ONE_FIXED "$out8")" "0"
 
+echo "an OCR reading may not file one clue on two lights"
+out9=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy
+import fetch_puzzle
+import puzzle_integrity as pi
+
+# cryptic-23115 prints "Big hitting" on 16 and 17 down (THUMPING, WHOPPING):
+# the Guardian's own feed serves each light's clue, so that is the setter's.
+held = pi.read_puzzle_file(pi.puzzle_paths.find("cryptic-23115"))
+ocr = copy.deepcopy(held)
+ocr["source"]["retrievedFrom"] = "newspaper"
+
+
+def dups(p):
+    flags = []
+    pi.check_duplicated_clues(p, flags)
+    return len(flags)
+
+
+print("FEED", dups(held))
+print("OCR", dups(ocr))
+fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "17-down")] = ("Big hitting", "Printed clue", "evidence")
+print("FIXED", dups(ocr))
+del fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "17-down")]
+blanked = copy.deepcopy(ocr)
+for e in blanked["entries"]:
+    if (e["number"], e["direction"]) in ((16, "down"), (1, "down")):
+        e["clue"] = {"text": "", "missing": True}
+
+
+def blanks(old):
+    flags = []
+    pi.check_rewrite(old, blanked, flags)
+    return ",".join(sorted(f[2].split(":")[0] for f in flags if f[0] == "SHAPE"))
+
+
+print("REWRITE_OCR", blanks(ocr))
+print("REWRITE_FEED", blanks(held))
+PY
+)
+same "a feed's clue on two lights is the setter's" "$(field FEED "$out9")" "0"
+same "an OCR reading's clue on two lights is refused" "$(field OCR "$out9")" "1"
+same "unless SOURCE_CLUE_WRONG prints one of them" "$(field FIXED "$out9")" "0"
+same "blanking an OCR reading's clue on two lights loses nothing, any other clue is kept" \
+  "$(field REWRITE_OCR "$out9")" "1-down"
+same "a feed's clue on two lights is a clue a rewrite keeps" "$(field REWRITE_FEED "$out9")" "1-down,16-down"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
