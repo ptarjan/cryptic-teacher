@@ -1846,6 +1846,57 @@ def correct_source_answers(pid, entries):
               file=sys.stderr)
 
 
+# The clues the SOURCE serves wrong: a light whose clue text is not the one
+# printed, most often a copy of another light's clue. Keyed by puzzle and entry
+# like SOURCE_ANSWER_WRONG, holding how the served text opens, the clue as
+# printed (words only, no enumeration), and the evidence. Every converter reads
+# its clue text through source_clue(), so a re-fetch prints the correction
+# again, and tools/validate_annotations.py lets an annotation written for the
+# corrected clue land in the same run as the correction. A page that no longer
+# serves `served` is taken as it is: the table names an error, not a preference.
+SOURCE_CLUE_WRONG = {
+    ("independent-12407", "4-down"): (
+        "a well-mannered fellow, extremely ideal",
+        "developed there at noon to foreshadow",
+        ("THREATEN: the feed prints a garbled copy of 5-down's GENTILESSE clue "
+         "in its place; its own citation, \"[THERE AT]* + N\", is this clue's "
+         "wordplay. Found by tools/cross_validate.py independent")),
+    ("sundaytough-26", "11-down"): (
+        "Arranged ride by tram to find place that might provide deal",
+        "Insect made into meal for sports venue",
+        ("CRICKET GROUND (7,6): the bucket serves 8-down's TIMBERYARD clue on "
+         "11-down too; bigdave44.com/2022/07/24/sunday-toughie-26-hints/ "
+         "prints 11d as \"Insect made into meal for sports venue (7,6)\", "
+         "CRICKET (insect) + GROUND (made into meal)")),
+}
+
+
+def source_clue(pid, eid, text):
+    """The clue as printed for light `eid` of puzzle `pid`, given the text the
+    source served: SOURCE_CLUE_WRONG's correction when the served text opens
+    as the table says, else `text` itself."""
+    served, printed, _why = SOURCE_CLUE_WRONG.get((pid, eid), (None, None, None))
+    return printed if served and (text or "").startswith(served) else text
+
+
+def corrected_clue(pid, eid):
+    """The clue SOURCE_CLUE_WRONG prints for this light, or None."""
+    return SOURCE_CLUE_WRONG.get((pid, eid), (None, None, None))[1]
+
+
+def duplicated_clues(entries):
+    """[[entry id, ...]] of lights served the same clue words, "See N" stubs
+    and clues with no letters aside. A source serving one clue on two lights has lost
+    one of them; SOURCE_CLUE_WRONG is where the printed one goes."""
+    seen = {}
+    for e in entries:
+        text = (e.get("clue") or {}).get("text") or ""
+        words = clue_words(text)
+        if words and not is_continuation(text):
+            seen.setdefault(words, []).append(entry_id(e))
+    return [ids for ids in seen.values() if len(ids) > 1]
+
+
 # The lights the SOURCE placed wrong: a light whose position, length,
 # enumeration or answer the page serves in a way its own grid refutes. Keyed
 # by puzzle and entry like SOURCE_ANSWER_WRONG, holding the served and the
@@ -2161,6 +2212,8 @@ def convert(data):
         # gap being the SPACE of SPACE RACE.
         line = line.lstrip(LEADING_SPACE)
         text, enum = enumeration.split(line)
+        if (printed := source_clue(pid, f"{e['number']}-{e['direction']}", text)) != text:
+            text, italics = printed, []
         seps = separator_list(e.get("separatorLocations"))
         entries.append({
             "number": e["number"],

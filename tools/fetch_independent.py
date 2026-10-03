@@ -63,7 +63,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (http_bytes, flatten_clue, separators,  # noqa: E402
                           merge_annotations, plain_text, puzzle_files, puzzle_path,
-                          read_puzzle_file, reindex, write_puzzle_file)
+                          read_puzzle_file, reindex, source_clue, write_puzzle_file)
 import series as series_meta  # noqa: E402
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
@@ -208,26 +208,6 @@ FORMAT_FIXES = {
     ("160512", "27", "7"): "5",
     ("160512", "28", "5"): "3",
 }
-
-
-# Clues the feed serves garbled, the same way: keyed by (date key, the feed's
-# `word` id), valued with (how the served text opens, the clue as printed).
-# The served opening is part of the match, so a feed corrected upstream, or a
-# word id that moves, takes the feed's own text again.
-#   260714 word 17 = 4dn THREATEN. The feed prints a garbled copy of 5-down's
-#     GENTILESSE clue in its place; its own citation, "[THERE AT]* + N", is
-#     this clue's wordplay. Found by tools/cross_validate.py independent.
-CLUE_FIXES = {
-    ("260714", "17"): ("a well-mannered fellow, extremely ideal",
-                       "developed there at noon to foreshadow"),
-}
-
-
-def fixed_clue(ymd, word, text):
-    """CLUE_FIXES' printed clue for this word when the feed serves the
-    garbled one it names, else None."""
-    served, printed = CLUE_FIXES.get((ymd, word), (None, None))
-    return printed if served and text.startswith(served) else None
 
 
 def series_for(ymd):
@@ -380,6 +360,7 @@ def parse(xml_bytes, ymd):
         creator_text = (puz.findtext(f"{NS}metadata/{NS}creator") or "").strip()
         setter = (metadata_title(creator_text) or (creator_text or None,))[0]
     number = true_number(ymd, int(re.sub(r"[,\s]", "", number_text)))
+    pid = series_meta.puzzle_id(series_for(ymd), number)
 
     grid = puz.find(f"{NS}crossword/{NS}grid")
     cols, rows = int(grid.get("width")), int(grid.get("height"))
@@ -437,7 +418,7 @@ def parse(xml_bytes, ymd):
                 built.append((eid, num, across, x1, y1, cells))
             seps = separators(fmt, [len(c[5]) for c in built])
             text, italics = flatten_clue(inner_xml(clue).strip())
-            if (printed := fixed_clue(ymd, clue.get("word"), text)) is not None:
+            if (printed := source_clue(pid, built[0][0], text)) != text:
                 text, italics = printed, []
             for i, (eid, num, across, x1, y1, cells) in enumerate(built):
                 entries.append({
@@ -464,7 +445,7 @@ def parse(xml_bytes, ymd):
     series = series_for(ymd)
     paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
-        "id": series_meta.puzzle_id(series, number),
+        "id": pid,
         "number": number,
         "series": series,
         "name": f"{paper} cryptic crossword No {number:,}",
