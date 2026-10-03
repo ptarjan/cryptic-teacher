@@ -163,6 +163,15 @@ cl, why = F.clues(\"1 One (10). : 6 Two (5)' 7 Three (9) 8;Four (5) 11.12A linke
 print(why, [(sorted(map(sorted, c['tokens'])), c['text']) for c in cl], cl[-5]['enums'])")
 check "a clue's start found past OCR's punctuation" "None [([[1]], 'One'), ([[6]], 'Two'), ([[7]], 'Three'), ([[8]], 'Four'), ([[11], [12]], 'A linked'), ([[]], 'Five'), ([[14]], 'Six'), ([[15]], 'Seven'), ([[16]], \"It's\"), ([[17]], 'A big record (laugh!) is beginning'), ([[18]], 'Pot'), ([[19]], 'Lac'), ([[20]], 'Geneve'), ([[21]], 'Bill'), ([[4]], 'Be')] {'7'}" "$got"
 
+# A count before a capitalised word ends a clue even when the next one's
+# number is lost or read as a speck: that clue starts with a lost number, or
+# the speck's reading, for the grid to place.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+cl, why = F.clues(\"1 One (5). He two (6). ^ '• He might (4). . ^ '• Ab (5). 3 Cd (6). | 2fi Ef (4). 'lO \\\"Fear no\\\" (5). 12 Big (laugh!) Is (5) 13 A (5) A b (4).\")
+print(why, [(sorted(map(sorted, c['tokens'])), c['text'], sorted(c['enums'])) for c in cl])")
+check "a clue whose number OCR lost is split off the one before" "None [([[1]], 'One', ['5']), ([[]], 'He two', ['6']), ([[]], 'He might', ['4']), ([[]], 'Ab', ['5']), ([[3]], 'Cd', ['6']), ([[]], 'Ef', ['4']), ([[10]], '\"Fear no\"', ['5']), ([[12]], 'Big (laugh!) Is', ['5']), ([[13]], 'A', ['5']), ([[]], 'A b', ['4'])]" "$got"
+
 # A symmetric grid's across lights read the same lengths from both ends: a
 # count read two ways takes its mirror's, a pair that disagrees goes
 # unknown, and past MOST_DIGIT_SLIPS such pairs the list stands as read.

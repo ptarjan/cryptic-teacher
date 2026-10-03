@@ -22,7 +22,8 @@ Only the clues are mandatory:
     light (or the group a linked clue names). OCR slips in numbers (S for 5 or
     8, I or l for 1, O for 0) are repaired only where the grid's light decides
     the reading; a number its list's order refuses ("10" between 19 and 21)
-    is left for the grid to place (renumber()), and a one-number count read
+    is left for the grid to place (renumber()), as is one OCR lost or read
+    as a speck after the previous clue's count ("(5). He"), and a one-number count read
     as a nearby digit takes the light's (DIGIT_SLIPS). A disagreement means the picture is not used, never that it
     is forced to fit: the grid is then rebuilt from the clue list by
     tools/reconstruct_grid.py, and filed only when that rebuild is unique.
@@ -115,7 +116,7 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 #: digit it read as a dash ("1- Ask" for 12).
 JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
-                     r"|(?<=\s)[jJft\[{]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1(\d)\)\s*\.?")
+                     r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1(\d)\)\s*\.?")
 
 
 # ------------------------------------------------------------ the article
@@ -330,7 +331,7 @@ def clues(text):
     previous clue's enumeration; its text runs to its own enumeration. A
     "See N" continuation carries no enumeration and ends where the next
     number starts."""
-    start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,]?\s+(?=\S)",
+    start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,]?\s+(?=\S)",
                        re.IGNORECASE)
     # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
     text = re.sub(r"(\)\.?)\s+[_|*•~^#=+\-—.]{1,3}(?=\s)", r"\1", text)
@@ -341,6 +342,16 @@ def clues(text):
     text = re.sub(r"(\)\.?)[\s.,:;'’\"`<>«»■_|*•~^#=+\-—]+(?=\d)", r"\1 ", text)
     text = re.sub(r"(\)\.? )(\d{1,2}(?:[.,]\s?\d{1,2})*)(?:[.,;:'’]\s?|(?=[A-Z]))(?=[A-Za-z\"'])",
                   lambda m: m[1] + m[2].replace(".", ",") + " ", text)
+    # A count before a capitalised word, at most a speck between ("(5). He",
+    # "(6). '• He", "(4). 'lO \"Fear"), ends a clue: the next one's number
+    # is what the speck reads as, else lost ("#"), for the grid to place.
+    def lost_number(m):
+        if not enum_readings(m[1]) or readings(m[2]):
+            return m[0]
+        core = m[2].split()[-1].strip(".,;:'\")") if m[2].strip() else ""
+        return f"({m[1]}) {core if readings(core) else '#'} "
+    text = re.sub(r"\(([^()]{1,8})\)\.?\s*((?:[^\w\s()]{1,3}\s+){0,3}?[^\s(]{0,4}?)\s+(?=[A-Z][a-z']|[A-Z]\s|[\"'][A-Z])",
+                  lost_number, text)
     out, pos = [], 0
     while pos < len(text):
         m = start.match(text, pos)
