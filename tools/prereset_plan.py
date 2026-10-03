@@ -12,8 +12,8 @@ measured CPU.
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them). Its order
 is backlog()'s: the puzzles a lockout cut off first, then each series' first
-puzzle (series.is_first_issue), then the puzzles without answers (the
-newspaper scans), oldest first, then the partly annotated ones, fewest clues
+puzzle (series.is_first_issue), then each series' OLDEST_PER_SERIES oldest
+puzzles, oldest first, then the partly annotated ones, fewest clues
 missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
 notable tag (tools/puzzle_tags.py), then the indicator cover
 (tools/indicator_cover.py).
@@ -441,7 +441,7 @@ def self_test():
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES)
+         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 2
          + len(BACKLOG_CASES))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
@@ -636,6 +636,22 @@ FIRST_CASES = [
 
 def first_self_test():
     bad = 0
+    from datetime import date
+    # each series' 10 oldest go first, oldest first behind pinned, so 1967
+    # outranks 2026; the 11th oldest keeps its queue place, as does the undated
+    days = {f"times-{i}": ("times", date(1974, 1, i)) for i in range(1, 12)}
+    days |= {"canberra-3": ("canberra", date(1967, 2, 1)),
+             "cryptic-30000": ("cryptic", date(2026, 9, 1))}
+    queue = ["cryptic-30000", "nodate-1"] + [f"times-{i}" for i in range(11, 0, -1)] + ["canberra-3"]
+    got = oldest_per_series(queue, ["r"], days)
+    want = ["r", "canberra-3"] + [f"times-{i}" for i in range(1, 11)] + ["cryptic-30000"]
+    if got != want:
+        print(f"FAIL oldest_per_series = {got} (want {want})", file=sys.stderr)
+        bad += 1
+    if oldest_per_series(queue, ["times-1"], days, 1) != ["times-1", "canberra-3", "times-2",
+                                                          "cryptic-30000"]:
+        print("FAIL oldest_per_series counts a pinned puzzle among the n", file=sys.stderr)
+        bad += 1
     for queue, pinned, want in FIRST_CASES:
         got = first_issues(queue, list(pinned))
         if got != want:
@@ -659,14 +675,10 @@ _SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, n
               clues={"present": 27, "total": 28})]
 # (rows, annotate ledger, solve ledger, series) -> queue ids
 BACKLOG_CASES = [
-    # answerless puzzles a model can read go first, oldest first, ahead of a
-    # newer answered one; the answered go round-robin, newest first
-    (_SCAN, (), (), (), ["times-20994", "times-21042", "canberra-500", "times-29600"]),
-    # once solved, a scan sorts by date with the answered
-    ([dict(p, hasSolutions=True) if p["id"] == "times-21042" else p for p in _SCAN], (), (), (),
-     ["times-20994", "canberra-500", "times-29600", "times-21042"]),
+    # answerless puzzles a model can read are queued, round-robin, newest first
+    (_SCAN, (), (), (), ["canberra-500", "times-29600", "times-21042", "times-20994"]),
     # a solve that failed on these inputs stays out; an annotate failure keeps one out too
-    (_SCAN, ("times-29600",), ("times-21042",), (), ["times-20994", "canberra-500"]),
+    (_SCAN, ("times-29600",), ("times-21042",), (), ["canberra-500", "times-20994"]),
     # $CT_SERIES narrows it
     (_SCAN, (), (), ("canberra",), ["canberra-500"]),
     (_SCAN[2:4], (), (), (), ["times-29600"]),
@@ -809,14 +821,37 @@ def promote(queue, pinned, tagged):
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
 
 
-def answerless(index_path=INDEX):
-    """Ids of the rows without all their answers, which backlog() queues first
-    and oldest first. Empty when there is no index to read."""
+# How many of each series' oldest puzzles still needing work go ahead of the
+# rest of the queue. Old puzzles are interesting; a few per series is enough to
+# reach every paper's oldest without the burn doing little else.
+OLDEST_PER_SERIES = 10
+
+
+def puzzle_days(index_path=INDEX):
+    """{id: (series, day)} for the index's dated rows (series.puzzle_day).
+    Empty when there is no index to read."""
     try:
         index = json.loads(Path(index_path).read_text(encoding="utf-8"))
     except (OSError, ValueError):
-        return set()
-    return {r["id"] for r in index.get("puzzles", []) if not r.get("hasSolutions")}
+        return {}
+    days = {}
+    for r in index.get("puzzles", []) + index.get("unlisted", []):
+        day = series.puzzle_day(r)
+        if day:
+            days[r["id"]] = (r["series"], day)
+    return days
+
+
+def oldest_per_series(queue, pinned, days, n=OLDEST_PER_SERIES):
+    """pinned, then each series' n oldest queued puzzles (days is {id: (series,
+    day)}), oldest first. An undated puzzle is not known to be old."""
+    lanes = {}
+    for pid in queue:
+        if pid in days and pid not in pinned:
+            lanes.setdefault(days[pid][0], []).append(pid)
+    picked = [pid for lane in lanes.values()
+              for pid in sorted(lane, key=lambda p: days[p][1])[:n]]
+    return pinned + sorted(picked, key=lambda p: days[p][1])
 
 
 def partly_annotated(index_path=INDEX):
@@ -841,15 +876,12 @@ BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
 
 def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     """The burn's queue: every un-annotated row, round-robin across the series,
-    newest first inside each one, behind the rows without all their answers.
+    newest first inside each one.
 
-    A row without all its answers is in it, ahead of the rest and oldest first
-    across every series, when a model can read enough
+    A row without all its answers is in it too, when a model can read enough
     of its clues to solve it cold (fetch_puzzle.cold_solvable) and that solve
     has not failed on these inputs: the burn solves it, then annotates it. The
     clues are the only thing a puzzle must come with; its answers are derived.
-    These are the newspaper scans: the oldest puzzles we hold, in no paper's
-    archive with answers, so they go first and the oldest of them first.
     A row the solve or annotate ledger (tools/failed_inputs.py) holds out is
     left out: selection is by date, so a puzzle that fails is otherwise the
     newest gap again at every checkpoint, bought from scratch each time.
@@ -877,18 +909,14 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
             if not p["annotated"] and p["id"] not in annotate_blocked
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
-    scans = sorted((p for p in todo if not p.get("hasSolutions")),
-                   key=lambda p: series.puzzle_day(p) or date.max)
     lanes = {}
     for p in todo:
-        if not p.get("hasSolutions"):
-            continue
         lanes.setdefault(p["series"], []).append(p)
     for lane in lanes.values():
         lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
     cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
                                          else len(BY_DEMAND), s))
-    return scans + [lanes[s][i]
+    return [lanes[s][i]
             for i in range(max((len(lane) for lane in lanes.values()), default=0))
             for s in cycle if i < len(lanes[s])]
 
@@ -922,7 +950,7 @@ def unsolved(pid):
 
 def cover_first(pinned):
     """The ids on stdin, reordered: pinned first, then each series' first
-    puzzle, then the puzzles without answers in queue order (oldest first),
+    puzzle, then each series' OLDEST_PER_SERIES oldest puzzles, oldest first,
     then the partly annotated
     puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
     notable tag, then the indicator cover, then the rest as they came. The
@@ -932,7 +960,7 @@ def cover_first(pinned):
     ctc = ctc_puzzles()
     partial = partly_annotated()
     pinned = first_issues(queue, pinned)
-    pinned = promote(queue, pinned, answerless())
+    pinned = oldest_per_series(queue, pinned, puzzle_days())
     pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),
                              key=partial.get)
     pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
