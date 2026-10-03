@@ -170,6 +170,26 @@ check("a name hyphenated over a line end is joined", "resembling Palgrave's Trea
       ocr_clues.clean("resembling Pal-\ngrave's Treasury"))
 check("a compound the corpus never prints keeps its hyphen", "Wisdom shown by school-head",
       ocr_clues.clean("Wisdom shown by school-\nhead"))
+check("a hyphen inside a line breaking a lexicon word is joined",
+      ["Kohoutek's brilliant predecessor", "Becoming a supporter with obvious hesitation", "to do housework"],
+      [ocr_clues.unhyphen(t) for t in ("Kohoutek's brilliant pre-decessor",
+                                       "Becoming a supporter with ob-vious hesitation", "to do house-work")])
+check("a hyphen inside a line stands where the corpus's clues print that form",
+      ["in back-street", "Sea-bird", "It's breath-taking", "to co-operate", "is short-lived", "by school-head",
+       "an Anglo-Saxon", "a well-to-do man"],
+      [ocr_clues.unhyphen(t) for t in ("in back-street", "Sea-bird", "It's breath-taking", "to co-operate",
+                                       "is short-lived", "by school-head", "an Anglo-Saxon", "a well-to-do man")])
+import vlm_reader
+_ask = vlm_reader.ask
+vlm_reader.ask = lambda image, prompt, max_tokens=0: "14 Kohoutek's brilliant pre-decessor (7, 5)"
+check("the VLM's column and pick readings have a line end's hyphen joined",
+      ["14 Kohoutek's brilliant predecessor (7, 5)", "14 Kohoutek's brilliant predecessor (7, 5)"],
+      [vlm_reader.read(None), vlm_reader.pick_in(None, "14-across", [])])
+vlm_reader.ask = _ask
+got, _ = ocr_clues.reconcile({"8-down": ("Odd minorities can with right bring counter-charges", "14", None)},
+                             ["8 Odd minorities can with right bring counter-charges\n(14)"] * 2)
+check("an OCR reading's hyphen inside a line is the print's own", "Odd minorities can with right bring counter-charges",
+      got["8-down"][0])
 check("a 1 standing as a word inside a clue is an I", "in letter I posted (4)", ocr_clues.clean("in letter 1 posted (4)"))
 check("a 1 naming a light stays", ["see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film"],
       [ocr_clues.clean(t) for t in ("see 1 down", "Cross 1 and 2 (5)", "in 1 Across (4)", "in 1982 film")])
