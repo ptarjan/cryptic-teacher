@@ -1889,10 +1889,26 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16125", "5-down"): (
+        "Other ranks rebuked for 2 bloomer",
+        "Other ranks rebuked for a bloomer",
+        "OCR misread: the clue needs a bloomer, not a cross-reference to 2"),
+    ("times-16125", "29-across"): (
+        "Free \"dinners, not necessarily baked",
+        "Free dinners, not necessarily baked",
+        "OCR misread: a stray quotation mark before dinners"),
+    ("times-16120", "13-across"): (
+        "Movement of glacier, say, thar's seen in the Arctic",
+        "Movement of glacier, say, that's seen in the Arctic",
+        "OCR misread: the definition needs that's"),
+    ("times-16120", "24-down"): (
+        "Watch.this space for E.T.",
+        "Watch this space for E.T.",
+        "OCR misread: a stray full stop between watch and this"),
     ("telegraph-18339", "1-across"): (
         "A fruitful, cause, rejected with reserve",
-        "A fruit course rejected with reserve",
-        "OCR misread: the wordplay needs fruit course, a fool, reversed after A"),
+        "A fruitful course, rejected, with reserve",
+        "OCR misread: the wordplay needs course, a fruity pudding (fool), reversed after A"),
     ("telegraph-18339", "2-down"): (
         "Twisty sort of, fellow, took . one in, then acted nobly",
         "Twisty sort of fellow took one in, then acted nobly",
@@ -1913,10 +1929,6 @@ SOURCE_CLUE_WRONG = {
         "Dusty treatment of a tip from. Steve Davis?",
         "Dusty treatment of a tip from Steve Davis?",
         "OCR misread: a stray full stop after from"),
-    ("ftcryptic-7261", "8-down"): (
-        "Advice note can change ' prior announcement (7.8) ' -",
-        "Advice note can change prior announcement",
-        "OCR misread: stray quotes, dash and a duplicated count"),
     ("ftcryptic-7261", "18-across"): (
         "Insensitive one; for example. -, displays no hesitation",
         "Insensitive one, for example, displays no hesitation",
