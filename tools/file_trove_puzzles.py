@@ -824,9 +824,15 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
             due[d] = h
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
                              lambda row: row is None or "inputs" not in row)
+    # A line every few minutes, so a watcher sees a long slice move.
+    reported, done = time.monotonic(), 0
     for (d,), (verdict, puzzle, vlm_ok) in scan_queue.parallel(
             [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)):
         aid, h = d.name, due[d]
+        done += 1
+        if time.monotonic() - reported >= 300:
+            reported = time.monotonic()
+            print(f"  {done} of {len(queue)} read", file=out, flush=True)
         if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
             # Another worker filed this id while this one read.
             verdict, puzzle = {**verdict, "refused": f"{puzzle['id']} is article {taken[puzzle['id']]}'s"}, None
