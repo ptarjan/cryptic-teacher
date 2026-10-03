@@ -1902,6 +1902,14 @@ SOURCE_CLUE_WRONG = {
         "A player, bat no true gentleman",
         "A player, but no true gentleman",
         "OCR misread: the sense needs 'but', a professional yet no true amateur"),
+    ("times-18003", "4-down"): (
+        "Remove rider's new born, in practice",
+        "Remove rider's new horn, in practice",
+        "OCR misread: the wordplay needs HORN rearranged inside USE"),
+    ("times-18003", "20-down"): (
+        ")Plant in which one's typically found",
+        "Plant in which one's typically found",
+        "OCR misread: a stray ) before the definition Plant"),
     ("times-17723", "20-across"): (
         "Hall fellow? Well, mel in short!",
         "Hail fellow? Well, met in short!",
