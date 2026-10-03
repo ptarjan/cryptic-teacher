@@ -1889,6 +1889,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16134", "15-across"): (
+        "Lan returns to Civil Service",
+        "Ian returns to Civil Service",
+        "OCR misread: the definition is the Scottish name Ian, not Lan"),
+    ("times-16134", "24-across"): (
+        "Toward's complaint",
+        "Coward's complaint",
+        "OCR misread: the answer is Noel Coward's play, so Coward, not Toward"),
+    ("times-16134", "3-down"): (
+        "Its iron tongue told .twelve (M N Dream)",
+        "Its iron tongue told twelve (M N Dream)",
+        "OCR misread: a stray full stop before twelve"),
     ("times-16132", "10-across"): (
         "'Frenchman supplies material",
         "Frenchman supplies material",
