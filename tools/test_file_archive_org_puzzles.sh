@@ -748,6 +748,23 @@ laid, blank = ocr_clues.vlm_pick({"vlm": "x"}, {"13-across": ("", "9", None)}, {
 check("the VLM's pick of a non-word no reading corrects is not filed", ("", ["13-across"]),
       (laid["13-across"][0], sorted(blank)))
 
+# Times 13,998 as an older reading filed it: the loose lay put 18 across's
+# clue on 15 across too, where a misread number laid it, and 15 across's own
+# clue ("An Athenian acted in any element", ANTIMONY) was lost.
+laid_13998 = {"14-across": ("A man's man (if not hero's)", "5", None),
+              "15-across": ("Occasional raid cops turn out for", "8", None),
+              "18-across": ("Occasional raid cops turn out for", "8", None),
+              "16-down": ("Picture by satellite has space problem", "9", None),
+              "17-down": ("See 16", None, None), "19-down": ("See 16", None, None)}
+laid, blank = f.one_light_each(laid_13998, {}, fits={"15-across", "18-across"})
+check("one clue on two lights its count fills both: filed on neither, both read again (Times 13,998)",
+      (["15-across", "18-across"], "", "", "A man's man (if not hero's)", "See 16"),
+      (sorted(blank), laid["15-across"][0], laid["18-across"][0], laid["14-across"][0], laid["19-down"][0]))
+laid, blank = f.one_light_each(laid_13998, {}, fits={"18-across"})
+check("one clue on two lights its count fills one of: kept there, the other read again",
+      (["15-across"], "", "Occasional raid cops turn out for"),
+      (sorted(blank), laid["15-across"][0], laid["18-across"][0]))
+
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
 

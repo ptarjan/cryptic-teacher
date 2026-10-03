@@ -1193,3 +1193,23 @@ def vlm_pick(texts, laid, blank, parse, pick):
         laid[lid] = (got, laid[lid][1], laid[lid][2])
         del blank[lid]
     return laid, blank
+
+
+def one_light_each(laid, blank, fits=()):
+    """(laid, blank) with no clue on two lights. One printed clue read onto
+    two lights (a reading's misread number, a lost one filled by position)
+    has lost the other light's clue: it stays on the one light in `fits`
+    (the lights whose printed count fills them) when exactly one of them is,
+    and every other light it sits on is filed blank, to be read again."""
+    from fetch_puzzle import duplicated_clues
+    laid, blank = dict(laid), dict(blank)
+    entries = [{"number": int(lid.split("-")[0]), "direction": lid.split("-")[1], "clue": {"text": t}}
+               for lid, (t, _, _) in laid.items() if t]
+    for ids in duplicated_clues(entries):
+        keep = [lid for lid in ids if lid in fits]
+        keep = keep[0] if len(keep) == 1 else None
+        for lid in ids:
+            if lid != keep:
+                laid[lid] = ("", None, None)
+                blank[lid] = "the same clue as " + ", ".join(i for i in ids if i != lid)
+    return laid, blank
