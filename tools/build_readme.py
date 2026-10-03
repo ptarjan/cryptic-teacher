@@ -461,6 +461,7 @@ LAYOUT = [
     ("fetching", "tools/derive_assembly.py", "an annotation's `assembly`, worked out from its blocks"),
     ("fetching", "tools/test_derive_assembly.sh", "is `assembly` worked out from the blocks, and only with the clue's own operations?"),
     ("fetching", "tools/clue_index.py", "which puzzle files share clues: normalised clue text -> puzzle ids"),
+    ("fetching", "tools/test_placeholder_clues.sh", "a puzzle whose clues are pointers at clues printed elsewhere has no clues"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

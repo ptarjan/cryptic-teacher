@@ -1304,5 +1304,7 @@ tools/test_derive_assembly.sh                is `assembly` worked out from the b
                                              with the clue's own operations?
 tools/clue_index.py                          which puzzle files share clues: normalised clue
                                              text -> puzzle ids
+tools/test_placeholder_clues.sh              a puzzle whose clues are pointers at clues printed
+                                             elsewhere has no clues
 ```
 <!-- LAYOUT-END -->
