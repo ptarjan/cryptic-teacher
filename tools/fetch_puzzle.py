@@ -1889,6 +1889,62 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-15774", "1-across"): (
+        "Horse has elephant's 'dis order, poor nag",
+        "Horse has elephant's disorder, poor nag",
+        "OCR misread: MUST is the elephant's disorder, one word with no quote mark"),
+    ("times-15774", "4-down"): (
+        "Swallow tobacco on.rising",
+        "Swallow tobacco on rising",
+        "OCR misread: a stray full stop between on and rising"),
+    ("times-15774", "5-down"): (
+        "Death of an Admiral-a novel",
+        "Death of an Admiral — a novel",
+        "OCR misread: the dash between the two definitions lost its spaces"),
+    ("times-15774", "6-down"): (
+        "Some-give welcome to a space-traveller",
+        "Some give welcome to a space-traveller",
+        "OCR misread: a stray hyphen between some and give"),
+    ("times-15774", "12-across"): (
+        "Job's for horses",
+        "Hog's for horses",
+        "OCR misread: TROTTERS are a hog's feet, so the clue needs hog's, not Job's"),
+    ("times-15774", "16-down"): (
+        "Companion is at' sea, possibly, holding up business",
+        "Companion is at sea, possibly, holding up business",
+        "OCR misread: a stray quote mark after at"),
+    ("times-15774", "23-down"): (
+        "- Hindu instructor was wrecked on motorway",
+        "Hindu instructor was wrecked on motorway",
+        "OCR misread: a stray dash before the clue"),
+    ("times-15774", "25-down"): (
+        "Cut, Footnote about batting upsetting",
+        "Cut, footnote about batting upsetting",
+        "OCR misread: footnote is lower case mid-clue"),
+    ("times-15774", "28-across"): (
+        "Retired  sailor has wrinkle with a bit of rigging",
+        "Retired sailor has wrinkle with a bit of rigging",
+        "OCR misread: a doubled space after retired"),
+    ("times-15775", "12-across"): (
+        "Bird whose cry returns to it 6",
+        "Bird whose cry returns to it",
+        "OCR misread: the trailing 6 is the enumeration with its brackets lost"),
+    ("times-15775", "13-across"): (
+        "Obligation all round — think of old maids",
+        "Obligations all round — think of old maids",
+        "OCR misread: TWEENIES is TIES around WEEN, so the wordplay needs obligations"),
+    ("times-15775", "18-down"): (
+        "Pride's 'remedy, swallowed by son of the preacher",
+        "Pride's remedy, swallowed by son of the preacher",
+        "OCR misread: a stray quote mark before remedy"),
+    ("times-15775", "20-across"): (
+        "Obtain reliable safe 6",
+        "Obtain reliable safe",
+        "OCR misread: the trailing 6 is the enumeration with its brackets lost"),
+    ("times-15775", "24-across"): (
+        "After directions, case be comes calmer",
+        "After directions, case becomes calmer",
+        "OCR misread: becomes is one word"),
     ("independent-12407", "4-down"): (
         "a well-mannered fellow, extremely ideal",
         "developed there at noon to foreshadow",
