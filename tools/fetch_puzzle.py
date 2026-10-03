@@ -1945,6 +1945,14 @@ SOURCE_CLUE_WRONG = {
         "After directions, case be comes calmer",
         "After directions, case becomes calmer",
         "OCR misread: becomes is one word"),
+    ("times-15783", "13-down"): (
+        "Mean to include one wha uses 18 wrongly",
+        "Mean to include one who uses 18 wrongly",
+        "OCR misread: the wordplay needs one who uses a lasso, a roper"),
+    ("times-15783", "26-across"): (
+        "Wall-squatter's yellow 4).",
+        "Wall-squatter's yellow",
+        "OCR misread: the trailing 4). is the enumeration with its opening bracket lost"),
     ("independent-12407", "4-down"): (
         "a well-mannered fellow, extremely ideal",
         "developed there at noon to foreshadow",
