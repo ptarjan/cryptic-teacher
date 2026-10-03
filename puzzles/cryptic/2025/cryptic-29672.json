@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Comrades almost chucked in firearm",
     "enumeration": "8"
    },
-   "solution": "BRETHREN"
+   "solution": "BRETHREN",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "BRETHREN",
+    "definitions": [
+     {
+      "text": "Comrades",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the name of the gun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firearm",
+      "gives": "BREN",
+      "note": "the Bren is a British light machine gun"
+     },
+     {
+      "clueFragment": "chucked",
+      "gives": "THREW",
+      "note": "chucked means tossed; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRE",
+      "THRE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Fellow soldiers have nearly thrown their weapons into a heap.",
+     "walkthrough": "The Bren gun is a standard crossword firearm; the shortened word goes into it, splitting it after its third letter.",
+     "definitionFit": "Brethren is an old plural of brother, used for fellow members of a group or society, much like comrades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chucked"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,44 @@
     "text": "Part of England Scots understood",
     "enumeration": "4"
    },
-   "solution": "KENT"
+   "solution": "KENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KENT",
+    "definitions": [
+     {
+      "text": "Part of England",
+      "at": 0
+     },
+     {
+      "text": "Scots understood",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of England",
+      "note": "first meaning: a county in the south-east"
+     },
+     {
+      "clueFragment": "Scots understood",
+      "note": "second meaning: the Scottish past tense of ken, to know"
+     }
+    ],
+    "explanation": {
+     "surface": "A region of England that people in Scotland grasped.",
+     "walkthrough": "In Scots, ken means to know and its past form is kent; Kent is also an English county south-east of London.",
+     "definitionFit": "The county is a southeastern region of the country, while the Scots verb form means knew or grasped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scots"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,44 @@
     "text": "Detective returns to familiar territory in hearing",
     "enumeration": "6"
    },
-   "solution": "HOLMES"
+   "solution": "HOLMES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HOLMES",
+    "definitions": [
+     {
+      "text": "Detective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "in hearing tells us the word is judged by how it strikes the ear, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "returns to familiar territory",
+      "gives": "HOLMES",
+      "soundsLike": "HOMES",
+      "note": "a pigeon or missile homes when it returns to a known place"
+     }
+    ],
+    "explanation": {
+     "surface": "A sleuth goes back over familiar ground in a court hearing.",
+     "walkthrough": "The L in the famous name is silent, so it is pronounced like homes.",
+     "definitionFit": "Sherlock Holmes is Conan Doyle's fictional consulting detective, the archetype of the brilliant investigator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +206,67 @@
     "text": "Otherwise learnt outside University, unlike 15 or 17",
     "enumeration": "7"
    },
-   "solution": "NEUTRAL"
+   "solution": "NEUTRAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NEUTRAL",
+    "definitions": [
+     {
+      "text": "unlike 15 or 17",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Otherwise",
+      "for": "anagram",
+      "note": "otherwise means in another manner, so the letters are set out differently"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the rearranged letters wrap around the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learnt",
+      "gives": "NETRAL",
+      "note": "the letters of learnt reordered"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "U",
+      "TRAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "NETRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something learnt off campus, contrasted with two other entries.",
+     "walkthrough": "NE(U)TRAL. Entries 15 and 17 are ENEMIES and FRIENDS, so the answer is someone who is neither.",
+     "definitionFit": "A neutral party takes no side, being neither hostile foe nor supportive ally to anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Otherwise"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +280,66 @@
     "text": "Affectionate type picking me up with Dutch courage",
     "enumeration": "8"
    },
-   "solution": "EMBRACER"
+   "solution": "EMBRACER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBRACER",
+    "definitions": [
+     {
+      "text": "Affectionate type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "picking",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "Dutch courage",
+      "gives": "BRACER",
+      "note": "Dutch courage is drink-fuelled bravery; a bracer is a stiffening drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BRACER"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuddly person offers a pick-me-up drink for courage.",
+     "walkthrough": "The surface hides the phrase pick-me-up, itself a word for a tonic drink, which makes the drink reading feel natural.",
+     "definitionFit": "Someone who embraces hugs people warmly, so an embracer is an affectionate, demonstrative person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "picking"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +353,50 @@
     "text": "Reveal city must be reconstructed in original way",
     "enumeration": "10"
    },
-   "solution": "CREATIVELY"
+   "solution": "CREATIVELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREATIVELY",
+    "definitions": [
+     {
+      "text": "in original way",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be reconstructed",
+      "for": "anagram",
+      "note": "reconstructed means built again in a new form, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reveal city",
+      "gives": "REVEALCITY",
+      "note": "the fodder, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REVEALCITY",
+       "gives": "CREATIVELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An urban planner explains how a city should be rebuilt imaginatively.",
+     "definitionFit": "Doing something creatively means using imagination and invention, making it fresh rather than copied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reveal"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +410,47 @@
     "text": "Concrete help for teaching about others",
     "enumeration": "6"
    },
-   "solution": "REALIA"
+   "solution": "REALIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALIA",
+    "definitions": [
+     {
+      "text": "Concrete help for teaching",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, as in a business letter"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "ALIA",
+      "note": "alia is Latin for other things, as in inter alia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ALIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Practical support for teachers dealing with other people.",
+     "walkthrough": "Realia are real objects brought into a classroom; concrete here means tangible, not cement.",
+     "definitionFit": "In education, realia are physical everyday objects used as teaching aids, a tangible kind of classroom support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Concrete"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +470,60 @@
      }
     ]
    },
-   "solution": "TRUELOVE"
+   "solution": "TRUELOVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUE-LOVE",
+    "definitions": [
+     {
+      "text": "sweetheart",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the regret-and-nothing part second, behind the short time piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "LOVE",
+      "note": "love is zero in tennis scoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUE",
+      "LOVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover feels no remorse after a brief fling.",
+     "walkthrough": "The wordplay is read in reverse clue order: T comes first, then RUE and LOVE.",
+     "definitionFit": "A true-love is an old poetic term for a beloved person or darling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +537,59 @@
     "text": "Expert solver of clues needs extra, consuming seconds",
     "enumeration": "5"
    },
-   "solution": "MORSE"
+   "solution": "MORSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MORSE",
+    "definitions": [
+     {
+      "text": "Expert solver of clues",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means swallowing up, so one word takes the other inside it"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "MORE",
+      "note": "more means additional"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword champion wants more, eating up second helpings.",
+     "walkthrough": "Inspector Morse, the Oxford TV detective, was a keen crossword solver, so clues works both ways.",
+     "definitionFit": "Inspector Morse is a fictional Oxford detective who solves crime clues and loves cryptic crosswords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clues"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +603,52 @@
     "text": "Take part in taste test, etc. sooner or later? Don’t touch it",
     "enumeration": "4"
    },
-   "solution": "STET"
+   "solution": "STET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STET",
+    "definitions": [
+     {
+      "text": "Don’t touch it",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take part in",
+      "for": "hidden_word",
+      "note": "taking part of a phrase means lifting a run of letters out of it"
+     },
+     {
+      "text": "sooner or later",
+      "for": "hidden_word",
+      "note": "says the run of letters can be found at an earlier spot or a later spot in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taste test",
+      "gives": "STET",
+      "note": "the letters sit across the two words"
+     },
+     {
+      "clueFragment": "etc.",
+      "note": "surface padding here; with the word before it, it offers the same run of letters a second time"
+     }
+    ],
+    "explanation": {
+     "surface": "A food sampler is told to keep off the dishes being judged.",
+     "walkthrough": "The hidden word appears earlier (taSTE Test) and again later (teST ETc), hence sooner or later. STET is a proofreader's mark meaning leave as it was.",
+     "definitionFit": "Stet is Latin for let it stand, an editor's instruction to leave text unchanged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "taste"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +662,66 @@
     "text": "King and I protected by partners in terms of wealth",
     "enumeration": "10"
    },
-   "solution": "MATERIALLY"
+   "solution": "MATERIALLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MATERIALLY",
+    "definitions": [
+     {
+      "text": "in terms of wealth",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected by others is surrounded by them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partners",
+      "gives": "MATE",
+      "note": "first partner: a mate"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for Rex, king"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "ALLY",
+      "note": "second partner: an ally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATE",
+      "R",
+      "I",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "The musical The King and I, with its star guarded by companions.",
+     "walkthrough": "Partners is plural, so it supplies two separate words that sit either side of the king and the I.",
+     "definitionFit": "Materially means in respect of money and possessions, as in being materially better off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +735,47 @@
     "text": "Far from sweet superpower, onetime ally turned deadly foe",
     "enumeration": "6"
    },
-   "solution": "BRUTUS"
+   "solution": "BRUTUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRUTUS",
+    "definitions": [
+     {
+      "text": "onetime ally turned deadly foe",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Far from sweet",
+      "gives": "BRUT",
+      "note": "brut describes very dry champagne"
+     },
+     {
+      "clueFragment": "superpower",
+      "gives": "US",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRUT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A sour superpower ditches an old partner and becomes an enemy.",
+     "walkthrough": "Brutus was Caesar's friend who joined the assassins.",
+     "definitionFit": "Brutus was a close associate of Julius Caesar who then helped stab him, the classic betraying friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +789,57 @@
     "text": "Corporation showed sign of cut – admit it’s in very bad shape",
     "enumeration": "10"
    },
-   "solution": "TUMBLEDOWN"
+   "solution": "TUMBLEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUMBLEDOWN",
+    "definitions": [
+     {
+      "text": "in very bad shape",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corporation",
+      "gives": "TUM",
+      "note": "corporation is old slang for a pot belly"
+     },
+     {
+      "clueFragment": "showed sign of cut",
+      "gives": "BLED",
+      "note": "a cut bleeds"
+     },
+     {
+      "clueFragment": "admit",
+      "gives": "OWN",
+      "note": "to own up is to admit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUM",
+      "BLED",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A company revealed a spending cut and confessed it was struggling.",
+     "walkthrough": "Corporation is a jokey old word for a large belly, hence TUM.",
+     "definitionFit": "A tumbledown building is dilapidated and falling apart, which is being in very poor condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +853,56 @@
     "text": "Chapter penned by a competitor relating to record collection",
     "enumeration": "8"
    },
-   "solution": "ARCHIVAL"
+   "solution": "ARCHIVAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCHIVAL",
+    "definitions": [
+     {
+      "text": "relating to record collection",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned by others is shut inside them, like an animal in a fold"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a competitor",
+      "gives": "ARIVAL",
+      "note": "a rival is a competitor"
+     },
+     {
+      "clueFragment": "Chapter",
+      "gives": "CH",
+      "note": "CH is the abbreviation for chapter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CH",
+      "IVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A competing author writes a chapter about collecting vinyl records.",
+     "walkthrough": "Record collection suggests vinyl, but here it means a store of documents.",
+     "definitionFit": "Archives are collections of historical documents and records, so archival concerns that kind of storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +916,52 @@
     "text": "Bad men I see?",
     "enumeration": "7"
    },
-   "solution": "ENEMIES"
+   "solution": "ENEMIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ENEMIES",
+    "definitions": [
+     {
+      "text": "Bad men I see?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bad",
+      "for": "anagram",
+      "note": "bad means spoiled or faulty, so the following letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men I see",
+      "gives": "MENISEE",
+      "note": "the fodder, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENISEE",
+       "gives": "ENEMIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots villains approaching and wonders who they are.",
+     "walkthrough": "The whole clue is both wordplay and definition: the villains someone spots are their foes.",
+     "definitionFit": "Enemies are hostile opponents, people viewed as bad from one's own side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bad"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +975,59 @@
     "text": "Stylized language I use with umph, bizarrely",
     "enumeration": "8"
    },
-   "solution": "EUPHUISM"
+   "solution": "EUPHUISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUPHUISM",
+    "definitions": [
+     {
+      "text": "Stylized language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarrely",
+      "for": "anagram",
+      "note": "bizarrely means in a strange way, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I use",
+      "gives": "IUSE",
+      "note": "taken as fodder"
+     },
+     {
+      "clueFragment": "umph",
+      "gives": "UMPH",
+      "note": "taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IUSEUMPH",
+       "gives": "EUPHUISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer admits using ornate phrasing with oomph, oddly.",
+     "walkthrough": "The term comes from Lyly's Euphues, an Elizabethan prose romance.",
+     "definitionFit": "Euphuism is an artificial, highly elaborate prose manner, full of antithesis and alliteration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "umph"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1041,55 @@
     "text": "Run into fanatics, members of religious society",
     "enumeration": "7"
    },
-   "solution": "FRIENDS"
+   "solution": "FRIENDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIENDS",
+    "definitions": [
+     {
+      "text": "members of religious society",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so the letter is placed within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fanatics",
+      "gives": "FIENDS",
+      "note": "a fiend is an enthusiast, as in fitness fiend"
+     },
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Bumping into zealots who belong to a church.",
+     "walkthrough": "FI(R)ENDS. The Religious Society of Friends is the formal name of the Quakers.",
+     "definitionFit": "Quakers call themselves Friends, belonging to the Religious Society of Friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fanatics"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1103,58 @@
     "text": "Set off with girlfriend outside boys’ school",
     "enumeration": "8"
    },
-   "solution": "DETONATE"
+   "solution": "DETONATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DETONATE",
+    "definitions": [
+     {
+      "text": "Set off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girlfriend",
+      "gives": "DATE",
+      "note": "a date is someone you are going out with"
+     },
+     {
+      "clueFragment": "boys’ school",
+      "gives": "ETON",
+      "note": "Eton is the famous English boys' public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ETON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolboy heads out with his girlfriend, meeting outside the school gates.",
+     "walkthrough": "D(ETON)ATE.",
+     "definitionFit": "To set off a bomb or explosive charge is to make it explode, triggering it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1168,62 @@
     "text": "Hiding name, discharge Brendan’s buddy? Not always",
     "enumeration": "7"
    },
-   "solution": "FRENEMY"
+   "solution": "FRENEMY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FRENEMY",
+    "definitions": [
+     {
+      "text": "buddy? Not always",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hiding",
+      "for": "container",
+      "note": "a word that is hiding something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discharge",
+      "gives": "FREE",
+      "note": "to discharge a prisoner is to set them at liberty"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "Brendan’s",
+      "gives": "MY",
+      "note": "Brendan is the setter, so his possessive from his own mouth is my"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRE",
+      "N",
+      "E",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter keeps quiet about who his sometime pal is.",
+     "walkthrough": "FRE(N)E + MY. Brendan is the setter, so Brendan's means my.",
+     "definitionFit": "A frenemy is someone who acts as a friend but is also a rival, so only sometimes a pal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "discharge"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1237,70 @@
     "text": "Striker’s corrupt power ensnaring everyone",
     "enumeration": "8"
    },
-   "solution": "WALLOPER"
+   "solution": "WALLOPER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WALLOPER",
+    "definitions": [
+     {
+      "text": "Striker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means debased or spoiled, so the letters are scrambled"
+     },
+     {
+      "text": "ensnaring",
+      "for": "container",
+      "note": "ensnaring means catching and holding, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "WOPER",
+      "note": "the letters of power rearranged"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ALL",
+      "OPER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POWER",
+       "gives": "WOPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's crooked influence traps the whole team.",
+     "walkthrough": "W(ALL)OPER. Striker suggests a footballer, but here it is someone who hits hard; walloper is British slang, also for a policeman in Scotland and Australia.",
+     "definitionFit": "To wallop is to hit hard, so a walloper is one who strikes or thumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Striker"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1314,59 @@
     "text": "Learner in a sport becoming top Olympian",
     "enumeration": "6"
    },
-   "solution": "APOLLO"
+   "solution": "APOLLO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APOLLO",
+    "definitions": [
+     {
+      "text": "top Olympian",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means the letter sits inside the phrase"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sport",
+      "gives": "APOLO",
+      "note": "polo is a sport played on horseback"
+     },
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APO",
+      "L",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice at a game rises to become a champion at the Olympics.",
+     "walkthrough": "Olympian suggests an athlete, but it means a god of Mount Olympus.",
+     "definitionFit": "Apollo was one of the chief gods dwelling on Mount Olympus, so a leading deity there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1380,60 @@
     "text": "Wild dog you almost trapped in sheep pen",
     "enumeration": "6"
    },
-   "solution": "COYOTE"
+   "solution": "COYOTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "COYOTE",
+    "definitions": [
+     {
+      "text": "Wild dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not completely, so the last letter is lost"
+     },
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "trapped in means held inside the enclosure"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep pen",
+      "gives": "COTE",
+      "note": "a cote is a shelter for sheep or doves"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YOU",
+      "note": "taken as written, then shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "YO",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild canine has very nearly been caught among the sheep.",
+     "walkthrough": "A cote is a small shelter for animals, usually doves or sheep.",
+     "definitionFit": "The coyote is a wolf-like canine of North America, a wild relative of the domestic dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1447,70 @@
     "text": "A doctor finally got in antidote for poison",
     "enumeration": "6"
    },
-   "solution": "CURARE"
+   "solution": "CURARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CURARE",
+    "definitions": [
+     {
+      "text": "poison",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end letter of the word before it"
+     },
+     {
+      "text": "got in",
+      "for": "container",
+      "note": "got in means entered, so these letters go inside the other word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antidote",
+      "gives": "CURE",
+      "note": "a cure is a remedy"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "AR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician finally gets the antidote in to treat a poisoning.",
+     "walkthrough": "The inserted pair goes in near the end of the remedy word, just before its final letter.",
+     "definitionFit": "Curare is a plant extract used by South American hunters on arrow tips, paralysing prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "antidote"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1524,50 @@
     "text": "Central American native reportedly went on racehorse",
     "enumeration": "10"
    },
-   "solution": "ROADRUNNER"
+   "solution": "ROADRUNNER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ROADRUNNER",
+    "definitions": [
+     {
+      "text": "Central American native",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken by others, so the word is chosen for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went on",
+      "gives": "ROAD",
+      "soundsLike": "ROWED",
+      "note": "rowed means travelled on water by oar"
+     },
+     {
+      "clueFragment": "racehorse",
+      "gives": "RUNNER",
+      "note": "a horse in a race is a runner"
+     }
+    ],
+    "explanation": {
+     "surface": "An indigenous Central American is said to have backed a horse.",
+     "walkthrough": "Native suggests a person, but it is a bird found in Mexico and the south-western US.",
+     "definitionFit": "The roadrunner is a fast-running ground cuckoo native to Mexico and the American south-west."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1581,54 @@
     "text": "Length once more uncompleted in part of pool",
     "enumeration": "4"
    },
-   "solution": "LANE"
+   "solution": "LANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LANE",
+    "definitions": [
+     {
+      "text": "part of pool",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncompleted",
+      "for": "deletion",
+      "note": "uncompleted means unfinished, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Length",
+      "gives": "L",
+      "note": "L is the abbreviation for length"
+     },
+     {
+      "clueFragment": "once more",
+      "gives": "ANEW",
+      "note": "anew means again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer does yet another length, never quite finishing, in the pool.",
+     "walkthrough": "L + ANE(W).",
+     "definitionFit": "A swimming pool is divided by ropes into lanes, strips along which swimmers race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1642,43 @@
     "text": "King Edward the humorist",
     "enumeration": "4"
    },
-   "solution": "LEAR"
+   "solution": "LEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAR",
+    "definitions": [
+     {
+      "text": "King",
+      "at": 0
+     },
+     {
+      "text": "Edward the humorist",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "note": "first meaning: Shakespeare's tragic monarch"
+     },
+     {
+      "clueFragment": "Edward the humorist",
+      "note": "second meaning: the Victorian writer of nonsense verse"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "King Edward looks like a monarch's name, but the clue splits after King.",
+     "definitionFit": "King Lear is Shakespeare's tragedy, and Edward Lear wrote limericks and The Owl and the Pussy-cat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Edward"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1692,46 @@
     "text": "Oxford writer in North Island",
     "enumeration": "5"
    },
-   "solution": "LEWIS"
+   "solution": "LEWIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEWIS",
+    "definitions": [
+     {
+      "text": "Oxford writer",
+      "at": 0
+     },
+     {
+      "text": "North Island",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford writer",
+      "note": "first meaning: C. S. ..., Oxford academic and author of Narnia"
+     },
+     {
+      "clueFragment": "North Island",
+      "note": "second meaning: the northern part of ... and Harris in the Outer Hebrides"
+     }
+    ],
+    "explanation": {
+     "surface": "An Oxford author is staying on an island in the north.",
+     "walkthrough": "North Island suggests New Zealand, but it is the Hebridean island off north-west Scotland.",
+     "definitionFit": "C. S. Lewis taught at Oxford, and Lewis is the largest island in Scotland's Outer Hebrides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1745,50 @@
     "text": "Master criminal orchestrated army riot",
     "enumeration": "8"
    },
-   "solution": "MORIARTY"
+   "solution": "MORIARTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MORIARTY",
+    "definitions": [
+     {
+      "text": "Master criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "orchestrated",
+      "for": "anagram",
+      "note": "orchestrated means arranged, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army riot",
+      "gives": "ARMYRIOT",
+      "note": "the fodder, eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARMYRIOT",
+       "gives": "MORIARTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal mastermind stirred up a mutiny among the troops.",
+     "definitionFit": "Professor Moriarty is Sherlock Holmes's archenemy, called the Napoleon of crime by Conan Doyle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orchestrated"
+    }
+   }
   }
  ]
 }
