@@ -1957,6 +1957,14 @@ SOURCE_CLUE_WRONG = {
         "“ In a —— -mighted December ” (Keats)",
         "“ In a —— -nighted December ” (Keats)",
         "OCR misread: Keats wrote drear-nighted December"),
+    ("times-14043", "11-across"): (
+        "Result of course City drops it that's savour faire",
+        "Result of course City drops it that's savoir faire",
+        "OCR misread: the definition is the phrase savoir faire"),
+    ("times-14043", "4-down"): (
+        "Such prolixity only confuses 2 girl more",
+        "Such prolixity only confuses a girl more",
+        "OCR misread: the anagram fodder needs the letter A"),
     ("times-14044", "6-down"): (
         "Wrong, bonnet for a pig-buyer",
         "Prong, bonnet for a pig-buyer",
