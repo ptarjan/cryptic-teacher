@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16150", "15-down"): (
+        "Pale as I ac, proverbially",
+        "Pale as 1 ac, proverbially",
+        "OCR misread: the cross-reference is to 1 across, STONE, not the letter I"),
     ("times-16134", "15-across"): (
         "Lan returns to Civil Service",
         "Ian returns to Civil Service",
