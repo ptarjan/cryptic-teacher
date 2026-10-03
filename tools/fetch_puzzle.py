@@ -2577,6 +2577,26 @@ SOURCE_CLUE_WRONG = {
         "Connecting link and chain as an accessory*).",
         "Connecting link and chain as an accessory",
         "OCR misread: stray marks after accessory"),
+    ("times-16421", "1-down"): (
+        "What's going round the Southcast about a report, it appears",
+        "What's going round the Southeast about a report, it appears",
+        "OCR misread: the wordplay needs Southeast, giving S and E"),
+    ("times-16421", "5-down"): (
+        ".Almost never but not always before time",
+        "Almost never but not always before time",
+        "OCR misread: a stray mark before Almost"),
+    ("times-16421", "10-across"): (
+        "The usual bail-storm",
+        "The usual hail-storm",
+        "OCR misread: the wordplay needs hail, giving AVE"),
+    ("times-16421", "19-across"): (
+        "Ever-thing turned on the egghead woman",
+        "Everything turned on the egghead woman",
+        "OCR misread: the wordplay needs everything, giving ALL"),
+    ("times-16421", "21-down"): (
+        "His merchandise is measured by the fool",
+        "His merchandise is measured by the foot",
+        "OCR misread: the definition needs foot, as socks are sized by the foot"),
 }
 
 
