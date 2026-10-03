@@ -641,6 +641,35 @@ got, _ = ocr_clues.reconcile({"15-down": ("Entice Fortune, but provoke Nemesis? 
                          ["15 & 24 Entice Fortune, but provoke Nemesis? (5,4)"], {"15-down": 5, "24-down": 4, "25-down": 5})
 check("a run-on cut at the next clue; the count left inside ends the clue and is its count",
       ("Entice Fortune, but provoke Nemesis?", "5,4"), got["15-down"][:2])
+check("text run in ahead of a clue's own number, with a number in it, is cut off",
+      ["The point is there's a proposition", "One who acquires a farm building"],
+      [ocr_clues.trimmed("The solution of Prize Puzzle No 18,178 will appear 26 The point is there's a proposition",
+                         "26-across"),
+       ocr_clues.trimmed("Tried to join paper 7. 4 Not fully understood 5 One who acquires a farm building", "5-down")])
+check("a clue that prints its own number keeps it", "Like a don in trouble with Homer in 15 Down",
+      ocr_clues.trimmed("Like a don in trouble with Homer in 15 Down", "15-across"))
+check("a lone small i, a heading on 1 down and specks inside a line-end hyphen go",
+      ["Religious system uniting man", "Poet's way to frame a line", "She reverts to foolish buying method",
+       "One accepted as likewise a great artist"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Religious system i uniting man", "9-across"),
+                                                ("Down i Poet's way to frame a line", "1-down"),
+                                                ("She reverts to foolish buy- 4 ing method", "16-across"),
+                                                ("One accepted as like- .wise a great artist", "19-down"))])
+check("the newspaper i, a heading word in a later clue and a stutter stand",
+      ["Showing true colours, posh editor supports this paper but not the i", "Across Aegean rain falls",
+       "Gladly f-fib first"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Showing true colours, posh editor supports this paper but not the i",
+                                                 "8-down"), ("Across Aegean rain falls", "21-across"),
+                                                ("Gladly f-fib first", "21-across"))])
+check("a broken count or symbols after the last word go; a percentage and a cross-reference stand",
+      ["Girl named in a Lords amendment", "In memory of former days?", "Twice reduced by 50%", "Don't 23!"],
+      [ocr_clues.trimmed(t, "5-down") for t in ("Girl named in a Lords amendment S).",
+                                                "In memory of former days? &%S4),", "Twice reduced by 50%",
+                                                "Don't 23!")])
+got, blank = ocr_clues.reconcile({"1-across": ("19, we hear, in the crew", "5", None)},
+                                 ["1 19, we hear, in the crew (5)"] * 2, {"1-across": 5, "19-across": 5})
+check("a clue opening on another light's number is no lost opening", ("19, we hear, in the crew", {}),
+      (got["1-across"][0], blank))
 # Two clues run together win the vote when every reading runs them together
 # the same way: the Times of 3 April 1985's 2 down and 1 May 1975's 28
 # across filed as one clue each. Such a text is blanked, never filed.
