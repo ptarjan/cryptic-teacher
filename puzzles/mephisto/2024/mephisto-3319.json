@@ -38,6 +38,9 @@
   "date": "2024-04-14",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,71 @@
     "text": "Fish meat on the counter I spotted twice",
     "enumeration": "8"
    },
-   "solution": "MAHIMAHI"
+   "solution": "MAHIMAHI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MAHIMAHI",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means running against the usual direction, so the word for meat is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "HAM",
+      "note": "ham is a cured meat"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spotted",
+      "note": "surface padding: the I is seen, nothing more"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "MAHI",
+      "note": "the chunk built so far is written out a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAH",
+      "I",
+      "MAHI"
+     ],
+     "reversals": [
+      {
+       "from": "HAM",
+       "to": "MAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger spots some fish lying on the counter, twice over.",
+     "walkthrough": "'On the counter' looks like where the fish is displayed, but it tells you to turn the meat round.",
+     "definitionFit": "The mahi-mahi, or dolphinfish, is a large tropical food fish of warm seas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +132,84 @@
     "text": "Close to me, wanting a little peck, lips met to get working?",
     "enumeration": "9"
    },
-   "solution": "MISTLETOE"
+   "solution": "MISTLETOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MISTLETOE",
+    "definitions": [
+     {
+      "text": "Close to me, wanting a little peck, lips met to get working?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter, so only the end of the next word is kept"
+     },
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the following small piece is taken out of the letters it sits among"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just its first letter, a small sample of it"
+     },
+     {
+      "text": "get working",
+      "for": "anagram",
+      "note": "letters that get working are set in motion and rearranged into something useful"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this short word"
+     },
+     {
+      "clueFragment": "peck",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of this word, to be removed"
+     },
+     {
+      "clueFragment": "lips met to",
+      "gives": "LIPSMETTO",
+      "note": "three words taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISTLETOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELISMETTO",
+       "gives": "MISTLETOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone close by, after a quick kiss, finds their lips meeting yours at Christmas.",
+     "walkthrough": "Remove P from LIPSMETTO, add E, and rearrange to get MISTLETOE. Read whole, the clue also describes kissing under the mistletoe, so it is an all-in-one.",
+     "definitionFit": "Mistletoe is the Christmas sprig under which people traditionally steal a kiss, bringing lips together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 2,
@@ -85,7 +229,52 @@
      }
     ]
    },
-   "solution": "ALPHABETSOUP"
+   "solution": "ALPHABETSOUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHABET SOUP",
+    "definitions": [
+     {
+      "text": "BII, CAMRA, SPBW etc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undergoing refurbishment",
+      "for": "anagram",
+      "note": "a refurbishment rebuilds and rearranges, so these letters are reworked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a help as to pub",
+      "gives": "AHELPASTOPUB",
+      "note": "five words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHELPASTOPUB",
+       "gives": "ALPHABETSOUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pub trade bodies are pictured helping a pub through its refit.",
+     "walkthrough": "CAMRA is the Campaign for Real Ale, SPBW the Society for the Preservation of Beers from the Wood and BII the British Institute of Innkeeping: a jumble of initials.",
+     "definitionFit": "Alphabet soup is the jocular name for a confusing mass of acronyms and initialisms, like these pub organisations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "refurbishment"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +288,65 @@
     "text": "Barnet Fair following turning to hot fare",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "Barnet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning to",
+      "for": "substitution",
+      "note": "turning to means becoming, so one letter in the word changes into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fair",
+      "gives": "FAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the standard abbreviation for following"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     },
+     {
+      "clueFragment": "fare",
+      "gives": "DO",
+      "note": "to do is to fare or get on, as in 'how do you do?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "At Barnet Fair, a London horse fair, someone turns to hot food.",
+     "walkthrough": "Barnet Fair is Cockney rhyming slang for hair, so 'Barnet' alone means hair; the clue hides the definition inside the name of the fair.",
+     "definitionFit": "Barnet is British slang for a person's hair or hairstyle, so a hairdo fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fair"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +360,64 @@
     "text": "Unpleasant and cold round centre of Stockport",
     "enumeration": "4"
    },
-   "solution": "ICKY"
+   "solution": "ICKY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ICKY",
+    "definitions": [
+     {
+      "text": "Unpleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one word wraps around the other"
+     },
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "ICY",
+      "note": "icy means very cold"
+     },
+     {
+      "clueFragment": "Stockport",
+      "gives": "K",
+      "select": "middle",
+      "note": "the fifth of the nine letters of this town's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "K",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Weather in Stockport, a town near Manchester, is described as nasty and chilly.",
+     "definitionFit": "Icky is informal for sticky, distasteful or nasty, so it means unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stockport"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +431,75 @@
     "text": "A job to hold back horse, keeping its head turning away from the ordinary course",
     "enumeration": "10"
    },
-   "solution": "APOSTROPHE"
+   "solution": "APOSTROPHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APOSTROPHE",
+    "definitions": [
+     {
+      "text": "turning away from the ordinary course",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding inside, so the word for restraining wraps around the letter"
+     },
+     {
+      "text": "its head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, and its points back to the animal just named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a job or position"
+     },
+     {
+      "clueFragment": "to hold back",
+      "gives": "ROPE",
+      "note": "in racing, to rope is to rein a horse in so that it does not win"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of this animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POST",
+      "ROP",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A stable job involves restraining a horse while it turns its head aside.",
+     "walkthrough": "'Horse' does double duty: it is the animal being roped and the source of the letter. The definition is the dictionary wording for a speaker turning to address someone absent.",
+     "definitionFit": "In rhetoric an apostrophe is a sudden digression in a speech to address an absent person or thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +513,57 @@
     "text": "Decorator, one taking great risks, has day off",
     "enumeration": "4"
    },
-   "solution": "ICER"
+   "solution": "ICER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICER",
+    "definitions": [
+     {
+      "text": "Decorator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means removed, so the abbreviation for day is taken away from the word"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one taking great risks",
+      "gives": "DICER",
+      "note": "a dicer, as in dicing with death, gambles dangerously"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICER"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter-decorator who lives dangerously takes a day off.",
+     "walkthrough": "'Decorator' suggests a house painter, but here it is someone who decorates cakes.",
+     "definitionFit": "An icer covers and decorates cakes with icing, so is a decorator of a sort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Decorator"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +577,52 @@
     "text": "Wham hit that sounds like Kiss?",
     "enumeration": "4"
    },
-   "solution": "MWAH"
+   "solution": "MWAH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MWAH",
+    "definitions": [
+     {
+      "text": "that sounds like Kiss?",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "something hit is knocked about, so the band's letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wham",
+      "gives": "WHAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHAM",
+       "gives": "MWAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pop talk: is a Wham! hit like something by the rock band Kiss?",
+     "walkthrough": "Wham! and Kiss are both bands, but 'Kiss' here is an ordinary smacker.",
+     "definitionFit": "Mwah is an interjection imitating the smacking noise of a kiss, often an air kiss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kiss"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +636,60 @@
     "text": "Brand New Key singer’s good knocking out one medley",
     "enumeration": "7"
    },
-   "solution": "MELANGE"
+   "solution": "MELANGE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MELANGE",
+    "definitions": [
+     {
+      "text": "medley",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking out",
+      "for": "substitution",
+      "note": "knocking out means displacing, so the new letter pushes out the old one and takes its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brand New Key singer",
+      "gives": "MELANIE",
+      "note": "the American singer Melanie had a 1971 hit with this song"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MELAN",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's good song knocks out a medley performance.",
+     "walkthrough": "In MELANIE, G replaces I.",
+     "definitionFit": "A melange is a mixture of varied things, which is what a medley is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +703,62 @@
     "text": "Eagerly sought last of crumble in bowl",
     "enumeration": "5"
    },
-   "solution": "WOOED"
+   "solution": "WOOED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WOOED",
+    "definitions": [
+     {
+      "text": "Eagerly sought",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of a word means only its final letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the letter sits within the word for bowl"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowl",
+      "gives": "WOOD",
+      "note": "in the game of bowls a bowl is called a wood"
+     },
+     {
+      "clueFragment": "crumble",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this pudding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hungrily wants the last bit of crumble left in the bowl.",
+     "walkthrough": "'Bowl' looks like a dish, but it is the ball rolled in the game of bowls.",
+     "definitionFit": "To woo is to court or pursue ardently, so wooed means pursued with eagerness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bowl"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +772,66 @@
     "text": "Having the power to expand summer month event am busy with it",
     "enumeration": "12"
    },
-   "solution": "AUGMENTATIVE"
+   "solution": "AUGMENTATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AUGMENTATIVE",
+    "definitions": [
+     {
+      "text": "Having the power to expand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy letters are bustling about, so they are shuffled into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summer month",
+      "gives": "AUG",
+      "note": "AUG is the short form of August"
+     },
+     {
+      "clueFragment": "event am",
+      "gives": "EVENTAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUG",
+      "MENTATIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVENTAMIT",
+       "gives": "MENTATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organiser's August event keeps growing as they get busy with it.",
+     "walkthrough": "'with it' joins IT to the letters being rearranged.",
+     "definitionFit": "Augmentative means tending or able to increase, enlarge or intensify something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "busy"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +845,59 @@
     "text": "Cope badly with sauce tasting of garlic?",
     "enumeration": "9"
    },
-   "solution": "CEPACEOUS"
+   "solution": "CEPACEOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CEPACEOUS",
+    "definitions": [
+     {
+      "text": "tasting of garlic?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly means done wrongly, so these letters come out in a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cope",
+      "gives": "COPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sauce",
+      "gives": "SAUCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPE SAUCE",
+       "gives": "CEPACEOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner struggles to cope with a sauce heavy on garlic.",
+     "walkthrough": "The question mark admits the definition is by example: the word covers onions and their relatives, garlic among them.",
+     "definitionFit": "Cepaceous means having the smell or taste of onion, and garlic belongs to the same allium group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cope"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +911,56 @@
     "text": "Veteran comic star’s lead role in Dad’s Army",
     "enumeration": "5"
    },
-   "solution": "SPIKE"
+   "solution": "SPIKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPIKE",
+    "definitions": [
+     {
+      "text": "Veteran comic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "a word's lead is its front letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star’s",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "role in Dad’s Army",
+      "gives": "PIKE",
+      "note": "Private Frank Pike is a character in the BBC sitcom about Britain's wartime Home Guard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran comedian plays the leading role in a revival of Dad's Army.",
+     "walkthrough": "Spike Milligan, of The Goon Show, was a comedian who also served in the Second World War, so 'veteran' fits on both counts.",
+     "definitionFit": "Spike Milligan was the war-veteran British comedian famous for The Goon Show and his surreal humour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +974,74 @@
     "text": "Bistro worker omitting one element of recipe in pans is crying",
     "enumeration": "10"
    },
-   "solution": "WATERWORKS"
+   "solution": "WATERWORKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "WATERWORKS",
+    "definitions": [
+     {
+      "text": "crying",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "omitting means leaving out, so one letter is dropped from the worker's title"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the letter goes within the word for pans"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bistro worker",
+      "gives": "WAITER",
+      "note": "a waiter works in a bistro"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "pans",
+      "gives": "WOKS",
+      "note": "woks are Chinese frying pans"
+     },
+     {
+      "clueFragment": "element of recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on a prescription"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "WORKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bistro worker who left out an ingredient is now in tears.",
+     "walkthrough": "'Element of recipe' suggests an ingredient, but it means the abbreviation R. WAITER loses I; R goes into WOKS.",
+     "definitionFit": "Turning on the waterworks is a colloquial idiom for shedding tears, so the waterworks means crying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1055,60 @@
     "text": "Speech on dispatch box after end of debate",
     "enumeration": "5"
    },
-   "solution": "ELOGE"
+   "solution": "ELOGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELOGE",
+    "definitions": [
+     {
+      "text": "Speech on dispatch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, the only one used"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "LOGE",
+      "note": "a loge is a box in a theatre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A minister speaks at the dispatch box in the Commons at the close of a debate.",
+     "walkthrough": "'Dispatch box' is the Commons lectern, but 'dispatch' here means killing: the speech honours someone dead.",
+     "definitionFit": "An eloge is a funeral oration or formal eulogy delivered about someone who has died."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dispatch"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1122,76 @@
     "text": "Time when my right hand flipped gold coin",
     "enumeration": "7"
    },
-   "solution": "THRYMSA"
+   "solution": "THRYMSA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "THRYMSA",
+    "definitions": [
+     {
+      "text": "gold coin",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped",
+      "for": "reversal",
+      "note": "flipped means turned over end to end, so the run of words that follows time is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "H",
+      "note": "H is the abbreviation for hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HRYMSA"
+     ],
+     "reversals": [
+      {
+       "from": "ASMYRH",
+       "to": "HRYMSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coin-tosser recalls the moment their right hand flipped a gold coin.",
+     "walkthrough": "The time abbreviation stays at the front; only the words after it are turned round.",
+     "definitionFit": "The thrymsa was a small Anglo-Saxon gold coin of the seventh century, a historical piece of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1205,52 @@
     "text": "Nice manager running surgeries?",
     "enumeration": "9"
    },
-   "solution": "REGISSEUR"
+   "solution": "REGISSEUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGISSEUR",
+    "definitions": [
+     {
+      "text": "Nice manager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "running letters are in motion, so they are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgeries",
+      "gives": "SURGERIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SURGERIES",
+       "gives": "REGISSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A practice manager is pictured running doctors' surgeries.",
+     "walkthrough": "Nice is the French city, flagging a French word, not the adjective.",
+     "definitionFit": "A regisseur is a French stage manager or director, someone managing a production in Nice or elsewhere in France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1264,57 @@
     "text": "Extrovert man, foremost of executives, put on board",
     "enumeration": "4"
    },
-   "solution": "LADE"
+   "solution": "LADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LADE",
+    "definitions": [
+     {
+      "text": "put on board",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost of",
+      "for": "letter_selection",
+      "note": "foremost means first, so only the opening letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extrovert man",
+      "gives": "LAD",
+      "note": "a lad is a lively, boisterous young man"
+     },
+     {
+      "clueFragment": "executives",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An outgoing man, ahead of the other executives, is appointed to the board.",
+     "walkthrough": "'Put on board' suggests joining a company board, but it means loading cargo onto a ship.",
+     "definitionFit": "To lade is to load cargo or goods onto a ship or vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1328,57 @@
     "text": "Conference delegate two hours before midnight intensely scratching backside",
     "enumeration": "8"
    },
-   "solution": "ATTENDEE"
+   "solution": "ATTENDEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ATTENDEE",
+    "definitions": [
+     {
+      "text": "Conference delegate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching backside",
+      "for": "deletion",
+      "note": "scratching means striking out, and the backside of a word is its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two hours before midnight",
+      "gives": "ATTEN",
+      "note": "two hours before midnight is at ten o'clock"
+     },
+     {
+      "clueFragment": "intensely",
+      "gives": "DEEP",
+      "note": "deep can mean intensely, as in deeply felt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEN",
+      "DEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A conference delegate, up late at ten, scratches their bottom intently.",
+     "walkthrough": "AT TEN, then DEEP without its last letter.",
+     "definitionFit": "An attendee is someone present at an event such as a conference, which a delegate is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "backside"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1392,70 @@
     "text": "Elaborating too much on idling around Easter on vacation",
     "enumeration": "10"
    },
-   "solution": "OVEREGGING"
+   "solution": "OVEREGGING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVEREGGING",
+    "definitions": [
+     {
+      "text": "Elaborating too much",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the word for idling wraps about the kept letters"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "on vacation means emptied, so the middle of the word is cleared out, keeping only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "O",
+      "note": "o' is a short dialect form of on, as in o' nights"
+     },
+     {
+      "clueFragment": "idling",
+      "gives": "VEGGING",
+      "note": "vegging out is idling about lazily"
+     },
+     {
+      "clueFragment": "Easter",
+      "gives": "ER",
+      "select": "outer",
+      "note": "just the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "V",
+      "ER",
+      "EGGING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lazing around over the Easter holiday is making too much of it.",
+     "walkthrough": "'On' wants to join the definition as 'elaborating on', but it supplies the opening letter. Vegging out is British slang for lazing.",
+     "definitionFit": "To over-egg the pudding is an idiom for exaggerating or adding too much embellishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Easter"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1469,74 @@
     "text": "Vicar left rear of vicarage catching what bus?",
     "enumeration": "7"
    },
-   "solution": "VEHICLE"
+   "solution": "VEHICLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VEHICLE",
+    "definitions": [
+     {
+      "text": "bus",
+      "at": 42,
+      "note": "a bus is one example of a vehicle"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "charade",
+      "note": "the rear of a word is its last letter, which is all that is used"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means trapping inside, so the short word for vicar holds the word for what"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicar",
+      "gives": "VIC",
+      "note": "Vic is short for vicar"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh? asks what? when you mishear"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "vicarage",
+      "gives": "E",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EH",
+      "IC",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar left by the back of the vicarage, asking which bus to catch.",
+     "walkthrough": "The question mark flags a definition by example: a bus is only one kind of the answer.",
+     "definitionFit": "A bus is a road vehicle carrying passengers, so it is one kind of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1550,68 @@
     "text": "Home Office employee, translator, absorbing role with week off",
     "enumeration": "10"
    },
-   "solution": "TELEWORKER"
+   "solution": "TELEWORKER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TELEWORKER",
+    "definitions": [
+     {
+      "text": "Home Office employee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of order, so these letters are rearranged"
+     },
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking in, so the abbreviation surrounds the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "translator",
+      "gives": "TR",
+      "note": "TR is the abbreviation for translator"
+     },
+     {
+      "clueFragment": "role with week",
+      "gives": "ROLEWEEK",
+      "note": "role and week taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ELEWORKE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROLEWEEK",
+       "gives": "ELEWORKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government translator in the Home Office takes on a role with a week's leave.",
+     "walkthrough": "'Home Office' suggests the British government department; here it is an office at home. 'with' is part of the letters only as a joiner.",
+     "definitionFit": "A teleworker works remotely from home using telecommunications, so their office is at home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Office"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1631,65 @@
      }
     ]
    },
-   "solution": "RYARUG"
+   "solution": "RYARUG",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RYA RUG",
+    "definitions": [
+     {
+      "text": "Scandinavian mat",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the word for look sits within the word for tent"
+     },
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tent",
+      "gives": "GUR",
+      "note": "a gur is a tent, the Mongolian ger"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "RAY",
+      "note": "a ray is a glance or look in old usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RYARUG"
+     ],
+     "reversals": [
+      {
+       "from": "GURAYR",
+       "to": "RYARUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical new look is planned for the inside of a tent.",
+     "walkthrough": "Both the tent and the look are obscure Chambers words, so this is one to build from the definition and crossers.",
+     "definitionFit": "A rya rug is a traditional Scandinavian hand-woven rug with a deep, shaggy wool pile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1703,44 @@
     "text": "Biting into hot chip welcomed some language!",
     "enumeration": "8"
    },
-   "solution": "OTCHIPWE"
+   "solution": "OTCHIPWE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OTCHIPWE",
+    "definitions": [
+     {
+      "text": "some language",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Biting into",
+      "for": "hidden_word",
+      "note": "biting into means taking a piece out of the middle, so the letters are found inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot chip welcomed",
+      "gives": "OTCHIPWE",
+      "note": "a run of letters spanning these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone biting into a hot chip lets out some strong language.",
+     "walkthrough": "'Some language' suggests swearing at a burnt mouth, but it is a real language.",
+     "definitionFit": "Otchipwe is another name for Ojibwa, the Algonquian tongue of a North American Indigenous people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "language"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1754,53 @@
     "text": "Cockeyed Bob leaving on bike",
     "enumeration": "5"
    },
-   "solution": "CYCLE"
+   "solution": "CYCLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CYCLE",
+    "definitions": [
+     {
+      "text": "bike",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing from, so the next small word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockeyed Bob",
+      "gives": "CYCLONE",
+      "note": "cockeyed bob is Australian slang for a sudden violent storm"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYCLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A squint-eyed man called Bob sets off on a bike.",
+     "walkthrough": "'Bob' looks like a man's name, but cockeyed bob is a single Australian slang term for a storm.",
+     "definitionFit": "As verbs, to bike and to cycle both mean to ride a bicycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1814,70 @@
     "text": "Baby hawk put back after opening of egg",
     "enumeration": "4"
    },
-   "solution": "EYAS"
+   "solution": "EYAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EYAS",
+    "definitions": [
+     {
+      "text": "Baby hawk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word for put is read from right to left"
+     },
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "egg",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "SAY",
+      "note": "to put something is to express or say it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAY",
+       "to": "YAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hawk chick is put back in the nest after the egg opens.",
+     "definitionFit": "An eyas is a young hawk taken from the nest for training in falconry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1891,56 @@
     "text": "Favour returned for novice",
     "enumeration": "4"
    },
-   "solution": "NOOB"
+   "solution": "NOOB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NOOB",
+    "definitions": [
+     {
+      "text": "novice",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word for favour is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favour",
+      "gives": "BOON",
+      "note": "a boon is a favour or blessing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOB"
+     ],
+     "reversals": [
+      {
+       "from": "BOON",
+       "to": "NOOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A favour is repaid to a beginner.",
+     "definitionFit": "Noob is gaming and internet slang for a newcomer or beginner, especially an inept one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1954,79 @@
     "text": "Rodents run back into scattered trash",
     "enumeration": "7"
    },
-   "solution": "HOGRATS"
+   "solution": "HOGRATS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "HOGRATS",
+    "definitions": [
+     {
+      "text": "Rodents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word for run is read from right to left"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means placed inside, so these letters go within the others"
+     },
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered letters are thrown about and come back in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trash",
+      "gives": "TRASH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "GO",
+      "note": "to run is to go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OG",
+      "RATS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRASH",
+       "gives": "HRATS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rats scurry back into some strewn rubbish.",
+     "walkthrough": "The animal is the hutia of Cuba and the West Indies, which Chambers lists under this name.",
+     "definitionFit": "Hog rats are hutias, large Caribbean rodents, so the plural names a group of rodents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +2040,47 @@
     "text": "Perhaps reading poem Spenser’s way?",
     "enumeration": "4"
    },
-   "solution": "RODE"
+   "solution": "RODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RODE",
+    "definitions": [
+     {
+      "text": "Spenser’s way",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps reading",
+      "gives": "R",
+      "note": "reading is one of the three Rs, the basics of education"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether reading poems is the way Spenser did it.",
+     "walkthrough": "'Perhaps' signals that reading is an example of an R. Spenser was the Elizabethan poet of The Faerie Queene, whose archaic spellings Chambers records.",
+     "definitionFit": "Rode is Spenser's old spelling of road, a route or path, so it means a way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2094,67 @@
     "text": "Plain face of canine cousin once taken aback",
     "enumeration": "5"
    },
-   "solution": "ZOCCO"
+   "solution": "ZOCCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ZOCCO",
+    "definitions": [
+     {
+      "text": "Plain face",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "taken aback suggests being pulled backwards, so the joined letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "O",
+      "note": "o' is a short form of of, as in o'clock"
+     },
+     {
+      "clueFragment": "canine",
+      "gives": "C",
+      "note": "C stands for a canine tooth in dental notation"
+     },
+     {
+      "clueFragment": "cousin once",
+      "gives": "COZ",
+      "note": "coz is an old word for cousin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZOC",
+      "C",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OCCOZ",
+       "to": "ZOCCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's homely-faced cousin is startled.",
+     "walkthrough": "'Plain face of canine' reads as an ugly dog, but the definition stops at 'face'.",
+     "definitionFit": "A zocco is a socle, defined in Chambers as a plain face or plinth at the foot of a wall or column."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2168,50 @@
     "text": "Paisley’s dreary — colour lines evenly",
     "enumeration": "5"
    },
-   "solution": "OORIE"
+   "solution": "OORIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OORIE",
+    "definitions": [
+     {
+      "text": "Paisley’s dreary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "evenly picks out the letters in the even-numbered positions: second, fourth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour lines",
+      "gives": "OORIE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OORIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Paisley patterns are dull because their colour lines are evenly spaced.",
+     "walkthrough": "Paisley is a town near Glasgow, so the definition asks for a Scots word, though it pretends to be the swirly pattern.",
+     "definitionFit": "Oorie is a Scots adjective meaning dismal, dreary or eerie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Paisley's"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2225,70 @@
     "text": "Deck game with ring on deck abroad worked solidly",
     "enumeration": "9"
    },
-   "solution": "BULLOCKED"
+   "solution": "BULLOCKED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BULLOCKED",
+    "definitions": [
+     {
+      "text": "worked solidly",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad means widely scattered or astray, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deck game",
+      "gives": "BULL",
+      "note": "bull is a game played on a ship's deck by throwing pads at a marked board"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is O-shaped"
+     },
+     {
+      "clueFragment": "deck",
+      "gives": "DECK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULL",
+      "O",
+      "CKED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DECK",
+       "gives": "CKED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Passengers on a cruise ship play deck quoits overseas.",
+     "walkthrough": "'on' is a joiner: O follows BULL.",
+     "definitionFit": "To bullock is Australian slang for to work tirelessly and hard, like a draught ox."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +2302,48 @@
     "text": "Sharp-pointed steel topped tent",
     "enumeration": "4"
    },
-   "solution": "EPEE"
+   "solution": "EPEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EPEE",
+    "definitions": [
+     {
+      "text": "Sharp-pointed steel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topped",
+      "for": "deletion",
+      "note": "topped means having the top cut off, so the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tent",
+      "gives": "TEPEE",
+      "note": "a tepee is a conical tent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp steel spike stands at the top of a tent.",
+     "walkthrough": "'Steel' is a poetic word for a sword.",
+     "definitionFit": "An epee is a fencing sword with a narrow pointed blade, a weapon poetically called steel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steel"
+    }
+   }
   },
   {
    "number": 32,
@@ -525,7 +2357,73 @@
     "text": "Violent attacker is rolling, eg canned by lager?",
     "enumeration": "8"
    },
-   "solution": "BESIEGER"
+   "solution": "BESIEGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BESIEGER",
+    "definitions": [
+     {
+      "text": "Violent attacker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "rolling means turning over, so this short word is read backwards"
+     },
+     {
+      "text": "canned by",
+      "for": "container",
+      "note": "canned by means put inside a can of the drink, so the letters sit within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lager",
+      "gives": "BEER",
+      "note": "lager is a type of beer"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eg",
+      "gives": "EG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "SI",
+      "EG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A violent drunk is rolling about after too much canned lager.",
+     "walkthrough": "SIEG sits inside BEER, between its two Es.",
+     "definitionFit": "A besieger surrounds a town with an army to force its surrender, an aggressive assailant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "canned"
+    }
+   }
   }
  ]
 }
