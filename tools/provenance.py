@@ -188,6 +188,9 @@ ACQUIRED_BY = {
         "channel": "publisher", "what": "private-eye.co.uk's .puz download"},
     "tools/fetch_globeandmail.py": {
         "channel": "publisher", "what": "theglobeandmail.com's puzzle feed"},
+    "tools/fetch_times_feed.py": {
+        "channel": "publisher",
+        "what": "feeds.thetimes.co.uk, the JSON the Times's web crossword player reads"},
     "tools/fetch_observer.py": {
         "channel": "publisher",
         "what": "observer.co.uk, where the Everyman moved in 2025"},
@@ -311,6 +314,8 @@ ACQUISITION_BY_SOURCE = {
     ("sundaytel", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("sundaytough", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("globeandmail", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
+    # The Quicks the blog wrote no clues for, from the Times's own player feed.
+    ("timesquick", "feeds.thetimes.co.uk"): ("tools/fetch_times_feed.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
     ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),
