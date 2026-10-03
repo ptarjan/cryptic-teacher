@@ -2140,6 +2140,75 @@ def preamble(instructions):
     return text if re.search(r"\w\w", text) else None
 
 
+# A 2005-08 Guardian prize page printed its clues, and the special
+# instructions with them, on a separate page of the old site; the page's own
+# note keeps only a link to it ("Click here for clues and special
+# instructions") and whatever was said about the grid. A link is that page
+# when its sentence speaks of the clues and not of annotated solutions.
+LEGACY_PAGE = re.compile(r"^https?://(?:www\.)?(?:guardian\.co\.uk|theguardian\.com)(/crossword/page/\S+)$")
+
+
+def clue_page_urls(instructions):
+    """The theguardian.com URLs of the clue pages a page's note links to."""
+    out = []
+    text = instructions or ""
+    for m in re.finditer(r'<a\s[^>]*href="\s*([^"]+?)\s*"[^>]*>(.*?)</a>', text, re.I | re.S):
+        page = LEGACY_PAGE.match(m.group(1))
+        if not page:
+            continue
+        before = re.split(r"[.!?]|</a>", text[:m.start()], flags=re.I)[-1]
+        after = re.split(r"[.!?]|<a\s", text[m.end():], flags=re.I)[0]
+        said = re.sub(r"<[^>]+>", " ", before + m.group(2) + after)
+        if re.search(r"\bclues?\b", said, re.I) and not re.search(r"annotat|explanation|solutions?\b", said, re.I):
+            out.append("https://www.theguardian.com" + page.group(1))
+    return out
+
+
+def clue_page_instructions(page_html):
+    """The special instructions on an old-site clue page, as a preamble: the
+    text between the page's title (the last bold run before the clue list) and
+    the clue list, whose first bold run is "Across" or a clue's label ("1",
+    "4, 17", or "A" where the clues are listed by letter). None when the page
+    has no clue list or no note."""
+    m = re.search(r"<b>\s*(?:Across|Down|[A-Z]|\d+(?:\s*,\s*\d+)*)\s*</b>", page_html, re.I)
+    if not m:
+        return None
+    titles = list(re.finditer(r"</b>", page_html[:m.start()], re.I))
+    note = re.sub(r"(?si)<!--.*?-->|<br\s*/?>", " ", page_html[titles[-1].end():m.start()]) if titles else ""
+    return preamble(note)
+
+
+def merge_preamble(own, clue_page):
+    """The page's own note and its clue page's instructions as one preamble:
+    the note, after the instructions' sentences it does not already say. A
+    sentence is said when the note has nearly all its words: a page and its
+    clue page can word one instruction differently (cryptic-23269's counts),
+    and the note is kept as the paper last served it."""
+    if not own or not clue_page:
+        return own or clue_page
+    def words(text):
+        return set(re.findall(r"\w+", text.lower()))
+    has = words(own)
+    new = [s for s in boilerplate._sentences(clue_page)
+           if len(words(s) - has) > len(words(s)) / 5]
+    return " ".join([*new, own])
+
+
+def fetch_clue_page_instructions(instructions):
+    """The special instructions on the clue pages a page's note links to, or
+    None. A page that is gone is said and skipped: the note alone is filed."""
+    found = []
+    for url in clue_page_urls(instructions):
+        try:
+            text = clue_page_instructions(http_get(url))
+        except urllib.error.HTTPError as err:
+            print(f"WARNING: clue page {url}: HTTP {err.code}", file=sys.stderr)
+            continue
+        if text and text not in found:
+            found.append(text)
+    return " ".join(found) or None
+
+
 # Lights the SOURCE's data leaves out of the grid altogether, keyed by puzzle
 # and by the number its own clue record carries: the record is served, the
 # light (position, length, answer) is not. align_clue_records() puts it back
@@ -2361,7 +2430,10 @@ def convert(data):
         "dimensions": data["dimensions"],
         # The paper's own note above the clues: a themed puzzle's special
         # instructions. Absent when the page has none.
-        **({"preamble": pre} if (pre := preamble(data.get("instructions"))) else {}),
+        # The 2005-08 prizes kept those on a linked clue page; fetch_number
+        # reads it into cluePageInstructions.
+        **({"preamble": pre} if (pre := merge_preamble(
+            preamble(data.get("instructions")), data.get("cluePageInstructions"))) else {}),
         "source": {"url": "https://www.theguardian.com/" + data["id"]},
         "entries": entries,
     }
@@ -2798,6 +2870,7 @@ def check_not_copy(puzzle):
 def fetch_number(num):
     data = extract_crossword_data(fetch_page(num))
     check_served(num, data)
+    data["cluePageInstructions"] = fetch_clue_page_instructions(data.get("instructions"))
     if num in NUMBER_URL_FIXES:
         forced_number = NUMBER_URL_FIXES[num][1]
         if forced_number is not None:

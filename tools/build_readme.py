@@ -451,6 +451,7 @@ LAYOUT = [
     ("fetching", "tools/errata.py", "a paper's erratum is a fix to the puzzle, not a preamble"),
     ("fetching", "tools/test_errata.sh", "a paper's erratum in the preamble fixes its clue and leaves the preamble; the instructions beside it stay, and the write gate refuses one left behind"),
     ("fetching", "tools/boilerplate.py", "a preamble's publishing boilerplate is not something a solver needs"),
+    ("fetching", "tools/test_clue_page_instructions.sh", "a 2005-08 Guardian prize's special instructions are read off the old-site clue page its note links to and filed with the note"),
     ("fetching", "tools/test_boilerplate.sh", "a paper's publishing boilerplate in the preamble goes; a puzzle's instructions, tributes and kept errata stay; the write gate refuses it"),
     ("fetching", "tools/ocr_clues.py", "the clue-text OCR every scan filer shares: the readers, the vote, the check"),
     ("fetching", "tools/test_clue_record_shift.sh", "does every Guardian clue record land on the light its number names?"),
