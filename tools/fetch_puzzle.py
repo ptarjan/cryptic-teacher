@@ -2925,6 +2925,22 @@ SOURCE_CLUE_WRONG = {
         "His merchandise is measured by the fool",
         "His merchandise is measured by the foot",
         "OCR misread: the definition needs foot, as socks are sized by the foot"),
+    ("times-15552", "1-across"): (
+        "Look into detail of East- West crossing with Charlie",
+        "Look into detail of East-West crossing with Charlie",
+        "OCR misread: a stray space inside East-West"),
+    ("times-15552", "8-down"): (
+        "They start classes on west country landmarks-",
+        "They start classes on west country landmarks",
+        "OCR misread: a stray hyphen after landmarks"),
+    ("times-15552", "11-down"): (
+        "Chiaroscuro: in 'townscape?",
+        "Chiaroscuro in townscape?",
+        "OCR misread: a stray colon and apostrophe around in"),
+    ("times-15552", "12-across"): (
+        "Invites Roman copper at' 3",
+        "Invites Roman copper at 3",
+        "OCR misread: a stray apostrophe after at"),
 }
 
 
