@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Region of San Diego housing independent community",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOCIAL",
+    "definitions": [
+     {
+      "text": "community",
+      "at": 40,
+      "note": "used as an adjective, as in a community or social event"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "a building housing something holds it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Region of San Diego",
+      "gives": "SOCAL",
+      "note": "SoCal is the common short name for Southern California, where San Diego lies"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the standard abbreviation for independent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOC",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbourhood of San Diego is home to a self-governing community.",
+     "walkthrough": "SOCAL takes I into its middle to make SOCIAL.",
+     "definitionFit": "Social and community both describe things done together by people living in one area, as in a social club or a community club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "independent"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,58 @@
      }
     ]
    },
-   "solution": "SODSLAW"
+   "solution": "SODSLAW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SOD'S LAW",
+    "definitions": [
+     {
+      "text": "Something's going to go wrong!",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bottomless",
+      "for": "deletion",
+      "note": "in a down entry the bottom is the last letter, so bottomless means the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fizzy drink",
+      "gives": "SODA",
+      "note": "soda is a fizzy drink; its final letter goes"
+     },
+     {
+      "clueFragment": "salad",
+      "gives": "SLAW",
+      "note": "slaw is short for coleslaw, a cabbage salad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "SLAW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ordering a bottomless soft drink and salad, sure the meal will be a disaster.",
+     "walkthrough": "Sod's law is the British name for Murphy's law, the idea that if something can go wrong it will.",
+     "definitionFit": "The exclamation captures the gloomy maxim that whatever can go wrong will, which is exactly the principle named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bottomless"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +170,76 @@
     "text": "Location of Stow, possibly -  in the chilly South?",
     "enumeration": "9"
    },
-   "solution": "COTSWOLDS"
+   "solution": "COTSWOLDS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "COTSWOLDS",
+    "definitions": [
+     {
+      "text": "Location of Stow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints that the word may be arranged some other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chilly",
+      "gives": "COLD",
+      "note": "chilly means cold"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for South"
+     },
+     {
+      "clueFragment": "Stow",
+      "gives": "TSWO",
+      "note": "the word rearranged, placed inside the other pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "TSWO",
+      "LDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STOW",
+       "gives": "TSWO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking where Stow is: somewhere cold in the south?",
+     "walkthrough": "Stow-on-the-Wold is a market town in the Cotswolds, a hilly area of south-west England, so Stow serves both definition and wordplay.",
+     "definitionFit": "Stow-on-the-Wold is a well-known town in the Cotswolds hills of Gloucestershire, so the region is its location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chilly"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +253,51 @@
     "text": "Painful boils oddly ignored by deity",
     "enumeration": "6"
    },
-   "solution": "ANUBIS"
+   "solution": "ANUBIS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ANUBIS",
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered letters leaves only the even ones"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painful boils",
+      "gives": "ANUBIS",
+      "select": "alternate",
+      "note": "second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANUBIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A god takes no notice of someone's sore boils.",
+     "definitionFit": "Anubis is the jackal-headed Egyptian god of the dead and of mummification."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +311,58 @@
     "text": "Spanish music lover gets nachos regularly",
     "enumeration": "8"
    },
-   "solution": "FLAMENCO"
+   "solution": "FLAMENCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLAMENCO",
+    "definitions": [
+     {
+      "text": "Spanish music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "gives": "FLAME",
+      "note": "an old flame is a former lover"
+     },
+     {
+      "clueFragment": "nachos",
+      "gives": "NCO",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAME",
+      "NCO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's sweetheart treats themselves to tortilla chips every so often.",
+     "definitionFit": "Flamenco is the passionate guitar music and dance tradition of Andalusia in southern Spain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lover"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +376,44 @@
     "text": "Praise God, did you say?",
     "enumeration": "4"
    },
-   "solution": "LAUD"
+   "solution": "LAUD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LAUD",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say",
+      "for": "homophone",
+      "note": "did you say asks what was heard, so a spoken form stands in for the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "LAUD",
+      "soundsLike": "LORD",
+      "note": "the Lord is God; in a non-rhotic British accent the two words sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone checks whether they heard a call to praise God.",
+     "walkthrough": "'Praise God' reads as a single phrase, but the definition is just the first word.",
+     "definitionFit": "To laud is to praise highly, especially in formal or religious language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +427,42 @@
     "text": "They keep an eye on huge reptiles",
     "enumeration": "8"
    },
-   "solution": "MONITORS"
+   "solution": "MONITORS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MONITORS",
+    "definitions": [
+     {
+      "text": "They keep an eye on",
+      "at": 0
+     },
+     {
+      "text": "huge reptiles",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They keep an eye on",
+      "note": "first meaning: people or devices that watch over something"
+     },
+     {
+      "clueFragment": "huge reptiles",
+      "note": "second meaning: large lizards such as the Komodo dragon"
+     }
+    ],
+    "explanation": {
+     "surface": "Zookeepers watching over giant lizards.",
+     "definitionFit": "Monitors are overseers or screens that watch, and monitor lizards are a family of big reptiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eye"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +476,65 @@
     "text": "Spirit shown by chap coming up with promotion",
     "enumeration": "5"
    },
-   "solution": "NAIAD"
+   "solution": "NAIAD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAIAD",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry, coming up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "IAN",
+      "note": "a man's name standing for any chap; it is turned round"
+     },
+     {
+      "clueFragment": "promotion",
+      "gives": "AD",
+      "note": "an ad is a promotion or advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAI",
+      "AD"
+     ],
+     "reversals": [
+      {
+       "from": "IAN",
+       "to": "NAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man getting a promotion shows real spirit.",
+     "walkthrough": "'Spirit' here is not courage but a nature spirit.",
+     "definitionFit": "A naiad is a water nymph of Greek myth, a spirit living in a river, spring or lake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promotion"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +548,50 @@
     "text": "Demanding our nose gets blown",
     "enumeration": "7"
    },
-   "solution": "ONEROUS"
+   "solution": "ONEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ONEROUS",
+    "definitions": [
+     {
+      "text": "Demanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets blown",
+      "for": "anagram",
+      "note": "something blown about is scattered, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our nose",
+      "gives": "OURNOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURNOSE",
+       "gives": "ONEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy request that we blow our nose.",
+     "definitionFit": "An onerous task is burdensome and hard to do, just as a demanding one is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +605,51 @@
     "text": "Course alternatively routed",
     "enumeration": "6"
    },
-   "solution": "DETOUR"
+   "solution": "DETOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DETOUR",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternatively",
+      "for": "anagram",
+      "note": "alternatively suggests the letters can be put in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routed",
+      "gives": "ROUTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUTED",
+       "gives": "DETOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A route that has been sent a different way.",
+     "walkthrough": "The surface is almost a definition in itself, since a detour is a route sent another way.",
+     "definitionFit": "A detour is a roundabout course or path taken instead of the direct one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "routed"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +663,50 @@
     "text": "Road on which you'd pay to go off and fish",
     "enumeration": "8"
    },
-   "solution": "TURNPIKE"
+   "solution": "TURNPIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURNPIKE",
+    "definitions": [
+     {
+      "text": "Road on which you'd pay",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go off",
+      "gives": "TURN",
+      "note": "milk that goes off has turned"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "PIKE",
+      "note": "a pike is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "PIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A road where you pay a fee so you can head out angling.",
+     "walkthrough": "'Go off' reads as setting out, but it means to spoil, as milk turns sour.",
+     "definitionFit": "A turnpike is a toll road, chiefly American usage today, where drivers pay a fee to travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +720,39 @@
     "text": "As drunk as a fish?",
     "enumeration": "7"
    },
-   "solution": "LEGLESS"
+   "solution": "LEGLESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEGLESS",
+    "definitions": [
+     {
+      "text": "As drunk as a fish?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As drunk as a fish?",
+      "note": "surface reading: a simile for being extremely intoxicated, like drunk as a lord"
+     },
+     {
+      "clueFragment": "a fish",
+      "note": "setter's reading: a fish has no limbs at all, and British slang for very drunk means just that"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British slang a person too drunk to stand is said to have no legs; fish literally have none.",
+     "definitionFit": "Legless is British slang for extremely drunk, and also literally describes a creature without limbs, such as a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +766,71 @@
     "text": "One such as Moses with peculiar wig covered in seaweed",
     "enumeration": "8"
    },
-   "solution": "LAWGIVER"
+   "solution": "LAWGIVER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LAWGIVER",
+    "definitions": [
+     {
+      "text": "One such as Moses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "something peculiar is odd or out of the ordinary, so the letters are rearranged"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "being covered in something means being wrapped inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wig",
+      "gives": "WIG",
+      "note": "taken as written before rearrangement"
+     },
+     {
+      "clueFragment": "seaweed",
+      "gives": "LAVER",
+      "note": "laver is an edible seaweed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "WGI",
+      "VER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WIG",
+       "gives": "WGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prophet in a strange hairpiece draped with seaweed, perhaps after parting the sea.",
+     "walkthrough": "Laver is the seaweed used in Welsh laverbread; 'peculiar' looks like it describes the wig's appearance but is the anagram signal.",
+     "definitionFit": "Moses brought the Ten Commandments down from Sinai, so he is the classic example of a lawgiver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wig"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +844,53 @@
     "text": "Academic rejects American films made here",
     "enumeration": "6"
    },
-   "solution": "STUDIO"
+   "solution": "STUDIO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUDIO",
+    "definitions": [
+     {
+      "text": "films made here",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejects",
+      "for": "deletion",
+      "note": "to reject something is to throw it out, so letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic",
+      "gives": "STUDIOUS",
+      "note": "an academic, bookish person is studious"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUDIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar turns down Hollywood's output.",
+     "walkthrough": "'Academic' looks like a noun for a person, but it is the adjective studious; removing US leaves STUDIO.",
+     "definitionFit": "A film studio is the company and premises where movies are shot and produced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Academic"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +904,50 @@
     "text": "Nothing is changing for egg producers",
     "enumeration": "7"
    },
-   "solution": "OVARIES"
+   "solution": "OVARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVARIES",
+    "definitions": [
+     {
+      "text": "egg producers",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, so it stands for nothing"
+     },
+     {
+      "clueFragment": "is changing",
+      "gives": "VARIES",
+      "note": "something that is changing varies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing alters for the hens laying eggs.",
+     "walkthrough": "'Is changing' looks like an anagram signal, but it simply supplies a synonym.",
+     "definitionFit": "Ovaries are the female reproductive organs in which egg cells are produced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +961,44 @@
     "text": "You and I are going to be in good health",
     "enumeration": "4"
    },
-   "solution": "WELL"
+   "solution": "WELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELL",
+    "definitions": [
+     {
+      "text": "in good health",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and I are going to",
+      "gives": "WELL",
+      "note": "you and I are we, and are going to is will, so this is the two-word contraction of we will with its apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful promise that both of us will get better.",
+     "walkthrough": "Crosswords ignore apostrophes, so WE'LL and WELL are the same letters.",
+     "definitionFit": "Being well means healthy and not ill, as in asking someone whether they feel fine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1012,64 @@
     "text": "Guile demonstrated by cold and nerveless criminal",
     "enumeration": "10"
    },
-   "solution": "CLEVERNESS"
+   "solution": "CLEVERNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CLEVERNESS",
+    "definitions": [
+     {
+      "text": "Guile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something bent or crooked, so the letters are twisted out of order"
+     }
+    ],
+    "linkWords": [
+     "demonstrated by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "nerveless",
+      "gives": "LEVERNESS",
+      "note": "the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVERNESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NERVELESS",
+       "gives": "LEVERNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calm, icy crook shows great cunning.",
+     "walkthrough": "'Criminal' looks like a noun for the cool customer, but it is the anagram signal applied to nerveless.",
+     "definitionFit": "Guile is crafty intelligence, and cleverness covers that sense of being sharp and cunning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1083,55 @@
     "text": "Carrying out river excavation, core removed",
     "enumeration": "9"
    },
-   "solution": "EXECUTING"
+   "solution": "EXECUTING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXECUTING",
+    "definitions": [
+     {
+      "text": "Carrying out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core removed",
+      "for": "deletion",
+      "note": "the core is the centre, so the middle letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, south-west England"
+     },
+     {
+      "clueFragment": "excavation",
+      "gives": "CUTTING",
+      "note": "a cutting is a channel dug through ground for a road or railway; its middle letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "CUTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers digging out a riverbed, with the central section taken away.",
+     "walkthrough": "CUTTING has seven letters, so its core is the fourth, a T.",
+     "definitionFit": "Executing a plan means carrying it out or putting it into effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excavation"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1151,53 @@
      }
     ]
    },
-   "solution": "FRUITBAT"
+   "solution": "FRUITBAT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FRUIT BAT",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "Spooner famously swapped the opening sounds of words, so the starts of two words trade places"
+     }
+    ],
+    "linkWords": [
+     "yielding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beastly blubber",
+      "gives": "FRUITBAT",
+      "soundsLike": "BRUTE FAT",
+      "note": "beastly suggests brute and blubber is fat; swapping their first sounds gives the result"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRUITBAT"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal that produces disgusting fat.",
+     "walkthrough": "Swap BR and F between BRUTE FAT to get FRUIT BAT.",
+     "definitionFit": "A fruit bat is a large bat that feeds on fruit, so it is a kind of creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1217,44 @@
      }
     ]
    },
-   "solution": "LASTRESORT"
+   "solution": "LASTRESORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST RESORT",
+    "definitions": [
+     {
+      "text": "The cruise finishes here",
+      "at": 0
+     },
+     {
+      "text": "there's nothing left to try",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The cruise finishes here",
+      "note": "first meaning, read literally: the final holiday resort a cruise ship calls at"
+     },
+     {
+      "clueFragment": "there's nothing left to try",
+      "note": "second meaning: the only option remaining when all else has failed"
+     }
+    ],
+    "explanation": {
+     "surface": "A weary traveller at the end of a voyage admits defeat.",
+     "walkthrough": "The first half splits the phrase into its plain words: the final seaside resort on the itinerary.",
+     "definitionFit": "A last resort is the final course of action open to someone once every other attempt has failed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1268,62 @@
     "text": "A romance I arranged with Alison",
     "enumeration": "7"
    },
-   "solution": "LIAISON"
+   "solution": "LIAISON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIAISON",
+    "definitions": [
+     {
+      "text": "A romance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put in a particular order, so the letters are set out anew"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Alison",
+      "gives": "ALISON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIAISON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IALISON",
+       "gives": "LIAISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confessing they set up a love affair with Alison.",
+     "walkthrough": "'A romance' begins the clue as though it were the subject; with its article it is the definition.",
+     "definitionFit": "A liaison is a secret or illicit love affair between two people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1337,64 @@
     "text": "Star, very mature, making a comeback",
     "enumeration": "4"
    },
-   "solution": "VEGA"
+   "solution": "VEGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VEGA",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means travelling in the opposite direction, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to mature is to age; this piece is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EGA"
+     ],
+     "reversals": [
+      {
+       "from": "AGE",
+       "to": "EGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing celebrity staging a return to the limelight.",
+     "walkthrough": "'Star' suggests a celebrity, which the comeback supports, but it is a star in the sky.",
+     "definitionFit": "Vega is the brightest star in the constellation Lyra and one of the brightest in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1408,47 @@
     "text": "Might it remove brilliant colour?",
     "enumeration": "7"
    },
-   "solution": "ACETONE"
+   "solution": "ACETONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "ACETONE",
+    "definitions": [
+     {
+      "text": "Might it remove brilliant colour?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brilliant",
+      "gives": "ACE",
+      "note": "ace means brilliant or excellent"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "TONE",
+      "note": "a tone is a shade or colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what would strip off bright paint or polish.",
+     "walkthrough": "The whole clue also defines: acetone is the solvent in nail polish remover, which takes bright colour off.",
+     "definitionFit": "Acetone is a strong solvent used in nail varnish remover and paint stripper to dissolve coloured coatings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1462,64 @@
     "text": "One skins up to get unconscious",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "unconscious",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one, as in a single thing"
+     },
+     {
+      "clueFragment": "skins",
+      "gives": "PEELS",
+      "note": "to skin fruit is to peel it; this piece is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SLEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEELS",
+       "to": "SLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rolls a joint to get knocked out.",
+     "walkthrough": "'Skins up' is slang for rolling a cannabis joint, but here the two words are split.",
+     "definitionFit": "Someone asleep is in a state of sleep and so not conscious of their surroundings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skins"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1539,49 @@
      }
     ]
    },
-   "solution": "AUPAIR"
+   "solution": "AUPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AU PAIR",
+    "definitions": [
+     {
+      "text": "home-help",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golden",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "PAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A glamorous celebrity couple supply domestic help.",
+     "definitionFit": "An au pair is a young foreign person who lives with a family and helps with childcare and housework."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Golden"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1595,70 @@
     "text": "That's the point of spin - no flipping good",
     "enumeration": "5"
    },
-   "solution": "PRONG"
+   "solution": "PRONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PRONG",
+    "definitions": [
+     {
+      "text": "That's the point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word is read the other way round"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spin",
+      "gives": "PR",
+      "note": "PR, public relations, is the business of spin"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "ON",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that public-relations spin is no blooming use.",
+     "walkthrough": "'Flipping' reads as a mild British swear word, but it is the reversal signal.",
+     "definitionFit": "A prong is a pointed tine of a fork, so it is literally a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1672,50 @@
     "text": "Once more adopt desperate measures",
     "enumeration": "8"
    },
-   "solution": "REASSUME"
+   "solution": "REASSUME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REASSUME",
+    "definitions": [
+     {
+      "text": "Once more adopt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "something desperate is wild and reckless, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "measures",
+      "gives": "MEASURES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEASURES",
+       "gives": "REASSUME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Resorting again to drastic steps.",
+     "definitionFit": "To reassume is to take up again, so it matches adopting a role or position a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1729,41 @@
     "text": "Crystalline compound extracted from cure-all",
     "enumeration": "4"
    },
-   "solution": "UREA"
+   "solution": "UREA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UREA",
+    "definitions": [
+     {
+      "text": "Crystalline compound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted from",
+      "for": "hidden_word",
+      "note": "something extracted from a word is drawn out of the inside of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cure-all",
+      "gives": "UREA",
+      "note": "the letters run inside the hyphenated word"
+     }
+    ],
+    "explanation": {
+     "surface": "A chemical drawn from a miracle remedy.",
+     "definitionFit": "Urea is a colourless crystalline nitrogen compound found in urine and used in fertilisers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1777,61 @@
     "text": "Dribbling burglar, not the first apprehended by cunning",
     "enumeration": "8"
    },
-   "solution": "SLOBBERY"
+   "solution": "SLOBBERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SLOBBERY",
+    "definitions": [
+     {
+      "text": "Dribbling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter of the word is dropped"
+     },
+     {
+      "text": "apprehended by",
+      "for": "container",
+      "note": "someone apprehended is caught and held, so this piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cunning",
+      "gives": "SLY",
+      "note": "sly means cunning; it goes around the other piece"
+     },
+     {
+      "clueFragment": "burglar",
+      "gives": "ROBBER",
+      "note": "a burglar is a robber; its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "OBBER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A drooling housebreaker is caught by a crafty detective.",
+     "walkthrough": "'Cunning' sits at the end looking like a description of the burglar, but it is the outer shell of the answer.",
+     "definitionFit": "Slobbery describes something wet with saliva, so a slobbery mouth is one that is drooling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "apprehended"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1845,41 @@
     "text": "Sheep kept by farmer in outhouse",
     "enumeration": "6"
    },
-   "solution": "MERINO"
+   "solution": "MERINO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERINO",
+    "definitions": [
+     {
+      "text": "Sheep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept by",
+      "for": "hidden_word",
+      "note": "something kept by the following words is held within them, so the letters run across those words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farmer in outhouse",
+      "gives": "MERINO",
+      "note": "the letters run across the end of the first word, the middle word and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer keeps a sheep in a shed.",
+     "definitionFit": "The merino is a breed of sheep prized for its fine, soft wool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1893,39 @@
     "text": "Last drink which could go to your head",
     "enumeration": "8"
    },
-   "solution": "NIGHTCAP"
+   "solution": "NIGHTCAP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NIGHTCAP",
+    "definitions": [
+     {
+      "text": "Last drink which could go to your head",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last drink which could go to your head",
+      "note": "surface reading: the final alcoholic drink of the evening, strong enough to make you tipsy"
+     },
+     {
+      "clueFragment": "could go to your head",
+      "note": "setter's reading: the word also names a soft hat worn in bed, which literally goes on your head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go to your head' is the idiom for alcohol making you dizzy, and also the literal place a bedtime hat sits.",
+     "definitionFit": "A nightcap is both an alcoholic drink taken just before bed and a cloth cap formerly worn while sleeping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 30,
@@ -491,7 +1939,49 @@
     "text": "A planetoid's orbit getting excessively extended, primarily here?",
     "enumeration": "6"
    },
-   "solution": "APOGEE"
+   "solution": "APOGEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "APOGEE",
+    "definitions": [
+     {
+      "text": "A planetoid's orbit getting excessively extended, primarily here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily suggests first of all, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A planetoid's orbit getting excessively extended",
+      "gives": "APOGEE",
+      "select": "first",
+      "note": "the initial letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APOGEE"
+     ]
+    },
+    "explanation": {
+     "surface": "An astronomer asking where an orbiting body strays farthest.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the point where an orbit is most stretched out.",
+     "definitionFit": "The apogee is the point in an orbit farthest from the body being circled, where the path is most extended."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
