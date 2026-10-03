@@ -1299,6 +1299,8 @@ tools/ocr_clues.py                           the clue-text OCR every scan filer 
                                              readers, the vote, the check
 tools/test_clue_record_shift.sh              does every Guardian clue record land on the light
                                              its number names?
+tools/test_shared_continuation.sh            does a light whose clue names two leaders end both
+                                             answers?
 tools/ocr_full_pass.sh                       read every Trove article and archive.org edition
                                              the scan filers have not read yet, to the end,
                                              then stop
