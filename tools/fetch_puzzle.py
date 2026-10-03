@@ -1889,6 +1889,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17725", "1-down"): (
+        "A's one — Al",
+        "A's one — A1",
+        "OCR misread: the second definition is A1, first-rate, not the name Al"),
+    ("times-17725", "20-down"): (
+        "Curious s about, say、, a floral collection",
+        "Curious about, say, a floral collection",
+        "OCR misread: the wordplay needs nosy about 'say' and 'a', with no stray s"),
     ("times-17717", "3-down"): (
         "Submission for honour in case review is required 19).",
         "Submission for honour in case review is required",
