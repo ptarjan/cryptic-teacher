@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "I’m at Alabama city and I’m not moving",
     "enumeration": "8"
    },
-   "solution": "IMMOBILE"
+   "solution": "IMMOBILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMMOBILE",
+    "definitions": [
+     {
+      "text": "not moving",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "at",
+     "and I’m"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "Alabama city",
+      "gives": "MOBILE",
+      "note": "Mobile is a port city in Alabama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MOBILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller stuck in an Alabama city declares they are going nowhere.",
+     "walkthrough": "The surface puts the speaker in a city; cryptically 'I'm' sits right at the city's name, and the clue ends by describing the result.",
+     "definitionFit": "Something immobile is stationary, fixed in place and unable to move about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "city"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,50 @@
     "text": "Dolly’s role, performing",
     "enumeration": "6"
    },
-   "solution": "PARTON"
+   "solution": "PARTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTON",
+    "definitions": [
+     {
+      "text": "Dolly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's role is a part"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment on the part Dolly plays while she is on stage.",
+     "walkthrough": "'Dolly’s' reads as Dolly is: the definition followed by a joining verb.",
+     "definitionFit": "Dolly Parton is the famous American country singer, so her surname answers to her first name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dolly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,72 @@
     "text": "After riot her moving, initially calm, speech",
     "enumeration": "8"
    },
-   "solution": "RHETORIC"
+   "solution": "RHETORIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RHETORIC",
+    "definitions": [
+     {
+      "text": "speech",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving get shifted out of their printed order"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word that follows"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "After places the chosen letter behind the rearranged group in the final answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "riot her",
+      "gives": "RHETORI",
+      "note": "these seven letters rearranged"
+     },
+     {
+      "clueFragment": "calm",
+      "gives": "C",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHETORI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIOTHER",
+       "gives": "RHETORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call for calm speeches after a woman's riot has stirred things up.",
+     "definitionFit": "Rhetoric is the art of persuasive speaking, and by extension a speech or pompous language itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,47 @@
     "text": "For this study several years, or sixty minutes",
     "enumeration": "6"
    },
-   "solution": "DEGREE"
+   "solution": "DEGREE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEGREE",
+    "definitions": [
+     {
+      "text": "For this study several years",
+      "at": 0
+     },
+     {
+      "text": "sixty minutes",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For this study several years",
+      "note": "first meaning: a university qualification earned over years of study"
+     },
+     {
+      "clueFragment": "sixty minutes",
+      "note": "second meaning: a unit of angle divided into sixty minutes of arc"
+     }
+    ],
+    "explanation": {
+     "surface": "Weighing a long course of study against a single hour.",
+     "walkthrough": "'Sixty minutes' looks like an hour of clock time, but angles are also divided into minutes.",
+     "definitionFit": "A university qualification takes years of study, and an angular unit contains sixty arc minutes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minutes"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +284,59 @@
     "text": "Marsupial’s origin? Australian territory, principally",
     "enumeration": "6"
    },
-   "solution": "WOMBAT"
+   "solution": "WOMBAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WOMBAT",
+    "definitions": [
+     {
+      "text": "Marsupial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means taking the leading letters of the preceding words"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "origin",
+      "gives": "WOMB",
+      "note": "the womb is where life originates"
+     },
+     {
+      "clueFragment": "Australian territory",
+      "gives": "AT",
+      "select": "first",
+      "note": "first letters of both words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOMB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking where a marsupial comes from and answering with an Australian territory.",
+     "walkthrough": "'Marsupial’s' reads as marsupial is, joining definition to wordplay.",
+     "definitionFit": "The wombat is a burrowing Australian animal that carries its young in a pouch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "origin"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +350,41 @@
     "text": "Two rhymes for say ‘ambush’",
     "enumeration": "6"
    },
-   "solution": "WAYLAY"
+   "solution": "WAYLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAYLAY",
+    "definitions": [
+     {
+      "text": "ambush",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two rhymes for say",
+      "gives": "WAYLAY",
+      "note": "two words that rhyme with say: way and lay, joined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAYLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rhyming exercise: find two rhymes for the word say.",
+     "walkthrough": "The quotation marks make 'ambush' look like the word to be rhymed, but it is the definition.",
+     "definitionFit": "To waylay someone is to lie in wait and stop or attack them unexpectedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +398,57 @@
     "text": "Walk round hospital to get suture",
     "enumeration": "6"
    },
-   "solution": "THREAD"
+   "solution": "THREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THREAD",
+    "definitions": [
+     {
+      "text": "suture",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says one word wraps itself about another"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walk",
+      "gives": "TREAD",
+      "note": "to tread is to walk"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map symbol for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "READ"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient strolls about the hospital to have stitches done.",
+     "definitionFit": "Surgeons close wounds with stitching material, so a suture is a length of surgical thread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Walk"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +462,50 @@
     "text": "Daughter putting topping on cake and cutting it up?",
     "enumeration": "6"
    },
-   "solution": "DICING"
+   "solution": "DICING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DICING",
+    "definitions": [
+     {
+      "text": "cutting it up",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "putting",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "topping on cake",
+      "gives": "ICING",
+      "note": "the sugary coating on top of a cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ICING"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter ices a cake and then slices it.",
+     "definitionFit": "Dicing food means chopping it into small cubes, a particular kind of cutting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +529,50 @@
      }
     ]
    },
-   "solution": "SHOWOFHANDS"
+   "solution": "SHOWOFHANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOW OF HANDS",
+    "definitions": [
+     {
+      "text": "informal vote",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appearance",
+      "gives": "SHOW",
+      "note": "a show is an appearance"
+     },
+     {
+      "clueFragment": "Workers’",
+      "gives": "OFHANDS",
+      "note": "hands are workers; the possessive is read as 'of'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOW",
+      "OFHANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers turn up in order to hold a quick vote.",
+     "walkthrough": "The apostrophe in 'Workers’' turns into the word 'of', so the two pieces swap round.",
+     "definitionFit": "Raising hands to be counted is a quick, unofficial way of taking a ballot at a meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appearance"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +592,43 @@
      }
     ]
    },
-   "solution": "MYFOOT"
+   "solution": "MYFOOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MY FOOT",
+    "definitions": [
+     {
+      "text": "What’s in this shoe?",
+      "at": 0
+     },
+     {
+      "text": "I don’t believe it!",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What’s in this shoe?",
+      "note": "first meaning: literally the body part belonging to me inside my footwear"
+     },
+     {
+      "clueFragment": "I don’t believe it!",
+      "note": "second meaning: an exclamation of scornful disbelief"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is taken literally, the second is the idiom.",
+     "definitionFit": "The phrase is a colloquial retort rejecting a claim, and literally names a part of the speaker's body in a shoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shoe"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +648,40 @@
      }
     ]
    },
-   "solution": "HATTRICK"
+   "solution": "HATTRICK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HAT TRICK",
+    "definitions": [
+     {
+      "text": "Rare event in field that may involve a couple of ducks",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rare event in field",
+      "note": "surface reading: something unusual happening out in the countryside"
+     },
+     {
+      "clueFragment": "a couple of ducks",
+      "note": "setter's reading: in cricket a duck is a score of nought, so two batters out for nothing in successive balls"
+     }
+    ],
+    "explanation": {
+     "surface": "A rare sighting in a meadow involving a pair of waterfowl.",
+     "walkthrough": "In cricket a bowler taking wickets with three consecutive balls achieves a hat-trick, and new batters dismissed first ball score a duck (nought).",
+     "definitionFit": "Three wickets from three successive deliveries is a rare feat, and the dismissed batters may well score nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +695,43 @@
     "text": "The country of Somalia?",
     "enumeration": "4"
    },
-   "solution": "MALI"
+   "solution": "MALI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MALI",
+    "definitions": [
+     {
+      "text": "The country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken out of, a part found inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somalia",
+      "gives": "MALI",
+      "note": "the middle four letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking which nation Somalia is.",
+     "walkthrough": "It reads as a geography question about Somalia; the question mark warns the country is literally inside the name.",
+     "definitionFit": "Mali is a landlocked nation in West Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +751,58 @@
      }
     ]
    },
-   "solution": "NEWORLEANS"
+   "solution": "NEWORLEANS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEW ORLEANS",
+    "definitions": [
+     {
+      "text": "The port",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "?",
+      "gives": "NEW",
+      "note": "the question mark asks for a fresh, made-over version of the town's name, and the answer announces it is one"
+     },
+     {
+      "clueFragment": "Salerno",
+      "gives": "SALERNO",
+      "note": "the Italian town's name, whose letters are to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "ORLEANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SALERNO",
+       "gives": "ORLEANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the harbour of the Italian city Salerno.",
+     "walkthrough": "The anagram signal is in the answer itself: ORLEANS is a new arrangement of SALERNO, so the port is 'new Orleans'. The question mark flags this trick.",
+     "definitionFit": "New Orleans is a major Mississippi river port in Louisiana in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Salerno"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +816,50 @@
     "text": "Fierce cat: it chewed an official document",
     "enumeration": "11"
    },
-   "solution": "CERTIFICATE"
+   "solution": "CERTIFICATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CERTIFICATE",
+    "definitions": [
+     {
+      "text": "an official document",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewed",
+      "for": "anagram",
+      "note": "something chewed is mangled out of its original shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fierce cat: it",
+      "gives": "FIERCECATIT",
+      "note": "the eleven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIERCECATIT",
+       "gives": "CERTIFICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage cat has chewed up an important document.",
+     "definitionFit": "A certificate is a formal paper attesting to a fact, such as a birth or qualification."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chewed"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +879,49 @@
      }
     ]
    },
-   "solution": "TOYSTORY"
+   "solution": "TOYSTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOY STORY",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plays",
+      "gives": "TOYS",
+      "note": "to toy with something is to play with it"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "TORY",
+      "note": "the Tories are Britain's Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOYS",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of entertainments: a film, some plays and a party.",
+     "definitionFit": "Toy Story is the 1995 Pixar animated feature about living toys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +941,61 @@
      }
     ]
    },
-   "solution": "THEBENDS"
+   "solution": "THEBENDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THE BENDS",
+    "definitions": [
+     {
+      "text": "Sickness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from centre",
+      "for": "letter_selection",
+      "note": "away from centre means discarding the middle and keeping only the ends"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one group of letters inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egyptian city once",
+      "gives": "THEBES",
+      "note": "Thebes was a capital of ancient Egypt"
+     },
+     {
+      "clueFragment": "noted",
+      "gives": "ND",
+      "select": "outer",
+      "note": "its outer letters only"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEBE",
+      "ND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An illness recorded somewhere outside the centre of an ancient Egyptian city.",
+     "definitionFit": "Decompression sickness suffered by divers who surface too quickly is known colloquially by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noted"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1009,39 @@
     "text": "Mendelssohn’s caveman?",
     "enumeration": "6"
    },
-   "solution": "FINGAL"
+   "solution": "FINGAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FINGAL",
+    "definitions": [
+     {
+      "text": "Mendelssohn’s caveman?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mendelssohn’s caveman?",
+      "note": "surface reading: a prehistoric cave dweller somehow linked to the composer"
+     },
+     {
+      "clueFragment": "caveman",
+      "note": "setter's reading: the legendary hero after whom the Hebridean cave in Mendelssohn's Hebrides overture is named"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mendelssohn's Hebrides overture is also called Fingal's Cave, after a sea cave on Staffa named for the Celtic hero.",
+     "definitionFit": "The cave celebrated in the overture belongs, by name, to the mythical giant Fingal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "caveman"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1055,49 @@
     "text": "Better years for glad rags",
     "enumeration": "6"
    },
-   "solution": "FINERY"
+   "solution": "FINERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINERY",
+    "definitions": [
+     {
+      "text": "glad rags",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "FINER",
+      "note": "finer means better"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Better times ahead call for dressing up in smart clothes.",
+     "definitionFit": "Glad rags is informal for one's best clothes, and finery is showy elegant dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1111,54 @@
     "text": "Deny island is to be converted into theme park",
     "enumeration": "10"
    },
-   "solution": "DISNEYLAND"
+   "solution": "DISNEYLAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISNEYLAND",
+    "definitions": [
+     {
+      "text": "theme park",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "converted means changed into a different form"
+     }
+    ],
+    "linkWords": [
+     "is to be",
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deny island",
+      "gives": "DENYISLAND",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENYISLAND",
+       "gives": "DISNEYLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official denies that an island will be turned into an amusement resort.",
+     "definitionFit": "Disneyland is the famous Californian amusement park built around Disney characters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deny"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1172,55 @@
     "text": "Time to drop into unpretentious local",
     "enumeration": "6"
    },
-   "solution": "NATIVE"
+   "solution": "NATIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NATIVE",
+    "definitions": [
+     {
+      "text": "local",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drop into",
+      "for": "container",
+      "note": "to drop into means to fall inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpretentious",
+      "gives": "NAIVE",
+      "note": "naive means artless and unsophisticated"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "It's time to pop into a down-to-earth neighbourhood pub.",
+     "walkthrough": "'Local' suggests a British pub, but here it is a noun for a resident of a place.",
+     "definitionFit": "A native is someone born in a place, which is what calling someone a local means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "local"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1234,54 @@
     "text": "Rule at Christmas? Stop scratching!",
     "enumeration": "6"
    },
-   "solution": "DECLAW"
+   "solution": "DECLAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECLAW",
+    "definitions": [
+     {
+      "text": "Stop scratching!",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at",
+      "for": "charade",
+      "note": "at says one word stands next to another, here with it following on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "DEC",
+      "note": "Christmas falls in December, abbreviated"
+     },
+     {
+      "clueFragment": "Rule",
+      "gives": "LAW",
+      "note": "a law is a rule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "LAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A seasonal regulation ordering someone to quit scratching.",
+     "walkthrough": "The month abbreviation comes first, so read 'Rule at Christmas' as the rule positioned after it.",
+     "definitionFit": "Declawing a cat removes its claws, which stops it from clawing furniture or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Christmas"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1295,42 @@
     "text": "A sign to leave the auditorium",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXIT",
+    "definitions": [
+     {
+      "text": "A sign",
+      "at": 0
+     },
+     {
+      "text": "to leave the auditorium",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A sign",
+      "note": "first meaning: the lit notice marking a way out of a building"
+     },
+     {
+      "clueFragment": "to leave the auditorium",
+      "note": "second meaning: to go out, as an actor does in a stage direction"
+     }
+    ],
+    "explanation": {
+     "surface": "A notice telling the audience to go out of the theatre.",
+     "definitionFit": "The word is both the notice above a doorway and the verb for departing a stage or room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1344,62 @@
     "text": "A fool and an unruly youth become troubled",
     "enumeration": "8"
    },
-   "solution": "AGITATED"
+   "solution": "AGITATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGITATED",
+    "definitions": [
+     {
+      "text": "troubled",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and",
+     "become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "GIT",
+      "note": "a git is a British slang word for a fool"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "unruly youth",
+      "gives": "TED",
+      "note": "a Ted, or Teddy boy, was a 1950s British rebellious youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIT",
+      "A",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool and a teenage tearaway get themselves into a state.",
+     "definitionFit": "Being agitated means feeling anxious, disturbed and nervously upset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "youth"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1413,53 @@
     "text": "Intelligent means of applying pressure to Conservative",
     "enumeration": "6"
    },
-   "solution": "CLEVER"
+   "solution": "CLEVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEVER",
+    "definitions": [
+     {
+      "text": "Intelligent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "to here means attached onto, so one part joins the end of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "means of applying pressure",
+      "gives": "LEVER",
+      "note": "a lever is a bar used to apply force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd way to put the squeeze on a Tory politician.",
+     "definitionFit": "Clever and intelligent are synonyms for being quick-witted and bright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1473,49 @@
     "text": "Uniform not recorded by railway",
     "enumeration": "6"
    },
-   "solution": "LIVERY"
+   "solution": "LIVERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIVERY",
+    "definitions": [
+     {
+      "text": "Uniform",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not recorded",
+      "gives": "LIVE",
+      "note": "a live broadcast is not prerecorded"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about a railway's dress code that nobody wrote down.",
+     "definitionFit": "Livery is the distinctive clothing worn by servants or staff, a form of uniform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uniform"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1529,56 @@
     "text": "After time children’s author is cheap",
     "enumeration": "6"
    },
-   "solution": "TAWDRY"
+   "solution": "TAWDRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAWDRY",
+    "definitions": [
+     {
+      "text": "cheap",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "After puts the following item behind the one named second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "children’s author",
+      "gives": "AWDRY",
+      "note": "the Rev W. Awdry wrote the Thomas the Tank Engine books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AWDRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Over time, a writer of children's books has come to seem tacky.",
+     "definitionFit": "Tawdry describes showy goods of poor quality, gaudy and cheaply made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   }
  ]
 }
