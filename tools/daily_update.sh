@@ -468,7 +468,7 @@ import json, subprocess, sys
 sys.path.insert(0, "tools")
 import provenance
 import datetime
-from series import puzzle_day
+from series import puzzle_day, is_first_issue
 idx = json.load(open("puzzles/index.json"))
 blocked = set(sys.argv[2].split())
 cutoff = datetime.date.today() - datetime.timedelta(days=2)
@@ -499,10 +499,12 @@ todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzl
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
-# A partly annotated puzzle costs only its missing clues, so it leads the rest.
+# A series' first puzzle leads the rest (Paul, 2026-10-02: "Puzzle 1 is a
+# special puzzle"), then a partly annotated one, which costs only its missing
+# clues.
 partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
 older = sorted((i for _, i in todo if i not in fresh),
-               key=lambda i: (i not in partial, partial.get(i, 0)))
+               key=lambda i: (not is_first_issue(i), i not in partial, partial.get(i, 0)))
 print(" ".join(fresh))
 print(" ".join(older[:int(sys.argv[1])]))
 EOF
@@ -556,7 +558,7 @@ unsolved=$(python3 - "$SOLVE_MAX" "$solve_blocked" <<'EOF'
 import json, sys
 sys.path.insert(0, "tools")
 import datetime
-from series import puzzle_day
+from series import puzzle_day, is_first_issue
 limit, tried = int(sys.argv[1]), set(sys.argv[2].split())
 idx = json.load(open("puzzles/index.json"))
 unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
@@ -585,10 +587,12 @@ if unreadable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"
                       for i in sorted(unreadable)), file=sys.stderr)
-todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzles"]
+# A series' first puzzle goes ahead of the newest-first order.
+todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["id"])
+               for p in idx["puzzles"]
                if p["id"] in unsolved_ids and p["id"] not in unreadable
                and p["id"] not in tried), reverse=True)
-print(" ".join(i for _, i in todo[:limit]))
+print(" ".join(i for *_, i in todo[:limit]))
 EOF
 )
 # How many of both queues are held out on a recorded failure, so the log says

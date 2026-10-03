@@ -297,6 +297,12 @@ tools/coverage_report.py                     counts what we hold of every series
                                              or are full of holes
 tools/extend_archive.py                      walks the archives backwards to keep the
                                              annotation queue deeper than the job's best week
+tools/first_issue.py                         asks each series' source for its No 1 on every run
+                                             while we lack it, and says where it looked when
+                                             that fails
+tools/test_first_issue.sh                    runs first_issue.py's self-test: a row in SOURCES
+                                             for every series with a first issue, and a 404
+                                             reported with where it looked
 tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as a corpus to be
                                              measured against
 tools/recover_minutecryptic.py               refills days that capture missed from Minute
