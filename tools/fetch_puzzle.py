@@ -1889,6 +1889,62 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("telegraph-18339", "1-across"): (
+        "A fruitful, cause, rejected with reserve",
+        "A fruit course rejected with reserve",
+        "OCR misread: the wordplay needs fruit course, a fool, reversed after A"),
+    ("telegraph-18339", "2-down"): (
+        "Twisty sort of, fellow, took . one in, then acted nobly",
+        "Twisty sort of fellow took one in, then acted nobly",
+        "OCR misread: stray commas and a stray full stop"),
+    ("telegraph-18339", "18-down"): (
+        "The borders of kilts, for ex example, for street wear?",
+        "The borders of kilts, for example, for street wear?",
+        "OCR misread: a duplicated ex before example"),
+    ("telegraph-18339", "19-across"): (
+        "Canvasser who naturally .worked for a 19th-century French school",
+        "Canvasser who naturally worked for a 19th-century French school",
+        "OCR misread: a stray full stop before worked"),
+    ("telegraph-18339", "21-across"): (
+        "In Test, e.g., how many score a century?\"",
+        "In Test, e.g., how many score a century?",
+        "OCR misread: a stray closing quotation mark"),
+    ("telegraph-18339", "22-across"): (
+        "Dusty treatment of a tip from. Steve Davis?",
+        "Dusty treatment of a tip from Steve Davis?",
+        "OCR misread: a stray full stop after from"),
+    ("ftcryptic-7261", "8-down"): (
+        "Advice note can change ' prior announcement (7.8) ' -",
+        "Advice note can change prior announcement",
+        "OCR misread: stray quotes, dash and a duplicated count"),
+    ("ftcryptic-7261", "18-across"): (
+        "Insensitive one; for example. -, displays no hesitation",
+        "Insensitive one, for example, displays no hesitation",
+        "OCR misread: stray punctuation around for example"),
+    ("ftcryptic-7261", "19-down"): (
+        "Strikes that doa't come off?",
+        "Strikes that don't come off?",
+        "OCR misread: the wordplay needs don't"),
+    ("times-16103", "13-across"): (
+        "Appointment 2as Minister to make speech about noise",
+        "Appointment as Minister to make speech about noise",
+        "OCR misread: a stray 2 before as"),
+    ("times-16103", "16-down"): (
+        "3 Boy in bus makes dirge for Derby winner",
+        "Boy in bus makes dirge for Derby winner",
+        "OCR misread: a stray 3 before Boy"),
+    ("times-16103", "6-down"): (
+        "Exclamation of a.heartless 17",
+        "Exclamation of a heartless 17",
+        "OCR misread: a stray full stop between a and heartless"),
+    ("times-16103", "12-across"): (
+        "Circus  performer  with an impressive act indeed?",
+        "Circus performer with an impressive act indeed?",
+        "OCR misread: doubled spaces between words"),
+    ("times-16103", "4-down"): (
+        "Somebody., after a division, shown as supporting tax cuts",
+        "Somebody, after a division, shown as supporting tax cuts",
+        "OCR misread: a stray full stop after Somebody"),
     ("times-15774", "1-across"): (
         "Horse has elephant's 'dis order, poor nag",
         "Horse has elephant's disorder, poor nag",
