@@ -31,6 +31,25 @@ check(a.rule_name("  ERROR: 3D: definitionFit 'x' is too thin. Say why", t), "ch
       "an ERROR line is named by the check function that wrote it")
 check(a.rule_name("  ERROR: 1A: missing annotation field 'blocks'", t),
       "validate_puzzle: missing annotation field '", "a message outside a check_ is named by its words")
+old = a.load_templates('''
+def check_indicator_notes_name_no_block(tag, ann, errors):
+    errors.append(f"{tag}: note on indicator {t!r} names the blocks by {w} — {n!r}. The rung")
+''')
+new = a.load_templates('''
+def check_indicator_notes_name_no_block(tag, ann, errors):
+    errors.append(f"{tag}: note on indicator {t!r} gives away the letters {w} — {n!r}. The rung")
+''')
+line = "  ERROR: 10A: note on indicator 'fans' names the blocks by new — 'spread'. The rung"
+old = a.retire(old, new)
+check(a.rule_name(line, new, old), a.SUPERSEDED + "check_indicator_notes_name_no_block",
+      "a line only a retired message matches is named superseded")
+row = {"first_rules": a.collections.Counter({a.rule_name(line, new, old): 1}),
+       "first_fail": True, "tool_errors": a.collections.Counter(), "memory": False,
+       "validator_reads": 0, "max_tokens": 0, "cache_1h": False}
+check([f["key"] for f in a.findings([row])], [], "and is kept out of the ranking")
+check(a.rule_name("  ERROR: 4D: note on indicator 'x' gives away the letters T — 'y'. The rung",
+                  new, old), "check_indicator_notes_name_no_block",
+      "the current message wins over a retired one")
 check(len(a.load_templates(a.VALIDATOR.read_text())) > 50, True,
       "the real validator yields its message templates")
 check(a.stopped_names("SCHEMA $.entries[2].annotation: missing required key 'blocks'; "
