@@ -1941,6 +1941,30 @@ SOURCE_CLUE_WRONG = {
         "Haring hopes, they arrange to pass in art",
         "Having hopes, they arrange to pass in art",
         "OCR misread: the definition needs Having hopes, as aspirants do"),
+    ("times-13777", "3-down"): (
+        "What a blow it was for mai deliveries",
+        "What a blow it was for mail deliveries",
+        "OCR misread: the answer is the horn blown on mail coaches"),
+    ("times-13777", "9-across"): (
+        "Char leaves in hot water 7 If so U.S. inn suffers",
+        "Char leaves in hot water? If so U.S. inn suffers",
+        "OCR misread: the question mark after water was read as 7"),
+    ("times-13777", "12-across"): (
+        "Administers corporal pun- punishment on and off",
+        "Administers corporal punishment on and off",
+        "OCR misread: the scan repeats the start of punishment across a line break"),
+    ("times-13777", "13-down"): (
+        "Mab, I levant from this love bate sort of relationship",
+        "Mab, I levant from this love-hate sort of relationship",
+        "OCR misread: the definition needs love-hate, an ambivalent relationship"),
+    ("times-13777", "22-across"): (
+        "Up., man (you've lost a stack)., play what's dealt",
+        "Up, man (you've lost a stack), play what's dealt",
+        "OCR misread: the stray full stops are scan debris"),
+    ("times-13777", "26-across"): (
+        "The ceremonies dou't sound sinister",
+        "The ceremonies don't sound sinister",
+        "OCR misread: the wordplay needs don't, not sinister being right"),
     ("times-16975", "10-across"): (
         "Inclination to be in the pub, assume",
         "Inclination to be in the pub, I assume",
