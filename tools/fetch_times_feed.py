@@ -48,6 +48,8 @@ DAYS_AHEAD = 3
 CHUNK = 64
 #: How far past its neighbours' ids fill_gaps looks for a skipped number.
 GAP_REACH = 60
+#: How far from another puzzle's id that week seed() looks for the Quick.
+SEED_REACH = 2500
 SUNDAY = 6
 THREADS = 32
 QUICK = "Quick Cryptic"
@@ -118,13 +120,31 @@ def find_next(pool, date, pid, number, until):
     return None
 
 
-def walk(until=None, below=None, log=print):
-    """Cache every Quick from the highest-numbered cached one (or No 1) to
-    `until`, or to No `below`."""
+def seed(date, near, reach=SEED_REACH):
+    """(id, data) of the Quick printed on `date`, searched outward from id
+    `near` (another puzzle's id that week), or None."""
+    with concurrent.futures.ThreadPoolExecutor(THREADS) as pool:
+        deltas = [k for r in range(reach + 1) for k in ((r, -r) if r else (0,))]
+        for at in range(0, len(deltas), CHUNK):
+            chunk = [k for k in deltas[at:at + CHUNK] if near + k > 0]
+            for k, data in zip(chunk, pool.map(lambda k: fetch(date, near + k), chunk)):
+                if data and data["copy"].get("crosswordtype") == QUICK:
+                    cache_path(date, near + k).write_text(
+                        json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                    return near + k, data
+    return None
+
+
+def walk(until=None, below=None, log=print, start=None):
+    """Cache every Quick from the highest-numbered cached one (or No 1, or
+    `start`, a (date, id) cached already) to `until`, or to No `below`."""
     CACHE.mkdir(parents=True, exist_ok=True)
     until = until or datetime.date.today()
     have = cached()
-    if have:
+    if start:
+        date, pid = start
+        data = json.loads(cache_path(date, pid).read_text(encoding="utf-8"))
+    elif have:
         date, pid, data = max(have, key=lambda t: number_of(t[2]) or 0)
     else:
         date, pid = FIRST
