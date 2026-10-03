@@ -86,7 +86,8 @@ check "no grid image: filed from the clues, rebuilt" "reconstructed True" "$got"
 # glued 6-down onto it. The reading (tools/fixtures/trove-repair/cache-clues,
 # cached as tools/trove_clue_ocr.py leaves it) gives 6-down back and 5-down
 # its length, so the clues agree with the picture and the puzzle files;
-# without the reading it waits.
+# without it 6-down is split off at its number (unglued()) and the grid
+# stands, but with no reading to vote with the puzzle waits.
 cp -r "$REPO/tools/fixtures/trove-repair" "$tmp/repair"
 mkdir "$tmp/out3"
 (cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" >/dev/null)
@@ -98,7 +99,7 @@ print(p['source']['gridOrigin'], e[(5, 'down')]['text'], '|', e[(5, 'down')].get
       '|', e[(6, 'down')]['text'], e[(6, 'down')]['enumeration'])")
 check "a lost clue repaired from the clue columns, its words voted" "published Under which possibly neither Irving Berlin nor Edward German ever sat | None | Rumour that's hardly about the bishop. 11" "$got"
 rm -r "$tmp/repair/cache-clues" "$tmp/repair/cache/filed.jsonl"
-got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c 'pending: no grid')
+got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c "pending: no reading of the page's clues")
 check "without the clue columns it waits" "1" "$got"
 
 # Slips are repaired only where the light decides: "(S)" over a five is 5,
@@ -171,6 +172,15 @@ import file_trove_puzzles as F
 cl, why = F.clues(\"1 One (5). He two (6). ^ '• He might (4). . ^ '• Ab (5). 3 Cd (6). | 2fi Ef (4). 'lO \\\"Fear no\\\" (5). 12 Big (laugh!) Is (5) 13 A (5) A b (4).\")
 print(why, [(sorted(map(sorted, c['tokens'])), c['text'], sorted(c['enums'])) for c in cl])")
 check "a clue whose number OCR lost is split off the one before" "None [([[1]], 'One', ['5']), ([[]], 'He two', ['6']), ([[]], 'He might', ['4']), ([[]], 'Ab', ['5']), ([[3]], 'Cd', ['6']), ([[]], 'Ef', ['4']), ([[10]], '\"Fear no\"', ['5']), ([[12]], 'Big (laugh!) Is', ['5']), ([[13]], 'A', ['5']), ([[]], 'A b', ['4'])]" "$got"
+
+# A clue whose count OCR lost has the next clue glued on: a number between
+# the two clues' numbers, before a capitalised word, starts that clue; a
+# reference ("2 Down") does not.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+cl, why = F.clues('1 Take 2 Down and run (5). 3 Silence, actually 5 Where new jobs (11, 4) 6 Urges (5).')
+print(why, [(sorted(map(sorted, c['tokens'])), c['text'], sorted(c['enums'])) for c in cl])")
+check "a clue glued on after a lost count is split off at its number" "None [([[1]], 'Take 2 Down and run', ['5']), ([[3]], 'Silence, actually', []), ([[5]], 'Where new jobs', ['11,4']), ([[6]], 'Urges', ['5'])]" "$got"
 
 # A symmetric grid's across lights read the same lengths from both ends: a
 # count read two ways takes its mirror's, a pair that disagrees goes
