@@ -23,6 +23,9 @@
   "date": "2020-10-24",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,46 @@
     "text": "Out of action, sort lower in rank",
     "enumeration": "9"
    },
-   "solution": "DOWNGRADE"
+   "solution": "DOWNGRADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNGRADE",
+    "definitions": [
+     {
+      "text": "lower in rank",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of action",
+      "gives": "DOWN",
+      "note": "a machine or system that is down is not working"
+     },
+     {
+      "clueFragment": "sort",
+      "gives": "GRADE",
+      "note": "to grade things is to sort them by quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "GRADE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sorting a broken thing to the bottom of the pile.",
+     "definitionFit": "To downgrade someone is to demote them, moving them to a lesser position or status."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +92,54 @@
     "text": "Material excavated mounted",
     "enumeration": "5"
    },
-   "solution": "DENIM"
+   "solution": "DENIM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DENIM",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down entry, something mounted climbs upward, so the word is read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excavated",
+      "gives": "MINED",
+      "note": "dug out of the ground, as coal or ore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENIM"
+     ],
+     "reversals": [
+      {
+       "from": "MINED",
+       "to": "DENIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some substance dug from the earth and then set up on display.",
+     "walkthrough": "'Material' suggests something dug up, but it is the cloth being defined.",
+     "definitionFit": "Denim is a sturdy cotton twill fabric, the cloth jeans are made from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 2,
@@ -74,7 +163,45 @@
      }
     ]
    },
-   "solution": "WIVESANDDAUGHTERS"
+   "solution": "WIVESANDDAUGHTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WIVES AND DAUGHTERS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "certain members of the clan",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first meaning: the title of Elizabeth Gaskell's last novel"
+     },
+     {
+      "clueFragment": "certain members of the clan",
+      "note": "second meaning: the women of a family, married in or born to it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Gaskell's novel of 1866 shares its title with a plain description of a family's female members; the question mark flags the second, literal reading.",
+     "definitionFit": "The phrase names both a Victorian novel and the female relations within a household or extended family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "clan"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +221,53 @@
      }
     ]
    },
-   "solution": "GOLDENEAGLE"
+   "solution": "GOLDENEAGLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOLDEN EAGLE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vicious",
+      "for": "anagram",
+      "note": "something vicious is wild and violent, so these letters are thrown about into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gale, on ledge",
+      "gives": "GALEONLEDGE",
+      "note": "taken as written, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GALEONLEDGE",
+       "gives": "GOLDENEAGLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird perched on a cliff ledge, riding out a fierce storm.",
+     "definitionFit": "The golden eagle is a large bird of prey of mountain country, nesting on crags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vicious"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +281,56 @@
     "text": "Pass law about edible fungus",
     "enumeration": "6"
    },
-   "solution": "ACCEPT"
+   "solution": "ACCEPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCEPT",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps itself round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an Act of Parliament is a law"
+     },
+     {
+      "clueFragment": "edible fungus",
+      "gives": "CEP",
+      "note": "the cep, or porcini, is an edible mushroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CEP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Legislators passing a law that concerns mushrooms.",
+     "walkthrough": "'Pass law' reads as one phrase, but 'Pass' alone is the definition.",
+     "definitionFit": "To pass a motion or a proposal is to accept it, giving it approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +344,78 @@
     "text": "Circle in compound on island, circle initially difficult to understand",
     "enumeration": "8"
    },
-   "solution": "ESOTERIC"
+   "solution": "ESOTERIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESOTERIC",
+    "definitions": [
+     {
+      "text": "difficult to understand",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the ring shape goes inside the chemical word"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of the word, so only its first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "the letter O is shaped like a circle"
+     },
+     {
+      "clueFragment": "compound",
+      "gives": "ESTER",
+      "note": "an ester is a chemical compound formed from an acid and an alcohol"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "O",
+      "TER",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A circle of people living in a walled compound on an island, hard for outsiders to fathom.",
+     "walkthrough": "In a down entry, 'on' places the first part above the next. The two circles do different jobs: one is the letter O, the other gives its first letter.",
+     "definitionFit": "Esoteric knowledge is intended for or grasped by only a small inner group, so it is obscure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compound"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +429,57 @@
     "text": "Money about right for wreck",
     "enumeration": "5"
    },
-   "solution": "CRASH"
+   "solution": "CRASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRASH",
+    "definitions": [
+     {
+      "text": "wreck",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the money word goes around the other letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "CASH",
+      "note": "cash is money in notes and coins"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting the money right in exchange for a wrecked car.",
+     "definitionFit": "A crash is a collision that leaves vehicles smashed, and to crash a car is to wreck it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 6,
@@ -150,7 +493,57 @@
     "text": "Established nunnery on Hebridean island, then left",
     "enumeration": "12"
    },
-   "solution": "CONVENTIONAL"
+   "solution": "CONVENTIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVENTIONAL",
+    "definitions": [
+     {
+      "text": "Established",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nunnery",
+      "gives": "CONVENT",
+      "note": "a convent is a community house of nuns"
+     },
+     {
+      "clueFragment": "Hebridean island",
+      "gives": "IONA",
+      "note": "Iona is a small island in the Inner Hebrides, off western Scotland"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONVENT",
+      "IONA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A long-standing nunnery on a Scottish island, and then someone departing.",
+     "walkthrough": "Iona is famous for its ancient abbey, which makes the nunnery picture convincing.",
+     "definitionFit": "Conventional means following accepted, traditional practice, the established way of doing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -164,7 +557,70 @@
     "text": "Brazenly, turn up inside, with pride",
     "enumeration": "10"
    },
-   "solution": "ARROGANTLY"
+   "solution": "ARROGANTLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ARROGANTLY",
+    "definitions": [
+     {
+      "text": "with pride",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom to the top"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so the short word goes into the longer adverb"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazenly",
+      "gives": "ARRANTLY",
+      "note": "arrant means shameless or notorious, so this adverb means in a brazen way"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "GO",
+      "note": "a go is a turn, as in a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARR",
+      "OG",
+      "ANTLY"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shamelessly showing up with their nose in the air.",
+     "walkthrough": "'Brazenly' looks like a definition next to 'with pride', but it is the outer wordplay piece; the two short letters go in after the third letter.",
+     "definitionFit": "Acting arrogantly is behaving with haughty pride, showing an inflated sense of one's own importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brazenly"
+    }
+   }
   },
   {
    "number": 8,
@@ -178,7 +634,42 @@
     "text": "Monster in Binchy drama",
     "enumeration": "5"
    },
-   "solution": "HYDRA"
+   "solution": "HYDRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYDRA",
+    "definitions": [
+     {
+      "text": "Monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the letters sit within the following words, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Binchy drama",
+      "gives": "HYDRA",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A monstrous figure in a television drama by the Irish novelist Maeve Binchy.",
+     "definitionFit": "The Hydra is the many-headed serpent of Greek myth slain by Hercules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Binchy"
+    }
+   }
   },
   {
    "number": 9,
@@ -192,7 +683,56 @@
     "text": "Source of inspiration after retirement perhaps caused bewilderment?",
     "enumeration": "7"
    },
-   "solution": "BEMUSED"
+   "solution": "BEMUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEMUSED",
+    "definitions": [
+     {
+      "text": "caused bewilderment",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "container",
+      "note": "after retirement suggests something taken to bed, so the inspiring figure lies tucked within the bedding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retirement perhaps",
+      "gives": "BED",
+      "note": "retiring for the night means going to bed"
+     },
+     {
+      "clueFragment": "Source of inspiration",
+      "gives": "MUSE",
+      "note": "a muse is the person or goddess who inspires an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "MUSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's muse, pensioned off, leaves the poet at a loss.",
+     "walkthrough": "The question mark admits the definition is a stretch: as a verb, to bemuse is to bewilder, so the past form means caused bewilderment.",
+     "definitionFit": "Bemuse means to puzzle or confuse someone; its past tense describes having perplexed them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 9,
@@ -212,7 +752,48 @@
      }
     ]
    },
-   "solution": "BETTEROFF"
+   "solution": "BETTEROFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER OFF",
+    "definitions": [
+     {
+      "text": "in profit",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gambler",
+      "gives": "BETTER",
+      "note": "a better is one who places bets"
+     },
+     {
+      "clueFragment": "leaving",
+      "gives": "OFF",
+      "note": "to be off is to be leaving or departing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter walking away from the bookmaker with winnings.",
+     "walkthrough": "The question mark flags that the gambler walking off is not usually ahead.",
+     "definitionFit": "Being better off means having more money than before, so one is ahead financially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 10,
@@ -232,7 +813,64 @@
      }
     ]
    },
-   "solution": "MARTIALARTS"
+   "solution": "MARTIALARTS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "deletion"
+    ],
+    "answer": "MARTIAL ARTS",
+    "definitions": [
+     {
+      "text": "karate, etc.",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so we want a word that is pronounced like the officer"
+     },
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "heading off means the head, or first letter, of the word is removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer",
+      "gives": "MARTIAL",
+      "soundsLike": "MARSHAL",
+      "note": "a marshal is a high-ranking officer, and the two words are said alike"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "DARTS",
+      "note": "darts is a pub game of throwing at a board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIAL",
+      "ARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer's sport, with a nod to karate and similar.",
+     "definitionFit": "Karate, judo and kung fu are examples of fighting disciplines grouped under this name, hence 'etc.'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 11,
@@ -246,7 +884,56 @@
     "text": "Smart, Romeo leaving procession",
     "enumeration": "5"
    },
-   "solution": "STING"
+   "solution": "STING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STING",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means going away, so that letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "procession",
+      "gives": "STRING",
+      "note": "a string of people or animals is a line of them following one another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STING"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart Romeo walking out of a parade.",
+     "walkthrough": "'Smart' looks like a description of Romeo, but it is the verb for a sharp pain.",
+     "definitionFit": "To smart and to sting both mean to feel a sharp burning pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Smart"
+    }
+   }
   },
   {
    "number": 12,
@@ -260,7 +947,61 @@
     "text": "Dull days breed melancholy, ultimately",
     "enumeration": "6"
    },
-   "solution": "DREARY"
+   "solution": "DREARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DREARY",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so just the last letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "days",
+      "gives": "D",
+      "note": "d is the abbreviation for day or days"
+     },
+     {
+      "clueFragment": "breed",
+      "gives": "REAR",
+      "note": "to rear animals is to breed and raise them"
+     },
+     {
+      "clueFragment": "melancholy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Monotonous days that end up making one gloomy.",
+     "definitionFit": "Dreary means dull, bleak and tedious, like a grey day with nothing happening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breed"
+    }
+   }
   },
   {
    "number": 13,
@@ -274,7 +1015,61 @@
     "text": "Book first of vacations in time for Christmas",
     "enumeration": "5"
    },
-   "solution": "NOVEL"
+   "solution": "NOVEL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NOVEL",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of means only the opening letter of the word that follows is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so that letter goes within the festive word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time for Christmas",
+      "gives": "NOEL",
+      "note": "Noel is another name for the Christmas season"
+     },
+     {
+      "clueFragment": "vacations",
+      "gives": "V",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "V",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A book to read over the Christmas holidays.",
+     "definitionFit": "A novel is a book-length work of prose fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 14,
@@ -288,7 +1083,71 @@
     "text": "Singer taking short cut to city in Nevada, heading west",
     "enumeration": "7"
    },
-   "solution": "CROONER"
+   "solution": "CROONER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CROONER",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut short, so the last letter of the word is lopped off"
+     },
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "in an across entry, heading west means travelling right to left, so the city name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "CROP",
+      "note": "to crop hair is to cut it"
+     },
+     {
+      "clueFragment": "city in Nevada",
+      "gives": "RENO",
+      "note": "Reno is a city in Nevada known for gambling and quick divorces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "ONER"
+     ],
+     "reversals": [
+      {
+       "from": "RENO",
+       "to": "ONER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer on tour taking a shortcut west to a Nevada city.",
+     "walkthrough": "'short cut' reads as a route, but it is two instructions: a word for cut, made short.",
+     "definitionFit": "A crooner is a singer of sentimental ballads in a soft, smooth style, like Bing Crosby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 15,
@@ -302,7 +1161,50 @@
     "text": "Decide to turn off before quarry, possibly",
     "enumeration": "9"
    },
-   "solution": "DETERMINE"
+   "solution": "DETERMINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETERMINE",
+    "definitions": [
+     {
+      "text": "Decide",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn off",
+      "gives": "DETER",
+      "note": "to deter someone is to put them off or discourage them"
+     },
+     {
+      "clueFragment": "quarry, possibly",
+      "gives": "MINE",
+      "note": "a mine is one example of a place where rock or minerals are dug out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing whether to shut down operations ahead of a quarry.",
+     "definitionFit": "To determine something is to settle or resolve it, making a firm decision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarry"
+    }
+   }
   },
   {
    "number": 16,
@@ -316,7 +1218,50 @@
     "text": "Musical composition by college principal, a tour de force",
     "enumeration": "11"
    },
-   "solution": "MASTERPIECE"
+   "solution": "MASTERPIECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASTERPIECE",
+    "definitions": [
+     {
+      "text": "a tour de force",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college principal",
+      "gives": "MASTER",
+      "note": "the head of some Oxford and Cambridge colleges is called the Master"
+     },
+     {
+      "clueFragment": "Musical composition",
+      "gives": "PIECE",
+      "note": "a piece is a single musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASTER",
+      "PIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A college head has written a brilliant piece of music.",
+     "walkthrough": "The composition comes first in the clue, but 'by' puts it after the principal.",
+     "definitionFit": "A tour de force is an outstanding achievement, an artist's finest work, just as a masterpiece is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1275,51 @@
     "text": "Solemn Aussie, a sexton maybe",
     "enumeration": "11"
    },
-   "solution": "GRAVEDIGGER"
+   "solution": "GRAVEDIGGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAVEDIGGER",
+    "definitions": [
+     {
+      "text": "a sexton maybe",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solemn",
+      "gives": "GRAVE",
+      "note": "grave means serious and solemn"
+     },
+     {
+      "clueFragment": "Aussie",
+      "gives": "DIGGER",
+      "note": "digger is an informal name for an Australian, especially a soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAVE",
+      "DIGGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A serious Australian who looks after a churchyard.",
+     "walkthrough": "Both pieces have a second sense that fits the answer: a grave is dug, and a digger digs.",
+     "definitionFit": "A sexton is a church officer whose traditional duties include digging graves in the churchyard, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Solemn"
+    }
+   }
   },
   {
    "number": 18,
@@ -344,7 +1333,52 @@
     "text": "Reindeer given mashed potato, say, before run",
     "enumeration": "6"
    },
-   "solution": "DANCER"
+   "solution": "DANCER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANCER",
+    "definitions": [
+     {
+      "text": "Reindeer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mashed potato, say",
+      "gives": "DANCE",
+      "note": "the Mashed Potato was a 1960s novelty dance craze"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DANCE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding a reindeer mashed potato before a run.",
+     "walkthrough": "Mashed potato sounds like food for the reindeer, but it is a dance.",
+     "definitionFit": "Dancer is one of Santa Claus's reindeer, named in the poem 'A Visit from St Nicholas'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mashed"
+    }
+   }
   },
   {
    "number": 18,
@@ -358,7 +1392,54 @@
     "text": "I must go in to protest against decline",
     "enumeration": "10"
    },
-   "solution": "DEPRECIATE"
+   "solution": "DEPRECIATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPRECIATE",
+    "definitions": [
+     {
+      "text": "decline",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must go in to",
+      "for": "container",
+      "note": "go in means being inserted, so the single letter is placed inside the following verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protest against",
+      "gives": "DEPRECATE",
+      "note": "to deprecate something is to express disapproval of it"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPREC",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insisting they must step in to oppose a fall.",
+     "definitionFit": "To depreciate is to fall in value, as a car's worth declines over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decline"
+    }
+   }
   },
   {
    "number": 19,
@@ -378,7 +1459,52 @@
      }
     ]
    },
-   "solution": "LISTENIN"
+   "solution": "LISTENIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LISTEN IN",
+    "definitions": [
+     {
+      "text": "Eavesdrop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tapped",
+      "for": "anagram",
+      "note": "tapped can mean crazy, so these letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line isn’t",
+      "gives": "LINEISNT",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LINEISNT",
+       "gives": "LISTENIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checking a phone line before eavesdropping and finding it isn't bugged.",
+     "walkthrough": "'Tapped' fits the eavesdropping picture as phone tapping, which hides its job as the signal to rearrange.",
+     "definitionFit": "To listen in is to overhear a conversation secretly, often on a telephone line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tapped"
+    }
+   }
   },
   {
    "number": 20,
@@ -392,7 +1518,55 @@
     "text": "Bore is lying in shade",
     "enumeration": "8"
    },
-   "solution": "NUISANCE"
+   "solution": "NUISANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUISANCE",
+    "definitions": [
+     {
+      "text": "Bore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying in",
+      "for": "container",
+      "note": "lying in means resting inside, so the short word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shade",
+      "gives": "NUANCE",
+      "note": "a nuance is a subtle shade of meaning or colour"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "IS",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious person stretched out in the shade.",
+     "walkthrough": "'Bore' could be a verb here, but it is the noun for a tiresome person or thing.",
+     "definitionFit": "A nuisance is a person or thing that annoys or tires one, as a bore does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 21,
@@ -406,7 +1580,50 @@
     "text": "Yellow flowers in neat borders",
     "enumeration": "6"
    },
-   "solution": "OXLIPS"
+   "solution": "OXLIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OXLIPS",
+    "definitions": [
+     {
+      "text": "Yellow flowers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neat",
+      "gives": "OX",
+      "note": "neat is an old word for cattle, and an ox is one such beast"
+     },
+     {
+      "clueFragment": "borders",
+      "gives": "LIPS",
+      "note": "the lips of a vessel or wound are its edges"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "LIPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Yellow blooms planted in tidy flowerbed edges.",
+     "walkthrough": "'Neat' reads as tidy, but here it is the archaic word for cattle.",
+     "definitionFit": "The oxlip is a pale yellow wild primula, a cousin of the cowslip and primrose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "neat"
+    }
+   }
   },
   {
    "number": 22,
@@ -430,7 +1647,44 @@
      }
     ]
    },
-   "solution": "PENNIESFROMHEAVEN"
+   "solution": "PENNIESFROMHEAVEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PENNIES FROM HEAVEN",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     },
+     {
+      "text": "unexpected benefit",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "note": "first meaning: a 1936 popular song sung by Bing Crosby"
+     },
+     {
+      "clueFragment": "unexpected benefit",
+      "note": "second meaning: a windfall, money or luck that seems to fall from the sky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The apostrophe-s stands for 'is', linking the two meanings.",
+     "definitionFit": "The phrase is both a well-known standard and an idiom for a welcome windfall arriving without effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -444,7 +1698,53 @@
     "text": "Ridiculous age, his female companion",
     "enumeration": "6"
    },
-   "solution": "GEISHA"
+   "solution": "GEISHA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEISHA",
+    "definitions": [
+     {
+      "text": "female companion",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ridiculous",
+      "for": "anagram",
+      "note": "something ridiculous is absurd and out of order, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "age, his",
+      "gives": "AGEHIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGEHIS",
+       "gives": "GEISHA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks on a man's absurd age and the young woman at his side.",
+     "definitionFit": "A geisha is a Japanese woman trained to entertain and keep company with male guests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ridiculous"
+    }
+   }
   },
   {
    "number": 24,
@@ -458,7 +1758,48 @@
     "text": "Mint coin — sovereign, perhaps",
     "enumeration": "10"
    },
-   "solution": "PENNYROYAL"
+   "solution": "PENNYROYAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENNYROYAL",
+    "definitions": [
+     {
+      "text": "Mint",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coin",
+      "gives": "PENNY",
+      "note": "a penny is a small coin"
+     },
+     {
+      "clueFragment": "sovereign, perhaps",
+      "gives": "ROYAL",
+      "note": "a sovereign is a king or queen, one example of a royal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENNY",
+      "ROYAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly minted gold sovereign coin.",
+     "walkthrough": "'Mint' and 'coin' suggest money-making, but Mint is the herb. A sovereign is also an old British gold coin, adding to the misdirection.",
+     "definitionFit": "Pennyroyal is a small aromatic plant of the mint family, used in herbal remedies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mint"
+    }
+   }
   },
   {
    "number": 25,
@@ -472,7 +1813,64 @@
     "text": "Family, edgier unfortunately, after gym",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PEDIGREE",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so these letters end up in a disordered arrangement"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE, physical education, is the school subject taught in the gym"
+     },
+     {
+      "clueFragment": "edgier",
+      "gives": "EDGIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DIGREE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EDGIER",
+       "gives": "DIGREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Relatives grow tetchier after a gym session.",
+     "walkthrough": "The gym abbreviation is written second in the clue but placed first, since the rest comes after it.",
+     "definitionFit": "A pedigree is a line of descent or ancestry, the family tree of a person or animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Family"
+    }
+   }
   },
   {
    "number": 26,
@@ -492,7 +1890,47 @@
      }
     ]
    },
-   "solution": "GOALDIFFERENCE"
+   "solution": "GOALDIFFERENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOAL DIFFERENCE",
+    "definitions": [
+     {
+      "text": "This may have a bearing on title",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End",
+      "gives": "GOAL",
+      "note": "a goal is an end one aims at"
+     },
+     {
+      "clueFragment": "disagreement",
+      "gives": "DIFFERENCE",
+      "note": "a difference of opinion is a disagreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOAL",
+      "DIFFERENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Settling a quarrel, and wondering whether it affects someone's title.",
+     "walkthrough": "In football leagues, teams level on points are separated by goals scored minus goals conceded, which can decide the championship.",
+     "definitionFit": "When teams finish on equal points, this tie-breaking figure can determine who wins the league championship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "title"
+    }
+   }
   },
   {
    "number": 27,
@@ -506,7 +1944,49 @@
     "text": "Look into touching prior to examination",
     "enumeration": "8"
    },
-   "solution": "RESEARCH"
+   "solution": "RESEARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESEARCH",
+    "definitions": [
+     {
+      "text": "Look into",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "prior to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touching",
+      "gives": "RE",
+      "note": "re means concerning or about, as in a letter heading"
+     },
+     {
+      "clueFragment": "examination",
+      "gives": "SEARCH",
+      "note": "a search is a careful examination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SEARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Investigating something emotional before a test.",
+     "definitionFit": "To research a subject is to investigate or study it systematically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 28,
@@ -520,7 +2000,47 @@
     "text": "Baffle fool, hiding face",
     "enumeration": "5"
    },
-   "solution": "ELUDE"
+   "solution": "ELUDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELUDE",
+    "definitions": [
+     {
+      "text": "Baffle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding face",
+      "for": "deletion",
+      "note": "the face is the front, so hiding it means the opening letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "DELUDE",
+      "note": "to delude someone is to fool or deceive them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzling a clown who covers their face.",
+     "definitionFit": "Something that eludes you escapes your understanding, so it baffles you, as in 'the answer eludes me'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 29,
@@ -534,7 +2054,63 @@
     "text": "Spot used to be put back for playground attraction",
     "enumeration": "6"
    },
-   "solution": "SEESAW"
+   "solution": "SEESAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SEESAW",
+    "definitions": [
+     {
+      "text": "playground attraction",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means turned round, so the past tense word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot",
+      "gives": "SEE",
+      "note": "to spot something is to see it"
+     },
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "was is the past tense of be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "SAW"
+     ],
+     "reversals": [
+      {
+       "from": "WAS",
+       "to": "SAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spot that once held something has been restored for children's play.",
+     "definitionFit": "A seesaw is a long plank balanced in the middle, rocked up and down by children at each end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 30,
@@ -554,7 +2130,49 @@
      }
     ]
    },
-   "solution": "JAMSESSION"
+   "solution": "JAMSESSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAM SESSION",
+    "definitions": [
+     {
+      "text": "improvised performance",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crowd",
+      "gives": "JAM",
+      "note": "a jam is a crush of people or traffic"
+     },
+     {
+      "clueFragment": "sitting",
+      "gives": "SESSION",
+      "note": "a sitting of a court or parliament is a session"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "SESSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd sitting down to watch an unscripted show.",
+     "definitionFit": "Musicians at a jam session play informally together, making up the music as they go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sitting"
+    }
+   }
   },
   {
    "number": 31,
@@ -568,7 +2186,55 @@
     "text": "Work hard on a new jingle",
     "enumeration": "6"
    },
-   "solution": "SLOGAN"
+   "solution": "SLOGAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOGAN",
+    "definitions": [
+     {
+      "text": "jingle",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work hard",
+      "gives": "SLOG",
+      "note": "to slog is to toil away at something"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOG",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising writer labouring over a fresh jingle.",
+     "definitionFit": "A slogan is a short catchy phrase used in advertising, much like a jingle's tagline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jingle"
+    }
+   }
   },
   {
    "number": 32,
@@ -588,7 +2254,39 @@
      }
     ]
    },
-   "solution": "BOWLINGALLEY"
+   "solution": "BOWLINGALLEY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BOWLING ALLEY",
+    "definitions": [
+     {
+      "text": "Where one may get spares down the lane?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one may get spares down the lane?",
+      "note": "surface reading: a garage up the road where one buys spare parts"
+     },
+     {
+      "clueFragment": "spares",
+      "note": "setter's reading: in tenpin, a spare is knocking all pins down with two balls, and balls are bowled along a lane"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Down the lane' sounds like a nearby street, but a lane is the wooden track each player bowls along.",
+     "definitionFit": "A tenpin venue has lanes where players roll balls at pins and can score strikes and spares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spares"
+    }
+   }
   },
   {
    "number": 33,
@@ -612,7 +2310,39 @@
      }
     ]
    },
-   "solution": "INHOTWATER"
+   "solution": "INHOTWATER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IN HOT WATER",
+    "definitions": [
+     {
+      "text": "Where one is as a consequence of being sent for an early bath?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one is as a consequence of being sent for an early bath?",
+      "note": "surface reading: a footballer sent off the pitch ends up soaking in the changing-room bath"
+     },
+     {
+      "clueFragment": "sent for an early bath",
+      "note": "setter's reading: being sent off is a disgrace, so the player is now in trouble"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British sport, 'sent for an early bath' means sent off the field for foul play.",
+     "definitionFit": "The idiom means being in trouble or disgrace, while literally describing someone soaking in a tub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bath"
+    }
+   }
   },
   {
    "number": 34,
@@ -632,7 +2362,64 @@
      }
     ]
    },
-   "solution": "TRIPLECROWN"
+   "solution": "TRIPLECROWN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRIPLE CROWN",
+    "definitions": [
+     {
+      "text": "papal tiara",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "written about means set down around, so the word for nonsense wraps the size letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nonsense",
+      "gives": "TRIPE",
+      "note": "tripe is rubbish or nonsense"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "cap",
+      "gives": "CROWN",
+      "note": "a crown is the top of something, as a cap tops it; a dental crown is also called a cap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "L",
+      "E",
+      "CROWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone writes rubbish about an oversized hat and the Pope's headgear.",
+     "definitionFit": "The papal tiara has three tiers of crowns, so it is known by this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 35,
@@ -646,7 +2433,42 @@
     "text": "Cloak carried by Ripon chorister",
     "enumeration": "6"
    },
-   "solution": "PONCHO"
+   "solution": "PONCHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PONCHO",
+    "definitions": [
+     {
+      "text": "Cloak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "hidden_word",
+      "note": "carried by means held within, so the letters are found inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ripon chorister",
+      "gives": "PONCHO",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A cloak carried by a choirboy at Ripon Cathedral in Yorkshire.",
+     "definitionFit": "A poncho is a loose cloak made of a blanket-like piece of cloth with a hole for the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 36,
@@ -660,7 +2482,51 @@
     "text": "One like Harpagon, in intense discomfort, endlessly",
     "enumeration": "5"
    },
-   "solution": "MISER"
+   "solution": "MISER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MISER",
+    "definitions": [
+     {
+      "text": "One like Harpagon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the final letter of the word is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intense discomfort",
+      "gives": "MISERY",
+      "note": "misery is great suffering or distress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISER"
+     ]
+    },
+    "explanation": {
+     "surface": "A character from a comedy suffering terribly, without end.",
+     "walkthrough": "Harpagon is the money-obsessed hero of Molière's comedy L'Avare (The Miser).",
+     "definitionFit": "Harpagon hoards his money and grudges every penny spent, the classic stage example of a stingy hoarder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Harpagon"
+    }
+   }
   },
   {
    "number": 36,
@@ -674,7 +2540,61 @@
     "text": "Wrongly interpret young lady defending argument against? Correct",
     "enumeration": "11"
    },
-   "solution": "MISCONSTRUE"
+   "solution": "MISCONSTRUE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MISCONSTRUE",
+    "definitions": [
+     {
+      "text": "Wrongly interpret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defending means guarding by surrounding, so the young lady's title is placed round the argument"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young lady",
+      "gives": "MISS",
+      "note": "Miss is the title for a young unmarried woman"
+     },
+     {
+      "clueFragment": "argument against",
+      "gives": "CON",
+      "note": "a con is a point against, as in pros and cons"
+     },
+     {
+      "clueFragment": "Correct",
+      "gives": "TRUE",
+      "note": "true means correct or accurate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "CON",
+      "S",
+      "TRUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman defends herself against a point and asks if it's right.",
+     "definitionFit": "To misconstrue something is to misunderstand it, taking the wrong meaning from words or actions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defending"
+    }
+   }
   },
   {
    "number": 37,
@@ -688,7 +2608,55 @@
     "text": "Man soon set off — his business may be flagging",
     "enumeration": "10"
    },
-   "solution": "STONEMASON"
+   "solution": "STONEMASON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STONEMASON",
+    "definitions": [
+     {
+      "text": "his business may be flagging",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man soon set",
+      "gives": "MANSOONSET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANSOONSET",
+       "gives": "STONEMASON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man setting off soon, whose trade is in decline.",
+     "walkthrough": "'Flagging' suggests a business failing, but it means laying flagstones.",
+     "definitionFit": "A stonemason cuts and lays stone, including the flagstones used for paving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flagging"
+    }
+   }
   },
   {
    "number": 38,
@@ -712,7 +2680,50 @@
      }
     ]
    },
-   "solution": "THEWINTERSTALE"
+   "solution": "THEWINTERSTALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE WINTER'S TALE",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast once meant scattered widely, as seed is sown, so these letters are dispersed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hit, newsletter",
+      "gives": "AHITNEWSLETTER",
+      "note": "taken as written, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHITNEWSLETTER",
+       "gives": "THEWINTERSTALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hit show and a newsletter going out on air.",
+     "definitionFit": "The Winter's Tale is one of Shakespeare's late plays, famous for the stage direction 'Exit, pursued by a bear'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 39,
@@ -726,7 +2737,50 @@
     "text": "Paddy had a meal, balanced",
     "enumeration": "9"
    },
-   "solution": "TEMPERATE"
+   "solution": "TEMPERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPERATE",
+    "definitions": [
+     {
+      "text": "balanced",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paddy",
+      "gives": "TEMPER",
+      "note": "a paddy is a British word for a fit of temper"
+     },
+     {
+      "clueFragment": "had a meal",
+      "gives": "ATE",
+      "note": "to eat is to have a meal; ate is its past tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPER",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman named Paddy has eaten and is feeling steady.",
+     "walkthrough": "'Paddy' looks like a man's name, but it is a tantrum.",
+     "definitionFit": "Temperate means moderate and self-restrained, keeping a balance without going to extremes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Paddy"
+    }
+   }
   },
   {
    "number": 40,
@@ -746,7 +2800,55 @@
      }
     ]
    },
-   "solution": "PASSERBY"
+   "solution": "PASSERBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSER-BY",
+    "definitions": [
+     {
+      "text": "witness",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old-fashioned",
+      "gives": "PASSE",
+      "note": "passé means out of date"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "BY",
+      "note": "by means beside or next to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASSE",
+      "R",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-style Republican standing beside an eyewitness.",
+     "definitionFit": "A passer-by is someone walking past who may happen to witness an incident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "witness"
+    }
+   }
   },
   {
    "number": 41,
@@ -760,7 +2862,77 @@
     "text": "American and I ruin it, upside-down dessert",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside-down",
+      "for": "reversal",
+      "note": "in a down entry, upside-down means the whole string is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and",
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for the United States, so American"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "MAR",
+      "note": "to mar something is to spoil it"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "RAM",
+      "I",
+      "SU"
+     ],
+     "reversals": [
+      {
+       "from": "USIMARIT",
+       "to": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American and I spoil the pudding by turning it over.",
+     "definitionFit": "Tiramisu is an Italian dessert of coffee-soaked sponge layered with mascarpone and cocoa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ruin"
+    }
+   }
   },
   {
    "number": 42,
@@ -774,7 +2946,64 @@
     "text": "A year in mean accommodation provides sanctuary",
     "enumeration": "6"
    },
-   "solution": "ASYLUM"
+   "solution": "ASYLUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASYLUM",
+    "definitions": [
+     {
+      "text": "sanctuary",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so that abbreviation goes within the word for poor housing"
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mean accommodation",
+      "gives": "SLUM",
+      "note": "a slum is squalid, run-down housing"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "Y",
+      "LUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A year spent living in poor housing gives someone refuge.",
+     "definitionFit": "Asylum is protection granted to a refugee, a place of safety and refuge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 43,
@@ -788,7 +3017,51 @@
     "text": "Damn tack, the cause of a sore finger?",
     "enumeration": "8"
    },
-   "solution": "HANGNAIL"
+   "solution": "HANGNAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANGNAIL",
+    "definitions": [
+     {
+      "text": "the cause of a sore finger",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damn",
+      "gives": "HANG",
+      "note": "'hang it' is a mild curse, like 'damn it'"
+     },
+     {
+      "clueFragment": "tack",
+      "gives": "NAIL",
+      "note": "a tack is a small nail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANG",
+      "NAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cursing a tack that has jabbed their finger.",
+     "walkthrough": "The scene suggests a hammered thumb, but the answer is a torn bit of skin by the fingernail.",
+     "definitionFit": "A hangnail is a torn strip of skin beside a fingernail, which can be painful and inflamed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tack"
+    }
+   }
   },
   {
    "number": 44,
@@ -802,7 +3075,54 @@
     "text": "Precise as regards unfinished shopping centre",
     "enumeration": "6"
    },
-   "solution": "FORMAL"
+   "solution": "FORMAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FORMAL",
+    "definitions": [
+     {
+      "text": "Precise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means not completed, so the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as regards",
+      "gives": "FOR",
+      "note": "for can mean concerning, as in 'so much for that'"
+     },
+     {
+      "clueFragment": "shopping centre",
+      "gives": "MALL",
+      "note": "a mall is a large covered shopping centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "MAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Being exact about a half-built shopping centre.",
+     "definitionFit": "Formal means correct and precise in manner, following set rules exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Precise"
+    }
+   }
   },
   {
    "number": 45,
@@ -816,7 +3136,65 @@
     "text": "Kept being annoyed about time taken by duke",
     "enumeration": "6"
    },
-   "solution": "STORED"
+   "solution": "STORED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STORED",
+    "definitions": [
+     {
+      "text": "Kept",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the feeling word goes around the time abbreviation"
+     }
+    ],
+    "linkWords": [
+     "being",
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoyed",
+      "gives": "SORE",
+      "note": "sore is an informal word for angry or resentful"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "ORE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays annoyed that a duke has taken up their time.",
+     "definitionFit": "Stored means put away and kept for later use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kept"
+    }
+   }
   },
   {
    "number": 46,
@@ -830,7 +3208,56 @@
     "text": "Concealed hide close to nest",
     "enumeration": "6"
    },
-   "solution": "COVERT"
+   "solution": "COVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COVERT",
+    "definitions": [
+     {
+      "text": "Concealed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hide",
+      "gives": "COVER",
+      "note": "cover means a hiding place, and to cover is to hide"
+     },
+     {
+      "clueFragment": "nest",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatchers' hide near a nest, kept out of sight.",
+     "walkthrough": "A hide is a shelter for watching birds, so the surface stays with the birds while 'hide' gives its own synonym.",
+     "definitionFit": "Covert means secret or hidden, not openly shown or acknowledged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 47,
@@ -844,7 +3271,53 @@
     "text": "Somehow smart, hi-tech policy back in the 1980s",
     "enumeration": "11"
    },
-   "solution": "THATCHERISM"
+   "solution": "THATCHERISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THATCHERISM",
+    "definitions": [
+     {
+      "text": "policy back in the 1980s",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow means in some unknown way, so these letters are rearranged by some means"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart, hi-tech",
+      "gives": "SMARTHITECH",
+      "note": "taken as written, ignoring punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SMARTHITECH",
+       "gives": "THATCHERISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever high-tech policy from the 1980s.",
+     "definitionFit": "Thatcherism names the free-market policies of Margaret Thatcher, UK prime minister from 1979 to 1990."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 48,
@@ -858,7 +3331,61 @@
     "text": "A sailor holding line where knot may be tied",
     "enumeration": "5"
    },
-   "solution": "ALTAR"
+   "solution": "ALTAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALTAR",
+    "definitions": [
+     {
+      "text": "where knot may be tied",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping inside, so the sailor word wraps around the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor holding a rope to tie a knot.",
+     "walkthrough": "Sailors tie knots, but the knot here is the marriage knot, tied at a wedding.",
+     "definitionFit": "Couples marry at the altar, and getting married is 'tying the knot'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knot"
+    }
+   }
   },
   {
    "number": 49,
@@ -872,7 +3399,62 @@
     "text": "Delicate point, female being sacked for showing no skill",
     "enumeration": "5"
    },
-   "solution": "INEPT"
+   "solution": "INEPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INEPT",
+    "definitions": [
+     {
+      "text": "showing no skill",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being sacked",
+      "for": "deletion",
+      "note": "someone sacked is dismissed, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicate",
+      "gives": "FINE",
+      "note": "fine means delicate or thin"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "pt is the abbreviation for point"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INE",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky point about a woman being fired for incompetence.",
+     "definitionFit": "Inept means clumsy and lacking ability, without the skill to do the job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sacked"
+    }
+   }
   },
   {
    "number": 50,
@@ -900,7 +3482,62 @@
      }
     ]
    },
-   "solution": "ATALOOSEEND"
+   "solution": "ATALOOSEEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT A LOOSE END",
+    "definitions": [
+     {
+      "text": "Bored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "specially prepared",
+      "for": "anagram",
+      "note": "prepared specially means made up in a new way, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "eat noodles",
+      "gives": "EATNOODLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATALOOSEEND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AEATNOODLES",
+       "gives": "ATALOOSEEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bored person is told to cook and eat some noodles.",
+     "walkthrough": "The single letter for 'Answer' joins the eaten noodles before the whole lot is rearranged.",
+     "definitionFit": "Being at a loose end means having nothing to do, so one is idle and bored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Answer"
+    }
+   }
   },
   {
    "number": 51,
@@ -914,7 +3551,58 @@
     "text": "Slow to understand Democrat, unable to relax, blowing top",
     "enumeration": "5"
    },
-   "solution": "DENSE"
+   "solution": "DENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DENSE",
+    "definitions": [
+     {
+      "text": "Slow to understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blowing top",
+      "for": "deletion",
+      "note": "the top of a down word is its first letter, and blowing it means losing it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "unable to relax",
+      "gives": "TENSE",
+      "note": "someone tense is too wound up to relax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stressed-out Democrat losing their temper.",
+     "walkthrough": "'Blowing top' fits the angry politician, but it instructs removal of a first letter.",
+     "definitionFit": "Dense means stupid or slow-witted, failing to grasp things quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blowing"
+    }
+   }
   },
   {
    "number": 52,
@@ -928,7 +3616,50 @@
     "text": "Limit beer in grounds",
     "enumeration": "9"
    },
-   "solution": "RATIONALE"
+   "solution": "RATIONALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RATIONALE",
+    "definitions": [
+     {
+      "text": "grounds",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Limit",
+      "gives": "RATION",
+      "note": "to ration something is to limit how much is allowed"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATION",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Restricting drinking on the premises.",
+     "walkthrough": "'grounds' looks like premises, but it means reasons.",
+     "definitionFit": "A rationale is the reasoning or justification behind something, its grounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grounds"
+    }
+   }
   },
   {
    "number": 53,
@@ -942,7 +3673,59 @@
     "text": "Father hiding key makes one cross",
     "enumeration": "7"
    },
-   "solution": "SALTIRE"
+   "solution": "SALTIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALTIRE",
+    "definitions": [
+     {
+      "text": "one cross",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding means keeping something tucked inside, so the parent word encloses the key"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "SIRE",
+      "note": "a sire is a father, especially of an animal"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALT",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dad hiding the keys makes someone angry.",
+     "walkthrough": "'cross' looks like angry, but it is a diagonal cross such as Scotland's flag.",
+     "definitionFit": "A saltire is an X-shaped cross, like St Andrew's cross on the Scottish flag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 54,
@@ -956,7 +3739,56 @@
     "text": "Black and yellow cape missing",
     "enumeration": "5"
    },
-   "solution": "RAVEN"
+   "solution": "RAVEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAVEN",
+    "definitions": [
+     {
+      "text": "Black",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means absent, so that abbreviation is left out of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yellow",
+      "gives": "CRAVEN",
+      "note": "yellow means cowardly, as does craven"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "C",
+      "note": "C is the map abbreviation for cape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A black and yellow cloak has gone astray.",
+     "walkthrough": "'Black and yellow' reads as a pair of colours, but 'yellow' is cowardly.",
+     "definitionFit": "Raven describes glossy black, as in raven hair, from the colour of the bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yellow"
+    }
+   }
   },
   {
    "number": 55,
@@ -970,7 +3802,53 @@
     "text": "Disorder resulting from exploding grenade",
     "enumeration": "7"
    },
-   "solution": "DERANGE"
+   "solution": "DERANGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DERANGE",
+    "definitions": [
+     {
+      "text": "Disorder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "something exploding is blown apart, so its letters fly into a new order"
+     }
+    ],
+    "linkWords": [
+     "resulting from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grenade",
+      "gives": "GRENADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRENADE",
+       "gives": "DERANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chaos caused by a grenade going off.",
+     "definitionFit": "To derange something is to throw it into disorder, disturbing its normal arrangement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disorder"
+    }
+   }
   },
   {
    "number": 56,
@@ -984,7 +3862,58 @@
     "text": "Around noon, wee can of beer in Perth?",
     "enumeration": "5"
    },
-   "solution": "TINNY"
+   "solution": "TINNY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TINNY",
+    "definitions": [
+     {
+      "text": "can of beer in Perth",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Around",
+      "for": "container",
+      "note": "around means surrounding, so the small word goes round the abbreviation"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wee",
+      "gives": "TINY",
+      "note": "wee is Scottish for small, as is tiny"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "N",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "A small can of beer drunk around midday in Perth.",
+     "walkthrough": "Perth here is the city in Western Australia, so Australian slang applies, though 'wee' hints at Perth in Scotland.",
+     "definitionFit": "A regional Australian word: drinkers there call a metal tin holding lager by this informal name, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Perth"
+    }
+   }
   },
   {
    "number": 57,
@@ -1008,7 +3937,55 @@
      }
     ]
    },
-   "solution": "UPTHEANTE"
+   "solution": "UPTHEANTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UP THE ANTE",
+    "definitions": [
+     {
+      "text": "Ask for more",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completed",
+      "gives": "UP",
+      "note": "when time is up it is over and done"
+     },
+     {
+      "clueFragment": "articles",
+      "gives": "THEAN",
+      "note": "the and an are the definite and indefinite articles"
+     },
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "T. E. Lawrence was Lawrence of Arabia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "THEAN",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finishes writing pieces about Lawrence and demands a bigger fee.",
+     "definitionFit": "To up the ante is to raise the stakes in poker, so to demand more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   }
  ]
 }
