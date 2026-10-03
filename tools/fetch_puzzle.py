@@ -1893,6 +1893,14 @@ SOURCE_CLUE_WRONG = {
         "Bird in battle with small tropical) predators",
         "Bird in battle with (small tropical) predators",
         "OCR misread: the opening bracket of the parenthesis was dropped"),
+    ("times-17656", "5-down"): (
+        "Edmund IT's warship",
+        "Edmund II's warship",
+        "OCR misread: the wordplay needs Edmund II, the king called Ironside"),
+    ("times-17656", "15-across"): (
+        "Rather forward for an under-' graduate",
+        "Rather forward for an undergraduate",
+        "OCR misread: a line-break hyphen and stray apostrophe split undergraduate"),
     ("times-17652", "7-down"): (
         "Tied late in a knot, being fastidious",
         "Tied lace in a knot, being fastidious",
