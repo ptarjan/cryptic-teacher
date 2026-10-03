@@ -739,8 +739,10 @@ commit_puzzle() {
     # so each finished puzzle reaches the site without waiting for the rest.
     # Named because it was just written, not as an allow-list — the sweep at the
     # end takes everything. -A, so a file that changed year folders goes in as
-    # a rename rather than as a new copy beside the old one.
-    git add -A -- "$(puzzle_spec "$num")"
+    # a rename rather than as a new copy beside the old one. fetch_puzzle.py
+    # goes with it: a clue the run corrected is only valid beside its
+    # SOURCE_CLUE_WRONG row, so the puzzle must not land without it.
+    git add -A -- "$(puzzle_spec "$num")" tools/fetch_puzzle.py
     if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
       # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
       # a refused commit has to stop here or the log says "committed".
