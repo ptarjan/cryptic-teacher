@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17716", "18-down"): (
+        "Order of very quiet trails?",
+        "Order of very quiet traits?",
+        "OCR misread: the anagram needs TRAITS with PP to make TRAPPIST"),
     ("times-17653", "3-down"): (
         "Factors,.. perhaps, involved in' home affairs",
         "Factors, perhaps, involved in home affairs",
