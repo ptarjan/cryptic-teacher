@@ -1889,6 +1889,38 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16132", "10-across"): (
+        "'Frenchman supplies material",
+        "Frenchman supplies material",
+        "OCR misread: a stray quote mark before Frenchman"),
+    ("times-16132", "18-across"): (
+        "Fish interrupts in &a Zulu conference",
+        "Fish interrupts in a Zulu conference",
+        "OCR misread: the wordplay needs IN A, not a stray ampersand"),
+    ("times-16132", "27-across"): (
+        "Spa hotel by aircraft or motor- - boat",
+        "Spa hotel by aircraft or motor-boat",
+        "OCR misread: a line-break hyphen split motor-boat"),
+    ("times-16127", "1-down"): (
+        "None may enter here so to speak (S). „ .",
+        "None may enter here so to speak",
+        "OCR misread: stray marks after speak"),
+    ("times-16127", "3-down"): (
+        "Drink could be (the reverse of OK",
+        "Drink could be the reverse of OK",
+        "OCR misread: a stray bracket before the"),
+    ("times-16127", "22-down"): (
+        "Cup-bearer enters back-street of the old city 1 6).",
+        "Cup-bearer enters back-street of the old city",
+        "OCR misread: stray marks after city"),
+    ("times-16127", "28-across"): (
+        "Top hound a useful possession 15.",
+        "Top hound a useful possession",
+        "OCR misread: a stray 15 after possession"),
+    ("times-16122", "18-down"): (
+        "For r painter sea-mist is a problem",
+        "For painter sea-mist is a problem",
+        "OCR misread: a stray r before painter"),
     ("times-16125", "5-down"): (
         "Other ranks rebuked for 2 bloomer",
         "Other ranks rebuked for a bloomer",
