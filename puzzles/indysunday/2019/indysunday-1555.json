@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "List of business information a lawyer withholds",
     "enumeration": "6"
    },
-   "solution": "AGENDA"
+   "solution": "AGENDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGENDA",
+    "definitions": [
+     {
+      "text": "List of business",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withholds",
+      "for": "container",
+      "note": "to withhold is to keep something back inside, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "a DA is a district attorney, an American prosecuting lawyer"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer keeps confidential details about a client's business affairs to themselves.",
+     "walkthrough": "'List of business' reads as a description of what the lawyer keeps quiet, but it is the definition; the lawyer is split, holding the information between its A and its DA.",
+     "definitionFit": "An agenda is the written order of items to be dealt with at a meeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,72 @@
     "text": "Social worker and I live on drop of sherry and port",
     "enumeration": "7"
    },
-   "solution": "ANTIBES"
+   "solution": "ANTIBES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANTIBES",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is a tiny amount, so only the opening letter of the drink is taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social worker",
+      "gives": "ANT",
+      "note": "an ant is the classic social insect worker"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "sherry",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of sherry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "I",
+      "BE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A social worker admits to living on sherry and port.",
+     "walkthrough": "'Social worker' is not a carer but an ant, and 'port' is not a drink but a harbour town. In a down clue, 'on' puts BE above S.",
+     "definitionFit": "Antibes is a harbour town on the French Riviera between Cannes and Nice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +182,60 @@
     "text": "I come and stir up stuff to get you going!",
     "enumeration": "9"
    },
-   "solution": "EROTICISM"
+   "solution": "EROTICISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EROTICISM",
+    "definitions": [
+     {
+      "text": "stuff to get you going",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "stirred up means mixed thoroughly, so the letters before it are churned into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I come",
+      "gives": "ICOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stir",
+      "gives": "STIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICOME STIR",
+       "gives": "EROTICISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky boast from someone promising to arouse you.",
+     "walkthrough": "'Stir up' reads as one verb, but stir is fodder too and only 'up' signals the mixing. 'I come' adds the sexual innuendo.",
+     "definitionFit": "Eroticism is sexual excitement or material meant to arouse desire, which gets a person going."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +249,56 @@
     "text": "It messes about with talented amateur",
     "enumeration": "10"
    },
-   "solution": "DILETTANTE"
+   "solution": "DILETTANTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DILETTANTE",
+    "definitions": [
+     {
+      "text": "amateur",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messes about with",
+      "for": "anagram",
+      "note": "messing about with something disturbs its order, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "talented",
+      "gives": "TALENTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IT TALENTED",
+       "gives": "DILETTANTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fools around with a gifted hobbyist.",
+     "walkthrough": "'Talented amateur' looks like one phrase, but talented is fodder and amateur alone is the definition.",
+     "definitionFit": "A dilettante dabbles in an art or subject without serious commitment or professional skill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "talented"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +312,74 @@
     "text": "A V-sign I flicked to get round bit of drug counselling",
     "enumeration": "8"
    },
-   "solution": "ADVISING"
+   "solution": "ADVISING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADVISING",
+    "definitions": [
+     {
+      "text": "counselling",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flicked",
+      "for": "anagram",
+      "note": "something flicked is jerked about, so the letters are tossed into a fresh order"
+     },
+     {
+      "text": "to get round",
+      "for": "container",
+      "note": "getting round something means surrounding it, so the jumbled letters enclose the extra one"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small piece, so just the first letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A V-sign I",
+      "gives": "AVSIGNI",
+      "note": "taken as written, ignoring the hyphen"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VISING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AVSIGNI",
+       "gives": "AVISING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An addict rudely gestures at the person giving drug counselling.",
+     "walkthrough": "A V-sign is a rude British hand gesture, two fingers raised with palm inward. The rearranged letters give AVISING, and D goes in after the first A.",
+     "definitionFit": "Advising and counselling are synonyms, both meaning offering guidance to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flicked"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +393,67 @@
     "text": "Insult curt swine brought up creates upset",
     "enumeration": "7"
    },
-   "solution": "DISTURB"
+   "solution": "DISTURB",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "DISTURB",
+    "definitions": [
+     {
+      "text": "creates upset",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curt",
+      "for": "deletion",
+      "note": "curt means cut short, so the following word loses its final letter"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up means it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "gives": "DIS",
+      "note": "to dis or diss is slang for insulting someone"
+     },
+     {
+      "clueFragment": "swine",
+      "gives": "BRUTE",
+      "note": "a swine and a brute are both a nasty, cruel person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "TURB"
+     ],
+     "reversals": [
+      {
+       "from": "BRUT",
+       "to": "TURB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rudely insulting a pig-headed man causes a scene.",
+     "walkthrough": "BRUTE cut short is BRUT, which reads TURB going upwards.",
+     "definitionFit": "To disturb is to cause agitation or upset, interrupting calm or peace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curt"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +467,63 @@
     "text": "Boozers at home with son around noon",
     "enumeration": "4"
    },
-   "solution": "INNS"
+   "solution": "INNS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INNS",
+    "definitions": [
+     {
+      "text": "Boozers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the earlier pieces wrap about the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N stands for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "N",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Drinkers sit at home with their son around midday.",
+     "walkthrough": "'Boozers' looks like heavy drinkers, but in British English a boozer is a pub. IN + S takes N inside.",
+     "definitionFit": "Inns and boozers are both pubs, places that serve alcoholic drinks to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boozers"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +537,67 @@
     "text": "Language teacher welcomed by greeting from Oz?",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "Language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "a guest welcomed by hosts is taken in among them, so one piece sits inside the other"
+     },
+     {
+      "text": "from Oz",
+      "for": "reversal",
+      "note": "Australia is down under, so seen from there everything is turned upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a casual greeting"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "pupils in Britain address a male teacher as sir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RIS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HSIRI",
+       "to": "IRISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian says hello to a language teacher.",
+     "walkthrough": "Oz is an informal name for Australia, and from down under the whole assembly is turned upside down, which in a down clue means reading it bottom to top.",
+     "definitionFit": "Irish is the Celtic tongue spoken in Ireland, also called Irish Gaelic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oz"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +611,55 @@
     "text": "Royal to visit ship museum",
     "enumeration": "7"
    },
-   "solution": "GALLERY"
+   "solution": "GALLERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GALLERY",
+    "definitions": [
+     {
+      "text": "museum",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside a place, so one piece enters the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "GALLEY",
+      "note": "a galley is an oared ship"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "R",
+      "note": "R is the abbreviation for royal, as in RN"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALLE",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A member of the royal family tours a maritime museum.",
+     "walkthrough": "R goes inside GALLEY.",
+     "definitionFit": "A gallery is a building or room where works of art are displayed to the public."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Royal"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +673,63 @@
     "text": "Want curtains with bit of red lining?",
     "enumeration": "6"
    },
-   "solution": "DEARTH"
+   "solution": "DEARTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DEARTH",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small piece, so only the opening letter of the colour is used"
+     },
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining sits inside something, so the small piece goes within the larger word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curtains",
+      "gives": "DEATH",
+      "note": "it's curtains for someone means it is the end, death"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEA",
+      "R",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if they would like drapes with some red lining.",
+     "walkthrough": "'Curtains' is not soft furnishings but slang for the end. R goes inside DEATH.",
+     "definitionFit": "Dearth means scarcity or lack, the noun sense of want as in 'for want of'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "curtains"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +743,57 @@
     "text": "Cost of crossing bridges? Going over river, and this!",
     "enumeration": "5"
    },
-   "solution": "TROLL"
+   "solution": "TROLL",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "TROLL",
+    "definitions": [
+     {
+      "text": "Cost of crossing bridges? Going over river, and this!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Going over",
+      "for": "container",
+      "note": "going over something means covering it on both sides, so one piece straddles the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cost of crossing bridges",
+      "gives": "TOLL",
+      "note": "a toll is a fee charged to cross certain bridges"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about bridge tolls ends with a hint at a fairy-tale menace.",
+     "walkthrough": "TOLL around R gives the answer, and the whole clue describes it: the troll of fairy tales lurks under a bridge charging a price to cross.",
+     "definitionFit": "In Billy Goats Gruff, a troll lives beneath a bridge demanding payment from anyone passing over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridges"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +807,74 @@
     "text": "Vital European killers finally dispatched one gangster",
     "enumeration": "9"
    },
-   "solution": "ESSENTIAL"
+   "solution": "ESSENTIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESSENTIAL",
+    "definitions": [
+     {
+      "text": "Vital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end, so only the closing letter of the word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "killers",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of killers"
+     },
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "to dispatch is to send off"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "AL",
+      "note": "Al Capone is the archetypal gangster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "SENT",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangland tale: European hitmen finally finish off a mobster.",
+     "walkthrough": "'Dispatched' tempts as 'killed' in this gangland surface, but it simply means sent.",
+     "definitionFit": "Essential and vital both mean absolutely necessary, something that cannot be done without."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dispatched"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +888,61 @@
     "text": "Terrible issue with robot being thus?",
     "enumeration": "10"
    },
-   "solution": "BOISTEROUS"
+   "solution": "BOISTEROUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "BOISTEROUS",
+    "definitions": [
+     {
+      "text": "Terrible issue with robot being thus?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "something terrible is in a dreadful state, so the letters that follow are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue",
+      "gives": "ISSUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "robot",
+      "gives": "ROBOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISSUE ROBOT",
+       "gives": "BOISTEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A malfunctioning robot is causing trouble by running riot.",
+     "walkthrough": "The whole clue doubles as the definition: a robot with a terrible fault might well behave in a rowdy way.",
+     "definitionFit": "Boisterous means noisy, energetic and unruly, how a haywire machine might be described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +956,63 @@
     "text": "Pieces of silicon hooped over end of bicycle pump?",
     "enumeration": "4"
    },
-   "solution": "SHOE"
+   "solution": "SHOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHOE",
+    "definitions": [
+     {
+      "text": "pump",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pieces of",
+      "for": "letter_selection",
+      "note": "pieces are small parts, here the first letter taken from each of the following words"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silicon hooped over",
+      "gives": "SHO",
+      "select": "first",
+      "note": "the first letters of silicon, hooped and over"
+     },
+     {
+      "clueFragment": "bicycle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of bicycle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of silicon are looped around the end of a bike pump.",
+     "walkthrough": "'Bicycle pump' reads as one item, but pump alone is the definition: a pump is a light shoe, such as a plimsoll or court shoe.",
+     "definitionFit": "A pump is a type of light, low-cut footwear, so it is an example of the general word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pump"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +1026,53 @@
     "text": "Ape did less monkeying around, being thus",
     "enumeration": "10"
    },
-   "solution": "DISPLEASED"
+   "solution": "DISPLEASED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DISPLEASED",
+    "definitions": [
+     {
+      "text": "Ape did less monkeying around, being thus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "monkeying around",
+      "for": "anagram",
+      "note": "monkeying around is messing about, so the letters before it are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ape did less",
+      "gives": "APEDIDLESS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APEDIDLESS",
+       "gives": "DISPLEASED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A primate cut back on its antics because it was in a bad mood.",
+     "walkthrough": "The whole clue is the definition too: an ape that stopped fooling about might well be cross.",
+     "definitionFit": "Displeased means annoyed or unhappy, a state that would put an ape off its playful antics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "monkeying"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1086,71 @@
     "text": "Vegetable drinks knocked back by a companion",
     "enumeration": "7"
    },
-   "solution": "SPINACH"
+   "solution": "SPINACH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPINACH",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocked back suggests sent backwards, so the word is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinks",
+      "gives": "NIPS",
+      "note": "nips are small measures of spirits"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH is Companion of Honour, a British order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "A",
+      "CH"
+     ],
+     "reversals": [
+      {
+       "from": "NIPS",
+       "to": "SPIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone and their partner down a few drinks, then eat their greens.",
+     "walkthrough": "'Knocked back' looks like drinking in this surface, but it signals the reversal. NIPS backwards is SPIN.",
+     "definitionFit": "Spinach is a leafy green plant eaten as a vegetable, raw or cooked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1164,56 @@
     "text": "Ugly urban district close to Burnley, England",
     "enumeration": "7"
    },
-   "solution": "BLIGHTY"
+   "solution": "BLIGHTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BLIGHTY",
+    "definitions": [
+     {
+      "text": "England",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ugly urban district",
+      "gives": "BLIGHT",
+      "note": "urban blight is a run-down, decaying area of a city"
+     },
+     {
+      "clueFragment": "Burnley",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of Burnley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLIGHT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim neighbourhood near Burnley, a Lancashire town in northern England.",
+     "walkthrough": "'Close to' looks like 'near' but means the end letter. Blighty is old British army slang for home.",
+     "definitionFit": "Blighty is an affectionate slang name for Britain or England, popular with soldiers serving abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1233,52 @@
      }
     ]
    },
-   "solution": "HITPARADE"
+   "solution": "HITPARADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIT PARADE",
+    "definitions": [
+     {
+      "text": "Charts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused and lost, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pirate had",
+      "gives": "PIRATEHAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIRATEHAD",
+       "gives": "HITPARADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A buccaneer had navigational charts while sailing.",
+     "walkthrough": "'Charts' and 'at sea' suggest sea maps, but the charts are lists of best-selling records.",
+     "definitionFit": "The hit parade is an old name for the list of current best-selling pop records."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charts"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1292,70 @@
     "text": "Problem with a craft going around island",
     "enumeration": "7"
    },
-   "solution": "SUMATRA"
+   "solution": "SUMATRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUMATRA",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "going around means turning about, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "SUM",
+      "note": "a sum is an arithmetic problem"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "art and craft both mean skill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "A",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat runs into trouble while circling an island.",
+     "walkthrough": "'Craft' looks like a boat in this surface but means skill. ART reversed is TRA.",
+     "definitionFit": "Sumatra is a large island in western Indonesia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1375,43 @@
      }
     ]
    },
-   "solution": "STANDUP"
+   "solution": "STANDUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAND UP",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     },
+     {
+      "text": "wash",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rise",
+      "note": "first meaning: get to one's feet"
+     },
+     {
+      "clueFragment": "wash",
+      "note": "second meaning: be convincing, as in 'that excuse won't wash'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wash' looks like cleaning, but here it is the informal sense of an argument holding good under scrutiny.",
+     "definitionFit": "The phrasal verb means both getting onto one's feet and an argument proving valid when tested."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wash"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1425,61 @@
     "text": "Hopeful to kick ultimately habit-forming drug",
     "enumeration": "7"
    },
-   "solution": "ASPIRIN"
+   "solution": "ASPIRIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ASPIRIN",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to kick",
+      "for": "deletion",
+      "note": "to kick a habit is to give it up, so a letter is dropped"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so the final letter of the word is meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hopeful",
+      "gives": "ASPIRING",
+      "note": "aspiring means hopeful, ambitious"
+     },
+     {
+      "clueFragment": "habit-forming",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of habit-forming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPIRIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes to give up an addictive drug.",
+     "walkthrough": "The addiction surface misleads: the answer is a harmless painkiller. ASPIRING loses its final G.",
+     "definitionFit": "Aspirin is a common painkilling medicine, acetylsalicylic acid, so it is a kind of drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "habit-forming"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1493,42 @@
     "text": "Wealth is wonderful",
     "enumeration": "7"
    },
-   "solution": "CAPITAL"
+   "solution": "CAPITAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPITAL",
+    "definitions": [
+     {
+      "text": "Wealth",
+      "at": 0
+     },
+     {
+      "text": "wonderful",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wealth",
+      "note": "first meaning: money or assets owned"
+     },
+     {
+      "clueFragment": "wonderful",
+      "note": "second meaning: excellent, a dated British exclamation"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheery remark that being rich is great.",
+     "definitionFit": "The noun means money held for investment, and the old-fashioned British adjective means first-rate or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wonderful"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1542,43 @@
     "text": "Ship's surgeon?",
     "enumeration": "6"
    },
-   "solution": "CUTTER"
+   "solution": "CUTTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CUTTER",
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     },
+     {
+      "text": "surgeon",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ship",
+      "note": "first meaning: a small, fast sailing vessel"
+     },
+     {
+      "clueFragment": "surgeon",
+      "note": "second meaning: a whimsical name for someone who cuts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one person, a ship's doctor, but splits into two separate definitions; the question mark flags the playful surgeon sense.",
+     "definitionFit": "A cutter is a small single-masted vessel, and a surgeon is literally one who cuts with a scalpel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ship's"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1598,66 @@
      }
     ]
    },
-   "solution": "LAYBARE"
+   "solution": "LAYBARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LAY BARE",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "posterior of",
+      "for": "charade",
+      "note": "posterior means behind, so the first piece is placed after the second"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noblewoman",
+      "gives": "LADY",
+      "note": "a lady is a noblewoman"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "naked",
+      "gives": "BARE",
+      "note": "bare means naked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "BARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scandal: a noblewoman's bare bottom is revealed, though not the duke's.",
+     "walkthrough": "'Posterior' suggests a bottom but means placed behind. LADY without D gives LAY.",
+     "definitionFit": "To lay bare is to uncover or reveal something hidden, the same as to expose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "posterior"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1671,57 @@
     "text": "It's a shame a girl will have bottom pinched",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALAS",
+    "definitions": [
+     {
+      "text": "It's a shame",
+      "at": 0,
+      "note": "an interjection standing for a whole sentence"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will have bottom pinched",
+      "for": "deletion",
+      "note": "pinching is stealing, and the bottom of a word is its last letter, so that letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "lass is a northern British word for girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sorry remark that a young woman is going to be groped.",
+     "walkthrough": "The bottom-pinching surface hides a deletion: LASS loses its final S.",
+     "definitionFit": "The exclamation expresses sorrow or regret, as one would by saying what a pity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pinched"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1745,72 @@
      }
     ]
    },
-   "solution": "ASSET"
+   "solution": "ASSET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ASSET",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering something means wrapping around it, so one piece encloses the other"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small piece, so only the first letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "Something",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "S",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A band performs covers of the songs Something and Help!",
+     "walkthrough": "Something (by George Harrison) and Help! are Beatles songs, so 'group' and 'covering' look musical. A SET encloses S.",
+     "definitionFit": "An asset is a useful or valuable quality or person, something that is a help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1824,52 @@
     "text": "Old drug dealer a hearty cop busted",
     "enumeration": "10"
    },
-   "solution": "APOTHECARY"
+   "solution": "APOTHECARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOTHECARY",
+    "definitions": [
+     {
+      "text": "Old drug dealer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busted",
+      "for": "anagram",
+      "note": "something busted is broken, so the letters are smashed and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hearty cop",
+      "gives": "AHEARTYCOP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHEARTYCOP",
+       "gives": "APOTHECARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheery policeman arrests a veteran drug pusher.",
+     "walkthrough": "'Busted' fits the arrest surface but signals the rearrangement, and the drug dealer is a lawful one.",
+     "definitionFit": "An apothecary was a historical pharmacist who prepared and sold medicines, hence an old dispenser of remedies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dealer"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1883,80 @@
     "text": "Target flipping criminal, put head of OPEC inside!",
     "enumeration": "4"
    },
-   "solution": "GOAL"
+   "solution": "GOAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GOAL",
+    "definitions": [
+     {
+      "text": "Target",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word is read backwards"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "put",
+      "for": "container",
+      "note": "put and inside together say to place the single letter within the reversed word"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so the single letter is placed in the reversed word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "LAG",
+      "note": "an old lag is British slang for a habitual criminal"
+     },
+     {
+      "clueFragment": "OPEC",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of OPEC"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "O",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAOG",
+       "to": "GOAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angry call to imprison an OPEC chief described as a flipping crook.",
+     "walkthrough": "'Flipping' reads as a mild British swear word but signals the reversal. LAG flipped is GAL, with O inside.",
+     "definitionFit": "A goal is an aim or objective that one sets out to achieve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1970,61 @@
     "text": "Verbal communication one's used in Dutch classes?",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISCOURSE",
+    "definitions": [
+     {
+      "text": "Verbal communication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in a thing is put inside it, so this piece is inserted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     },
+     {
+      "clueFragment": "classes",
+      "gives": "COURSE",
+      "note": "a course is a series of classes"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and 's adds the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "COURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what language is spoken in Dutch lessons.",
+     "walkthrough": "'One's' contracts 'one is', so I plus the apostrophe S gives two letters; they sit after the Dutch abbreviation, inside the classes.",
+     "definitionFit": "Discourse is spoken or written exchange of ideas, such as conversation or debate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "classes"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +2038,64 @@
     "text": "Famous Zulu war chant that soldier's leader starts",
     "enumeration": "5"
    },
-   "solution": "SHAKA"
+   "solution": "SHAKA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHAKA",
+    "definitions": [
+     {
+      "text": "Famous Zulu",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of the word is taken"
+     },
+     {
+      "text": "starts",
+      "for": "charade",
+      "note": "starts means comes at the beginning, so this letter is placed before the rest"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of soldier's"
+     },
+     {
+      "clueFragment": "war chant",
+      "gives": "HAKA",
+      "note": "the haka is a Maori war dance and chant, famously performed by New Zealand rugby players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HAKA"
+     ]
+    },
+    "explanation": {
+     "surface": "A war cry begun by an army commander.",
+     "walkthrough": "The haka is Maori, not Zulu, so the war chant is wordplay rather than the definition.",
+     "definitionFit": "Shaka was the celebrated early nineteenth-century king who founded the Zulu kingdom in southern Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +2115,39 @@
      }
     ]
    },
-   "solution": "POTPLANT"
+   "solution": "POTPLANT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POT PLANT",
+    "definitions": [
+     {
+      "text": "Might one be seen in marijuana factory?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Might one be seen in marijuana factory?",
+      "note": "surface reading: a question about what is grown in an illegal cannabis farm"
+     },
+     {
+      "clueFragment": "marijuana factory",
+      "note": "setter's reading: pot is slang for marijuana and a plant is a factory, so the answer is literally a cannabis factory, as well as a houseplant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Plant means a factory as well as a growing thing, and pot is slang for cannabis, so the ordinary houseplant name doubles as a drugs works.",
+     "definitionFit": "The phrase normally means a houseplant grown in a container, which might well sit on a factory windowsill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "factory"
+    }
+   }
   },
   {
    "number": 29,
@@ -501,7 +2161,64 @@
     "text": "Hold second of parties with daughter in attendance",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "Hold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second of",
+      "for": "letter_selection",
+      "note": "second of means the letter in position two of the following word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parties",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter of parties"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "in attendance",
+      "gives": "HERE",
+      "note": "someone in attendance is here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A party is held with someone's daughter present.",
+     "definitionFit": "To adhere is to stick fast or cling, which is one sense of holding firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hold"
+    }
+   }
   }
  ]
 }
