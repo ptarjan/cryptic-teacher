@@ -934,7 +934,11 @@ def resettle():
             refused[g["post_id"]] = "refused: no parsed record"
             continue
         rec, made = amend(rec, settled)
-        fixes, why = settle(g["grid"], rec, vocab)
+        # The lights as the grid has them, as the filer reads the record: a
+        # grid that freed a misnumbered light ("number freed") or split a
+        # linked answer differs from the raw post by exactly that.
+        grid = g["grid"]
+        fixes, why = settle(grid, numbered_by(headed_by(split_by(rec, grid), grid), grid), vocab)
         if why and why.startswith(LIGHTS_DIFFER):
             continue           # the post parses differently now: rebuild it
         if why:
