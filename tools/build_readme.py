@@ -298,6 +298,8 @@ LAYOUT = [
     ("scheduling", "tools/test_prereset_paths.sh", "resolves the bridge path the burn's alerts build at runtime, instead of matching the text of the line that builds it"),
     ("scheduling", "tools/test_prereset_plan.sh", "runs the burn planner's self-test: the bridge's measured spend coming off the need, the idle cores capping the width, and the queue order"),
     ("scheduling", "tools/test_prereset_pool.sh", "drives the burn's rolling pool with a stub run: never past the width, a freed slot refilled at once, launches spaced, a width change taking effect"),
+    ("scheduling", "tools/discard_clue_rows.py", "the burn's discard: drops a puzzle's SOURCE_CLUE_WRONG rows its reverted file does not show"),
+    ("scheduling", "tools/test_discard_clue_rows.sh", "a discarded run takes its SOURCE_CLUE_WRONG rows with it, and the table agrees with the file"),
     ("scheduling", "tools/test_alert_claimed.sh", "runs a real failing run past alert.sh, so the catch-all cannot report a failure somebody already alerted on a second time"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),

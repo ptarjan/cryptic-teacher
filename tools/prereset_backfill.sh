@@ -387,10 +387,13 @@ solve_applied() {
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
-# Undo a run's edits to one puzzle, including a copy written to a new folder.
+# Undo a run's edits to one puzzle, including a copy written to a new folder,
+# and the SOURCE_CLUE_WRONG rows it filed for clues the file no longer shows.
 discard_puzzle() {
   git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
   git clean -qf -- "$(puzzle_spec "$1")"
+  python3 tools/discard_clue_rows.py "$1" ||
+    alert "pre-reset backfill could not drop $1's SOURCE_CLUE_WRONG rows after discarding it; the next commit may carry rows its file does not show. See .prereset.log."
 }
 
 # A run that failed. One cut off by a lockout usually leaves real work behind:
