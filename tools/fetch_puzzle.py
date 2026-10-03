@@ -1898,6 +1898,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17031", "17-across"): (
+        "Mr Toward's acid drop",
+        "Mr Coward's acid drop",
+        "OCR misread: Bitter Sweet is Noël Coward's operetta"),
     ("times-16798", "3-down"): (
         "Septimes Harding, perhaps, willing to supervise wild life?",
         "Septimus Harding, perhaps, willing to supervise wild life?",
