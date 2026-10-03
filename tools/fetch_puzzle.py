@@ -1889,6 +1889,40 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16960", "3-down"): (
+        "Tap a growth area? (8",
+        "Tap a growth area?",
+        "OCR misread: the stray '(8' is the enumeration read into the clue"),
+    ("times-16960", "20-across"): (
+        "What Rackstraw, in spite of all temptations, remained 0).",
+        "What Rackstraw, in spite of all temptations, remained",
+        "OCR misread: the stray '0).' is the enumeration read into the clue"),
+    ("times-16944", "1-across"): (
+        "He makes passes - he's quite a . card",
+        "He makes passes - he's quite a card",
+        "OCR misread: the stray full stop is scan debris; the second definition is quite a card"),
+    ("times-16944", "12-across"): (
+        "Name dropping by a new . cleaning woman",
+        "Name dropping by a new cleaning woman",
+        "OCR misread: the stray full stop is scan debris; the anagram runs through a cleaning"),
+    ("times-16944", "18-across"): (
+        "Dominating skipper dined well we bear",
+        "Dominating skipper dined well we hear",
+        "OCR misread: the wordplay needs a sound indicator, we hear, for FUL from full"),
+    ("times-16944", "22-down"): (
+        "Mistake to offer half a comfort to Queen Bess",
+        "Mistake to offer half a comfit to Queen Bess",
+        "OCR misread: the wordplay needs comfit, a sweet or bonbon, halved to BON"),
+    ("times-16952", "1-down"): (
+        "Consequences of following 2 dull husband",
+        "Consequences of following a dull husband",
+        "OCR misread: the clue needs the word a, read as the digit 2",
+    ),
+    ("times-16952", "24-across"): (
+        "Include El in capital for another",
+        "Include Li in capital for another",
+        "OCR misread: the wordplay needs LI inside BERN",
+    ),
     ("times-16937", "5-down"): (
         "Chaser, or *e could be a runner of course",
         "Chaser, or 'e could be a runner of course",
