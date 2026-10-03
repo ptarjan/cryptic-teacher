@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Get singer rocking in \"Hello\"",
     "enumeration": "9"
    },
-   "solution": "GREETINGS"
+   "solution": "GREETINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREETINGS",
+    "definitions": [
+     {
+      "text": "Hello",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocking",
+      "for": "anagram",
+      "note": "something rocking is shaken about, so the letters before it are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get singer",
+      "gives": "GETSINGER",
+      "note": "the two words supply the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSINGER",
+       "gives": "GREETINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist launches into a rock version of the song \"Hello\".",
+     "walkthrough": "The quotation marks dress Hello up as a song title; it is simply the definition.",
+     "definitionFit": "Greetings is said as an interjection of welcome, the same job a cheery hello does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocking"
+    }
+   }
   },
   {
    "number": 6,
@@ -47,7 +97,43 @@
     "text": "Some lift heavy article",
     "enumeration": "3"
    },
-   "solution": "THE"
+   "solution": "THE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THE",
+    "definitions": [
+     {
+      "text": "article",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a part of their letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lift heavy",
+      "gives": "THE",
+      "note": "the end of lift runs into the start of heavy"
+     }
+    ],
+    "explanation": {
+     "surface": "Raising a weighty item off the ground.",
+     "definitionFit": "In grammar the definite article is the commonest instance of the word class called articles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 8,
@@ -61,7 +147,66 @@
     "text": "Notice boy going round vehicle after parking",
     "enumeration": "7"
    },
-   "solution": "PLACARD"
+   "solution": "PLACARD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PLACARD",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means the boy word encircles the vehicle word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us the parking letter comes first and the rest follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LA",
+      "CAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy circles his car in a car park after spotting a sign.",
+     "definitionFit": "A placard is a public sign or poster displayed so people will see it, a kind of written notice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 9,
@@ -75,7 +220,51 @@
     "text": "Fine applications programming interface for browser",
     "enumeration": "5"
    },
-   "solution": "OKAPI"
+   "solution": "OKAPI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OKAPI",
+    "definitions": [
+     {
+      "text": "browser",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "OK",
+      "note": "OK means fine, all right"
+     },
+     {
+      "clueFragment": "applications programming interface",
+      "gives": "API",
+      "note": "the standard initialism for an application programming interface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OK",
+      "API"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a software interface that suits a web browser.",
+     "walkthrough": "The computing words make browser look like web software; here it is an animal that browses, feeding on leaves.",
+     "definitionFit": "The okapi, a forest relative of the giraffe, feeds by stripping leaves from trees, which zoologists call browsing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "browser"
+    }
+   }
   },
   {
    "number": 10,
@@ -89,7 +278,72 @@
     "text": "In good alloys furiously checks everything's ready",
     "enumeration": "3,7,2"
    },
-   "solution": "ALLSYSTEMSGO"
+   "solution": "ALLSYSTEMSGO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALL SYSTEMS GO",
+    "definitions": [
+     {
+      "text": "everything's ready",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furiously",
+      "for": "anagram",
+      "note": "doing something furiously means wildly and chaotically, so the letters are thrown into a new order"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In places the good letter inside the rearranged material"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "alloys",
+      "gives": "ALLOYS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "checks",
+      "gives": "STEMS",
+      "note": "to stem a flow is to check it; also rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLSYSTEMS",
+      "G",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALLOYSSTEMS",
+       "gives": "ALLSYSTEMSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Metal testing in a foundry finds everything satisfactory.",
+     "walkthrough": "The rearranged letters of alloys and stems make ALLSYSTEMSO, and G slips in before the last letter.",
+     "definitionFit": "The phrase comes from rocket launches, where controllers announce that every component is prepared and the mission may proceed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 12,
@@ -103,7 +357,61 @@
     "text": "Not to make oneself read fiction initially is backward",
     "enumeration": "4"
    },
-   "solution": "FROM"
+   "solution": "FROM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "FROM",
+    "definitions": [
+     {
+      "text": "Not to",
+      "at": 0,
+      "note": "a preposition defined by its opposite"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the words just before it"
+     },
+     {
+      "text": "is backward",
+      "for": "reversal",
+      "note": "backward means the selected letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make oneself read fiction",
+      "gives": "MORF",
+      "select": "first",
+      "note": "the opening letters of those four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FROM"
+     ],
+     "reversals": [
+      {
+       "from": "MORF",
+       "to": "FROM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant reader refuses to force themselves through novels.",
+     "definitionFit": "Prepositions of direction pair off as opposites: one marks a starting point, the other the destination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 13,
@@ -117,7 +425,49 @@
     "text": "Figure seen in Piccadilly tea rooms regularly",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "Figure seen in Piccadilly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at even intervals, every second one here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea rooms",
+      "gives": "EROS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EROS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist spots a statue while taking tea in central London.",
+     "walkthrough": "The winged statue atop the Shaftesbury Memorial Fountain in Piccadilly Circus, London, is popularly called Eros.",
+     "definitionFit": "The famous statue at Piccadilly Circus in London is universally known by the name of the Greek love god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 17,
@@ -131,7 +481,59 @@
     "text": "Women's regatta team raise Royal sportsperson",
     "enumeration": "12"
    },
-   "solution": "WEIGHTLIFTER"
+   "solution": "WEIGHTLIFTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEIGHTLIFTER",
+    "definitions": [
+     {
+      "text": "sportsperson",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women's",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     },
+     {
+      "clueFragment": "regatta team",
+      "gives": "EIGHT",
+      "note": "a rowing eight is a crew of eight oarsmen"
+     },
+     {
+      "clueFragment": "raise",
+      "gives": "LIFT",
+      "note": "to lift is to raise"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EIGHT",
+      "LIFT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A women's rowing crew hoists a royal athlete onto their shoulders.",
+     "walkthrough": "A regatta is a rowing race meeting, and its standard crew is an eight.",
+     "definitionFit": "A competitor who hoists barbells in an Olympic strength discipline is an athlete, a sportsperson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 20,
@@ -145,7 +547,43 @@
     "text": "Welshman involved in unsteady landing",
     "enumeration": "5"
    },
-   "solution": "DYLAN"
+   "solution": "DYLAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DYLAN",
+    "definitions": [
+     {
+      "text": "Welshman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means caught up inside the following words, not built from outside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsteady landing",
+      "gives": "DYLAN",
+      "note": "found across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A man from Wales takes part in a wobbly touchdown.",
+     "walkthrough": "Dylan is a classic Welsh name, as borne by the poet Dylan Thomas.",
+     "definitionFit": "The name is distinctively Welsh, borne most famously by the poet Thomas from Swansea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 21,
@@ -159,7 +597,56 @@
     "text": "Extra box located in boot?",
     "enumeration": "2,5"
    },
-   "solution": "TOSPARE"
+   "solution": "TOSPARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TO SPARE",
+    "definitions": [
+     {
+      "text": "Extra",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "located in",
+      "for": "container",
+      "note": "located in places the box word inside the boot word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boot",
+      "gives": "TOE",
+      "note": "the toe is the front part of a boot; the question mark flags this part-for-whole hint"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "SPAR",
+      "note": "to spar is to box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "SPAR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A surplus item stashed in a car boot, perhaps a spare wheel.",
+     "walkthrough": "A car boot is the trunk, which makes a spare tyre spring to mind; but the boot is footwear, and its toe holds the boxing word.",
+     "definitionFit": "Something left over beyond what is needed is extra, as in having time or money left over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boot"
+    }
+   }
   },
   {
    "number": 23,
@@ -173,7 +660,48 @@
     "text": "Novel's understood when read aloud",
     "enumeration": "3"
    },
-   "solution": "NEW"
+   "solution": "NEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEW",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when read aloud",
+      "for": "homophone",
+      "note": "when read aloud means we take the sound of the word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "understood",
+      "gives": "NEW",
+      "soundsLike": "KNEW",
+      "note": "understood means knew, which is said exactly like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A book's meaning becomes clear once you read it out.",
+     "walkthrough": "Novel looks like a book, but here it is the adjective meaning fresh.",
+     "definitionFit": "Novel as an adjective means original and not seen before, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 24,
@@ -187,7 +715,53 @@
     "text": "Go over and promise to produce this",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "this",
+      "at": 31,
+      "note": "self-reference: the puzzle being solved"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go over",
+      "gives": "CROSS",
+      "note": "to cross a road is to go over it"
+     },
+     {
+      "clueFragment": "promise",
+      "gives": "WORD",
+      "note": "giving your word is promising"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction for making the very puzzle you are solving.",
+     "walkthrough": "The definition points at the puzzle itself, a common self-referential joke.",
+     "definitionFit": "The thing in front of the solver is a grid of interlocking clued words, so the pronoun stands for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "this"
+    }
+   }
   },
   {
    "number": 1,
@@ -201,7 +775,50 @@
     "text": "Grand parrot making one stare",
     "enumeration": "4"
    },
-   "solution": "GAPE"
+   "solution": "GAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAPE",
+    "definitions": [
+     {
+      "text": "stare",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is the abbreviation for grand, a thousand"
+     },
+     {
+      "clueFragment": "parrot",
+      "gives": "APE",
+      "note": "to parrot is to copy or mimic, to ape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A magnificent parrot is so striking that onlookers gawp.",
+     "walkthrough": "Parrot looks like the bird but is the verb meaning to imitate.",
+     "definitionFit": "To gape is to look wide-eyed with the mouth open, gazing in wonder, which is staring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parrot"
+    }
+   }
   },
   {
    "number": 2,
@@ -215,7 +832,68 @@
     "text": "Authorizer's been crazily associated with brief lark",
     "enumeration": "7"
    },
-   "solution": "ENABLER"
+   "solution": "ENABLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENABLER",
+    "definitions": [
+     {
+      "text": "Authorizer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazily",
+      "for": "anagram",
+      "note": "crazily signals letters jumbled into a wild new order"
+     },
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "been",
+      "gives": "BEEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lark",
+      "gives": "LAR",
+      "note": "lark without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENABLER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEENLAR",
+       "gives": "ENABLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official who approves things has been mixed up in a silly prank.",
+     "definitionFit": "One who empowers or gives permission for something to happen makes it possible, so authorizes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lark"
+    }
+   }
   },
   {
    "number": 3,
@@ -229,7 +907,52 @@
     "text": "Leaves note with answer",
     "enumeration": "3"
    },
-   "solution": "TEA"
+   "solution": "TEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEA",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0,
+      "note": "plural noun for a mass noun"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone departs, leaving a note with a reply.",
+     "walkthrough": "Leaves reads as a verb, someone departing; it is the noun, dried plant leaves.",
+     "definitionFit": "The drink is brewed from the dried foliage of the Camellia plant, sold loose as tea leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 4,
@@ -243,7 +966,55 @@
     "text": "CID officer's grabbed by lunatic: streaker?",
     "enumeration": "6"
    },
-   "solution": "NUDIST"
+   "solution": "NUDIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUDIST",
+    "definitions": [
+     {
+      "text": "streaker?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "grabbed by means held inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunatic",
+      "gives": "NUT",
+      "note": "a nut is a crazy person"
+     },
+     {
+      "clueFragment": "CID officer's",
+      "gives": "DIS",
+      "note": "a DI is a Detective Inspector in the CID, with the possessive s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "DIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective is seized by a madman who runs naked across the pitch.",
+     "walkthrough": "CID is Britain's Criminal Investigation Department, the plain-clothes detective branch of the police.",
+     "definitionFit": "A streaker runs naked in public, and someone who goes without clothes is, at least for the moment, a naturist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "officer's"
+    }
+   }
   },
   {
    "number": 5,
@@ -257,7 +1028,70 @@
     "text": "Notes bad coffee not cold - but in a sense completely defective",
     "enumeration": "5-4"
    },
-   "solution": "STONEDEAF"
+   "solution": "STONEDEAF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "STONE-DEAF",
+    "definitions": [
+     {
+      "text": "in a sense completely defective",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests the letters are spoilt and so put into the wrong order"
+     },
+     {
+      "text": "not cold",
+      "for": "deletion",
+      "note": "not cold means the letter standing for cold is removed"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notes",
+      "gives": "NOTES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "coffee",
+      "gives": "DECAF",
+      "note": "decaf is decaffeinated coffee; C for cold comes out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "DEAF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTES",
+       "gives": "STONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about dreadful coffee that has gone cold.",
+     "walkthrough": "C is the tap abbreviation for cold, so DECAF loses C to make DEAF.",
+     "definitionFit": "Hearing is one of the senses, and being totally unable to hear is a complete failure of that one faculty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Notes"
+    }
+   }
   },
   {
    "number": 6,
@@ -271,7 +1105,69 @@
     "text": "Thursday, when consuming water initially, gets more cordial?",
     "enumeration": "5"
    },
-   "solution": "THAWS"
+   "solution": "THAWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "THAWS",
+    "definitions": [
+     {
+      "text": "gets more cordial?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means swallowing up, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thursday",
+      "gives": "TH",
+      "note": "TH is a short form of Thursday"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "W",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "A",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A weekday on which drinking water makes people friendlier.",
+     "definitionFit": "Someone who becomes less frosty and more friendly is figuratively melting, as ice does when warmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cordial"
+    }
+   }
   },
   {
    "number": 7,
@@ -285,7 +1181,69 @@
     "text": "Energy and nonsense: I'd upset press person",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "press person",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the words before it read upwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "nonsense",
+      "gives": "ROT",
+      "note": "rot means nonsense"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DI",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTID",
+       "to": "DITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist claims the press is all energy and rubbish.",
+     "definitionFit": "Newspapers are collectively the press, and the person who runs a newspaper is one of its people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 11,
@@ -299,7 +1257,53 @@
     "text": "Chopin's my sort of composition!",
     "enumeration": "9"
    },
-   "solution": "SYMPHONIC"
+   "solution": "SYMPHONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYMPHONIC",
+    "definitions": [
+     {
+      "text": "composition",
+      "at": 20,
+      "note": "the answer is an adjective; the clue treats it as describing a kind of composition"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "a sort of something is a version of it, so the letters are sorted into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chopin's my",
+      "gives": "CHOPINSMY",
+      "note": "these letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHOPINSMY",
+       "gives": "SYMPHONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music lover declares Chopin's work is just their kind of music.",
+     "walkthrough": "Chopin wrote no symphonies, which adds a wink to the exclamation.",
+     "definitionFit": "Symphonic describes music in the form of a symphony, a large orchestral work and type of composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 14,
@@ -313,7 +1317,55 @@
     "text": "Herb ducks hugging ungrateful daughter",
     "enumeration": "7"
    },
-   "solution": "OREGANO"
+   "solution": "OREGANO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OREGANO",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "hugging means wrapping around, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ducks",
+      "gives": "OO",
+      "note": "a duck is a score of nought in cricket, looking like O"
+     },
+     {
+      "clueFragment": "ungrateful daughter",
+      "gives": "REGAN",
+      "note": "Regan is one of King Lear's ungrateful daughters in Shakespeare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "REGAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Waterbirds cuddle a thankless girl near the herb garden.",
+     "walkthrough": "In cricket a duck is a score of zero, so ducks are two Os.",
+     "definitionFit": "Oregano is a Mediterranean culinary plant of the mint family, used dried as a seasoning herb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 15,
@@ -327,7 +1379,59 @@
     "text": "Old nurse has got married in the country",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has got",
+      "for": "container",
+      "note": "has got means holds within, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old nurse",
+      "gives": "SEN",
+      "note": "SEN, State Enrolled Nurse, was a former British nursing grade"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "WED",
+      "note": "wed means married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WED",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired nurse has married and moved out to the countryside.",
+     "walkthrough": "The country looks like rural parts; it is a nation.",
+     "definitionFit": "Sweden is a Scandinavian nation, so it is a country in the political sense, not the rural one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 16,
@@ -341,7 +1445,63 @@
     "text": "Very drunk: stain on part of bible turning up",
     "enumeration": "6"
    },
-   "solution": "BLOTTO"
+   "solution": "BLOTTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BLOTTO",
+    "definitions": [
+     {
+      "text": "Very drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stain",
+      "gives": "BLOT",
+      "note": "a blot is a stain"
+     },
+     {
+      "clueFragment": "part of bible",
+      "gives": "OT",
+      "note": "OT, the Old Testament, is part of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOT",
+      "TO"
+     ],
+     "reversals": [
+      {
+       "from": "OT",
+       "to": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mark appears on a page of scripture.",
+     "definitionFit": "Blotto is informal British slang for being extremely intoxicated, as drunk as can be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stain"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1515,43 @@
     "text": "Relative the opposite of what Robin Hood was?",
     "enumeration": "2-3"
    },
-   "solution": "INLAW"
+   "solution": "INLAW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN-LAW",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     },
+     {
+      "text": "the opposite of what Robin Hood was",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "note": "first meaning: a relation by marriage"
+     },
+     {
+      "clueFragment": "the opposite of what Robin Hood was",
+      "note": "second meaning: Robin Hood was an outlaw, and in is the opposite of out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Robin Hood was the legendary English outlaw; swap out for in to get the playful second meaning.",
+     "definitionFit": "A relation gained through marriage, such as a spouse's parent, is a relative of a kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1565,45 @@
     "text": "You and me and Lord join together",
     "enumeration": "4"
    },
-   "solution": "WELD"
+   "solution": "WELD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WELD",
+    "definitions": [
+     {
+      "text": "join together",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and me",
+      "gives": "WE",
+      "note": "you and I together are we"
+     },
+     {
+      "clueFragment": "Lord",
+      "gives": "LD",
+      "note": "LD is the abbreviation for Lord"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "LD"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people and a nobleman form an alliance.",
+     "definitionFit": "To weld is to fuse metal pieces by heating, and more loosely to unite things firmly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1617,42 @@
     "text": "Girl in family service supplying agents",
     "enumeration": "3"
    },
-   "solution": "SIS"
+   "solution": "SIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIS",
+    "definitions": [
+     {
+      "text": "Girl in family",
+      "at": 0
+     },
+     {
+      "text": "service supplying agents",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl in family",
+      "note": "first meaning: short for sister"
+     },
+     {
+      "clueFragment": "service supplying agents",
+      "note": "second meaning: the Secret Intelligence Service, Britain's foreign spy agency also known as MI6"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "SIS is the Secret Intelligence Service, better known as MI6, which runs Britain's overseas spies.",
+     "definitionFit": "Informal speech shortens sister for a female sibling, while the initials name Britain's spy service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agents"
+    }
+   }
   }
  ]
 }
