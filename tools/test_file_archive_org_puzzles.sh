@@ -269,6 +269,21 @@ check("numbers the dates imply, either side of the shutdown",
        for d, n in [("1974-05-02", 13677), ("1985-07-11", 16786), ("1995-01-03", 19742),
                     ("1998-07-25", 20853), ("1965-07-05", 20212)]])
 
+# placed(): the edition's date fixes a misread number when its filed
+# neighbours run unbroken, and refuses one out of date order (times-18873
+# was read as 18879 between 18872 on Saturday and 18874 on Tuesday).
+D = datetime.date.fromisoformat
+held = {18872: D("1992-03-21"), 18874: D("1992-03-24")}
+check("a number misread between unbroken neighbours files as the one its date fixes",
+      (18873, None), f.placed(18879, D("1992-03-23"), held))
+gap = {18872: D("1992-03-21"), 18880: D("1992-04-02")}
+check("across a gap, a number out of date order is refused and one in order kept",
+      [None, 18875], [f.placed(18890, D("1992-03-25"), gap)[0], f.placed(18875, D("1992-03-25"), gap)[0]])
+check("a number filed for another day is refused",
+      None, f.placed(18880, D("1992-03-25"), {18880: D("1992-04-02")})[0])
+check("six issues a week, none on Sunday", [1, 6, 7], [f.issues_between(D("1992-03-21"), D("1992-03-23")),
+      f.issues_between(D("1992-03-21"), D("1992-03-28")), f.issues_between(D("1992-03-21"), D("1992-03-30"))])
+
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
 parsed = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
