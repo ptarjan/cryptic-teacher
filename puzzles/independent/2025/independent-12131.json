@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Northern miners ultimately like somewhere to sleep, presumably?",
     "enumeration": "8"
    },
-   "solution": "SCOTTISH"
+   "solution": "SCOTTISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOTTISH",
+    "definitions": [
+     {
+      "text": "Northern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the closing letter of the preceding word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miners",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of miners"
+     },
+     {
+      "clueFragment": "like somewhere to sleep, presumably",
+      "gives": "COTTISH",
+      "note": "a playful coinage: cot is somewhere to sleep and -ish means like, with presumably admitting the word is invented"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COTTISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Miners from the north of Britain are pictured as being like a bed somewhere.",
+     "walkthrough": "The question mark and 'presumably' flag that COTTISH is an invented word for cot-like, so S plus COTTISH spells SCOTTISH.",
+     "definitionFit": "Scotland lies at the top of Britain, so Scottish things are northern from an English point of view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,51 @@
     "text": "On the run, naked, for a bet",
     "enumeration": "4"
    },
-   "solution": "ANTE"
+   "solution": "ANTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANTE",
+    "definitions": [
+     {
+      "text": "a bet",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "something naked has had its covering stripped, so the outside letters go"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On the run",
+      "gives": "WANTED",
+      "note": "a fugitive on the run is wanted by the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A streaker running naked across a field to win a wager.",
+     "walkthrough": "WANTED loses its first and last letters to leave ANTE.",
+     "definitionFit": "An ante is the stake each poker player puts in before the deal, a kind of wager."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,48 @@
     "text": "At intervals join G.I.'s lively manoeuvres",
     "enumeration": "4"
    },
-   "solution": "JIGS"
+   "solution": "JIGS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "JIGS",
+    "definitions": [
+     {
+      "text": "lively manoeuvres",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At intervals",
+      "for": "letter_selection",
+      "note": "at intervals means taking every other letter, skipping the ones between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "join G.I.'s",
+      "gives": "JIGS",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JIGS"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to soldiers to fall in with American troops for military exercises.",
+     "definitionFit": "Jigs are quick, bouncy folk dances, so they are energetic movements of the feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "manoeuvres"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +223,71 @@
      }
     ]
    },
-   "solution": "GIVEORTAKE"
+   "solution": "GIVEORTAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GIVE OR TAKE",
+    "definitions": [
+     {
+      "text": "Roughly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translate",
+      "for": "anagram",
+      "note": "translating changes words into a new form, so these letters get rearranged"
+     },
+     {
+      "text": "first bits of",
+      "for": "letter_selection",
+      "note": "first bits points to the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Testament",
+      "gives": "OT",
+      "select": "first",
+      "note": "initial letters of Old and Testament"
+     },
+     {
+      "clueFragment": "via",
+      "gives": "VIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Greek",
+      "gives": "GREEK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIVEORTAKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTVIAGREEK",
+       "gives": "GIVEORTAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar asked to render the opening of the Old Testament by way of the Greek text.",
+     "walkthrough": "'Roughly' sits at the front looking like an adverb on translate, but it is the definition.",
+     "definitionFit": "The idiom means approximately, allowing for a small margin either way in a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Roughly"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +301,70 @@
     "text": "Flier in back of book - it's beside fourth entry in index",
     "enumeration": "4"
    },
-   "solution": "KITE"
+   "solution": "KITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KITE",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "fourth entry in",
+      "for": "letter_selection",
+      "note": "fourth entry means counting four letters along the following word"
+     }
+    ],
+    "linkWords": [
+     "'s beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "K",
+      "select": "last",
+      "note": "final letter of book"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "index",
+      "gives": "E",
+      "select": 4,
+      "note": "i, n, d, then the fourth letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone searching the back pages of a book for a name listed next to the fourth index entry.",
+     "definitionFit": "A kite is something that flies, either a bird of prey or a toy on a string."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flier"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +378,58 @@
     "text": "See pottery thrown for someone, just how you'd expect",
     "enumeration": "10"
    },
-   "solution": "STEREOTYPE"
+   "solution": "STEREOTYPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEREOTYPE",
+    "definitions": [
+     {
+      "text": "someone, just how you'd expect",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown",
+      "for": "anagram",
+      "note": "pottery is thrown on a wheel, which reshapes clay, so the letters are reshaped too"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See pottery",
+      "gives": "SEEPOTTERY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEREOTYPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEPOTTERY",
+       "gives": "STEREOTYPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to watch someone throwing pots on a wheel.",
+     "walkthrough": "'thrown' reads as a pottery term, which is exactly what disguises it as the anagram signal.",
+     "definitionFit": "A stereotype is a person conforming exactly to a fixed, conventional image of their type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +443,62 @@
     "text": "A jolly irrational time to show body part",
     "enumeration": "6"
    },
-   "solution": "ARMPIT"
+   "solution": "ARMPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMPIT",
+    "definitions": [
+     {
+      "text": "body part",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a Jolly is slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "irrational",
+      "gives": "PI",
+      "note": "pi is the best-known irrational number"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RM",
+      "PI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fun, nonsensical party moment where someone shows off part of their body.",
+     "walkthrough": "'jolly' and 'irrational' look like adjectives but are nouns: a Royal Marine and the number pi.",
+     "definitionFit": "The armpit is the hollow beneath the shoulder joint, an anatomical region of the human frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +512,56 @@
     "text": "Watercraft in choppy ocean",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "Watercraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "choppy",
+      "for": "anagram",
+      "note": "a choppy sea is broken up and disordered, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ocean",
+      "gives": "OCEAN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OCEAN",
+       "gives": "CANOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small boat being tossed about on rough seas.",
+     "definitionFit": "A canoe is a narrow paddled boat, one kind of vessel for travelling on water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "choppy"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +575,76 @@
     "text": "Corps sent up info on cavalry's flanks in dire situation",
     "enumeration": "9"
    },
-   "solution": "EMERGENCY"
+   "solution": "EMERGENCY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMERGENCY",
+    "definitions": [
+     {
+      "text": "dire situation",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent up",
+      "for": "reversal",
+      "note": "in a down entry, sending something up reads it from bottom to top"
+     },
+     {
+      "text": "flanks",
+      "for": "letter_selection",
+      "note": "the flanks of a word are its two sides, its outer letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corps",
+      "gives": "REME",
+      "note": "REME is the Royal Electrical and Mechanical Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "cavalry",
+      "gives": "CY",
+      "select": "outer",
+      "note": "first and last letters of cavalry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMER",
+      "GEN",
+      "CY"
+     ],
+     "reversals": [
+      {
+       "from": "REME",
+       "to": "EMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army unit sends intelligence about the cavalry's wings during a crisis.",
+     "definitionFit": "An emergency is a sudden crisis demanding urgent action, a dangerous state of affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Corps"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +658,67 @@
     "text": "She'll start, constrained by that dodgy ratio",
     "enumeration": "9"
    },
-   "solution": "INITIATOR"
+   "solution": "INITIATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INITIATOR",
+    "definitions": [
+     {
+      "text": "She'll start",
+      "at": 0,
+      "note": "a clause meaning one who will start something"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable and out of order, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constrained by",
+      "gives": "IN",
+      "note": "held in"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "IT",
+      "note": "it and that are both pronouns for a thing"
+     },
+     {
+      "clueFragment": "ratio",
+      "gives": "RATIO",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "IT",
+      "IATOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATIO",
+       "gives": "IATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman refuses to begin because some suspicious proportion is holding her back.",
+     "definitionFit": "An initiator is the person who begins or sets something going, the one who starts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "constrained"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +732,59 @@
     "text": "Article by short doctor who wrote for legendary figure",
     "enumeration": "7"
    },
-   "solution": "THESEUS"
+   "solution": "THESEUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THESEUS",
+    "definitions": [
+     {
+      "text": "legendary figure",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "doctor who wrote",
+      "gives": "SEUSS",
+      "note": "Dr Seuss, the American children's author"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SEUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing by a doctor-author about some mythical hero.",
+     "walkthrough": "'doctor who wrote' tempts a Doctor Who writer; it is Dr Seuss of The Cat in the Hat.",
+     "definitionFit": "Theseus is the Greek mythological hero who killed the Minotaur in the Cretan labyrinth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +804,80 @@
      }
     ]
    },
-   "solution": "EYEDROP"
+   "solution": "EYEDROP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "reversal"
+    ],
+    "answer": "EYE DROP",
+    "definitions": [
+     {
+      "text": "medicine",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Liquid",
+      "for": "anagram",
+      "note": "liquid flows and takes any shape, so the letters of dye are rearranged"
+     },
+     {
+      "text": "penetrating",
+      "for": "container",
+      "note": "penetrating means going inside, so one piece sits within the other"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolving turns something round, so the whole is read backwards"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny aperture",
+      "gives": "PORE",
+      "note": "a pore is a minute opening in the skin"
+     },
+     {
+      "clueFragment": "dye",
+      "gives": "DYE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYEDROP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DYE",
+       "gives": "DEY"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PORDEYE",
+       "to": "EYEDROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coloured fluid seeping into a skin opening, hailed as a breakthrough treatment.",
+     "walkthrough": "DEY goes inside PORE to make PORDEYE, which is then reversed.",
+     "definitionFit": "An eye drop is a liquid remedy dripped into the eye, a form of medication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +891,53 @@
     "text": "Unusual rig a ruler reconstructed",
     "enumeration": "9"
    },
-   "solution": "IRREGULAR"
+   "solution": "IRREGULAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRREGULAR",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconstructed",
+      "for": "anagram",
+      "note": "reconstructed means rebuilt in a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rig a ruler",
+      "gives": "RIGARULER",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRREGULAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIGARULER",
+       "gives": "IRREGULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd apparatus made by rebuilding a measuring stick.",
+     "definitionFit": "Irregular describes something not conforming to the normal pattern, so out of the ordinary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rig"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +951,61 @@
     "text": "Recalled small cars involved in retreat stopping abruptly",
     "enumeration": "10"
    },
-   "solution": "REMINISCED"
+   "solution": "REMINISCED",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "REMINISCED",
+    "definitions": [
+     {
+      "text": "Recalled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in another thing is wrapped up inside it"
+     },
+     {
+      "text": "stopping abruptly",
+      "for": "deletion",
+      "note": "stopping abruptly cuts a word short, losing its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retreat",
+      "gives": "RECEDE",
+      "note": "to recede is to move back"
+     },
+     {
+      "clueFragment": "small cars",
+      "gives": "MINIS",
+      "note": "Minis are small British cars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MINIS",
+      "CED"
+     ]
+    },
+    "explanation": {
+     "surface": "Little cars caught up in a sudden halt during a withdrawal.",
+     "walkthrough": "Minis are the classic small British cars; 'stopping abruptly' trims the word for retreat before they go in.",
+     "definitionFit": "To reminisce is to talk or think about past experiences, so reminisced means remembered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +1025,68 @@
      }
     ]
    },
-   "solution": "LAWABIDING"
+   "solution": "LAWABIDING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAW-ABIDING",
+    "definitions": [
+     {
+      "text": "Obedient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "WING",
+      "note": "a wing is a side of a building or team"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "offer",
+      "gives": "BID",
+      "note": "a bid is an offer at auction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "W",
+      "A",
+      "BID",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club agrees to a transfer bid for one of its players.",
+     "walkthrough": "'City side' reads as a football team, like Manchester City, but the two words work separately.",
+     "definitionFit": "Someone law-abiding follows rules and authority, so they are compliant and dutiful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1100,57 @@
     "text": "Ring queen, then ring tech support?",
     "enumeration": "5"
    },
-   "solution": "QUOIT"
+   "solution": "QUOIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUOIT",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "QU",
+      "note": "Qu is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     },
+     {
+      "clueFragment": "tech support",
+      "gives": "IT",
+      "note": "IT is information technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "O",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Call the monarch, then phone the computer help desk.",
+     "walkthrough": "'Ring' twice suggests telephoning; first it is the definition, then the letter O.",
+     "definitionFit": "A quoit is a metal or rope hoop thrown at a peg in a traditional game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1164,81 @@
     "text": "Posers cut second drug for stoned Otis in NY borough",
     "enumeration": "9"
    },
-   "solution": "QUESTIONS"
+   "solution": "QUESTIONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "QUESTIONS",
+    "definitions": [
+     {
+      "text": "Posers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means removed, so a letter is taken out"
+     },
+     {
+      "text": "stoned",
+      "for": "anagram",
+      "note": "someone stoned is out of their head and disordered, so the letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NY borough",
+      "gives": "QUEENS",
+      "note": "Queens is a borough of New York City"
+     },
+     {
+      "clueFragment": "second drug",
+      "gives": "E",
+      "note": "E is ecstasy; the second of the two Es is the one removed"
+     },
+     {
+      "clueFragment": "Otis",
+      "gives": "OTIS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUE",
+      "STIO",
+      "NS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTIS",
+       "gives": "STIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzling cases about a drugged-up man named Otis in a New York district.",
+     "walkthrough": "E is crossword shorthand for ecstasy; the borough has two, and only the second is cut.",
+     "definitionFit": "Posers are puzzling questions, difficult problems someone is asked to solve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Posers"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1252,42 @@
     "text": "Ark sailor who might be on the radio",
     "enumeration": "3"
    },
-   "solution": "HAM"
+   "solution": "HAM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAM",
+    "definitions": [
+     {
+      "text": "Ark sailor",
+      "at": 0
+     },
+     {
+      "text": "who might be on the radio",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ark sailor",
+      "note": "first meaning: one of Noah's sons aboard the ark"
+     },
+     {
+      "clueFragment": "who might be on the radio",
+      "note": "second meaning: an amateur radio operator"
+     }
+    ],
+    "explanation": {
+     "surface": "One of Noah's crew is imagined broadcasting over the airwaves.",
+     "definitionFit": "Ham is both a son of Noah in Genesis and a nickname for a hobbyist radio broadcaster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1301,60 @@
     "text": "Part of ankle tag went around old prison",
     "enumeration": "7"
    },
-   "solution": "NEWGATE"
+   "solution": "NEWGATE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NEWGATE",
+    "definitions": [
+     {
+      "text": "old prison",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of tells you the letters sit inside the words that follow"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ankle tag went",
+      "gives": "ETAGWEN",
+      "note": "the run of letters spanning the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWGATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAGWEN",
+       "to": "NEWGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offender's electronic ankle tag recalls a historic jail.",
+     "walkthrough": "Newgate was a notorious London prison, demolished in 1904.",
+     "definitionFit": "Newgate was a famous London jail for centuries, so it is a former place of imprisonment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1368,49 @@
     "text": "Finally wholeheartedly agree thus?",
     "enumeration": "3"
    },
-   "solution": "YES"
+   "solution": "YES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "YES",
+    "definitions": [
+     {
+      "text": "Finally wholeheartedly agree thus?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wholeheartedly agree thus",
+      "gives": "YES",
+      "select": "last",
+      "note": "last letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at last gives their full assent.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the word you say to agree fully.",
+     "definitionFit": "Saying it is how a person expresses complete assent or affirmation to a proposal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1424,53 @@
     "text": "Light blocked with this cures man in a bad way",
     "enumeration": "8"
    },
-   "solution": "SUNCREAM"
+   "solution": "SUNCREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUNCREAM",
+    "definitions": [
+     {
+      "text": "Light blocked with this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a bad way",
+      "for": "anagram",
+      "note": "in a bad way means in poor shape, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cures man",
+      "gives": "CURESMAN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNCREAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CURESMAN",
+       "gives": "SUNCREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A treatment that heals a badly hurt man, with light shut out.",
+     "definitionFit": "Sun cream is a lotion spread on skin to stop ultraviolet rays from burning it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cures"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1484,52 @@
     "text": "Satiric comedian Bruce occasionally read clue in Indy",
     "enumeration": "5"
    },
-   "solution": "LENNY"
+   "solution": "LENNY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LENNY",
+    "definitions": [
+     {
+      "text": "Satiric comedian Bruce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "read"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue in Indy",
+      "gives": "LENNY",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENNY"
+     ]
+    },
+    "explanation": {
+     "surface": "A reference to the satirist Bruce turning up now and then in this newspaper's puzzles.",
+     "walkthrough": "The Indy is the Independent, this crossword's own newspaper.",
+     "definitionFit": "Lenny Bruce was the 1960s American stand-up famous for his satirical, obscenity-trial routines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1543,41 @@
     "text": "Rubbish bed",
     "enumeration": "6"
    },
-   "solution": "LITTER"
+   "solution": "LITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTER",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     },
+     {
+      "text": "bed",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "note": "first meaning: waste scattered in a public place"
+     },
+     {
+      "clueFragment": "bed",
+      "note": "second meaning: straw bedding for animals, or a stretcher"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word covers discarded trash in the street and also straw spread as bedding for animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1597,64 @@
      }
     ]
    },
-   "solution": "BREATHEIN"
+   "solution": "BREATHEIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BREATHE IN",
+    "definitions": [
+     {
+      "text": "Inspire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when soused",
+      "for": "anagram",
+      "note": "soused means drunk, and drunken letters stagger out of order"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bar",
+      "gives": "THEBAR",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "ein is German for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREATH",
+      "EIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEBAR",
+       "gives": "BREATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk German propping up a pub counter is a source of inspiration.",
+     "definitionFit": "Inspire in its literal sense means to draw air into the lungs, i.e. inhale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inspire"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1668,42 @@
     "text": "French sculptor sent us Saudi's piece",
     "enumeration": "7"
    },
-   "solution": "TUSSAUD"
+   "solution": "TUSSAUD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TUSSAUD",
+    "definitions": [
+     {
+      "text": "French sculptor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece",
+      "for": "hidden_word",
+      "note": "a piece is a fragment, so the letters are found within the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sent us Saudi's",
+      "gives": "TUSSAUD",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A French artist dispatches a carved work belonging to a Saudi.",
+     "definitionFit": "Marie Tussaud was the French wax modeller whose London waxworks museum still bears her name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1717,43 @@
     "text": "Teacher's suppressing something that'll trouble the head?",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "something that'll trouble the head?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressing",
+      "for": "hidden_word",
+      "note": "suppressing means holding down inside, so the answer is concealed within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teacher's",
+      "gives": "ACHE",
+      "note": "the letters sit inside this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher stifling a looming headache.",
+     "walkthrough": "The question mark hints the definition is the head's kind of pain: put the answer after head.",
+     "definitionFit": "A dull persistent pain is what plagues you in a headache."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suppressing"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1767,62 @@
     "text": "Different man got Cher to edit out intros",
     "enumeration": "7"
    },
-   "solution": "ANOTHER"
+   "solution": "ANOTHER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANOTHER",
+    "definitions": [
+     {
+      "text": "Different",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edit out intros",
+      "for": "deletion",
+      "note": "intros are opening parts, so each word's first letter is cut"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "AN",
+      "note": "man without its first letter"
+     },
+     {
+      "clueFragment": "got",
+      "gives": "OT",
+      "note": "got without its first letter"
+     },
+     {
+      "clueFragment": "Cher",
+      "gives": "HER",
+      "note": "Cher without her first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "OT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man persuades the pop singer Cher to cut the openings of her songs.",
+     "definitionFit": "Another can mean a different one, as in another matter entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Different"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1836,58 @@
     "text": "Couples in the middle of unwrapping presents in recess",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "recess",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Couples in the middle of",
+      "for": "letter_selection",
+      "note": "couples means pairs, so the central two letters of each word are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unwrapping",
+      "gives": "AP",
+      "select": "middle",
+      "note": "central pair of this ten-letter word"
+     },
+     {
+      "clueFragment": "presents",
+      "gives": "SE",
+      "select": "middle",
+      "note": "central pair of this eight-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs of people opening gifts in an alcove.",
+     "definitionFit": "An apse is a semicircular vaulted alcove, usually at the east end of a church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couples"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1901,45 @@
     "text": "Worker dealt cards",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAND",
+    "definitions": [
+     {
+      "text": "Worker",
+      "at": 0
+     },
+     {
+      "text": "cards",
+      "at": 13,
+      "note": "the cards held by one player"
+     }
+    ],
+    "linkWords": [
+     "dealt"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "note": "first meaning: a manual labourer"
+     },
+     {
+      "clueFragment": "cards",
+      "note": "second meaning: the set of cards held in a game"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A hand is both a labourer on a farm or ship and the set of playing cards one player holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dealt"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1953,65 @@
     "text": "Famous footballer makes return accompanied by county trumpeters",
     "enumeration": "9"
    },
-   "solution": "ELEPHANTS"
+   "solution": "ELEPHANTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELEPHANTS",
+    "definitions": [
+     {
+      "text": "trumpeters",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "makes return",
+      "for": "reversal",
+      "note": "returning means going back, so the name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "accompanied by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous footballer",
+      "gives": "PELE",
+      "note": "Pelé, the Brazilian football great"
+     },
+     {
+      "clueFragment": "county",
+      "gives": "HANTS",
+      "note": "Hants is the abbreviation for Hampshire, an English county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEP",
+      "HANTS"
+     ],
+     "reversals": [
+      {
+       "from": "PELE",
+       "to": "ELEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star footballer comes back to play alongside a county brass band.",
+     "walkthrough": "'trumpeters' looks like brass players; it is the animals that trumpet.",
+     "definitionFit": "Elephants make a loud trumpeting call through their trunks, so they are trumpeters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trumpeters"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +2025,56 @@
     "text": "Worker in South America who climbs chimneys?",
     "enumeration": "5"
    },
-   "solution": "SANTA"
+   "solution": "SANTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANTA",
+    "definitions": [
+     {
+      "text": "who climbs chimneys?",
+      "at": 24,
+      "note": "a relative clause standing for the person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South America",
+      "gives": "SA",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "Worker",
+      "gives": "ANT",
+      "note": "a worker ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A chimney sweep working in South America.",
+     "walkthrough": "'climbs chimneys' suggests a sweep; the question mark points to Father Christmas coming down them.",
+     "definitionFit": "Father Christmas traditionally delivers presents by coming down the chimney on Christmas Eve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Worker"
+    }
+   }
   }
  ]
 }

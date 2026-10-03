@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Scotsman has friends in France confined in hotels",
     "enumeration": "6"
    },
-   "solution": "HAMISH"
+   "solution": "HAMISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAMISH",
+    "definitions": [
+     {
+      "text": "Scotsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confined in",
+      "for": "container",
+      "note": "something confined in a place is held within it, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotels",
+      "gives": "HH",
+      "note": "H is hotel in the phonetic alphabet, so two hotels are two Hs"
+     },
+     {
+      "clueFragment": "friends in France",
+      "gives": "AMIS",
+      "note": "amis is French for friends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AMIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish man with French friends who are stuck inside hotel rooms.",
+     "walkthrough": "The French friends go between the two Hs: H(AMIS)H.",
+     "definitionFit": "Hamish is a traditional Scottish first name, so it stands as an example of a man from Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hotels"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +101,53 @@
     "text": "Top primate sitting on value that's unknown",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting on",
+      "for": "charade",
+      "note": "in a down entry, a piece sitting on another is placed above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     },
+     {
+      "clueFragment": "value that's unknown",
+      "gives": "X",
+      "note": "x is the usual algebra symbol for an unknown value"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A dominant monkey perched on top of some mysterious quantity.",
+     "definitionFit": "The apex is the highest point or summit of something, a noun synonym for the top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,60 @@
     "text": "Its disturbing when virtue and sin are confused",
     "enumeration": "9"
    },
-   "solution": "INTRUSIVE"
+   "solution": "INTRUSIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTRUSIVE",
+    "definitions": [
+     {
+      "text": "disturbing",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "are confused",
+      "for": "anagram",
+      "note": "words that are confused have been mixed up, so their letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "Its",
+     "when",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtue",
+      "gives": "VIRTUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "SIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIRTUE SIN",
+       "gives": "INTRUSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moral reflection: it is troubling when people cannot tell good from evil.",
+     "definitionFit": "Something intrusive barges into your privacy or peace, so it is unsettling and unwelcome in the way described."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "confused"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +228,52 @@
     "text": "Head is red, so occasionally needs such styling",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "such styling",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter of the run of words is kept"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head is red, so",
+      "gives": "HAIRDO",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIRDO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a red head therefore needs a particular kind of styling.",
+     "walkthrough": "Read H-e-A-d I-s R-e-D s-O, keeping alternate letters starting with the first. The definition leans on the whole clue: a hair styling for a head.",
+     "definitionFit": "A hairdo is the way a person's hair has been cut and arranged, which is styling of the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "occasionally"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +287,67 @@
     "text": "Country person bearing some twisted longing for family again",
     "enumeration": "8"
    },
-   "solution": "HOMESICK"
+   "solution": "HOMESICK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HOMESICK",
+    "definitions": [
+     {
+      "text": "longing for family again",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "anagram",
+      "note": "twisted means bent out of shape, so the letters of the word beside it are rearranged"
+     },
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "bearing means carrying, so the first piece carries the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country person",
+      "gives": "HICK",
+      "note": "a hick is an unsophisticated person from the countryside"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "SOME",
+      "note": "taken as written before being jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OMES",
+      "ICK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOME",
+       "gives": "OMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural person with a warped desire to see their relatives once more.",
+     "walkthrough": "A hick is American and British slang for a yokel; 'Country person' looks like a nationality but means someone from the countryside.",
+     "definitionFit": "Homesick describes pining for home and the people there, so it means missing your relatives and wanting to be back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +367,59 @@
      }
     ]
    },
-   "solution": "HIGHMAINTENANCE"
+   "solution": "HIGHMAINTENANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HIGH MAINTENANCE",
+    "definitions": [
+     {
+      "text": "difficult to please",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over means placed above, so the first piece comes before the second"
+     },
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means as heard when said, so the word is replaced by one pronounced the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going off",
+      "gives": "HIGH",
+      "note": "meat or game that is going off is said to be high"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "MAIN",
+      "note": "key in the sense of chief or principal"
+     },
+     {
+      "clueFragment": "lessees",
+      "gives": "TENANCE",
+      "soundsLike": "TENANTS",
+      "note": "lessees are tenants, and the word said aloud gives the ending"
+     }
+    ],
+    "explanation": {
+     "surface": "Rotting goods sit above key tenants who are complaining loudly.",
+     "definitionFit": "A high-maintenance person demands constant attention and is hard to satisfy, an idiom for a fussy, demanding character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +433,60 @@
     "text": "US claims special treatment for Chicago and Oklahoma!",
     "enumeration": "8"
    },
-   "solution": "MUSICALS"
+   "solution": "MUSICALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MUSICALS",
+    "definitions": [
+     {
+      "text": "Chicago and Oklahoma!",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special treatment",
+      "for": "anagram",
+      "note": "giving words special treatment means working them over, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "claims",
+      "gives": "CLAIMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "US CLAIMS",
+       "gives": "MUSICALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "America insists that two of its cities and states deserve favoured status.",
+     "walkthrough": "Chicago and Oklahoma! look like a city and a state, but the exclamation mark gives away the stage show title.",
+     "definitionFit": "Chicago and Oklahoma! are both famous stage shows with songs, so they are examples of the theatrical genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chicago"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +500,63 @@
     "text": "Country has open society rising?",
     "enumeration": "5"
    },
-   "solution": "SYRIA"
+   "solution": "SYRIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SYRIA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means read from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open",
+      "gives": "AIRY",
+      "note": "an airy room is open and spacious"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the standard abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YRIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIRYS",
+       "to": "SYRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether a nation's open society is on the rise.",
+     "definitionFit": "Syria is a nation in the Middle East, an example of a sovereign state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +570,54 @@
     "text": "Against cutting sharp supporting beam",
     "enumeration": "10"
    },
-   "solution": "CANTILEVER"
+   "solution": "CANTILEVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANTILEVER",
+    "definitions": [
+     {
+      "text": "supporting beam",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "a word cutting another slices into its middle, so it ends up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sharp",
+      "gives": "CLEVER",
+      "note": "sharp in the sense of quick-witted"
+     },
+     {
+      "clueFragment": "Against",
+      "gives": "ANTI",
+      "note": "anti means opposed to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANTI",
+      "LEVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Something resisting the cut of a sharp blade on a beam.",
+     "definitionFit": "A cantilever is a projecting girder fixed at one end that holds up a balcony or bridge span."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sharp"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +631,49 @@
     "text": "Support item during early development stage  …",
     "enumeration": "8"
    },
-   "solution": "TEETHING"
+   "solution": "TEETHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEETHING",
+    "definitions": [
+     {
+      "text": "early development stage",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "during"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "THING",
+      "note": "an item is a thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A supporting object used during a project's opening phase, running on into the next clue.",
+     "definitionFit": "Teething is when a baby's first teeth come through, and teething troubles are problems in any project's opening phase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +687,45 @@
     "text": "…  bound to be over by June",
     "enumeration": "6"
    },
-   "solution": "SPRING"
+   "solution": "SPRING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRING",
+    "definitions": [
+     {
+      "text": "bound",
+      "at": 3
+     },
+     {
+      "text": "to be over by June",
+      "at": 9,
+      "note": "describes the season rather than naming it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound",
+      "note": "first meaning: a leap or jump"
+     },
+     {
+      "clueFragment": "to be over by June",
+      "note": "second meaning: the season that ends as June brings summer"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue: certain to be finished by midsummer.",
+     "walkthrough": "The ellipsis links it to the clue before, so 'bound to be over' reads as one phrase; split it after 'bound'. In the northern hemisphere the season runs March to May.",
+     "definitionFit": "The word is a verb or noun for leaping, and also the season before summer, which finishes once June arrives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +739,63 @@
     "text": "Armed count gone mad in charge, becoming totalitarian",
     "enumeration": "12"
    },
-   "solution": "UNDEMOCRATIC"
+   "solution": "UNDEMOCRATIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDEMOCRATIC",
+    "definitions": [
+     {
+      "text": "totalitarian",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone mad",
+      "for": "anagram",
+      "note": "words that have gone mad are wildly disordered, so their letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armed count",
+      "gives": "ARMEDCOUNT",
+      "note": "taken as written before being jumbled"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDEMOCRAT",
+      "IC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARMEDCOUNT",
+       "gives": "UNDEMOCRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat with weapons loses his mind, takes control and becomes a dictator.",
+     "definitionFit": "A totalitarian regime allows no opposition or free elections, so it is the opposite of a government chosen by the people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +815,39 @@
      }
     ]
    },
-   "solution": "FURTHERADO"
+   "solution": "FURTHERADO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FURTHER ADO",
+    "definitions": [
+     {
+      "text": "Introductions are commonly shorter without it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Introductions are commonly shorter without it",
+      "note": "surface reading: a tip for keeping the opening of a speech brief"
+     },
+     {
+      "clueFragment": "without it",
+      "note": "setter's reading: the missing word completes a stock phrase used to move straight on to an introduction"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Presenters say 'without further ado' before introducing someone, so the phrase itself literally makes introductions shorter.",
+     "definitionFit": "Further ado means additional fuss or delay, which is exactly what a brisk introduction does without."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +861,49 @@
     "text": "Popular poet starts to rhapsodise using mystical imagery",
     "enumeration": "4"
    },
-   "solution": "RUMI"
+   "solution": "RUMI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUMI",
+    "definitions": [
+     {
+      "text": "Popular poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts means the opening letters, so only the first letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rhapsodise using mystical imagery",
+      "gives": "RUMI",
+      "select": "first",
+      "note": "the initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-loved poet tends to rhapsodise in mystical images.",
+     "walkthrough": "Rumi was a thirteenth-century Persian Sufi poet, now a bestseller in translation, so the surface also describes him.",
+     "definitionFit": "Rumi is among the most widely read poets in the world today, a fitting example of a much-loved verse writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +917,64 @@
     "text": "Cuban perhaps getting ground into endless misery",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "Cuban perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without its ends, so the first and last letters of the next word are dropped"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one word going into another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "LAND",
+      "note": "ground in the sense of terrain"
+     },
+     {
+      "clueFragment": "misery",
+      "gives": "MISERY",
+      "note": "taken as written before losing its ends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "LAND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cuban being pushed down into unending wretchedness.",
+     "walkthrough": "'Cuban' tempts you toward cigars or nationality words; the definition rests on Cuba being an island.",
+     "definitionFit": "Cuba is an island nation, so any Cuban is an example of an inhabitant of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +994,56 @@
      }
     ]
    },
-   "solution": "NOREGRETS"
+   "solution": "NOREGRETS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO REGRETS",
+    "definitions": [
+     {
+      "text": "you won't be sorry",
+      "at": 20,
+      "note": "a phrase describing the state rather than a noun phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "treated means processed or worked on, so the letters are reworked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "snorer",
+      "gives": "SNORER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GET SNORER",
+       "gives": "NOREGRETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a partner: get the snorer medical help and you'll be glad you did.",
+     "definitionFit": "Having nothing to feel remorse about is the state of mind you have when you will feel no repentance later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1057,51 @@
     "text": "Spooner's happy supporter works on water",
     "enumeration": "8"
    },
-   "solution": "FERRYMAN"
+   "solution": "FERRYMAN",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FERRYMAN",
+    "definitions": [
+     {
+      "text": "works on water",
+      "at": 26,
+      "note": "a verb phrase describing the person who does the job"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy supporter",
+      "gives": "FERRYMAN",
+      "soundsLike": "MERRY FAN",
+      "note": "a happy supporter is a merry fan, and Spooner trades the M and F sounds at the start of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FERRYMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful fan who walks on water, like a miracle-worker.",
+     "walkthrough": "'Works on water' hints at a miracle, but it simply describes a boatman's job.",
+     "definitionFit": "A ferryman carries passengers across a river or lake by boat, so his job takes place afloat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1115,70 @@
     "text": "Play double set to capture record? That's most expensive",
     "enumeration": "8"
    },
-   "solution": "STEEPEST"
+   "solution": "STEEPEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STEEPEST",
+    "definitions": [
+     {
+      "text": "most expensive",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Play",
+      "for": "anagram",
+      "note": "to play with something is to move it about freely, so the letters are rearranged"
+     },
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "to capture something is to hold it inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double set",
+      "gives": "SETSET",
+      "note": "the word set written twice"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "EP",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETSET",
+       "gives": "STEEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player wins two sets and grabs a record, the priciest result.",
+     "walkthrough": "An EP, or extended play, is a record longer than a single but shorter than an album.",
+     "definitionFit": "Steep is informal for overpriced, so its superlative describes whatever costs the highest amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1192,55 @@
     "text": "Lamented disrespectful daughter moving east",
     "enumeration": "4"
    },
-   "solution": "RUED"
+   "solution": "RUED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUED",
+    "definitions": [
+     {
+      "text": "Lamented",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving east",
+      "for": "deletion",
+      "note": "east is to the right on a map, so the letter for daughter leaves its place and goes rightwards to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disrespectful",
+      "gives": "RUDE",
+      "note": "rude means disrespectful"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Parents grieved over a cheeky daughter who has moved out east.",
+     "walkthrough": "Take the D out of RUDE and put it on the end.",
+     "definitionFit": "To rue is to regret bitterly, so its past tense means grieved over or regretted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1254,48 @@
     "text": "More slick, having previously spoken in the Bronx?",
     "enumeration": "6"
    },
-   "solution": "OILIER"
+   "solution": "OILIER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OILIER",
+    "definitions": [
+     {
+      "text": "More slick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoken in the Bronx",
+      "for": "homophone",
+      "note": "the word is said aloud in a stereotyped New York accent, which turns er sounds into oi"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "previously",
+      "gives": "OILIER",
+      "soundsLike": "EARLIER",
+      "note": "previously means earlier, which in old Brooklyn-Bronx speech comes out like oily-er"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone smoother, having been a talker in the Bronx before.",
+     "walkthrough": "The old New York accent famously says 'toity-toid street' for thirty-third street, so earlier becomes the answer.",
+     "definitionFit": "Slick can mean greasy or covered in oil, so a slicker surface is a greasier, more lubricated one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "previously"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1315,52 @@
      }
     ]
    },
-   "solution": "HEARTRENDING"
+   "solution": "HEARTRENDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEART-RENDING",
+    "definitions": [
+     {
+      "text": "painful",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to pick up",
+      "gives": "HEAR",
+      "note": "to pick up a sound or signal is to hear it"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "TRENDING",
+      "note": "hot in the sense of currently popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TRENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "Something hot is painful to handle with your fingers.",
+     "walkthrough": "'Pick up when hot' points at touching something scalding; instead, pick up means detect a sound and hot means fashionable.",
+     "definitionFit": "Heart-rending things cause great sorrow and distress, so they are emotionally hurtful to witness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1374,65 @@
     "text": "One washing up has no time for getting clean",
     "enumeration": "5"
    },
-   "solution": "REHAB"
+   "solution": "REHAB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "REHAB",
+    "definitions": [
+     {
+      "text": "getting clean",
+      "at": 31,
+      "note": "a verb phrase for the noun naming the treatment"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no time",
+      "for": "deletion",
+      "note": "time is abbreviated as one letter, and having none of it means that letter is removed"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One washing",
+      "gives": "BATHER",
+      "note": "someone who bathes is washing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REHAB"
+     ],
+     "reversals": [
+      {
+       "from": "BAHER",
+       "to": "REHAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The person doing the dishes is too busy to take a shower.",
+     "walkthrough": "Remove T (time) from BATHER and read the rest upwards. 'Washing up' looks like doing dishes but splits into the washer and the reversal signal.",
+     "definitionFit": "Rehab is treatment for addiction, where an addict goes to come off drugs or drink, slang sense of clean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1452,44 @@
      }
     ]
    },
-   "solution": "NONU"
+   "solution": "NONU",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NON-U",
+    "definitions": [
+     {
+      "text": "Common",
+      "at": 0
+     },
+     {
+      "text": "way for Americans writing about colour",
+      "at": 7,
+      "note": "a cryptic description, read as 'no U'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Common",
+      "note": "first meaning: not upper class, unrefined"
+     },
+     {
+      "clueFragment": "way for Americans writing about colour",
+      "note": "second meaning: Americans spell the word without the British u"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage U means upper class and non-U means not, a social label from the 1950s; the second reading splits it as 'none of the letter U', as in American 'color'.",
+     "definitionFit": "Non-U was coined to label vocabulary and manners as lower class, which is what calling something common means in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1503,59 @@
     "text": "Understand me leaving overweight chap in France",
     "enumeration": "6"
    },
-   "solution": "FATHOM"
+   "solution": "FATHOM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FATHOM",
+    "definitions": [
+     {
+      "text": "Understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when letters are leaving they go away, so they are taken out of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overweight",
+      "gives": "FAT",
+      "note": "fat means overweight"
+     },
+     {
+      "clueFragment": "chap in France",
+      "gives": "HOMME",
+      "note": "homme is French for man"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "HOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Grasp that I'm walking away from a fat Frenchman.",
+     "walkthrough": "Take ME out of FAT HOMME.",
+     "definitionFit": "To fathom something is to get to the bottom of it, a verb synonym for grasping or comprehending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "me"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1575,53 @@
      }
     ]
    },
-   "solution": "NAILEDON"
+   "solution": "NAILEDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAILED ON",
+    "definitions": [
+     {
+      "text": "Certain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     },
+     {
+      "clueFragment": "were troubled",
+      "gives": "AILED",
+      "note": "ailed means were ill or troubled"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AILED",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A few people had problems while they were at work.",
+     "walkthrough": "Nailed-on is British informal for guaranteed, as in a nailed-on certainty in a horse race.",
+     "definitionFit": "Something nailed on is fixed so firmly it cannot move, hence slang for a sure thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Certain"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1635,54 @@
     "text": "Angry about German city university",
     "enumeration": "8"
    },
-   "solution": "SORBONNE"
+   "solution": "SORBONNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SORBONNE",
+    "definitions": [
+     {
+      "text": "university",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "SORE",
+      "note": "sore means annoyed or angry"
+     },
+     {
+      "clueFragment": "German city",
+      "gives": "BONN",
+      "note": "Bonn is a city in Germany, once the West German capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOR",
+      "BONN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cross about a German city.",
+     "definitionFit": "The Sorbonne is the historic seat of the University of Paris, a famous example of a higher-education institution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "city"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1696,58 @@
     "text": "Deliver fresh heart ahead of signal to act",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Deliver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letters are kept"
+     }
+    ],
+    "linkWords": [
+     "ahead of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fresh",
+      "gives": "RES",
+      "select": "middle",
+      "note": "the inner letters of this word"
+     },
+     {
+      "clueFragment": "signal to act",
+      "gives": "CUE",
+      "note": "an actor's cue is the signal to begin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A director gives a new core message before calling for action.",
+     "definitionFit": "To deliver someone from danger is to save them, an older sense of the verb meaning set free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliver"
+    }
+   }
   }
  ]
 }

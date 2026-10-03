@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Personal assistant gets fine fabric for grand house",
     "enumeration": "6"
    },
-   "solution": "PALACE"
+   "solution": "PALACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALACE",
+    "definitions": [
+     {
+      "text": "grand house",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Personal assistant",
+      "gives": "PA",
+      "note": "PA is the usual abbreviation for a personal assistant"
+     },
+     {
+      "clueFragment": "fine fabric",
+      "gives": "LACE",
+      "note": "lace is a delicate openwork fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "LACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A secretary treats herself to expensive cloth to furnish a stately home.",
+     "definitionFit": "A palace is the official residence of a monarch or bishop, the grandest kind of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,74 @@
     "text": "Rustic East Anglian leaders wear peculiar pants",
     "enumeration": "7"
    },
-   "solution": "PEASANT"
+   "solution": "PEASANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PEASANT",
+    "definitions": [
+     {
+      "text": "Rustic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are the front letters of each of the two words"
+     },
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "peculiar means odd, so the letters of the trousers are rearranged"
+     },
+     {
+      "text": "wear",
+      "for": "container",
+      "note": "to wear something is to have it around you, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East Anglian",
+      "gives": "EA",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "PANTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EA",
+      "SANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PANTS",
+       "gives": "PSANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Farmworkers from East Anglia dress in odd trousers.",
+     "walkthrough": "East Anglia is a rural region of eastern England.",
+     "definitionFit": "A rustic is a country person, especially a farm labourer of humble standing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +180,41 @@
      }
     ]
    },
-   "solution": "LOGIN"
+   "solution": "LOGIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LOG IN",
+    "definitions": [
+     {
+      "text": "Gain access to system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the words that follow, spanning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blog interface",
+      "gives": "LOGIN",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tip on signing in to a website through its blog page.",
+     "definitionFit": "To log in is to sign on to a computer with a username and password."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +228,56 @@
     "text": "Doctor lent a coat to artist",
     "enumeration": "9"
    },
-   "solution": "CANALETTO"
+   "solution": "CANALETTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANALETTO",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered in order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lent a coat",
+      "gives": "LENTACOAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANALETTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LENTACOAT",
+       "gives": "CANALETTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician lends a painter his coat.",
+     "definitionFit": "Canaletto was an eighteenth-century Venetian painter famous for views of the Grand Canal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +291,66 @@
     "text": "Fish in Bali processed in shed",
     "enumeration": "7"
    },
-   "solution": "HALIBUT"
+   "solution": "HALIBUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HALIBUT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "something processed has been worked over and changed, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the reworked letters sit inside the word for the outbuilding"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bali",
+      "gives": "BALI",
+      "note": "the Indonesian island, taken as written"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "HUT",
+      "note": "a hut is a simple shed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ALIB",
+      "UT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BALI",
+       "gives": "ALIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A catch from Bali is being prepared in a fisherman's shed.",
+     "definitionFit": "The halibut is a large flatfish of northern seas, often eaten as a white steak."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "processed"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +370,65 @@
      }
     ]
    },
-   "solution": "HEADFOR"
+   "solution": "HEADFOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEAD FOR",
+    "definitions": [
+     {
+      "text": "Set off towards",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "one who carries something holds it, so the pieces that follow go inside"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her refers to a woman already mentioned"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     },
+     {
+      "clueFragment": "Foreign Office",
+      "gives": "FO",
+      "note": "FO is the abbreviation for the British Foreign Office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "AD",
+      "FO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman leaves for Whitehall carrying publicity material.",
+     "walkthrough": "The woman's pronoun opens after its second letter to take in the two abbreviations; the Foreign Office is the British ministry for overseas affairs.",
+     "definitionFit": "To head for a place is to make your way in its direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "publicity"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +442,42 @@
     "text": "US unit occupying Israeli territory",
     "enumeration": "5"
    },
-   "solution": "LITER"
+   "solution": "LITER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LITER",
+    "definitions": [
+     {
+      "text": "US unit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "hidden_word",
+      "note": "something occupying a place sits inside it, so the letters lie within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Israeli territory",
+      "gives": "LITER",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An American military unit is stationed in Israeli-held land.",
+     "definitionFit": "Liter is the American spelling of litre, the metric measure of volume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +491,76 @@
     "text": "Contentious libel forced company to sack existing leaders",
     "enumeration": "9"
    },
-   "solution": "BELLICOSE"
+   "solution": "BELLICOSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BELLICOSE",
+    "definitions": [
+     {
+      "text": "Contentious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "forced means wrenched out of shape, so the letters are bent into a new order"
+     },
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are the opening letters of the two words before it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "libel",
+      "gives": "LIBEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "sack existing",
+      "gives": "SE",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELLI",
+      "CO",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIBEL",
+       "gives": "BELLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defamation suit drives a firm to fire its current bosses.",
+     "definitionFit": "Bellicose means aggressive and eager to fight, so quarrelsome in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forced"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +574,42 @@
     "text": "Present displaying affection",
     "enumeration": "6"
    },
-   "solution": "TENDER"
+   "solution": "TENDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TENDER",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     },
+     {
+      "text": "displaying affection",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present",
+      "note": "first meaning: to offer formally, as with a resignation"
+     },
+     {
+      "clueFragment": "displaying affection",
+      "note": "second meaning: gentle and loving"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a gift given with love, but 'Present' is a verb.",
+     "definitionFit": "You formally offer a bid or resignation, and a gentle loving touch has the same one-word description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +623,58 @@
     "text": "Grin about setter's figure of speech",
     "enumeration": "6"
    },
-   "solution": "SIMILE"
+   "solution": "SIMILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SIMILE",
+    "definitions": [
+     {
+      "text": "figure of speech",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the grin wraps the setter's pronoun"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grin",
+      "gives": "SMILE",
+      "note": "a smile is a grin"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "MILE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter grins over a clever turn of phrase.",
+     "walkthrough": "The 's means has: the grin has the setter inside it.",
+     "definitionFit": "A simile is a comparison using like or as, a recognised rhetorical device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +688,77 @@
     "text": "Country man in Iran upset by American",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the country's letters get jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the word for a man is placed inside the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iran",
+      "gives": "IRAN",
+      "note": "the country, taken as written"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "gent is short for gentleman"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GENT",
+      "IN",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRAN",
+       "gives": "ARIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in Iran is unsettled by an American visitor.",
+     "walkthrough": "'By' here means placed beside, so the A follows the rest.",
+     "definitionFit": "Argentina is a nation in South America, whose capital is Buenos Aires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +772,42 @@
     "text": "Metal only covers part of claw",
     "enumeration": "5"
    },
-   "solution": "TALON"
+   "solution": "TALON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TALON",
+    "definitions": [
+     {
+      "text": "claw",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers part of",
+      "for": "hidden_word",
+      "note": "the phrase before it wraps around a run of letters, holding only a part of itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Metal only",
+      "gives": "TALON",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Only a metal casing protects part of an animal's claw.",
+     "definitionFit": "A talon is the hooked nail on the foot of a bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +821,53 @@
     "text": "Remove article from book",
     "enumeration": "5"
    },
-   "solution": "ANNUL"
+   "solution": "ANNUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANNUL",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking one thing away from another means the first is dropped out of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "ANNUAL",
+      "note": "an annual is a book published once a year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNUL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to cut a piece out of a book before printing.",
+     "walkthrough": "One A is dropped from ANNUAL to leave ANNUL.",
+     "definitionFit": "To annul a marriage or contract is to cancel it, removing it from legal force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +881,49 @@
     "text": "Conclude part of Scrabble game with 'barren'",
     "enumeration": "9"
    },
-   "solution": "INFERTILE"
+   "solution": "INFERTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFERTILE",
+    "definitions": [
+     {
+      "text": "barren",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conclude",
+      "gives": "INFER",
+      "note": "to infer is to conclude from evidence"
+     },
+     {
+      "clueFragment": "part of Scrabble game",
+      "gives": "TILE",
+      "note": "Scrabble is played with lettered tiles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER",
+      "TILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A player ends a Scrabble game by laying down the word barren.",
+     "definitionFit": "Barren land or animals produce no offspring or crops, which is what infertile describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conclude"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +937,56 @@
     "text": "Pay tribute to extremely innovative snack",
     "enumeration": "7"
    },
-   "solution": "TOASTIE"
+   "solution": "TOASTIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TOASTIE",
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the next word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay tribute to",
+      "gives": "TOAST",
+      "note": "to toast someone is to drink in their honour"
+     },
+     {
+      "clueFragment": "innovative",
+      "gives": "IE",
+      "select": "outer",
+      "note": "the two ends of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOAST",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a highly original new snack.",
+     "walkthrough": "A toastie is British for a toasted sandwich.",
+     "definitionFit": "A toasted sandwich is a quick light meal eaten between main meals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1000,71 @@
     "text": "A king to replace Bible's fourth divine messenger?",
     "enumeration": "9"
    },
-   "solution": "ARCHANGEL"
+   "solution": "ARCHANGEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARCHANGEL",
+    "definitions": [
+     {
+      "text": "divine messenger",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fourth",
+      "for": "letter_selection",
+      "note": "fourth asks for the letter in fourth place of the book's name"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "replace",
+      "gives": "CHANGE",
+      "note": "to change something is to replace it"
+     },
+     {
+      "clueFragment": "Bible",
+      "gives": "L",
+      "select": 4,
+      "note": "the fourth letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "CHANGE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch sets out to rewrite scripture and swap out its fourth book.",
+     "definitionFit": "An archangel is an angel of high rank, such as Gabriel, sent to bear God's word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fourth"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1078,62 @@
     "text": "Take Freemason's money in return for hostages",
     "enumeration": "6"
    },
-   "solution": "RANSOM"
+   "solution": "RANSOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RANSOM",
+    "definitions": [
+     {
+      "text": "money in return for hostages",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Free",
+      "for": "anagram",
+      "note": "set free, the following word's letters are let loose to rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R is short for recipe, Latin for take, on prescriptions"
+     },
+     {
+      "clueFragment": "Freemason",
+      "gives": "MASON",
+      "note": "the word splits in two: its first part is the signal, its second part is the fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANSOM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MASON",
+       "gives": "ANSOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone helps themselves to a Freemason's cash as payment for captives.",
+     "walkthrough": "'Freemason' looks like one word, but it splits into an anagram signal and its fodder.",
+     "definitionFit": "A ransom is the sum demanded by kidnappers before they release captives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Freemason's"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1147,76 @@
     "text": "Story of new love upset by contents of letter",
     "enumeration": "9"
    },
-   "solution": "NOVELETTE"
+   "solution": "NOVELETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "NOVELETTE",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked into disorder, so the letters are scrambled"
+     },
+     {
+      "text": "contents of",
+      "for": "letter_selection",
+      "note": "contents are what lies inside, so the word's outer letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "letter",
+      "gives": "ETTE",
+      "select": "middle",
+      "note": "the inside letters, without the first and last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OVEL",
+      "ETTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVE",
+       "gives": "OVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of a fresh romance spoiled by what a letter reveals.",
+     "definitionFit": "A novelette is a short novel, often a light romantic tale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contents"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1230,64 @@
     "text": "Account by strange sort of players",
     "enumeration": "6"
    },
-   "solution": "ACTORS"
+   "solution": "ACTORS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ACTORS",
+    "definitions": [
+     {
+      "text": "players",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange suggests something odd and out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "AC",
+      "note": "AC is a common abbreviation for account"
+     },
+     {
+      "clueFragment": "sort",
+      "gives": "SORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "TORS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORT",
+       "gives": "TORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report about some peculiar kind of performers.",
+     "definitionFit": "Players is an old word for people who act in plays on a stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Account"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1301,64 @@
     "text": "Photos including unknown drug in a feature of the nervous system",
     "enumeration": "7"
    },
-   "solution": "SYNAPSE"
+   "solution": "SYNAPSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SYNAPSE",
+    "definitions": [
+     {
+      "text": "a feature of the nervous system",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking in, so the unknown goes inside the photos"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photos",
+      "gives": "SNAPS",
+      "note": "snaps are casual photographs"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is a mathematical unknown"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "Y",
+      "NAPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pictures reveal a mystery drug at work on nerve cells.",
+     "definitionFit": "A synapse is the junction across which a nerve impulse passes from one neuron to the next."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Photos"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1372,61 @@
     "text": "Roman poet briefly held by groups of old Reds",
     "enumeration": "7"
    },
-   "solution": "SOVIETS"
+   "solution": "SOVIETS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SOVIETS",
+    "definitions": [
+     {
+      "text": "old Reds",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the poet's name loses its last letter"
+     },
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is enclosed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman poet",
+      "gives": "OVID",
+      "note": "Ovid was the Roman poet of the Metamorphoses"
+     },
+     {
+      "clueFragment": "groups",
+      "gives": "SETS",
+      "note": "sets are groups of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OVI",
+      "ETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A classical poet is held captive by old communist cells.",
+     "walkthrough": "'Reds' are communists, and the old ones point to the former USSR rather than to anything red in colour.",
+     "definitionFit": "Soviets were the elected councils of the USSR, and Reds is slang for communists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "groups"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1440,72 @@
     "text": "Husband involved in drive to Luxor's third ancient Egyptian statue",
     "enumeration": "6"
    },
-   "solution": "SPHINX"
+   "solution": "SPHINX",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPHINX",
+    "definitions": [
+     {
+      "text": "ancient Egyptian statue",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in another is caught up inside it"
+     },
+     {
+      "text": "third",
+      "for": "letter_selection",
+      "note": "third asks for the letter in third place of the place name"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "drive",
+      "gives": "SPIN",
+      "note": "a spin is a short drive in a car"
+     },
+     {
+      "clueFragment": "Luxor",
+      "gives": "X",
+      "select": 3,
+      "note": "the third letter of the Egyptian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "H",
+      "IN",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A husband takes a road trip to Luxor to see an ancient monument.",
+     "definitionFit": "The Great Sphinx at Giza is a huge stone lion with a human head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1519,51 @@
     "text": "Look over part of document showing what's leaking",
     "enumeration": "7"
    },
-   "solution": "SEEPAGE"
+   "solution": "SEEPAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEPAGE",
+    "definitions": [
+     {
+      "text": "what's leaking",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look over",
+      "gives": "SEE",
+      "note": "to see to something is to look it over"
+     },
+     {
+      "clueFragment": "part of document",
+      "gives": "PAGE",
+      "note": "a document is made of pages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "PAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking a report that reveals the source of a leak.",
+     "walkthrough": "The surface suggests leaked secrets, but the leak is liquid.",
+     "definitionFit": "Seepage is the fluid that slowly escapes through a porous material or crack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaking"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1577,70 @@
     "text": "Fix small end of tear in garment",
     "enumeration": "6"
    },
-   "solution": "SCRAPE"
+   "solution": "SCRAPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCRAPE",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of asks for the final letter of the word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "that letter goes inside the garment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "tear",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "CAPE",
+      "note": "a cape is a sleeveless cloak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "R",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mending a little rip in a piece of clothing.",
+     "walkthrough": "'Fix' looks like a command to mend; it is the noun meaning a tight spot.",
+     "definitionFit": "Both words are informal for an awkward predicament someone has got into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1654,55 @@
     "text": "Bird finding husks of corn in church",
     "enumeration": "9"
    },
-   "solution": "CHAFFINCH"
+   "solution": "CHAFFINCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAFFINCH",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husks of corn",
+      "gives": "CHAFF",
+      "note": "chaff is the husk separated from grain"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAFF",
+      "IN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird pecks at leftover husks of grain inside a church.",
+     "definitionFit": "The chaffinch is a common European finch with a pink breast and white wing bars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1726,56 @@
    "group": [
     "23-down",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLEUR-DE-LIS",
+    "definitions": [
+     {
+      "text": "heraldic device",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unconventional",
+      "for": "anagram",
+      "note": "something unconventional departs from the normal order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "filler used",
+      "gives": "FILLERUSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEURDELIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FILLERUSED",
+       "gives": "FLEURDELIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd bit of padding appears in a coat of arms.",
+     "definitionFit": "The fleur-de-lis is a stylised lily, a common charge on coats of arms, especially French royal ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filler"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1789,64 @@
     "text": "Bits of gold found next to European's place",
     "enumeration": "5"
    },
-   "solution": "LODGE"
+   "solution": "LODGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LODGE",
+    "definitions": [
+     {
+      "text": "place",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bits of",
+      "for": "anagram",
+      "note": "broken into bits, the word's letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "found next to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "GOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is short for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LODG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOLD",
+       "gives": "LODG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gold nuggets turn up at a European's house.",
+     "definitionFit": "To lodge something is to put or set it in a fixed position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bits"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1879,42 @@
     "text": "Fish fork",
     "enumeration": "5"
    },
-   "solution": "ANGLE"
+   "solution": "ANGLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGLE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "fork",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: to fish with a rod and line"
+     },
+     {
+      "clueFragment": "fork",
+      "note": "second meaning: the corner where two lines meet, as at a fork in the road"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like nouns from a picnic, but the first is a verb.",
+     "definitionFit": "Anglers catch fish with hook and line, and the space between two diverging branches makes a corner shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1928,59 @@
     "text": "Smoke pot with a person counting votes, reportedly",
     "enumeration": "9"
    },
-   "solution": "PANATELLA"
+   "solution": "PANATELLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PANATELLA",
+    "definitions": [
+     {
+      "text": "Smoke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken, so the last piece is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "PAN",
+      "note": "a pan is a cooking pot"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "person counting votes",
+      "gives": "TELLA",
+      "soundsLike": "TELLER",
+      "note": "a teller counts the votes, and in a British accent the word ends like this spelling"
+     }
+    ],
+    "explanation": {
+     "surface": "A vote counter is said to have been smoking cannabis.",
+     "walkthrough": "'Smoke' and 'pot' pull towards drugs, but pot is a pan and smoke is a cigar.",
+     "definitionFit": "A panatella is a long thin cigar, and a smoke is informal for anything smoked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1994,63 @@
     "text": "Get bigger space for brewing lager",
     "enumeration": "7"
    },
-   "solution": "ENLARGE"
+   "solution": "ENLARGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENLARGE",
+    "definitions": [
+     {
+      "text": "Get bigger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "brewing means being mixed and fermented, so the beer's letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space"
+     },
+     {
+      "clueFragment": "lager",
+      "gives": "LAGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "LARGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAGER",
+       "gives": "LARGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A home brewer needs more room to make lager.",
+     "definitionFit": "To enlarge is to grow or expand in size, the intransitive sense of increase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 29,
@@ -494,7 +2064,52 @@
     "text": "Scottish monster is seen swimming!",
     "enumeration": "6"
    },
-   "solution": "NESSIE"
+   "solution": "NESSIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NESSIE",
+    "definitions": [
+     {
+      "text": "Scottish monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming letters are moving about loosely, so they settle in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is seen",
+      "gives": "ISSEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NESSIE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISSEEN",
+       "gives": "NESSIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excited report that the Loch Ness creature has been spotted in the water.",
+     "definitionFit": "The legendary creature said to live in Loch Ness in the Highlands has an affectionate nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }

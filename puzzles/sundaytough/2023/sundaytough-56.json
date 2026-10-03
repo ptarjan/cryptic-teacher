@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Dish consumed by raucous cousins",
     "enumeration": "8"
    },
-   "solution": "COUSCOUS"
+   "solution": "COUSCOUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "COUSCOUS",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "hidden_word",
+      "note": "what is consumed by something sits inside it, so the answer lies within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raucous cousins",
+      "gives": "COUSCOUS",
+      "note": "the last four letters of raucous run on into the first four of cousins"
+     }
+    ],
+    "explanation": {
+     "surface": "Noisy relatives at a family meal wolf down a particular dish.",
+     "definitionFit": "Couscous is a North African staple of steamed semolina grains, served as a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +85,60 @@
     "text": "Returned cake containing beetroot? On the contrary",
     "enumeration": "8"
    },
-   "solution": "RETORTED"
+   "solution": "RETORTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETORTED",
+    "definitions": [
+     {
+      "text": "Returned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "something containing another holds it inside, though the next phrase swaps which holds which"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this flips the stated relationship, so the second item holds the first rather than the reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beetroot?",
+      "gives": "RED",
+      "note": "beetroot is famously red; the question mark flags the definition by example"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "TORTE",
+      "note": "a torte is a rich layered cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TORTE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends back a cake with beetroot baked into it.",
+     "walkthrough": "Read straight, the cake holds the beetroot; 'On the contrary' reverses that, so the colour of beetroot holds the cake.",
+     "definitionFit": "To retort is to answer back sharply, so retorted means replied or returned a remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Returned"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +152,64 @@
     "text": "Ten such scaly beasts decomposing could be nauseating",
     "enumeration": "7"
    },
-   "solution": "IGUANAS"
+   "solution": "IGUANAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "IGUANAS",
+    "definitions": [
+     {
+      "text": "such scaly beasts",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decomposing",
+      "for": "anagram",
+      "note": "decomposing things break down and rearrange, so the letters are mixed"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nauseating",
+      "gives": "NAUSEATING",
+      "note": "taken as written: the word the jumbled letters could form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGUANAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAUSEATING",
+       "gives": "TENIGUANAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ten rotting lizards would certainly turn the stomach.",
+     "walkthrough": "A compound anagram: TEN plus the answer, shuffled, spell NAUSEATING, so the answer is what is left of NAUSEATING once TEN is taken away.",
+     "definitionFit": "Iguanas are large lizards with scaly skin, so they are scaly beasts of exactly this kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "decomposing"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +223,56 @@
     "text": "Article stopping one igniting lighter",
     "enumeration": "6"
    },
-   "solution": "FAIRER"
+   "solution": "FAIRER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAIRER",
+    "definitions": [
+     {
+      "text": "lighter",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one igniting",
+      "gives": "FIRER",
+      "note": "one who fires or sets alight"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "IRER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article prevents someone from setting light to a cigarette lighter.",
+     "walkthrough": "'Lighter' looks like the device tied to 'igniting'; it is the comparative of light, meaning paler.",
+     "definitionFit": "Fair means pale in colouring, so the comparative form means paler, a lighter shade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lighter"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +286,60 @@
     "text": "Cause irritation by rubbing head of riled six-footer",
     "enumeration": "6"
    },
-   "solution": "CHAFER"
+   "solution": "CHAFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHAFER",
+    "definitions": [
+     {
+      "text": "six-footer",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cause irritation by rubbing",
+      "gives": "CHAFE",
+      "note": "to chafe is to make sore through friction"
+     },
+     {
+      "clueFragment": "riled",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAFE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect scrapes against someone who is already annoyed.",
+     "walkthrough": "'Six-footer' suggests a tall person; it means an insect, which has six legs.",
+     "definitionFit": "A chafer is a kind of beetle, and every insect walks on six legs or feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +353,65 @@
     "text": "Arranged job putting diagram in reference work",
     "enumeration": "13"
    },
-   "solution": "CHOREOGRAPHED"
+   "solution": "CHOREOGRAPHED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHOREOGRAPHED",
+    "definitions": [
+     {
+      "text": "Arranged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting one thing somewhere places it, here together with the word that follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the placing is inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "job",
+      "gives": "CHORE",
+      "note": "a chore is a routine task"
+     },
+     {
+      "clueFragment": "reference work",
+      "gives": "OED",
+      "note": "the Oxford English Dictionary"
+     },
+     {
+      "clueFragment": "diagram",
+      "gives": "GRAPH",
+      "note": "a graph is a plotted diagram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHORE",
+      "O",
+      "GRAPH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A task was organised by inserting a chart into an encyclopedia.",
+     "definitionFit": "To choreograph is to plan the steps of a dance, and more loosely to stage-manage or organise carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +431,75 @@
      }
     ]
    },
-   "solution": "CHROMEPLATING"
+   "solution": "CHROMEPLATING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHROME PLATING",
+    "definitions": [
+     {
+      "text": "it gives shiny coat",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripping",
+      "for": "deletion",
+      "note": "stripping something takes it away, so letters are removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Browser",
+      "gives": "CHROME",
+      "note": "Chrome is Google's web browser"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for soft"
+     },
+     {
+      "clueFragment": "tongue",
+      "gives": "LATIN",
+      "note": "a tongue is a language"
+     },
+     {
+      "clueFragment": "goat",
+      "gives": "GOAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "OAT",
+      "note": "the oat is a cereal grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHROME",
+      "P",
+      "LATIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A web browser comes with a language and an animal grazing in it.",
+     "walkthrough": "The goat loses the grass it might be eating, leaving only its first letter.",
+     "definitionFit": "Chrome plating is a thin chromium layer electroplated onto metal, giving a bright reflective finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Browser"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +513,66 @@
     "text": "Enterprise partnering hotel filling food containers as KFC often has",
     "enumeration": "13"
    },
-   "solution": "DRIVETHROUGHS"
+   "solution": "DRIVETHROUGHS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DRIVETHROUGHS",
+    "definitions": [
+     {
+      "text": "as KFC often has",
+      "at": 52,
+      "note": "a descriptive phrase for the plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "partnering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enterprise",
+      "gives": "DRIVE",
+      "note": "drive means ambition or enterprise"
+     },
+     {
+      "clueFragment": "food containers",
+      "gives": "TROUGHS",
+      "note": "troughs hold animal feed"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIVE",
+      "T",
+      "H",
+      "ROUGHS"
+     ]
+    },
+    "explanation": {
+     "surface": "A business venture puts a hotel inside feeding troughs, like a fast-food chain.",
+     "walkthrough": "KFC is the fried-chicken chain whose outlets often let customers order from the car.",
+     "definitionFit": "Drive-throughs are restaurant windows serving motorists in their cars, a feature of many fast-food outlets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Enterprise"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +586,61 @@
     "text": "Picture officer, one bound to retreat",
     "enumeration": "6"
    },
-   "solution": "FRESCO"
+   "solution": "FRESCO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FRESCO",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retreat",
+      "for": "reversal",
+      "note": "retreating goes backwards, so the word is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one bound",
+      "gives": "SERF",
+      "note": "a serf was bound to the land"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "CO",
+      "note": "commanding officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRES",
+      "CO"
+     ],
+     "reversals": [
+      {
+       "from": "SERF",
+       "to": "FRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer is pictured with a prisoner being forced to withdraw.",
+     "walkthrough": "The word order is swapped: the officer comes last in the answer.",
+     "definitionFit": "A fresco is a painting made on wet plaster on a wall, so it is a picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +654,48 @@
     "text": "Chocolate bar wrapper that’s seen on flyer",
     "enumeration": "8"
    },
-   "solution": "AEROFOIL"
+   "solution": "AEROFOIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AEROFOIL",
+    "definitions": [
+     {
+      "text": "that’s seen on flyer",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chocolate bar",
+      "gives": "AERO",
+      "note": "Aero is a British bubbly chocolate bar"
+     },
+     {
+      "clueFragment": "wrapper",
+      "gives": "FOIL",
+      "note": "chocolate is often wrapped in foil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AERO",
+      "FOIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A chocolate bar's packaging that you might spot on a leaflet.",
+     "walkthrough": "'Flyer' looks like a leaflet; it is an aircraft.",
+     "definitionFit": "An aerofoil is the shaped wing surface that gives lift, found on any aeroplane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyer"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +709,43 @@
     "text": "Pen leak",
     "enumeration": "3"
    },
-   "solution": "RUN"
+   "solution": "RUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN",
+    "definitions": [
+     {
+      "text": "Pen",
+      "at": 0
+     },
+     {
+      "text": "leak",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pen",
+      "note": "first meaning: an enclosure for animals, as for chickens"
+     },
+     {
+      "clueFragment": "leak",
+      "note": "second meaning: to seep or spread, as dye does in the wash"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pen leak' suggests an inky mess from a writing pen; the two words are separate meanings.",
+     "definitionFit": "A chicken coop's enclosure is a run, and colours that bleed in washing are said to run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pen"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +759,58 @@
     "text": "Consequence of unrestricted time with alcohol",
     "enumeration": "6"
    },
-   "solution": "IMPORT"
+   "solution": "IMPORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPORT",
+    "definitions": [
+     {
+      "text": "Consequence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unrestricted",
+      "for": "letter_selection",
+      "note": "without its restricting edges, the word keeps only its inner letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "IM",
+      "select": "middle",
+      "note": "the inner letters"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "What happens when drinking hours are unlimited.",
+     "definitionFit": "Import, stressed on the first syllable, means significance or importance, as in a matter of great consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unrestricted"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +830,53 @@
      }
     ]
    },
-   "solution": "AIRFRYER"
+   "solution": "AIRFRYER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AIR FRYER",
+    "definitions": [
+     {
+      "text": "Kitchen gadget",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, so the words are judged by their sound"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish town",
+      "gives": "AIR",
+      "soundsLike": "AYR",
+      "note": "Ayr is a town on the Scottish west coast"
+     },
+     {
+      "clueFragment": "brother",
+      "gives": "FRYER",
+      "soundsLike": "FRIAR",
+      "note": "a friar is a brother of a religious order"
+     }
+    ],
+    "explanation": {
+     "surface": "A monk brings back a kitchen appliance from a trip to Scotland.",
+     "definitionFit": "An air fryer is a countertop appliance that cooks food by circulating very hot air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brother"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +890,45 @@
     "text": "Heard scoff of Asian opponent",
     "enumeration": "3"
    },
-   "solution": "FOE"
+   "solution": "FOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FOE",
+    "definitions": [
+     {
+      "text": "opponent",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "something heard is judged by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoff of Asian",
+      "gives": "FOE",
+      "soundsLike": "PHO",
+      "note": "pho is a Vietnamese noodle soup, something to scoff or eat"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is overheard mocking an Asian rival.",
+     "walkthrough": "'Scoff' reads as mockery; here it is British slang for food.",
+     "definitionFit": "A foe is an enemy or adversary, someone ranged against you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scoff"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +942,68 @@
     "text": "Incident of displaced codpieces, getting caught out twice",
     "enumeration": "7"
    },
-   "solution": "EPISODE"
+   "solution": "EPISODE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EPISODE",
+    "definitions": [
+     {
+      "text": "Incident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displaced",
+      "for": "anagram",
+      "note": "displaced letters are moved out of place, so they are rearranged"
+     },
+     {
+      "text": "out twice",
+      "for": "deletion",
+      "note": "out means removed, and twice means the removal happens two times"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "codpieces",
+      "gives": "CODPIECES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPISODE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ODPIEES",
+       "gives": "EPISODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An embarrassing event involving codpieces, with someone caught out two times.",
+     "definitionFit": "An episode is a single event or occurrence in a sequence, so it means an incident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1017,57 @@
     "text": "Such cells getting rented outside to be modernised",
     "enumeration": "3"
    },
-   "solution": "OVA"
+   "solution": "OVA",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "OVA",
+    "definitions": [
+     {
+      "text": "Such cells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a word placed outside another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rented",
+      "gives": "RENTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to be modernised",
+      "gives": "RENOVATED",
+      "note": "modernised means updated or refurbished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVA"
+     ]
+    },
+    "explanation": {
+     "surface": "Cells are let out to tenants before being refurbished.",
+     "walkthrough": "The wordplay describes the answer from outside: it is the piece that, wrapped by the other word, makes the word for modernised.",
+     "definitionFit": "Ova are egg cells, the female reproductive cells, so they are cells of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cells"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1081,61 @@
     "text": "Excellent hosts are vocally moralising",
     "enumeration": "7"
    },
-   "solution": "PREACHY"
+   "solution": "PREACHY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "PREACHY",
+    "definitions": [
+     {
+      "text": "moralising",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "container",
+      "note": "something that hosts another takes it inside"
+     },
+     {
+      "text": "vocally",
+      "for": "homophone",
+      "note": "vocally means spoken, so the word is replaced by a letter with its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "PEACHY",
+      "note": "peachy is informal for great or excellent"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "R",
+      "soundsLike": "ARE",
+      "note": "the letter R is pronounced like are"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "EACHY"
+     ]
+    },
+    "explanation": {
+     "surface": "Great hosts lecture their guests about right and wrong.",
+     "definitionFit": "Preachy describes someone tediously keen to give moral lectures, sermonising like a preacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosts"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1149,61 @@
     "text": "Judged working parts disabled with top part missing",
     "enumeration": "8"
    },
-   "solution": "RECKONED"
+   "solution": "RECKONED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RECKONED",
+    "definitions": [
+     {
+      "text": "Judged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "something that parts another splits it, standing in the gap"
+     },
+     {
+      "text": "with top part missing",
+      "for": "deletion",
+      "note": "in a down clue the top is the start, so the first letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disabled",
+      "gives": "WRECKED",
+      "note": "wrecked means ruined or put out of action"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECK",
+      "ON",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone assessed the working parts of a broken machine missing its top.",
+     "walkthrough": "'Working parts' looks like a machine's mechanism; 'parts' is the verb, splitting the other word.",
+     "definitionFit": "To reckon is to calculate or estimate, so reckoned means judged or assessed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1227,66 @@
      }
     ]
    },
-   "solution": "ASWELLAS"
+   "solution": "ASWELLAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AS WELL AS",
+    "definitions": [
+     {
+      "text": "In addition to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting fixed",
+      "for": "anagram",
+      "note": "something being fixed is repaired and put back together, so the letters are rearranged"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea wall",
+      "gives": "SEAWALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "WELLAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEAWALL",
+       "gives": "AWELLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Besides repairing the sea wall, a second job is taken on.",
+     "definitionFit": "The phrase means besides or along with, adding one thing to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1300,59 @@
     "text": "City player’s quick with first in net",
     "enumeration": "7"
    },
-   "solution": "PRESTON"
+   "solution": "PRESTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRESTON",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "player’s quick",
+      "gives": "PRESTO",
+      "note": "presto is the musical direction telling a performer to play fast"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESTO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club's player is fast, scoring with his first shot in the net.",
+     "walkthrough": "'City player' suggests a footballer; the city is the definition. Preston is a city in Lancashire, north-west England.",
+     "definitionFit": "Preston is a Lancashire city, granted city status in 2002, so it is an example of a city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "player's"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1366,52 @@
     "text": "Very, very much — I’m hesitant traveller",
     "enumeration": "8"
    },
-   "solution": "WAYFARER"
+   "solution": "WAYFARER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAYFARER",
+    "definitions": [
+     {
+      "text": "traveller",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "WAY",
+      "note": "way is informal for very, as in way too late"
+     },
+     {
+      "clueFragment": "very much",
+      "gives": "FAR",
+      "note": "far means very much, as in far better"
+     },
+     {
+      "clueFragment": "I’m hesitant",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAY",
+      "FAR",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits to being extremely unsure, stammering as they speak.",
+     "definitionFit": "A wayfarer is a person journeying on foot, a traveller along the roads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hesitant"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1425,45 @@
     "text": "Layout beneficial to where judo takes place?",
     "enumeration": "6"
    },
-   "solution": "FORMAT"
+   "solution": "FORMAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORMAT",
+    "definitions": [
+     {
+      "text": "Layout",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beneficial to",
+      "gives": "FOR",
+      "note": "something for you is in your favour"
+     },
+     {
+      "clueFragment": "where judo takes place?",
+      "gives": "MAT",
+      "note": "judo is fought on a mat; the question mark marks the definition by example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "MAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A floor plan that suits a judo hall.",
+     "definitionFit": "A format is the arrangement or design of something, such as a page or a programme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1477,55 @@
     "text": "Be still being pierced by alien probe again",
     "enumeration": "6"
    },
-   "solution": "RETEST"
+   "solution": "RETEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETEST",
+    "definitions": [
+     {
+      "text": "probe again",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being pierced by",
+      "for": "container",
+      "note": "something pierced has another thing driven into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be still",
+      "gives": "REST",
+      "note": "to rest is to stay still"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "the extra-terrestrial of the film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ET",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A captive lies motionless while an alien pokes it with a probe again.",
+     "definitionFit": "To retest is to examine or check something a second time, so it means to probe again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "probe"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1539,64 @@
     "text": "Disease from wide river caught by person in boat",
     "enumeration": "6"
    },
-   "solution": "COWPOX"
+   "solution": "COWPOX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COWPOX",
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person in boat",
+      "gives": "COX",
+      "note": "the cox steers a rowing boat"
+     },
+     {
+      "clueFragment": "wide",
+      "gives": "W",
+      "note": "w is the cricket scorecard abbreviation for a wide"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "W",
+      "PO",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A rower picks up an illness from a broad river.",
+     "definitionFit": "Cowpox is a viral infection of cattle, the mild disease Jenner used to make the first vaccine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1610,39 @@
     "text": "One’s afraid to say it",
     "enumeration": "3"
    },
-   "solution": "EEK"
+   "solution": "EEK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EEK",
+    "definitions": [
+     {
+      "text": "One’s afraid to say it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s afraid to say it",
+      "note": "surface reading: someone is too scared to speak a word aloud"
+     },
+     {
+      "clueFragment": "One’s afraid to say it",
+      "note": "setter's reading: the word is the squeak a frightened person blurts out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It sounds like a taboo word; it is the word a fright makes you say.",
+     "definitionFit": "The exclamation is a cry expressing sudden alarm or fear, often written in comics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "afraid"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1656,70 @@
     "text": "Invertebrates after scuttling out of ground enter jars",
     "enumeration": "8"
    },
-   "solution": "VIBRATES"
+   "solution": "VIBRATES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "VIBRATES",
+    "definitions": [
+     {
+      "text": "jars",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after scuttling",
+      "for": "anagram",
+      "note": "scuttling creatures scurry about, so the letters move around"
+     },
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "taking something out of another removes it"
+     },
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed and broken up, so these letters are also mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invertebrates",
+      "gives": "INVERTEBRATES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "enter",
+      "gives": "ENTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIBRATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IVRBATES",
+       "gives": "VIBRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bugs scurry out of the soil and climb into jam jars.",
+     "walkthrough": "Taking the letters of ENTER, in any order, out of INVERTEBRATES leaves eight letters to rearrange.",
+     "definitionFit": "Jars as a verb means jolts or shakes, and to vibrate is to shake rapidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jars"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1733,65 @@
     "text": "Old naval officer contracted by English force",
     "enumeration": "6"
    },
-   "solution": "OBLIGE"
+   "solution": "OBLIGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OBLIGE",
+    "definitions": [
+     {
+      "text": "force",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracted",
+      "for": "deletion",
+      "note": "a contracted word is shortened, losing its final letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "o is the abbreviation for old"
+     },
+     {
+      "clueFragment": "naval officer",
+      "gives": "BLIGH",
+      "note": "Captain Bligh commanded the Bounty, scene of the famous mutiny"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BLIG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired sea captain is hired by an English army.",
+     "walkthrough": "'Contracted' looks like being hired; it means shortened.",
+     "definitionFit": "To oblige someone is to compel them, as in being obliged to pay, so it means to force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contracted"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1811,71 @@
      }
     ]
    },
-   "solution": "GLADSTONEBAGS"
+   "solution": "GLADSTONEBAGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GLADSTONE BAGS",
+    "definitions": [
+     {
+      "text": "luggage",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacating empties out the middle, leaving only the outer letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pleased",
+      "gives": "GLAD",
+      "note": "glad means pleased"
+     },
+     {
+      "clueFragment": "weight amount",
+      "gives": "STONE",
+      "note": "a stone is a British unit of weight, fourteen pounds"
+     },
+     {
+      "clueFragment": "airliner",
+      "gives": "BA",
+      "note": "British Airways"
+     },
+     {
+      "clueFragment": "gives",
+      "gives": "GS",
+      "select": "outer",
+      "note": "outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLAD",
+      "STONE",
+      "BA",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "A happy holidaymaker weighs how much baggage the airline allows on a trip.",
+     "definitionFit": "A Gladstone bag is a hinged leather travelling case, named after the Victorian prime minister, so a type of luggage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacation"
+    }
+   }
   }
  ]
 }

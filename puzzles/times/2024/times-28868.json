@@ -23,6 +23,9 @@
   "date": "2024-03-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,69 @@
     "text": "Angle this writer primarily adopted, lacking animal feed",
     "enumeration": "8"
    },
-   "solution": "FISHMEAL"
+   "solution": "FISHMEAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FISHMEAL",
+    "definitions": [
+     {
+      "text": "animal feed",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each of the next two words is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angle",
+      "gives": "FISH",
+      "note": "to angle is to fish with a rod and line"
+     },
+     {
+      "clueFragment": "this writer",
+      "gives": "ME",
+      "note": "the setter referring to themself"
+     },
+     {
+      "clueFragment": "adopted",
+      "gives": "A",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "lacking",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FISH",
+      "ME",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman muses on angling while going without, oddly, something to feed the animals.",
+     "walkthrough": "'Primarily' reaches over both 'adopted' and 'lacking', taking the first letter of each.",
+     "definitionFit": "Ground dried fish is sold as a protein supplement fed to livestock and pets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lacking"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +115,65 @@
     "text": "Mild sarcasm from fellow in City regularly",
     "enumeration": "5"
    },
-   "solution": "IRONY"
+   "solution": "IRONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IRONY",
+    "definitions": [
+     {
+      "text": "Mild sarcasm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the word before it is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the fellow is placed inside the letters taken from the word that follows"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "IY",
+      "select": "alternate",
+      "note": "second and fourth letters of the word"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "RON",
+      "note": "any man's first name will do for a fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes a dry, gently mocking remark from a colleague working in the City of London.",
+     "walkthrough": "The City is London's financial district, which makes 'fellow' look like a banker; it just stands for a man's name, RON, sitting inside I-Y to make IRONY.",
+     "definitionFit": "Irony is saying the opposite of what one means, a gentle mocking tone close to light sarcasm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +187,79 @@
     "text": "Instrument mixed choirs finally confused with another",
     "enumeration": "11"
    },
-   "solution": "HARPSICHORD"
+   "solution": "HARPSICHORD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARPSICHORD",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means stirred together, so the letters of the choirs are jumbled"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the following word only"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with tells us one more piece is joined on to the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "HARP",
+      "note": "another instrument, read as a separate example: the stringed one a harpist plays"
+     },
+     {
+      "clueFragment": "choirs",
+      "gives": "CHOIRS",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "confused",
+      "gives": "D",
+      "select": "last",
+      "note": "closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARP",
+      "SICHOR",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOIRS",
+       "gives": "SICHOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor finds two choirs muddled together with a further band of players.",
+     "walkthrough": "'Another' means another instrument, so it supplies HARP, which goes at the front: HARP + SICHOR + D.",
+     "definitionFit": "The harpsichord is a keyboard instrument whose strings are plucked, the main keyboard of the Baroque era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +273,41 @@
     "text": "Attractive, getting involved",
     "enumeration": "8"
    },
-   "solution": "ENGAGING"
+   "solution": "ENGAGING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENGAGING",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     },
+     {
+      "text": "getting involved",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attractive",
+      "note": "first meaning: charming, winning"
+     },
+     {
+      "clueFragment": "getting involved",
+      "note": "second meaning: taking part in, the present participle of a verb"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is described as appealing just as they begin taking part in something.",
+     "definitionFit": "An engaging person is pleasant and charming, while engaging in something means participating actively in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +331,45 @@
      }
     ]
    },
-   "solution": "LOSEONESBALANCE"
+   "solution": "LOSEONESBALANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOSE ONES BALANCE",
+    "definitions": [
+     {
+      "text": "Suffer financial depletion",
+      "at": 0
+     },
+     {
+      "text": "just before the fall?",
+      "at": 28,
+      "note": "describes what happens just before falling rather than being a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suffer financial depletion",
+      "note": "first meaning, taken literally: have the money in one's bank account wiped out"
+     },
+     {
+      "clueFragment": "just before the fall?",
+      "note": "second meaning, the everyday idiom: to topple, which comes just before tumbling over"
+     }
+    ],
+    "explanation": {
+     "surface": "Losing money looks like the prelude to some financial collapse.",
+     "walkthrough": "The question mark flags that the second part is a playful description, not a straight synonym; a bank balance and physical balance share a word.",
+     "definitionFit": "The idiom means to become unsteady on one's feet, while read literally it means having one's account emptied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +383,56 @@
     "text": "Composer briefly associated with a Hindu god",
     "enumeration": "6"
    },
-   "solution": "BRAHMA"
+   "solution": "BRAHMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BRAHMA",
+    "definitions": [
+     {
+      "text": "Hindu god",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the composer's name is dropped"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "BRAHMS",
+      "note": "Johannes Brahms, the German Romantic composer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAHM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer is linked with a deity from the Hindu pantheon.",
+     "definitionFit": "Brahma is the creator deity of Hinduism, one of the trinity alongside Vishnu and Shiva."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +446,45 @@
     "text": "Alcoholic drink, something the setter would appreciate, it’s said",
     "enumeration": "6"
    },
-   "solution": "BEAUNE"
+   "solution": "BEAUNE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEAUNE",
+    "definitions": [
+     {
+      "text": "Alcoholic drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it’s said",
+      "for": "homophone",
+      "note": "it's said tells us to go by how the word is pronounced, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something the setter would appreciate",
+      "gives": "BEAUNE",
+      "soundsLike": "BONE",
+      "note": "the setter here is the dog breed, and a dog enjoys a bone"
+     }
+    ],
+    "explanation": {
+     "surface": "A crossword compiler would welcome a drink of something alcoholic.",
+     "walkthrough": "'The setter' looks like the compiler, but it is the gun dog, which would love a bone. Beaune is a Burgundy town and its red wine, pronounced like bone.",
+     "definitionFit": "Beaune is a red wine from the Burgundy town of that name, so it counts as an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +498,61 @@
     "text": "Current measure a national leader set up",
     "enumeration": "3"
    },
-   "solution": "AMP"
+   "solution": "AMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMP",
+    "definitions": [
+     {
+      "text": "Current measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue set up means raised, so the leader's letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "national leader",
+      "gives": "PM",
+      "note": "PM is short for Prime Minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MP"
+     ],
+     "reversals": [
+      {
+       "from": "PM",
+       "to": "MP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country's head of government puts in place a new policy on currency.",
+     "walkthrough": "'Current' suggests money or present affairs, but here it is electrical current.",
+     "definitionFit": "The amp, or ampere, is the SI unit by which electric current is measured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +566,66 @@
     "text": "His fate disheartened men working in part of pit",
     "enumeration": "9"
    },
-   "solution": "MINESHAFT"
+   "solution": "MINESHAFT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MINESHAFT",
+    "definitions": [
+     {
+      "text": "part of pit",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "letter_selection",
+      "note": "losing its heart means the middle goes, keeping only the outside letters"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means being reworked or shaped, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His fate",
+      "gives": "HISFATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MN",
+      "select": "outer",
+      "note": "the word without its central letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISFATEMN",
+       "gives": "MINESHAFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Miners at work, low in spirit, contemplate their destiny down the pit.",
+     "walkthrough": "The surface reads as gloomy miners; 'disheartened' is literal, removing the middle letter of 'men'.",
+     "definitionFit": "A mine shaft is the vertical passage giving access to a coal mine, one component of the pit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +639,61 @@
     "text": "Rascal nearly closed paper, swallowing hallucinatory drug",
     "enumeration": "6"
    },
-   "solution": "TOERAG"
+   "solution": "TOERAG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOERAG",
+    "definitions": [
+     {
+      "text": "Rascal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing means taking something inside, so the drug goes into the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nearly closed",
+      "gives": "TO",
+      "note": "a door pulled to is shut or almost shut"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "RAG",
+      "note": "rag is slang for a cheap newspaper"
+     },
+     {
+      "clueFragment": "hallucinatory drug",
+      "gives": "E",
+      "note": "E is short for ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "E",
+      "RAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A scoundrel, half-shutting his newspaper, takes a trip on something illicit.",
+     "walkthrough": "A door pulled 'to' is shut or almost so, which is why 'nearly closed' fits. Toerag is British slang for a contemptible person.",
+     "definitionFit": "A toerag is a British slang term for a worthless rogue or scoundrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +707,45 @@
     "text": "Exchanging small place in East London",
     "enumeration": "8"
    },
-   "solution": "SWAPPING"
+   "solution": "SWAPPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWAPPING",
+    "definitions": [
+     {
+      "text": "Exchanging",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "the standard abbreviation, as on clothing sizes"
+     },
+     {
+      "clueFragment": "place in East London",
+      "gives": "WAPPING",
+      "note": "Wapping is a riverside district of East London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "People trade goods at a little spot in the East End.",
+     "definitionFit": "Swapping is trading one item for another, a direct synonym for exchanging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +759,64 @@
     "text": "Young hawk in European state making a comeback",
     "enumeration": "4"
    },
-   "solution": "EYAS"
+   "solution": "EYAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EYAS",
+    "definitions": [
+     {
+      "text": "Young hawk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means going the other way, so the state's letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "SAY",
+      "note": "to state is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "YAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAY",
+       "to": "YAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young bird of prey reappears in some country of Europe.",
+     "walkthrough": "'State' looks like a country but is the verb, meaning to say.",
+     "definitionFit": "Eyas is the falconer's word for a nestling hawk taken for training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +830,45 @@
     "text": "Lacking justification, as dispossessed cricket club may be?",
     "enumeration": "10"
    },
-   "solution": "GROUNDLESS"
+   "solution": "GROUNDLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROUNDLESS",
+    "definitions": [
+     {
+      "text": "Lacking justification",
+      "at": 0
+     },
+     {
+      "text": "as dispossessed cricket club may be?",
+      "at": 23,
+      "note": "a cryptic description rather than a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacking justification",
+      "note": "first meaning: without any good basis or reason"
+     },
+     {
+      "clueFragment": "as dispossessed cricket club may be?",
+      "note": "second meaning, read literally: a club evicted from its pitch has nowhere to play"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket club loses its home field and the decision has no good reason behind it.",
+     "walkthrough": "The question mark marks the second half as playful: a ground is a cricket pitch.",
+     "definitionFit": "Groundless claims have no basis in fact, and literally a club without its sports field is ground-less."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dispossessed"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +882,45 @@
     "text": "Flowering plant, most unconfined, widely encountered",
     "enumeration": "11"
    },
-   "solution": "LOOSESTRIFE"
+   "solution": "LOOSESTRIFE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOSESTRIFE",
+    "definitions": [
+     {
+      "text": "Flowering plant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most unconfined",
+      "gives": "LOOSEST",
+      "note": "superlative of loose, free of restraint"
+     },
+     {
+      "clueFragment": "widely encountered",
+      "gives": "RIFE",
+      "note": "rife means widespread, common"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOSEST",
+      "RIFE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild flower grows freely and turns up everywhere.",
+     "definitionFit": "Loosestrife is a tall perennial with purple or yellow blooms that grows in damp places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +934,58 @@
     "text": "Girl embracing soldier, perhaps, in Mediterranean port",
     "enumeration": "8"
    },
-   "solution": "ALICANTE"
+   "solution": "ALICANTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALICANTE",
+    "definitions": [
+     {
+      "text": "Mediterranean port",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding in the arms, so the girl's name surrounds the soldier"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "ALICE",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "soldier, perhaps",
+      "gives": "ANT",
+      "note": "a soldier ant is one kind of ant, hence 'perhaps'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIC",
+      "ANT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman hugs a serviceman at a southern European harbour.",
+     "walkthrough": "'Soldier, perhaps' defines by example: a soldier is one type of ant.",
+     "definitionFit": "Alicante is a Spanish city and seaport on the Costa Blanca coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldier"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +999,64 @@
     "text": "Sublimity of some poetry son’s absorbing frequently",
     "enumeration": "9"
    },
-   "solution": "LOFTINESS"
+   "solution": "LOFTINESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LOFTINESS",
+    "definitions": [
+     {
+      "text": "Sublimity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means soaking up and holding within, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some poetry",
+      "gives": "LINES",
+      "note": "a few lines of verse"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFT",
+      "note": "oft is a poetic word for often"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OFT",
+      "INES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A son's verse keeps reaching for grandeur.",
+     "walkthrough": "'Son's' reads as a possessive, but the S simply joins on after the lines of verse; 'oft' is an old poetic word, apt in a clue about poetry.",
+     "definitionFit": "Loftiness is elevated grandeur or nobility of thought, the same quality as the sublime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1070,59 @@
     "text": "Opening of oyster bar in Scottish resort",
     "enumeration": "4"
    },
-   "solution": "OBAN"
+   "solution": "OBAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OBAN",
+    "definitions": [
+     {
+      "text": "Scottish resort",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is where it begins, its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oyster",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to ban, forbid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafood bar opens in a Scottish holiday town.",
+     "walkthrough": "'Bar' looks like a pub but is the verb meaning forbid.",
+     "definitionFit": "Oban is a seaside town on Scotland's west coast, popular with tourists and ferry passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1136,55 @@
     "text": "Accommodates at least four pints without hesitation",
     "enumeration": "8"
    },
-   "solution": "QUARTERS"
+   "solution": "QUARTERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "QUARTERS",
+    "definitions": [
+     {
+      "text": "Accommodates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so the pints wrap around the hesitation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at least four pints",
+      "gives": "QUARTS",
+      "note": "a quart is two pints, so the plural is four or more"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "the sound of someone pausing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUART",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A host promptly lays on a large quantity of beer for guests.",
+     "walkthrough": "'Without' looks like 'lacking' but means outside here.",
+     "definitionFit": "To quarter troops is to give them lodging, so quarters means houses or accommodates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1198,49 @@
     "text": "Hairstyle brought back in superior fashion",
     "enumeration": "4"
    },
-   "solution": "AFRO"
+   "solution": "AFRO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AFRO",
+    "definitions": [
+     {
+      "text": "Hairstyle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superior fashion",
+      "gives": "ORFA",
+      "note": "the letters spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A hairdo comes back into style in a grander way.",
+     "walkthrough": "The surface suggests a hairstyle returning to fashion, which is exactly what the reversal does to the letters.",
+     "definitionFit": "An Afro is a rounded, bushy style of naturally curly hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1254,56 @@
     "text": "Bully pinching hair confiner — hers, maybe?",
     "enumeration": "8"
    },
-   "solution": "BRUNETTE"
+   "solution": "BRUNETTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRUNETTE",
+    "definitions": [
+     {
+      "text": "hers, maybe?",
+      "at": 31,
+      "note": "refers back to her hair: hers may be a brown shade, so the answer is used as an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "pinching means gripping between, so the bully closes around the hair confiner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bully",
+      "gives": "BRUTE",
+      "note": "a brute is a violent bully"
+     },
+     {
+      "clueFragment": "hair confiner",
+      "gives": "NET",
+      "note": "a hairnet holds hair in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRU",
+      "NET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A thug snatches a woman's hairnet and the question is what colour her hair is.",
+     "walkthrough": "The definition leans on 'hair' earlier in the clue: her hair may be dark brown.",
+     "definitionFit": "Brunette describes dark brown hair, as a woman's locks might be, so it is one possible colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1317,62 @@
     "text": "Strait-laced class, at Lancing originally",
     "enumeration": "6"
    },
-   "solution": "FORMAL"
+   "solution": "FORMAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FORMAL",
+    "definitions": [
+     {
+      "text": "Strait-laced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin, so each of the last two words gives its initial"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "FORM",
+      "note": "a form is a school class"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Lancing",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A class at a boarding school is described as prim and proper.",
+     "walkthrough": "Lancing College is an English private school, which suits the form-class picture.",
+     "definitionFit": "Formal manners are stiff and correct, close to strait-laced, which means prim and conventional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1386,46 @@
     "text": "Uncultivated grammarian, one pursuing game",
     "enumeration": "10"
    },
-   "solution": "WILDFOWLER"
+   "solution": "WILDFOWLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WILDFOWLER",
+    "definitions": [
+     {
+      "text": "one pursuing game",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncultivated",
+      "gives": "WILD",
+      "note": "growing naturally, not tended"
+     },
+     {
+      "clueFragment": "grammarian",
+      "gives": "FOWLER",
+      "note": "H. W. Fowler wrote the famous guide Modern English Usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILD",
+      "FOWLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boorish grammar expert goes out hunting.",
+     "definitionFit": "A wildfowler hunts ducks, geese and other wild birds shot as sporting quarry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uncultivated"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1439,44 @@
     "text": "Change course, finding equestrian gear",
     "enumeration": "4"
    },
-   "solution": "TACK"
+   "solution": "TACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TACK",
+    "definitions": [
+     {
+      "text": "Change course",
+      "at": 0
+     },
+     {
+      "text": "equestrian gear",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change course",
+      "note": "first meaning: in sailing, to turn the boat into the wind"
+     },
+     {
+      "clueFragment": "equestrian gear",
+      "note": "second meaning: saddles, bridles and other riding equipment"
+     }
+    ],
+    "explanation": {
+     "surface": "A rider takes a new direction and comes across some horse equipment.",
+     "definitionFit": "Sailors turn the boat to a new heading, and riders call their saddlery and harness by the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1490,62 @@
     "text": "Eccentric English lord’s first form of desert transport?",
     "enumeration": "5"
    },
-   "solution": "CAMEL"
+   "solution": "CAMEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CAMEL",
+    "definitions": [
+     {
+      "text": "form of desert transport?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter of the word is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eccentric",
+      "gives": "CAM",
+      "note": "in engineering an eccentric is a disc mounted off-centre, a kind of cam"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "lord’s",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An oddball English aristocrat's first choice of vehicle for crossing the desert.",
+     "walkthrough": "'Eccentric' reads as an adjective for the lord but is a noun from machinery. The question mark admits that a beast is only loosely transport.",
+     "definitionFit": "Camels are the traditional pack and riding animals used to cross deserts, the 'ship of the desert'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eccentric"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1559,58 @@
     "text": "Chap needing hot water in W African state",
     "enumeration": "8"
    },
-   "solution": "BENJAMIN"
+   "solution": "BENJAMIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BENJAMIN",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece sits inside the country's name"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "W African state",
+      "gives": "BENIN",
+      "note": "Benin is a country in West Africa"
+     },
+     {
+      "clueFragment": "hot water",
+      "gives": "JAM",
+      "note": "both mean trouble, a tight spot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "JAM",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in trouble in West Africa needs help.",
+     "walkthrough": "'Hot water' means a difficult situation, as does jam.",
+     "definitionFit": "Benjamin is a man's given name, and any man's name can stand for a chap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1624,44 @@
     "text": "Patient man’s line of business",
     "enumeration": "3"
    },
-   "solution": "JOB"
+   "solution": "JOB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOB",
+    "definitions": [
+     {
+      "text": "Patient man",
+      "at": 0
+     },
+     {
+      "text": "line of business",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patient man",
+      "note": "first meaning: the Old Testament figure famous for enduring suffering"
+     },
+     {
+      "clueFragment": "line of business",
+      "note": "second meaning: one's occupation"
+     }
+    ],
+    "explanation": {
+     "surface": "A hospital patient's occupation is under discussion.",
+     "walkthrough": "'Patient' looks like a person in hospital but is the adjective, as in 'the patience of Job'.",
+     "definitionFit": "Job in the Bible endures endless trials patiently, and a job is also paid employment or a trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Patient"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1675,67 @@
     "text": "Riddle in French initially intriguing key family member",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "Riddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the next word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "the French word for in"
+     },
+     {
+      "clueFragment": "intriguing",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "G",
+      "note": "G is a musical key"
+     },
+     {
+      "clueFragment": "family member",
+      "gives": "MA",
+      "note": "mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "I",
+      "G",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle in French grips a pivotal relative.",
+     "definitionFit": "An enigma is a mystery or puzzling question, just as a riddle is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1749,52 @@
     "text": "Female victim of murder on island",
     "enumeration": "6"
    },
-   "solution": "ISABEL"
+   "solution": "ISABEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISABEL",
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue on means placed after, so the victim follows the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "IS is an abbreviation for island"
+     },
+     {
+      "clueFragment": "victim of murder",
+      "gives": "ABEL",
+      "note": "in Genesis Abel is killed by his brother Cain, the first murder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "ABEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is the person killed in a murder on an island.",
+     "definitionFit": "Isabel is a woman's given name, so it can stand for any female."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1808,55 @@
     "text": "Cold wind enveloping plant in cathedral city",
     "enumeration": "8"
    },
-   "solution": "EASTERLY"
+   "solution": "EASTERLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EASTERLY",
+    "definitions": [
+     {
+      "text": "Cold wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enveloping",
+      "for": "container",
+      "note": "enveloping means wrapping round, so the city's name surrounds the plant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cathedral city",
+      "gives": "ELY",
+      "note": "Ely is a small cathedral city in Cambridgeshire"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTER",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly breeze wraps around flowers in an English cathedral town.",
+     "walkthrough": "'Cold' qualifies the definition: in Britain a wind from the east is the bitter one.",
+     "definitionFit": "An easterly is a wind from the east, which in Britain blows cold off the continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   }
  ]
 }

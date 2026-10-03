@@ -23,6 +23,9 @@
   "date": "2022-05-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,80 @@
     "text": "Ferrari fan spun round last of circuits, oval in shape",
     "enumeration": "6"
    },
-   "solution": "TIFOSO"
+   "solution": "TIFOSO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "TIFOSO",
+    "definitions": [
+     {
+      "text": "Ferrari fan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spun",
+      "for": "reversal",
+      "note": "something spun is turned about, so the run of letters after it is read from the far end"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "asks for only the final letter of the following word, discarding the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape is the letter O"
+     },
+     {
+      "clueFragment": "circuits",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of circuits"
+     },
+     {
+      "clueFragment": "oval",
+      "gives": "O",
+      "note": "an oval looks like the letter O"
+     },
+     {
+      "clueFragment": "in shape",
+      "gives": "FIT",
+      "note": "someone in shape is fit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIF",
+      "O",
+      "S",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OSOFIT",
+       "to": "TIFOSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Ferrari supporter watches the cars whirl round the final bend of an oval racetrack.",
+     "walkthrough": "OSOFIT is turned round to give TIFOSO. 'Spun' looks like the cars spinning but tells you to read the letters backwards.",
+     "definitionFit": "Tifosi are the passionate Italian supporters of Ferrari, and a single such enthusiast is called a tifoso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spun"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +132,62 @@
      }
     ]
    },
-   "solution": "TOWTRUCK"
+   "solution": "TOWTRUCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOW TRUCK",
+    "definitions": [
+     {
+      "text": "After a breakdown it may help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintain",
+      "for": "container",
+      "note": "to maintain is to hold, so the first pair of words holds the last one inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "WT",
+      "note": "WT is the standard abbreviation for weight"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "RUCK",
+      "note": "a ruck is a scuffle or squabble, a row"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "WT",
+      "RUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice for someone recovering from a nervous breakdown: take up rowing while keeping your weight stable.",
+     "walkthrough": "TO RUCK holds WT. A breakdown here is a car that has stopped working, not a mental collapse.",
+     "definitionFit": "When a car stops working on the road, a vehicle with a winch is sent to haul it away to a garage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breakdown"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +201,54 @@
     "text": "Pop by marriage to prevent losing ring",
     "enumeration": "3"
    },
-   "solution": "FIL"
+   "solution": "FIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FIL",
+    "definitions": [
+     {
+      "text": "Pop by marriage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away, so the named letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prevent",
+      "gives": "FOIL",
+      "note": "to foil a plan is to prevent it"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is the round letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A father-in-law is told to stop his ring going missing at the wedding.",
+     "walkthrough": "FOIL without its O leaves FIL, the abbreviation for father-in-law.",
+     "definitionFit": "Pop is a father, and a father acquired through marriage is a father-in-law, shortened to its initials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +262,50 @@
     "text": "One provides something for sweetening fiery curries",
     "enumeration": "7"
    },
-   "solution": "SUCRIER"
+   "solution": "SUCRIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUCRIER",
+    "definitions": [
+     {
+      "text": "One provides something for sweetening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fiery",
+      "for": "anagram",
+      "note": "fiery suggests something heated and agitated, so the letters of the next word are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curries",
+      "gives": "CURRIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURRIES",
+       "gives": "SUCRIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adds sugar to tone down a dish of hot curries.",
+     "definitionFit": "A sucrier is a French-style sugar bowl, the vessel that holds what goes into tea or coffee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fiery"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +329,61 @@
      }
     ]
    },
-   "solution": "LAHDIDAH"
+   "solution": "LAHDIDAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LAH-DI-DAH",
+    "definitions": [
+     {
+      "text": "Pretentious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the following letters are read heading back the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award-winning architect",
+      "gives": "HADID",
+      "note": "Zaha Hadid, the first woman to win the Pritzker architecture prize"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "HAL",
+      "note": "Hal is a familiar form of Henry, as with Shakespeare's Prince Hal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAH",
+      "DIDAH"
+     ],
+     "reversals": [
+      {
+       "from": "HADIDHAL",
+       "to": "LAHDIDAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooty architect named Henry makes a much-hyped return after winning a prize.",
+     "walkthrough": "HADID plus HAL, all reversed, gives LAH-DI-DAH.",
+     "definitionFit": "La-di-dah describes affected, snobbish manners, someone putting on airs of refinement and superiority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +403,85 @@
      }
     ]
    },
-   "solution": "ANTIJACOBINISM"
+   "solution": "ANTIJACOBINISM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANTI-JACOBINISM",
+    "definitions": [
+     {
+      "text": "showing moderate Republican policy",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding group of words within the word that comes next"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, what supports sits underneath, so it follows the pieces named after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colonist",
+      "gives": "ANT",
+      "note": "ants live in colonies"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "JAM",
+      "note": "a jam is a crush or crowd of people"
+     },
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "reject",
+      "gives": "BIN",
+      "note": "to bin something is to throw it out"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "I",
+      "JA",
+      "CO",
+      "BIN",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A business turns down an applicant in a crowd backing a settler, someone who favours a middle-of-the-road Republican line.",
+     "walkthrough": "The Jacobins were the radical republicans of the French Revolution. 'Colonist' suggests a settler, but it is an insect that lives in colonies.",
+     "definitionFit": "Opposing the extremist Jacobins of revolutionary France meant favouring a more cautious, restrained form of republicanism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colonist"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +495,52 @@
     "text": "Traveller saw the sights of alternatively named isle",
     "enumeration": "7"
    },
-   "solution": "DIDAKAI"
+   "solution": "DIDAKAI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIDAKAI",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saw the sights",
+      "gives": "DID",
+      "note": "to 'do' a city is to tour it, so having seen its sights you did it"
+     },
+     {
+      "clueFragment": "alternatively named",
+      "gives": "AKA",
+      "note": "AKA, also known as, introduces an alternative name"
+     },
+     {
+      "clueFragment": "isle",
+      "gives": "I",
+      "note": "I is the abbreviation for isle or island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "AKA",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist explored an island that goes by more than one name.",
+     "definitionFit": "Didakai (also didicoy) is a word for a Romani or itinerant person, one of the people known as Travellers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Traveller"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +554,69 @@
     "text": "Editors question Continental alliance when beset by noises from Telegraph",
     "enumeration": "11"
    },
-   "solution": "DIASKEUASTS"
+   "solution": "DIASKEUASTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIASKEUASTS",
+    "definitions": [
+     {
+      "text": "Editors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "to be beset is to be surrounded on all sides, so the earlier words sit inside the later one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noises from Telegraph",
+      "gives": "DITS",
+      "note": "dits are the short dots of Morse code sent by telegraph"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to question is to ask"
+     },
+     {
+      "clueFragment": "Continental alliance",
+      "gives": "EU",
+      "note": "the European Union"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as I left', meaning when"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ASK",
+      "EU",
+      "AS",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspaper editors challenge the European Union while being hounded by the Telegraph's noisy coverage.",
+     "walkthrough": "'Telegraph' looks like the British newspaper but is the signalling machine, whose short Morse sounds are written as dits.",
+     "definitionFit": "A diaskeuast is a reviser or redactor of texts, someone who prepares and corrects written work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Telegraph"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +630,48 @@
     "text": "Gossipy female diarist’s pointed (often veiled) article on hair",
     "enumeration": "6"
    },
-   "solution": "HENNIN"
+   "solution": "HENNIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HENNIN",
+    "definitions": [
+     {
+      "text": "pointed (often veiled) article on hair",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gossipy female",
+      "gives": "HEN",
+      "note": "a hen is a woman, and hens are pictured as clucking chatterers"
+     },
+     {
+      "clueFragment": "diarist’s",
+      "gives": "NIN",
+      "note": "Anaïs Nin, famous for her diaries; the possessive joins the two halves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEN",
+      "NIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gossiping woman's diary includes a sharp-tongued, thinly disguised piece about someone's hairdo.",
+     "walkthrough": "'Pointed' and 'veiled' read like comments on the diary's tone; they describe a tall cone-shaped hat.",
+     "definitionFit": "A hennin is the tall conical headdress of medieval ladies, frequently trailing a gauzy veil from its tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pointed"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +699,74 @@
      }
     ]
    },
-   "solution": "DAMESDELAHALLE"
+   "solution": "DAMESDELAHALLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DAMES DE LA HALLE",
+    "definitions": [
+     {
+      "text": "Market women",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blasted",
+      "gives": "DAM",
+      "note": "dam is a form of the curse damn, like blasted"
+     },
+     {
+      "clueFragment": "party pills",
+      "gives": "ES",
+      "note": "Es are ecstasy tablets taken at parties"
+     },
+     {
+      "clueFragment": "Fitzgerald for one",
+      "gives": "ELLA",
+      "note": "Ella Fitzgerald, the jazz singer"
+     },
+     {
+      "clueFragment": "heaved",
+      "gives": "HALED",
+      "note": "haled means hauled or dragged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "ES",
+      "DELAH",
+      "ALLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELLAHALED",
+       "to": "DELAHALLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Market stallholders are sick after a damned party where drugs were taken and a singer threw up.",
+     "walkthrough": "'Heaved up' looks like vomiting, but it is a word for hauled plus the signal to read the singer and her hauling upwards.",
+     "definitionFit": "The dames de la Halle were the women traders of the great central market of Paris, known for their political clout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heaved"
+    }
+   }
   },
   {
    "number": 10,
@@ -212,7 +780,62 @@
     "text": "Used trickery on engaging Washington floater picked from natural setting",
     "enumeration": "11"
    },
-   "solution": "WILDCRAFTED"
+   "solution": "WILDCRAFTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WILDCRAFTED",
+    "definitions": [
+     {
+      "text": "picked from natural setting",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "to engage is to take in or occupy, so the first word holds the next ones within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Used trickery on",
+      "gives": "WILED",
+      "note": "to wile someone is to use cunning on them"
+     },
+     {
+      "clueFragment": "Washington",
+      "gives": "DC",
+      "note": "Washington DC, the US capital"
+     },
+     {
+      "clueFragment": "floater",
+      "gives": "RAFT",
+      "note": "a raft is something that floats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIL",
+      "DC",
+      "RAFT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone played a trick on a Washington politician who drifts between positions.",
+     "walkthrough": "WILED holds DC RAFT. 'Floater' looks like a swing voter but is just a raft.",
+     "definitionFit": "Wildcrafted herbs and plants are gathered where they grow naturally in the wild rather than farmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "floater"
+    }
+   }
   },
   {
    "number": 11,
@@ -226,7 +849,42 @@
     "text": "Put a canvas cover over stiff hair",
     "enumeration": "3"
    },
-   "solution": "AWN"
+   "solution": "AWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AWN",
+    "definitions": [
+     {
+      "text": "Put a canvas cover over",
+      "at": 0
+     },
+     {
+      "text": "stiff hair",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put a canvas cover over",
+      "note": "first meaning: to shade with an ..., a canvas sheet"
+     },
+     {
+      "clueFragment": "stiff hair",
+      "note": "second meaning: a bristle on a grass or cereal head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb sense is rare, found in Chambers as the root of awning; the noun is the bristle on barley.",
+     "definitionFit": "Barley and other grasses carry bristly spikes on their seed heads, and the same word means to shelter beneath a canopy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hair"
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +898,50 @@
     "text": "Rage and rage past defensive barrier",
     "enumeration": "7"
    },
-   "solution": "RAMPIRE"
+   "solution": "RAMPIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMPIRE",
+    "definitions": [
+     {
+      "text": "past defensive barrier",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rage",
+      "gives": "RAMP",
+      "note": "to ramp is to rage or storm about"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "IRE",
+      "note": "ire is anger, rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAMP",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone furious storms on and on beyond the barricades.",
+     "walkthrough": "The same word, rage, gives two different synonyms. 'Past' marks the definition as an old word.",
+     "definitionFit": "Rampire is the archaic form of rampart, the earth wall built around a fortification for protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "past"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +955,68 @@
     "text": "Pit town west of Glasgow on the rise, putting up new mortar",
     "enumeration": "11"
    },
-   "solution": "MINENWERFER"
+   "solution": "MINENWERFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MINENWERFER",
+    "definitions": [
+     {
+      "text": "mortar",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "rising in a down entry means the letters are read from the bottom upwards"
+     },
+     {
+      "text": "putting up new",
+      "for": "charade",
+      "note": "new is abbreviated N, and putting it up in a down entry shifts that letter higher in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pit",
+      "gives": "MINE",
+      "note": "a pit is a coal mine"
+     },
+     {
+      "clueFragment": "town west of Glasgow",
+      "gives": "RENFREW",
+      "note": "Renfrew is a Scottish town just west of Glasgow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "N",
+      "WERFER"
+     ],
+     "reversals": [
+      {
+       "from": "RENFREW",
+       "to": "WERFNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mining town near Glasgow is booming and has built new mortar for housing.",
+     "walkthrough": "After the town is read upwards its N, the abbreviation for new, is lifted to a higher position. 'Mortar' looks like building material but is a weapon.",
+     "definitionFit": "Minenwerfer, German for mine-thrower, was the trench mortar used by German forces in the First World War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mortar"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +1030,68 @@
     "text": "Ditch Hank, not having any heart for randy tosser’s game",
     "enumeration": "7"
    },
-   "solution": "JUKSKEI"
+   "solution": "JUKSKEI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "JUKSKEI",
+    "definitions": [
+     {
+      "text": "tosser’s game",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart for",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only the central letter of the next word is used"
+     },
+     {
+      "text": "not having any",
+      "for": "deletion",
+      "note": "not having any means all instances are removed from the two words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ditch",
+      "gives": "JUNK",
+      "note": "to junk something is to ditch it"
+     },
+     {
+      "clueFragment": "Hank",
+      "gives": "SKEIN",
+      "note": "a hank and a skein are both coils of yarn"
+     },
+     {
+      "clueFragment": "randy",
+      "gives": "N",
+      "select": "middle",
+      "note": "middle letter of randy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUK",
+      "SKEI"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a man called Hank to dump a lustful lout, who has no feelings.",
+     "walkthrough": "JUNK SKEIN loses both its Ns to give JUKSKEI. 'Tosser' is British slang for an idiot, but here it means one who throws.",
+     "definitionFit": "Jukskei is a South African sport in which players throw wooden pegs at a stake, so it is played by throwers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tosser’s"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1105,74 @@
     "text": "In fraud as we see it, more than one spoke about court prone to rebuttals",
     "enumeration": "14"
    },
-   "solution": "CONTRADICTIOUS"
+   "solution": "CONTRADICTIOUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CONTRADICTIOUS",
+    "definitions": [
+     {
+      "text": "prone to rebuttals",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places what follows inside the two words that come before it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word before goes round the word after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraud",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "as we see it",
+      "gives": "TOUS",
+      "note": "to us, meaning in our view"
+     },
+     {
+      "clueFragment": "more than one spoke",
+      "gives": "RADII",
+      "note": "the spokes of a wheel are radii"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "T",
+      "RADI",
+      "CT",
+      "I",
+      "OUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone argues that, in their view, a fraud was exposed when several people spoke out about a court case.",
+     "walkthrough": "Two containers nest: the court goes inside the spokes, and that goes inside the phrase for fraud and our view. 'Spoke' looks like a verb but is a noun.",
+     "definitionFit": "A contradictious person is inclined to argue back and dispute whatever is said to them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoke"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1186,51 @@
     "text": "Masonic uniformity was shown by this emphatic vow at wedding that mother officiated?",
     "enumeration": "8"
    },
-   "solution": "ISODOMUM"
+   "solution": "ISODOMUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISODOMUM",
+    "definitions": [
+     {
+      "text": "Masonic uniformity",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "was shown by this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emphatic vow at wedding",
+      "gives": "ISODO",
+      "note": "a strengthened form of the wedding vow 'I do'"
+     },
+     {
+      "clueFragment": "that mother officiated",
+      "gives": "MUM",
+      "note": "the vow is said to Mum, who is taking the service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISODO",
+      "MUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding where the mother conducts the ceremony and the couple insist loudly on their vows.",
+     "walkthrough": "The answer reads as a bride's cry to her officiating mother: I so do, Mum. 'Masonic' means relating to masonry, not Freemasons.",
+     "definitionFit": "Isodomum is a style of stonework in which blocks of equal length are laid in regular even courses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Masonic"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1244,60 @@
     "text": "During lapse there in Rome, scene of combat, they’ll believe any bull",
     "enumeration": "14"
    },
-   "solution": "INFALLIBILISTS"
+   "solution": "INFALLIBILISTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFALLIBILISTS",
+    "definitions": [
+     {
+      "text": "they’ll believe any bull",
+      "at": 45
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "During",
+      "gives": "IN",
+      "note": "in, as in during the war"
+     },
+     {
+      "clueFragment": "lapse",
+      "gives": "FALL",
+      "note": "a lapse or moral fall"
+     },
+     {
+      "clueFragment": "there in Rome",
+      "gives": "IBI",
+      "note": "ibi is Latin for there"
+     },
+     {
+      "clueFragment": "scene of combat",
+      "gives": "LISTS",
+      "note": "the lists were the enclosed ground where knights jousted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FALL",
+      "IBI",
+      "LISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gullible people visiting a battlefield in Rome will swallow any nonsense they are told.",
+     "walkthrough": "'Bull' looks like nonsense but is a papal bull, a formal decree from the Pope.",
+     "definitionFit": "Infallibilists hold that the Pope cannot err when he speaks officially, so they accept every papal decree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bull"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1311,47 @@
     "text": "Seaweed supplement for teachers — in the North, anyway",
     "enumeration": "7"
    },
-   "solution": "ALGATES"
+   "solution": "ALGATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALGATES",
+    "definitions": [
+     {
+      "text": "in the North, anyway",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaweed",
+      "gives": "ALGA",
+      "note": "an alga is a seaweed"
+     },
+     {
+      "clueFragment": "supplement for teachers",
+      "gives": "TES",
+      "note": "the TES, formerly the Times Educational Supplement, a teachers' paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALGA",
+      "TES"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaweed extract sold as a health supplement for teachers, in northern England at least.",
+     "walkthrough": "'Anyway' looks like a throwaway hedge but is the definition, with 'in the North' marking a dialect word.",
+     "definitionFit": "Algates is an old northern English dialect word meaning in any case, by all means, or always."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "anyway"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1371,39 @@
      }
     ]
    },
-   "solution": "LIVEOUT"
+   "solution": "LIVEOUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIVE OUT",
+    "definitions": [
+     {
+      "text": "boarders don’t",
+      "at": 50
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This could have two answers defined as despicable",
+      "note": "surface reading: a puzzle clue that is ambiguous between two nasty words"
+     },
+     {
+      "clueFragment": "This could have two answers defined as despicable",
+      "note": "setter's reading: the answer itself, read as a clue with 'out' signalling a shuffle of the first word, yields two words meaning despicable"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that a clue is unfair because two different nasty words both fit it.",
+     "walkthrough": "Treat LIVE OUT as a clue: LIVE scrambled gives EVIL or VILE, both despicable. Boarders live in, so they don't live out.",
+     "definitionFit": "Boarding pupils and lodgers reside where they study or work, the opposite of residing elsewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "boarders"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1417,66 @@
     "text": "Lowly Sikh’s note framing “extremist” letters with pencil marking",
     "enumeration": "6"
    },
-   "solution": "MAZHBI"
+   "solution": "MAZHBI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MAZHBI",
+    "definitions": [
+     {
+      "text": "Lowly Sikh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "framing",
+      "for": "container",
+      "note": "a frame surrounds a picture, so the first word goes around what comes after"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "“extremist” letters",
+      "gives": "AZ",
+      "note": "A and Z are the letters at the two extremes of the alphabet"
+     },
+     {
+      "clueFragment": "pencil marking",
+      "gives": "HB",
+      "note": "HB is the hardness grade stamped on a standard pencil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AZ",
+      "HB",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A low-ranking Sikh writes a note around some radical letters, marked in pencil.",
+     "walkthrough": "MI frames AZ HB. 'Extremist' looks political but means the letters at each end of the alphabet.",
+     "definitionFit": "A Mazhbi is a Sikh from a background once classed as low-caste, traditionally sweepers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extremist"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1490,56 @@
     "text": "Different than leg towards the extremities?",
     "enumeration": "7"
    },
-   "solution": "ALENGTH"
+   "solution": "ALENGTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALENGTH",
+    "definitions": [
+     {
+      "text": "towards the extremities?",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Different",
+      "for": "anagram",
+      "note": "something different has been altered, so the following letters appear in a changed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "than",
+      "gives": "THAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THANLEG",
+       "gives": "ALENGTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammatical query about whether 'different than' is correct, with a leg reaching out.",
+     "walkthrough": "'Different than' reads as a usage complaint, but 'than' is fodder. The question mark flags a loose definition.",
+     "definitionFit": "Alength is an old adverb meaning lengthwise or at full stretch, extended out to the ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Different"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1559,55 @@
      }
     ]
    },
-   "solution": "NOVISAD"
+   "solution": "NOVISAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOVI SAD",
+    "definitions": [
+     {
+      "text": "somewhere on the Danube",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places the first word inside the one that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "VISA",
+      "note": "a visa is a pass permitting entry"
+     },
+     {
+      "clueFragment": "doze",
+      "gives": "NOD",
+      "note": "to nod off is to doze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "VISA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drifts off to sleep on a river trip along the Danube.",
+     "walkthrough": "'Pass into doze' reads as falling asleep, but pass is a travel permit placed inside the word for a nap.",
+     "definitionFit": "Novi Sad is the second-largest city of Serbia, lying on the banks of the Danube river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 23,
@@ -406,7 +1621,54 @@
     "text": "German court house introduces fine",
     "enumeration": "3"
    },
-   "solution": "HOF"
+   "solution": "HOF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOF",
+    "definitions": [
+     {
+      "text": "German court",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduces",
+      "for": "charade",
+      "note": "to introduce something is to come just ahead of it, so the first piece precedes the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil grade for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A German law court building brings in a monetary penalty.",
+     "walkthrough": "'Court house' looks like one building; it splits so that court belongs to the definition.",
+     "definitionFit": "Hof is the German word for a court, whether a royal court, courtyard, or farmstead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,7 +1682,70 @@
     "text": "Allowed to bring round key narcotic for minor group of stars",
     "enumeration": "11"
    },
-   "solution": "TELESCOPIUM"
+   "solution": "TELESCOPIUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TELESCOPIUM",
+    "definitions": [
+     {
+      "text": "minor group of stars",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bring round",
+      "for": "reversal",
+      "note": "bringing round turns something about, so the preceding word is read back to front"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ESC",
+      "note": "the Escape key on a keyboard"
+     },
+     {
+      "clueFragment": "narcotic",
+      "gives": "OPIUM",
+      "note": "opium is a narcotic drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEL",
+      "ESC",
+      "OPIUM"
+     ],
+     "reversals": [
+      {
+       "from": "LET",
+       "to": "TEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was permitted to revive a sedated patient with a drug fit for a minor celebrity group.",
+     "walkthrough": "LET reversed, then ESC and OPIUM. 'Stars' suggests celebrities, but it means a constellation.",
+     "definitionFit": "Telescopium is a small, faint southern constellation named after the astronomical instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1759,56 @@
     "text": "Southern Nigerian judge interrupting contrasting bits?",
     "enumeration": "3"
    },
-   "solution": "IJO"
+   "solution": "IJO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IJO",
+    "definitions": [
+     {
+      "text": "Southern Nigerian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break in, so the first word goes in between the parts that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contrasting bits",
+      "gives": "IO",
+      "note": "binary bits are 1 and 0, opposites, written as the look-alike letters I and O"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "J",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge in southern Nigeria cuts across contrasting fragments of evidence.",
+     "walkthrough": "The binary digits one and zero look like the letters I and O; J goes between them.",
+     "definitionFit": "The Ijo, or Ijaw, are a people of the Niger Delta region in the south of Nigeria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 26,
@@ -448,7 +1822,43 @@
     "text": "Sudden arrivals where lawgiver was kept safe",
     "enumeration": "8"
    },
-   "solution": "INRUSHES"
+   "solution": "INRUSHES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INRUSHES",
+    "definitions": [
+     {
+      "text": "Sudden arrivals",
+      "at": 0
+     },
+     {
+      "text": "where lawgiver was kept safe",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sudden arrivals",
+      "note": "first meaning: rapid floods inward"
+     },
+     {
+      "clueFragment": "where lawgiver was kept safe",
+      "note": "second meaning, split in two: the baby Moses was hidden among the bulrushes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Moses, who received the Ten Commandments, was hidden as a baby in a basket in the reeds of the Nile.",
+     "definitionFit": "An inrush is a sudden flood coming in; read as two words it places Moses among reeds by the river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lawgiver"
+    }
+   }
   },
   {
    "number": 27,
@@ -462,7 +1872,61 @@
     "text": "Remains in the country, returning before midday ramble there",
     "enumeration": "6"
    },
-   "solution": "STROAM"
+   "solution": "STROAM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STROAM",
+    "definitions": [
+     {
+      "text": "ramble there",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the preceding word is read from its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remains in the country",
+      "gives": "ORTS",
+      "note": "orts are leftover scraps, such as fodder left by farm animals"
+     },
+     {
+      "clueFragment": "before midday",
+      "gives": "AM",
+      "note": "AM, ante meridiem, before noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRO",
+      "AM"
+     ],
+     "reversals": [
+      {
+       "from": "ORTS",
+       "to": "STRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays in the countryside, heading home before noon after a rural walk.",
+     "walkthrough": "ORTS reversed gives STRO, then AM. 'There' points back to the country: stroam is a dialect word.",
+     "definitionFit": "Stroam is a regional word meaning to wander about or stride aimlessly, much like a stroll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remains"
+    }
+   }
   }
  ]
 }

@@ -38,6 +38,9 @@
   "date": "2025-06-08",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,67 @@
     "text": "Cereal with taste of umami for a sauce",
     "enumeration": "4"
    },
-   "solution": "SUGO"
+   "solution": "SUGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "SUGO",
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taste of",
+      "for": "letter_selection",
+      "note": "a taste is only a small sample, so just the first letter of the word is taken"
+     },
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "'X for Y' tells the solver to put one letter in place of another inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cereal",
+      "gives": "SAGO",
+      "note": "sago is a starchy cereal-like food from palm pith"
+     },
+     {
+      "clueFragment": "umami",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter, its 'taste', of umami"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter A, taken as written, is the one swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "U",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook seasons a cereal dish with umami flavour to turn it into a sauce.",
+     "walkthrough": "'with taste of umami for a' means: in SAGO, put the U of umami where the A was.",
+     "definitionFit": "Sugo is the Italian word for a sauce, especially a tomato pasta sauce, listed in Chambers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cereal"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +128,61 @@
     "text": "Clamour once United press on the counter",
     "enumeration": "4"
    },
-   "solution": "UTIS"
+   "solution": "UTIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "UTIS",
+    "definitions": [
+     {
+      "text": "Clamour once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "going counter means running the opposite way, so this word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the standard abbreviation for United, as in football club names"
+     },
+     {
+      "clueFragment": "press",
+      "gives": "SIT",
+      "note": "to sit on something is to press it down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "TIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIT",
+       "to": "TIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper cuttings counter at United's ground is besieged by a noisy crowd.",
+     "walkthrough": "'once' marks the definition as obsolete: utis is an old word, found in Shakespeare, for a din or uproar.",
+     "definitionFit": "Utis is an archaic noun for noisy merriment or uproar, matching an old-fashioned word for din."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +196,61 @@
     "text": "Happy place? Fancy not once returning",
     "enumeration": "6"
    },
-   "solution": "GOSHEN"
+   "solution": "GOSHEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOSHEN",
+    "definitions": [
+     {
+      "text": "Happy place?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning goes back the way it came, so these letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "GOSH",
+      "note": "'Fancy!' and 'Gosh!' are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "not once",
+      "gives": "NE",
+      "note": "NE is an archaic word for not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOSH",
+      "EN"
+     ],
+     "reversals": [
+      {
+       "from": "NE",
+       "to": "EN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a cheerful spot exists and is told, fancifully, not once.",
+     "walkthrough": "'once' flags an archaic word: NE meant not in older English.",
+     "definitionFit": "Goshen was the fertile Biblical land given to the Israelites in Egypt, so the name stands for any place of plenty and contentment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +264,59 @@
     "text": "Anything Scottish? Brooch with drop of thistle",
     "enumeration": "5"
    },
-   "solution": "OUCHT"
+   "solution": "OUCHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OUCHT",
+    "definitions": [
+     {
+      "text": "Anything Scottish?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is a tiny amount, so only one letter, the first, is taken from this word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brooch",
+      "gives": "OUCH",
+      "note": "an ouch is an old word for a brooch or clasp set with jewels"
+     },
+     {
+      "clueFragment": "thistle",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of thistle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUCH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Is anything more Scottish than a brooch decorated with a thistle?",
+     "walkthrough": "The thistle is Scotland's emblem, so the surface paints a Scottish brooch while the answer is simply a Scots word.",
+     "definitionFit": "Oucht is a Scots form of aught, meaning anything at all, so it is the Scottish word for anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thistle"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +330,85 @@
     "text": "With shoes off, very laid back with cat snuggling close to fire",
     "enumeration": "8"
    },
-   "solution": "BAREFOOT"
+   "solution": "BAREFOOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BAREFOOT",
+    "definitions": [
+     {
+      "text": "With shoes off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snuggling",
+      "for": "container",
+      "note": "something snuggling is nestled inside, so one piece sits within another"
+     },
+     {
+      "text": "laid back",
+      "for": "reversal",
+      "note": "laid back here is taken literally as set down backwards, so the word is reversed"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so just the last letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "BARF",
+      "note": "to cat is slang for to vomit, and barf means the same"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of fire"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "TOO",
+      "note": "too means very, as in too kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "E",
+      "F",
+      "OOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOO",
+       "to": "OOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relaxes shoeless, feeling very laid back with the cat curled up close to the fire.",
+     "walkthrough": "The cat is not a pet: to cat is British slang for being sick, so the cosy fireside scene hides a verb.",
+     "definitionFit": "Barefoot describes someone wearing nothing on their feet, which is the state of having taken shoes off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +422,56 @@
     "text": "Safari, perhaps right to be tapping water supply?",
     "enumeration": "7"
    },
-   "solution": "BROWSER"
+   "solution": "BROWSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROWSER",
+    "definitions": [
+     {
+      "text": "Safari, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be tapping",
+      "for": "container",
+      "note": "tapping a supply means drawing from it by getting inside, so one letter goes into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water supply",
+      "gives": "BOWSER",
+      "note": "a bowser is a tanker carrying water or fuel"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OWSER"
+     ]
+    },
+    "explanation": {
+     "surface": "On a safari, is it right to tap a water supply in the bush?",
+     "walkthrough": "Safari is not a trip to see animals but Apple's web browser; 'perhaps' marks it as one example.",
+     "definitionFit": "Safari is a named example of software for viewing web pages, the general class being a browser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Safari"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +485,55 @@
     "text": "Informal meeting of scientists, current one’s starting",
     "enumeration": "10"
    },
-   "solution": "RENCOUNTER"
+   "solution": "RENCOUNTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENCOUNTER",
+    "definitions": [
+     {
+      "text": "Informal meeting of scientists",
+      "at": 0,
+      "note": "a rencounter is any casual meeting; the scientists are surface colour"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting",
+      "for": "anagram",
+      "note": "starting can mean jumping or moving suddenly, so the letters are jolted into a new order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current one",
+      "gives": "CURRENTONE",
+      "note": "the ten letters of these two words, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURRENTONE",
+       "gives": "RENCOUNTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At an informal gathering of scientists, a current talk is just getting under way.",
+     "walkthrough": "The fodder is the two words current one; nothing in the clue's science setting supplies letters.",
+     "definitionFit": "Chambers gives rencounter as a chance or casual meeting, an older form of the French rencontre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +547,65 @@
     "text": "Work with utility company around outskirts of Reading",
     "enumeration": "5"
    },
-   "solution": "ERGON"
+   "solution": "ERGON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ERGON",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so the first and last letters are taken"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means going round the outside, so one word wraps another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "utility company",
+      "gives": "EON",
+      "note": "E.ON is a large energy supplier in the UK"
+     },
+     {
+      "clueFragment": "Reading",
+      "gives": "RG",
+      "select": "outer",
+      "note": "the first and last letters of Reading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works for a utility company on the edge of Reading, a large English town.",
+     "walkthrough": "E.ON is an energy company serving UK homes.",
+     "definitionFit": "Ergon is a Greek-derived word for work or business, the root that also gives the physics unit erg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reading"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +619,54 @@
     "text": "Founder of colony’s old English tomb",
     "enumeration": "6"
    },
-   "solution": "OECIST"
+   "solution": "OECIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OECIST",
+    "definitions": [
+     {
+      "text": "Founder of colony",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "tomb",
+      "gives": "CIST",
+      "note": "a cist is a prehistoric stone coffin or burial chamber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "E",
+      "CIST"
+     ]
+    },
+    "explanation": {
+     "surface": "The ancient English tomb of a colony's founder is unearthed.",
+     "definitionFit": "An oecist was the leader who established a new settlement in ancient Greece, so the term names a colonial founder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +680,65 @@
     "text": "Man in love with Pearl, perhaps bewitched",
     "enumeration": "7"
    },
-   "solution": "OBEAHED"
+   "solution": "OBEAHED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBEAHED",
+    "definitions": [
+     {
+      "text": "bewitched",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the rest of the wordplay"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like the letter O"
+     },
+     {
+      "clueFragment": "Pearl, perhaps",
+      "gives": "BEAD",
+      "note": "a pearl is one kind of bead"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BEA",
+      "HE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A man falls in love with a woman called Pearl and seems bewitched.",
+     "walkthrough": "Love is zero in tennis scoring, which looks like O; 'Pearl, perhaps' is a definition by example, a pearl being one kind of bead.",
+     "definitionFit": "Obeah is a form of Caribbean sorcery, and to obeah someone is to cast a spell on them, so obeahed means bewitched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pearl"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +752,60 @@
     "text": "Dodge perhaps after time and mouths outdated language",
     "enumeration": "9"
    },
-   "solution": "TUSCARORA"
+   "solution": "TUSCARORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUSCARORA",
+    "definitions": [
+     {
+      "text": "outdated language",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the car second, following the abbreviation for time"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Dodge perhaps",
+      "gives": "USCAR",
+      "note": "Dodge is an American make of car"
+     },
+     {
+      "clueFragment": "mouths",
+      "gives": "ORA",
+      "note": "ora is the Latin plural of os, a mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "USCAR",
+      "ORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A dodge involving time and talk is dismissed as old-fashioned speech.",
+     "walkthrough": "'Dodge perhaps' gives US CAR, an American car; it comes after T, with ORA joined on by 'and'.",
+     "definitionFit": "Tuscarora is an Iroquoian Native American language with very few remaining speakers, so it is now largely out of use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dodge"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +819,56 @@
     "text": "Toured around Great Lake blundering",
     "enumeration": "10"
    },
-   "solution": "ETOURDERIE"
+   "solution": "ETOURDERIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETOURDERIE",
+    "definitions": [
+     {
+      "text": "blundering",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests moving about, so these letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toured",
+      "gives": "TOURED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Great Lake",
+      "gives": "ERIE",
+      "note": "Erie is one of North America's Great Lakes"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOUREDERIE",
+       "gives": "ETOURDERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist travelling around one of the Great Lakes keeps making mistakes.",
+     "walkthrough": "The anagram takes in ERIE too, not just toured.",
+     "definitionFit": "Étourderie is a French loan word for heedless thoughtlessness or a careless slip, matching blundering as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +882,63 @@
     "text": "Spirit drink recalled by company",
     "enumeration": "5"
    },
-   "solution": "PISCO"
+   "solution": "PISCO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PISCO",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so this word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SIP",
+      "note": "to sip is to drink"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIS",
+      "CO"
+     ],
+     "reversals": [
+      {
+       "from": "SIP",
+       "to": "PIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spirit drink is recalled by the company that produced it.",
+     "definitionFit": "Pisco is a grape brandy made in Peru and Chile, a type of distilled alcoholic drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +952,42 @@
     "text": "Characters in some strange, lost Syriac alphabet",
     "enumeration": "10"
    },
-   "solution": "ESTRANGELO"
+   "solution": "ESTRANGELO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESTRANGELO",
+    "definitions": [
+     {
+      "text": "Syriac alphabet",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Characters in",
+      "for": "hidden_word",
+      "note": "the letters, or characters, inside the following words spell out the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some strange, lost",
+      "gives": "ESTRANGELO",
+      "note": "found running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some strange, lost characters turn out to come from a Syriac alphabet.",
+     "definitionFit": "Estrangelo is the oldest style of script used for writing Syriac, an Aramaic language of the early Christian Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Characters"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1001,51 @@
     "text": "Sorbets lacking special flavours?",
     "enumeration": "4"
    },
-   "solution": "ICES"
+   "solution": "ICES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICES",
+    "definitions": [
+     {
+      "text": "Sorbets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so some letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flavours",
+      "gives": "SPICES",
+      "note": "spices give food flavour"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "SP is an abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICES"
+     ]
+    },
+    "explanation": {
+     "surface": "Are these sorbets without any special flavours?",
+     "definitionFit": "A sorbet is a frozen dessert of sweetened fruit juice, which the British also call a water ice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1059,50 @@
     "text": "One of the Three Musketeers maybe downs arms in action",
     "enumeration": "9"
    },
-   "solution": "SWORDSMAN"
+   "solution": "SWORDSMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWORDSMAN",
+    "definitions": [
+     {
+      "text": "One of the Three Musketeers maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in action",
+      "for": "anagram",
+      "note": "things in action are moving about, so these letters are set in motion into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "downs arms",
+      "gives": "DOWNSARMS",
+      "note": "the letters of these two words, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOWNSARMS",
+       "gives": "SWORDSMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One of Dumas's Three Musketeers lays down his weapons in the middle of a fight.",
+     "definitionFit": "The Musketeers in Dumas's novel are expert fencers, so each is an example of a skilled fighter with a blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "downs"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1116,59 @@
     "text": "Largely reckoning first clue’s drossy?",
     "enumeration": "7"
    },
-   "solution": "SCORIAC"
+   "solution": "SCORIAC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SCORIAC",
+    "definitions": [
+     {
+      "text": "drossy?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reckoning",
+      "gives": "SCORE",
+      "note": "a score is a reckoning or tally"
+     },
+     {
+      "clueFragment": "first clue",
+      "gives": "IAC",
+      "note": "the puzzle's first clue is 1 across, written 1 AC with the digit as the Roman numeral I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOR",
+      "IAC"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver wonders whether the first clue, by most reckonings, is rubbish.",
+     "walkthrough": "'first clue' is taken literally as the label 1 AC, the opening clue of this very puzzle.",
+     "definitionFit": "Scoria is the slag or clinker left from smelting, so the adjective scoriac means like dross; Poe uses it in Ulalume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1182,59 @@
     "text": "Spread teeth with snow — stimulant …",
     "enumeration": "9"
    },
-   "solution": "WHETSTONE"
+   "solution": "WHETSTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHETSTONE",
+    "definitions": [
+     {
+      "text": "stimulant",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spread",
+      "for": "anagram",
+      "note": "spread means scattered about, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeth",
+      "gives": "TEETH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "snow",
+      "gives": "SNOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEETHSNOW",
+       "gives": "WHETSTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spreads toothpaste-white snow over teeth and calls it a pick-me-up.",
+     "walkthrough": "The ellipsis leads into the next clue but adds nothing to the wordplay.",
+     "definitionFit": "A whetstone sharpens blades, so figuratively it is anything that sharpens the wits or spurs one on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1248,48 @@
     "text": "… has spread front to back",
     "enumeration": "4"
    },
-   "solution": "OWNS"
+   "solution": "OWNS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "OWNS",
+    "definitions": [
+     {
+      "text": "has",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front to back",
+      "for": "cycling",
+      "note": "moving the front to the back shifts the opening letter to the end of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spread",
+      "gives": "SOWN",
+      "note": "seed that is sown has been spread over a field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from the clue before, it is about what is spread from front to back.",
+     "definitionFit": "To own something is to possess it, so owns works as a synonym for has in the third person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1303,66 @@
     "text": "Spinning thread — some section to be cut for red carpet?",
     "enumeration": "7"
    },
-   "solution": "WELCOME"
+   "solution": "WELCOME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "WELCOME",
+    "definitions": [
+     {
+      "text": "red carpet?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spinning",
+      "for": "reversal",
+      "note": "spinning turns something round, so this word is read backwards"
+     },
+     {
+      "text": "to be cut",
+      "for": "deletion",
+      "note": "cut means removed, so a letter is taken out of the neighbouring word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thread",
+      "gives": "WELC",
+      "note": "a clew is a ball of thread; it is reversed"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "SOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "note": "S is the abbreviation for section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELC",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spinning thread trims a section of a long red carpet.",
+     "walkthrough": "The question mark flags that red carpet stands for the treatment it signals rather than a floor covering.",
+     "definitionFit": "Rolling out the red carpet is the idiom for giving an important guest a lavish reception, a grand greeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1376,64 @@
     "text": "Butler’s busy brushing off black coat",
     "enumeration": "6"
    },
-   "solution": "ULSTER"
+   "solution": "ULSTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ULSTER",
+    "definitions": [
+     {
+      "text": "coat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brushing off",
+      "for": "deletion",
+      "note": "brushing something off removes it, so a letter is dropped"
+     },
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy suggests bustling about, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Butler’s",
+      "gives": "BUTLERS",
+      "note": "taken as written, dropping the apostrophe"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULSTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UTLERS",
+       "gives": "ULSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy butler brushes the dust off a black coat.",
+     "definitionFit": "An ulster is a long, loose, heavy overcoat, often belted, named after the Irish province."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "busy"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1447,62 @@
     "text": "Butcher’s can seek stews",
     "enumeration": "7"
    },
-   "solution": "LOOKSEE"
+   "solution": "LOOKSEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOOKSEE",
+    "definitions": [
+     {
+      "text": "Butcher’s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stews",
+      "for": "anagram",
+      "note": "stewing something mixes it up, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "LOO",
+      "note": "can is slang for a toilet, as is loo"
+     },
+     {
+      "clueFragment": "seek",
+      "gives": "SEEK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "KSEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEK",
+       "gives": "KSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher is able to look for stewing meat.",
+     "walkthrough": "Butcher's is Cockney rhyming slang: butcher's hook rhymes with look, so having a butcher's means taking a look.",
+     "definitionFit": "A look-see is informal for a quick look, the same thing a British speaker means by a butcher's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Butcher’s"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1516,48 @@
     "text": "Obstacle’s concerning delay",
     "enumeration": "6"
    },
-   "solution": "REMORA"
+   "solution": "REMORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMORA",
+    "definitions": [
+     {
+      "text": "Obstacle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "delay",
+      "gives": "MORA",
+      "note": "mora is a legal term for delay, especially in meeting an obligation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A report on what is causing a hold-up in a project.",
+     "definitionFit": "Remora is an old word for a hindrance, from the sucker fish once believed to slow down ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1571,50 @@
     "text": "Cook simmer — repetition of parts?",
     "enumeration": "6"
    },
-   "solution": "MERISM"
+   "solution": "MERISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERISM",
+    "definitions": [
+     {
+      "text": "repetition of parts?",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook is also to falsify or doctor, so the letters are tampered with"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simmer",
+      "gives": "SIMMER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIMMER",
+       "gives": "MERISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe step: cook, then simmer, repeating parts of the method.",
+     "definitionFit": "In biology a merism is the repeating of similar parts within one organism, such as body segments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1628,59 @@
     "text": "Vegetable silage husked and turned over",
     "enumeration": "4"
    },
-   "solution": "EDDO"
+   "solution": "EDDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EDDO",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "husked",
+      "for": "deletion",
+      "note": "husking strips the outer layer, so the outside letters are removed"
+     },
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silage",
+      "gives": "FODDER",
+      "note": "silage is animal fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDDO"
+     ],
+     "reversals": [
+      {
+       "from": "ODDE",
+       "to": "EDDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer husks a vegetable and turns it over among the silage.",
+     "definitionFit": "The eddo is the edible starchy tuber of the taro plant, eaten as a root crop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "husked"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1694,68 @@
     "text": "Over four times a day, starts to use any trusted herbicide",
     "enumeration": "6"
    },
-   "solution": "DIQUAT"
+   "solution": "DIQUAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIQUAT",
+    "definitions": [
+     {
+      "text": "herbicide",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Over",
+      "for": "reversal",
+      "note": "over here means turned over, so the abbreviation is reversed"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so just the first letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "four times a day",
+      "gives": "QID",
+      "note": "QID, Latin quater in die, is a prescription note for four doses daily"
+     },
+     {
+      "clueFragment": "use any trusted",
+      "gives": "UAT",
+      "select": "first",
+      "note": "the first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIQ",
+      "UAT"
+     ],
+     "reversals": [
+      {
+       "from": "QID",
+       "to": "DIQ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener applies a trusted weedkiller more than four times a day.",
+     "walkthrough": "QID is the doctors' abbreviation on prescriptions for four times daily.",
+     "definitionFit": "Diquat is a chemical weedkiller used to clear vegetation and dry crops before harvest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Over"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1769,62 @@
     "text": "One building bridges over Tasmanian mountain range pressing forward!",
     "enumeration": "9"
    },
-   "solution": "PONTONIER"
+   "solution": "PONTONIER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PONTONIER",
+    "definitions": [
+     {
+      "text": "One building bridges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pressing",
+      "for": "container",
+      "note": "pressing into something means pushing inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "PON",
+      "note": "'pon is a shortened form of upon, which means over"
+     },
+     {
+      "clueFragment": "Tasmanian mountain range",
+      "gives": "TIER",
+      "note": "Chambers lists tier as a Tasmanian term for a mountain range"
+     },
+     {
+      "clueFragment": "forward",
+      "gives": "ON",
+      "note": "on means forward, as in moving on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PON",
+      "T",
+      "ON",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge builder working over a Tasmanian mountain range pushes on.",
+     "walkthrough": "'Pon is a poetic clipping of upon. Tier as a mountain range is a Tasmanian usage that Chambers records.",
+     "definitionFit": "A pontonier is a military engineer who builds pontoon bridges, so he constructs crossings for a living."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pressing"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1838,54 @@
     "text": "Shabby person completely stalling response",
     "enumeration": "5"
    },
-   "solution": "OUBIT"
+   "solution": "OUBIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUBIT",
+    "definitions": [
+     {
+      "text": "Shabby person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stalling",
+      "for": "container",
+      "note": "stalling something holds it in a stall, so one word is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "OUT",
+      "note": "out means completely, as in tired out"
+     },
+     {
+      "clueFragment": "response",
+      "gives": "BI",
+      "note": "in Chinese medicine bi is a pattern of bodily response, a term Chambers records"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "BI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy person keeps delaying an answer.",
+     "definitionFit": "Chambers gives oubit as a hairy caterpillar and, by extension, a scruffy or unkempt individual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stalling"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1899,61 @@
     "text": "Almost nothing starts to leaf across ravine …",
     "enumeration": "5"
    },
-   "solution": "NULLA"
+   "solution": "NULLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NULLA",
+    "definitions": [
+     {
+      "text": "ravine",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means nearly all, so the final letter is dropped"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the first letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NULL",
+      "note": "null means nothing or void"
+     },
+     {
+      "clueFragment": "leaf across",
+      "gives": "LA",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUL",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "Almost nothing begins to drift, leaf by leaf, across a gorge.",
+     "definitionFit": "Nulla, or nullah, is an Indian word for a watercourse or steep gully, a dry ravine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaf"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1967,50 @@
     "text": "Local crowd that is heralding touchdown at Eton",
     "enumeration": "7"
    },
-   "solution": "SCROUGE"
+   "solution": "SCROUGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCROUGE",
+    "definitions": [
+     {
+      "text": "Local crowd",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "heralding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "SC",
+      "note": "sc, from Latin scilicet, means namely or that is"
+     },
+     {
+      "clueFragment": "touchdown at Eton",
+      "gives": "ROUGE",
+      "note": "a rouge is a scoring move in the Eton field game, a little like a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "ROUGE"
+     ]
+    },
+    "explanation": {
+     "surface": "At Eton, a crowd of local boys cheers a touchdown.",
+     "walkthrough": "Eton is a famous English boarding school with its own football games. 'Local' means the word is dialect.",
+     "definitionFit": "Scrouge is a dialect verb meaning to squeeze or press together, the same sense as to crowd someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touchdown"
+    }
+   }
   },
   {
    "number": 30,
@@ -471,7 +2024,49 @@
     "text": "… fertile plain’s area with food plants",
     "enumeration": "4"
    },
-   "solution": "VEGA"
+   "solution": "VEGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VEGA",
+    "definitions": [
+     {
+      "text": "fertile plain",
+      "at": 2
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food plants",
+      "gives": "VEG",
+      "note": "veg is short for vegetables"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue, a fertile plain is a region with crops growing.",
+     "walkthrough": "'area with food plants' puts A after VEG.",
+     "definitionFit": "Vega is a Spanish word for a low, well-watered stretch of farmland, used in English for such valleys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 31,
@@ -485,7 +2080,57 @@
     "text": "Local Labour MP’s opening news …",
     "enumeration": "4"
    },
-   "solution": "MOIL"
+   "solution": "MOIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MOIL",
+    "definitions": [
+     {
+      "text": "Local Labour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is a beginning, so only the first letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MP’s",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of MP"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "OIL",
+      "note": "in Australian slang the good oil is reliable information or news"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A local Labour Party MP makes an opening announcement to the press.",
+     "walkthrough": "Labour is not the British political party but plain toil, and 'Local' marks the answer as dialect.",
+     "definitionFit": "Moil is a dialect word for drudgery or hard toil, as in toil and moil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 32,
@@ -499,7 +2144,56 @@
     "text": "… having fallen heavily, MP’s denied being drunk",
     "enumeration": "5"
    },
-   "solution": "SLUED"
+   "solution": "SLUED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLUED",
+    "definitions": [
+     {
+      "text": "drunk",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied",
+      "for": "deletion",
+      "note": "something denied is withheld, so these letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having fallen heavily",
+      "gives": "SLUMPED",
+      "note": "to slump is to fall heavily"
+     },
+     {
+      "clueFragment": "MP’s",
+      "gives": "MP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLU",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "After collapsing in a heap, an MP denies being drunk.",
+     "definitionFit": "Slued, also spelt slewed, is slang for intoxicated, as if lurching sideways like a swung boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "MP’s"
+    }
+   }
   },
   {
    "number": 33,
@@ -513,7 +2207,62 @@
     "text": "Decoy to linger in what club?",
     "enumeration": "10"
    },
-   "solution": "SHILLELAGH"
+   "solution": "SHILLELAGH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHILLELAGH",
+    "definitions": [
+     {
+      "text": "club?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decoy",
+      "gives": "SHILL",
+      "note": "a shill is an accomplice posing as a customer to lure others"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh is a way of saying what? when you have not heard"
+     },
+     {
+      "clueFragment": "to linger",
+      "gives": "LAG",
+      "note": "to lag is to linger or fall behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHILL",
+      "E",
+      "LAG",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks which club a decoy is hanging around in.",
+     "definitionFit": "A shillelagh is an Irish cudgel of blackthorn or oak, a stout wooden stick used as a weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 34,
@@ -527,7 +2276,65 @@
     "text": "Worm’s broken back into point on network",
     "enumeration": "8"
    },
-   "solution": "NEMATODE"
+   "solution": "NEMATODE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NEMATODE",
+    "definitions": [
+     {
+      "text": "Worm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so this word is reversed"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point on network",
+      "gives": "NODE",
+      "note": "a node is a junction point in a network"
+     },
+     {
+      "clueFragment": "broken",
+      "gives": "EMAT",
+      "note": "a horse that is broken is tame; TAME is reversed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EMAT",
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worm has broken back into a point on a computer network.",
+     "walkthrough": "Broken means tamed, as with a horse; reversed TAME goes inside NODE after its N.",
+     "definitionFit": "Nematodes are roundworms, a large group of unsegmented worms, many of them parasites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Worm"
+    }
+   }
   },
   {
    "number": 35,
@@ -541,7 +2348,56 @@
     "text": "Thatcher leaves thanks protected by American plan",
     "enumeration": "4"
    },
-   "solution": "ATAP"
+   "solution": "ATAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATAP",
+    "definitions": [
+     {
+      "text": "Thatcher leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected by another is enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American plan",
+      "gives": "AP",
+      "note": "AP is a hotel rate abbreviation, American plan, covering room and all meals"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Margaret Thatcher leaves office, sheltered by an American plan.",
+     "walkthrough": "Thatcher is not the British prime minister but someone who thatches roofs.",
+     "definitionFit": "Atap is the Malay name for nipa palm leaves used as roofing material, the foliage a roof-maker works with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thatcher"
+    }
+   }
   }
  ]
 }

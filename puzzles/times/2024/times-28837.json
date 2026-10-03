@@ -23,6 +23,9 @@
   "date": "2024-02-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,48 @@
     "text": "Card game with limits on pack, reportedly?",
     "enumeration": "6"
    },
-   "solution": "PIQUET"
+   "solution": "PIQUET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIQUET",
+    "definitions": [
+     {
+      "text": "Card game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as people say it, so we want a word that is heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "limits on pack",
+      "gives": "PIQUET",
+      "soundsLike": "PICKET",
+      "note": "a picket is a stake that tethers an animal such as a pack horse, limiting where it can roam; a picket line also restrains a pack of workers"
+     }
+    ],
+    "explanation": {
+     "surface": "A card game where only a limited part of the deck is used, apparently.",
+     "walkthrough": "PIQUET is commonly said like PICKET, so the spoken stake or barrier spells the game.",
+     "definitionFit": "Piquet is an old two-player trick-taking game played with a reduced pack of thirty-two cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +94,47 @@
     "text": "Risky investment — not the first — embezzlement!",
     "enumeration": "10"
    },
-   "solution": "PECULATION"
+   "solution": "PECULATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PECULATION",
+    "definitions": [
+     {
+      "text": "embezzlement",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risky investment",
+      "gives": "SPECULATION",
+      "note": "speculation is investing in the hope of gain at high risk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PECULATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy investment scheme turns out to be fraud.",
+     "definitionFit": "Peculation is the formal word for misappropriating funds entrusted to one, the same offence as stealing from an employer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Risky"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +148,43 @@
     "text": "Phoney call from pond life?",
     "enumeration": "5"
    },
-   "solution": "QUACK"
+   "solution": "QUACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUACK",
+    "definitions": [
+     {
+      "text": "Phoney",
+      "at": 0
+     },
+     {
+      "text": "call from pond life?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phoney",
+      "note": "first meaning: a fraud posing as a doctor"
+     },
+     {
+      "clueFragment": "call from pond life?",
+      "note": "second meaning: the sound a duck makes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Phoney call' suggests a hoax phone call; split it into a fake and a duck's cry.",
+     "definitionFit": "A quack is a charlatan pretending to medical skill, and also the noise ducks on a pond make."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +198,73 @@
     "text": "Recluse wound up watch in middle of week",
     "enumeration": "7"
    },
-   "solution": "EREMITE"
+   "solution": "EREMITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "EREMITE",
+    "definitions": [
+     {
+      "text": "Recluse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wound up",
+      "for": "reversal",
+      "note": "wound up in a down clue suggests winding upwards, so the word is read from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the piece inside the following letters"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "week",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the two central letters of week"
+     },
+     {
+      "clueFragment": "watch",
+      "gives": "TIMER",
+      "note": "a timer is a device for watching time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "REMIT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TIMER",
+       "to": "REMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hermit winds his watch in the middle of the week.",
+     "definitionFit": "An eremite is a Christian hermit, someone who lives alone in seclusion for religious reasons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +278,67 @@
     "text": "As is surface of mirror, reflecting shops entered by minister",
     "enumeration": "8"
    },
-   "solution": "SILVERED"
+   "solution": "SILVERED",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SILVERED",
+    "definitions": [
+     {
+      "text": "As is surface of mirror",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the letters are read the other way round"
+     },
+     {
+      "text": "entered by",
+      "for": "container",
+      "note": "something entered by another has that other placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shops",
+      "gives": "DELIS",
+      "note": "delis are delicatessen shops"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "REV",
+      "note": "Rev, short for Reverend, is a minister's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIL",
+      "VER",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DEREVLIS",
+       "to": "SILVERED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a mirror's coating while an image of shops visited by a clergyman appears in it.",
+     "walkthrough": "'Reflecting' fits the mirror picture so neatly that it reads as description, yet it is the instruction to read backwards.",
+     "definitionFit": "Mirrors are made by coating glass with a thin metallic layer, so the backing surface is described as coated with that metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reflecting"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +352,46 @@
     "text": "Current transaction, visionary",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "visionary",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "transaction",
+      "gives": "DEAL",
+      "note": "a deal is a business transaction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A present-day business deal described as forward-looking.",
+     "definitionFit": "Ideal as an adjective means existing only in the imagination, perfect but not real, which is what visionary can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +405,66 @@
     "text": "French nobleman failing to keep order, ending in defeat",
     "enumeration": "7"
    },
-   "solution": "VICOMTE"
+   "solution": "VICOMTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VICOMTE",
+    "definitions": [
+     {
+      "text": "French nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it inside"
+     },
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "failing",
+      "gives": "VICE",
+      "note": "a vice is a moral failing"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "OM is the Order of Merit"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of defeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIC",
+      "OMT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A French aristocrat fails to keep order and ends up defeated.",
+     "definitionFit": "A vicomte is the French rank equivalent to a viscount, a nobleman just below a count."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +478,70 @@
     "text": "Left at the crease doubled up, player upset about that",
     "enumeration": "9"
    },
-   "solution": "REMAINING"
+   "solution": "REMAINING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REMAINING",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the word is read bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "player",
+      "gives": "GAMER",
+      "note": "a gamer is someone who plays games"
+     },
+     {
+      "clueFragment": "at the crease doubled up",
+      "gives": "ININ",
+      "note": "a batter at the crease is in, and doubled up means written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMA",
+      "ININ",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "GAMER",
+       "to": "REMAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman left at the crease, doubled over, while an opposing player is upset.",
+     "walkthrough": "In cricket the batsman at the crease is said to be in; 'that' points back to the doubled IN.",
+     "definitionFit": "Remaining means still there after others have gone, which is the sense of left over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +555,69 @@
     "text": "Portal with bar up, zero getting in",
     "enumeration": "4"
    },
-   "solution": "DOOR"
+   "solution": "DOOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DOOR",
+    "definitions": [
+     {
+      "text": "Portal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down clue means read from the bottom, so the word goes backwards"
+     },
+     {
+      "text": "getting in",
+      "for": "container",
+      "note": "getting in means entering, so one letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "O",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "ROD",
+       "to": "DOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An entrance with its bar raised and nobody coming through.",
+     "definitionFit": "A portal is a grand entrance or doorway, so the everyday word is the hinged barrier to a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +637,44 @@
      }
     ]
    },
-   "solution": "DOGOODER"
+   "solution": "DOGOODER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DO-GOODER",
+    "definitions": [
+     {
+      "text": "Enthusiastic volunteer",
+      "at": 0
+     },
+     {
+      "text": "having to improve before grammar lesson?",
+      "at": 23,
+      "note": "a verb phrase, read as ungrammatical speech"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthusiastic volunteer",
+      "note": "first meaning: a well-meaning person eager to help others"
+     },
+     {
+      "clueFragment": "having to improve before grammar lesson?",
+      "note": "second meaning: someone who has not yet learned grammar might say they must 'do' better with a wrongly formed comparative"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the joke: before a grammar lesson someone might form the comparative of good wrongly, as GOODER.",
+     "definitionFit": "A do-gooder is someone keen on charitable work, often used of an earnest or interfering volunteer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grammar"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +688,54 @@
     "text": "Companion taking time out from first part of novel?",
     "enumeration": "9"
    },
-   "solution": "CHAPERONE"
+   "solution": "CHAPERONE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAPERONE",
+    "definitions": [
+     {
+      "text": "Companion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking time out from",
+      "for": "deletion",
+      "note": "taking something out means removing it, and time stands for one letter to drop"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first part of novel",
+      "gives": "CHAPTERONE",
+      "note": "a novel's opening section is chapter one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "ERONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A companion book seems to take a break from the opening of a novel.",
+     "walkthrough": "Remove the T from CHAPTER ONE to leave CHAPERONE.",
+     "definitionFit": "A chaperone is a person who accompanies and supervises someone, especially a young woman at social events, acting as an escort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +749,59 @@
     "text": "Bill’s partner visited by doctor in group",
     "enumeration": "5"
    },
-   "solution": "COMBO"
+   "solution": "COMBO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBO",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visited by",
+      "for": "container",
+      "note": "a place visited by someone has that visitor inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill’s partner",
+      "gives": "COO",
+      "note": "the phrase bill and coo pairs these words as lovers' billing and cooing"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Bill's partner receives a visit from a doctor while out with a group of friends.",
+     "walkthrough": "'Bill' looks like a man's name, but it is the bird's beak in the idiom 'bill and coo'.",
+     "definitionFit": "A combo is an informal name for a small band of musicians, especially in jazz, so it is a musical ensemble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill’s"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +833,43 @@
      }
     ]
    },
-   "solution": "LIKEITORLUMPIT"
+   "solution": "LIKEITORLUMPIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIKE IT OR LUMP IT",
+    "definitions": [
+     {
+      "text": "Hobson’s choice",
+      "at": 0
+     },
+     {
+      "text": "with only sugar cubes?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hobson’s choice",
+      "note": "first meaning: a choice with only one real option, take it or leave it"
+     },
+     {
+      "clueFragment": "with only sugar cubes?",
+      "note": "second meaning: a whimsical tea order, where the drinker may prefer it or have it sweetened with cubes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hobson was a Cambridge stable keeper who offered customers the horse nearest the door or none. The second half reads the idiom literally: lumps are sugar cubes.",
+     "definitionFit": "The idiom means accept the situation because there is no alternative, exactly what a forced single option offers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sugar"
+    }
+   }
   },
   {
    "number": 13,
@@ -252,7 +893,69 @@
      }
     ]
    },
-   "solution": "INYOURFACE"
+   "solution": "INYOURFACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IN-YOUR-FACE",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding inside, so a letter is placed within the last piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "solver’s",
+      "gives": "YOUR",
+      "note": "the clue addresses the solver as you, so the solver's is your"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "ACE",
+      "note": "an ace is an expert or champion"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "YOUR",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A combative but popular puzzle champion holding on to a fine.",
+     "definitionFit": "In-your-face describes blatantly confrontational behaviour, bold and provocative rather than restrained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solver’s"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +969,42 @@
     "text": "Heading past it, leaseholder’s housing",
     "enumeration": "5"
    },
-   "solution": "TITLE"
+   "solution": "TITLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TITLE",
+    "definitions": [
+     {
+      "text": "Heading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means holding inside, so the answer sits within the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past it, leaseholder’s",
+      "gives": "TITLE",
+      "note": "the letters run across the end of past, all of it and the start of leaseholder's"
+     }
+    ],
+    "explanation": {
+     "surface": "A leaseholder getting on in years heads for the home they own.",
+     "definitionFit": "A title is the heading printed at the top of a chapter, article or document, naming its subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heading"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1018,60 @@
     "text": "At this point, Father carried by boy out of that place",
     "enumeration": "9"
    },
-   "solution": "THEREFROM"
+   "solution": "THEREFROM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THEREFROM",
+    "definitions": [
+     {
+      "text": "out of that place",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "carried by means held within, so the earlier words go inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "TOM",
+      "note": "Tom is a boy's name"
+     },
+     {
+      "clueFragment": "At this point",
+      "gives": "HERE",
+      "note": "here means at this place"
+     },
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEREFR",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "At this moment a priest is carried off by a boy from somewhere.",
+     "definitionFit": "Therefrom is a formal adverb meaning from that thing or location, used in legal and old-fashioned writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1085,61 @@
     "text": "Flower put on garlands also by priest",
     "enumeration": "9"
    },
-   "solution": "DANDELION"
+   "solution": "DANDELION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DANDELION",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "garlands",
+      "for": "container",
+      "note": "a garland wraps around something, so one word encircles the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put on",
+      "gives": "DON",
+      "note": "to don clothes is to put them on"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and adds something, like also"
+     },
+     {
+      "clueFragment": "by priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel; by places him next to the previous word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANDELI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower is placed on garlands, and a priest adds another.",
+     "walkthrough": "'Garlands' looks like a noun for flowers, but it is a verb meaning encircles.",
+     "definitionFit": "The dandelion is a common yellow-flowered weed whose seed head becomes a fluffy clock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "garlands"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1159,62 @@
      }
     ]
    },
-   "solution": "NEWSITEM"
+   "solution": "NEWSITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NEWS ITEM",
+    "definitions": [
+     {
+      "text": "Piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling and disguised, so the letters are scrambled out of recognition"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot off the press",
+      "gives": "NEW",
+      "note": "freshly printed means new"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "SITEM",
+      "note": "the letters of times rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "SITEM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIMES",
+       "gives": "SITEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news story fresh from the printers, alongside this very puzzle.",
+     "walkthrough": "The clue appears in The Times, so the setter is talking about their own cryptic.",
+     "definitionFit": "A piece in journalism is an article, and a news item is one such report printed in a paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cryptic"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1228,67 @@
     "text": "How to contain runs after evident result of fielding error",
     "enumeration": "9"
    },
-   "solution": "OVERTHROW"
+   "solution": "OVERTHROW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OVERTHROW",
+    "definitions": [
+     {
+      "text": "result of fielding error",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to contain",
+      "for": "container",
+      "note": "to contain is to hold something within, so one piece goes inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the first piece behind the one named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evident",
+      "gives": "OVERT",
+      "note": "overt means plain to see"
+     },
+     {
+      "clueFragment": "How",
+      "gives": "HOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "H",
+      "R",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket question: how to limit runs after an obvious misfield.",
+     "walkthrough": "'How' looks like the start of a question but is taken literally as letters.",
+     "definitionFit": "In cricket an overthrow is a wild return from a fielder that misses the stumps, letting the batsmen take extra runs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "How"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1302,71 @@
     "text": "Fuel in test that’s explosive, ladies and gentlemen",
     "enumeration": "7"
    },
-   "solution": "TOILETS"
+   "solution": "TOILETS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOILETS",
+    "definitions": [
+     {
+      "text": "ladies and gentlemen",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "explosive",
+      "for": "anagram",
+      "note": "an explosion scatters things, so the letters are blown into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuel",
+      "gives": "OIL",
+      "note": "oil is a fuel"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OIL",
+      "ETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEST",
+       "gives": "TETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fuel trial that blows up, announced to an audience of ladies and gentlemen.",
+     "walkthrough": "'Ladies and gentlemen' looks like a greeting, but it means the signs on public conveniences.",
+     "definitionFit": "Ladies and gentlemen are the signs on public restrooms, so together they name the conveniences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gentlemen"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1380,62 @@
     "text": "Fighting earlier involving leaders in Glorious Revolution",
     "enumeration": "5"
    },
-   "solution": "AGGRO"
+   "solution": "AGGRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGGRO",
+    "definitions": [
+     {
+      "text": "Fighting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something in, so letters go inside another word"
+     },
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so the opening letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earlier",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     },
+     {
+      "clueFragment": "Glorious Revolution",
+      "gives": "GR",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "GR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Violent fighting from history, led by figures in the Glorious Revolution of 1688.",
+     "walkthrough": "The Glorious Revolution was the 1688 overthrow of James II in England.",
+     "definitionFit": "Aggro is British slang for aggressive trouble or violent behaviour, shortened from aggravation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Glorious"
+    }
+   }
   },
   {
    "number": 20,
@@ -370,7 +1449,76 @@
     "text": "Tanks in piazza stripped, one occupying area after evacuation",
     "enumeration": "7"
    },
-   "solution": "AQUARIA"
+   "solution": "AQUARIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AQUARIA",
+    "definitions": [
+     {
+      "text": "Tanks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "stripped means its outer layer taken off, so the first and last letters go"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "occupying means sitting inside, so these pieces go within the next"
+     },
+     {
+      "text": "after evacuation",
+      "for": "letter_selection",
+      "note": "evacuated means emptied, so only the outside letters stay"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piazza",
+      "gives": "QUAR",
+      "select": "middle",
+      "note": "a piazza is a square; stripped of its outer letters it leaves the middle"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "AA",
+      "select": "outer",
+      "note": "the outer letters of area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUARI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Fish tanks in a cleared Italian square, one put in place after the area was evacuated.",
+     "walkthrough": "A piazza is an Italian public square, giving SQUARE before stripping.",
+     "definitionFit": "Aquaria is a plural of aquarium, the glass tanks used to keep fish and other water creatures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piazza"
+    }
+   }
   },
   {
    "number": 21,
@@ -384,7 +1532,73 @@
     "text": "Note I tremble after death march’s beginning",
     "enumeration": "14"
    },
-   "solution": "DEMISEMIQUAVER"
+   "solution": "DEMISEMIQUAVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEMISEMIQUAVER",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the preceding pieces behind the ones named next"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "death",
+      "gives": "DEMISE",
+      "note": "demise means death"
+     },
+     {
+      "clueFragment": "march’s",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of march"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tremble",
+      "gives": "QUAVER",
+      "note": "to quaver is to shake or tremble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMISE",
+      "M",
+      "I",
+      "QUAVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trembles after the opening of a funeral march.",
+     "walkthrough": "Note how 'quaver' is itself a musical note, which helps once the long word appears.",
+     "definitionFit": "A demisemiquaver is a very short musical note, a thirty-second note, worth one eighth of a crotchet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "death"
+    }
+   }
   },
   {
    "number": 22,
@@ -398,7 +1612,48 @@
     "text": "Hungry vampire, Dracula biting the vicar last of all",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "Hungry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of all",
+      "for": "letter_selection",
+      "note": "last of all asks for the final letter of every word named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vampire, Dracula biting the vicar",
+      "gives": "EAGER",
+      "select": "last",
+      "note": "the final letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A ravenous vampire, Count Dracula, sinks his teeth into the vicar.",
+     "definitionFit": "Eager means keenly wanting something, as in eager for food, so it can stand for hungry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hungry"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1667,57 @@
     "text": "House where burglar, say, drops in?",
     "enumeration": "5"
    },
-   "solution": "VILLA"
+   "solution": "VILLA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VILLA",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "to drop something is to let it fall away, so the named letters are removed"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burglar, say",
+      "gives": "VILLAIN",
+      "note": "a burglar is an example of a criminal"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VILLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A house where a burglar pops in unexpectedly.",
+     "walkthrough": "'Drops in' reads as visiting, but it means dropping the letters IN from VILLAIN.",
+     "definitionFit": "A villa is a large country or seaside residence, a type of dwelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1731,53 @@
     "text": "Bad to be wrongly directed",
     "enumeration": "4"
    },
-   "solution": "EVIL"
+   "solution": "EVIL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EVIL",
+    "definitions": [
+     {
+      "text": "Bad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly directed",
+      "for": "reversal",
+      "note": "pointed the wrong way means turned round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be",
+      "gives": "LIVE",
+      "note": "to live is to be, to exist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIVE",
+       "to": "EVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being misguided is a bad thing.",
+     "definitionFit": "Evil means morally wicked, the strongest sense of wrong or harmful conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directed"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1791,49 @@
     "text": "Poetry in very old language",
     "enumeration": "5"
    },
-   "solution": "VERSE"
+   "solution": "VERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VERSE",
+    "definitions": [
+     {
+      "text": "Poetry",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "old language",
+      "gives": "ERSE",
+      "note": "Erse is an old name for Scottish or Irish Gaelic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Poetry written in a very old tongue.",
+     "definitionFit": "Verse is writing arranged in metrical lines, the general term for poetic composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1847,61 @@
     "text": "Blunder in Caribbean location not initiated by an irregular soldier",
     "enumeration": "9"
    },
-   "solution": "GUERRILLA"
+   "solution": "GUERRILLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GUERRILLA",
+    "definitions": [
+     {
+      "text": "irregular soldier",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initiated by an",
+      "for": "deletion",
+      "note": "not initiated by means the opening is missing, and it names the opening letters to remove"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blunder",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "Caribbean location",
+      "gives": "ANGUILLA",
+      "note": "Anguilla is an island territory in the Caribbean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "ERR",
+      "ILLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel fighter makes a blunder somewhere in the Caribbean.",
+     "walkthrough": "Anguilla is a small British territory in the eastern Caribbean; 'by an' reads as part of the soldier phrase but names the letters to cut.",
+     "definitionFit": "A guerrilla is a member of a small independent fighting band, not part of a regular army."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initiated"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1915,50 @@
     "text": "Monk’s home brewing Mary’s ale",
     "enumeration": "8"
    },
-   "solution": "LAMASERY"
+   "solution": "LAMASERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAMASERY",
+    "definitions": [
+     {
+      "text": "Monk’s home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "brewing stirs ingredients together into something new, so the letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mary’s ale",
+      "gives": "MARYSALE",
+      "note": "the letters of the two words, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARYSALE",
+       "gives": "LAMASERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monastery where Mary's beer is brewed, as monks are known to do.",
+     "definitionFit": "A lamasery is a monastery of lamas, the monks of Tibetan Buddhism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "brewing"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1972,66 @@
     "text": "Music genre for example, a type of jazz that’s retro",
     "enumeration": "6"
    },
-   "solution": "GARAGE"
+   "solution": "GARAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GARAGE",
+    "definitions": [
+     {
+      "text": "Music genre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that’s retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so everything before it is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "type of jazz",
+      "gives": "RAG",
+      "note": "rag, short for ragtime, is an early jazz style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "A",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGARAG",
+       "to": "GARAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music style, for instance an old-fashioned kind of jazz.",
+     "definitionFit": "Garage is a style of electronic dance music that grew from house music in the 1990s, especially in the UK."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retro"
+    }
+   }
   }
  ]
 }

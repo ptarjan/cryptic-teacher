@@ -24,6 +24,9 @@
   "date": "2026-01-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,81 @@
     "text": "Extremely poor concierge, swigging last of champagne, damages cases",
     "enumeration": "10"
    },
-   "solution": "PRECEDENTS"
+   "solution": "PRECEDENTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PRECEDENTS",
+    "definitions": [
+     {
+      "text": "cases",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extreme ends of each word, so only the outer letters are kept"
+     },
+     {
+      "text": "swigging",
+      "for": "container",
+      "note": "to swig is to gulp down, so these letters take something inside them"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor",
+      "gives": "PR",
+      "select": "outer",
+      "note": "the outside letters of poor"
+     },
+     {
+      "clueFragment": "champagne",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of champagne"
+     },
+     {
+      "clueFragment": "concierge",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the outside letters of concierge"
+     },
+     {
+      "clueFragment": "damages",
+      "gives": "DENTS",
+      "note": "dents are damage to a surface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "E",
+      "CE",
+      "DENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A hard-up hotel concierge, drinking the dregs of the champagne, wrecks the guests' luggage.",
+     "walkthrough": "'Extremely' governs both poor and concierge, and 'swigging' places the champagne letter between the two pairs rather than inside either.",
+     "definitionFit": "In law, earlier decided cases that serve as authority for later rulings are called precedents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +128,70 @@
     "text": "Model’s on about conserving interior of Split",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "REPLICA",
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interior of",
+      "for": "letter_selection",
+      "note": "the interior of a word is its middle, so its first and last letters are dropped"
+     },
+     {
+      "text": "conserving",
+      "for": "container",
+      "note": "to conserve something is to keep it safe within, so these letters wrap round another piece"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "Split",
+      "gives": "PLI",
+      "select": "middle",
+      "note": "the middle letters of Split"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PLI",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model is chatting about preserving the old Roman palace at Split, the Croatian city.",
+     "definitionFit": "A replica is a copy or scale model of an original object, so the words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +205,70 @@
     "text": "Provincial police once overturned electric vehicle going round bend",
     "enumeration": "5"
    },
-   "solution": "CURVE"
+   "solution": "CURVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CURVE",
+    "definitions": [
+     {
+      "text": "bend",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "in a down clue, overturned means turned upside down, so the letters read from bottom to top"
+     },
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round means turning about, so these letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provincial police once",
+      "gives": "RUC",
+      "note": "the Royal Ulster Constabulary, Northern Ireland's police force until 2001"
+     },
+     {
+      "clueFragment": "electric vehicle",
+      "gives": "EV",
+      "note": "EV is the standard abbreviation for electric vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "VE"
+     ],
+     "reversals": [
+      {
+       "from": "RUC",
+       "to": "CUR"
+      },
+      {
+       "from": "EV",
+       "to": "VE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police car from the old days tips over while an electric car takes a sharp corner.",
+     "walkthrough": "Northern Ireland is often called the Province, hence provincial police.",
+     "definitionFit": "A curve in a road is a bend, so the two nouns are straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Provincial"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +282,49 @@
     "text": "Maritime establishment is cut off by some distance",
     "enumeration": "8"
    },
-   "solution": "DOCKYARD"
+   "solution": "DOCKYARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOCKYARD",
+    "definitions": [
+     {
+      "text": "Maritime establishment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut off",
+      "gives": "DOCK",
+      "note": "to dock a tail is to cut it off"
+     },
+     {
+      "clueFragment": "some distance",
+      "gives": "YARD",
+      "note": "a yard is a measure of distance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCK",
+      "YARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval base finds itself cut off by a stretch of land or water.",
+     "definitionFit": "A dockyard is a naval or shipbuilding facility where vessels are built and repaired."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +348,69 @@
      }
     ]
    },
-   "solution": "NONCOMPOSMENTIS"
+   "solution": "NONCOMPOSMENTIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "anagram"
+    ],
+    "answer": "NON COMPOS MENTIS",
+    "definitions": [
+     {
+      "text": "Irrational",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misapplication of",
+      "for": "anagram",
+      "note": "something misapplied is used wrongly, so these letters are put into a different order"
+     },
+     {
+      "text": "lacking foundation",
+      "for": "deletion",
+      "note": "in a down clue the foundation is the bottom, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "common sense",
+      "gives": "COMMONSENSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "POINT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONCOMPOSMENTIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COMMONSENSPOINT",
+       "gives": "NONCOMPOSMENTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Applying common sense wrongly, with no basis and no purpose, is plainly irrational.",
+     "walkthrough": "Common sense loses its last E, then POINT is added and all fifteen letters are rearranged.",
+     "definitionFit": "Non compos mentis is a Latin legal phrase meaning not of sound mind, hence lacking reason."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foundation"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +424,56 @@
     "text": "Put up with very loud boring litigant",
     "enumeration": "6"
    },
-   "solution": "SUFFER"
+   "solution": "SUFFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUFFER",
+    "definitions": [
+     {
+      "text": "Put up with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling into, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "litigant",
+      "gives": "SUER",
+      "note": "a litigant is one who sues"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical marking for very loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "FF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to tolerate a dull, shouty party in a lawsuit.",
+     "walkthrough": "'Boring' reads as dull in the surface, but here it means drilling into the litigant.",
+     "definitionFit": "To suffer something is to endure or tolerate it, a phrasal-verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +487,51 @@
     "text": "Musical’s back to front nonsensical lyrics",
     "enumeration": "4"
    },
-   "solution": "SCAT"
+   "solution": "SCAT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SCAT",
+    "definitions": [
+     {
+      "text": "nonsensical lyrics",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "the back of the word is brought round to its front, so the last letter moves to lead"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "CATS",
+      "note": "Cats is the Andrew Lloyd Webber musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stage musical has its silly song lyrics put on back to front.",
+     "definitionFit": "Scat is jazz singing with improvised meaningless syllables in place of real words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +551,75 @@
      }
     ]
    },
-   "solution": "STONEDEAF"
+   "solution": "STONEDEAF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STONE-DEAF",
+    "definitions": [
+     {
+      "text": "lacking sense",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revamped",
+      "for": "anagram",
+      "note": "something revamped is renovated and reworked, so the letters are rearranged"
+     },
+     {
+      "text": "excluding outliers",
+      "for": "letter_selection",
+      "note": "outliers sit at the edges, so excluding them keeps only the middle letters"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of each word, so first letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FTSE",
+      "gives": "FTSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "index",
+      "gives": "NDE",
+      "select": "middle",
+      "note": "the middle letters of index"
+     },
+     {
+      "clueFragment": "acceptable or",
+      "gives": "AO",
+      "select": "first",
+      "note": "first letters of acceptable and or"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FTSENDEAO",
+       "gives": "STONEDEAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financier wonders whether a revamped stock index, trimmed of extreme values, is acceptable or senseless.",
+     "walkthrough": "The FTSE is the London Stock Exchange share index. The question mark flags that the sense lacked is hearing.",
+     "definitionFit": "Someone completely unable to hear is missing one of the five senses entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sense"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +633,61 @@
     "text": "What can measure a metric amount, forever being 50% out?",
     "enumeration": "7"
    },
-   "solution": "AMMETER"
+   "solution": "AMMETER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AMMETER",
+    "definitions": [
+     {
+      "text": "What can measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being 50% out",
+      "for": "deletion",
+      "note": "with half of the word out, only its first half remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "metric amount",
+      "gives": "MM",
+      "note": "mm, millimetre, is a small metric unit"
+     },
+     {
+      "clueFragment": "forever",
+      "gives": "ETERNAL",
+      "note": "eternal means lasting forever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MM",
+      "ETER"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asks which device could gauge a metric quantity that keeps drifting half off.",
+     "walkthrough": "Eternal has seven letters, so 50% out leaves its first part, ETER; the setter rounds in his favour.",
+     "definitionFit": "An ammeter is an instrument that gauges electric current in amperes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forever"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +701,61 @@
     "text": "Pole let off without charge in the end",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SPAR",
+    "definitions": [
+     {
+      "text": "Pole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "let off",
+      "gives": "SPARE",
+      "note": "to spare someone is to let them off"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish suspect is released without being charged in the end.",
+     "walkthrough": "'Pole' looks like a nationality; it is a length of wood or metal.",
+     "definitionFit": "A spar is a stout pole, such as a mast or boom on a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +779,51 @@
      }
     ]
    },
-   "solution": "CANOFWORMS"
+   "solution": "CANOFWORMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAN OF WORMS",
+    "definitions": [
+     {
+      "text": "potential problem",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters turned around and scattered, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ofcom warns",
+      "gives": "OFCOMWARNS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFCOMWARNS",
+       "gives": "CANOFWORMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The UK broadcasting regulator issues a warning about a possible difficulty.",
+     "walkthrough": "Ofcom is the British regulator for broadcasting and telecoms.",
+     "definitionFit": "Opening a can of worms is an idiom for stirring up a complicated, troublesome situation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +837,64 @@
     "text": "Third character excluded from number (around 100) getting distinction",
     "enumeration": "6"
    },
-   "solution": "NICETY"
+   "solution": "NICETY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NICETY",
+    "definitions": [
+     {
+      "text": "distinction",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Third character excluded from",
+      "for": "deletion",
+      "note": "the third letter of the word is excluded, so it is removed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the shortened word wraps another piece"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NINETY",
+      "note": "ninety is a number"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "C",
+      "ETY"
+     ]
+    },
+    "explanation": {
+     "surface": "A figure near one hundred loses a digit and somehow earns a mark of distinction.",
+     "walkthrough": "Dropping the third letter of the number leaves NIETY, and the Roman 100 goes into the gap.",
+     "definitionFit": "A nicety is a fine detail or subtle distinction, as in the niceties of grammar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +908,42 @@
     "text": "Hot dish occupies home let temporarily",
     "enumeration": "8"
    },
-   "solution": "OMELETTE"
+   "solution": "OMELETTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OMELETTE",
+    "definitions": [
+     {
+      "text": "Hot dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupies",
+      "for": "hidden_word",
+      "note": "the answer occupies, or sits inside, the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home let temporarily",
+      "gives": "OMELETTE",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tenant in a short-term rental is cooking something hot.",
+     "definitionFit": "An omelette is a cooked egg dish served warm, so it is a kind of hot food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occupies"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +957,58 @@
     "text": "What theatre staff provide to support medic leading operation",
     "enumeration": "8"
    },
-   "solution": "BACKDROP"
+   "solution": "BACKDROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKDROP",
+    "definitions": [
+     {
+      "text": "What theatre staff provide",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "leading"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "DR",
+      "note": "Dr is short for doctor"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "op is short for operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "DR",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital theatre staff support a doctor who is in charge of surgery.",
+     "walkthrough": "'Theatre' suggests an operating theatre, helped by medic and operation; it is the stage kind.",
+     "definitionFit": "Stagehands set up the painted scenery cloth hung at the rear of a stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1028,50 @@
      }
     ]
    },
-   "solution": "KIDGLOVES"
+   "solution": "KIDGLOVES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KID GLOVES",
+    "definitions": [
+     {
+      "text": "Diplomacy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "something wasted is ruined or messed up, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kiev’s gold",
+      "gives": "KIEVSGOLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KIEVSGOLD",
+       "gives": "KIDGLOVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diplomatic efforts have squandered Ukraine's gold reserves.",
+     "definitionFit": "Handling someone with kid gloves means treating them with great tact and delicacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1085,60 @@
     "text": "Government department once introduced by Eastern European country",
     "enumeration": "4"
    },
-   "solution": "EIRE"
+   "solution": "EIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EIRE",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced by",
+      "for": "container",
+      "note": "introduced by means brought into, so one piece goes inside the letters around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is short for eastern"
+     },
+     {
+      "clueFragment": "Government department once",
+      "gives": "IR",
+      "note": "the Inland Revenue, merged into HMRC in 2005"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is short for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "IR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A former government ministry gets introduced by an Eastern European nation.",
+     "walkthrough": "'European country' looks like the definition, but European supplies a letter and the definition is just country.",
+     "definitionFit": "Eire is the Irish-language name for Ireland, the republic, used officially in its constitution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1152,72 @@
     "text": "Cooked food wrong — every bit, essentially, sent back",
     "enumeration": "8"
    },
-   "solution": "TORTILLA"
+   "solution": "TORTILLA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "TORTILLA",
+    "definitions": [
+     {
+      "text": "Cooked food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so its middle letter is kept"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sent back means returned, so these letters read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong in law"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "ALL",
+      "note": "all means every"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORT",
+      "ILLA"
+     ],
+     "reversals": [
+      {
+       "from": "ALLI",
+       "to": "ILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook ruined the food and every last bit of it was sent back.",
+     "definitionFit": "A tortilla is a flatbread or, in Spain, a potato omelette, either way a cooked dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1231,55 @@
     "text": "Moved quickly to halve the amount of ecstasy in drug",
     "enumeration": "4"
    },
-   "solution": "SPED"
+   "solution": "SPED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPED",
+    "definitions": [
+     {
+      "text": "Moved quickly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "halve the amount of",
+      "for": "deletion",
+      "note": "halving an amount means losing one of a pair, so one copy of a letter goes"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "SPEED",
+      "note": "speed is slang for amphetamine"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acted fast to cut the ecstasy content of a drug in half.",
+     "definitionFit": "Sped is the past tense of speed, to go fast, matching moved quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "halve"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1293,65 @@
     "text": "Put former pupil back in control of drug trial?",
     "enumeration": "7"
    },
-   "solution": "PLACEBO"
+   "solution": "PLACEBO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PLACEBO",
+    "definitions": [
+     {
+      "text": "control of drug trial",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in reverse, so these letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put",
+      "gives": "PLACE",
+      "note": "to place is to put"
+     },
+     {
+      "clueFragment": "former pupil",
+      "gives": "OB",
+      "note": "OB, old boy, is a former pupil of a school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLACE",
+      "BO"
+     ],
+     "reversals": [
+      {
+       "from": "OB",
+       "to": "BO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former student is put back in charge of a clinical drug trial.",
+     "walkthrough": "'Control' reads as being in charge, but here it is the comparison group in an experiment.",
+     "definitionFit": "A dummy pill given to the comparison group in a clinical study is a placebo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1365,54 @@
     "text": "Making mockery of Carol masking cough in hearing",
     "enumeration": "8"
    },
-   "solution": "SCOFFING"
+   "solution": "SCOFFING",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "SCOFFING",
+    "definitions": [
+     {
+      "text": "Making mockery of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "in hearing means as it sounds when spoken, so the spelling follows the sound"
+     },
+     {
+      "text": "masking",
+      "for": "container",
+      "note": "masking means covering up, so one piece hides inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "cough",
+      "gives": "COFF",
+      "soundsLike": "COUGH",
+      "note": "the word cough respelt as it is pronounced"
+     }
+    ],
+    "explanation": {
+     "surface": "A carol singer hides a cough while being mocked by the audience.",
+     "definitionFit": "Scoffing at something means jeering or ridiculing it, so it is making fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1426,63 @@
     "text": "Almost nobody checks to find fault with figure",
     "enumeration": "7"
    },
-   "solution": "NONAGON"
+   "solution": "NONAGON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "NONAGON",
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "checks",
+      "for": "container",
+      "note": "to check is to hold back or contain, so these letters enclose another piece"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobody",
+      "gives": "NOONE",
+      "note": "no one means nobody"
+     },
+     {
+      "clueFragment": "find fault with",
+      "gives": "NAG",
+      "note": "to nag is to keep finding fault with someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Hardly anyone bothers checking to find a flaw in the figures.",
+     "definitionFit": "A nonagon is a geometric shape with nine sides, so it is a plane figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1496,65 @@
     "text": "More tranquil French water sources rising and falling",
     "enumeration": "6"
    },
-   "solution": "CALMER"
+   "solution": "CALMER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CALMER",
+    "definitions": [
+     {
+      "text": "More tranquil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from the bottom up, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French water",
+      "gives": "LAC",
+      "note": "lac is French for lake"
+     },
+     {
+      "clueFragment": "sources",
+      "gives": "MER",
+      "note": "mer, French for sea, is the second French water source"
+     },
+     {
+      "clueFragment": "and falling",
+      "note": "surface padding: in a down clue the second word simply reads downwards as normal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "MER"
+     ],
+     "reversals": [
+      {
+       "from": "LAC",
+       "to": "CAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French springs rise and fall, but the waters grow more peaceful.",
+     "walkthrough": "Two French bodies of water are needed: the lake rises, reading upwards, while the sea falls, reading downwards as normal.",
+     "definitionFit": "Calmer is the comparative of calm, meaning quieter and more peaceful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sources"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1574,62 @@
      }
     ]
    },
-   "solution": "TALLTALE"
+   "solution": "TALLTALE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TALL TALE",
+    "definitions": [
+     {
+      "text": "unconvincing account",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "not one letter but another means one is swapped out for the other"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snitch",
+      "gives": "TELLTALE",
+      "note": "a telltale tells tales on others"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is short for English"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "LLTALE"
+     ]
+    },
+    "explanation": {
+     "surface": "An informer, American rather than English, offers a story nobody believes.",
+     "definitionFit": "A tall tale is an exaggerated story that is hard to believe, an idiom for implausible narrative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Snitch"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1643,71 @@
     "text": "Mob repelled soldiers relieving unit in action",
     "enumeration": "6"
    },
-   "solution": "THRONG"
+   "solution": "THRONG",
+   "annotation": {
+    "type": [
+     "reversal",
+     "substitution"
+    ],
+    "answer": "THRONG",
+    "definitions": [
+     {
+      "text": "Mob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "repelled means driven back, so these letters read the other way"
+     },
+     {
+      "text": "relieving",
+      "for": "substitution",
+      "note": "relieving means taking over someone's post, so one piece replaces another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "THING",
+      "note": "a thing is a deed or act"
+     },
+     {
+      "clueFragment": "unit",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR, other ranks, are ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RO",
+      "NG"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rioting crowd was beaten back by troops coming to relieve a unit in combat.",
+     "definitionFit": "A throng is a large dense crowd of people, so it means a crowd or mob."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1721,62 @@
     "text": "The greater part of this is rubbish, whichever way one turns",
     "enumeration": "5"
    },
-   "solution": "ROTOR"
+   "solution": "ROTOR",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "ROTOR",
+    "definitions": [
+     {
+      "text": "one turns",
+      "at": 51,
+      "note": "read as 'one that turns', a noun phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whichever way",
+      "for": "palindrome",
+      "note": "whichever way you read it, from either end, the letters come out the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense or rubbish"
+     },
+     {
+      "clueFragment": "The greater part of this",
+      "gives": "OR",
+      "note": "the remaining letters, chosen so that the last three read backwards also spell rubbish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "OR"
+     ],
+     "reversals": [
+      {
+       "from": "RO",
+       "to": "OR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that most of this is garbage, no matter which way they look at it.",
+     "walkthrough": "The answer's first three letters, its greater part, spell ROT, and reading from the other end gives ROT again.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as the blades of a helicopter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1796,46 @@
      }
     ]
    },
-   "solution": "HEAVYMETAL"
+   "solution": "HEAVYMETAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEAVY METAL",
+    "definitions": [
+     {
+      "text": "Possibly Mercury",
+      "at": 0
+     },
+     {
+      "text": "sort of music",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly Mercury",
+      "note": "first meaning: a dense metallic element, of which mercury is an example"
+     },
+     {
+      "clueFragment": "sort of music",
+      "note": "second meaning: a loud rock genre"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mercury' suggests Freddie Mercury, the Queen singer, steering toward rock; here it is the chemical element.",
+     "definitionFit": "Mercury is one of the dense toxic elements chemists group together, and the same phrase names a loud guitar-driven rock genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mercury"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1849,50 @@
     "text": "Extent of insulation provided by a simple garment",
     "enumeration": "4"
    },
-   "solution": "TOGA"
+   "solution": "TOGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOGA",
+    "definitions": [
+     {
+      "text": "simple garment",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extent of insulation",
+      "gives": "TOG",
+      "note": "the tog is a unit measuring the warmth of a duvet or fabric"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain item of clothing gives a certain amount of warmth.",
+     "walkthrough": "Tog ratings appear on British duvets to show how warm they are.",
+     "definitionFit": "The toga was a loose draped robe worn by citizens of ancient Rome, a plain wrap of cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extent"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1906,66 @@
     "text": "Trouser-wearer perhaps needs boots regularly shined from the start",
     "enumeration": "4"
    },
-   "solution": "BOSS"
+   "solution": "BOSS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BOSS",
+    "definitions": [
+     {
+      "text": "Trouser-wearer perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "from the start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is the one kept"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boots",
+      "gives": "BOS",
+      "select": "alternate",
+      "note": "the odd-numbered letters of boots"
+     },
+     {
+      "clueFragment": "shined",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of shined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A man in trousers needs his boots polished regularly from the outset.",
+     "walkthrough": "To wear the trousers is an idiom for being the one in charge of a household.",
+     "definitionFit": "The person in charge is said to wear the trousers, so a manager is a figurative example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trouser-wearer"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1979,63 @@
     "text": "Starter, a Parisian one, prepared here?",
     "enumeration": "10"
    },
-   "solution": "RESTAURANT"
+   "solution": "RESTAURANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "RESTAURANT",
+    "definitions": [
+     {
+      "text": "Starter, a Parisian one, prepared here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared is made ready by working on it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starter",
+      "gives": "STARTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Parisian one",
+      "gives": "UN",
+      "note": "un is French for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARTERAUN",
+       "gives": "RESTAURANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French first course is made in this place.",
+     "walkthrough": "The whole clue does double duty: read plainly, it describes where a starter would be cooked.",
+     "definitionFit": "A starter is a first course, and eating places with kitchens are where such dishes are cooked and served."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Starter"
+    }
+   }
   }
  ]
 }

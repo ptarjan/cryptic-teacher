@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Fake message lately in cryptic form?",
     "enumeration": "4"
    },
-   "solution": "CODE"
+   "solution": "CODE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CODE",
+    "definitions": [
+     {
+      "text": "cryptic form",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lately",
+      "for": "letter_selection",
+      "note": "lately means at the end, so only the closing letter of the word message is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fake",
+      "gives": "COD",
+      "note": "cod is a British informal adjective for fake or mock, as in a cod accent"
+     },
+     {
+      "clueFragment": "message",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of message"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suspects a recent message is a forgery dressed up in secret writing.",
+     "definitionFit": "A cipher or secret system of symbols is a form of writing meant to be hidden from outsiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fake"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +107,55 @@
      }
     ]
    },
-   "solution": "CREDITCARD"
+   "solution": "CREDITCARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREDIT CARD",
+    "definitions": [
+     {
+      "text": "source of funds",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Councillor",
+      "gives": "CR",
+      "note": "Cr is the standard abbreviation for councillor"
+     },
+     {
+      "clueFragment": "correct",
+      "gives": "EDIT",
+      "note": "to edit a text is to correct it"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "CARD",
+      "note": "a card is an eccentric or amusing character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "EDIT",
+      "CARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A local politician sets about putting things right to raise some money.",
+     "definitionFit": "A plastic payment card lets the holder borrow and spend money, so it supplies cash when needed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +175,69 @@
      }
     ]
    },
-   "solution": "DRESSUP"
+   "solution": "DRESSUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DRESS UP",
+    "definitions": [
+     {
+      "text": "Masquerade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists in",
+      "for": "letter_selection",
+      "note": "extremists are those at the far ends, so only the first and last letters of sections are used"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us the preceding letters sit within the party's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "sections",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the outer letters of sections"
+     },
+     {
+      "clueFragment": "a NI party",
+      "gives": "DUP",
+      "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RE",
+      "SS",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A political report about a Northern Irish party's internal factions sounds like an exposé of pretence.",
+     "walkthrough": "The DUP is Northern Ireland's Democratic Unionist Party; 'sections' looks like party factions but only lends its outer letters.",
+     "definitionFit": "To put on a costume and pretend to be someone else is to disguise oneself, a verb sense of masquerade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Masquerade"
+    }
+   }
   },
   {
    "number": 3,
@@ -97,7 +261,67 @@
      }
     ]
    },
-   "solution": "INTHECLEAR"
+   "solution": "INTHECLEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IN THE CLEAR",
+    "definitions": [
+     {
+      "text": "free from trouble",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "deletion",
+      "note": "most of means nearly all, so the last letter of line is dropped"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means worked up or made ready, so these letters are rearranged into new form"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "LIN",
+      "note": "line without its final letter"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "TEACHER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTHECLEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINTEACHER",
+       "gives": "INTHECLEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher's carefully prepared lesson plan keeps them out of difficulty.",
+     "definitionFit": "The idiom means no longer under suspicion or in danger, safely out of a difficult situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +335,59 @@
     "text": "Dislike poverty on the outskirts of Lille",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Dislike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the first and last letters of Lille are kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poverty",
+      "gives": "NEED",
+      "note": "need is want or poverty"
+     },
+     {
+      "clueFragment": "Lille",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the outer letters of Lille"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dislikes the deprivation found around the edges of a French city.",
+     "walkthrough": "To have the needle is British slang for bearing a grudge, which is why it can stand for dislike.",
+     "definitionFit": "As a noun, it is British informal for hostility or antagonism between rivals, a grudge felt against someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dislike"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +401,64 @@
     "text": "School gets stick about a main thoroughfare",
     "enumeration": "8"
    },
-   "solution": "HIGHROAD"
+   "solution": "HIGHROAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HIGHROAD",
+    "definitions": [
+     {
+      "text": "main thoroughfare",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means going round, so the stick is wrapped around the letter from a"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "HIGH",
+      "note": "a high school"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "ROD",
+      "note": "a rod is a stick"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "RO",
+      "A",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A school is handed a stick concerning a busy main road.",
+     "definitionFit": "A principal public route between towns is the chief road, the opposite of a byway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +472,57 @@
     "text": "Impediment left out for lowly member of company?",
     "enumeration": "3"
    },
-   "solution": "COG"
+   "solution": "COG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COG",
+    "definitions": [
+     {
+      "text": "lowly member of company?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "left out tells us the abbreviation for left is omitted from the word for impediment"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impediment",
+      "gives": "CLOG",
+      "note": "a clog is an obstruction or impediment"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OG"
+     ]
+    },
+    "explanation": {
+     "surface": "An obstacle was ignored when assessing a junior employee of a firm.",
+     "walkthrough": "CLOG loses its L.",
+     "definitionFit": "A small, replaceable worker in a big organisation is called a cog in the machine, an unimportant part of the whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +536,65 @@
     "text": "Titled figure with estate overlooking country in Ireland previously",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "previously",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the country's letter inside the abbreviation standing for Ireland"
+     }
+    ],
+    "linkWords": [
+     "overlooking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titled figure with estate",
+      "gives": "EARL",
+      "note": "an earl is a titled nobleman, traditionally holding landed estates"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IR",
+      "note": "IR is an abbreviation for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "I",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman's estate once looked out over the Irish countryside.",
+     "walkthrough": "In a down clue 'overlooking' means sitting above, so the nobleman comes first. E for Spain is an international vehicle code, a convention worth learning.",
+     "definitionFit": "Both words describe something happening at a prior time, before now or before another event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +608,44 @@
     "text": "Small part of litter found in bar untouched",
     "enumeration": "4"
    },
-   "solution": "RUNT"
+   "solution": "RUNT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RUNT",
+    "definitions": [
+     {
+      "text": "Small part of litter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in says the answer is sitting within the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar untouched",
+      "gives": "RUNT",
+      "note": "spanning the end of bar and start of untouched"
+     }
+    ],
+    "explanation": {
+     "surface": "A tiny bit of rubbish lies untouched in a pub.",
+     "walkthrough": "'Litter' looks like rubbish dropped in a bar; it is a set of newborn animals.",
+     "definitionFit": "The weakest and smallest animal born in a litter of piglets or puppies is called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "litter"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +665,63 @@
      }
     ]
    },
-   "solution": "LOSEWEIGHT"
+   "solution": "LOSEWEIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOSE WEIGHT",
+    "definitions": [
+     {
+      "text": "get thinner",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several versions, so the following word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sole",
+      "gives": "LOSE",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "importance",
+      "gives": "WEIGHT",
+      "note": "weight means significance or importance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOSE",
+      "WEIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLE",
+       "gives": "LOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter whose one priority is to slim down.",
+     "definitionFit": "Shedding pounds or kilos makes the body slimmer, so to slim and to drop pounds mean the same."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +735,49 @@
     "text": "One trailing criminal reportedly noticed repellent sight",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "repellent sight",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said by others, so we want a word spoken like the word noticed would be"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One trailing criminal",
+      "gives": "EYE",
+      "note": "a private eye is a detective who tails suspects"
+     },
+     {
+      "clueFragment": "noticed",
+      "gives": "SORE",
+      "soundsLike": "SAW",
+      "note": "saw means noticed, and in a non-rhotic accent sounds like sore"
+     }
+    ],
+    "explanation": {
+     "surface": "A detective shadowing a crook spotted something nasty.",
+     "definitionFit": "An ugly building or object that spoils the view is something unpleasant to look at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +791,64 @@
     "text": "Noted Soviet from Georgia represented in rag",
     "enumeration": "7"
    },
-   "solution": "GAGARIN"
+   "solution": "GAGARIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GAGARIN",
+    "definitions": [
+     {
+      "text": "Noted Soviet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means shown in a different form, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Georgia",
+      "gives": "GA",
+      "note": "GA is the postal abbreviation for the US state of Georgia"
+     },
+     {
+      "clueFragment": "in rag",
+      "gives": "GARIN",
+      "note": "these five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "GARIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INRAG",
+       "gives": "GARIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Soviet citizen from Georgia featured in a tabloid paper.",
+     "walkthrough": "Georgia tempts as the Soviet republic, but here it is the American state.",
+     "definitionFit": "Yuri Gagarin was the Soviet cosmonaut who became the first human in space in 1961."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgia"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +862,43 @@
     "text": "For example, housing publication",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "For example, housing",
+      "at": 0
+     },
+     {
+      "text": "publication",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, housing",
+      "note": "first meaning: housing is an example of a political topic of debate"
+     },
+     {
+      "clueFragment": "publication",
+      "note": "second meaning: a single edition of a magazine or newspaper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Housing' looks like a container signal; it is the example of a topic.",
+     "definitionFit": "The word means a subject of public concern and also one numbered edition of a periodical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +912,51 @@
     "text": "Place to see square, maybe, taken by joint authority",
     "enumeration": "8"
    },
-   "solution": "LORDSHIP"
+   "solution": "LORDSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LORDSHIP",
+    "definitions": [
+     {
+      "text": "authority",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place to see square, maybe",
+      "gives": "LORDS",
+      "note": "Lord's is the London cricket ground, and the square is a cricket field's central pitch area"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LORDS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A venue where a square can be watched is taken over by joint management.",
+     "walkthrough": "'Square' looks like a town square or a stuffy person; it is the strip of pitches at Lord's.",
+     "definitionFit": "Lordship means dominion or rule over land and people, the power held by a lord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +970,39 @@
     "text": "One not viewed professionally in the main?",
     "enumeration": "10"
    },
-   "solution": "SUBMARINER"
+   "solution": "SUBMARINER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUBMARINER",
+    "definitions": [
+     {
+      "text": "One not viewed professionally in the main?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One not viewed professionally in the main?",
+      "note": "surface reading: someone mostly overlooked in their line of work"
+     },
+     {
+      "clueFragment": "in the main",
+      "note": "setter's reading: the main is the sea, and this person works hidden under its surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In the main' reads as 'mostly', but the main is an old word for the open sea, where an underwater vessel's crew go unseen.",
+     "definitionFit": "A sailor serving aboard an underwater naval vessel works out of sight beneath the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1030,80 @@
      }
     ]
    },
-   "solution": "GETAMOVEON"
+   "solution": "GETAMOVEON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GET A MOVE ON",
+    "definitions": [
+     {
+      "text": "Hurry up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the letter standing for name is removed"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are at play, moving freely into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TV",
+      "gives": "TV",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GETAMOVEON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAMEONTVOE",
+       "gives": "GETAMOVEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to get going while a nameless figure plays a televised game.",
+     "walkthrough": "One N is dropped from the eleven letters of game on TV one before the rest are rearranged.",
+     "definitionFit": "The informal command urges someone to be quicker, the same as telling them to hurry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1117,57 @@
     "text": "Fall first right away for figure in force",
     "enumeration": "6"
    },
-   "solution": "COPPER"
+   "solution": "COPPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COPPER",
+    "definitions": [
+     {
+      "text": "figure in force",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first right away",
+      "for": "deletion",
+      "note": "away says to remove, and first right picks the first occurrence of the letter abbreviating right"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fall",
+      "gives": "CROPPER",
+      "note": "to come a cropper is British slang for to fall heavily"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tumble first then removes a person from the police.",
+     "walkthrough": "CROPPER loses its first R.",
+     "definitionFit": "Copper is British slang for a police officer, a member of the police force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1181,61 @@
     "text": "Crowd supported end to fine, lively celebration",
     "enumeration": "8"
    },
-   "solution": "JAMBOREE"
+   "solution": "JAMBOREE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JAMBOREE",
+    "definitions": [
+     {
+      "text": "lively celebration",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end to",
+      "for": "letter_selection",
+      "note": "end to points to the closing letter of the word fine"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crowd",
+      "gives": "JAM",
+      "note": "a jam is a crush or crowd"
+     },
+     {
+      "clueFragment": "supported",
+      "gives": "BORE",
+      "note": "bore is the past tense of bear, to support"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "BORE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd backed the end of a fine, festive party.",
+     "definitionFit": "A jamboree is a large noisy party or gathering, also a scouts' rally, full of high spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supported"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1255,69 @@
      }
     ]
    },
-   "solution": "PETERKAY"
+   "solution": "PETERKAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PETER KAY",
+    "definitions": [
+     {
+      "text": "comedian",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged around",
+      "for": "anagram",
+      "note": "arranged means put in a new order, and around takes the extra letter in among them"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of points to the closing letter of revue"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key part",
+      "gives": "KEYPART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "revue",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of revue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETERKAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEYPARTE",
+       "gives": "PETERKAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important role is set up around the finale of a comedy revue.",
+     "walkthrough": "Peter Kay is a popular British stand-up comedian from Bolton, star of Phoenix Nights.",
+     "definitionFit": "Peter Kay is a well-known English stand-up and sitcom performer, so a professional funny man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1331,73 @@
     "text": "Stock German touring second of conferences is one frequenting meetings?",
     "enumeration": "8"
    },
-   "solution": "RACEGOER"
+   "solution": "RACEGOER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RACEGOER",
+    "definitions": [
+     {
+      "text": "one frequenting meetings?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling round, so the German abbreviation goes around the letter"
+     },
+     {
+      "text": "second of",
+      "for": "letter_selection",
+      "note": "second of points to the second letter of conferences"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stock",
+      "gives": "RACE",
+      "note": "race means stock or breed"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "Ger is an abbreviation for German"
+     },
+     {
+      "clueFragment": "conferences",
+      "gives": "O",
+      "select": 2,
+      "note": "the second letter of conferences"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACE",
+      "G",
+      "O",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German delegate who tours conferences attends many meetings.",
+     "walkthrough": "'Meetings' looks like business conferences; in Britain a race meeting is a day of horse races.",
+     "definitionFit": "A regular at the horse races attends race meetings, and the question mark flags the sporting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meetings"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1411,55 @@
     "text": "Companion, a type causing hilarity in horse-drawn vehicle",
     "enumeration": "7"
    },
-   "solution": "CHARIOT"
+   "solution": "CHARIOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARIOT",
+    "definitions": [
+     {
+      "text": "horse-drawn vehicle",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Companion",
+      "gives": "CH",
+      "note": "CH is Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "type causing hilarity",
+      "gives": "RIOT",
+      "note": "someone very funny is a riot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "RIOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend who is a real laugh rides in a carriage.",
+     "definitionFit": "A two-wheeled carriage pulled by horses, used in ancient warfare and racing, is a chariot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Companion"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1473,57 @@
     "text": "Light touch shown by popular Australian in film",
     "enumeration": "6"
    },
-   "solution": "PATINA"
+   "solution": "PATINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATINA",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light touch",
+      "gives": "PAT",
+      "note": "a pat is a gentle touch"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is an abbreviation for Australian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "IN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular Australian actor shows a deft touch in a movie.",
+     "walkthrough": "'Film' looks like a movie; it is a thin surface layer.",
+     "definitionFit": "A patina is a thin coating or sheen that forms on metal or wood with age, so a surface layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1547,43 @@
      }
     ]
    },
-   "solution": "INAWORD"
+   "solution": "INAWORD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN A WORD",
+    "definitions": [
+     {
+      "text": "How one might describe letters",
+      "at": 0
+     },
+     {
+      "text": "briefly",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How one might describe letters",
+      "note": "first meaning: letters sit together inside a word"
+     },
+     {
+      "clueFragment": "briefly",
+      "note": "second meaning: to put it concisely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Letters' suggests correspondence; here they are the alphabet's characters forming a word.",
+     "definitionFit": "The phrase means summed up concisely, and literally places characters of the alphabet together in one term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1603,62 @@
      }
     ]
    },
-   "solution": "ONCALL"
+   "solution": "ONCALL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ON CALL",
+    "definitions": [
+     {
+      "text": "like some doctors",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset of something is its beginning, so the first letter of COVID-19 is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supported by",
+      "gives": "ON",
+      "note": "on means resting on or supported by"
+     },
+     {
+      "clueFragment": "COVID-19",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of COVID-19"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone rallied round after the pandemic began, as some doctors did.",
+     "walkthrough": "'After' puts ALL behind C.",
+     "definitionFit": "Doctors who are available to be summoned to work at short notice outside normal hours are described this way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Supported"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1672,52 @@
     "text": "Heavily criticise article about memorial to the dead?",
     "enumeration": "8"
    },
-   "solution": "PANTHEON"
+   "solution": "PANTHEON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTHEON",
+    "definitions": [
+     {
+      "text": "memorial to the dead?",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavily criticise",
+      "gives": "PAN",
+      "note": "to pan a show is to criticise it harshly"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a book on birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "THE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic savages a piece of writing about a war memorial.",
+     "definitionFit": "A pantheon is a building where a nation's illustrious dead are buried or commemorated, like the one in Paris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1731,64 @@
     "text": "Current US prosecutor with influence not half in Western state",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "Western state",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half means half is missing, so the second half of the word for influence is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "US prosecutor",
+      "gives": "DA",
+      "note": "a DA is a district attorney"
+     },
+     {
+      "clueFragment": "influence",
+      "gives": "HOLD",
+      "note": "to have a hold over someone is to have influence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DA",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "An American prosecutor's influence is waning in the Wild West.",
+     "walkthrough": "HOLD loses its second half to leave HO.",
+     "definitionFit": "Idaho is a state in the north-western United States, bordering Washington and Montana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1802,63 @@
     "text": "Meat cost regularly on reflection is a swindle",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "a swindle",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of meat cost is taken"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the chosen letters are read in the opposite order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat cost",
+      "gives": "MACS",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of meat cost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAM"
+     ],
+     "reversals": [
+      {
+       "from": "MACS",
+       "to": "SCAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, the price charged for meat is a rip-off.",
+     "definitionFit": "A scam is a dishonest scheme to cheat people out of money, the same as a fraud or con."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +1872,50 @@
     "text": "Greek character given retreat that's secluded in warm wind",
     "enumeration": "7"
    },
-   "solution": "CHINOOK"
+   "solution": "CHINOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINOOK",
+    "definitions": [
+     {
+      "text": "warm wind",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "given",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "retreat that's secluded",
+      "gives": "NOOK",
+      "note": "a nook is a secluded corner or retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "NOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek gets a secluded hideaway, sheltered in a balmy breeze.",
+     "definitionFit": "The chinook is a warm dry wind that blows down the eastern slopes of the Rocky Mountains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 28,
@@ -489,7 +1929,58 @@
     "text": "Film award namely brought out, something familiar to Redgrave?",
     "enumeration": "3"
    },
-   "solution": "OAR"
+   "solution": "OAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OAR",
+    "definitions": [
+     {
+      "text": "something familiar to Redgrave?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought out",
+      "for": "deletion",
+      "note": "brought out means taken out, so the abbreviation for namely is removed from the award"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film award",
+      "gives": "OSCAR",
+      "note": "the Oscar is the Academy Award for film"
+     },
+     {
+      "clueFragment": "namely",
+      "gives": "SC",
+      "note": "sc, short for scilicet, means namely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A film award goes to a Redgrave, the famous acting family.",
+     "walkthrough": "The acting Redgraves (Vanessa, Michael) fit the film award, but this is Sir Steve Redgrave, the British Olympic rowing champion.",
+     "definitionFit": "Steve Redgrave won five Olympic golds in rowing, so a blade for propelling a boat was his daily tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Redgrave"
+    }
+   }
   },
   {
    "number": 29,
@@ -503,7 +1994,63 @@
     "text": "Exotic name taken by singular plant",
     "enumeration": "7"
    },
-   "solution": "ANEMONE"
+   "solution": "ANEMONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANEMONE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exotic",
+      "for": "anagram",
+      "note": "exotic means strange and foreign, so the word that follows takes an unfamiliar arrangement"
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "ANEM",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "ONE",
+      "note": "singular means single, one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANEM",
+      "ONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAME",
+       "gives": "ANEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual name has been chosen for a rare plant.",
+     "definitionFit": "The anemone, or windflower, is a flowering garden plant of the buttercup family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exotic"
+    }
+   }
   },
   {
    "number": 30,
@@ -517,7 +2064,65 @@
     "text": "Secure period of time around Thailand to get scooter, maybe",
     "enumeration": "10"
    },
-   "solution": "MOTORCYCLE"
+   "solution": "MOTORCYCLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MOTORCYCLE",
+    "definitions": [
+     {
+      "text": "scooter, maybe",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the word for secure surrounds the letter for Thailand"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "MOOR",
+      "note": "to moor a boat is to secure it"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     },
+     {
+      "clueFragment": "period of time",
+      "gives": "CYCLE",
+      "note": "a cycle is a recurring period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "T",
+      "OR",
+      "CYCLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone books time travelling round Thailand on a scooter.",
+     "walkthrough": "T for Thailand is its international vehicle registration code.",
+     "definitionFit": "A scooter is one type of powered two-wheeler, given as an example with the word maybe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Secure"
+    }
+   }
   },
   {
    "number": 31,
@@ -531,7 +2136,45 @@
     "text": "Powerful deity representing peace?",
     "enumeration": "4"
    },
-   "solution": "ODIN"
+   "solution": "ODIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODIN",
+    "definitions": [
+     {
+      "text": "Powerful deity",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "representing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peace?",
+      "gives": "ODIN",
+      "note": "peace is zero noise: O for nothing and din for noise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A mighty god stands for peace.",
+     "walkthrough": "O is a zero, so 'O din' is no noise, which is peace.",
+     "definitionFit": "Odin is the chief god of Norse mythology, ruler of Asgard and god of war and wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "peace"
+    }
+   }
   }
  ]
 }

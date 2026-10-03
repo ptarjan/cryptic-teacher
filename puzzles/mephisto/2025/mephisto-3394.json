@@ -37,6 +37,9 @@
   "date": "2025-09-21",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,62 @@
     "text": "Rye beer vessel amongst empty kegs",
     "enumeration": "5"
    },
-   "solution": "KVASS"
+   "solution": "KVASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KVASS",
+    "definitions": [
+     {
+      "text": "Rye beer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "amongst places one thing inside the surrounding letters of another"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its insides removed, leaving only its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kegs",
+      "gives": "KS",
+      "select": "outer",
+      "note": "the outside letters of kegs"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "VAS",
+      "note": "vas is the anatomical term for a vessel or duct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "VAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A brewer's note on where the rye beer is stored, among some drained barrels.",
+     "walkthrough": "VAS sits inside K...S. Kvass is a Russian fermented drink made from rye bread.",
+     "definitionFit": "Kvass is a mildly alcoholic Slavic drink brewed from rye bread, so it is literally a rye beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +122,54 @@
     "text": "Complex tone exuding Canadian singer’s depth?",
     "enumeration": "5"
    },
-   "solution": "KLANG"
+   "solution": "KLANG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KLANG",
+    "definitions": [
+     {
+      "text": "Complex tone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exuding",
+      "for": "deletion",
+      "note": "exuding means giving something off, so a letter leaks out of the singer's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canadian singer’s",
+      "gives": "KDLANG",
+      "note": "k.d. lang is the Canadian singer-songwriter"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "d is the standard abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "LANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A music critic wonders whether a Canadian singer's rich timbre is losing its depth.",
+     "walkthrough": "Remove the D from KDLANG. Klang is the German-derived term, found in Chambers, for a tone made up of a fundamental plus its overtones.",
+     "definitionFit": "A klang is a musical sound comprising a fundamental and its harmonics, hence a compound or complex tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exuding"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +183,79 @@
     "text": "Red can counter the law lying about everything",
     "enumeration": "12"
    },
-   "solution": "VALPOLICELLA"
+   "solution": "VALPOLICELLA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VALPOLICELLA",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "counter",
+      "for": "reversal",
+      "note": "counter means running the opposite way, so the word for can is read backwards"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the word for everything is read the other way"
+     }
+    ],
+    "linkWords": [
+     "lying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "LAV",
+      "note": "can and lav are both slang for a toilet"
+     },
+     {
+      "clueFragment": "the law",
+      "gives": "POLICE",
+      "note": "the law is everyday slang for the police"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "POLICE",
+      "LLA"
+     ],
+     "reversals": [
+      {
+       "from": "LAV",
+       "to": "VAL"
+      },
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone accuses the police of lying about everything, while a can of something red sits nearby.",
+     "walkthrough": "Lying simply places one piece beside the next. Can is American slang for a lavatory, and lav is the British short form.",
+     "definitionFit": "Valpolicella is a well-known Italian wine from near Verona, and it is almost always red."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 3,
@@ -98,7 +275,70 @@
      }
     ]
    },
-   "solution": "ALTAMODA"
+   "solution": "ALTAMODA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ALTA MODA",
+    "definitions": [
+     {
+      "text": "High fashion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evolves",
+      "for": "anagram",
+      "note": "something that evolves changes its form, so these letters develop into a new order"
+     },
+     {
+      "text": "spending",
+      "for": "deletion",
+      "note": "spending means giving up, so the letter for millions is paid out of the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot",
+      "gives": "ALOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "madam",
+      "gives": "MADAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTAMODA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALOTADAM",
+       "gives": "ALTAMODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion writer observes that haute couture changes a great deal, with a wealthy madam spending millions on it.",
+     "walkthrough": "Drop one M from A LOT MADAM, then rearrange the remaining eight letters.",
+     "definitionFit": "Alta moda is the Italian phrase for haute couture, the exclusive top end of the clothing trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evolves"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +352,72 @@
     "text": "North stopping to decide, South’s returned spades",
     "enumeration": "6"
    },
-   "solution": "SLANES"
+   "solution": "SLANES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SLANES",
+    "definitions": [
+     {
+      "text": "spades",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping means plugging a gap, so the letter for north fills a space inside the next word"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the whole assembled string is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to decide",
+      "gives": "SEAL",
+      "note": "to seal a deal is to settle or decide it"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "South’s",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLANES"
+     ],
+     "reversals": [
+      {
+       "from": "SENALS",
+       "to": "SLANES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge commentary: North interrupts to make a call and South plays back a spade.",
+     "walkthrough": "N goes into SEAL to make SENAL, S is added, and the lot is reversed. A slane is a turf-cutting spade used in Ireland.",
+     "definitionFit": "Slanes are narrow spades for cutting peat or turf, so plural spades describes them as a general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 5,
@@ -132,7 +437,51 @@
      }
     ]
    },
-   "solution": "ATPOINTS"
+   "solution": "ATPOINTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT POINTS",
+    "definitions": [
+     {
+      "text": "in readiness for Shakespeare",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acting",
+      "for": "anagram",
+      "note": "acting suggests the letters are performing a different role, taking up a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Into past",
+      "gives": "INTOPAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOPAST",
+       "gives": "ATPOINTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor slipping into the past, getting ready to perform Shakespeare.",
+     "walkthrough": "The phrase occurs in Shakespeare, who uses it of soldiers fully armed and prepared; for Shakespeare marks it as his usage.",
+     "definitionFit": "Shakespeare's phrase means fully equipped and prepared in every particular, the archaic sense of being ready."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +495,65 @@
     "text": "One in shop put back head-ornament",
     "enumeration": "4"
    },
-   "solution": "TIAR"
+   "solution": "TIAR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TIAR",
+    "definitions": [
+     {
+      "text": "head-ornament",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the letter for one inside the verb that follows"
+     },
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means returned the other way, so the combined string runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "RAT",
+      "note": "to shop someone is to inform on them, to rat on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAIT",
+       "to": "TIAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a shop puts a headpiece back on the shelf.",
+     "walkthrough": "I inside RAT gives RAIT, which reversed is the answer. Shop is British slang for betraying someone to the police.",
+     "definitionFit": "Tiar is a poetic short form of tiara, a jewelled band or crown worn on the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shop"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +567,56 @@
     "text": "Excellent entertainment, core ingredient of jamborees?",
     "enumeration": "5"
    },
-   "solution": "BOFFO"
+   "solution": "BOFFO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BOFFO",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "core ingredient of",
+      "for": "letter_selection",
+      "note": "the core of a word is its very centre, so only the middle letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainment",
+      "gives": "BOFF",
+      "note": "a boff is a hit show or a big laugh, a piece of successful entertainment"
+     },
+     {
+      "clueFragment": "jamborees",
+      "gives": "O",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOFF",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer praising the fun that lies at the heart of scout jamborees.",
+     "walkthrough": "Boff is American showbusiness slang for a hit or a belly laugh.",
+     "definitionFit": "Boffo is American slang for very successful or terrific, a box-office term of high praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ingredient"
+    }
+   }
   },
   {
    "number": 8,
@@ -174,7 +630,54 @@
     "text": "Sudden precipitation perhaps uniting Britain’s left?",
     "enumeration": "6"
    },
-   "solution": "ONDING"
+   "solution": "ONDING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONDING",
+    "definitions": [
+     {
+      "text": "Sudden precipitation perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "left here means departed, so the abbreviation for Britain has gone from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniting",
+      "gives": "BONDING",
+      "note": "bonding means joining together"
+     },
+     {
+      "clueFragment": "Britain’s",
+      "gives": "B",
+      "note": "B is an abbreviation for Britain, as on car plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A political commentary on whether a sudden event might unite the British left.",
+     "walkthrough": "Britain's left reads as Britain having left, a Brexit nod: B leaves BONDING. Onding is Scots for a heavy fall of rain or snow.",
+     "definitionFit": "An onding is a Scottish word for an onset or downpour, a heavy burst of rain or snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +691,65 @@
     "text": "Irish assembly that is accepted by Sinn Fein recalled",
     "enumeration": "4"
    },
-   "solution": "FEIS"
+   "solution": "FEIS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "FEIS",
+    "definitions": [
+     {
+      "text": "Irish assembly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "being accepted by something means being taken inside it"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the abbreviation runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinn Fein",
+      "gives": "SF",
+      "note": "SF is the usual abbreviation of Sinn Fein, the Irish republican party"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "ie is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEIS"
+     ],
+     "reversals": [
+      {
+       "from": "SF",
+       "to": "FS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report that an Irish gathering has been approved by the party, then the decision withdrawn.",
+     "walkthrough": "Sinn Fein is the Irish republican party; its two-letter abbreviation is the one that gets turned round.",
+     "definitionFit": "A feis is a traditional Irish festival or gathering, especially of music and dance, hence an assembly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 10,
@@ -208,7 +769,61 @@
      }
     ]
    },
-   "solution": "FORESTMARBLE"
+   "solution": "FORESTMARBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOREST MARBLE",
+    "definitions": [
+     {
+      "text": "Limestone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually signals the letters appear in an uncommon arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "table’s",
+      "gives": "TABLES",
+      "note": "taken as written, with the s"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "for me",
+      "gives": "FORME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TABLES R FORME",
+       "gives": "FORESTMARBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A homeowner says the stone top of a table suits them unusually well.",
+     "walkthrough": "The fodder is TABLES, R and FOR ME.",
+     "definitionFit": "Forest Marble is a shelly Jurassic limestone from Wychwood Forest in Oxfordshire, used for building and paving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "table’s"
+    }
+   }
   },
   {
    "number": 11,
@@ -222,7 +837,42 @@
     "text": "What makes pets walk ahead?",
     "enumeration": "7"
    },
-   "solution": "OUTSTEP"
+   "solution": "OUTSTEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTSTEP",
+    "definitions": [
+     {
+      "text": "walk ahead",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What makes pets",
+      "gives": "OUTSTEP",
+      "note": "read as an instruction whose result is the word pets: an anagram signal followed by its fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTSTEP"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled owner asks what gets the pets to stride on in front.",
+     "walkthrough": "This is a reverse clue: the answer reads as an instruction, out signalling a rearrangement of STEP, and following it produces PETS.",
+     "definitionFit": "To outstep is to step beyond or outpace someone, which amounts to walking on ahead of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "makes"
+    }
+   }
   },
   {
    "number": 12,
@@ -236,7 +886,51 @@
     "text": "Bumbling a lot in all childish speech?",
     "enumeration": "9"
    },
-   "solution": "LALLATION"
+   "solution": "LALLATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LALLATION",
+    "definitions": [
+     {
+      "text": "childish speech?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bumbling",
+      "for": "anagram",
+      "note": "bumbling means muddled and clumsy, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot in all",
+      "gives": "ALOTINALL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALOTINALL",
+       "gives": "LALLATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler bumbling about, babbling a great deal in baby talk.",
+     "walkthrough": "The question mark flags that the definition is loose: lallation is babbling, or saying L for R as small children do.",
+     "definitionFit": "Lallation is infantile babbling, or the substitution of L sounds for R, both typical of young children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bumbling"
+    }
+   }
   },
   {
    "number": 13,
@@ -250,7 +944,56 @@
     "text": "Arsenal’s wingers set upon sacrificial block",
     "enumeration": "5"
    },
-   "solution": "ALTAR"
+   "solution": "ALTAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALTAR",
+    "definitions": [
+     {
+      "text": "sacrificial block",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingers",
+      "for": "letter_selection",
+      "note": "wingers play on the flanks, so only the two end letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal’s",
+      "gives": "AL",
+      "select": "outer",
+      "note": "first and last letters of Arsenal"
+     },
+     {
+      "clueFragment": "set upon",
+      "gives": "TAR",
+      "note": "tar is a Shakespearean verb meaning to incite or set on, as with dogs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A football story: Arsenal's wide players are attacked, as if sacrificed on the chopping block.",
+     "walkthrough": "Wingers looks like football players but only takes the outer letters of Arsenal, a London football club.",
+     "definitionFit": "An altar is the raised table or stone on which sacrifices were offered in ancient worship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wingers"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1013,64 @@
      }
     ]
    },
-   "solution": "PAYDIRT"
+   "solution": "PAYDIRT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PAY DIRT",
+    "definitions": [
+     {
+      "text": "Source of riches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means shifting position, so these letters change places"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settlement",
+      "gives": "PA",
+      "note": "a pa is a fortified Maori village or settlement"
+     },
+     {
+      "clueFragment": "I’d try",
+      "gives": "IDTRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "YDIRT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDTRY",
+       "gives": "YDIRT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prospector says that once they have settled, they will move on to try their luck at striking it rich.",
+     "walkthrough": "After places the rearranged letters behind PA, a New Zealand word for a Maori settlement.",
+     "definitionFit": "Pay dirt is ground rich enough in gold to make mining worthwhile, and idiomatically any profitable discovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settlement"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1084,47 @@
     "text": "Country girl sources folk dances",
     "enumeration": "8"
    },
-   "solution": "MORRISES"
+   "solution": "MORRISES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MORRISES",
+    "definitions": [
+     {
+      "text": "folk dances",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country girl",
+      "gives": "MOR",
+      "note": "mor is a dialect word for a girl; country signals the regional usage"
+     },
+     {
+      "clueFragment": "sources",
+      "gives": "RISES",
+      "note": "the rise of a river is its source"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "RISES"
+     ]
+    },
+    "explanation": {
+     "surface": "A country girl provides material for traditional English dancing.",
+     "walkthrough": "Country looks like a nation but marks a rustic dialect word.",
+     "definitionFit": "Morris is a traditional English dance by costumed performers with bells and sticks; morrises are such performances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sources"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1138,51 @@
     "text": "Bampots bet on rustic game",
     "enumeration": "8"
    },
-   "solution": "GOMERILS"
+   "solution": "GOMERILS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOMERILS",
+    "definitions": [
+     {
+      "text": "Bampots",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bet",
+      "gives": "GO",
+      "note": "to go a sum is to stake or wager it"
+     },
+     {
+      "clueFragment": "on",
+      "note": "places the first piece before the second"
+     },
+     {
+      "clueFragment": "rustic game",
+      "gives": "MERILS",
+      "note": "merils, or merels, is the old board game also called nine men's morris"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "MERILS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fools gamble on some old country pastime.",
+     "walkthrough": "Bampot is Scottish slang for an idiot, and gomeril is the Scots word for a fool.",
+     "definitionFit": "Both are Scots words for a foolish or stupid person, so gomerils and bampots are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bet"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1196,79 @@
     "text": "Nothing stopping ex-con back in parish to become darker member of flock?",
     "enumeration": "8"
    },
-   "solution": "LOAGHTAN"
+   "solution": "LOAGHTAN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOAGHTAN",
+    "definitions": [
+     {
+      "text": "member of flock?",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping means plugging, so the letter for nothing fills a gap inside the next word"
+     },
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "ex-con",
+      "gives": "LAG",
+      "note": "an old lag is a former prisoner"
+     },
+     {
+      "clueFragment": "parish",
+      "gives": "H",
+      "select": "last",
+      "note": "last letter of parish"
+     },
+     {
+      "clueFragment": "darker",
+      "gives": "TAN",
+      "note": "to tan is to become darker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "AG",
+      "H",
+      "TAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A reformed ex-convict returns to the parish and becomes a dark sheep of the congregation.",
+     "walkthrough": "Member of flock looks like a churchgoer; it is a sheep. The loaghtan is a brown-fleeced breed native to the Isle of Man.",
+     "definitionFit": "The Manx loaghtan is a breed of sheep, so one is literally an animal belonging to a flock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flock"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1282,65 @@
     "text": "Acoustic device picking up lines by Catholic head of state",
     "enumeration": "8"
    },
-   "solution": "CAUDILLO"
+   "solution": "CAUDILLO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAUDILLO",
+    "definitions": [
+     {
+      "text": "head of state",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picking up",
+      "for": "container",
+      "note": "picking up means taking on board, so the lines go inside the device"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catholic",
+      "gives": "C",
+      "note": "C is the abbreviation for Catholic"
+     },
+     {
+      "clueFragment": "Acoustic device",
+      "gives": "AUDIO",
+      "note": "audio equipment handles sound"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AUDI",
+      "LL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A sound system picks up remarks made by a Catholic leader.",
+     "walkthrough": "By puts the Catholic abbreviation alongside, here in front of the rest.",
+     "definitionFit": "Caudillo is the Spanish title for a military leader or dictator, used most famously by Franco as head of state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1354,47 @@
     "text": "Heavy blow stokes Scottish lord",
     "enumeration": "5"
    },
-   "solution": "SLOSH"
+   "solution": "SLOSH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOSH",
+    "definitions": [
+     {
+      "text": "Heavy blow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stokes",
+      "gives": "S",
+      "note": "S is a physics symbol for the stokes, a unit of viscosity"
+     },
+     {
+      "clueFragment": "Scottish lord",
+      "gives": "LOSH",
+      "note": "losh is a Scots minced form of Lord, used as an exclamation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOSH"
+     ]
+    },
+    "explanation": {
+     "surface": "A violent blow fires up a Scottish nobleman.",
+     "walkthrough": "Stokes looks like a verb but is the unit of viscosity.",
+     "definitionFit": "A slosh is a slang word for a heavy punch or wallop, as in to slosh someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stokes"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1408,65 @@
     "text": "No date on buyer’s option in report one’s happy in saying",
     "enumeration": "7"
    },
-   "solution": "SANDBOY"
+   "solution": "SANDBOY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SANDBOY",
+    "definitions": [
+     {
+      "text": "one’s happy in saying",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the preceding abbreviations inside the word for report"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report",
+      "gives": "SAY",
+      "note": "to say is to report"
+     },
+     {
+      "clueFragment": "No date",
+      "gives": "ND",
+      "note": "n.d. is the bibliographic abbreviation for no date"
+     },
+     {
+      "clueFragment": "buyer’s option",
+      "gives": "BO",
+      "note": "b.o. is the commercial abbreviation for buyer's option"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "ND",
+      "BO",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A trader reports that an undated buyer's option means someone will be happy.",
+     "walkthrough": "The definition alludes to the saying happy as a sandboy, describing someone who is perfectly content.",
+     "definitionFit": "The proverbial sandboy appears in the phrase happy as a sandboy, so he is the figure whose contentment the expression celebrates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1480,68 @@
     "text": "Suggestion of estate, go and tax ploughed area of land",
     "enumeration": "6"
    },
-   "solution": "OXGATE"
+   "solution": "OXGATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OXGATE",
+    "definitions": [
+     {
+      "text": "area of land",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suggestion of",
+      "for": "letter_selection",
+      "note": "a mere suggestion of a word is just a hint of it, its opening letter"
+     },
+     {
+      "text": "ploughed",
+      "for": "anagram",
+      "note": "ploughed earth is turned over and churned, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "estate",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of estate"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TAX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "E GO TAX",
+       "gives": "OXGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landowner muses that a hint of estate tax will go on a ploughed field.",
+     "walkthrough": "The six letters E, GO and TAX are rearranged.",
+     "definitionFit": "An oxgate, or oxgang, was the old measure of land an ox could plough in a season, about fifteen acres."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ploughed"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1555,56 @@
     "text": "What initiates attributes? Chromosome’s helping",
     "enumeration": "6"
    },
-   "solution": "AIDANT"
+   "solution": "AIDANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AIDANT",
+    "definitions": [
+     {
+      "text": "helping",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What initiates",
+      "for": "letter_selection",
+      "note": "what initiates a word is whatever starts it, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attributes",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of attributes"
+     },
+     {
+      "clueFragment": "Chromosome’s",
+      "gives": "IDANT",
+      "note": "idant was Weismann's term for a chromosome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IDANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A geneticist asks what triggers inherited traits, crediting the chromosome's help.",
+     "walkthrough": "The 's in Chromosome's is read as is, joining wordplay to definition.",
+     "definitionFit": "Aidant is an old word, from French, for giving aid; it means assisting or supportive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initiates"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1618,45 @@
     "text": "I for one uttered frank confession",
     "enumeration": "6"
    },
-   "solution": "AVOWAL"
+   "solution": "AVOWAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOWAL",
+    "definitions": [
+     {
+      "text": "frank confession",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uttered",
+      "for": "homophone",
+      "note": "uttered means spoken out loud, so the phrase is heard rather than seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I for one",
+      "gives": "AVOWAL",
+      "soundsLike": "A VOWEL",
+      "note": "I is one example of a vowel"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone owns up and makes a candid admission in their own words.",
+     "walkthrough": "I for one looks like a speaker volunteering; it means the letter I is an example of a vowel.",
+     "definitionFit": "An avowal is an open declaration or admission, so it is a candid acknowledgement of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1670,51 @@
     "text": "Charlie to share a room with Penny",
     "enumeration": "5"
    },
-   "solution": "CHUMP"
+   "solution": "CHUMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHUMP",
+    "definitions": [
+     {
+      "text": "Charlie",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to share a room",
+      "gives": "CHUM",
+      "note": "to chum with someone is to share lodgings with them"
+     },
+     {
+      "clueFragment": "with",
+      "note": "joins the two pieces"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p is the abbreviation for penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people, Charlie and Penny, agree to room together.",
+     "walkthrough": "Charlie looks like a name or the NATO letter C; it is British slang for a fool.",
+     "definitionFit": "Both charlie and chump are British slang for a silly or foolish person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1728,48 @@
     "text": "I keep stocking hard willow",
     "enumeration": "6"
    },
-   "solution": "HOSIER"
+   "solution": "HOSIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOSIER",
+    "definitions": [
+     {
+      "text": "I keep stocking",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     },
+     {
+      "clueFragment": "willow",
+      "gives": "OSIER",
+      "note": "an osier is a willow used for basketwork"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OSIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener says they keep a stock of tough willow.",
+     "walkthrough": "The definition is written in the first person: the answer is someone who keeps stockings in stock.",
+     "definitionFit": "A hosier sells socks and stockings, so in shop terms such a trader keeps hosiery in stock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stocking"
+    }
+   }
   },
   {
    "number": 25,
@@ -448,7 +1793,61 @@
      }
     ]
    },
-   "solution": "ASGOODAS"
+   "solution": "ASGOODAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AS GOOD AS",
+    "definitions": [
+     {
+      "text": "virtually",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packing",
+      "for": "container",
+      "note": "packing means stuffing something inside, so the word for energy goes within the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fizzy drink’s",
+      "gives": "SODAS",
+      "note": "soda is a fizzy drink, with the s"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy or vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "GO",
+      "ODAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft drink is said to be practically bursting with energy.",
+     "walkthrough": "The 's of drink's is part of the wordplay, giving a plural rather than a possessive.",
+     "definitionFit": "As good as is an idiom meaning practically or all but, the same as virtually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 26,
@@ -462,7 +1861,64 @@
     "text": "Openings for sleeves, correct indeed!",
     "enumeration": "5"
    },
-   "solution": "SCYES"
+   "solution": "SCYES",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCYES",
+    "definitions": [
+     {
+      "text": "Openings for sleeves, correct indeed!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Openings for",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, so each word gives up its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleeves",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sleeves"
+     },
+     {
+      "clueFragment": "correct",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of correct"
+     },
+     {
+      "clueFragment": "indeed",
+      "gives": "YES",
+      "note": "yes, indeed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "YES"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor confirms the armholes are right.",
+     "walkthrough": "The whole clue is both wordplay and definition: the starts of sleeves and correct plus a word for indeed spell out what the clue describes.",
+     "definitionFit": "A scye is the armhole of a garment, the opening into which a sleeve is sewn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Openings"
+    }
+   }
   },
   {
    "number": 27,
@@ -476,7 +1932,74 @@
     "text": "Returning couch that hurts back to furniture outlet",
     "enumeration": "8"
    },
-   "solution": "DEBOUCHE"
+   "solution": "DEBOUCHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEBOUCHE",
+    "definitions": [
+     {
+      "text": "outlet",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means coming back, so the word for couch is read backwards"
+     },
+     {
+      "text": "back to",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couch",
+      "gives": "BED",
+      "note": "a bed is a couch to sleep on"
+     },
+     {
+      "clueFragment": "that hurts",
+      "gives": "OUCH",
+      "note": "ouch is what you say when something hurts"
+     },
+     {
+      "clueFragment": "furniture",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of furniture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "OUCH",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BED",
+       "to": "DEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper takes back an uncomfortable sofa to the furniture store.",
+     "walkthrough": "Furniture outlet looks like a shop; the definition is outlet alone. A debouche is an opening or exit, from French.",
+     "definitionFit": "A debouche is an opening or way out, especially where a river or troops emerge, so an outlet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlet"
+    }
+   }
   },
   {
    "number": 28,
@@ -490,7 +2013,53 @@
     "text": "Malaysian wanting a short jacket",
     "enumeration": "4"
    },
-   "solution": "BAJU"
+   "solution": "BAJU",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BAJU",
+    "definitions": [
+     {
+      "text": "short jacket",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the following letter is missing from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Malaysian",
+      "gives": "BAJAU",
+      "note": "the Bajau are a people of Sabah in Malaysia"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAJU"
+     ]
+    },
+    "explanation": {
+     "surface": "A Malaysian person needs a short coat.",
+     "walkthrough": "Remove one A from BAJAU. Wanting looks like desiring but means missing.",
+     "definitionFit": "The baju is a short loose jacket or tunic worn in Malaysia and Indonesia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
+    }
+   }
   },
   {
    "number": 29,
@@ -504,7 +2073,60 @@
     "text": "Cross about part of sauce spilling over?",
     "enumeration": "4"
    },
-   "solution": "CRUX"
+   "solution": "CRUX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRUX",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilling",
+      "for": "deletion",
+      "note": "spilling means letting something fall out, so a letter drops from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     },
+     {
+      "clueFragment": "part of sauce",
+      "gives": "ROUX",
+      "note": "a roux is the flour-and-butter base of many sauces"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUX"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook is annoyed at sauce boiling over the pan.",
+     "walkthrough": "Remove O from ROUX and put C in front. Cross looks like angry; it is the Latin-derived noun.",
+     "definitionFit": "Crux is the Latin word for a cross, still used in English for that sense in heraldry and astronomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 30,
@@ -518,7 +2140,69 @@
     "text": "Squashed by newspaper, sad end for poor bluebottle",
     "enumeration": "7"
    },
-   "solution": "BLAWORT"
+   "solution": "BLAWORT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BLAWORT",
+    "definitions": [
+     {
+      "text": "bluebottle",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Squashed by",
+      "for": "container",
+      "note": "something squashed by another is pressed inside it"
+     },
+     {
+      "text": "end for",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "BLAT",
+      "note": "blat is slang for a newspaper"
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "WO",
+      "note": "wo is an archaic spelling of woe, sorrow"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of poor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLA",
+      "WO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly is swatted flat with a rolled-up paper, a sad end for the poor thing.",
+     "walkthrough": "Bluebottle looks like the fly; it is the cornflower, which also goes by that name.",
+     "definitionFit": "Blawort is an old Scottish name for the cornflower, which is also called the bluebottle for its blue flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bluebottle"
+    }
+   }
   },
   {
    "number": 31,
@@ -532,7 +2216,58 @@
     "text": "Marsupial in reserve with short beak",
     "enumeration": "5"
    },
-   "solution": "BILBY"
+   "solution": "BILBY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BILBY",
+    "definitions": [
+     {
+      "text": "Marsupial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beak",
+      "gives": "BILL",
+      "note": "a bird's bill is its beak"
+     },
+     {
+      "clueFragment": "in reserve",
+      "gives": "BY",
+      "note": "something put by is kept in reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIL",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wildlife reserve houses a marsupial with a stubby snout.",
+     "walkthrough": "The beak piece comes first although the clue gives it last.",
+     "definitionFit": "The bilby is an Australian bandicoot with long ears, a pouched mammal and so a marsupial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 32,
@@ -546,7 +2281,66 @@
     "text": "Possibly bitter about dispute — not right output from RI?",
     "enumeration": "9"
    },
-   "solution": "AQUARELLE"
+   "solution": "AQUARELLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AQUARELLE",
+    "definitions": [
+     {
+      "text": "output from RI?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for bitter wraps around the rest"
+     },
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right means the abbreviation for right is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly bitter",
+      "gives": "ALE",
+      "note": "bitter is a kind of beer, so possibly an ale"
+     },
+     {
+      "clueFragment": "dispute",
+      "gives": "QUARREL",
+      "note": "a quarrel is a dispute"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUAREL",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub argument, possibly over bitter, from which the right side withdraws.",
+     "walkthrough": "The RI is the Royal Institute of Painters in Water Colours, hence the question mark; bitter is a British beer.",
+     "definitionFit": "An aquarelle is a painting in transparent watercolours, the sort of work exhibited by a watercolour society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bitter"
+    }
+   }
   },
   {
    "number": 33,
@@ -560,7 +2354,56 @@
     "text": "In Scotland nimble old mare’s lapping loch",
     "enumeration": "5"
    },
-   "solution": "YAULD"
+   "solution": "YAULD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YAULD",
+    "definitions": [
+     {
+      "text": "In Scotland nimble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lapping",
+      "for": "container",
+      "note": "lapping means wrapping round, so the mare word encloses the loch abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old mare’s",
+      "gives": "YAUD",
+      "note": "yaud is a Scots word for an old mare"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the map abbreviation for loch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAU",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "In the Highlands, a sprightly old horse drinks from a loch.",
+     "walkthrough": "L goes inside YAUD.",
+     "definitionFit": "Yauld is a Scots adjective for active, vigorous or agile, the same as nimble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lapping"
+    }
+   }
   },
   {
    "number": 34,
@@ -574,7 +2417,68 @@
     "text": "Woodcutter’s tools for splitting bark from elms?",
     "enumeration": "5"
    },
-   "solution": "FROES"
+   "solution": "FROES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FROES",
+    "definitions": [
+     {
+      "text": "Woodcutter’s tools",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splitting",
+      "for": "anagram",
+      "note": "splitting breaks a word apart, so its letters are put back in another order"
+     },
+     {
+      "text": "bark from",
+      "for": "letter_selection",
+      "note": "the bark is the outside of a tree, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elms",
+      "gives": "ES",
+      "select": "outer",
+      "note": "outside letters of elms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOR",
+       "gives": "FRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodcutter's kit for stripping the bark off elm trees.",
+     "walkthrough": "Tools for splitting looks like one phrase defining the answer, but for and splitting are wordplay.",
+     "definitionFit": "A froe is a cleaving tool with a blade at right angles to its handle, used to split wood into shingles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "splitting"
+    }
+   }
   }
  ]
 }

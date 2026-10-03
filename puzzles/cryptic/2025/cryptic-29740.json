@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Alliance head: ‘Keir’s first to go!’",
     "enumeration": "4"
    },
-   "solution": "BLOC"
+   "solution": "BLOC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "BLOC",
+    "definitions": [
+     {
+      "text": "Alliance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a name is its opening letter, so only that one is taken"
+     },
+     {
+      "text": "to go",
+      "for": "deletion",
+      "note": "something told to go must leave, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "BLOCK",
+      "note": "block is slang for a person's head, as in 'knock your block off'"
+     },
+     {
+      "clueFragment": "Keir",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of Keir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOC"
+     ]
+    },
+    "explanation": {
+     "surface": "A political alliance's leader cries that Keir Starmer must be ousted first.",
+     "walkthrough": "Remove K from BLOCK to leave BLOC.",
+     "definitionFit": "A bloc is a group of countries or parties combined for a common political purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,71 @@
     "text": "Feeling elected court bears up fools",
     "enumeration": "8"
    },
-   "solution": "INSTINCT"
+   "solution": "INSTINCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INSTINCT",
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bears",
+      "for": "charade",
+      "note": "in a down clue the court carries the next piece on top of it, so that piece is written first"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means the word is read from the bottom, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elected",
+      "gives": "IN",
+      "note": "a candidate who is elected is in"
+     },
+     {
+      "clueFragment": "fools",
+      "gives": "NITS",
+      "note": "nits is British slang for idiots"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STIN",
+      "CT"
+     ],
+     "reversals": [
+      {
+       "from": "NITS",
+       "to": "STIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sensation that the elected court is propping up a bunch of idiots.",
+     "definitionFit": "An instinct is an intuitive sense of something, a gut reaction rather than reasoned thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +194,49 @@
     "text": "Feature of a forest’s warning device light",
     "enumeration": "8"
    },
-   "solution": "HORNBEAM"
+   "solution": "HORNBEAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HORNBEAM",
+    "definitions": [
+     {
+      "text": "Feature of a forest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warning device",
+      "gives": "HORN",
+      "note": "a car horn is sounded as a warning"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "BEAM",
+      "note": "a beam is a shaft of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORN",
+      "BEAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A forest is equipped with an alarm that flashes a light.",
+     "definitionFit": "The hornbeam is a hardwood tree, so it is one of the trees found growing in woodland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +250,43 @@
     "text": "They smoke a lot",
     "enumeration": "6"
    },
-   "solution": "STACKS"
+   "solution": "STACKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STACKS",
+    "definitions": [
+     {
+      "text": "They smoke",
+      "at": 0
+     },
+     {
+      "text": "a lot",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They smoke",
+      "note": "first meaning: chimneys, which give out smoke"
+     },
+     {
+      "clueFragment": "a lot",
+      "note": "second meaning: a large quantity"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests heavy smokers; the first half is factory chimneys instead.",
+     "definitionFit": "Chimney stacks emit smoke, and informally having stacks of something means having plenty of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoke"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +300,63 @@
     "text": "British, these cold spreads that cover kippers",
     "enumeration": "10"
    },
-   "solution": "BEDCLOTHES"
+   "solution": "BEDCLOTHES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BEDCLOTHES",
+    "definitions": [
+     {
+      "text": "that cover kippers",
+      "at": 28,
+      "note": "a relative clause standing for 'things that cover kippers', a plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreads",
+      "for": "anagram",
+      "note": "spreads suggests letters being scattered about and laid out anew in another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "these cold",
+      "gives": "THESECOLD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EDCLOTHES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THESECOLD",
+       "gives": "EDCLOTHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some British cold spreads that are laid over smoked herring at breakfast.",
+     "walkthrough": "Kippers here are not smoked fish but people who kip, a British word for sleeping; spreads also hints at bedspreads.",
+     "definitionFit": "Sheets and blankets are laid over people sleeping in bed, keeping sleepers warm through the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kippers"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +370,56 @@
     "text": "Glorious, glorious leader from an earlier age",
     "enumeration": "6"
    },
-   "solution": "GOLDEN"
+   "solution": "GOLDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GOLDEN",
+    "definitions": [
+     {
+      "text": "Glorious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is whatever stands at its front, its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glorious",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of glorious"
+     },
+     {
+      "clueFragment": "from an earlier age",
+      "gives": "OLDEN",
+      "note": "olden means belonging to former times, as in 'the olden days'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a magnificent ruler of a bygone era.",
+     "walkthrough": "Glorious appears twice: once as the definition, once as the source of a single letter.",
+     "definitionFit": "A golden age or golden moment is a splendid, magnificent one, so the adjective means glorious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +433,61 @@
     "text": "Doctor, what’s that you said about crush?",
     "enumeration": "4"
    },
-   "solution": "HERD"
+   "solution": "HERD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HERD",
+    "definitions": [
+     {
+      "text": "crush",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the joined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "what’s that you said",
+      "gives": "EH",
+      "note": "eh is the noise made when asking someone to repeat themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "RD"
+     ],
+     "reversals": [
+      {
+       "from": "DREH",
+       "to": "HERD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asks the doctor to repeat what was said about their infatuation.",
+     "walkthrough": "Crush looks like a romantic infatuation, but here it is a tightly packed crowd.",
+     "definitionFit": "A crush is a dense mass of people, and a herd is a large throng, especially one moving together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crush"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +501,49 @@
     "text": "Fish having round tongue",
     "enumeration": "5"
    },
-   "solution": "LINGO"
+   "solution": "LINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINGO",
+    "definitions": [
+     {
+      "text": "tongue",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "LING",
+      "note": "the ling is a long-bodied sea fish of the cod family"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LING",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish with a rounded tongue.",
+     "definitionFit": "Tongue in the sense of a language; lingo is an informal word for a language or jargon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 10,
@@ -168,7 +567,74 @@
      }
     ]
    },
-   "solution": "ONTHEMOVE"
+   "solution": "ONTHEMOVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ON THE MOVE",
+    "definitions": [
+     {
+      "text": "Mobile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something that turns out unfortunately has gone wrong, so the letters before it are put into a wrong order"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home, not",
+      "gives": "HOMENOT",
+      "note": "taken as written, ignoring the comma"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHEMO",
+      "V",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOMENOT",
+       "gives": "ONTHEMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mobile home that is, sadly, not quite near the lake.",
+     "walkthrough": "Mobile home reads as one item, a caravan, but the definition stops at Mobile.",
+     "definitionFit": "Someone mobile is moving about or travelling, which is exactly what this idiom describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 11,
@@ -182,7 +648,55 @@
     "text": "Quite unresponsive, Tom needs a restorative",
     "enumeration": "9"
    },
-   "solution": "CATATONIC"
+   "solution": "CATATONIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATATONIC",
+    "definitions": [
+     {
+      "text": "Quite unresponsive",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom",
+      "gives": "CAT",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "restorative",
+      "gives": "TONIC",
+      "note": "a tonic is a medicine that restores strength"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "A",
+      "TONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Tom has gone completely unresponsive and needs a pick-me-up.",
+     "definitionFit": "A catatonic person is in a stupor, motionless and not reacting to anything around them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 12,
@@ -196,7 +710,57 @@
     "text": "Was a programmer from Delaware into fish?",
     "enumeration": "5"
    },
-   "solution": "CODED"
+   "solution": "CODED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CODED",
+    "definitions": [
+     {
+      "text": "Was a programmer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing going into another ends up inside it, enclosed by the second"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "COD",
+      "note": "the cod is a common food fish"
+     },
+     {
+      "clueFragment": "Delaware",
+      "gives": "DE",
+      "note": "DE is the postal abbreviation for the US state of Delaware"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "DE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a software developer from Delaware was keen on fishing.",
+     "definitionFit": "Programmers write software instructions, so having done so means having written computer code."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 13,
@@ -210,7 +774,68 @@
     "text": "Depressed old fellow clutching jerry can",
     "enumeration": "7"
    },
-   "solution": "CONCAVE"
+   "solution": "CONCAVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONCAVE",
+    "definitions": [
+     {
+      "text": "Depressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jerry",
+      "for": "anagram",
+      "note": "jerry-built means shoddily put together, so the next word is assembled badly"
+     },
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "to clutch something is to hold it tightly, so one piece holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old fellow",
+      "gives": "COVE",
+      "note": "cove is an old British slang word for a man or chap"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "NCA",
+      "VE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAN",
+       "gives": "NCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy old man hanging on to a fuel canister.",
+     "walkthrough": "Jerry can reads as one thing, a petrol container, but jerry is the shuffle signal for can.",
+     "definitionFit": "A depressed surface is sunk inward, which is what a concave shape is: curved in like a bowl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jerry"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +849,49 @@
     "text": "Large group that flies by day",
     "enumeration": "5"
    },
-   "solution": "CROWD"
+   "solution": "CROWD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROWD",
+    "definitions": [
+     {
+      "text": "Large group",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that flies",
+      "gives": "CROW",
+      "note": "a crow is a bird, something that flies"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROW",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A swarm of insects that is active in the daytime.",
+     "definitionFit": "A crowd is a large number of people gathered together in one place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +905,49 @@
     "text": "Disturbing repercussion of dessert wine",
     "enumeration": "10"
    },
-   "solution": "AFTERSHOCK"
+   "solution": "AFTERSHOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERSHOCK",
+    "definitions": [
+     {
+      "text": "Disturbing repercussion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "AFTERS",
+      "note": "afters is British informal for pudding, the course after the main one"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "HOCK",
+      "note": "hock is a British name for German white wine from the Rhine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERS",
+      "HOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "The unsettling consequence of drinking a sweet pudding wine.",
+     "definitionFit": "After an earthquake comes a smaller tremor, and figuratively an unsettling consequence of some event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dessert"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +967,69 @@
      }
     ]
    },
-   "solution": "SHOWNUP"
+   "solution": "SHOWNUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SHOWN UP",
+    "definitions": [
+     {
+      "text": "humiliated",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backfiring",
+      "for": "reversal",
+      "note": "something backfiring goes off the wrong way, so the word is read in reverse"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece is placed surrounding the other"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jokes",
+      "gives": "PUNS",
+      "note": "puns are jokes on words"
+     },
+     {
+      "clueFragment": "how",
+      "gives": "HOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOW",
+      "NUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUNS",
+       "to": "SNUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jokes that misfire are a reliable way to embarrass yourself.",
+     "definitionFit": "To be shown up is to be embarrassed by being exposed as inferior in front of others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1043,42 @@
     "text": "Smooth out papers",
     "enumeration": "5"
    },
-   "solution": "PRESS"
+   "solution": "PRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRESS",
+    "definitions": [
+     {
+      "text": "Smooth out",
+      "at": 0
+     },
+     {
+      "text": "papers",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth out",
+      "note": "first meaning: to iron flat, as with clothes"
+     },
+     {
+      "clueFragment": "papers",
+      "note": "second meaning: newspapers collectively, the media"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an instruction to flatten some documents, but the two halves are separate meanings.",
+     "definitionFit": "One verb means to iron creases away, and the noun covers newspapers and journalists generally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1092,71 @@
     "text": "Players shivering, etc in zero temperature",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "Players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering letters tremble and shake out of place into a fresh order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero is written like the letter O"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CTE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETC",
+       "gives": "CTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Musicians and others are shivering in sub-zero cold.",
+     "definitionFit": "An octet is a group of eight musicians performing together, so its members are players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Players"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1170,61 @@
     "text": "Almost fail to return for Mass",
     "enumeration": "3"
    },
-   "solution": "MOB"
+   "solution": "MOB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MOB",
+    "definitions": [
+     {
+      "text": "Mass",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost all of something stops just short, so its final letter is dropped"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fail",
+      "gives": "BOMB",
+      "note": "to bomb is to fail badly, as a show that flops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOB"
+     ],
+     "reversals": [
+      {
+       "from": "BOM",
+       "to": "MOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly misses going back to church for Mass.",
+     "walkthrough": "Mass looks like the church service, but here it means a great crowd of people.",
+     "definitionFit": "A mob is a disorderly crowd, and the masses are the general populace in large numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1244,59 @@
      }
     ]
    },
-   "solution": "BEWARNED"
+   "solution": "BEWARNED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BE WARNED",
+    "definitions": [
+     {
+      "text": "Note the possible risks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "cast means thrown, and letters thrown about land in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "web",
+      "gives": "WEB",
+      "note": "taken as written, the front of webcast"
+     },
+     {
+      "clueFragment": "a nerd",
+      "gives": "ANERD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEBANERD",
+       "gives": "BEWARNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watch out for the dangers of an online broadcast hosted by a geek.",
+     "walkthrough": "The signal is hidden inside webcast: web is fodder, cast tells you to rearrange it along with a nerd.",
+     "definitionFit": "This set phrase is a warning, telling someone to take notice of the dangers ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "webcast"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1310,43 @@
     "text": "Army store reported",
     "enumeration": "5"
    },
-   "solution": "HORDE"
+   "solution": "HORDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORDE",
+    "definitions": [
+     {
+      "text": "Army",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so it is the sound that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "HORDE",
+      "soundsLike": "HOARD",
+      "note": "a hoard is a stockpile or store"
+     }
+    ],
+    "explanation": {
+     "surface": "A military supply depot has been mentioned in dispatches.",
+     "definitionFit": "A horde is a vast crowd, originally a nomadic tribe or band of warriors, hence an army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1360,65 @@
     "text": "Men are unlikely leading chemical testers",
     "enumeration": "8"
    },
-   "solution": "REAGENTS"
+   "solution": "REAGENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REAGENTS",
+    "definitions": [
+     {
+      "text": "chemical testers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unlikely",
+      "for": "anagram",
+      "note": "unlikely suggests something improbable or out of order, so the word is rearranged"
+     },
+     {
+      "text": "leading",
+      "for": "charade",
+      "note": "leading means going in front, so the rearranged piece comes before the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Men",
+      "gives": "GENTS",
+      "note": "gents is short for gentlemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REA",
+      "GENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARE",
+       "gives": "REA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men are not expected to be the frontrunners in chemistry tests.",
+     "definitionFit": "Reagents are substances added to a sample to detect or measure other substances by reaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "unlikely"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1432,44 @@
     "text": "Kalahari’s flies?",
     "enumeration": "7"
    },
-   "solution": "DESERTS"
+   "solution": "DESERTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESERTS",
+    "definitions": [
+     {
+      "text": "Kalahari’s",
+      "at": 0,
+      "note": "an example of the plural answer, read as 'Kalahari is one of these'"
+     },
+     {
+      "text": "flies",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kalahari’s",
+      "note": "first meaning: arid sandy regions, the Kalahari in southern Africa being one"
+     },
+     {
+      "clueFragment": "flies",
+      "note": "second meaning: runs away, abandons a post"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a question about insects in the Kalahari; the question mark warns that the first part is defined by example.",
+     "definitionFit": "The Kalahari is an arid region of southern Africa, and to flee or abscond is to abandon one's post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1483,66 @@
     "text": "Celeb on Viagra initially needs energy fast!",
     "enumeration": "6"
    },
-   "solution": "STARVE"
+   "solution": "STARVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STARVE",
+    "definitions": [
+     {
+      "text": "fast!",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the beginning, so just the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celeb",
+      "gives": "STAR",
+      "note": "a celebrity is a star"
+     },
+     {
+      "clueFragment": "Viagra",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of Viagra"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity on Viagra urgently needs a burst of energy.",
+     "walkthrough": "Fast looks like an adverb meaning quickly; it is the verb meaning to go without food.",
+     "definitionFit": "To go without food deliberately is to abstain from eating, which in the extreme means going hungry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 24,
@@ -390,7 +1556,58 @@
     "text": "Brightened up by books aimed at tabloid readers?",
     "enumeration": "6"
    },
-   "solution": "SUNLIT"
+   "solution": "SUNLIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNLIT",
+    "definitions": [
+     {
+      "text": "Brightened up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aimed at",
+      "for": "charade",
+      "note": "writing aimed at a readership is labelled with that readership's name in front"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tabloid readers",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper, standing for its own readers here"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "LIT",
+      "note": "lit is short for literature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "LIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is cheered up by books written for the mass-market press audience.",
+     "walkthrough": "The question mark flags the playful idea of literature written for readers of The Sun, a British tabloid newspaper.",
+     "definitionFit": "Something brightened is lit up, and a place illuminated by daylight is exactly what this adjective describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tabloid"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1627,49 @@
      }
     ]
    },
-   "solution": "WISEASS"
+   "solution": "WISEASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WISE-ASS",
+    "definitions": [
+     {
+      "text": "an insolent American",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knowing",
+      "gives": "WISE",
+      "note": "wise means knowing, informed"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "ASS",
+      "note": "a charlie is British slang for a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WISE",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Charlie, savvy but cheeky, is described as a rude American.",
+     "definitionFit": "This US slang term names someone who makes smart, impertinent remarks, a cheeky know-it-all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1683,46 @@
     "text": "Showy floor wood",
     "enumeration": "5"
    },
-   "solution": "FLASH"
+   "solution": "FLASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLASH",
+    "definitions": [
+     {
+      "text": "Showy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "floor",
+      "gives": "FL",
+      "note": "FL is the abbreviation for floor"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a tree and its timber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A flashy floor made of timber.",
+     "definitionFit": "British informal flash means ostentatious and expensive-looking, designed to impress people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,7 +1736,57 @@
     "text": "Establish nothing’s left to finance",
     "enumeration": "4"
    },
-   "solution": "FUND"
+   "solution": "FUND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FUND",
+    "definitions": [
+     {
+      "text": "finance",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "having left means having gone away, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establish",
+      "gives": "FOUND",
+      "note": "to found an institution is to establish it"
+     },
+     {
+      "clueFragment": "nothing’s",
+      "gives": "O",
+      "note": "nothing is zero, written as the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "UND"
+     ]
+    },
+    "explanation": {
+     "surface": "Setting up a business when there's no money left to pay for it.",
+     "walkthrough": "Take O out of FOUND to leave FUND.",
+     "definitionFit": "To fund a project is to provide money for it, paying its costs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1800,77 @@
     "text": "City’s name Rex inscribed in fancy beer mug",
     "enumeration": "9"
    },
-   "solution": "NUREMBERG"
+   "solution": "NUREMBERG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "NUREMBERG",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy describes something elaborate, so the letters after it are reworked into an elaborate new order"
+     },
+     {
+      "text": "inscribed in",
+      "for": "container",
+      "note": "a name inscribed in something is written into it, so one letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "beer mug",
+      "gives": "BEERMUG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "note": "R stands for Rex, Latin for king, as on coins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "U",
+      "R",
+      "EMBERG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEERMUG",
+       "gives": "UEMBERG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's name has been engraved on an ornate stein.",
+     "walkthrough": "The beer mug fits the Bavarian city, home to a famous Christmas market.",
+     "definitionFit": "Nuremberg is a large city in Bavaria, southern Germany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rex"
+    }
+   }
   },
   {
    "number": 28,
@@ -476,7 +1894,61 @@
    "group": [
     "28-down",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MINE HOST",
+    "definitions": [
+     {
+      "text": "landlord",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crooked",
+      "for": "anagram",
+      "note": "crooked means bent out of true, so the letters are twisted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brummie’s",
+      "gives": "MINE",
+      "note": "Brummie is the setter, so the setter's means belonging to me"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "SHOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINE",
+      "HOST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHOT",
+       "gives": "HOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Birmingham man has gunned down a dishonest landlord.",
+     "walkthrough": "A Brummie is someone from Birmingham; here it is the setter's pseudonym, so it stands for the setter himself.",
+     "definitionFit": "This old-fashioned jocular phrase names the landlord of a pub or inn, who hosts the drinkers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 29,
@@ -490,7 +1962,45 @@
     "text": "Go north of the border for party",
     "enumeration": "4"
    },
-   "solution": "GANG"
+   "solution": "GANG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GANG",
+    "definitions": [
+     {
+      "text": "Go north of the border",
+      "at": 0
+     },
+     {
+      "text": "party",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go north of the border",
+      "note": "first meaning: the Scots verb for to go, Scotland being north of the English border"
+     },
+     {
+      "clueFragment": "party",
+      "note": "second meaning: a group of people working or going around together"
+     }
+    ],
+    "explanation": {
+     "surface": "Head up to Scotland for a celebration.",
+     "definitionFit": "In Scots dialect the verb means walk or go, and as a noun it means a band of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 30,
@@ -504,7 +2014,62 @@
     "text": "After a month, oxygen added to Michael’s anaesthetic",
     "enumeration": "9"
    },
-   "solution": "NOVOCAINE"
+   "solution": "NOVOCAINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOVOCAINE",
+    "definitions": [
+     {
+      "text": "anaesthetic",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "added to",
+      "for": "charade",
+      "note": "added to means attached on, so the pieces are simply joined together"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "NOV",
+      "note": "NOV is the abbreviation for November"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "Michael",
+      "gives": "CAINE",
+      "note": "Michael Caine is the English film actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOV",
+      "O",
+      "CAINE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a month, Michael's painkiller has been topped up with oxygen.",
+     "definitionFit": "Novocaine is a trade name for procaine, a local numbing drug used by dentists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Michael"
+    }
+   }
   },
   {
    "number": 31,
@@ -524,7 +2089,43 @@
      }
     ]
    },
-   "solution": "NOTON"
+   "solution": "NOTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOT ON",
+    "definitions": [
+     {
+      "text": "Unacceptable",
+      "at": 0
+     },
+     {
+      "text": "lament of batsman out on 99",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unacceptable",
+      "note": "first meaning: British idiom for something not allowed or out of order"
+     },
+     {
+      "clueFragment": "lament of batsman out on 99",
+      "note": "second meaning: in cricket a ton is a hundred runs, so one short means missing the century"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket a ton is a century, a hundred runs; a batsman dismissed on 99 might cry that there is no ton, splitting the letters differently.",
+     "definitionFit": "Saying something just isn't done means it is improper; the regrouped letters give the batsman's complaint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   }
  ]
 }

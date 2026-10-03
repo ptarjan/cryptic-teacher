@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,40 @@
     "text": "Sport for minted royals?",
     "enumeration": "4"
    },
-   "solution": "POLO"
+   "solution": "POLO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POLO",
+    "definitions": [
+     {
+      "text": "Sport for minted royals?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sport for minted royals?",
+      "note": "surface reading: a game for wealthy members of the royal family, minted being slang for rich"
+     },
+     {
+      "clueFragment": "minted",
+      "note": "setter's reading: the game shares its name with a well-known brand of mint sweet with a hole in the middle"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about which pastime suits a rich royal household.",
+     "walkthrough": "Polo is the horseback game famously played by British princes, and Polo is also a brand of peppermint, hence minted.",
+     "definitionFit": "The horseback stick-and-ball game is strongly associated with royalty and wealth, and also names a mint sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minted"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +83,42 @@
     "text": "A little signage, miniature sign!",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "sign",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a small portion of the following words is wanted, so the answer sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signage, miniature",
+      "gives": "GEMINI",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An exclamation about a tiny piece of signage.",
+     "definitionFit": "The Twins are one of the twelve signs of the zodiac, so the answer is an astrological sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +132,42 @@
     "text": "Cabaret hit",
     "enumeration": "4"
    },
-   "solution": "CLUB"
+   "solution": "CLUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLUB",
+    "definitions": [
+     {
+      "text": "Cabaret",
+      "at": 0
+     },
+     {
+      "text": "hit",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cabaret",
+      "note": "first meaning: a nightclub with live entertainment"
+     },
+     {
+      "clueFragment": "hit",
+      "note": "second meaning: to strike with a heavy stick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cabaret hit looks like a popular show tune; the two words are separate meanings.",
+     "definitionFit": "A nightspot offering entertainment is a club, and to beat someone with a cudgel is to club them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +181,65 @@
     "text": "Shooter with gun ultimately breaking law",
     "enumeration": "6"
    },
-   "solution": "CANNON"
+   "solution": "CANNON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CANNON",
+    "definitions": [
+     {
+      "text": "Shooter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so only the final letter of the word before it is used"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece goes into the middle of another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "law",
+      "gives": "CANON",
+      "note": "a canon is a church law or rule"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "N",
+      "NON"
+     ]
+    },
+    "explanation": {
+     "surface": "A gunman ends up on the wrong side of the law.",
+     "walkthrough": "Breaking here means splitting the law word apart to let the extra letter in, not a crime.",
+     "definitionFit": "A cannon is a large gun, so it is something that shoots, a fair if loose synonym for shooter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shooter"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +253,61 @@
     "text": "Redesign of trains, so lighter?",
     "enumeration": "8"
    },
-   "solution": "ARSONIST"
+   "solution": "ARSONIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARSONIST",
+    "definitions": [
+     {
+      "text": "lighter?",
+      "at": 23,
+      "note": "a lighter here is a person who lights fires"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redesign of",
+      "for": "anagram",
+      "note": "redesigning something rearranges its parts, so the following letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trains",
+      "gives": "TRAINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSONIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAINSSO",
+       "gives": "ARSONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebuilding the trains might make them lighter in weight.",
+     "walkthrough": "Lighter looks like a weight comparison, but it means someone who sets light to things.",
+     "definitionFit": "Someone who deliberately sets fires is literally one who lights them, a whimsical noun formed from the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lighter"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +327,50 @@
      }
     ]
    },
-   "solution": "SAUSAGEDOG"
+   "solution": "SAUSAGEDOG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAUSAGE DOG",
+    "definitions": [
+     {
+      "text": "Canine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cutie",
+      "gives": "SAUSAGE",
+      "note": "silly sausage is an affectionate name for a lovable person"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "DOG",
+      "note": "to tail someone is to follow them closely, to dog them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUSAGE",
+      "DOG"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog described as a cute thing with a tail.",
+     "walkthrough": "In British usage sausage is a fond term for a sweet person, and a sausage dog is a dachshund.",
+     "definitionFit": "A dachshund, long and low like a sausage, is a breed of dog and so a canine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +384,70 @@
     "text": "Come together nicely with casting of vote in parliament",
     "enumeration": "8"
    },
-   "solution": "DOVETAIL"
+   "solution": "DOVETAIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOVETAIL",
+    "definitions": [
+     {
+      "text": "Come together nicely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casting of",
+      "for": "anagram",
+      "note": "casting things throws them about, so the letters are scattered into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parliament",
+      "gives": "DAIL",
+      "note": "the Dail is the lower house of the Irish parliament"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "VOTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OVET",
+      "AIL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VOTE",
+       "gives": "OVET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things fit neatly when votes are cast in parliament.",
+     "walkthrough": "Casting of vote sounds like voting, but it means the letters are thrown about.",
+     "definitionFit": "Dovetail joints interlock perfectly, so to dovetail is to fit or combine together harmoniously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "casting"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +461,66 @@
     "text": "Con isn't working: Muslim official on top of it",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AGAINST",
+    "definitions": [
+     {
+      "text": "Con",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is in operation, so these letters are put through a change of order"
+     },
+     {
+      "text": "on top of it",
+      "for": "charade",
+      "note": "in a down entry, one piece placed on top comes first, ahead of the earlier piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muslim official",
+      "gives": "AGA",
+      "note": "an aga is a Turkish or Muslim commander or chief"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "INST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "INST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scam that fails, with a religious official overseeing it.",
+     "walkthrough": "Con looks like a swindle, but it is the opposite of pro, as in pros and cons.",
+     "definitionFit": "Pros and cons are the points for and against, so con is the opposing side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Con"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +534,46 @@
     "text": "A test of a chamber",
     "enumeration": "6"
    },
-   "solution": "ATRIAL"
+   "solution": "ATRIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATRIAL",
+    "definitions": [
+     {
+      "text": "of a chamber",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TRIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An exam room or examination of a room.",
+     "definitionFit": "An atrium is an upper chamber of the heart, and the adjective atrial describes that chamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "chamber"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +587,58 @@
     "text": "Historical figure who was exposed as narcissist on journey",
     "enumeration": "6"
    },
-   "solution": "GODIVA"
+   "solution": "GODIVA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GODIVA",
+    "definitions": [
+     {
+      "text": "Historical figure who was exposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means following after, so the word before it comes second"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journey",
+      "gives": "GO",
+      "note": "a go is a trip or outing"
+     },
+     {
+      "clueFragment": "narcissist",
+      "gives": "DIVA",
+      "note": "a diva is a self-absorbed, vain star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "DIVA"
+     ]
+    },
+    "explanation": {
+     "surface": "An egotist is unmasked while travelling.",
+     "walkthrough": "Exposed hints at a scandal but means naked: legend says she rode through Coventry wearing nothing.",
+     "definitionFit": "Lady Godiva is the eleventh-century noblewoman famed for riding nude through Coventry in protest at taxes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +652,55 @@
     "text": "Boycott backed by supporter – some player?",
     "enumeration": "8"
    },
-   "solution": "BANJOIST"
+   "solution": "BANJOIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANJOIST",
+    "definitions": [
+     {
+      "text": "some player?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed by",
+      "for": "charade",
+      "note": "backed by means having something behind it, so the second piece follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boycott",
+      "gives": "BAN",
+      "note": "to boycott something is to ban it"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "JOIST",
+      "note": "a joist is a beam that holds up a floor or ceiling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "JOIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Geoffrey Boycott, the England cricketer, with a fan behind him, is quite the player.",
+     "walkthrough": "Boycott suggests the Yorkshire cricketer, while player hints at sport; it is a musician.",
+     "definitionFit": "A banjoist is someone who plays the banjo, a specific kind of musical performer, hence some player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boycott"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +720,54 @@
      }
     ]
    },
-   "solution": "ACTIONPAINTING"
+   "solution": "ACTIONPAINTING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACTION PAINTING",
+    "definitions": [
+     {
+      "text": "are there splashes of colour in that?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rubbish",
+      "for": "anagram",
+      "note": "rubbish describes something junked and messed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A tip containing",
+      "gives": "ATIPCONTAINING",
+      "note": "all three words taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTIONPAINTING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATIPCONTAINING",
+       "gives": "ACTIONPAINTING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rubbish dump might be strewn with splatters of paint.",
+     "walkthrough": "Tip is British for a rubbish dump, which makes rubbish look like part of the picture.",
+     "definitionFit": "Action painting is the style of Jackson Pollock and others who dripped and flung paint at the canvas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +787,68 @@
      }
     ]
    },
-   "solution": "CINEMAGOER"
+   "solution": "CINEMAGOER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINEMA-GOER",
+    "definitions": [
+     {
+      "text": "one seeing the picture",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjusted",
+      "for": "anagram",
+      "note": "adjusted letters have been altered in position, so they must be reordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "image",
+      "gives": "IMAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINEMAGOER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONCEIMAGER",
+       "gives": "CINEMAGOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Once a photo is tweaked and corrected, someone gets the picture.",
+     "walkthrough": "Seeing the picture sounds like understanding; here the picture is a film.",
+     "definitionFit": "A picture is an old word for a film, so someone watching one at the movies is a filmgoer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picture"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +862,49 @@
     "text": "Sauce, as it's oniony, largely ignored for starters",
     "enumeration": "5"
    },
-   "solution": "AIOLI"
+   "solution": "AIOLI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AIOLI",
+    "definitions": [
+     {
+      "text": "Sauce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the first parts, so the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as it's oniony, largely ignored",
+      "gives": "AIOLI",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIOLI"
+     ]
+    },
+    "explanation": {
+     "surface": "A sauce whose strong onion flavour is mostly overlooked.",
+     "walkthrough": "Oniony is a red herring: the sauce in question is really garlicky.",
+     "definitionFit": "Aioli is a Provencal garlic mayonnaise, a cold sauce served with fish and vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +918,43 @@
     "text": "Bird never heard?",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNOT",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we listen to the word rather than read its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "never",
+      "gives": "KNOT",
+      "soundsLike": "NOT",
+      "note": "not means never in the sense of at no time, and it is said with a silent K in the bird's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird that has never been heard singing.",
+     "definitionFit": "The knot is a stocky wading sandpiper seen in large flocks on coastal mudflats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "never"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +968,48 @@
     "text": "What may be sprayed on, fading on the dancefloor?",
     "enumeration": "8"
    },
-   "solution": "TANGOING"
+   "solution": "TANGOING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGOING",
+    "definitions": [
+     {
+      "text": "on the dancefloor?",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What may be sprayed on",
+      "gives": "TAN",
+      "note": "a spray tan is applied from a mist"
+     },
+     {
+      "clueFragment": "fading",
+      "gives": "GOING",
+      "note": "going, as in going fast or going away, means fading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GOING"
+     ]
+    },
+    "explanation": {
+     "surface": "A spray tan wearing off while out dancing.",
+     "walkthrough": "On the dancefloor describes what someone is doing there: performing an Argentine dance.",
+     "definitionFit": "Doing the tango is a typical activity for dancers, so being on the floor in this sense is a fair cryptic hint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fading"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1023,59 @@
     "text": "Fish in net's tail thrashing",
     "enumeration": "5"
    },
-   "solution": "TROUT"
+   "solution": "TROUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "a tail is the very end, so just the final letter of the word is wanted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "net's",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of net"
+     },
+     {
+      "clueFragment": "thrashing",
+      "gives": "ROUT",
+      "note": "a rout is a crushing defeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish caught in a net flapping its tail about.",
+     "walkthrough": "Thrashing looks like an anagram signal but means a heavy defeat.",
+     "definitionFit": "The trout is a common freshwater game fish of the salmon family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrashing"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1089,59 @@
     "text": "Whitewash walls in tower a little bit",
     "enumeration": "7"
    },
-   "solution": "TROUNCE"
+   "solution": "TROUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUNCE",
+    "definitions": [
+     {
+      "text": "Whitewash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "walls",
+      "for": "letter_selection",
+      "note": "walls are the outside of a building, so only the outermost letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tower",
+      "gives": "TR",
+      "select": "outer",
+      "note": "the first and last letters of tower"
+     },
+     {
+      "clueFragment": "a little bit",
+      "gives": "OUNCE",
+      "note": "an ounce is a tiny amount, as in not an ounce of sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Painting the walls of a tower white, only a small patch.",
+     "walkthrough": "Whitewash suggests painting, but in sport it means a total defeat.",
+     "definitionFit": "A whitewash in sport is a crushing win with the losers scoring nothing, so to whitewash is to beat soundly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whitewash"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1161,42 @@
      }
     ]
    },
-   "solution": "TODO"
+   "solution": "TODO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO-DO",
+    "definitions": [
+     {
+      "text": "Still incomplete?",
+      "at": 0
+     },
+     {
+      "text": "Bother",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still incomplete?",
+      "note": "first meaning: yet to be done, like an item on a list"
+     },
+     {
+      "clueFragment": "Bother",
+      "note": "second meaning: a fuss or commotion"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bother looks like a mild curse after a task is left unfinished, but it is a noun meaning a fuss.",
+     "definitionFit": "A task still outstanding is one left on the list, while a fuss or kerfuffle is a hyphenated noun with the same letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bother"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1216,60 @@
      }
     ]
    },
-   "solution": "MANDARINORANGE"
+   "solution": "MANDARINORANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDARIN ORANGE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring",
+      "for": "charade",
+      "note": "featuring means including at the front of, so this piece opens the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Official",
+      "gives": "MANDARIN",
+      "note": "a mandarin is a senior bureaucrat"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "RANGE",
+      "note": "a range is a series or line of products"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANDARIN",
+      "O",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A civil servant presenting a line of vintage produce.",
+     "walkthrough": "Mandarin first suggests the official itself; the fruit only appears with the second word.",
+     "definitionFit": "The mandarin orange is a small loose-skinned citrus fruit, related to tangerines and satsumas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Official"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1283,66 @@
     "text": "Cat discovered and mouse, primarily, in song",
     "enumeration": "6"
    },
-   "solution": "ANTHEM"
+   "solution": "ANTHEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANTHEM",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "deletion",
+      "note": "dis-covered means with its cover taken off, so the outer letters are stripped away"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "PANTHER",
+      "note": "a panther is a big cat"
+     },
+     {
+      "clueFragment": "mouse",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mouse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTHE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat and a mouse, in a song like a children's nursery rhyme.",
+     "walkthrough": "Cat is not used as written: it stands for a particular big cat, and discovered then strips that word's outer letters.",
+     "definitionFit": "An anthem is a rousing song, such as a national song or a choral piece sung in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1356,47 @@
     "text": "Coming in the year of the Lord, opening",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADVENT",
+    "definitions": [
+     {
+      "text": "Coming",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the year of the Lord",
+      "gives": "AD",
+      "note": "AD stands for anno Domini, Latin for in the year of the Lord"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "VENT",
+      "note": "a vent is an opening or outlet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Arriving in a holy year, a door opens.",
+     "walkthrough": "The surface evokes the Christian season before Christmas, which is apt as the word names it too.",
+     "definitionFit": "An advent is an arrival, from Latin adventus; the Christian season anticipates Christ's arrival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1410,69 @@
     "text": "One doesn't believe it can go wrong potting shrimps, for a start",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AGNOSTIC",
+    "definitions": [
+     {
+      "text": "One doesn't believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "go wrong",
+      "for": "anagram",
+      "note": "going wrong means getting mixed up, so these letters are disordered"
+     },
+     {
+      "text": "for a start",
+      "for": "letter_selection",
+      "note": "a start is the beginning, so only the first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "potting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it can go",
+      "gives": "ITCANGO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shrimps",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of shrimps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGNOSTIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITCANGOS",
+       "gives": "AGNOSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic doubts that potting shrimps could fail.",
+     "walkthrough": "Go is part of the jumbled letters as well as part of the signal, and potting means taking the S inside.",
+     "definitionFit": "An agnostic neither affirms nor denies God's existence, holding it cannot be known, so lacks religious belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "potting"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1486,48 @@
     "text": "Devious chap, guy seen on and off?",
     "enumeration": "4"
    },
-   "solution": "CAGY"
+   "solution": "CAGY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CAGY",
+    "definitions": [
+     {
+      "text": "Devious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen on and off",
+      "for": "letter_selection",
+      "note": "on and off means intermittently, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap, guy",
+      "gives": "CAGY",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAGY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shifty man who keeps appearing and disappearing.",
+     "definitionFit": "Cagey means guarded and secretive, unwilling to reveal intentions, close to devious; this is a variant spelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1541,51 @@
     "text": "Only purity for rookie?",
     "enumeration": "6"
    },
-   "solution": "NOVICE"
+   "solution": "NOVICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOVICE",
+    "definitions": [
+     {
+      "text": "rookie",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only",
+      "gives": "NO",
+      "note": "read as no more than, nothing but"
+     },
+     {
+      "clueFragment": "purity",
+      "gives": "VICE",
+      "note": "purity is having no vice, so this supplies the sin that is absent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "VICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is innocence all that a beginner can offer?",
+     "walkthrough": "Only purity means nothing wicked at all: NO VICE, run together as one word.",
+     "definitionFit": "A rookie is a new recruit or beginner, a straightforward synonym for a learner or newcomer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "purity"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1599,43 @@
     "text": "Staff patted themselves on the back?",
     "enumeration": "4"
    },
-   "solution": "CREW"
+   "solution": "CREW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREW",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     },
+     {
+      "text": "patted themselves on the back",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "note": "first meaning: the team working on a ship or film"
+     },
+     {
+      "clueFragment": "patted themselves on the back",
+      "note": "second meaning: boasted, an old past tense of crow"
+     }
+    ],
+    "explanation": {
+     "surface": "Employees congratulated themselves.",
+     "walkthrough": "Crew is an old past tense of crow, as in the cock crew, and crowing means boasting.",
+     "definitionFit": "A team of workers is a crew, and archaic crew means crowed, gloated over a success."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1649,68 @@
     "text": "Villain, name I suspect applied to rogue in the end",
     "enumeration": "6"
    },
-   "solution": "MEANIE"
+   "solution": "MEANIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MEANIE",
+    "definitions": [
+     {
+      "text": "Villain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "as an adjective suspect means dodgy, so these letters are not to be trusted in their order"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the one kept"
+     }
+    ],
+    "linkWords": [
+     "applied to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name I",
+      "gives": "NAMEI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rogue",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of rogue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEANIE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAMEIE",
+       "gives": "MEANIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective names a suspect, finally pinning it on the scoundrel.",
+     "definitionFit": "A meanie is a nasty or ungenerous person, a playful informal word for a baddie or rotter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1730,48 @@
      }
     ]
    },
-   "solution": "GREENTEA"
+   "solution": "GREENTEA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREEN TEA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where one would be putting",
+      "gives": "GREEN",
+      "note": "on a golf course, putting is done on the green"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "tea is a light afternoon or evening meal in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A golf clubhouse refreshment between rounds.",
+     "walkthrough": "Putting is golf, not placing: the putting green.",
+     "definitionFit": "Green tea is unfermented tea from China and Japan, a hot beverage brewed from leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "putting"
+    }
+   }
   }
  ]
 }

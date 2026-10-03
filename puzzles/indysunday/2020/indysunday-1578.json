@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Principal traitors stand up",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Principal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stand up",
+      "for": "reversal",
+      "note": "in a down entry, standing something up turns it upside down, so the word is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traitors",
+      "gives": "RATS",
+      "note": "rats are informal for people who betray their friends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ],
+     "reversals": [
+      {
+       "from": "RATS",
+       "to": "STAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The leading traitors in a plot are told to rise to their feet.",
+     "walkthrough": "'Principal traitors' looks like one phrase, but Principal is the definition on its own.",
+     "definitionFit": "A star is the leading performer in a cast, and principal as a noun means that main player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Principal"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,61 @@
     "text": "Ron and I fret about marches",
     "enumeration": "8"
    },
-   "solution": "FRONTIER"
+   "solution": "FRONTIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRONTIER",
+    "definitions": [
+     {
+      "text": "marches",
+      "at": 21,
+      "note": "plural noun; the answer is singular"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests the letters are turned around and moved into a different order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ron",
+      "gives": "RON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I fret",
+      "gives": "IFRET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RONIFRET",
+       "gives": "FRONTIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two friends worry over some protest marches.",
+     "walkthrough": "Marches looks like a verb or a protest, but it is the old word for border regions, as in the Welsh Marches.",
+     "definitionFit": "Marches are borderlands between territories, so a frontier, the edge of a country, is the same idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "marches"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +171,42 @@
      }
     ]
    },
-   "solution": "INTIME"
+   "solution": "INTIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN TIME",
+    "definitions": [
+     {
+      "text": "Eventually",
+      "at": 0
+     },
+     {
+      "text": "keeping rhythm",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eventually",
+      "note": "first meaning: sooner or later, given long enough"
+     },
+     {
+      "clueFragment": "keeping rhythm",
+      "note": "second meaning: playing to the beat in music"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two-word phrase works both as 'in due course' and as 'on the beat'.",
+     "definitionFit": "The phrase means both 'after enough delay' and 'matching the tempo of the music', two separate idioms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +220,62 @@
     "text": "Tool I removed from top of saddle bag",
     "enumeration": "7"
    },
-   "solution": "SPANNER"
+   "solution": "SPANNER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPANNER",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "removed from",
+      "for": "deletion",
+      "note": "removed from tells you to take the lone letter I out of what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saddle",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of saddle"
+     },
+     {
+      "clueFragment": "bag",
+      "gives": "PANNIER",
+      "note": "a pannier is a bag slung over a bicycle or a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PANNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rider takes a tool out of the bag that hangs from the saddle.",
+     "walkthrough": "The pronoun I is the letter to drop from the bag word, leaving the answer.",
+     "definitionFit": "A spanner is the British name for a wrench, a hand tool for turning nuts and bolts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +289,44 @@
     "text": "Weapons maker, one who did time with mutineer",
     "enumeration": "8"
    },
-   "solution": "FLETCHER"
+   "solution": "FLETCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLETCHER",
+    "definitions": [
+     {
+      "text": "Weapons maker",
+      "at": 0
+     },
+     {
+      "text": "one who did time with mutineer",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weapons maker",
+      "note": "first meaning: a craftsman who makes arrows"
+     },
+     {
+      "clueFragment": "one who did time with mutineer",
+      "note": "second meaning: a surname shared by a famous prison inmate and a famous mutineer"
+     }
+    ],
+    "explanation": {
+     "surface": "An arms manufacturer once served a prison sentence alongside a rebel sailor.",
+     "walkthrough": "Norman Stanley Fletcher is the jailbird hero of the British sitcom Porridge; Fletcher Christian led the mutiny on the Bounty.",
+     "definitionFit": "The word names an arrow maker, and it is also the name borne by a fictional convict and a real naval rebel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +340,62 @@
     "text": "Viscount Greystoke spotted in Gibraltar and Zanzibar",
     "enumeration": "6"
    },
-   "solution": "TARZAN"
+   "solution": "TARZAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TARZAN",
+    "definitions": [
+     {
+      "text": "Viscount Greystoke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "letter_selection",
+      "note": "something spotted in a place is seen sitting inside it, so look within each place name for a short run of letters"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and joins the two finds so the second follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gibraltar",
+      "gives": "TAR",
+      "select": "last",
+      "note": "the closing three letters of the first place name"
+     },
+     {
+      "clueFragment": "Zanzibar",
+      "gives": "ZAN",
+      "select": "first",
+      "note": "the opening three letters of the second place name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "ZAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A British aristocrat has been sighted on a trip to Gibraltar and Zanzibar.",
+     "walkthrough": "The answer is not one continuous run of letters: a piece is found in each place and the two are joined.",
+     "definitionFit": "In Edgar Rice Burroughs's novels the ape-raised hero is by birth John Clayton, Viscount Greystoke, so the title identifies him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +409,57 @@
     "text": "Plant by river in marshland",
     "enumeration": "4"
    },
-   "solution": "FERN"
+   "solution": "FERN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FERN",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the river letter inside the marshland word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshland",
+      "gives": "FEN",
+      "note": "a fen is low, wet, marshy ground"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Something growing beside a stream that runs through the marshes.",
+     "definitionFit": "A fern is a green, leafy, non-flowering species of vegetation, so it is one kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +473,65 @@
     "text": "Teacher pinching student's rear creates excitement",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "excitement",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear",
+      "for": "letter_selection",
+      "note": "the rear of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "pinching means grabbing and holding, so the teacher word wraps round what follows"
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teacher",
+      "gives": "SIR",
+      "note": "pupils in British schools address a male teacher as Sir"
+     },
+     {
+      "clueFragment": "student's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of student, before the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "IR"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolmaster who pinches a pupil's bottom causes a scandal.",
+     "definitionFit": "A stir is a commotion or a flurry of public excitement, as in 'the news caused quite a stir'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +545,48 @@
     "text": "Oddly overlooked untemptable state",
     "enumeration": "5"
    },
-   "solution": "NEPAL"
+   "solution": "NEPAL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NEPAL",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly overlooked",
+      "for": "letter_selection",
+      "note": "if the odd-numbered positions are ignored, only the even-numbered ones remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "untemptable",
+      "gives": "NEPAL",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEPAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A country whose people cannot be tempted is strangely ignored.",
+     "definitionFit": "Nepal is a sovereign Himalayan country, and state is used here in the sense of a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +606,57 @@
      }
     ]
    },
-   "solution": "AGED"
+   "solution": "AGED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGED",
+    "definitions": [
+     {
+      "text": "One Foot in the Grave",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "the priest letter goes away, leaving the rest of the called word behind"
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Called",
+      "gives": "PAGED",
+      "note": "paged means summoned someone over a speaker or a pager"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "P is an abbreviation for priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGED"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar was summoned to watch a British TV comedy.",
+     "walkthrough": "One Foot in the Grave was a popular BBC sitcom about a grumpy pensioner; the setter uses the idiom it is named after.",
+     "definitionFit": "Someone with one foot in the grave is close to death from great age, so very old and elderly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +670,62 @@
     "text": "Britain to oversee East Indian country",
     "enumeration": "6"
    },
-   "solution": "BRUNEI"
+   "solution": "BRUNEI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRUNEI",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "B is an abbreviation for Britain or British"
+     },
+     {
+      "clueFragment": "oversee",
+      "gives": "RUN",
+      "note": "to run an operation is to manage or oversee it"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the compass abbreviation"
+     },
+     {
+      "clueFragment": "Indian",
+      "gives": "I",
+      "note": "I is an abbreviation for India or Indian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUN",
+      "E",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Britain is to supervise an Asian nation in the East.",
+     "walkthrough": "'East Indian country' reads as one phrase, and Brunei is indeed in the East Indies, but only the last word defines.",
+     "definitionFit": "Brunei is a small sultanate on the island of Borneo, an independent nation in South-East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indian"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +739,74 @@
     "text": "Bloggers maybe unusually intense about Zionist leader",
     "enumeration": "8"
    },
-   "solution": "NETIZENS"
+   "solution": "NETIZENS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NETIZENS",
+    "definitions": [
+     {
+      "text": "Bloggers maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually says the letters are not in their usual order"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the shuffled letters go round the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intense",
+      "gives": "INTENSE",
+      "note": "taken as written, then reordered"
+     },
+     {
+      "clueFragment": "Zionist",
+      "gives": "Z",
+      "select": "first",
+      "note": "the opening letter of Zionist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NETI",
+      "Z",
+      "ENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTENSE",
+       "gives": "NETIENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Online writers can get strangely heated over a Zionist figurehead.",
+     "walkthrough": "'maybe' marks bloggers as just one example of the answer.",
+     "definitionFit": "Netizens are habitual users of the internet, and people who write web logs are one example of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +820,64 @@
     "text": "Indian that is acquiring information for native",
     "enumeration": "8"
    },
-   "solution": "INDIGENE"
+   "solution": "INDIGENE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INDIGENE",
+    "definitions": [
+     {
+      "text": "native",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquiring",
+      "for": "container",
+      "note": "acquiring means taking in, so the abbreviation for that is holds the next word inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian",
+      "gives": "IND",
+      "note": "Ind. is an abbreviation for Indian"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin abbreviation, id est"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IND",
+      "I",
+      "GEN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian person picks up some facts about a local.",
+     "definitionFit": "An indigene is an original inhabitant of a place, someone born there and so a native of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indian"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +891,53 @@
     "text": "Specialist form of taxation that man supports",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "Specialist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue the supporting piece sits below, so the pronoun comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "form of taxation",
+      "gives": "NIC",
+      "note": "NIC is National Insurance Contributions, the UK payroll tax for state benefits"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "the pronoun for a man already mentioned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert kind of tax is paid for by a particular man.",
+     "definitionFit": "Niche as an adjective describes a product or interest aimed at a small, specialised market."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +951,55 @@
     "text": "Reputable home for prostitute?",
     "enumeration": "6"
    },
-   "solution": "HONEST"
+   "solution": "HONEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HONEST",
+    "definitions": [
+     {
+      "text": "Reputable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "charade",
+      "note": "a home for someone belongs to them, so the person comes first, then the dwelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prostitute",
+      "gives": "HO",
+      "note": "ho is American slang for a prostitute"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a cosy home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "NEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A respectable residence for a sex worker?",
+     "walkthrough": "The question mark flags the irony of a brothel being called respectable.",
+     "definitionFit": "Honest and reputable both describe someone trustworthy, of good character and standing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1013,45 @@
     "text": "Rescues southern birds",
     "enumeration": "5"
    },
-   "solution": "SAVES"
+   "solution": "SAVES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAVES",
+    "definitions": [
+     {
+      "text": "Rescues",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "AVES",
+      "note": "Aves is the Latin name of the biological class of birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saves birds from the south.",
+     "definitionFit": "To save someone is to rescue them from danger; both verbs here are third person singular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1065,64 @@
     "text": "Small red wine lecturer replaced with another red",
     "enumeration": "7"
    },
-   "solution": "SCARLET"
+   "solution": "SCARLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SCARLET",
+    "definitions": [
+     {
+      "text": "another red",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "replaced means put in a different place, so the lecturer letter shifts position"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothes labels"
+     },
+     {
+      "clueFragment": "red wine lecturer",
+      "gives": "CLARET",
+      "note": "claret is red Bordeaux wine, and L for lecturer is one of its letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CARLET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLARET",
+       "gives": "CARLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A modest glass of red wine is swapped for another kind of red.",
+     "walkthrough": "Only the L inside the wine moves: lecturer is L, and it shifts two places along.",
+     "definitionFit": "Scarlet is a vivid shade of red, so it is a different red from the colour of claret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lecturer"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1136,50 @@
     "text": "First design of ateliers",
     "enumeration": "8"
    },
-   "solution": "EARLIEST"
+   "solution": "EARLIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARLIEST",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "design of",
+      "for": "anagram",
+      "note": "a design is a new pattern made out of the material that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ateliers",
+      "gives": "ATELIERS",
+      "note": "taken as written; ateliers are artists' workshops"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATELIERS",
+       "gives": "EARLIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The original pattern from the artists' studios.",
+     "definitionFit": "Earliest means happening before all the others in time, so the very first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1193,54 @@
     "text": "Sussex heir holds five records",
     "enumeration": "7"
    },
-   "solution": "ARCHIVE"
+   "solution": "ARCHIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCHIVE",
+    "definitions": [
+     {
+      "text": "records",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "the heir holds the number inside his name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sussex heir",
+      "gives": "ARCHIE",
+      "note": "Archie is the elder son and heir of the Duke of Sussex, Prince Harry"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCHI",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A young aristocrat keeps a handful of documents.",
+     "definitionFit": "An archive is a collection of historical documents and records, so the two nouns match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sussex"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1260,58 @@
      }
     ]
    },
-   "solution": "HEATRASH"
+   "solution": "HEATRASH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HEAT RASH",
+    "definitions": [
+     {
+      "text": "source of irritation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is lost"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "HEAR",
+      "note": "a judge hears or tries a case in court"
+     },
+     {
+      "clueFragment": "pour scorn on",
+      "gives": "TRASH",
+      "note": "to trash something is to criticise it harshly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "TRASH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to mock something that has been annoying you, quickly.",
+     "definitionFit": "Heat rash is an itchy skin eruption caused by sweating, a literal cause of skin irritation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1325,54 @@
     "text": "Twisted view held by doctor",
     "enumeration": "7"
    },
-   "solution": "MANGLED"
+   "solution": "MANGLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANGLED",
+    "definitions": [
+     {
+      "text": "Twisted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "the view word is held inside the doctor abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MD",
+      "note": "MD is Doctor of Medicine"
+     },
+     {
+      "clueFragment": "view",
+      "gives": "ANGLE",
+      "note": "an angle is a point of view on a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ANGLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor holds a warped opinion.",
+     "definitionFit": "Mangled means crushed, distorted or bent out of shape, so twisted in a damaged way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "view"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1386,54 @@
     "text": "Metal safe stores whiskey",
     "enumeration": "6"
    },
-   "solution": "PEWTER"
+   "solution": "PEWTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEWTER",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stores",
+      "for": "container",
+      "note": "a safe stores its contents inside, so the drink letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe",
+      "gives": "PETER",
+      "note": "peter is old British criminal slang for a safe"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "Whiskey is the NATO phonetic alphabet word for W"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "W",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A steel strongbox keeps bottles of whiskey in it.",
+     "definitionFit": "Pewter is a grey alloy, mostly tin, used for tankards and plates, so a kind of metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1447,59 @@
     "text": "Set off starters of escargots and shallots with stomach linings",
     "enumeration": "6"
    },
-   "solution": "TRIPES"
+   "solution": "TRIPES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRIPES",
+    "definitions": [
+     {
+      "text": "stomach linings",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starters of",
+      "for": "letter_selection",
+      "note": "starters are what come first, so take each opening letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set off",
+      "gives": "TRIP",
+      "note": "to trip an alarm is to set it off"
+     },
+     {
+      "clueFragment": "escargots and shallots",
+      "gives": "ES",
+      "select": "first",
+      "note": "the opening letters of the two foods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu of snail and shallot starters is served with offal.",
+     "definitionFit": "Tripe is the edible lining of a cow's or sheep's stomach, here in the plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1513,46 @@
     "text": "Review approved pay increase for Trump",
     "enumeration": "8"
    },
-   "solution": "APPRAISE"
+   "solution": "APPRAISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPRAISE",
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "approved",
+      "gives": "APP",
+      "note": "app. is an abbreviation for approved"
+     },
+     {
+      "clueFragment": "pay increase for Trump",
+      "gives": "RAISE",
+      "note": "Americans like Trump call a pay increase a raise; British English says rise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "RAISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reviews a salary bump that was signed off for the US president.",
+     "definitionFit": "To appraise is to assess or evaluate something, which is what a review does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1566,53 @@
     "text": "Powerful drug supported by hospital department",
     "enumeration": "6"
    },
-   "solution": "POTENT"
+   "solution": "POTENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTENT",
+    "definitions": [
+     {
+      "text": "Powerful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue what supports sits underneath, so the department follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is ear, nose and throat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A strong medicine is backed by a hospital unit.",
+     "definitionFit": "Potent means having great strength or force, the same as powerful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drug"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1626,52 @@
     "text": "Aim in good teaching",
     "enumeration": "8"
    },
-   "solution": "TRAINING"
+   "solution": "TRAINING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAINING",
+    "definitions": [
+     {
+      "text": "teaching",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aim",
+      "gives": "TRAIN",
+      "note": "to train a gun on a target is to aim it"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAIN",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A target to strive for in sound education.",
+     "definitionFit": "Training is instruction given to develop a skill, so teaching in a practical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Aim"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1685,43 @@
     "text": "Sound of biting scream",
     "enumeration": "4"
    },
-   "solution": "ROAR"
+   "solution": "ROAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROAR",
+    "definitions": [
+     {
+      "text": "scream",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "sound of means we want what the word sounds like when said, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biting",
+      "gives": "ROAR",
+      "soundsLike": "RAW",
+      "note": "a raw wind is bitingly cold; in a British accent the two words sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "The noise of someone being bitten makes them yell.",
+     "definitionFit": "A roar is a loud, deep shout, and a scream is likewise a loud cry, so the two overlap as nouns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1735,57 @@
     "text": "Time to shoot head off reptile",
     "enumeration": "6"
    },
-   "solution": "TURTLE"
+   "solution": "TURTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TURTLE",
+    "definitions": [
+     {
+      "text": "reptile",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head off",
+      "for": "deletion",
+      "note": "taking the head off means the opening letter of shoot's synonym is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "shoot",
+      "gives": "HURTLE",
+      "note": "to shoot along is to hurtle, moving very fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "URTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter decides it is the moment to decapitate a lizard with a gun.",
+     "definitionFit": "A turtle is a shelled reptile, mostly living in water, so an example of the reptile class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shoot"
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1799,47 @@
     "text": "Money for NYPD officer?",
     "enumeration": "4"
    },
-   "solution": "LOOT"
+   "solution": "LOOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOT",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     },
+     {
+      "text": "NYPD officer?",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "note": "first meaning: slang for cash, especially stolen cash"
+     },
+     {
+      "clueFragment": "NYPD officer?",
+      "note": "second meaning: American slang for a lieutenant, from how Lieut. is pronounced"
+     }
+    ],
+    "explanation": {
+     "surface": "A bribe paid to a New York cop.",
+     "walkthrough": "The question mark flags the slangy second sense: US speakers say lieutenant with an 'oo', so a police lieutenant becomes a short nickname.",
+     "definitionFit": "The word means cash in slang and is also the clipped American pronunciation for a lieutenant in the police."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 30,
@@ -457,7 +1853,48 @@
     "text": "Cook returns from week abroad",
     "enumeration": "4"
    },
-   "solution": "BAKE"
+   "solution": "BAKE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BAKE",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken straight out of the words that follow"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "week abroad",
+      "gives": "EKAB",
+      "note": "the end of week and the start of abroad"
+     }
+    ],
+    "explanation": {
+     "surface": "A chef comes home after seven days overseas.",
+     "definitionFit": "To bake is to cook food with dry heat in an oven, one particular way of cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 31,
@@ -471,7 +1908,56 @@
     "text": "Fifth Beatle drops off record for Gertrude?",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "Gertrude?",
+      "at": 34,
+      "note": "a definition by example: the answer is a surname, flagged by the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops off",
+      "for": "deletion",
+      "note": "dropping something off means leaving it behind, so those letters are shed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifth Beatle",
+      "gives": "EPSTEIN",
+      "note": "Brian Epstein, the band's manager, is often called the fifth Beatle"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop manager leaves a recording with a woman named Gertrude.",
+     "definitionFit": "Gertrude Stein was the American modernist writer, so her surname completes the first name given."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fifth"
+    }
+   }
   },
   {
    "number": 32,
@@ -485,7 +1971,51 @@
     "text": "Leaders of Senate have ordered witness to appear",
     "enumeration": "4"
    },
-   "solution": "SHOW"
+   "solution": "SHOW",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SHOW",
+    "definitions": [
+     {
+      "text": "appear",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so take each opening letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senate have ordered witness",
+      "gives": "SHOW",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Senate leaders subpoena someone to testify at a hearing.",
+     "definitionFit": "To show, as in 'he never showed', is informal for turning up or arriving somewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "witness"
+    }
+   }
   }
  ]
 }

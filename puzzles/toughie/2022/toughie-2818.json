@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Hot meal returning minister consumed",
     "enumeration": "7"
    },
-   "solution": "FEVERED"
+   "solution": "FEVERED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FEVERED",
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means coming back the other way, so the word for minister is read from right to left"
+     },
+     {
+      "text": "consumed",
+      "for": "container",
+      "note": "what is consumed ends up inside the eater, so the minister goes inside the meal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "FEED",
+      "note": "a feed is an informal word for a meal"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "REV",
+      "note": "REV is short for Reverend, a minister of religion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "VER",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman finishes off a hot meal on his way back.",
+     "walkthrough": "'Hot' sits beside 'meal' as if describing the food, but it stands alone as the definition.",
+     "definitionFit": "Someone running a high temperature is fevered, so the adjective describes a body that is unusually warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hot"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,53 @@
     "text": "Fool is amusing or confused",
     "enumeration": "9"
    },
-   "solution": "IGNORAMUS"
+   "solution": "IGNORAMUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORAMUS",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are muddled up, so the preceding words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusing or",
+      "gives": "AMUSINGOR",
+      "note": "the letters of these two words, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMUSINGOR",
+       "gives": "IGNORAMUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joker's act is entertaining, or perhaps just baffling.",
+     "definitionFit": "An ignoramus is an ignorant, stupid person, which is what calling someone a fool means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amusing"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +170,62 @@
     "text": "Long church feature follows start of Advent",
     "enumeration": "6"
    },
-   "solution": "ASPIRE"
+   "solution": "ASPIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASPIRE",
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only the first letter of Advent is used"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows places the church feature after the other piece in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advent",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Advent"
+     },
+     {
+      "clueFragment": "church feature",
+      "gives": "SPIRE",
+      "note": "a spire is the tall pointed structure on top of a church tower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall church steeple comes after the beginning of the season before Christmas.",
+     "walkthrough": "'Long' looks like an adjective describing the church feature, but it is the verb meaning to yearn.",
+     "definitionFit": "To aspire is to have an ambition or strong desire for something, the same as yearning or wishing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +239,61 @@
     "text": "Make secret arrangement on condition that secrecy's ending",
     "enumeration": "8"
    },
-   "solution": "CLASSIFY"
+   "solution": "CLASSIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLASSIFY",
+    "definitions": [
+     {
+      "text": "Make secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only the last letter of secrecy's is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrangement",
+      "gives": "CLASS",
+      "note": "a class is an arrangement or grouping by category"
+     },
+     {
+      "clueFragment": "on condition that",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     },
+     {
+      "clueFragment": "secrecy's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of secrecy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASS",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A government plans to hide documents now that the old confidentiality has lapsed.",
+     "definitionFit": "To classify a document is to restrict it officially as confidential, keeping it from public view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +313,39 @@
      }
     ]
    },
-   "solution": "COMMUNITYSPIRIT"
+   "solution": "COMMUNITYSPIRIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COMMUNITY SPIRIT",
+    "definitions": [
+     {
+      "text": "Fellow feeling when bottle passed around?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow feeling",
+      "note": "surface reading: the sense of togetherness and shared goodwill in a group"
+     },
+     {
+      "clueFragment": "bottle passed around?",
+      "note": "setter's reading: a bottle of whisky or gin shared by everyone is drink held in common by the group"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Spirit is both the alcohol in the bottle and a mood; when a whole group shares a bottle, the liquor itself belongs to everyone.",
+     "definitionFit": "The phrase means a feeling of solidarity and mutual support among members of a neighbourhood or group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +359,76 @@
     "text": "A jerk holding uplifting tune is doubtful",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "AGNOSTIC",
+    "definitions": [
+     {
+      "text": "doubtful",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down clue, lifting up means reading from the bottom upwards, so the tune is written backwards"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so the jerk with A wraps round the tune"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "SONG",
+      "note": "a song is a tune"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary jerk or twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GNOS",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "SONG",
+       "to": "GNOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a twitch hums a cheerful melody but is unsure of themself.",
+     "walkthrough": "In a down clue the reversal reads upwards; the tune slots between A and the jerk.",
+     "definitionFit": "An agnostic is uncertain whether a god exists, so the word describes someone unsure or sceptical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uplifting"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +442,53 @@
     "text": "Spoils old wines in bags",
     "enumeration": "5"
    },
-   "solution": "SACKS"
+   "solution": "SACKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SACKS",
+    "definitions": [
+     {
+      "text": "Spoils",
+      "at": 0
+     },
+     {
+      "text": "old wines",
+      "at": 7
+     },
+     {
+      "text": "bags",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoils",
+      "note": "first meaning: plunders a captured town"
+     },
+     {
+      "clueFragment": "old wines",
+      "note": "second meaning: sack was a dry white wine from Spain and the Canaries, popular in Shakespeare's day"
+     },
+     {
+      "clueFragment": "bags",
+      "note": "third meaning: large coarse bags for storing goods"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This is really a triple definition: one short word fits all three senses.",
+     "definitionFit": "The word is a verb for pillaging, a plural of the archaic fortified wine, and a plural noun for big bags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoils"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +502,55 @@
     "text": "Game about newspaper shambles",
     "enumeration": "7"
    },
-   "solution": "FARRAGO"
+   "solution": "FARRAGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FARRAGO",
+    "definitions": [
+     {
+      "text": "shambles",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the game is placed around the newspaper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "FARO",
+      "note": "faro is an old card game for gamblers"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a low-quality newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "RAG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports match is surrounded by a tabloid's chaotic coverage.",
+     "walkthrough": "Faro was a gambling card game popular in the eighteenth and nineteenth centuries; rag is a dismissive word for a cheap newspaper.",
+     "definitionFit": "A farrago is a confused jumble or muddle, the same kind of disorderly mess a shambles is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +564,52 @@
     "text": "Pulp singer is number one",
     "enumeration": "6"
    },
-   "solution": "REIGNS"
+   "solution": "REIGNS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REIGNS",
+    "definitions": [
+     {
+      "text": "is number one",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pulp",
+      "for": "anagram",
+      "note": "to pulp something is to mash it up, so the following word is mangled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "SINGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGER",
+       "gives": "REIGNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The frontman of the band Pulp tops the charts.",
+     "walkthrough": "Pulp was a 1990s Britpop band fronted by Jarvis Cocker, so 'Pulp singer' reads as one phrase; split it.",
+     "definitionFit": "Someone who reigns rules as monarch or dominates a field, holding the top position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pulp"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +623,55 @@
     "text": "Chap I heal in treatment",
     "enumeration": "8"
    },
-   "solution": "MANICURE"
+   "solution": "MANICURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANICURE",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "heal",
+      "gives": "CURE",
+      "note": "to cure is to heal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "I",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man boasts that he restores patients to health through his therapy.",
+     "definitionFit": "A manicure is a cosmetic care session for the hands and nails, a kind of beauty therapy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heal"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +685,72 @@
     "text": "Corrupt top men accommodating one son?",
     "enumeration": "8"
    },
-   "solution": "NEPOTISM"
+   "solution": "NEPOTISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "NEPOTISM",
+    "definitions": [
+     {
+      "text": "Corrupt top men accommodating one son?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Corrupt",
+      "for": "anagram",
+      "note": "corrupt means distorted, so the letters of the words that follow are jumbled"
+     },
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means giving room to, so one son is housed inside the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top men",
+      "gives": "TOPMEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEPOT",
+      "IS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOPMEN",
+       "gives": "NEPOTM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crooked bosses find a job for a boy of their own.",
+     "walkthrough": "The whole clue is both wordplay and definition: corrupt bosses making room for a son is exactly what the answer describes.",
+     "definitionFit": "Nepotism is favouritism shown by people in power to relatives, typically by giving them jobs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +764,49 @@
     "text": "Elite soldiers dance and walk ostentatiously",
     "enumeration": "6"
    },
-   "solution": "SASHAY"
+   "solution": "SASHAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SASHAY",
+    "definitions": [
+     {
+      "text": "walk ostentatiously",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite soldiers",
+      "gives": "SAS",
+      "note": "the SAS, the Special Air Service, is Britain's elite special forces regiment"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "HAY",
+      "note": "a hay is an old country dance with interweaving figures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAS",
+      "HAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Special forces troops perform a jig and then strut about.",
+     "definitionFit": "To sashay is to walk in a showy, swaggering way with the hips swinging, parading oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +820,62 @@
     "text": "Prison holds Parisian and outstanding sea creature",
     "enumeration": "8"
    },
-   "solution": "CETACEAN"
+   "solution": "CETACEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CETACEAN",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "holds means keeps within, so the prison word surrounds the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prison",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     },
+     {
+      "clueFragment": "Parisian and",
+      "gives": "ET",
+      "note": "et is French for and"
+     },
+     {
+      "clueFragment": "outstanding",
+      "gives": "ACE",
+      "note": "ace means excellent or outstanding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ET",
+      "ACE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A jail contains a Frenchman and a remarkable marine animal.",
+     "walkthrough": "A Parisian's 'and' is the French word, a common crossword device for foreign words.",
+     "definitionFit": "A cetacean is any member of the order of marine mammals that includes whales, dolphins and porpoises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +895,55 @@
      }
     ]
    },
-   "solution": "IDIOTBOX"
+   "solution": "IDIOTBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDIOT BOX",
+    "definitions": [
+     {
+      "text": "Set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the first piece ahead of the second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ass",
+      "gives": "IDIOT",
+      "note": "an ass is a fool or idiot"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "BOX",
+      "note": "box is a small evergreen tree used in hedging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDIOT",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A donkey is tethered in front of a tree.",
+     "walkthrough": "'Set' looks like a verb, but it is the noun: a television set.",
+     "definitionFit": "Idiot box is a disparaging slang term for a television, and a TV is commonly called a set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +957,61 @@
     "text": "In gallery, I cultivate tease",
     "enumeration": "9"
    },
-   "solution": "TITILLATE"
+   "solution": "TITILLATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TITILLATE",
+    "definitions": [
+     {
+      "text": "tease",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In places the words that follow inside the gallery name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is a group of famous London art galleries"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cultivate",
+      "gives": "TILL",
+      "note": "to till soil is to cultivate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "TILL",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist at a gallery tends an installation designed to provoke visitors.",
+     "walkthrough": "'Cultivate' looks like the gallery's activity, but it supplies a farming word for working the soil.",
+     "definitionFit": "To titillate is to excite or arouse someone playfully, which is what teasing does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivate"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1025,48 @@
     "text": "Pinch compact vehicle",
     "enumeration": "8"
    },
-   "solution": "HARDSHIP"
+   "solution": "HARDSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARDSHIP",
+    "definitions": [
+     {
+      "text": "Pinch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compact",
+      "gives": "HARD",
+      "note": "compact means solid and firm, as hard is"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "SHIP",
+      "note": "a ship is a vessel for carrying people and goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "SHIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone steals a small car.",
+     "walkthrough": "'Pinch' suggests stealing and 'compact vehicle' a small car, but the definition means a time of want.",
+     "definitionFit": "Feeling the pinch means suffering financial difficulty, so a pinch is a time of privation or need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pinch"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1080,66 @@
     "text": "Agent left out of initial crushing failure",
     "enumeration": "8"
    },
-   "solution": "EMISSARY"
+   "solution": "EMISSARY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EMISSARY",
+    "definitions": [
+     {
+      "text": "Agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of here means removed from, so the letter for left is taken away"
+     },
+     {
+      "text": "crushing",
+      "for": "container",
+      "note": "crushing means squeezing from all sides, so what remains of initial wraps round the failure"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initial",
+      "gives": "EARLY",
+      "note": "initial and early both mean coming at the start"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "failure",
+      "gives": "MISS",
+      "note": "a miss is a failure to hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MISS",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret agent withdraws after an early disastrous mission.",
+     "walkthrough": "EARLY without its L is EARY, which then surrounds MISS: E-MISS-ARY.",
+     "definitionFit": "An emissary is a person sent on a mission to represent someone else, which is what an agent does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushing"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1153,53 @@
     "text": "Soprano perhaps held up by virtuoso, if ambitious",
     "enumeration": "7"
    },
-   "solution": "MAFIOSO"
+   "solution": "MAFIOSO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MAFIOSO",
+    "definitions": [
+     {
+      "text": "Soprano perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "hidden_word",
+      "note": "held means contained, so the answer is found inside a run of the clue's words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtuoso, if ambitious",
+      "gives": "OSOIFAM",
+      "note": "the letters spanning the end of virtuoso, all of if, and the start of ambitious"
+     }
+    ],
+    "explanation": {
+     "surface": "An opera singer is backed by a brilliant, ambitious performer.",
+     "walkthrough": "Soprano looks like a singer, but Tony Soprano is the mob boss in the TV series The Sopranos.",
+     "definitionFit": "Tony Soprano is a fictional gangster, an example of a member of the Mafia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Soprano"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1213,52 @@
     "text": "Professional looking after canine tends it badly",
     "enumeration": "7"
    },
-   "solution": "DENTIST"
+   "solution": "DENTIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DENTIST",
+    "definitions": [
+     {
+      "text": "Professional looking after canine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly means done wrongly, so the letters of the phrase are put in a wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tends it",
+      "gives": "TENDSIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENDSIT",
+       "gives": "DENTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog-sitter does the job poorly.",
+     "walkthrough": "'Canine' suggests a dog, but it is a canine tooth.",
+     "definitionFit": "A dentist is a qualified practitioner who cares for teeth, including the pointed canine ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "canine"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1272,59 @@
     "text": "Mixed spice pieces in sample",
     "enumeration": "8"
    },
-   "solution": "SPECIMEN"
+   "solution": "SPECIMEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SPECIMEN",
+    "definitions": [
+     {
+      "text": "sample",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixed",
+      "for": "anagram",
+      "note": "mixed means stirred together, so the letters of the two words are blended into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spice",
+      "gives": "SPICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pieces",
+      "gives": "MEN",
+      "note": "chess pieces are called men"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPICEMEN",
+       "gives": "SPECIMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blend of seasoning is portioned out for tasting.",
+     "definitionFit": "A specimen is an individual example taken for testing or display, the same as a sample."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1338,60 @@
     "text": "Use stratagem to tail half of them",
     "enumeration": "6"
    },
-   "solution": "EMPLOY"
+   "solution": "EMPLOY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMPLOY",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a four-letter word is two of its letters, here the back pair"
+     },
+     {
+      "text": "to tail",
+      "for": "charade",
+      "note": "to tail is to follow behind, so the stratagem comes after the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "them",
+      "gives": "EM",
+      "select": "last",
+      "note": "the second half of them"
+     },
+     {
+      "clueFragment": "stratagem",
+      "gives": "PLOY",
+      "note": "a ploy is a cunning plan or stratagem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PLOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A trick is used to follow some of the suspects.",
+     "definitionFit": "To employ something is to make use of it, as in employing a tool or method."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1405,56 @@
     "text": "Hurt and kill twice",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFEND",
+    "definitions": [
+     {
+      "text": "Hurt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twice",
+      "for": "charade",
+      "note": "twice tells the solver to use the word kill two times, with different synonyms each time"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill",
+      "gives": "OFF",
+      "note": "to off someone is slang for murdering them"
+     },
+     {
+      "clueFragment": "kill",
+      "gives": "END",
+      "note": "to end a life is to kill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "An attacker wounds a victim and then murders again.",
+     "definitionFit": "To offend is to upset or wound someone's feelings, causing emotional pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hurt"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1468,47 @@
     "text": "Online opening for festival, maybe?",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "festival, maybe",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Online",
+      "gives": "E",
+      "note": "E as in e-mail or e-commerce stands for electronic, online"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "VENT",
+      "note": "a vent is an opening that lets air or gas out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A website launch for an arts festival.",
+     "walkthrough": "The question mark shows that a festival is only an example of the answer.",
+     "definitionFit": "A festival is one kind of organised occasion, an example of a public happening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1522,61 @@
     "text": "Rude urchin beginning to oppose diet",
     "enumeration": "8"
    },
-   "solution": "IMPOLITE"
+   "solution": "IMPOLITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPOLITE",
+    "definitions": [
+     {
+      "text": "Rude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only the opening letter of oppose is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urchin",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child, an urchin"
+     },
+     {
+      "clueFragment": "oppose",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of oppose"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "LITE",
+      "note": "lite describes reduced-calorie diet food or drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "O",
+      "LITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky street kid starts resisting being put on a slimming regime.",
+     "definitionFit": "Impolite means lacking good manners, showing discourtesy toward others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1590,46 @@
     "text": "Combined to win that woman",
     "enumeration": "8"
    },
-   "solution": "TOGETHER"
+   "solution": "TOGETHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOGETHER",
+    "definitions": [
+     {
+      "text": "Combined",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to win",
+      "gives": "TOGET",
+      "note": "to get a prize is to win it"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOGET",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor's aim is to win over a particular lady.",
+     "definitionFit": "Together describes things joined as one unit, acting jointly in union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "win"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1643,64 @@
     "text": "Award over tooth, shortened and dull",
     "enumeration": "6"
    },
-   "solution": "OBTUSE"
+   "solution": "OBTUSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OBTUSE",
+    "definitions": [
+     {
+      "text": "dull",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "shortened means cut down, so the tooth word loses its final letter"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering all round, so the award encloses the tooth"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Award",
+      "gives": "OBE",
+      "note": "the OBE, Officer of the Order of the British Empire, is a British honour"
+     },
+     {
+      "clueFragment": "tooth",
+      "gives": "TUSK",
+      "note": "a tusk is a long protruding tooth, as on an elephant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "TUS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An honour is given for an elephant's ivory, cut short and boring.",
+     "walkthrough": "'Over' usually means placed above, but here the award wraps around the shortened tooth.",
+     "definitionFit": "Obtuse means slow to understand, the same as dim-witted, as dull can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1720,66 @@
      }
     ]
    },
-   "solution": "SOFTSPOT"
+   "solution": "SOFTSPOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SOFT SPOT",
+    "definitions": [
+     {
+      "text": "affection",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "western",
+      "for": "reversal",
+      "note": "in an across clue, westward means right to left, so the word for covers runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     },
+     {
+      "clueFragment": "covers",
+      "gives": "TOPS",
+      "note": "tops are lids or covers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "FT",
+      "SPOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOPS",
+       "to": "SPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper reports on a fondness for the West in this way.",
+     "definitionFit": "Having a soft spot for someone means a fondness or particular liking for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   }
  ]
 }

@@ -24,6 +24,9 @@
   "date": "2017-06-26",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Managed to have a few almost – a price to be paid",
     "enumeration": "6"
    },
-   "solution": "RANSOM"
+   "solution": "RANSOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RANSOM",
+    "definitions": [
+     {
+      "text": "a price to be paid",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all of the word, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "ran a business means managed it"
+     },
+     {
+      "clueFragment": "a few",
+      "gives": "SOME",
+      "note": "some is a vague small quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "SOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who got through only a few drinks finds there is a cost to pay afterwards.",
+     "definitionFit": "A ransom is the sum demanded for releasing a captive, literally a price that must be handed over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "few"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +104,61 @@
     "text": "Bug campaign transport carrying Bill? Wicked!",
     "enumeration": "8"
    },
-   "solution": "BACILLUS"
+   "solution": "BACILLUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BACILLUS",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vehicle carrying something holds it inside, so the transport wraps around the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "campaign transport",
+      "gives": "BUS",
+      "note": "politicians tour the country in a campaign bus"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "a bill is an account, abbreviated AC"
+     },
+     {
+      "clueFragment": "Wicked",
+      "gives": "ILL",
+      "note": "ill in the old sense of evil or wicked, as in ill deeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ACILL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of delight that the election bus is carrying someone called Bill.",
+     "walkthrough": "'Bill' looks like a person's name, but it is an account; 'Wicked!' looks like slang praise but is the old sense of evil.",
+     "definitionFit": "A bacillus is a rod-shaped bacterium, and bug is the casual word for any germ causing illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +172,44 @@
     "text": "Like May's appeal to voters; \"I can match that!\"",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Like May's appeal to voters",
+      "at": 0
+     },
+     {
+      "text": "\"I can match that!\"",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like May's appeal to voters",
+      "note": "Theresa May called a sudden, unexpected general election in 2017"
+     },
+     {
+      "clueFragment": "\"I can match that!\"",
+      "note": "the cry in the card game where players shout on seeing two matching cards"
+     }
+    ],
+    "explanation": {
+     "surface": "A heckler answers Theresa May's pitch to the electorate by claiming they can offer the same.",
+     "walkthrough": "Theresa May was the UK Prime Minister who called an early election in 2017; the card game is a children's game of spotting matching pairs.",
+     "definitionFit": "A snap election is one called suddenly, and snap is the shout made when two identical playing cards turn up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "May's"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +229,66 @@
      }
     ]
    },
-   "solution": "WELLPLACED"
+   "solution": "WELLPLACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WELL-PLACED",
+    "definitions": [
+     {
+      "text": "Being in a good position",
+      "at": 0,
+      "note": "a phrase describing a state; the answer is the matching adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a name is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Eye is going to",
+      "gives": "WELL",
+      "note": "Private Eye speaks of itself as we, so 'the Eye is going to' is we'll"
+     },
+     {
+      "clueFragment": "stand",
+      "gives": "PLACE",
+      "note": "to stand something somewhere is to place it there"
+     },
+     {
+      "clueFragment": "Donald's",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of Donald"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "PLACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Private Eye boasts it is ready to trample Donald Trump, which puts it in a strong spot.",
+     "walkthrough": "In a down clue 'on' puts one piece above the next. The apostrophe of WE'LL vanishes in the grid.",
+     "definitionFit": "Well-placed describes someone or something located advantageously, ready to act or benefit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +312,76 @@
      }
     ]
    },
-   "solution": "ODDGETUP"
+   "solution": "ODDGETUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "ODD GET-UP",
+    "definitions": [
+     {
+      "text": "bizarre habit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crooked",
+      "for": "anagram",
+      "note": "something crooked is bent out of true, so the letters of the next word are twisted into a new order"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not with a title means that title is taken away from the surname"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dodge",
+      "gives": "DODGE",
+      "note": "the word itself, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Trump",
+      "gives": "TRUMP",
+      "note": "the President's surname as written"
+     },
+     {
+      "clueFragment": "Mr",
+      "gives": "MR",
+      "note": "the title, letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODDGE",
+      "TUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DODGE",
+       "gives": "ODDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at Donald Trump's dishonest manoeuvres, sneering at him without the courtesy title.",
+     "walkthrough": "'habit' looks like a behaviour, but it is clothing, as in a nun's habit.",
+     "definitionFit": "Habit can mean costume, as a monk's habit, and a get-up is an outfit, so an odd get-up is weird clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +415,75 @@
      }
     ]
    },
-   "solution": "INNERCHILD"
+   "solution": "INNERCHILD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INNER CHILD",
+    "definitions": [
+     {
+      "text": "capacity to act immaturely",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of order, so those letters are scrambled"
+     },
+     {
+      "text": "gone",
+      "for": "deletion",
+      "note": "energy gone tells us the symbol for energy is taken out"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boozer",
+      "gives": "INN",
+      "note": "a boozer is British slang for a pub"
+     },
+     {
+      "clueFragment": "Eric held",
+      "gives": "ERICHELD",
+      "note": "the two words run together as letters to work on"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "ERCHILD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERICHLD",
+       "gives": "ERCHILD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eric, kept away from the pub and worn out, starts behaving like a sulky child.",
+     "walkthrough": "One E comes out of ERIC HELD before the rest is rearranged after INN.",
+     "definitionFit": "Your inner child is the childlike part of your personality, the side that can still behave like a youngster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Boozer"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +497,67 @@
     "text": "House annex raves about to break two May supporters?",
     "enumeration": "12"
    },
-   "solution": "CONSERVATORY"
+   "solution": "CONSERVATORY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONSERVATORY",
+    "definitions": [
+     {
+      "text": "House annex",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters turned round and moved around into a fresh order"
+     },
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "breaking into a pair of words means sitting in the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two May supporters",
+      "gives": "CONTORY",
+      "note": "Theresa May led the Conservatives, whose members are Cons and Tories"
+     },
+     {
+      "clueFragment": "raves",
+      "gives": "SERVA",
+      "note": "the letters of raves, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SERVA",
+      "TORY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAVES",
+       "gives": "SERVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sounds off about two Conservative voters, with a stray mention of a house extension.",
+     "walkthrough": "Theresa May led the UK Conservative Party, and both Con and Tory are everyday names for its members.",
+     "definitionFit": "A conservatory is a glass room built onto the side of a house, an extension or annex."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +571,54 @@
     "text": "Block housing – one grand crap place",
     "enumeration": "5"
    },
-   "solution": "IGLOO"
+   "solution": "IGLOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IGLOO",
+    "definitions": [
+     {
+      "text": "Block housing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is short for grand, a thousand pounds"
+     },
+     {
+      "clueFragment": "crap place",
+      "gives": "LOO",
+      "note": "loo is British slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "G",
+      "LOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about a council block of flats: a single expensive dump.",
+     "walkthrough": "'Block housing' looks like a tower of flats, but it is housing made of blocks of snow.",
+     "definitionFit": "An igloo is an Inuit dwelling built from cut blocks of compacted snow, so literally a house of blocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +632,55 @@
     "text": "Hardly descriptive of Donald's feverishly inspired tale",
     "enumeration": "12"
    },
-   "solution": "PRESIDENTIAL"
+   "solution": "PRESIDENTIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRESIDENTIAL",
+    "definitions": [
+     {
+      "text": "Hardly descriptive of Donald",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feverishly",
+      "for": "anagram",
+      "note": "doing something feverishly is frantic and disordered, so these letters are thrown into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspired tale",
+      "gives": "INSPIREDTALE",
+      "note": "the two words supply all twelve letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSPIREDTALE",
+       "gives": "PRESIDENTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer that Donald Trump's latest story was made up in a fever of inspiration.",
+     "walkthrough": "The 's stands for 'is', joining the definition to the wordplay. The definition is satire: the setter says the word hardly fits Trump.",
+     "definitionFit": "Presidential means dignified in the manner expected of a head of state, which the satirist says Trump is not."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +694,71 @@
     "text": "Put your foot in it, snapping \"Trump no moderate leader, sir!\"",
     "enumeration": "7"
    },
-   "solution": "STIRRUP"
+   "solution": "STIRRUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "STIRRUP",
+    "definitions": [
+     {
+      "text": "Put your foot in it",
+      "at": 0,
+      "note": "an instruction; the answer is the thing you put your foot in"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snapping",
+      "for": "anagram",
+      "note": "snapping means breaking apart, so the following letters are broken up and reassembled"
+     },
+     {
+      "text": "no moderate leader",
+      "for": "deletion",
+      "note": "no leader of moderate means its first letter is taken out of the preceding name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "TRUMP",
+      "note": "the surname as written"
+     },
+     {
+      "clueFragment": "moderate",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of moderate"
+     },
+     {
+      "clueFragment": "sir",
+      "gives": "SIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUPSIR",
+       "gives": "STIRRUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blunders by barking at an aide that Trump is no centrist.",
+     "walkthrough": "'Put your foot in it' looks like the idiom for a gaffe, but read literally it describes the rider's foot-loop.",
+     "definitionFit": "A stirrup is the loop hanging from a saddle into which a rider places each foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +778,57 @@
      }
     ]
    },
-   "solution": "LONGLEG"
+   "solution": "LONGLEG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONG LEG",
+    "definitions": [
+     {
+      "text": "Cricketer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go on",
+      "for": "charade",
+      "note": "going on means being attached to the next piece, so one word is joined directly to the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desire",
+      "gives": "LONG",
+      "note": "to long for something is to desire it"
+     },
+     {
+      "clueFragment": "stage",
+      "gives": "LEG",
+      "note": "a leg is one stage of a journey or race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "LEG"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports star harbours an ambition to become an actor.",
+     "walkthrough": "'stage' looks theatrical but is a leg of a journey. Long leg is a fielding position in cricket, deep behind the batsman on the leg side.",
+     "definitionFit": "The fielder posted at long leg is called by the position's name, so a cricketer is a fair example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +846,64 @@
    "group": [
     "13-across",
     "6-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MILES AWAY",
+    "definitions": [
+     {
+      "text": "Dreaming",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hacked",
+      "for": "anagram",
+      "note": "hacked messages have been tampered with, so these letters are messed about into new order"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emails",
+      "gives": "MILESA",
+      "note": "the letters of emails, rearranged"
+     },
+     {
+      "clueFragment": "style",
+      "gives": "WAY",
+      "note": "a way of doing something is its style or manner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MILESA",
+      "WAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMAILS",
+       "gives": "MILESA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fantasises about breaking into fashionable people's email accounts.",
+     "definitionFit": "Someone miles away is lost in thought, not paying attention to the present, daydreaming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hacked"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +923,44 @@
      }
     ]
    },
-   "solution": "TALKEDOUT"
+   "solution": "TALKEDOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TALKED OUT",
+    "definitions": [
+     {
+      "text": "Defeated Bill",
+      "at": 0,
+      "note": "describes the bill's fate; the answer is what was done to it"
+     },
+     {
+      "text": "was the Speaker absent?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defeated Bill",
+      "note": "a parliamentary bill can be killed by speaking until its allotted time runs out"
+     },
+     {
+      "clueFragment": "was the Speaker absent?",
+      "note": "read literally: the one who talked was out of the room"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'the Speaker' looks like the Speaker of the House of Commons, but it is just whoever talked. Filibustering in Parliament is called talking a bill out.",
+     "definitionFit": "A bill talked out is one blocked by debate running past its time; read whimsically, the person who talked went out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Speaker"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +984,59 @@
      }
     ]
    },
-   "solution": "THEFAIRSEX"
+   "solution": "THEFAIRSEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THE FAIR SEX",
+    "definitions": [
+     {
+      "text": "patronised women",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Just",
+      "gives": "FAIR",
+      "note": "just and fair are synonyms"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is short for southern"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "an ex is a former, old partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "FAIR",
+      "S",
+      "EX"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper headline about women from the old South being condescended to.",
+     "walkthrough": "'Article' looks like a newspaper story but is the grammatical word the.",
+     "definitionFit": "The fair sex is an old-fashioned, condescending phrase for women collectively, so it names them as patronised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1050,62 @@
     "text": "'Remains' rise in revolt, right?",
     "enumeration": "7"
    },
-   "solution": "RESIDUE"
+   "solution": "RESIDUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RESIDUE",
+    "definitions": [
+     {
+      "text": "'Remains'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in revolt",
+      "for": "anagram",
+      "note": "a revolt overturns the established order, so these letters are overturned and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rise",
+      "gives": "RESI",
+      "note": "the letters of rise, rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "DUE",
+      "note": "what you are due is what you have a right to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "DUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RISE",
+       "gives": "RESI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether the Remain campaign is entitled to rise up against the Brexit vote.",
+     "walkthrough": "Remain was the side in the UK's 2016 referendum on leaving the EU; here 'Remains' is just leftovers.",
+     "definitionFit": "Residue is whatever is left over after the rest is removed, the leftover matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Remains"
+    }
+   }
   },
   {
    "number": 15,
@@ -315,7 +1125,65 @@
      }
     ]
    },
-   "solution": "RESTCURE"
+   "solution": "RESTCURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REST CURE",
+    "definitions": [
+     {
+      "text": "convalescence",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept here"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep",
+      "gives": "REST",
+      "note": "rest and sleep are synonyms"
+     },
+     {
+      "clueFragment": "arsehole",
+      "gives": "CUR",
+      "note": "a cur is a contemptible person"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "CUR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude tale of bedding a jerk while recovering from illness.",
+     "definitionFit": "A rest cure is a treatment of prolonged bed rest, a kind of convalescence prescribed for recovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arsehole"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1203,59 @@
      }
     ]
    },
-   "solution": "COVERUP"
+   "solution": "COVERUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVER-UP",
+    "definitions": [
+     {
+      "text": "front",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing something means filling its inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of bra",
+      "gives": "CUP",
+      "note": "a bra has two cups"
+     },
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "something finished is over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has finished padding the front of a bra.",
+     "walkthrough": "'front' looks like the front of the bra, but it is a facade hiding wrongdoing.",
+     "definitionFit": "A front is a respectable facade concealing something illicit, which is just what a cover-up provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1269,66 @@
     "text": "President, right, is into \"factual\" vengeance",
     "enumeration": "8"
    },
-   "solution": "REPRISAL"
+   "solution": "REPRISAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REPRISAL",
+    "definitions": [
+     {
+      "text": "vengeance",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means ending up inside it, so these pieces sit within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "factual",
+      "gives": "REAL",
+      "note": "factual and real are synonyms"
+     },
+     {
+      "clueFragment": "President",
+      "gives": "P",
+      "note": "P is short for president"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is short for right"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRIS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "The President, being right-wing, is fond of 'facts' and of getting his revenge.",
+     "walkthrough": "The quotation marks around 'factual' mock Trump's disputed facts.",
+     "definitionFit": "A reprisal is an act of retaliation, revenge taken against someone for a wrong done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 18,
@@ -373,7 +1352,72 @@
    "group": [
     "18-across",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "STRONG AND STABLE",
+    "definitions": [
+     {
+      "text": "Election slogan",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the next piece behind the one it names, fixing their order"
+     },
+     {
+      "text": "shifts",
+      "for": "anagram",
+      "note": "shifts means moves position, so these letters change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "numerous",
+      "gives": "STRONG",
+      "note": "a crowd ten thousand strong is that numerous"
+     },
+     {
+      "clueFragment": "sand",
+      "gives": "ANDS",
+      "note": "the letters of sand, rearranged"
+     },
+     {
+      "clueFragment": "put forward legislation",
+      "gives": "TABLE",
+      "note": "to table a bill is to put it forward for debate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRONG",
+      "ANDS",
+      "TABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAND",
+       "gives": "ANDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mockery of a campaign slogan, as if it were instructions for proposing a law after the sands shift.",
+     "walkthrough": "This was Theresa May's much-repeated slogan in the 2017 UK general election.",
+     "definitionFit": "The three-word catchphrase was the Conservative party's central campaign motto, endlessly repeated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "numerous"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1431,50 @@
     "text": "Having big tits, needs different top (out of practice)",
     "enumeration": "5"
    },
-   "solution": "RUSTY"
+   "solution": "RUSTY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RUSTY",
+    "definitions": [
+     {
+      "text": "out of practice",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs different top",
+      "for": "substitution",
+      "note": "a different top means the opening letter is swapped for another one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having big tits",
+      "gives": "BUSTY",
+      "note": "busty describes a woman with a large bust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "USTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude remark about a buxom woman who needs a new top to wear.",
+     "walkthrough": "'top' looks like clothing but means the first letter of the word; any other letter would do, so crossing letters confirm it.",
+     "definitionFit": "Being rusty means one's skills have deteriorated through lack of use, like metal left untended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1488,48 @@
     "text": "Bug-like snacks",
     "enumeration": "5"
    },
-   "solution": "TAPAS"
+   "solution": "TAPAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPAS",
+    "definitions": [
+     {
+      "text": "snacks",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bug",
+      "gives": "TAP",
+      "note": "to bug a phone is to tap it"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like and as are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Nibbles that look like insects.",
+     "walkthrough": "'Bug' looks like an insect, but it is the listening device.",
+     "definitionFit": "Tapas are small Spanish savoury dishes served as snacks with drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 21,
@@ -429,7 +1557,63 @@
     "text": "\"Sack of lolly put before one\" – Brenda",
     "enumeration": "7"
    },
-   "solution": "CASHIER"
+   "solution": "CASHIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASHIER",
+    "definitions": [
+     {
+      "text": "Sack",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put before",
+      "for": "charade",
+      "note": "put before means placed ahead in reading order, fixing which piece comes first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lolly",
+      "gives": "CASH",
+      "note": "lolly is British slang for money"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Brenda",
+      "gives": "ER",
+      "note": "Private Eye's nickname for Queen Elizabeth II, whose royal cipher is ER"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation attributed to Brenda about a bag of money handed over to someone.",
+     "walkthrough": "Brenda is Private Eye's long-running nickname for the late Queen, Elizabeth Regina, so ER.",
+     "definitionFit": "To cashier someone is to dismiss them from the armed forces in disgrace, that is, to sack them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 23,
@@ -443,7 +1627,65 @@
     "text": "Jeremy's left wing sadly ain't providing transport",
     "enumeration": "7"
    },
-   "solution": "CORTINA"
+   "solution": "CORTINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CORTINA",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things gone awry, so those letters end up in a disordered arrangement"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jeremy's left wing",
+      "gives": "COR",
+      "note": "the left-hand portion of Corbyn, surname of Labour leader Jeremy"
+     },
+     {
+      "clueFragment": "ain't",
+      "gives": "TINA",
+      "note": "the letters of ain't, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "TINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AINT",
+       "gives": "TINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Corbyn's left-wing followers sadly are not offering any transport policy.",
+     "walkthrough": "'left wing' looks political, but it is the left end of the name Corbyn; Jeremy Corbyn led the UK Labour Party.",
+     "definitionFit": "The Cortina was a popular Ford family car sold in Britain from the 1960s to the 1980s, so a means of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 23,
@@ -461,7 +1703,73 @@
    "group": [
     "23-down",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COLD CALL",
+    "definitions": [
+     {
+      "text": "that you'd rather not be on the end of",
+      "at": 68,
+      "note": "a relative clause standing for the thing; the answer is a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is short for Conservative"
+     },
+     {
+      "clueFragment": "getting on",
+      "gives": "OLD",
+      "note": "someone getting on in years is old"
+     },
+     {
+      "clueFragment": "Corbyn",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of Corbyn"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all and everything are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OLD",
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly Tory teaming up with Corbyn is the last thing anyone wants to hear about.",
+     "walkthrough": "'end' looks like a finish, but it is the receiving end of a telephone line.",
+     "definitionFit": "An unsolicited sales phone call is something nobody wants to be on the receiving end of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 24,
@@ -481,7 +1789,48 @@
      }
     ]
    },
-   "solution": "ROYALJELLY"
+   "solution": "ROYALJELLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROYAL JELLY",
+    "definitions": [
+     {
+      "text": "sustainer of queen to be",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "William, say",
+      "gives": "ROYAL",
+      "note": "Prince William is an example of a royal"
+     },
+     {
+      "clueFragment": "explosive",
+      "gives": "JELLY",
+      "note": "jelly is slang for gelignite, a blasting explosive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROYAL",
+      "JELLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Prince William is cast as a volatile figure who will keep the future Queen going.",
+     "walkthrough": "'queen to be' looks like Kate, William's wife, but it is a bee larva destined to become a queen.",
+     "definitionFit": "Worker bees feed royal jelly to a larva to make it develop into a queen bee, so it nourishes her."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 25,

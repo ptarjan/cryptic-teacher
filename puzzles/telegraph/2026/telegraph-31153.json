@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,46 @@
     "text": "American city, fashionable in the past",
     "enumeration": "7"
    },
-   "solution": "CHICAGO"
+   "solution": "CHICAGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICAGO",
+    "definitions": [
+     {
+      "text": "American city",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "CHIC",
+      "note": "chic means stylish or fashionable"
+     },
+     {
+      "clueFragment": "in the past",
+      "gives": "AGO",
+      "note": "ago means back in time, in the past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC",
+      "AGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A US city that used to be the height of fashion.",
+     "definitionFit": "The answer is the large Illinois metropolis on Lake Michigan, a major city of the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashionable"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +88,65 @@
     "text": "Drink tea black with lemon in, stirring initially",
     "enumeration": "7"
    },
-   "solution": "CHABLIS"
+   "solution": "CHABLIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHABLIS",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letters of the following words are used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is British slang for tea"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     },
+     {
+      "clueFragment": "lemon in, stirring",
+      "gives": "LIS",
+      "select": "first",
+      "note": "the first letters of lemon, in and stirring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "B",
+      "LIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for making a drink of black tea with lemon, stirring it at the start.",
+     "walkthrough": "The surface is about tea, but the answer is a white wine.",
+     "definitionFit": "Chablis is a dry white wine from Burgundy, so it is an alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +160,60 @@
     "text": "Passionate note penned by one in a nervous state",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "Passionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "penned by means enclosed as in a pen, so one piece is shut inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is short for note"
+     },
+     {
+      "clueFragment": "in a nervous state",
+      "gives": "TENSE",
+      "note": "tense means anxious and on edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "TENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "An emotional message written by an anxious person.",
+     "definitionFit": "Intense feelings are deep and strong, so the adjective matches passionate in describing ardent emotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +227,57 @@
     "text": "Whizzes around king's estates",
     "enumeration": "5"
    },
-   "solution": "ACRES"
+   "solution": "ACRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRES",
+    "definitions": [
+     {
+      "text": "estates",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whizzes",
+      "gives": "ACES",
+      "note": "aces are experts or whizzes"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "R",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Experts race around the king's lands.",
+     "definitionFit": "Acres are measured units of land, so the plural can stand for landholdings or estates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Whizzes"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +301,40 @@
      }
     ]
    },
-   "solution": "ODDMANOUT"
+   "solution": "ODDMANOUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ODD MAN OUT",
+    "definitions": [
+     {
+      "text": "This could be amount one rejected?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one rejected",
+      "note": "surface reading: the person left out of a group, the misfit"
+     },
+     {
+      "clueFragment": "This could be amount",
+      "note": "setter's reading: the answer read as an instruction, with odd meaning rearranged, mixes the letters of MAN and adds OUT, which spells amount"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle question whether some quantity was the one turned down.",
+     "walkthrough": "Odd is read as an anagram signal: rearranging MAN and adding OUT produces amount.",
+     "definitionFit": "The phrase names the single person excluded or left over from a group, the one rejected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "amount"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +348,59 @@
     "text": "Talks from tense, boring religious leaders",
     "enumeration": "7"
    },
-   "solution": "RABBITS"
+   "solution": "RABBITS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RABBITS",
+    "definitions": [
+     {
+      "text": "Talks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "boring means drilling through, so one piece sits inside the other like a drill bit in wood"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious leaders",
+      "gives": "RABBIS",
+      "note": "rabbis are Jewish religious teachers"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABBI",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Chatter heard from dull, strained clergy.",
+     "walkthrough": "To rabbit on is British slang for talking at length, often about nothing much.",
+     "definitionFit": "In informal British speech, to rabbit is to chatter on and on, so the verb form matches talks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +414,69 @@
     "text": "Regret eating soft end of the Indian bread?",
     "enumeration": "5"
    },
-   "solution": "RUPEE"
+   "solution": "RUPEE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "RUPEE",
+    "definitions": [
+     {
+      "text": "Indian bread?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking in, so one piece swallows the others"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of means the final part, so only the last letter of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "P is piano, the musical marking for soft"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "P",
+      "E",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Regretting eating the soft end of a naan.",
+     "walkthrough": "Indian bread suggests naan or chapati, but bread is slang for money.",
+     "definitionFit": "The rupee is India's currency, and bread is informal slang for cash, so it is money in India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +490,52 @@
     "text": "British family allows items of jewellery",
     "enumeration": "9"
    },
-   "solution": "BRACELETS"
+   "solution": "BRACELETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRACELETS",
+    "definitions": [
+     {
+      "text": "items of jewellery",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is short for British"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "RACE",
+      "note": "a race is a line of descent or family"
+     },
+     {
+      "clueFragment": "allows",
+      "gives": "LETS",
+      "note": "lets means permits or allows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RACE",
+      "LETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A British household permits the wearing of jewels.",
+     "definitionFit": "Bracelets are ornamental bands worn around the wrist, a kind of jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "family"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +549,65 @@
     "text": "Ape from India – bananas tame it",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Ape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas means crazy, so the letters go wild into a new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is the NATO alphabet word for I"
+     },
+     {
+      "clueFragment": "tame it",
+      "gives": "TAMEIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MITATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAMEIT",
+       "gives": "MITATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ape from India goes crazy for bananas, and the keeper must tame it.",
+     "walkthrough": "Ape and bananas suggest a monkey, but ape is a verb and bananas means crazy.",
+     "definitionFit": "To ape someone is to mimic or copy their behaviour, the same verb sense as the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ape"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +621,53 @@
     "text": "Spotted insulted student leaving",
     "enumeration": "7"
    },
-   "solution": "SIGHTED"
+   "solution": "SIGHTED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SIGHTED",
+    "definitions": [
+     {
+      "text": "Spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means going away, so that letter departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insulted",
+      "gives": "SLIGHTED",
+      "note": "slighted means snubbed or insulted"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is for learner, a student driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGHTED"
+     ]
+    },
+    "explanation": {
+     "surface": "An offended pupil was seen walking out.",
+     "walkthrough": "L comes from the learner plates on British cars; drop it from SLIGHTED.",
+     "definitionFit": "Sighted can mean seen or caught sight of, the same past-tense sense as spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spotted"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +681,56 @@
     "text": "Hesitated, denying female's changed",
     "enumeration": "7"
    },
-   "solution": "ALTERED"
+   "solution": "ALTERED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALTERED",
+    "definitions": [
+     {
+      "text": "changed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denying",
+      "for": "deletion",
+      "note": "denying means refusing to admit, so a letter is refused entry and dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hesitated",
+      "gives": "FALTERED",
+      "note": "faltered means wavered or hesitated"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTERED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who hesitated, refusing to own up to a woman, has changed.",
+     "walkthrough": "Take F away from the front of FALTERED to leave ALTERED.",
+     "definitionFit": "Both words are past participles meaning modified or made different from before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "denying"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +744,54 @@
     "text": "Impertinently inquisitive about adult begging",
     "enumeration": "7"
    },
-   "solution": "PRAYING"
+   "solution": "PRAYING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRAYING",
+    "definitions": [
+     {
+      "text": "begging",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding or around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impertinently inquisitive",
+      "gives": "PRYING",
+      "note": "prying means nosily poking into other people's business"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "A",
+      "YING"
+     ]
+    },
+    "explanation": {
+     "surface": "A nosy person is pleading about a grown-up.",
+     "definitionFit": "Praying in the sense of earnestly entreating or imploring someone is a close synonym of pleading or asking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +805,52 @@
     "text": "Constable possibly made this criminal clean pads",
     "enumeration": "9"
    },
-   "solution": "LANDSCAPE"
+   "solution": "LANDSCAPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANDSCAPE",
+    "definitions": [
+     {
+      "text": "Constable possibly made this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or bent out of shape, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean pads",
+      "gives": "CLEANPADS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEANPADS",
+       "gives": "LANDSCAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer made a crook scrub the pads.",
+     "walkthrough": "Constable looks like a police officer, but it is John Constable, the English painter famous for country scenes such as The Hay Wain.",
+     "definitionFit": "John Constable's best-known works are paintings of the English countryside, so this kind of picture is what he possibly made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Constable"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +864,64 @@
     "text": "Dismiss flipping court's demand",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "demand",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping means turning over, so the word for dismiss is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "gives": "AXE",
+      "note": "to axe someone is to sack or dismiss them"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXA",
+      "CT"
+     ],
+     "reversals": [
+      {
+       "from": "AXE",
+       "to": "EXA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sacking someone in a fit of temper is what the court demands.",
+     "walkthrough": "'Flipping' looks like a mild British expletive describing the court, but it reverses AXE to EXA.",
+     "definitionFit": "To exact something is to insist on it or require it from someone, as in exacting payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +935,61 @@
     "text": "Sober novelist missing booze, ultimately",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Sober",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so a letter is taken out"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of booze is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novelist",
+      "gives": "STERNE",
+      "note": "Laurence Sterne wrote Tristram Shandy"
+     },
+     {
+      "clueFragment": "booze",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of booze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who has gone without drink is sober.",
+     "walkthrough": "Remove the final E from STERNE; the surface makes sober look like teetotal, but here it means serious.",
+     "definitionFit": "Stern and sober both describe a grave, serious, unsmiling manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sober"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +1003,71 @@
     "text": "Ruder expression of disgust after an upsetting grade",
     "enumeration": "9"
    },
-   "solution": "NAUGHTIER"
+   "solution": "NAUGHTIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAUGHTIER",
+    "definitions": [
+     {
+      "text": "Ruder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "upsetting means overturning, so in a down clue the word an is turned upside down"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later, so the expression of disgust is placed second, behind the overturned an"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "expression of disgust",
+      "gives": "UGH",
+      "note": "ugh is an exclamation of disgust"
+     },
+     {
+      "clueFragment": "grade",
+      "gives": "TIER",
+      "note": "a tier is a level or grade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "UGH",
+      "TIER"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cruder lets out a grunt of disgust after a disappointing mark.",
+     "definitionFit": "Naughtier, in the sense of more risqué or indecent, is a comparative close to ruder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1091,50 @@
      }
     ]
    },
-   "solution": "ONTHEMEND"
+   "solution": "ONTHEMEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE MEND",
+    "definitions": [
+     {
+      "text": "Recovering?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so the letters are spoilt into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need month",
+      "gives": "NEEDMONTH",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDMONTH",
+       "gives": "ONTHEMEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient asks if getting better requires a month off work.",
+     "definitionFit": "The idiom describes someone getting better after illness or injury, which is what recovering means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1148,70 @@
     "text": "River circled by wild deer if it's really scared",
     "enumeration": "9"
    },
-   "solution": "TERRIFIED"
+   "solution": "TERRIFIED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TERRIFIED",
+    "definitions": [
+     {
+      "text": "really scared",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means untamed and disorderly, so the letters run loose into a new order"
+     },
+     {
+      "text": "circled by",
+      "for": "container",
+      "note": "circled by means surrounded, so one piece is ringed by the rest"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "R is short for river"
+     },
+     {
+      "clueFragment": "deer if it",
+      "gives": "DEERIFIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TER",
+      "R",
+      "IFIED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEERIFIT",
+       "gives": "TERIFIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river surrounded by wild deer is a frightening prospect.",
+     "walkthrough": "The scrambled DEERIFIT becomes TERIFIED, and R slots into its middle.",
+     "definitionFit": "Terrified describes being filled with intense fear, the same as being very frightened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "River"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1225,55 @@
     "text": "Meet European next to new bar",
     "enumeration": "9"
    },
-   "solution": "ENCOUNTER"
+   "solution": "ENCOUNTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENCOUNTER",
+    "definitions": [
+     {
+      "text": "Meet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "COUNTER",
+      "note": "a counter is the bar in a pub or shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "COUNTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Arrange to see a Continental person beside a brand-new bar.",
+     "definitionFit": "To encounter someone is to come across or face them, the same verb sense as to meet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1287,58 @@
     "text": "Ruler's fit of rage with first deserting soldiers",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first deserting",
+      "for": "deletion",
+      "note": "first deserting means the opening letter runs away, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fit of rage",
+      "gives": "TEMPER",
+      "note": "a temper is an outburst of anger"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR is other ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPER",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch's tantrum as his troops desert.",
+     "definitionFit": "An emperor is the sovereign of an empire, a supreme monarch and therefore a ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1352,49 @@
     "text": "Touch prisoner with sensitivity",
     "enumeration": "7"
    },
-   "solution": "CONTACT"
+   "solution": "CONTACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTACT",
+    "definitions": [
+     {
+      "text": "Touch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "sensitivity",
+      "gives": "TACT",
+      "note": "tact is sensitivity in dealing with others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Handling an inmate delicately.",
+     "definitionFit": "Contact can mean physical touching or being in communication, matching the noun sense of touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Touch"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1408,54 @@
     "text": "Small uniform for a police official?",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "a police official?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "uniform is the NATO alphabet word for U"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "U",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A small-sized uniform issued to a police officer.",
+     "walkthrough": "In Britain a superintendent, a senior police rank, is informally called by this short form; the question mark flags the slang.",
+     "definitionFit": "Super is the informal British clipping of superintendent, a senior rank in the police force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1469,48 @@
     "text": "Accurate summary on Spain",
     "enumeration": "7"
    },
-   "solution": "PRECISE"
+   "solution": "PRECISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRECISE",
+    "definitions": [
+     {
+      "text": "Accurate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summary",
+      "gives": "PRECIS",
+      "note": "a précis is a summary of a text"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRECIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A correct overview of Spain.",
+     "definitionFit": "Precise means exact and correct in every detail, the same adjective sense as accurate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1524,41 @@
     "text": "Admire detail",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESPECT",
+    "definitions": [
+     {
+      "text": "Admire",
+      "at": 0
+     },
+     {
+      "text": "detail",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Admire",
+      "note": "first meaning: to hold someone in high regard"
+     },
+     {
+      "clueFragment": "detail",
+      "note": "second meaning: a particular point or aspect, as in every way"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The verb means to esteem someone, and the noun means a particular point, as in correct in every respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detail"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1572,43 @@
     "text": "Slug mixed beverage",
     "enumeration": "5"
    },
-   "solution": "PUNCH"
+   "solution": "PUNCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUNCH",
+    "definitions": [
+     {
+      "text": "Slug",
+      "at": 0
+     },
+     {
+      "text": "mixed beverage",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slug",
+      "note": "first meaning: to hit hard with the fist"
+     },
+     {
+      "clueFragment": "mixed beverage",
+      "note": "second meaning: a drink of spirits, fruit juice and spice mixed in a bowl"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Slug suggests a mouthful of drink or a garden pest, but here it is a blow.",
+     "definitionFit": "The word means both a hard blow with the fist and a party drink blended from several ingredients."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Slug"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1622,54 @@
     "text": "Just getting stuck in marshlands chills someone to the bone",
     "enumeration": "9"
    },
-   "solution": "FRIGHTENS"
+   "solution": "FRIGHTENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIGHTENS",
+    "definitions": [
+     {
+      "text": "chills someone to the bone",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting stuck in",
+      "for": "container",
+      "note": "getting stuck in means becoming lodged inside something, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshlands",
+      "gives": "FENS",
+      "note": "fens are low, wet marshy areas, notably in eastern England"
+     },
+     {
+      "clueFragment": "Just",
+      "gives": "RIGHT",
+      "note": "just and right both mean fair or proper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT",
+      "ENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting bogged down in marshes is a chilling experience.",
+     "definitionFit": "Being chilled to the bone is an idiom for being badly scared, so the phrase describes what something does when it scares someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1683,45 @@
     "text": "Takes off tiny jumpers, by the sound of it",
     "enumeration": "5"
    },
-   "solution": "FLEES"
+   "solution": "FLEES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLEES",
+    "definitions": [
+     {
+      "text": "Takes off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it means judged by how the words are spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny jumpers",
+      "gives": "FLEES",
+      "soundsLike": "FLEAS",
+      "note": "fleas are tiny insects that jump"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone removes very small sweaters, apparently.",
+     "walkthrough": "Jumpers looks like the British word for sweaters, which fits takes off, but it means insects that jump.",
+     "definitionFit": "Flees means runs away or escapes, matching the informal sense of takes off as bolting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jumpers"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1735,61 @@
     "text": "A daughter wears the man's crowns",
     "enumeration": "5"
    },
-   "solution": "HEADS"
+   "solution": "HEADS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEADS",
+    "definitions": [
+     {
+      "text": "crowns",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "wears means has on, so one piece is worn inside another like clothing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the man's",
+      "gives": "HES",
+      "note": "he's is short for the man is"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is short for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl wearing her father's crowns.",
+     "walkthrough": "The surface reads as the man wearing crowns, but it is he's that wraps around A and D.",
+     "definitionFit": "The crown of a person is the top of the head, so crowns are heads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1803,62 @@
     "text": "Make money in Brazil? That is enthralling son",
     "enumeration": "7"
    },
-   "solution": "REALISE"
+   "solution": "REALISE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REALISE",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralling",
+      "for": "container",
+      "note": "enthralling means holding captive, so one piece holds another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money in Brazil?",
+      "gives": "REAL",
+      "note": "the real is Brazil's currency"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, meaning that is"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "I",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders about earning cash in South America while keeping their boy enthralled.",
+     "walkthrough": "Make money looks like the definition, but money belongs to the wordplay; the definition is just make, in the sense of earning.",
+     "definitionFit": "To realise a sum is to gain it from a sale, as in the painting realised a fortune, matching make in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1872,69 @@
     "text": "Picture wise men breaking into back of stable",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMAGINE",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking means bursting through, so one piece breaks into the middle of another"
+     },
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "back of means the rear, so only the final letter of stable is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into",
+      "gives": "IN",
+      "note": "into, as in keen on, means in"
+     },
+     {
+      "clueFragment": "wise men",
+      "gives": "MAGI",
+      "note": "the Magi are the three wise men of the Nativity"
+     },
+     {
+      "clueFragment": "stable",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of stable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAGI",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Nativity scene: the wise men burst into the back of the stable.",
+     "walkthrough": "Into is read as in, the sense it has in 'I'm really into jazz', meaning keen on; the Nativity surface hides that it supplies letters.",
+     "definitionFit": "To picture something is to form a mental image of it, the same verb sense as to imagine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1948,46 @@
     "text": "Answers about performer's acts",
     "enumeration": "7"
    },
-   "solution": "RETURNS"
+   "solution": "RETURNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETURNS",
+    "definitions": [
+     {
+      "text": "Answers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "performer's acts",
+      "gives": "TURNS",
+      "note": "a turn is an act in a variety show"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TURNS"
+     ]
+    },
+    "explanation": {
+     "surface": "Replies concerning what an entertainer does on stage.",
+     "definitionFit": "Returns as a noun can mean replies or responses, such as a quick return in conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Answers"
+    }
+   }
   },
   {
    "number": 28,
@@ -486,7 +2001,48 @@
     "text": "Drop of French perfume",
     "enumeration": "7"
    },
-   "solution": "DESCENT"
+   "solution": "DESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESCENT",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "scent is a perfume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small drop of French perfume.",
+     "walkthrough": "Drop looks like a droplet of liquid, but it is a fall.",
+     "definitionFit": "A descent is a downward slope or fall, the same noun sense as a drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drop"
+    }
+   }
   }
  ]
 }

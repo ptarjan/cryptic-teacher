@@ -23,6 +23,9 @@
   "date": "2026-02-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Juvenile bully everyone must stop",
     "enumeration": "6"
    },
-   "solution": "CALLOW"
+   "solution": "CALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CALLOW",
+    "definitions": [
+     {
+      "text": "Juvenile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must stop",
+      "for": "container",
+      "note": "to stop something is to plug it, so one word goes inside the other like a stopper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bully",
+      "gives": "COW",
+      "note": "to cow someone is to bully or intimidate them"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A young thug is pushing others around and everybody has to put an end to it.",
+     "walkthrough": "'Juvenile bully' reads as a single noun phrase, but juvenile is the definition and bully a verb.",
+     "definitionFit": "Callow describes someone young and inexperienced, which is what juvenile means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bully"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +101,74 @@
     "text": "Benefit claim Adam occasionally brought up, receiving very little",
     "enumeration": "5"
    },
-   "solution": "AVAIL"
+   "solution": "AVAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "AVAIL",
+    "definitions": [
+     {
+      "text": "Benefit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so every other letter is kept"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving takes something in, so another piece is placed inside"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down answer, brought up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claim Adam",
+      "gives": "LIAA",
+      "select": "alternate",
+      "note": "the even letters of claim Adam, run together"
+     },
+     {
+      "clueFragment": "very little",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "AIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIAVA",
+       "to": "AVAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A welfare application for Adam keeps getting raised, but brings in almost nothing.",
+     "walkthrough": "'Benefit claim' reads as one welfare phrase, but the definition stops at Benefit; 'very little' means just the abbreviation V.",
+     "definitionFit": "Avail as a noun means use or advantage, as in to no avail, so it equals benefit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "claim"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +188,64 @@
      }
     ]
    },
-   "solution": "LOSEHEART"
+   "solution": "LOSEHEART",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LOSE HEART",
+    "definitions": [
+     {
+      "text": "get discouraged",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "not about",
+      "for": "deletion",
+      "note": "about is c, from circa, and not means it is taken out"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listen",
+      "gives": "HEAR",
+      "note": "to hear is to listen"
+     },
+     {
+      "clueFragment": "secret",
+      "gives": "CLOSET",
+      "note": "closet as an adjective means secret, as in a closet fan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOSE",
+      "HEAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Eavesdropping without regard to anything leaves someone disheartened.",
+     "walkthrough": "'Listen in' looks like the phrase for eavesdropping, but the words split; about is C, the abbreviation of circa, which drops from CLOSET.",
+     "definitionFit": "To lose heart is an idiom meaning to become dispirited and stop feeling hopeful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +259,42 @@
     "text": "Carried on having regular paid employment",
     "enumeration": "5"
    },
-   "solution": "WAGED"
+   "solution": "WAGED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAGED",
+    "definitions": [
+     {
+      "text": "Carried on",
+      "at": 0
+     },
+     {
+      "text": "having regular paid employment",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carried on",
+      "note": "first meaning: conducted, as in to wage a war or campaign"
+     },
+     {
+      "clueFragment": "having regular paid employment",
+      "note": "second meaning: earning a salary or wages"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone continued in a steady salaried job.",
+     "definitionFit": "The verb wage means conduct a campaign, and the adjective describes workers receiving a regular salary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carried"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +308,62 @@
     "text": "Writer circles somewhat empty bar",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BISTRO",
+    "definitions": [
+     {
+      "text": "bar",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to go all the way round it, so one piece encloses another"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has lost all its inside letters, keeping just the two ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "BIRO",
+      "note": "a Biro is a ballpoint pen, a common crossword writer"
+     },
+     {
+      "clueFragment": "somewhat",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters of somewhat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "ST",
+      "RO"
+     ]
+    },
+    "explanation": {
+     "surface": "An author walks around a bar that is fairly quiet.",
+     "walkthrough": "BIRO is the British brand name for a ballpoint pen, standing in for any writer.",
+     "definitionFit": "A bistro is a small informal restaurant serving drinks, close enough to a bar or café."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +377,44 @@
     "text": "Tower of London guide, non-vegan?",
     "enumeration": "9"
    },
-   "solution": "BEEFEATER"
+   "solution": "BEEFEATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEFEATER",
+    "definitions": [
+     {
+      "text": "Tower of London guide",
+      "at": 0
+     },
+     {
+      "text": "non-vegan?",
+      "at": 23,
+      "note": "cryptic: a person who consumes beef"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tower of London guide",
+      "note": "first meaning: a Yeoman Warder at the Tower of London"
+     },
+     {
+      "clueFragment": "non-vegan?",
+      "note": "second meaning, read literally: someone who eats steak"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the ceremonial guide at the Tower a meat eater?",
+     "walkthrough": "The question mark flags the playful literal reading of the word as one who eats beef.",
+     "definitionFit": "Beefeaters are the Yeoman Warders who guard the Tower of London and give guided tours to visitors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +428,68 @@
     "text": "Sort of boom in flipping casinos, since banned",
     "enumeration": "5"
    },
-   "solution": "SONIC"
+   "solution": "SONIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SONIC",
+    "definitions": [
+     {
+      "text": "Sort of boom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banned",
+      "for": "deletion",
+      "note": "something banned is excluded, so those letters are taken out"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping turns something over, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casinos",
+      "gives": "CASINOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as can mean since, as in as it was late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONIC"
+     ],
+     "reversals": [
+      {
+       "from": "CINOS",
+       "to": "SONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boom in gambling halls since they were outlawed.",
+     "walkthrough": "'Since' looks like a time word in the surface, but it is a synonym taken out of the gambling halls before they are turned over.",
+     "definitionFit": "A sonic boom is the loud bang made by an aircraft breaking the sound barrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +503,53 @@
     "text": "Minor star out in bad weather",
     "enumeration": "9"
    },
-   "solution": "RAINSTORM"
+   "solution": "RAINSTORM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAINSTORM",
+    "definitions": [
+     {
+      "text": "bad weather",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor star",
+      "gives": "MINORSTAR",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINORSTAR",
+       "gives": "RAINSTORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lesser celebrity is outdoors in foul weather.",
+     "definitionFit": "A rainstorm is a heavy downpour with wind, an example of bad weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +563,66 @@
     "text": "Marsupial that hurt round, minute mammal",
     "enumeration": "6"
    },
-   "solution": "WOMBAT"
+   "solution": "WOMBAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WOMBAT",
+    "definitions": [
+     {
+      "text": "Marsupial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning round makes the cry face the other way, so it is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that hurt",
+      "gives": "OW",
+      "note": "ow is what someone says when something hurts"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "mammal",
+      "gives": "BAT",
+      "note": "the bat is a flying mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "M",
+      "BAT"
+     ],
+     "reversals": [
+      {
+       "from": "OW",
+       "to": "WO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pouched animal felt pain after a round with a tiny mammal.",
+     "definitionFit": "The wombat is a burrowing Australian marsupial with a pouch for its young."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +636,58 @@
     "text": "Island country, formerly one area overlooked",
     "enumeration": "6"
    },
-   "solution": "RHODES"
+   "solution": "RHODES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RHODES",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked",
+      "for": "deletion",
+      "note": "what is overlooked is left out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country, formerly",
+      "gives": "RHODESIA",
+      "note": "the former name of Zimbabwe"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHODES"
+     ]
+    },
+    "explanation": {
+     "surface": "An island nation of old had a region ignored.",
+     "walkthrough": "Take IA from the end of RHODESIA.",
+     "definitionFit": "Rhodes is a Greek island in the Aegean, site of the ancient Colossus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +701,60 @@
     "text": "Says yes to old gangsters right away",
     "enumeration": "5"
    },
-   "solution": "OKAYS"
+   "solution": "OKAYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OKAYS",
+    "definitions": [
+     {
+      "text": "Says yes to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right away",
+      "for": "deletion",
+      "note": "with right sent away, the letter standing for right is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "gangsters",
+      "gives": "KRAYS",
+      "note": "the Kray twins were notorious London gangsters of the 1960s"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "KAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to the demands of veteran criminals without delay.",
+     "walkthrough": "'Right away' looks like 'immediately', but it tells you to remove R from the KRAYS, the Kray brothers who ran organised crime in London's East End.",
+     "definitionFit": "To okay something is to approve it, so okays is a verb meaning gives approval or agrees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +768,69 @@
     "text": "Drunk cheering, swallowing whiskey in London borough",
     "enumeration": "9"
    },
-   "solution": "GREENWICH"
+   "solution": "GREENWICH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GREENWICH",
+    "definitions": [
+     {
+      "text": "London borough",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "something drunk is in a muddled state, so these letters are scrambled"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheering",
+      "gives": "CHEERING",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is W in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "W",
+      "ICH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEERING",
+       "gives": "GREENICH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy revellers knock back whisky in a part of London.",
+     "definitionFit": "Greenwich is a borough of south-east London, home of the Royal Observatory and the meridian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +844,44 @@
     "text": "Babybel cheddar sandwiches produced burps",
     "enumeration": "7"
    },
-   "solution": "BELCHED"
+   "solution": "BELCHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BELCHED",
+    "definitions": [
+     {
+      "text": "produced burps",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "hidden_word",
+      "note": "a sandwich holds its filling between two outer pieces, so the letters sit inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Babybel cheddar",
+      "gives": "BELCHED",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Eating cheese sandwiches made someone burp.",
+     "walkthrough": "Babybel is a brand of small wax-coated cheese; 'sandwiches' looks like food but is the verb signalling the hidden word.",
+     "definitionFit": "To belch is to burp, so belched is the past tense meaning produced burps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +895,55 @@
     "text": "Tax demand ultimately deleted",
     "enumeration": "7"
    },
-   "solution": "EXCISED"
+   "solution": "EXCISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXCISED",
+    "definitions": [
+     {
+      "text": "deleted",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to what comes at the end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tax",
+      "gives": "EXCISE",
+      "note": "excise is a duty or tax on goods"
+     },
+     {
+      "clueFragment": "demand",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of demand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXCISE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A demand for payment of tax is finally cancelled.",
+     "definitionFit": "To excise is to cut out or remove, so excised means deleted or struck out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +957,63 @@
     "text": "Great man worked alongside tense overbearing woman",
     "enumeration": "9"
    },
-   "solution": "TERMAGANT"
+   "solution": "TERMAGANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TERMAGANT",
+    "definitions": [
+     {
+      "text": "overbearing woman",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked means shaped or kneaded, so the letters are reworked into new order"
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great man",
+      "gives": "GREATMAN",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERMAGAN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREATMAN",
+       "gives": "TERMAGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important man laboured beside a nervy, domineering woman.",
+     "definitionFit": "A termagant is a harsh, quarrelsome and bossy woman, a shrew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +1027,72 @@
     "text": "Worship always in French church under review primarily",
     "enumeration": "9"
    },
-   "solution": "REVERENCE"
+   "solution": "REVERENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REVERENCE",
+    "definitions": [
+     {
+      "text": "Worship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down answer, under places the earlier pieces below the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "review",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of review"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in forever"
+     },
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "en is French for in"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVER",
+      "EN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Constant devotion in a French church comes under scrutiny.",
+     "definitionFit": "Reverence is deep respect or awe, the attitude of worship towards something holy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1106,71 @@
     "text": "Tips American resort to need money being raised",
     "enumeration": "9"
    },
-   "solution": "ASPARAGUS"
+   "solution": "ASPARAGUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASPARAGUS",
+    "definitions": [
+     {
+      "text": "Tips",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being raised",
+      "for": "reversal",
+      "note": "in a down answer, raised means lifted so the word reads upwards"
+     }
+    ],
+    "linkWords": [
+     "to need"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "resort",
+      "gives": "SPA",
+      "note": "a spa is a resort town with mineral springs"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "SUGAR",
+      "note": "sugar is slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SPA",
+      "RAGUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUGAR",
+       "to": "RAGUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American holiday town is short of cash, so it raises its prices.",
+     "walkthrough": "'Tips' looks like advice or gratuities, but it is the green spears of a vegetable, eaten for their tips.",
+     "definitionFit": "Asparagus is eaten mainly for its tender shoots, called tips, so the vegetable is defined by them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tips"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1184,67 @@
     "text": "Following large bone diners at last clean teeth",
     "enumeration": "5"
    },
-   "solution": "FLOSS"
+   "solution": "FLOSS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FLOSS",
+    "definitions": [
+     {
+      "text": "clean teeth",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the end of the word, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "OS",
+      "note": "os is the Latin and anatomical word for bone"
+     },
+     {
+      "clueFragment": "diners",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of diners"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "After a big bone, the diners finally get to clean their teeth.",
+     "definitionFit": "To floss is to clean between the teeth with thread, so the verb matches clean teeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diners"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1264,43 @@
      }
     ]
    },
-   "solution": "FLIPFLOPS"
+   "solution": "FLIPFLOPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLIP-FLOPS",
+    "definitions": [
+     {
+      "text": "shows indecision",
+      "at": 6
+     },
+     {
+      "text": "footwear choice",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Texan shows indecision",
+      "note": "first meaning: a person keeps reversing a position, as a Texan politician might"
+     },
+     {
+      "clueFragment": "footwear choice",
+      "note": "second meaning: rubber sandals held by a thong between the toes"
+     }
+    ],
+    "explanation": {
+     "surface": "A Texan dithers over which shoes to wear.",
+     "definitionFit": "To flip-flop is to keep changing one's mind, and flip-flops are cheap open sandals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Texan"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1314,61 @@
     "text": "Turn to celebrity making comeback",
     "enumeration": "5"
    },
-   "solution": "PIVOT"
+   "solution": "PIVOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PIVOT",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "a comeback is a return, so the pieces are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "celebrity",
+      "gives": "VIP",
+      "note": "a VIP is a very important person, a celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIV",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TOVIP",
+       "to": "PIVOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Attention turns to a famous star returning to the limelight.",
+     "walkthrough": "'to' looks like a link word between definition and wordplay, but it is part of the fodder.",
+     "definitionFit": "To pivot is to turn on a central point, so the verb matches turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1382,61 @@
     "text": "Both parents purchasing oddly neat headgear",
     "enumeration": "6"
    },
-   "solution": "PANAMA"
+   "solution": "PANAMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PANAMA",
+    "definitions": [
+     {
+      "text": "headgear",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in odd-numbered positions"
+     },
+     {
+      "text": "purchasing",
+      "for": "container",
+      "note": "purchasing in its old sense of taking hold, so the parents grip something between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Both parents",
+      "gives": "PAMA",
+      "note": "pa and ma, father and mother"
+     },
+     {
+      "clueFragment": "neat",
+      "gives": "NA",
+      "select": "alternate",
+      "note": "the first and third letters of neat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NA",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum and Dad buy a smart hat.",
+     "definitionFit": "A Panama is a lightweight woven straw hat, originally made in Ecuador."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purchasing"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1450,68 @@
     "text": "Fruit Jimmy peeled for each child around",
     "enumeration": "9"
    },
-   "solution": "PERSIMMON"
+   "solution": "PERSIMMON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PERSIMMON",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peeled",
+      "for": "letter_selection",
+      "note": "peeling removes the skin, so the outer letters go and the inside is kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece is placed so it surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in per person"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a male child"
+     },
+     {
+      "clueFragment": "Jimmy",
+      "gives": "IMM",
+      "select": "middle",
+      "note": "Jimmy with its first and last letters stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "S",
+      "IMM",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Jimmy peels some fruit for every child nearby.",
+     "definitionFit": "The persimmon is an orange fruit from a tree of the ebony family, popular in East Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peeled"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1525,43 @@
     "text": "Plant bug",
     "enumeration": "6"
    },
-   "solution": "NETTLE"
+   "solution": "NETTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NETTLE",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     },
+     {
+      "text": "bug",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant",
+      "note": "first meaning: a stinging weed"
+     },
+     {
+      "clueFragment": "bug",
+      "note": "second meaning: to irritate or annoy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Plant bug' suggests a garden pest insect, but bug is a verb here.",
+     "definitionFit": "The stinging weed shares its name with the verb meaning irritate or provoke someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1575,65 @@
     "text": "Knew essentially Republican contender is more anxious",
     "enumeration": "7"
    },
-   "solution": "NERVIER"
+   "solution": "NERVIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NERVIER",
+    "definitions": [
+     {
+      "text": "more anxious",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word lies at its core, so only its central letters are kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knew",
+      "gives": "NE",
+      "select": "middle",
+      "note": "the two central letters of knew"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "contender",
+      "gives": "VIER",
+      "note": "one who vies, a competitor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "R",
+      "VIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sensed that a Republican rival was getting jumpier.",
+     "walkthrough": "VIER is a crossword-friendly word for someone who vies, built from the verb vie.",
+     "definitionFit": "Nervier is the comparative of nervy, which means jittery or on edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contender"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1647,41 @@
     "text": "Religion Dennis lambasts to some extent",
     "enumeration": "5"
    },
-   "solution": "ISLAM"
+   "solution": "ISLAM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ISLAM",
+    "definitions": [
+     {
+      "text": "Religion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "to some extent means only partly, so just part of the phrase is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dennis lambasts",
+      "gives": "ISLAM",
+      "note": "the letters run across the end of the first word and into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A man named Dennis partly criticises a faith.",
+     "definitionFit": "Islam is the monotheistic faith founded through the Prophet Muhammad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1695,70 @@
     "text": "Invalid ultimately had shocking treatment, without entertainment",
     "enumeration": "7"
    },
-   "solution": "DEFUNCT"
+   "solution": "DEFUNCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DEFUNCT",
+    "definitions": [
+     {
+      "text": "Invalid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so only the last letter is kept"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of had"
+     },
+     {
+      "clueFragment": "shocking treatment",
+      "gives": "ECT",
+      "note": "ECT is electroconvulsive therapy, an electric-shock treatment"
+     },
+     {
+      "clueFragment": "entertainment",
+      "gives": "FUN",
+      "note": "fun is amusement or entertainment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "FUN",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick patient was finally given harsh therapy with no amusement.",
+     "walkthrough": "'Invalid' looks like a noun for a sick person, but it is the adjective meaning void.",
+     "definitionFit": "Something defunct no longer exists or operates, so it is invalid or no longer in force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Invalid"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1772,53 @@
     "text": "Live prosperously, supporting daughter",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DWELL",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer, a supporting piece sits beneath what it holds up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "prosperously",
+      "gives": "WELL",
+      "note": "to live well is to live prosperously"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Living comfortably while providing for a daughter.",
+     "definitionFit": "To dwell is to reside somewhere, so it means live in the sense of having a home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1832,59 @@
     "text": "Sound of hooter I will interrupt",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISE",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will interrupt",
+      "for": "container",
+      "note": "to interrupt is to break into, so one piece goes into the middle of the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooter",
+      "gives": "NOSE",
+      "note": "hooter is British slang for nose"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "The car horn's sound will cut in.",
+     "walkthrough": "'Sound of hooter' suggests a horn's blast; hooter is also British slang for the nose.",
+     "definitionFit": "Noise is any sound, especially a loud or unwanted one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1898,67 @@
     "text": "Gloom one spread about university speech",
     "enumeration": "9"
    },
-   "solution": "MONOLOGUE"
+   "solution": "MONOLOGUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MONOLOGUE",
+    "definitions": [
+     {
+      "text": "speech",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spreading things scatters them, so these letters are laid out in new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the scrambled letters surround one more piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloom one",
+      "gives": "GLOOMONE",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONOLO",
+      "G",
+      "U",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLOOMONE",
+       "gives": "MONOLOGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One person's gloom spread across campus.",
+     "definitionFit": "A monologue is a long speech by one speaker, as in a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1972,55 @@
     "text": "Alternative that is left for Oxford college",
     "enumeration": "5"
    },
-   "solution": "ORIEL"
+   "solution": "ORIEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORIEL",
+    "definitions": [
+     {
+      "text": "Oxford college",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "IE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandoned another option in favour of studying at Oxford.",
+     "definitionFit": "Oriel is one of the colleges of the University of Oxford, founded in 1326."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +2034,55 @@
     "text": "This author wears that lady's luxury fashion brand",
     "enumeration": "6"
    },
-   "solution": "HERMES"
+   "solution": "HERMES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERMES",
+    "definitions": [
+     {
+      "text": "luxury fashion brand",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "something worn goes on the outside, so one piece is draped around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that lady's",
+      "gives": "HERS",
+      "note": "hers means belonging to that woman"
+     },
+     {
+      "clueFragment": "This author",
+      "gives": "ME",
+      "note": "the setter referring to themselves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "ME",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The writer is dressed in a woman's designer label.",
+     "walkthrough": "'This author' is the setter, so it gives ME; 'wears' makes HERS the outer piece.",
+     "definitionFit": "Hermès is a French luxury house known for silk scarves and Birkin handbags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +2096,64 @@
     "text": "Follow advice and cook lentils, removing lid",
     "enumeration": "6"
    },
-   "solution": "LISTEN"
+   "solution": "LISTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LISTEN",
+    "definitions": [
+     {
+      "text": "Follow advice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing lid",
+      "for": "deletion",
+      "note": "a lid sits on top, so taking it off drops the opening letter"
+     },
+     {
+      "text": "cook",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lentils",
+      "gives": "LENTILS",
+      "note": "taken as written, before trimming and rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LISTEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENTILS",
+       "gives": "LISTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Do as you are told and prepare the lentils with the pan uncovered.",
+     "walkthrough": "In a down-to-earth kitchen surface, 'lid' is the pot's cover; here it is the first letter of the word.",
+     "definitionFit": "To listen can mean to heed or take notice, so it works as taking counsel offered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lid"
+    }
+   }
   }
  ]
 }

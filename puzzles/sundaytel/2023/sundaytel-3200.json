@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,65 @@
     "text": "Food for cooking dinner gets prepared after one",
     "enumeration": "11"
    },
-   "solution": "INGREDIENTS"
+   "solution": "INGREDIENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INGREDIENTS",
+    "definitions": [
+     {
+      "text": "Food for cooking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared has been chopped and mixed, so the preceding words are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us the rearranged letters follow the numeral rather than precede it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "dinner gets",
+      "gives": "DINNERGETS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NGREDIENTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DINNERGETS",
+       "gives": "NGREDIENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks what goes into the meal before tonight's dinner is cooked.",
+     "definitionFit": "Ingredients are the raw items that a recipe combines, the things a cook works with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +107,42 @@
     "text": "Green note",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     },
+     {
+      "text": "note",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "note": "first meaning: unprocessed, environmentally friendly, organic"
+     },
+     {
+      "clueFragment": "note",
+      "note": "second meaning: in music, a note that is neither sharp nor flat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Green looks like a colour, but here it is the eco sense; note is the musical one.",
+     "definitionFit": "Products sold as green or eco-friendly are described as wholesome and unadulterated; in notation the sign cancelling a sharp or flat names a plain tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +156,50 @@
     "text": "Fragrant liquid so rare and wet, splashed around",
     "enumeration": "9"
    },
-   "solution": "ROSEWATER"
+   "solution": "ROSEWATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROSEWATER",
+    "definitions": [
+     {
+      "text": "Fragrant liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "splashed around",
+      "for": "anagram",
+      "note": "liquid splashed around is scattered everywhere, so the letters before it end up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so rare and wet",
+      "gives": "SORAREWET",
+      "note": "the words so, rare and wet, joined by and, which supplies no letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORAREWET",
+       "gives": "ROSEWATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an unusual perfume being sprinkled about.",
+     "definitionFit": "This is a scented water distilled from petals, used in perfumery and in sweets such as Turkish delight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "splashed"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +213,43 @@
     "text": "Cash: bread, though not ready?",
     "enumeration": "5"
    },
-   "solution": "DOUGH"
+   "solution": "DOUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOUGH",
+    "definitions": [
+     {
+      "text": "Cash",
+      "at": 0
+     },
+     {
+      "text": "bread, though not ready",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cash",
+      "note": "first meaning: slang for money"
+     },
+     {
+      "clueFragment": "bread, though not ready",
+      "note": "second meaning: the mixture of flour and water before baking, bread not yet ready to eat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bread is itself slang for money, so the clue looks like two words for cash; the question mark flags the baking sense.",
+     "definitionFit": "The word is slang for money and also names raw, unbaked mixture of flour, yeast and water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +263,49 @@
     "text": "Shops all opening, eight million people outside running in, apparently",
     "enumeration": "7"
    },
-   "solution": "EMPORIA"
+   "solution": "EMPORIA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EMPORIA",
+    "definitions": [
+     {
+      "text": "Shops",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all opening",
+      "for": "letter_selection",
+      "note": "all opening means every word gives up its opening, so only the first letter of each following word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eight million people outside running in, apparently",
+      "gives": "EMPORIA",
+      "select": "first",
+      "note": "the first letters of these seven words, read in order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPORIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Stores throw open their doors as a city's eight million residents queue outside and then rush in.",
+     "walkthrough": "The surface reads like a sales-day news report; the whole tail of the clue is just a string of initial letters.",
+     "definitionFit": "An emporium is a large store, a grand word for a shop, and the Latin plural ends in -ia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +319,66 @@
     "text": "Pilot I suspect circling right capital city",
     "enumeration": "7"
    },
-   "solution": "TRIPOLI"
+   "solution": "TRIPOLI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRIPOLI",
+    "definitions": [
+     {
+      "text": "capital city",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dubious or not genuine, so the letters are not in their true order"
+     },
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling means going round something, so the mixed letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pilot I",
+      "gives": "PILOTI",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "IPOLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PILOTI",
+       "gives": "TIPOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aviator, under suspicion, flies in circles above a capital.",
+     "definitionFit": "This is the capital of Libya, on the Mediterranean coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pilot"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +392,60 @@
     "text": "Unproven belief in fresh start under leader in parliament",
     "enumeration": "11"
    },
-   "solution": "PRESUMPTION"
+   "solution": "PRESUMPTION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESUMPTION",
+    "definitions": [
+     {
+      "text": "Unproven belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, so only the start of the following word is kept"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so the fresh start comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parliament",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of parliament"
+     },
+     {
+      "clueFragment": "fresh start",
+      "gives": "RESUMPTION",
+      "note": "a fresh start is a resumption, starting again after a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESUMPTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party leader promises a fresh start under their leadership in parliament.",
+     "definitionFit": "A presumption is something assumed to be true without proof, an assumption taken for granted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +459,42 @@
     "text": "Leave property on Monopoly board",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAND",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "property on Monopoly board",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: abandon someone somewhere with no way out"
+     },
+     {
+      "clueFragment": "property on Monopoly board",
+      "note": "second meaning: a red square on the London edition of the board game, named after a street in central London"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The London Monopoly board has a street called this, coloured red next to Fleet Street and Trafalgar Square.",
+     "definitionFit": "To leave someone helpless is to abandon them, as a ship left on a beach; separately, the London street appears as a purchasable square in the game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +508,70 @@
     "text": "In reverse, place a rock in wheels",
     "enumeration": "7"
    },
-   "solution": "ROTATES"
+   "solution": "ROTATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROTATES",
+    "definitions": [
+     {
+      "text": "wheels",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In reverse",
+      "for": "reversal",
+      "note": "in reverse means going backwards, so the whole string is read from the end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "SET",
+      "note": "to place something is to set it down"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "TOR",
+      "note": "a tor is a rocky outcrop on a hilltop, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "A",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SETATOR",
+       "to": "ROTATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs a vehicle up to set a stone among its wheels.",
+     "walkthrough": "Wheels looks like a noun among the wheels of a car, but it is the verb at the end of the clue.",
+     "definitionFit": "Something that wheels turns round on an axis or pivot, which is what spinning objects do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wheels"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +585,61 @@
     "text": "One visiting a French apartment, due",
     "enumeration": "6"
    },
-   "solution": "UNPAID"
+   "solution": "UNPAID",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "UNPAID",
+    "definitions": [
+     {
+      "text": "due",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "someone visiting goes inside a home, so this letter goes into the dwelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is the French word for a"
+     },
+     {
+      "clueFragment": "apartment",
+      "gives": "PAD",
+      "note": "pad is slang for a flat or apartment"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "PA",
+      "I",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A guest stays at a Parisian flat on which the rent is owing.",
+     "definitionFit": "A bill that is due has not been settled yet, so it remains outstanding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +659,50 @@
      }
     ]
    },
-   "solution": "LEONTROTSKY"
+   "solution": "LEONTROTSKY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEON TROTSKY",
+    "definitions": [
+     {
+      "text": "Communist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests acting out parts or fooling about, so the letters take up new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knotty roles",
+      "gives": "KNOTTYROLES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KNOTTYROLES",
+       "gives": "LEONTROTSKY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor takes on tricky parts as a left-wing revolutionary.",
+     "definitionFit": "Trotsky was a leading Bolshevik revolutionary, founder of the Red Army, and an example of a Marxist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +716,56 @@
     "text": "Bird in queue behind rail",
     "enumeration": "7"
    },
-   "solution": "SPARROW"
+   "solution": "SPARROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARROW",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so the queue word follows the rail word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rail",
+      "gives": "SPAR",
+      "note": "a spar is a pole or bar, like a rail"
+     },
+     {
+      "clueFragment": "queue",
+      "gives": "ROW",
+      "note": "a row is a line of people or things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird perches in a line behind a fence rail.",
+     "definitionFit": "The house sparrow is a small brown songbird, one of the commonest birds in towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queue"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +779,60 @@
     "text": "Tailless insect absorbs second bodily substance",
     "enumeration": "7"
    },
-   "solution": "HORMONE"
+   "solution": "HORMONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HORMONE",
+    "definitions": [
+     {
+      "text": "bodily substance",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tailless",
+      "for": "deletion",
+      "note": "without a tail means the final letter of the creature is dropped"
+     },
+     {
+      "text": "absorbs",
+      "for": "container",
+      "note": "absorbing means taking something in, so the shortened insect holds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "HORNET",
+      "note": "a hornet is a large wasp"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "mo is short for moment, a second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOR",
+      "MO",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stingless wasp soaks up a second dose of something the body produces.",
+     "definitionFit": "Hormones such as insulin and adrenaline are chemical messengers made by glands and carried in the blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +846,63 @@
     "text": "Gong banged finally, dinner say brought round?",
     "enumeration": "5"
    },
-   "solution": "MEDAL"
+   "solution": "MEDAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEDAL",
+    "definitions": [
+     {
+      "text": "Gong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "brought round",
+      "for": "container",
+      "note": "brought round means wrapped around something, so the meal word encloses the kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dinner say",
+      "gives": "MEAL",
+      "note": "dinner is an example of a meal, which say signals"
+     },
+     {
+      "clueFragment": "banged",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of banged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "D",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gong is struck at the end, announcing that dinner is served.",
+     "walkthrough": "Gong looks like the dinner gong in the surface, but it is British slang for a medal or award.",
+     "definitionFit": "In British slang a gong is a decoration or honour awarded to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gong"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +916,65 @@
     "text": "Islander, like chap I dressed in brown",
     "enumeration": "9"
    },
-   "solution": "TASMANIAN"
+   "solution": "TASMANIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TASMANIAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed in",
+      "for": "container",
+      "note": "to be dressed in something is to be wrapped in it, so the first words sit inside the colour"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, in comparisons"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASMANI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes an island dweller as a fellow just like them, clad in brown.",
+     "definitionFit": "Tasmania is the island state south of mainland Australia, so a native of it is an islander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +994,52 @@
      }
     ]
    },
-   "solution": "SANSSERIF"
+   "solution": "SANSSERIF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANS SERIF",
+    "definitions": [
+     {
+      "text": "type",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "something stupid is muddled, so the letters before it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘Ass’ infers",
+      "gives": "ASSINFERS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASSINFERS",
+       "gives": "SANSSERIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone concludes that a person called an ass must be a fool.",
+     "walkthrough": "Type looks like a kind of person, but it means printing letters.",
+     "definitionFit": "This names a style of typeface, lettering without the small strokes finishing each character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1063,67 @@
      }
     ]
    },
-   "solution": "TIPANDRUN"
+   "solution": "TIPANDRUN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TIP-AND-RUN",
+    "definitions": [
+     {
+      "text": "cricket game",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Incompetent",
+      "for": "anagram",
+      "note": "incompetent work is badly done, so the letters are put together wrongly"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps only the last letter of the word before it"
+     },
+     {
+      "text": "trapped in",
+      "for": "anagram",
+      "note": "trapped in says the kept letter is caught among the other letters being mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dan put in",
+      "gives": "DANPUTIN",
+      "note": "the main letters to be rearranged"
+     },
+     {
+      "clueFragment": "opener",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of opener"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANPUTINR",
+       "gives": "TIPANDRUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless player named Dan is sent in to bat, and the opening batsman is stuck in a cricket match.",
+     "definitionFit": "This is an informal form of cricket in which the batter must run every time the ball is hit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1137,72 @@
     "text": "Uriah upset about Victor is grumpy",
     "enumeration": "7"
    },
-   "solution": "PEEVISH"
+   "solution": "PEEVISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PEEVISH",
+    "definitions": [
+     {
+      "text": "grumpy",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, and in a down clue that reads the name from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned name goes round the next pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uriah",
+      "gives": "HEEP",
+      "note": "Uriah Heep is the fawning clerk in Dickens's David Copperfield"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "V is Victor in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "VIS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HEEP",
+       "to": "PEEH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Uriah is annoyed about someone called Victor, who is in a bad mood.",
+     "walkthrough": "Uriah is the Dickens villain, so it stands for his surname.",
+     "definitionFit": "Someone grumpy is irritable and easily annoyed, sulky and bad-tempered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1216,79 @@
     "text": "Wandering casually initially, I had a day going uphill",
     "enumeration": "7"
    },
-   "solution": "NOMADIC"
+   "solution": "NOMADIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "NOMADIC",
+    "definitions": [
+     {
+      "text": "Wandering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before it"
+     },
+     {
+      "text": "going uphill",
+      "for": "reversal",
+      "note": "in a down clue, going uphill means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casually",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of casually"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is short for I had"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "MON",
+      "note": "Mon is short for Monday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOM",
+      "A",
+      "DI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CIDAMON",
+       "to": "NOMADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker recalls a relaxed day spent strolling up a hill.",
+     "definitionFit": "Nomads move from place to place without a fixed home, roaming with their herds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "casually"
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1302,61 @@
     "text": "Gift first of lemons in yellow",
     "enumeration": "5"
    },
-   "solution": "FLAIR"
+   "solution": "FLAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLAIR",
+    "definitions": [
+     {
+      "text": "Gift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of keeps just the opening letter of the following word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the kept letter inside the colour word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yellow",
+      "gives": "FAIR",
+      "note": "fair hair is light or blond, a yellowish colour"
+     },
+     {
+      "clueFragment": "lemons",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of lemons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A present of a lemon, wrapped in yellow paper.",
+     "definitionFit": "A gift can mean a natural talent, and having a knack for something is the same idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gift"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1370,55 @@
     "text": "Back African party, well on the fringes",
     "enumeration": "7"
    },
-   "solution": "FINANCE"
+   "solution": "FINANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINANCE",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the fringes",
+      "for": "container",
+      "note": "fringes are edges, so the second word forms the border around the party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well",
+      "gives": "FINE",
+      "note": "fine means well, in good health"
+     },
+     {
+      "clueFragment": "African party",
+      "gives": "ANC",
+      "note": "the African National Congress, South Africa's governing party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Support an African political party that is doing well at the margins.",
+     "walkthrough": "Back looks like a direction, but it is the verb meaning support.",
+     "definitionFit": "To back a project is to fund it, providing the money it needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1432,59 @@
     "text": "Ask a page to put on ring",
     "enumeration": "6"
    },
-   "solution": "APPEAL"
+   "solution": "APPEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPEAL",
+    "definitions": [
+     {
+      "text": "Ask",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to put on",
+      "for": "charade",
+      "note": "in a down clue, put on means placed on top, so the first pieces stand above the ring word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p is the abbreviation for page"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "PEAL",
+      "note": "bells ring out in a peal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks a young attendant to wear a ring.",
+     "definitionFit": "To make a plea is to request something earnestly, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1498,66 @@
     "text": "Employ too many staff, thousand in Verona, surprisingly",
     "enumeration": "7"
    },
-   "solution": "OVERMAN"
+   "solution": "OVERMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OVERMAN",
+    "definitions": [
+     {
+      "text": "Employ too many staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something that happens surprisingly is out of the expected order, so the city's letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the thousand inside the mixed city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verona",
+      "gives": "VERONA",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "M",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VERONA",
+       "gives": "OVERAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian business in Verona has hired a thousand workers, far more than it needs.",
+     "definitionFit": "Overmanning means a workforce larger than the job needs, too many hands on payroll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thousand"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1571,56 @@
     "text": "Relative in fleece instantly turned up",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie inside the words that follow"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fleece instantly",
+      "gives": "ECEIN",
+      "note": "the letters spanning the end of fleece and the start of instantly"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ECEIN",
+       "to": "NIECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member wearing a fleece appears at once.",
+     "definitionFit": "Your brother's or sister's daughter is a family member of yours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 24,
@@ -390,7 +1634,54 @@
     "text": "Eject bags with shallow box",
     "enumeration": "7"
    },
-   "solution": "SANDPIT"
+   "solution": "SANDPIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANDPIT",
+    "definitions": [
+     {
+      "text": "shallow box",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bags",
+      "for": "container",
+      "note": "to bag something is to capture it, so the first word holds the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eject",
+      "gives": "SPIT",
+      "note": "to spit is to eject from the mouth"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with, along with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AND",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone throws out sacks along with a shallow crate.",
+     "definitionFit": "A children's play area filled with sand is often a low wooden frame in a garden or playground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 25,
@@ -404,7 +1695,42 @@
     "text": "Fill puzzle",
     "enumeration": "6"
    },
-   "solution": "RIDDLE"
+   "solution": "RIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDDLE",
+    "definitions": [
+     {
+      "text": "Fill",
+      "at": 0
+     },
+     {
+      "text": "puzzle",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fill",
+      "note": "first meaning: to pierce all over, as in a target full of bullet holes"
+     },
+     {
+      "clueFragment": "puzzle",
+      "note": "second meaning: a conundrum or enigma"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense comes from the coarse sieve full of holes, as in bullets peppering a target.",
+     "definitionFit": "To pepper something with holes means to permeate it thoroughly, and a conundrum or enigma is a question posed as a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fill"
+    }
+   }
   },
   {
    "number": 26,
@@ -418,7 +1744,48 @@
     "text": "Made off with bag — loot!",
     "enumeration": "7"
    },
-   "solution": "RANSACK"
+   "solution": "RANSACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANSACK",
+    "definitions": [
+     {
+      "text": "loot",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made off",
+      "gives": "RAN",
+      "note": "ran off means made off, fled"
+     },
+     {
+      "clueFragment": "bag",
+      "gives": "SACK",
+      "note": "a sack is a large bag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "SACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief escapes carrying a sack, shouting about the plunder.",
+     "definitionFit": "To plunder a place is to search it violently and steal its contents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -432,7 +1799,39 @@
     "text": "Very little grain?",
     "enumeration": "11"
    },
-   "solution": "CHICKENFEED"
+   "solution": "CHICKENFEED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHICKENFEED",
+    "definitions": [
+     {
+      "text": "Very little grain?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little",
+      "note": "surface reading: a tiny amount, an insignificant sum of money"
+     },
+     {
+      "clueFragment": "grain?",
+      "note": "setter's reading: grain scattered for farmyard poultry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase is an idiom for a trivial amount of money, and literally the corn thrown to hens.",
+     "definitionFit": "The idiom means a paltry sum, while literally naming what poultry eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grain"
+    }
+   }
   }
  ]
 }

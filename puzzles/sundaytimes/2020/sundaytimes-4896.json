@@ -24,6 +24,9 @@
   "date": "2020-04-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,49 @@
     "text": "Minister takes tea, no milk, no sugar",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is an old slang word for tea"
+     },
+     {
+      "clueFragment": "no milk, no sugar",
+      "gives": "PLAIN",
+      "note": "tea served with nothing added is plain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar asks for a cup of tea served black and unsweetened.",
+     "definitionFit": "A clergyman attached to a college, hospital or regiment is a kind of church minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +96,47 @@
     "text": "The chair might include one toilet break",
     "enumeration": "8"
    },
-   "solution": "HEADREST"
+   "solution": "HEADREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADREST",
+    "definitions": [
+     {
+      "text": "The chair might include one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "HEAD",
+      "note": "the head is a ship's toilet, a naval term"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a break from work is a rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A committee chair schedules a pause so everyone can visit the lavatory.",
+     "walkthrough": "'The chair' suggests a person chairing a meeting; here it is simply a piece of furniture.",
+     "definitionFit": "Many seats, such as car or dentist seats, have a cushioned support for the back of the head built in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +150,63 @@
     "text": "Old gym buddy with special rates",
     "enumeration": "8"
    },
-   "solution": "PALESTRA"
+   "solution": "PALESTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PALESTRA",
+    "definitions": [
+     {
+      "text": "Old gym",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "a special arrangement is an unusual one, so the following word's letters are set out differently"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buddy",
+      "gives": "PAL",
+      "note": "a buddy is a pal"
+     },
+     {
+      "clueFragment": "rates",
+      "gives": "RATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ESTRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATES",
+       "gives": "ESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old training partner from the gym offers a discounted membership.",
+     "definitionFit": "In ancient Greece the palaestra was a public school for wrestling and athletics, a gymnasium of antiquity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +220,76 @@
     "text": "A match with no start gun, bats or breathing gear",
     "enumeration": "8"
    },
-   "solution": "AQUALUNG"
+   "solution": "AQUALUNG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AQUALUNG",
+    "definitions": [
+     {
+      "text": "breathing gear",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no start",
+      "for": "deletion",
+      "note": "having no start means the opening letter of the word for match is dropped"
+     },
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats is slang for crazy, so the letters of gun go haywire"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "EQUAL",
+      "note": "to match something is to equal it"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "GUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUAL",
+      "UNG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUN",
+       "gives": "UNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of sports kit: match equipment without a starting pistol, cricket bats or diving gear.",
+     "walkthrough": "EQUAL loses its E to leave QUAL; the surface reads 'bats' as cricket bats, but it is the anagram signal for gun.",
+     "definitionFit": "An aqualung is the portable apparatus divers wear to breathe underwater, so it is gear for breathing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +313,55 @@
      }
     ]
    },
-   "solution": "NOSPRINGCHICKEN"
+   "solution": "NOSPRINGCHICKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NO SPRING CHICKEN",
+    "definitions": [
+     {
+      "text": "getting past it",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the bird word behind the phrase that opens the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of bounds?",
+      "gives": "NOSPRING",
+      "note": "read cryptically: with no bounds or leaps, there is no spring"
+     },
+     {
+      "clueFragment": "Birdie",
+      "gives": "CHICKEN",
+      "note": "a birdie, a little bird, here a hen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOSPRING",
+      "CHICKEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer gets a birdie despite a ball going out of bounds, though they are past it.",
+     "walkthrough": "'Out of bounds' and 'Birdie' both suggest golf; the question mark flags that 'out of bounds' must be read as having no leaps left.",
+     "definitionFit": "Calling someone no spring chicken is an idiom for saying they are no longer young, which is ageing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Birdie"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +375,63 @@
     "text": "Taco filling used in desert sweetmeat",
     "enumeration": "8"
    },
-   "solution": "MACAROON"
+   "solution": "MACAROON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MACAROON",
+    "definitions": [
+     {
+      "text": "sweetmeat",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "letter_selection",
+      "note": "the filling of a taco is what sits inside, so only its inner letters are kept"
+     },
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in another thing is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desert",
+      "gives": "MAROON",
+      "note": "to maroon someone is to desert them on an island"
+     },
+     {
+      "clueFragment": "Taco",
+      "gives": "AC",
+      "select": "middle",
+      "note": "the two central letters of taco"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AC",
+      "AROON"
+     ]
+    },
+    "explanation": {
+     "surface": "A Mexican taco's stuffing is used in a sweet treat served in the desert.",
+     "walkthrough": "'desert' looks like a misspelt dessert or a sandy place, but it is the verb meaning abandon.",
+     "definitionFit": "A macaroon is a small almond or coconut biscuit, an old-fashioned confection called a sweetmeat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +445,72 @@
     "text": "Proceeds from a social, around five shillings",
     "enumeration": "8"
    },
-   "solution": "ADVANCES"
+   "solution": "ADVANCES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ADVANCES",
+    "definitions": [
+     {
+      "text": "Proceeds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the social event wraps itself about the numeral"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "social",
+      "gives": "DANCE",
+      "note": "a social is a party, such as a dance"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "shillings",
+      "gives": "S",
+      "note": "s was the abbreviation for shillings in old British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "V",
+      "ANCE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The takings from a club party came to about five shillings.",
+     "walkthrough": "'Proceeds' looks like a noun meaning takings; it is the verb meaning moves forward. A shilling was a pre-1971 British coin.",
+     "definitionFit": "To proceed is to go forward, and to advance is to move forward, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Proceeds"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +524,80 @@
     "text": "It’s plastic lining stone sides of open ditch",
     "enumeration": "8"
    },
-   "solution": "JETTISON"
+   "solution": "JETTISON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "JETTISON",
+    "definitions": [
+     {
+      "text": "ditch",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into a new form"
+     },
+     {
+      "text": "sides of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its outermost letters"
+     },
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining sits inside the things that follow it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "JET",
+      "note": "jet is a black stone used in jewellery"
+     },
+     {
+      "clueFragment": "It’s",
+      "gives": "ITS",
+      "note": "the letters of it's, without the apostrophe"
+     },
+     {
+      "clueFragment": "open",
+      "gives": "ON",
+      "select": "outer",
+      "note": "the first and last letters of open"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "TIS",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "TIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plastic is lining the stone edges of an open drainage channel.",
+     "walkthrough": "'ditch' sits at the end looking like a trench; it is the verb meaning throw away.",
+     "definitionFit": "To jettison something is to throw it overboard or discard it, just as you ditch unwanted things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ditch"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +611,50 @@
     "text": "Publication to pass on material",
     "enumeration": "8"
    },
-   "solution": "ORGANDIE"
+   "solution": "ORGANDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORGANDIE",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publication",
+      "gives": "ORGAN",
+      "note": "an organ is a newspaper or journal that speaks for a group"
+     },
+     {
+      "clueFragment": "to pass",
+      "gives": "DIE",
+      "note": "to pass away is to die"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine article is going to be handed on to someone else.",
+     "walkthrough": "'pass on' reads as one phrase meaning hand over; 'pass' alone means die and 'on' is just a joining word.",
+     "definitionFit": "Organdie is a fine, stiff, translucent cotton fabric, a type of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +674,56 @@
      }
     ]
    },
-   "solution": "FALLGUYS"
+   "solution": "FALLGUYS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALL GUYS",
+    "definitions": [
+     {
+      "text": "easy victims",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frequency",
+      "gives": "F",
+      "note": "f is the standard abbreviation for frequency"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     },
+     {
+      "clueFragment": "mocks",
+      "gives": "GUYS",
+      "note": "to guy someone is to ridicule them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ALL",
+      "GUYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some unfortunate people are mocked by everybody, and often.",
+     "walkthrough": "'guy' as a verb meaning tease is mainly British.",
+     "definitionFit": "A fall guy is a scapegoat or dupe who takes the blame, so such people are easy targets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mocks"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +737,71 @@
     "text": "Nice game, not hard to get fifty in",
     "enumeration": "8"
    },
-   "solution": "PLEASANT"
+   "solution": "PLEASANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PLEASANT",
+    "definitions": [
+     {
+      "text": "Nice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means the letter for hard is taken out of the game word"
+     },
+     {
+      "text": "to get",
+      "for": "container",
+      "note": "the game word is made to take in the numeral, so it goes inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the numeral within the shortened game bird"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "PHEASANT",
+      "note": "pheasant is a game bird"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant game that isn't too difficult lets you reach fifty.",
+     "walkthrough": "'Nice' looks like the French city, but here it is the plain adjective.",
+     "definitionFit": "Something nice is agreeable and enjoyable, which is what pleasant also describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +815,61 @@
     "text": "Sportsman with others regularly skipped algebra",
     "enumeration": "8"
    },
-   "solution": "WRESTLER"
+   "solution": "WRESTLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WRESTLER",
+    "definitions": [
+     {
+      "text": "Sportsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly skipped",
+      "for": "letter_selection",
+      "note": "skipping at regular intervals leaves every second letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w is a common abbreviation for with"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the others are the rest"
+     },
+     {
+      "clueFragment": "algebra",
+      "gives": "LER",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REST",
+      "LER"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete and his teammates kept missing their maths lessons.",
+     "definitionFit": "A wrestler competes in a combat sport of grappling, so he is an athlete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skipped"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +883,48 @@
     "text": "They ask for payment on board expresses",
     "enumeration": "8"
    },
-   "solution": "INVOICES"
+   "solution": "INVOICES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVOICES",
+    "definitions": [
+     {
+      "text": "They ask for payment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on board",
+      "gives": "IN",
+      "note": "someone on board a ship or train is in it"
+     },
+     {
+      "clueFragment": "expresses",
+      "gives": "VOICES",
+      "note": "to voice an opinion is to express it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VOICES"
+     ]
+    },
+    "explanation": {
+     "surface": "Express trains are carrying bills for the passengers.",
+     "walkthrough": "'expresses' suggests fast trains, which fits 'on board'; it is the verb meaning utters.",
+     "definitionFit": "An invoice is a bill sent by a supplier that requests settlement of money owed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "expresses"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +948,64 @@
      }
     ]
    },
-   "solution": "STRANGEGOINGSON"
+   "solution": "STRANGEGOINGSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRANGE GOINGS-ON",
+    "definitions": [
+     {
+      "text": "funny business",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed up",
+      "for": "anagram",
+      "note": "things mixed up are jumbled out of their usual order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goons",
+      "gives": "GOONS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "GANGSTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOONS GANGSTER IN",
+       "gives": "STRANGEGOINGSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thugs have become entangled with a mobster in some shady racket.",
+     "walkthrough": "The anagram takes in 'in' as well as the two nouns, which is easy to miss.",
+     "definitionFit": "Funny business means odd or suspicious activity, exactly what peculiar happenings are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1019,67 @@
     "text": "Quickly shut up about instruments one breaks",
     "enumeration": "8"
    },
-   "solution": "SHARPISH"
+   "solution": "SHARPISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHARPISH",
+    "definitions": [
+     {
+      "text": "Quickly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the hush word goes round the rest"
+     },
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "breaks means the numeral splits the instruments word open and sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shut up",
+      "gives": "SH",
+      "note": "sh is the order to be quiet"
+     },
+     {
+      "clueFragment": "instruments",
+      "gives": "HARPS",
+      "note": "harps are musical instruments"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HARP",
+      "I",
+      "S",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody is told to be quiet quickly after damaging the band's instruments.",
+     "walkthrough": "Two insertions stack here: the numeral goes in first, then the hush word wraps everything. Sharpish is informal British for promptly.",
+     "definitionFit": "Sharpish is British slang meaning promptly or without delay, as in 'get here sharpish'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1093,63 @@
     "text": "Run over by French comedian riding cycle",
     "enumeration": "8"
    },
-   "solution": "ROTATION"
+   "solution": "ROTATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROTATION",
+    "definitions": [
+     {
+      "text": "cycle",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "r is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "o is the cricket abbreviation for over"
+     },
+     {
+      "clueFragment": "French comedian",
+      "gives": "TATI",
+      "note": "Jacques Tati was a French film comedian"
+     },
+     {
+      "clueFragment": "riding",
+      "gives": "ON",
+      "note": "someone riding a horse is on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "TATI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A French comic on a bicycle has been knocked down.",
+     "walkthrough": "In the surface a comedian on a bike gets run over; each word is a separate piece.",
+     "definitionFit": "A cycle is a repeating sequence, and rotation is the turning round in regular order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1163,51 @@
     "text": "Rhubarb is not to French taste, perhaps",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "Rhubarb",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not to French",
+      "gives": "NON",
+      "note": "non is French for not"
+     },
+     {
+      "clueFragment": "taste, perhaps",
+      "gives": "SENSE",
+      "note": "taste is one example of the five senses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NON",
+      "SENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rhubarb is a vegetable the French reportedly don't enjoy eating.",
+     "walkthrough": "Rhubarb is British slang for nonsense, from actors muttering 'rhubarb' as background chatter.",
+     "definitionFit": "In British usage, rhubarb means meaningless talk or rubbish, exactly what drivel is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rhubarb"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1221,64 @@
     "text": "Sort of drink from India, drunk chilled mostly",
     "enumeration": "8"
    },
-   "solution": "ISOTONIC"
+   "solution": "ISOTONIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ISOTONIC",
+    "definitions": [
+     {
+      "text": "Sort of drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the phrase is kept, losing its final letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "SOT",
+      "note": "a sot is a drunkard"
+     },
+     {
+      "clueFragment": "chilled",
+      "gives": "ONICE",
+      "note": "a drink chilled is on ice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SOT",
+      "ONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A beverage from India is drunk mostly cold.",
+     "walkthrough": "'drunk' reads as a verb about the drink; it is the noun for a drunkard.",
+     "definitionFit": "Isotonic sports drinks have the same salt and sugar concentration as body fluids, a category of beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1292,57 @@
     "text": "Surmounting obstacle is skinny runner’s challenge",
     "enumeration": "8"
    },
-   "solution": "GAUNTLET"
+   "solution": "GAUNTLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAUNTLET",
+    "definitions": [
+     {
+      "text": "runner’s challenge",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surmounting",
+      "for": "charade",
+      "note": "in a down clue, surmounting means sitting on top, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skinny",
+      "gives": "GAUNT",
+      "note": "gaunt means very thin"
+     },
+     {
+      "clueFragment": "obstacle",
+      "gives": "LET",
+      "note": "a let is an old word for a hindrance, as in 'without let or hindrance'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAUNT",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting over a hurdle is the real test for a thin athlete.",
+     "walkthrough": "Running the gauntlet means passing between two lines of attackers, so it is a trial for a runner.",
+     "definitionFit": "Running the gauntlet is the ordeal faced by one who must dash between rows of assailants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "runner’s"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1356,58 @@
     "text": "Plenty whine after going outside",
     "enumeration": "8"
    },
-   "solution": "OPULENCE"
+   "solution": "OPULENCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPULENCE",
+    "definitions": [
+     {
+      "text": "Plenty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the word for after wraps around the word for whine"
+     }
+    ],
+    "linkWords": [
+     "going"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "ONCE",
+      "note": "once can mean as soon as, as in 'once you leave'"
+     },
+     {
+      "clueFragment": "whine",
+      "gives": "PULE",
+      "note": "to pule is to whimper or whine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PULE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog whines after being let outside.",
+     "walkthrough": "'after' is the hard piece: it means 'as soon as', as in 'once you go'. 'going' is only a joining word.",
+     "definitionFit": "Opulence is great wealth or luxury, an abundance of riches, which is what plenty can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1421,48 @@
     "text": "Stun somewhat like Bond’s DB5?",
     "enumeration": "8"
    },
-   "solution": "ASTONISH"
+   "solution": "ASTONISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTONISH",
+    "definitions": [
+     {
+      "text": "Stun",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond’s DB5",
+      "gives": "ASTON",
+      "note": "James Bond drove an Aston Martin DB5"
+     },
+     {
+      "clueFragment": "somewhat like",
+      "gives": "ISH",
+      "note": "the suffix -ish means somewhat like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTON",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A stun gun is a bit like the gadgets in Bond's famous car.",
+     "walkthrough": "The question mark flags that ASTON stands for the whole car by its make.",
+     "definitionFit": "To astonish someone is to amaze them so greatly that they are left stunned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stun"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1476,61 @@
     "text": "Hard plays periodically put on under canvas",
     "enumeration": "8"
    },
-   "solution": "INTENTLY"
+   "solution": "INTENTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INTENTLY",
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at intervals, keeping every other letter"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "put on means placed after the canvas phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under canvas",
+      "gives": "INTENT",
+      "note": "someone camping under canvas is in a tent"
+     },
+     {
+      "clueFragment": "plays",
+      "gives": "LY",
+      "select": "alternate",
+      "note": "the second and fourth letters of plays"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Tough dramas are sometimes staged in a marquee.",
+     "walkthrough": "'Hard' is an adverb here, as in 'stare hard'.",
+     "definitionFit": "Looking hard at something means looking with fixed concentration and close attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1544,76 @@
     "text": "A tip circulated about the clubs being dismal",
     "enumeration": "8"
    },
-   "solution": "PATHETIC"
+   "solution": "PATHETIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "PATHETIC",
+    "definitions": [
+     {
+      "text": "dismal",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulated",
+      "for": "anagram",
+      "note": "circulated means moved around, so these letters change places"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the rearranged letters surround the next word"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A tip",
+      "gives": "ATIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "THE",
+      "TI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATIP",
+       "gives": "PATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A betting tip spread around the golf clubs proved hopeless.",
+     "definitionFit": "Pathetic is used informally to describe something feeble and miserably inadequate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1627,57 @@
     "text": "Exciting fish adds variety in the van",
     "enumeration": "8"
    },
-   "solution": "KINDLING"
+   "solution": "KINDLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINDLING",
+    "definitions": [
+     {
+      "text": "Exciting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the van",
+      "for": "charade",
+      "note": "in the van means at the front, so this word leads"
+     }
+    ],
+    "linkWords": [
+     "adds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "variety",
+      "gives": "KIND",
+      "note": "a variety is a kind"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "ling is a fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIND",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A thrilling fish brings variety to the delivery van.",
+     "walkthrough": "'van' reads as a vehicle; 'in the van' is short for in the vanguard.",
+     "definitionFit": "To kindle interest or passion is to arouse it, so the participle means stirring up feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1691,53 @@
     "text": "Rogue whose son makes footwear",
     "enumeration": "8"
    },
-   "solution": "SNOWSHOE"
+   "solution": "SNOWSHOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SNOWSHOE",
+    "definitions": [
+     {
+      "text": "footwear",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rogue",
+      "for": "anagram",
+      "note": "rogue means wayward and out of control, so the letters stray"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whose son",
+      "gives": "WHOSESON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHOSESON",
+       "gives": "SNOWSHOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal's boy turns out to be a cobbler.",
+     "definitionFit": "A snowshoe is a wide racquet-shaped frame strapped under a boot for walking on soft snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rogue"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1751,54 @@
     "text": "Couple visiting a French city’s finer points",
     "enumeration": "8"
    },
-   "solution": "NICETIES"
+   "solution": "NICETIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NICETIES",
+    "definitions": [
+     {
+      "text": "finer points",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes into a place, so this word goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French city’s",
+      "gives": "NICES",
+      "note": "Nice is a city in southern France, with the possessive s"
+     },
+     {
+      "clueFragment": "Couple",
+      "gives": "TIE",
+      "note": "to couple is to tie together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICE",
+      "TIE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of tourists visits Nice and admires its best features.",
+     "definitionFit": "Niceties are subtle details or delicate distinctions, the small refinements of a matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couple"
+    }
+   }
   }
  ]
 }

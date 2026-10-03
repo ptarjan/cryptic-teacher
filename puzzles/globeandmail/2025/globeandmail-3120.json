@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Hide origin of chronic pain",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "origin of",
+      "for": "letter_selection",
+      "note": "the origin of a word is where it starts, so only its opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chronic",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of chronic"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "ACHE",
+      "note": "an ache is a dull, lasting pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to conceal where their long-term pain comes from.",
+     "definitionFit": "A cache is a hidden store, and as a noun it means a hiding place for valuables or supplies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,55 @@
     "text": "Vegetable initially cooked very much al dente",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the beginning of the following word, so only its opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooked",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cooked"
+     },
+     {
+      "clueFragment": "very much al dente",
+      "gives": "HARD",
+      "note": "al dente pasta is firm to the bite; taken further it is simply hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's greens have been left far too firm.",
+     "definitionFit": "Chard is a leafy green garden vegetable related to beet, eaten as a cooked leaf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,50 @@
     "text": "I cry “booh” to upset singer",
     "enumeration": "8"
    },
-   "solution": "CHOIRBOY"
+   "solution": "CHOIRBOY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHOIRBOY",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over and throw its parts into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I cry “booh”",
+      "gives": "ICRYBOOH",
+      "note": "all eight letters of these words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICRYBOOH",
+       "gives": "CHOIRBOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heckler boos to rattle a performer.",
+     "definitionFit": "A choirboy is a young male member of a church choir, so he is one kind of vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +217,50 @@
     "text": "Catch parent running",
     "enumeration": "6"
    },
-   "solution": "ENTRAP"
+   "solution": "ENTRAP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTRAP",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "something running is in motion and unsettled, so its letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "PARENT",
+      "note": "the six letters of this word are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARENT",
+       "gives": "ENTRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child tries to grab a mum or dad who is jogging past.",
+     "definitionFit": "To entrap is to trick or snare someone, which is a way of capturing them, as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +274,55 @@
     "text": "Mother’s holding spades — ace?",
     "enumeration": "6"
    },
-   "solution": "MASTER"
+   "solution": "MASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASTER",
+    "definitions": [
+     {
+      "text": "ace",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’s holding",
+      "for": "container",
+      "note": "holding means wrapping round, so the word for mother encloses the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MATER",
+      "note": "mater is Latin for mother, used in old-fashioned British slang"
+     },
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "note": "S is the abbreviation for spades in card games"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "At cards, Mum is holding spades, and the question is whether she has the ace.",
+     "definitionFit": "An ace is an expert, someone with complete skill at a craft, the same as a master of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ace"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +336,54 @@
     "text": "Flag up digital assistant",
     "enumeration": "4"
    },
-   "solution": "SIRI"
+   "solution": "SIRI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SIRI",
+    "definitions": [
+     {
+      "text": "digital assistant",
+      "at": 8
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is written from bottom to top, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flag",
+      "gives": "IRIS",
+      "note": "a flag is a type of iris, the plant with sword-shaped leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIRI"
+     ],
+     "reversals": [
+      {
+       "from": "IRIS",
+       "to": "SIRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to highlight a voice assistant for attention.",
+     "walkthrough": "Flag reads as a verb, mark for attention, but here it is the waterside plant, the yellow flag iris.",
+     "definitionFit": "Siri is Apple's voice-controlled helper on phones, a software assistant that answers spoken requests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +397,55 @@
     "text": "Visibly embarrassed about former family",
     "enumeration": "7"
    },
-   "solution": "RELATED"
+   "solution": "RELATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELATED",
+    "definitions": [
+     {
+      "text": "family",
+      "at": 33,
+      "note": "used adjectivally: of the same family"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visibly embarrassed",
+      "gives": "RED",
+      "note": "someone visibly embarrassed blushes, going red in the face"
+     },
+     {
+      "clueFragment": "former",
+      "gives": "LATE",
+      "note": "late can mean former, as in the late chairman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blushes when talking about their ex-family.",
+     "definitionFit": "People who are kin share a bloodline, so being of one family means being connected by birth or marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +459,67 @@
     "text": "Fruit, a number outside crate, damaged",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "damaged goods are knocked out of shape, so the letters of the crate get rearranged"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means lying around something else, so the number wraps the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "NINE",
+      "note": "nine is one number among many"
+     },
+     {
+      "clueFragment": "crate",
+      "gives": "ECTAR",
+      "note": "these letters are rearranged before going inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ECTAR",
+      "INE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRATE",
+       "gives": "ECTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer finds fruit sitting outside a broken box.",
+     "walkthrough": "'A number' could be any figure; it has to be one long enough to split around five letters.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a common stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +533,49 @@
     "text": "Shortening of brief illness",
     "enumeration": "11"
    },
-   "solution": "CURTAILMENT"
+   "solution": "CURTAILMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURTAILMENT",
+    "definitions": [
+     {
+      "text": "Shortening",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief",
+      "gives": "CURT",
+      "note": "curt means short or abrupt in manner"
+     },
+     {
+      "clueFragment": "illness",
+      "gives": "AILMENT",
+      "note": "an ailment is a minor illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURT",
+      "AILMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A short bout of sickness cut someone's time down.",
+     "definitionFit": "To curtail is to cut short, so the noun names a reduction in length or duration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +589,61 @@
     "text": "Take on work in audit regularly",
     "enumeration": "5"
    },
-   "solution": "ADOPT"
+   "solution": "ADOPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADOPT",
+    "definitions": [
+     {
+      "text": "Take on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audit",
+      "gives": "ADT",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of audit"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, Latin for a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "OP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant takes on extra work during an audit.",
+     "definitionFit": "To adopt is to take something up as your own, such as a policy or a child, to accept it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +657,50 @@
     "text": "Flavoured wine turned out nastier",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Flavoured wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "anagram",
+      "note": "turned out suggests the letters are tipped out and come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nastier",
+      "gives": "NASTIER",
+      "note": "the seven letters of this word are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NASTIER",
+       "gives": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine that went off and became even worse to drink.",
+     "definitionFit": "Retsina is a Greek white wine with a distinctive resin taste added from pine sap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +714,42 @@
     "text": "Partially see mantid (or mantis) resting",
     "enumeration": "7"
    },
-   "solution": "DORMANT"
+   "solution": "DORMANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DORMANT",
+    "definitions": [
+     {
+      "text": "resting",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partially see",
+      "for": "hidden_word",
+      "note": "to see something partially is to see only a part of it, so look within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mantid (or mantis)",
+      "gives": "DORMANT",
+      "note": "spans the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A nature-watcher glimpses a praying mantis lying still.",
+     "definitionFit": "Something dormant is inactive or asleep for a while, the way animals hibernate through winter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +763,56 @@
     "text": "KLM maybe fine with hours lost",
     "enumeration": "7"
    },
-   "solution": "AIRLINE"
+   "solution": "AIRLINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIRLINE",
+    "definitions": [
+     {
+      "text": "KLM maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "lost means gone missing, so the abbreviation is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "HAIRLINE",
+      "note": "a hairline crack or margin is a very fine one"
+     },
+     {
+      "clueFragment": "hours",
+      "gives": "H",
+      "note": "H is the standard abbreviation for hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRLINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller says the Dutch carrier is fine apart from the time it wastes.",
+     "walkthrough": "KLM is the Dutch national airline; 'maybe' marks it as one example of the definition.",
+     "definitionFit": "KLM is an example of a company that runs scheduled passenger flights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +826,62 @@
     "text": "Water equipment limited by one speed",
     "enumeration": "8"
    },
-   "solution": "IRRIGATE"
+   "solution": "IRRIGATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IRRIGATE",
+    "definitions": [
+     {
+      "text": "Water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limited by",
+      "for": "container",
+      "note": "limited by means bounded on each side, so one word sits enclosed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "rate is a measure of speed"
+     },
+     {
+      "clueFragment": "equipment",
+      "gives": "RIG",
+      "note": "a rig is a set of equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "RIG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Kit for watering that can only run at a single speed.",
+     "walkthrough": "'Water' looks like a noun in the surface, but the definition is the verb.",
+     "definitionFit": "To irrigate is to supply land with water through channels or pipes so crops grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Water"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +895,46 @@
     "text": "Superb quality solvent",
     "enumeration": "7"
    },
-   "solution": "ACETONE"
+   "solution": "ACETONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACETONE",
+    "definitions": [
+     {
+      "text": "solvent",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superb",
+      "gives": "ACE",
+      "note": "ace is slang for excellent"
+     },
+     {
+      "clueFragment": "quality",
+      "gives": "TONE",
+      "note": "tone is the quality of a sound or colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert praises a top-grade cleaning fluid.",
+     "definitionFit": "Acetone is a colourless liquid used to dissolve other substances, as in nail-varnish remover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solvent"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +948,80 @@
     "text": "Clear glass of claret’s drunk (last of day for English)",
     "enumeration": "7"
    },
-   "solution": "CRYSTAL"
+   "solution": "CRYSTAL",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CRYSTAL",
+    "definitions": [
+     {
+      "text": "Clear glass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "putting one thing for another means swapping it in as a replacement"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of points to the final letter of the next word only"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "something drunk staggers about out of order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claret’s",
+      "gives": "CLARETS",
+      "note": "the word with its S, before any change"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of day"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English; this letter leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRYSTAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLARTSY",
+       "gives": "CRYSTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clear wine glass of red has been drained, the last of the day's drinks.",
+     "walkthrough": "Swap E out of CLARETS for Y to get CLARTSY, then rearrange it.",
+     "definitionFit": "Crystal is high-quality transparent glass, the kind used for fine wine glasses and decanters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1035,46 @@
     "text": "Small amount of pudding",
     "enumeration": "6"
    },
-   "solution": "TRIFLE"
+   "solution": "TRIFLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIFLE",
+    "definitions": [
+     {
+      "text": "Small amount",
+      "at": 0
+     },
+     {
+      "text": "pudding",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small amount",
+      "note": "first meaning: a tiny quantity, as in a little bit"
+     },
+     {
+      "clueFragment": "pudding",
+      "note": "second meaning: a British layered dessert of sponge, fruit, custard and cream"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking for just a little dessert.",
+     "walkthrough": "In Britain, pudding means dessert in general.",
+     "definitionFit": "The word means both a tiny portion of something and a cold dessert of sponge, jelly, custard and cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pudding"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1088,46 @@
     "text": "Truly popular act",
     "enumeration": "6"
    },
-   "solution": "INDEED"
+   "solution": "INDEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDEED",
+    "definitions": [
+     {
+      "text": "Truly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something in is fashionable"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "DEED",
+      "note": "a deed is an act or action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer's turn is really well liked.",
+     "definitionFit": "Indeed is an adverb affirming something as certainly or really so, used for emphasis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1141,47 @@
     "text": "Minutes finishing off repair",
     "enumeration": "7"
    },
-   "solution": "MENDING"
+   "solution": "MENDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENDING",
+    "definitions": [
+     {
+      "text": "repair",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minutes",
+      "gives": "M",
+      "note": "M is the abbreviation for minutes"
+     },
+     {
+      "clueFragment": "finishing off",
+      "gives": "ENDING",
+      "note": "an ending is the finishing of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A repair job takes only minutes to complete.",
+     "walkthrough": "Finishing off looks like an instruction to take a last letter, but it is simply a synonym.",
+     "definitionFit": "Mending is the work of fixing broken things, so as a noun it covers a repair job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1195,49 @@
     "text": "Good grass is a sin",
     "enumeration": "5"
    },
-   "solution": "GREED"
+   "solution": "GREED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREED",
+    "definitions": [
+     {
+      "text": "a sin",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "REED",
+      "note": "a reed is a tall grass growing in wet places"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "REED"
+     ]
+    },
+    "explanation": {
+     "surface": "A moralising claim that smoking good weed is sinful.",
+     "definitionFit": "Avarice, one of the seven deadly vices in Christian teaching, is excessive desire for wealth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1251,49 @@
     "text": "Soundly fix roofing slab touching",
     "enumeration": "7"
    },
-   "solution": "TACTILE"
+   "solution": "TACTILE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "TACTILE",
+    "definitions": [
+     {
+      "text": "touching",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Soundly",
+      "for": "homophone",
+      "note": "soundly here means going by sound, so the words are judged as spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "TACT",
+      "soundsLike": "TACK",
+      "note": "to tack is to fix with small nails"
+     },
+     {
+      "clueFragment": "roofing slab",
+      "gives": "TILE",
+      "note": "a tile is a thin slab for covering roofs"
+     }
+    ],
+    "explanation": {
+     "surface": "A roofer firmly secures a slab, hands on the job.",
+     "definitionFit": "Tactile describes things relating to the sense of touch, or a person who likes physical contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Soundly"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1307,57 @@
     "text": "Aromatic spice but left out bay",
     "enumeration": "4"
    },
-   "solution": "COVE"
+   "solution": "COVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COVE",
+    "definitions": [
+     {
+      "text": "bay",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so the letter for left is taken away"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aromatic spice",
+      "gives": "CLOVE",
+      "note": "a clove is a dried flower bud used as a spice"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook skipped a fragrant spice but added a leaf.",
+     "walkthrough": "Bay looks like the cooking leaf beside the spice, but it is a stretch of coast.",
+     "definitionFit": "A cove is a small sheltered inlet on a coastline, a little curved stretch of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bay"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1371,57 @@
     "text": "Get rid of king with moderate protection",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protection",
+      "for": "container",
+      "note": "protection wraps round what it guards, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderate",
+      "gives": "EASE",
+      "note": "to ease is to moderate or lessen"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "R",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Overthrow a monarch who has only light security.",
+     "definitionFit": "To erase is to wipe out or delete completely, removing all trace of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1435,64 @@
     "text": "Book short month with European renter mostly",
     "enumeration": "9"
    },
-   "solution": "NOVELETTE"
+   "solution": "NOVELETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NOVELETTE",
+    "definitions": [
+     {
+      "text": "Book short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "NOV",
+      "note": "NOV is the calendar abbreviation for November"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "renter",
+      "gives": "LETTER",
+      "note": "a letter is one who lets property; here someone who rents it out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOV",
+      "E",
+      "LETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A short book bought in some month from a European landlord.",
+     "walkthrough": "'Short month' looks like it shortens the month, but short belongs to the definition: a book that is short.",
+     "definitionFit": "A novelette is a brief novel or long short story, a shorter work of fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1506,64 @@
     "text": "Fear of departed around end of October?",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the word for departed wraps the other letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departed",
+      "gives": "DEAD",
+      "note": "the departed are those who have died"
+     },
+     {
+      "clueFragment": "October",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of October"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Fear of ghosts when Halloween comes at the close of October.",
+     "definitionFit": "Dread is great apprehension or terror about something to come, a noun close to anxiety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "departed"
+    }
+   }
   }
  ]
 }

@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,46 @@
     "text": "Doctor behind plan",
     "enumeration": "5"
    },
-   "solution": "DRAFT"
+   "solution": "DRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAFT",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "DR is the standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "AFT",
+      "note": "aft means at the back, nautically behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic trailing behind with a scheme, or a doctor backing a plan.",
+     "definitionFit": "A draft is a preliminary version or outline of something, so a rough scheme or plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +88,69 @@
     "text": "Perhaps spiritual support needed over one's doctor's opinion",
     "enumeration": "9"
    },
-   "solution": "DIAGNOSIS"
+   "solution": "DIAGNOSIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIAGNOSIS",
+    "definitions": [
+     {
+      "text": "doctor's opinion",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue over means turned upward, so the first pair of words is read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps spiritual",
+      "gives": "SONG",
+      "note": "a spiritual is one kind of religious song, hence perhaps"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "AID",
+      "note": "aid means help or support"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one's read as one is, I + S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAGNOS",
+      "IS"
+     ],
+     "reversals": [
+      {
+       "from": "SONGAID",
+       "to": "DIAGNOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient wants spiritual comfort while awaiting the doctor's verdict.",
+     "walkthrough": "In a down clue 'over' does double duty: the reversed pair is read upward and sits on top of the last piece. A spiritual is a gospel song, hence 'perhaps'.",
+     "definitionFit": "A diagnosis is the identification of an illness made by a physician after examining a patient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spiritual"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +164,61 @@
     "text": "Book unfortunately includes typos at the start",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the start",
+      "for": "letter_selection",
+      "note": "at the start means only the opening letter of typos is used"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means holds inside, so the word for unfortunately surrounds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfortunately",
+      "gives": "ALAS",
+      "note": "alas is an exclamation of regret"
+     },
+     {
+      "clueFragment": "typos",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of typos"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A book unfortunately has mistakes right at the beginning.",
+     "definitionFit": "An atlas is a bound volume of maps, so a particular kind of reference volume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +232,67 @@
     "text": "Fierce creature American soldier upset in lock",
     "enumeration": "7"
    },
-   "solution": "TIGRESS"
+   "solution": "TIGRESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIGRESS",
+    "definitions": [
+     {
+      "text": "Fierce creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the letters run bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "American soldier",
+      "gives": "GI",
+      "note": "GI is the familiar term for a US soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IG",
+      "RESS"
+     ],
+     "reversals": [
+      {
+       "from": "GI",
+       "to": "IG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fierce beast leaves an American soldier upset and locked up.",
+     "walkthrough": "'Lock' suggests a door or cell, but it is a lock of hair.",
+     "definitionFit": "A tigress is a female tiger, a powerful predator well known for its ferocity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +306,54 @@
     "text": "Arabs lost ground in handicap",
     "enumeration": "9"
    },
-   "solution": "ALBATROSS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALBATROSS",
+    "definitions": [
+     {
+      "text": "handicap",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground has been crushed and broken up, so the preceding letters are broken and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arabs lost",
+      "gives": "ARABSLOST",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARABSLOST",
+       "gives": "ALBATROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arab forces giving up territory amid some disadvantage.",
+     "walkthrough": "'Lost ground' reads as one military phrase, but 'ground' is the anagram signal and 'lost' is fodder.",
+     "definitionFit": "From the Ancient Mariner, an albatross is a burden or encumbrance that hampers someone, much like a heavy drag on progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +367,61 @@
     "text": "Shrewd like Egyptian king, last in line",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASTUTE",
+    "definitions": [
+     {
+      "text": "Shrewd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "last in means only the final letter of line is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, in comparisons"
+     },
+     {
+      "clueFragment": "Egyptian king",
+      "gives": "TUT",
+      "note": "Tut is short for Tutankhamun, the boy pharaoh"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever pharaoh comes last in the royal line of succession.",
+     "definitionFit": "Astute describes someone sharp and quick to judge situations to their advantage, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +435,60 @@
     "text": "Men had an argument after book taken from library?",
     "enumeration": "8"
    },
-   "solution": "BORROWED"
+   "solution": "BORROWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BORROWED",
+    "definitions": [
+     {
+      "text": "taken from library?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the soldiers and their quarrel come later in order, behind the book"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is an abbreviation for book"
+     },
+     {
+      "clueFragment": "Men",
+      "gives": "OR",
+      "note": "OR stands for other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "had an argument",
+      "gives": "ROWED",
+      "note": "rowed, rhyming with cowed, means quarrelled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OR",
+      "ROWED"
+     ]
+    },
+    "explanation": {
+     "surface": "Men quarrelled over a library book.",
+     "walkthrough": "The question mark marks a definition by example: a library book is one thing that is borrowed.",
+     "definitionFit": "Library books are lent out temporarily, so a volume taken home has been borrowed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Men"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +508,78 @@
      }
     ]
    },
-   "solution": "TRADEUP"
+   "solution": "TRADEUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "TRADE UP",
+    "definitions": [
+     {
+      "text": "Part-exchange",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be arranged",
+      "for": "anagram",
+      "note": "to be arranged means the letters of due are put in some new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the word for region"
+     },
+     {
+      "text": "to the north",
+      "for": "reversal",
+      "note": "in a down clue going to the north means reading upward, bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "region",
+      "gives": "PART",
+      "note": "a part is a region or area, as in these parts"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "DEU",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "DEU"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A northern dealer arranges a part-exchange that is due.",
+     "definitionFit": "To trade up is to swap an old item as part payment for a better one, the essence of part-exchange."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +599,51 @@
      }
     ]
    },
-   "solution": "ONBALANCE"
+   "solution": "ONBALANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON BALANCE",
+    "definitions": [
+     {
+      "text": "Taking everything into consideration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be arranged",
+      "for": "anagram",
+      "note": "can be arranged means the letters can be put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loan can be",
+      "gives": "LOANCANBE",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOANCANBE",
+       "gives": "ONBALANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank manager, weighing everything up, agrees that a loan is possible.",
+     "walkthrough": "'Can be' does double duty in the surface, but its letters belong to the fodder and 'arranged' signals the shuffle.",
+     "definitionFit": "On balance is an idiom meaning after weighing all factors, which is what considering everything means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +657,55 @@
     "text": "Lottery odds? Very small, essentially",
     "enumeration": "5"
    },
-   "solution": "SWEEP"
+   "solution": "SWEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEEP",
+    "definitions": [
+     {
+      "text": "Lottery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "container",
+      "note": "essentially means at the heart, so the word for very small sits at the centre of the betting term"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odds",
+      "gives": "SP",
+      "note": "SP is starting price, the odds at the off of a race"
+     },
+     {
+      "clueFragment": "Very small",
+      "gives": "WEE",
+      "note": "wee is Scottish for little"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "The chance of winning the lottery is vanishingly slim.",
+     "walkthrough": "SP, starting price, is the betting abbreviation for a horse's odds when the race starts.",
+     "definitionFit": "A sweep, short for sweepstake, is a draw where entrants' stakes form the prize, a kind of lottery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +719,75 @@
     "text": "List includes a respiratory organ set back in a reptile",
     "enumeration": "9"
    },
-   "solution": "ALLIGATOR"
+   "solution": "ALLIGATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLIGATOR",
+    "definitions": [
+     {
+      "text": "a reptile",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "charade",
+      "note": "includes here means the list takes on the following words as additions placed after it"
+     },
+     {
+      "text": "set back",
+      "for": "reversal",
+      "note": "set back suggests moving backwards, so the assembled string is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "List",
+      "gives": "ROTA",
+      "note": "a rota is a list of duties and who does them"
+     },
+     {
+      "clueFragment": "respiratory organ",
+      "gives": "GILL",
+      "note": "a gill is the breathing organ of a fish"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LLIG",
+      "ATOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTAGILLA",
+       "to": "ALLIGATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A catalogue entry noting a gill found in some reptile.",
+     "walkthrough": "ROTA, GILL and A are joined and the whole string ROTAGILLA is reversed to give ALLIGATOR.",
+     "definitionFit": "An alligator is a large crocodilian, which is one example of the cold-blooded scaly animal group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "List"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +801,50 @@
     "text": "Stroll or walk without leader",
     "enumeration": "5"
    },
-   "solution": "AMBLE"
+   "solution": "AMBLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMBLE",
+    "definitions": [
+     {
+      "text": "Stroll",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without leader",
+      "for": "deletion",
+      "note": "without its leader means the word for walk loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "walk",
+      "gives": "RAMBLE",
+      "note": "a ramble is a long leisurely walk in the country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between a gentle stroll or a walk where nobody leads the way.",
+     "definitionFit": "To amble is to move at a relaxed, unhurried pace, a near synonym for a gentle stroll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +864,54 @@
      }
     ]
    },
-   "solution": "NOSWEAT"
+   "solution": "NOSWEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO SWEAT",
+    "definitions": [
+     {
+      "text": "don't concern yourself",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "easily",
+      "for": "anagram",
+      "note": "easily suggests the letters move around freely and loosely into a new order"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Won seat",
+      "gives": "WONSEAT",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WONSEAT",
+       "gives": "NOSWEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An election candidate cruised to victory, so a worried supporter is told to relax.",
+     "walkthrough": "'Won seat easily' reads as a landslide; 'easily' is the anagram signal.",
+     "definitionFit": "No sweat is informal reassurance meaning the task is trivial, so there is nothing to worry about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "easily"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +925,47 @@
     "text": "Ride? Finished circuit",
     "enumeration": "7"
    },
-   "solution": "OVERLAP"
+   "solution": "OVERLAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLAP",
+    "definitions": [
+     {
+      "text": "Ride",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "something over is finished or ended"
+     },
+     {
+      "clueFragment": "circuit",
+      "gives": "LAP",
+      "note": "a lap is one circuit of a track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A racer asks about a ride after completing a circuit of the track.",
+     "walkthrough": "'Ride' looks like a noun about a horse or bike, but it is a verb: one thing riding up over another.",
+     "definitionFit": "When one part rides over another, it partly covers it, extending across its edge, which is what overlapping means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ride"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +979,59 @@
     "text": "Thinly scattered, boxes by edge of Delamere",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "Thinly scattered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "the edge of a word can be either end; here it is the trailing letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxes",
+      "gives": "SPARS",
+      "note": "spars means boxes in the sense of sparring with fists"
+     },
+     {
+      "clueFragment": "Delamere",
+      "gives": "E",
+      "select": "last",
+      "note": "Delamere is a forest in Cheshire; only its final letter is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Trees thinly spread, with boxes stacked at the edge of Delamere Forest.",
+     "walkthrough": "Delamere is a forest in Cheshire, England.",
+     "definitionFit": "Sparse means meagre and widely spaced, with few items spread over an area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 14,
@@ -266,7 +1051,50 @@
      }
     ]
    },
-   "solution": "ADNAUSEAM"
+   "solution": "ADNAUSEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AD NAUSEAM",
+    "definitions": [
+     {
+      "text": "to a sickening degree",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncomfortable",
+      "for": "anagram",
+      "note": "uncomfortable suggests being disturbed or ill at ease, so the letters are disturbed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made sauna",
+      "gives": "MADESAUNA",
+      "note": "the nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADESAUNA",
+       "gives": "ADNAUSEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overheated a sauna until it became nauseatingly hot.",
+     "definitionFit": "Ad nauseam is Latin for to the point of nausea, used of something repeated tiresomely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncomfortable"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +1114,66 @@
      }
     ]
    },
-   "solution": "REDPANDA"
+   "solution": "REDPANDA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RED PANDA",
+    "definitions": [
+     {
+      "text": "forest creature",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Confused",
+      "for": "anagram",
+      "note": "confused means muddled up, so the letters of padre are jumbled"
+     },
+     {
+      "text": "coming round",
+      "for": "container",
+      "note": "coming round means surrounding, so the jumbled letters wrap the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "padre",
+      "gives": "PADRE",
+      "note": "a padre is a military chaplain; its letters are rearranged"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and and with both mean together alongside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDP",
+      "AND",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PADRE",
+       "gives": "REDPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bewildered chaplain regains consciousness alongside some woodland animal.",
+     "definitionFit": "The red panda is a small reddish mammal living in the mountain woodlands of the Himalayas and China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +1187,58 @@
     "text": "A new suggestion regarding course of finger food?",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTO"
+   "solution": "ANTIPASTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTIPASTO",
+    "definitions": [
+     {
+      "text": "course of finger food?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "suggestion",
+      "gives": "TIP",
+      "note": "a tip is a hint or suggestion"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "ASTO",
+      "note": "as to means concerning or regarding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "TIP",
+      "ASTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone offers a fresh idea about serving canapés.",
+     "definitionFit": "Antipasto is the Italian starter of cold meats, olives and nibbles, often eaten with the fingers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suggestion"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1258,47 @@
      }
     ]
    },
-   "solution": "SHORTCUT"
+   "solution": "SHORTCUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORT CUT",
+    "definitions": [
+     {
+      "text": "quicker way",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanting",
+      "gives": "SHORT",
+      "note": "short means lacking, as in short of money"
+     },
+     {
+      "clueFragment": "to ignore",
+      "gives": "CUT",
+      "note": "to cut someone is to snub or ignore them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORT",
+      "CUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eager to skip the slow route.",
+     "walkthrough": "'Wanting' reads as desiring, but here it means lacking.",
+     "definitionFit": "A shortcut is a more direct route that saves time, so a faster path to somewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wanting"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1312,71 @@
     "text": "Fresh buns -- adjust heat to brown?",
     "enumeration": "8"
    },
-   "solution": "SUNBATHE"
+   "solution": "SUNBATHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUNBATHE",
+    "definitions": [
+     {
+      "text": "to brown",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh means new, so the letters of buns are made into a new arrangement"
+     },
+     {
+      "text": "adjust",
+      "for": "anagram",
+      "note": "to adjust is to alter or rearrange, so heat changes its letter order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buns",
+      "gives": "BUNS",
+      "note": "the first set of letters to rearrange"
+     },
+     {
+      "clueFragment": "heat",
+      "gives": "HEAT",
+      "note": "the second set of letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNB",
+      "ATHE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUNS",
+       "gives": "SUNB"
+      },
+      {
+       "fodder": "HEAT",
+       "gives": "ATHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker with fresh buns turns up the oven so they brown.",
+     "walkthrough": "The baking picture misleads: 'brown' is about a person getting a tan, not bread.",
+     "definitionFit": "To sunbathe is to lie in sunlight in order to tan the skin, so to go brown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brown"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1390,62 @@
     "text": "Capone, unruffled swallowing hot drink",
     "enumeration": "7"
    },
-   "solution": "ALCOHOL"
+   "solution": "ALCOHOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALCOHOL",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing means taking inside, so the word for unruffled holds the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capone",
+      "gives": "AL",
+      "note": "Al Capone was the Chicago gangster"
+     },
+     {
+      "clueFragment": "unruffled",
+      "gives": "COOL",
+      "note": "cool means calm and unruffled"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "CO",
+      "H",
+      "OL"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm Al Capone downing a hot beverage.",
+     "walkthrough": "Capone is fitting in the scene: he made his fortune bootlegging during Prohibition.",
+     "definitionFit": "Drink as a mass noun means intoxicating liquor, the substance in beer, wine and spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1459,62 @@
     "text": "Silver dollar ultimately pocketed by spy",
     "enumeration": "6"
    },
-   "solution": "ARGENT"
+   "solution": "ARGENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARGENT",
+    "definitions": [
+     {
+      "text": "Silver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of dollar is used"
+     },
+     {
+      "text": "pocketed by",
+      "for": "container",
+      "note": "pocketed by means put inside the pocket of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "AGENT",
+      "note": "a secret agent is a spy"
+     },
+     {
+      "clueFragment": "dollar",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of dollar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy slipping silver dollars into a pocket.",
+     "walkthrough": "Argent is the heraldic word for silver, from the Latin argentum.",
+     "definitionFit": "In heraldry argent is the tincture representing the white metal, and it also poetically names that metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketed"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1534,47 @@
      }
     ]
    },
-   "solution": "ROLLTOP"
+   "solution": "ROLLTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROLL-TOP",
+    "definitions": [
+     {
+      "text": "kind of desk",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swell",
+      "gives": "ROLL",
+      "note": "a swell of the sea is a roll"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "top means best, as in top marks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLL",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A furniture dealer praises a top-quality desk as simply swell.",
+     "walkthrough": "'Swell' looks like an adjective praising the desk, but it is the noun for a rolling wave.",
+     "definitionFit": "A rolltop desk has a flexible slatted cover that rolls down over the writing surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swell"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1588,43 @@
     "text": "Post file",
     "enumeration": "6"
    },
-   "solution": "COLUMN"
+   "solution": "COLUMN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLUMN",
+    "definitions": [
+     {
+      "text": "Post",
+      "at": 0
+     },
+     {
+      "text": "file",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post",
+      "note": "first meaning: an upright pillar"
+     },
+     {
+      "clueFragment": "file",
+      "note": "second meaning: a line of people or soldiers one behind another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the words suggest office paperwork; they are two separate meanings.",
+     "definitionFit": "The word names both an upright supporting pillar and a long line of troops marching in formation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "file"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1638,63 @@
     "text": "Doorman, discontented bruiser, carrying little weight",
     "enumeration": "7"
    },
-   "solution": "BOUNCER"
+   "solution": "BOUNCER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BOUNCER",
+    "definitions": [
+     {
+      "text": "Doorman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "discontented means emptied of its contents, so only the outside letters of bruiser stay"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within, so the kept letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bruiser",
+      "gives": "BR",
+      "select": "outer",
+      "note": "the outer letters of bruiser"
+     },
+     {
+      "clueFragment": "little weight",
+      "gives": "OUNCE",
+      "note": "an ounce is a small unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OUNCE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy heavyweight working the door, though he carries little weight.",
+     "walkthrough": "'Discontented' looks like a mood for the bruiser but means emptied of its middle letters.",
+     "definitionFit": "A bouncer is employed at a club entrance to control entry and remove troublemakers, the same job as a doorman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discontented"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1708,55 @@
     "text": "Fish bringing in right money",
     "enumeration": "5"
    },
-   "solution": "BRASS"
+   "solution": "BRASS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRASS",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing in means taking inside, so the fish holds the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "BASS",
+      "note": "a bass is a type of fish"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that brings in the right money for its catcher.",
+     "walkthrough": "Brass is northern English slang for money.",
+     "definitionFit": "In British informal speech brass means cash, as in the saying where there's muck there's brass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 24,
@@ -444,7 +1776,61 @@
      }
     ]
    },
-   "solution": "OILLAMP"
+   "solution": "OILLAMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OIL LAMP",
+    "definitions": [
+     {
+      "text": "Source of illumination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the preceding pieces go within the word for work"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill means bad or harmful"
+     },
+     {
+      "clueFragment": "the morning",
+      "gives": "AM",
+      "note": "AM stands for ante meridiem, the morning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ILL",
+      "AM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Something lighting up a workplace that was in bad shape that morning.",
+     "definitionFit": "An oil lamp burns fuel through a wick to give light, so it is a lamp providing light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 25,
@@ -458,7 +1844,53 @@
     "text": "Notice record time accomplished",
     "enumeration": "5"
    },
-   "solution": "ADEPT"
+   "solution": "ADEPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADEPT",
+    "definitions": [
+     {
+      "text": "accomplished",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a newspaper"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "EP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices a record time has been achieved.",
+     "walkthrough": "'Accomplished' looks like a past tense verb, achieved, but it is the adjective meaning skilled.",
+     "definitionFit": "Adept means highly skilled or expert, which is what accomplished means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accomplished"
+    }
+   }
   },
   {
    "number": 26,
@@ -472,7 +1904,44 @@
     "text": "Letter from Rochdale physician",
     "enumeration": "5"
    },
-   "solution": "ALEPH"
+   "solution": "ALEPH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALEPH",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means taken out of, so the letters lie within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rochdale physician",
+      "gives": "ALEPH",
+      "note": "the letters run across the boundary of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Correspondence received from a doctor in Rochdale, a town near Manchester.",
+     "walkthrough": "Letter here is a character of an alphabet, not correspondence.",
+     "definitionFit": "Aleph is the first character of the Hebrew alphabet, so one alphabetic symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 27,
@@ -486,7 +1955,55 @@
     "text": "Untold pounds collected by earl's wife",
     "enumeration": "9"
    },
-   "solution": "COUNTLESS"
+   "solution": "COUNTLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUNTLESS",
+    "definitions": [
+     {
+      "text": "Untold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "collected by means gathered up inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earl's wife",
+      "gives": "COUNTESS",
+      "note": "a countess is the wife of an earl"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L, from Latin libra, is the abbreviation for pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "L",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat's wife gathers an untold sum in money.",
+     "walkthrough": "'Untold' suggests secrecy, but it means too many to count.",
+     "definitionFit": "Untold can mean too numerous to be counted, which is exactly what countless means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Untold"
+    }
+   }
   },
   {
    "number": 28,
@@ -500,7 +2017,54 @@
     "text": "Small mischievous child gave away mug",
     "enumeration": "9"
    },
-   "solution": "SIMPLETON"
+   "solution": "SIMPLETON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIMPLETON",
+    "definitions": [
+     {
+      "text": "mug",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "mischievous child",
+      "gives": "IMP",
+      "note": "an imp is a naughty child"
+     },
+     {
+      "clueFragment": "gave away",
+      "gives": "LETON",
+      "note": "let on means revealed a secret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IMP",
+      "LETON"
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty little child gave away a mug.",
+     "walkthrough": "'Mug' looks like a cup; in British slang it is a gullible fool.",
+     "definitionFit": "A mug is British slang for a gullible person easily fooled, so a foolish or naive person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 29,
@@ -514,7 +2078,53 @@
     "text": "A pot I ordered for courtyard",
     "enumeration": "5"
    },
-   "solution": "PATIO"
+   "solution": "PATIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATIO",
+    "definitions": [
+     {
+      "text": "courtyard",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so the letters are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A pot I",
+      "gives": "APOTI",
+      "note": "the five letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APOTI",
+       "gives": "PATIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone buying a plant pot to brighten an outdoor courtyard.",
+     "definitionFit": "A patio is a paved outdoor area beside a house, like a small open court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,42 @@
      }
     ]
    },
-   "solution": "BOTTOMSUP"
+   "solution": "BOTTOMSUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOTTOMS UP",
+    "definitions": [
+     {
+      "text": "Last drink",
+      "at": 0
+     },
+     {
+      "text": "cheers",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last drink",
+      "note": "first meaning: the call to drain a glass to the bottom, a final swig"
+     },
+     {
+      "clueFragment": "cheers",
+      "note": "second meaning: a toast called out as glasses are raised"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The dash makes it read like a barman's closing call followed by a toast; both halves are meanings of the same drinking phrase.",
+     "definitionFit": "The phrase is a toast urging everyone to empty their glasses, so it is both a cheery salute and a final gulp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +91,67 @@
     "text": "Poisoner flexed elbow having implanted seed",
     "enumeration": "8"
    },
-   "solution": "BLOWPIPE"
+   "solution": "BLOWPIPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLOWPIPE",
+    "definitions": [
+     {
+      "text": "Poisoner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flexed",
+      "for": "anagram",
+      "note": "a flexed limb is bent into a new shape, so the word elbow is bent into a new order"
+     },
+     {
+      "text": "having implanted",
+      "for": "container",
+      "note": "having something implanted means holding it inside, so the seed goes within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elbow",
+      "gives": "ELBOW",
+      "note": "the joint of the arm, taken as written"
+     },
+     {
+      "clueFragment": "seed",
+      "gives": "PIP",
+      "note": "a pip is the small seed of a fruit such as an apple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOW",
+      "PIP",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELBOW",
+       "gives": "BLOWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A murderer bends his arm, having planted a seed, as if staging some sinister garden poisoning.",
+     "walkthrough": "The seed is not planted in the middle: it goes in just before the last letter of the rearranged arm joint.",
+     "definitionFit": "A blowpipe is a tube used by hunters to fire darts tipped with venom, so it is a weapon that delivers toxin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flexed"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +165,49 @@
     "text": "Digit that’s over eight, first of all",
     "enumeration": "3"
    },
-   "solution": "TOE"
+   "solution": "TOE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TOE",
+    "definitions": [
+     {
+      "text": "Digit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all asks for the opening letter of every one of the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that’s over eight",
+      "gives": "TOE",
+      "select": "first",
+      "note": "the initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone counting on their fingers reaches a digit beyond eight.",
+     "definitionFit": "Digit covers fingers and toes alike, so a toe is one example of a digit on the foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Digit"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +221,59 @@
     "text": "Proprietor hugged by grandchildren woken up",
     "enumeration": "5"
    },
-   "solution": "OWNER"
+   "solution": "OWNER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OWNER",
+    "definitions": [
+     {
+      "text": "Proprietor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugged by",
+      "for": "hidden_word",
+      "note": "being hugged by words means sitting tucked inside them, so the letters lie within the run of the clue"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue up means reading from the bottom upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grandchildren woken",
+      "gives": "RENWO",
+      "note": "the letters straddling the end of grandchildren and the start of woken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWNER"
+     ],
+     "reversals": [
+      {
+       "from": "RENWO",
+       "to": "OWNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord is embraced by grandchildren who have just been roused from sleep.",
+     "definitionFit": "A proprietor is the person who holds title to a business or property, which is the plain sense of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hugged"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +287,62 @@
     "text": "Bold wife in belt, doing that up?",
     "enumeration": "13"
    },
-   "solution": "SWASHBUCKLING"
+   "solution": "SWASHBUCKLING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SWASHBUCKLING",
+    "definitions": [
+     {
+      "text": "Bold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the wife sits in the belt, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belt",
+      "gives": "SASH",
+      "note": "a sash is a band of cloth worn around the waist"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "doing that up",
+      "gives": "BUCKLING",
+      "note": "fastening a belt is buckling it; that refers back to the belt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "ASH",
+      "BUCKLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A daring wife puts on a belt and asks whether she should fasten it.",
+     "walkthrough": "W goes inside SASH to make S-W-ASH; 'that' in the last part points back to the belt, and what you do to a belt is buckle it.",
+     "definitionFit": "Swashbuckling describes daring, swaggering adventurers like pirates of film, so it is a lively synonym for daring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doing"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,51 @@
     "text": "Notices distributed to press",
     "enumeration": "7"
    },
-   "solution": "POSTERS"
+   "solution": "POSTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSTERS",
+    "definitions": [
+     {
+      "text": "Notices",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "things distributed are spread about, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to press",
+      "gives": "TOPRESS",
+      "note": "taken as written, all seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPRESS",
+       "gives": "POSTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Announcements are handed out to journalists.",
+     "walkthrough": "'to' looks like a link word, but it is part of the letters being rearranged.",
+     "definitionFit": "Posters are printed bills put up on walls to announce events, so they are public notices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +414,42 @@
     "text": "Some ignoramus, a proper idiot!",
     "enumeration": "3"
    },
-   "solution": "SAP"
+   "solution": "SAP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SAP",
+    "definitions": [
+     {
+      "text": "idiot",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a part of their run of letters is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignoramus, a proper",
+      "gives": "SAP",
+      "note": "the last letter of ignoramus, then a, then the first letter of proper"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sneers that an ignorant person is a real fool.",
+     "definitionFit": "A sap is an informal word for a gullible fool, so it means a dimwit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +463,39 @@
     "text": "Gardening prep?",
     "enumeration": "9"
    },
-   "solution": "SPADEWORK"
+   "solution": "SPADEWORK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPADEWORK",
+    "definitions": [
+     {
+      "text": "Gardening prep?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gardening prep?",
+      "note": "surface reading: getting the soil ready by digging before planting"
+     },
+     {
+      "clueFragment": "Gardening prep?",
+      "note": "setter's reading: groundwork in any project, named after the digging tool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the literal gardening picture is a pun on a general term for groundwork.",
+     "definitionFit": "The word means the dull groundwork done before any task, literally digging with a garden tool before planting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gardening"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +509,45 @@
     "text": "Advert for type of pastry?",
     "enumeration": "4"
    },
-   "solution": "PUFF"
+   "solution": "PUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUFF",
+    "definitions": [
+     {
+      "text": "Advert",
+      "at": 0
+     },
+     {
+      "text": "type of pastry",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advert",
+      "note": "first meaning: an exaggerated promotional write-up"
+     },
+     {
+      "clueFragment": "type of pastry",
+      "note": "second meaning: the light flaky pastry made of many layers"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether there is a commercial for a particular kind of pastry.",
+     "definitionFit": "A puff is a flattering promotional blurb, and puff pastry is the flaky layered dough used for vol-au-vents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Advert"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +561,53 @@
     "text": "A canoe I adapted for Pacific region",
     "enumeration": "7"
    },
-   "solution": "OCEANIA"
+   "solution": "OCEANIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCEANIA",
+    "definitions": [
+     {
+      "text": "Pacific region",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adapted",
+      "for": "anagram",
+      "note": "something adapted is altered to suit, so these letters are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A canoe I",
+      "gives": "ACANOEI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACANOEI",
+       "gives": "OCEANIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone modifies a canoe for paddling around the South Seas.",
+     "definitionFit": "Oceania is the name for Australia, New Zealand and the island groups of the central and south Pacific."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adapted"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +621,43 @@
     "text": "Club employees",
     "enumeration": "5"
    },
-   "solution": "STAFF"
+   "solution": "STAFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAFF",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     },
+     {
+      "text": "employees",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Club",
+      "note": "first meaning: a stout stick or cudgel"
+     },
+     {
+      "clueFragment": "employees",
+      "note": "second meaning: the people working for an organisation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests the workers at a club, but club here is a stick.",
+     "definitionFit": "A staff is a long walking stick or cudgel, and the word also names the whole workforce of a firm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +671,67 @@
     "text": "Bleeper beginning to provoke dreadful rage",
     "enumeration": "5"
    },
-   "solution": "PAGER"
+   "solution": "PAGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PAGER",
+    "definitions": [
+     {
+      "text": "Bleeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "dreadful",
+      "for": "anagram",
+      "note": "dreadful suggests something in a terrible state, so the following word is mangled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provoke",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of provoke"
+     },
+     {
+      "clueFragment": "rage",
+      "gives": "RAGE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAGE",
+       "gives": "AGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beeping device going off starts to provoke a terrible temper.",
+     "definitionFit": "A pager is a small radio device that beeps to summon its wearer, hence the nickname bleeper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dreadful"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +751,52 @@
      }
     ]
    },
-   "solution": "GREATDANE"
+   "solution": "GREATDANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREAT DANE",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is slang for mad, and the following letters go mad into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at grenade",
+      "gives": "ATGRENADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATGRENADE",
+       "gives": "GREATDANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hound yaps at an explosive device.",
+     "walkthrough": "Barking looks like the dog's noise, but in British slang it also means crazy.",
+     "definitionFit": "The Great Dane is a very large breed of hound, so it is one example of a canine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +810,65 @@
     "text": "Paid close attention to extraordinary deed by that man",
     "enumeration": "6"
    },
-   "solution": "HEEDED"
+   "solution": "HEEDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HEEDED",
+    "definitions": [
+     {
+      "text": "Paid close attention to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extraordinary",
+      "for": "anagram",
+      "note": "extraordinary means out of the usual order, so the letters of the following word are rearranged"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so one part sits beside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "the pronoun for a male person"
+     },
+     {
+      "clueFragment": "deed",
+      "gives": "DEED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "EDED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEED",
+       "gives": "EDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone took careful note of a remarkable act performed by a particular man.",
+     "definitionFit": "To heed is to take notice of advice or a warning, so the past tense means listened carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extraordinary"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +882,53 @@
     "text": "Hunter, marksman from the southeast?",
     "enumeration": "8"
    },
-   "solution": "SEARCHER"
+   "solution": "SEARCHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEARCHER",
+    "definitions": [
+     {
+      "text": "Hunter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "charade",
+      "note": "the archer comes from a region, so the region is placed before him"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the southeast",
+      "gives": "SE",
+      "note": "SE is the compass abbreviation"
+     },
+     {
+      "clueFragment": "marksman",
+      "gives": "ARCHER",
+      "note": "a marksman with a bow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ARCHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tracker turns out to be a sharpshooter hailing from the south-eastern part of the country.",
+     "definitionFit": "A searcher is someone who looks for something, much as a hunter seeks out quarry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hunter"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +948,57 @@
      }
     ]
    },
-   "solution": "PRECIOUSSTONE"
+   "solution": "PRECIOUSSTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRECIOUS STONE",
+    "definitions": [
+     {
+      "text": "jet, say",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Converted",
+      "for": "anagram",
+      "note": "converted means changed in form, so the letters are changed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to supersonic",
+      "gives": "TOSUPERSONIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOSUPERSONIC E",
+       "gives": "PRECIOUSSTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English aircraft has been upgraded to fly faster than sound, like Concorde.",
+     "walkthrough": "Jet looks like an aeroplane, which suits the supersonic picture; here it is the black mineral used in jewellery.",
+     "definitionFit": "Jet is a black gem-quality stone used in mourning jewellery, so it is one example of a gem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jet"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1018,44 @@
      }
     ]
    },
-   "solution": "INORDER"
+   "solution": "INORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN ORDER",
+    "definitions": [
+     {
+      "text": "Straight",
+      "at": 0
+     },
+     {
+      "text": "as might be a nun",
+      "at": 10,
+      "note": "a descriptive phrase rather than a single word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Straight",
+      "note": "first meaning: tidy, properly arranged"
+     },
+     {
+      "clueFragment": "as might be a nun",
+      "note": "second meaning: belonging to a religious community of sisters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A nun is a member of a religious order, which gives the second sense.",
+     "definitionFit": "Things set straight are neatly arranged, and a nun is a member of a religious community, so both describe her."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Straight"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1075,55 @@
      }
     ]
    },
-   "solution": "ATWORK"
+   "solution": "ATWORK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AT WORK",
+    "definitions": [
+     {
+      "text": "scrubbing the decks, perhaps?",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "aboard a vessel means inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "ARK",
+      "note": "Noah's ark, the vessel"
+     },
+     {
+      "clueFragment": "Couple",
+      "gives": "TWO",
+      "note": "a couple is a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TWO",
+      "RK"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of sailors on a vessel spend their time swabbing the decks.",
+     "walkthrough": "The couple aboard the ark recalls Noah's animals going in two by two.",
+     "definitionFit": "Swabbing decks is a sailor's labour, so someone doing it is busy with the job, an example of being employed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1137,43 @@
     "text": "Game with hands — and index finger?",
     "enumeration": "5"
    },
-   "solution": "POKER"
+   "solution": "POKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POKER",
+    "definitions": [
+     {
+      "text": "Game with hands",
+      "at": 0
+     },
+     {
+      "text": "index finger",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game with hands",
+      "note": "first meaning: a card game played in rounds of dealt cards"
+     },
+     {
+      "clueFragment": "index finger",
+      "note": "second meaning: something used for prodding, as a pointing finger is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hands are dealt cards, not body parts, though the finger keeps the body picture going.",
+     "definitionFit": "Poker is a gambling card game, and a forefinger is a jabbing thing, a prodder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1187,64 @@
     "text": "Border raised, lifted for student",
     "enumeration": "5"
    },
-   "solution": "PUPIL"
+   "solution": "PUPIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PUPIL",
+    "definitions": [
+     {
+      "text": "student",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue lifted means turned upwards, so the letters read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Border",
+      "gives": "LIP",
+      "note": "a lip is an edge or rim"
+     },
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "something raised is up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "PIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIPUP",
+       "to": "PUPIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boundary is put up for the benefit of a schoolchild.",
+     "walkthrough": "'Border raised' gives LIP UP, and the whole run is then turned over to read PU PIL.",
+     "definitionFit": "A pupil is a child or young person taught at a school, so a learner in a class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1258,46 @@
     "text": "Great time for bouncer?",
     "enumeration": "4"
    },
-   "solution": "BALL"
+   "solution": "BALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALL",
+    "definitions": [
+     {
+      "text": "Great time",
+      "at": 0
+     },
+     {
+      "text": "bouncer",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great time",
+      "note": "first meaning: as in having a really enjoyable time"
+     },
+     {
+      "clueFragment": "bouncer",
+      "note": "second meaning: something that springs back off the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bouncer suggests a nightclub doorman, but here it is something that bounces.",
+     "definitionFit": "To have a ball is the idiom for enjoying yourself, and a ball is the round toy that rebounds off floors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bouncer"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1311,45 @@
     "text": "Honour a hospital department",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "Honour",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "WARD",
+      "note": "a ward is a room or section of beds in a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical unit receives a prize for its excellent service.",
+     "definitionFit": "An award is a prize or decoration conferred in recognition, which is what an honour is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1363,53 @@
     "text": "One politician for every one charge",
     "enumeration": "7"
    },
-   "solution": "IMPEACH"
+   "solution": "IMPEACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEACH",
+    "definitions": [
+     {
+      "text": "charge",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "for every one",
+      "gives": "EACH",
+      "note": "each means for every one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a rule of parliamentary arithmetic: a single member for every single voter.",
+     "walkthrough": "The final word is the definition, used as a verb.",
+     "definitionFit": "To impeach a public official is to formally accuse them of misconduct, bringing an accusation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1423,48 @@
     "text": "Fit character starting arduous physical training",
     "enumeration": "3"
    },
-   "solution": "APT"
+   "solution": "APT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "APT",
+    "definitions": [
+     {
+      "text": "Fit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "character starting",
+      "for": "letter_selection",
+      "note": "a character is a letter, and the starting one of each word is the one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arduous physical training",
+      "gives": "APT",
+      "select": "first",
+      "note": "the initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A person of fit disposition begins a gruelling exercise regime.",
+     "definitionFit": "Apt means suitable or appropriate, as in a fitting remark, the adjectival sense of fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1478,42 @@
     "text": "Get down story",
     "enumeration": "3"
    },
-   "solution": "LIE"
+   "solution": "LIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIE",
+    "definitions": [
+     {
+      "text": "Get down",
+      "at": 0
+     },
+     {
+      "text": "story",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get down",
+      "note": "first meaning: recline flat, as on a bed"
+     },
+     {
+      "clueFragment": "story",
+      "note": "second meaning: a falsehood, a fib"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Story is used in the sense of a tall tale told to deceive.",
+     "definitionFit": "To recline flat is one sense of the verb, and an untruth or fib is the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1527,54 @@
     "text": "A ruler got mistaken for governor",
     "enumeration": "9"
    },
-   "solution": "REGULATOR"
+   "solution": "REGULATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGULATOR",
+    "definitions": [
+     {
+      "text": "governor",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistaken",
+      "for": "anagram",
+      "note": "something mistaken is wrong, so the letters are put in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A ruler got",
+      "gives": "ARULERGOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARULERGOT",
+       "gives": "REGULATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch was confused with a state governor.",
+     "walkthrough": "Ruler and governor look like a pair of politicians; governor is a mechanical device here.",
+     "definitionFit": "A governor in engineering is a device that controls speed or flow, which is what a regulator does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruler"
+    }
+   }
   }
  ]
 }

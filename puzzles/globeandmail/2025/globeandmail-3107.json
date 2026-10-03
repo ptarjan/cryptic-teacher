@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Epic drama about caring type",
     "enumeration": "9"
    },
-   "solution": "PARAMEDIC"
+   "solution": "PARAMEDIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARAMEDIC",
+    "definitions": [
+     {
+      "text": "caring type",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean around in every direction, so the letters are spun about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epic drama",
+      "gives": "EPICDRAMA",
+      "note": "both words taken as written, nine letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EPICDRAMA",
+       "gives": "PARAMEDIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweeping stage epic is built around a character who looks after people.",
+     "definitionFit": "An ambulance medic is someone whose job is looking after injured or sick people, a cryptic description of a carer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,46 @@
     "text": "Nobles look mature",
     "enumeration": "7"
    },
-   "solution": "PEERAGE"
+   "solution": "PEERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEERAGE",
+    "definitions": [
+     {
+      "text": "Nobles",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "PEER",
+      "note": "to peer is to look closely"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to age is to mature, grow older"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Aristocrats are being described as seeming grown-up and dignified.",
+     "definitionFit": "The peerage is the collective body of titled lords and ladies, the British aristocracy taken as a whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +146,42 @@
     "text": "Sieve puzzle",
     "enumeration": "6"
    },
-   "solution": "RIDDLE"
+   "solution": "RIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDDLE",
+    "definitions": [
+     {
+      "text": "Sieve",
+      "at": 0
+     },
+     {
+      "text": "puzzle",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sieve",
+      "note": "first meaning: a coarse sieve for sorting gravel or grain"
+     },
+     {
+      "clueFragment": "puzzle",
+      "note": "second meaning: a conundrum or enigma posed as a question"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the two words look like a single puzzle about sieves; they are two unrelated meanings of one word.",
+     "definitionFit": "The word names both a coarse mesh tool for separating soil and a perplexing question with a clever solution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sieve"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +195,45 @@
     "text": "Value that’s intrinsic to some rituals",
     "enumeration": "5"
    },
-   "solution": "MERIT"
+   "solution": "MERIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERIT",
+    "definitions": [
+     {
+      "text": "Value",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intrinsic to",
+      "for": "hidden_word",
+      "note": "something intrinsic is built into a thing, so the letters sit inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some rituals",
+      "gives": "MERIT",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A worth is said to be inherent in certain religious ceremonies.",
+     "definitionFit": "Merit is worth or excellence, the quality of deserving praise, so it stands for value."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intrinsic"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +247,56 @@
     "text": "End of second home racket",
     "enumeration": "3"
    },
-   "solution": "DIN"
+   "solution": "DIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIN",
+    "definitions": [
+     {
+      "text": "racket",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of second"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A second house turns out to be the end of a shady scheme.",
+     "definitionFit": "A racket is a loud, unpleasant noise, and a din is exactly such a clamour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +310,50 @@
     "text": "Sofa lifted! Cheers wildly",
     "enumeration": "12"
    },
-   "solution": "CHESTERFIELD"
+   "solution": "CHESTERFIELD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHESTERFIELD",
+    "definitions": [
+     {
+      "text": "Sofa",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "doing something wildly means doing it without order, so the letters are thrown into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lifted! Cheers",
+      "gives": "LIFTEDCHEERS",
+      "note": "both words taken as written, twelve letters of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIFTEDCHEERS",
+       "gives": "CHESTERFIELD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Removal men hoist a couch and the crowd cheers them wildly.",
+     "definitionFit": "A Chesterfield is a deep-buttoned leather couch with arms and back of equal height, a classic kind of settee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +367,55 @@
     "text": "Hackneyed conclusion of tedious story",
     "enumeration": "5"
    },
-   "solution": "STALE"
+   "solution": "STALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STALE",
+    "definitions": [
+     {
+      "text": "Hackneyed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tedious",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of tedious"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dreary yarn ends with a clichéd ending.",
+     "definitionFit": "Hackneyed ideas are overused and lacking freshness, like old bread gone dry and unappetising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conclusion"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +429,56 @@
     "text": "Titian cast is wrong, figures expert",
     "enumeration": "12"
    },
-   "solution": "STATISTICIAN"
+   "solution": "STATISTICIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STATISTICIAN",
+    "definitions": [
+     {
+      "text": "figures expert",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is wrong",
+      "for": "anagram",
+      "note": "something wrong is out of its proper state, so the letters must be put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titian cast",
+      "gives": "TITIANCAST",
+      "note": "the painter's name and the word cast taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written; it also serves the indicator phrase"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TITIANCAST IS",
+       "gives": "STATISTICIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic says the Venetian painter Titian's casting has been wrongly done, according to an expert.",
+     "walkthrough": "Titian was a sixteenth-century Venetian painter. The word 'is' does double duty, supplying two letters while reading as part of the indicator phrase.",
+     "definitionFit": "A statistician works professionally with numerical data, so they are a specialist in numbers and their analysis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +492,64 @@
     "text": "Perhaps Thunberg’s performance, unconventional visit",
     "enumeration": "8"
    },
-   "solution": "ACTIVIST"
+   "solution": "ACTIVIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ACTIVIST",
+    "definitions": [
+     {
+      "text": "Perhaps Thunberg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unconventional",
+      "for": "anagram",
+      "note": "unconventional means not in the usual form, so the letters are set out in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a performance"
+     },
+     {
+      "clueFragment": "visit",
+      "gives": "VISIT",
+      "note": "taken as written, fodder for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT",
+      "IVIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VISIT",
+       "gives": "IVIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greta Thunberg's performance on an unusual trip is reviewed.",
+     "walkthrough": "The 's is read as 'is', linking definition to wordplay. Greta Thunberg is the Swedish climate campaigner; 'Perhaps' marks her as an example.",
+     "definitionFit": "Greta Thunberg is a well-known climate campaigner, an example of someone campaigning vigorously for a political cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +563,62 @@
     "text": "Fortitude in finish: you organised church",
     "enumeration": "9"
    },
-   "solution": "ENDURANCE"
+   "solution": "ENDURANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDURANCE",
+    "definitions": [
+     {
+      "text": "Fortitude",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "the end is the finish"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U sounds like you, as in text speak"
+     },
+     {
+      "clueFragment": "organised",
+      "gives": "RAN",
+      "note": "to run an event is to organise it"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "U",
+      "RAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows grit at the end, having organised a church event.",
+     "walkthrough": "'organised' looks like an anagram signal but supplies a word of its own. CE stands for the Church of England.",
+     "definitionFit": "Fortitude is courage in bearing pain or hardship, which is the power of lasting through difficulty without giving up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +632,42 @@
     "text": "Behind is displayed in daft error!",
     "enumeration": "5"
    },
-   "solution": "AFTER"
+   "solution": "AFTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AFTER",
+    "definitions": [
+     {
+      "text": "Behind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is displayed in",
+      "for": "hidden_word",
+      "note": "something displayed in a place is on show inside it, so the letters are found within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daft error",
+      "gives": "AFTER",
+      "note": "the letters span the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A silly mistake shows someone lagging behind.",
+     "definitionFit": "Behind and the answer both describe position later in sequence or following at the rear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +681,77 @@
     "text": "A levy reversed staff time for growth area",
     "enumeration": "9"
    },
-   "solution": "ALLOTMENT"
+   "solution": "ALLOTMENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ALLOTMENT",
+    "definitions": [
+     {
+      "text": "growth area",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned back to front, so the word before it is read from its end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "levy",
+      "gives": "TOLL",
+      "note": "a toll is a levy or charge"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MEN",
+      "note": "men are the staff or workforce"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LLOT",
+      "MEN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TOLL",
+       "to": "LLOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tax cut is reversed, giving staff time for a growth sector.",
+     "walkthrough": "An allotment is a rented plot of land in Britain where people grow their own vegetables.",
+     "definitionFit": "A rented garden plot is literally a patch of ground where vegetables and flowers are cultivated, a witty phrasing of growing space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +765,69 @@
     "text": "Judgment by European: it’s upset friend",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESTIMATE",
+    "definitions": [
+     {
+      "text": "Judgment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "ITS",
+      "note": "taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STI",
+      "MATE"
+     ],
+     "reversals": [
+      {
+       "from": "ITS",
+       "to": "STI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European's opinion has upset a friend.",
+     "definitionFit": "An estimate is an approximate calculation or opinion, the valuation formed by judging rather than measuring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +841,68 @@
     "text": "Wife wearing jeans turning to twirl",
     "enumeration": "6"
    },
-   "solution": "SWIVEL"
+   "solution": "SWIVEL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SWIVEL",
+    "definitions": [
+     {
+      "text": "twirl",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so one piece goes inside the other"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the combined letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jeans",
+      "gives": "LEVIS",
+      "note": "Levi's are a brand of jeans"
+     },
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWIVEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEVIWS",
+       "to": "SWIVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife in her jeans turns round to spin on the dance floor.",
+     "walkthrough": "W goes inside LEVIS to make LEVIWS, which read backwards gives the answer.",
+     "definitionFit": "To twirl is to spin round quickly, the same motion as rotating on a pivot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jeans"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +916,47 @@
     "text": "Second coffee? Right",
     "enumeration": "6"
    },
-   "solution": "LATTER"
+   "solution": "LATTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATTER",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coffee",
+      "gives": "LATTE",
+      "note": "a latte is a milky coffee"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LATTE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks that a second cup of coffee is fine.",
+     "walkthrough": "'Second coffee' looks like a request for another cup, but 'Second' is the definition.",
+     "definitionFit": "Of two things just mentioned, the second one is referred to by this word, as opposed to the former."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +970,50 @@
     "text": "Fantastic sea legs never getting any older",
     "enumeration": "7"
    },
-   "solution": "AGELESS"
+   "solution": "AGELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGELESS",
+    "definitions": [
+     {
+      "text": "never getting any older",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fantastic",
+      "for": "anagram",
+      "note": "fantastic means fanciful and strange, so the letters take on an imaginative new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea legs",
+      "gives": "SEALEGS",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEALEGS",
+       "gives": "AGELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old sailor's marvellous balance on deck seems not to fade with the years.",
+     "definitionFit": "Something that does not seem to age or show the passage of years stays youthful forever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1027,61 @@
     "text": "Pointless dossier containing every other letter from cult",
     "enumeration": "6"
    },
-   "solution": "FUTILE"
+   "solution": "FUTILE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FUTILE",
+    "definitions": [
+     {
+      "text": "Pointless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every other letter from",
+      "for": "letter_selection",
+      "note": "taking every other letter means keeping alternate ones and skipping the rest"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "a thing containing something holds it inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dossier",
+      "gives": "FILE",
+      "note": "a dossier is a file of documents"
+     },
+     {
+      "clueFragment": "cult",
+      "gives": "UT",
+      "select": "alternate",
+      "note": "the second and fourth letters of cult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "UT",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "An investigator's file on a cult turns out to be useless.",
+     "definitionFit": "A futile effort achieves nothing, so it has no purpose or result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1095,65 @@
     "text": "Milan team left huddle regularly for break",
     "enumeration": "9"
    },
-   "solution": "INTERLUDE"
+   "solution": "INTERLUDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INTERLUDE",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Milan team",
+      "gives": "INTER",
+      "note": "Inter Milan is an Italian football club"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "huddle",
+      "gives": "UDE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of huddle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "L",
+      "UDE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian football side leaves its team huddle to take a breather.",
+     "walkthrough": "Inter (Internazionale) is one of Milan's two big football clubs.",
+     "definitionFit": "An interlude is an interval or pause between parts of a performance, so it is a rest period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1167,50 @@
     "text": "Angry about having long limbs",
     "enumeration": "5"
    },
-   "solution": "RANGY"
+   "solution": "RANGY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RANGY",
+    "definitions": [
+     {
+      "text": "having long limbs",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "'about' can mean turned around, so the letters of the preceding word are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "ANGRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANGRY",
+       "gives": "RANGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is cross about being lanky.",
+     "definitionFit": "A rangy person or animal is tall and slim with long arms and legs, built for range of movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1224,55 @@
     "text": "Landlord’s first moderate rental agreement",
     "enumeration": "5"
    },
-   "solution": "LEASE"
+   "solution": "LEASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEASE",
+    "definitions": [
+     {
+      "text": "rental agreement",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Landlord’s",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of Landlord's"
+     },
+     {
+      "clueFragment": "moderate",
+      "gives": "EASE",
+      "note": "to ease is to moderate or lessen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord offers a contract with fair terms to a tenant.",
+     "definitionFit": "A lease is the legal contract by which a tenant rents property from its owner for a set term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moderate"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1286,59 @@
     "text": "One new currency unit, the writer’s stimulus",
     "enumeration": "9"
    },
-   "solution": "INCENTIVE"
+   "solution": "INCENTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCENTIVE",
+    "definitions": [
+     {
+      "text": "stimulus",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "currency unit",
+      "gives": "CENT",
+      "note": "a cent is a small unit of money"
+     },
+     {
+      "clueFragment": "the writer’s",
+      "gives": "IVE",
+      "note": "the writer is I, and the writer's (has) becomes I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "CENT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An author says a new coin gave them the spur to write.",
+     "walkthrough": "'The writer' is the setter, so it means I; with 's for 'has' it becomes I'VE.",
+     "definitionFit": "An incentive is something that motivates or encourages action, so it serves as a spur or motivation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer’s"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1352,46 @@
     "text": "Firm, western, milk supplier",
     "enumeration": "3"
    },
-   "solution": "COW"
+   "solution": "COW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COW",
+    "definitions": [
+     {
+      "text": "milk supplier",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "Co is short for company, a firm"
+     },
+     {
+      "clueFragment": "western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm in the west of the country supplies milk.",
+     "definitionFit": "A dairy cow is the farm animal that produces milk, a playful description of the beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1405,48 @@
     "text": "Swiftness ultimately sees top bicycle take lead",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SPEED",
+    "definitions": [
+     {
+      "text": "Swiftness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so the final letter of each following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sees top bicycle take lead",
+      "gives": "SPEED",
+      "select": "last",
+      "note": "the final letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist sees the leading rider push ahead to take the lead.",
+     "definitionFit": "Swiftness is quickness of movement, the rate at which something travels fast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1466,69 @@
      }
     ]
    },
-   "solution": "NEWLYWEDS"
+   "solution": "NEWLYWEDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NEWLY WEDS",
+    "definitions": [
+     {
+      "text": "Honeymooners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missed out",
+      "for": "deletion",
+      "note": "something missed out is left out, so the named letter is dropped"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things going awry, so the remaining letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lewis",
+      "gives": "LEWIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Wendy",
+      "gives": "WENDY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWLYWEDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEWSWENDY",
+       "gives": "NEWLYWEDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lewis and Wendy go on honeymoon, but the speaker sadly could not go.",
+     "definitionFit": "A recently married couple on their post-wedding holiday are honeymooners, the classic picture of a just-wed pair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Officially approved drug charge",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "charge",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officially approved",
+      "gives": "STAMPED",
+      "note": "a document that is officially approved has been stamped"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is short for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMPED",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer files a charge for drug dealing that has been officially signed off.",
+     "walkthrough": "The surface suggests a criminal charge; the answer is a charge in the sense of a headlong rush.",
+     "definitionFit": "A stampede is a sudden mass rush forward, which is one sense of a charge by animals or troops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +110,67 @@
     "text": "Talk more excitedly about wife's artisanal craft",
     "enumeration": "9"
    },
-   "solution": "METALWORK"
+   "solution": "METALWORK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "METALWORK",
+    "definitions": [
+     {
+      "text": "artisanal craft",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "talking excitedly jumbles things up, so the preceding words are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the rearranged letters wrap the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk more",
+      "gives": "TALKMORE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "wife's",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "METAL",
+      "W",
+      "ORK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALKMORE",
+       "gives": "METALORK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gushes about their wife's handmade crafts.",
+     "walkthrough": "'Talk more' reads as the verb of the sentence, but it is only the raw material for the rearrangement.",
+     "definitionFit": "Metalwork is the skilled making of objects from metal, a traditional hand trade practised by smiths and artisans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Talk"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +184,65 @@
     "text": "Nationalist extremists carrying Britain's status post-Brexit in dramatic direction",
     "enumeration": "6"
    },
-   "solution": "EXEUNT"
+   "solution": "EXEUNT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXEUNT",
+    "definitions": [
+     {
+      "text": "dramatic direction",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremists",
+      "for": "letter_selection",
+      "note": "the extremists of a word are its two end letters, its first and last"
+     },
+     {
+      "text": "carrying",
+      "for": "charade",
+      "note": "in a down clue, what is carried sits on top, so the second piece goes above the first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain's status post-Brexit",
+      "gives": "EXEU",
+      "note": "after Brexit Britain is ex-EU, a former member of the European Union"
+     },
+     {
+      "clueFragment": "Nationalist",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the first and last letters of Nationalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXEU",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Political extremists are blamed for Britain's dramatic change of direction after Brexit.",
+     "walkthrough": "In a down clue the carried piece rides on top. The answer is the Latin stage direction meaning 'they go out'.",
+     "definitionFit": "Exeunt is a stage instruction in play scripts telling several actors to leave, so it is literally a direction in drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dramatic"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +256,42 @@
     "text": "Annexed enclave includes biblical location",
     "enumeration": "4"
    },
-   "solution": "EDEN"
+   "solution": "EDEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDEN",
+    "definitions": [
+     {
+      "text": "biblical location",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "the words before it contain the required letters running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annexed enclave",
+      "gives": "EDEN",
+      "note": "found inside the end of annexed and the start of enclave"
+     }
+    ],
+    "explanation": {
+     "surface": "A territory that has been annexed turns out to contain a site mentioned in scripture.",
+     "definitionFit": "Eden is the garden where Genesis places Adam and Eve, a place named in the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Annexed"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +305,67 @@
     "text": "Medieval weapon originally appearing after 1000 AD",
     "enumeration": "4"
    },
-   "solution": "MACE"
+   "solution": "MACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MACE",
+    "definitions": [
+     {
+      "text": "Medieval weapon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the opening letter of the word that follows"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the following letters behind the Roman numeral piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "appearing",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of appearing"
+     },
+     {
+      "clueFragment": "AD",
+      "gives": "CE",
+      "note": "CE, Common Era, is the modern equivalent of AD"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian notes that a certain medieval weapon first turned up after the year 1000.",
+     "walkthrough": "AD is not taken literally: it is swapped for its modern equivalent CE.",
+     "definitionFit": "A mace is a heavy club with a spiked or flanged metal head, used by knights in the Middle Ages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "AD"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +379,51 @@
     "text": "Imitator of Apple product that's adorable",
     "enumeration": "5"
    },
-   "solution": "MACAW"
+   "solution": "MACAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACAW",
+    "definitions": [
+     {
+      "text": "Imitator",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apple product",
+      "gives": "MAC",
+      "note": "the Mac is Apple's line of computers"
+     },
+     {
+      "clueFragment": "that's adorable",
+      "gives": "AW",
+      "note": "aw is the cooing sound people make at something cute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAC",
+      "AW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone copies an Apple gadget and everyone coos over how cute it is.",
+     "walkthrough": "Imitator looks like a knock-off maker, but it defines a parrot that mimics speech.",
+     "definitionFit": "A macaw is a large parrot, and parrots are famous mimics of human speech and sounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Imitator"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +437,59 @@
     "text": "Song and dance halved, and cheers doubled",
     "enumeration": "7"
    },
-   "solution": "CANTATA"
+   "solution": "CANTATA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANTATA",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "halved",
+      "for": "deletion",
+      "note": "halved means only half of the dance's name is kept"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "and joins the two pieces one after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "CANCAN",
+      "note": "the cancan is a high-kicking French dance"
+     },
+     {
+      "clueFragment": "cheers doubled",
+      "gives": "TATA",
+      "note": "ta is an informal British thanks, as is cheers, and it is written twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "TATA"
+     ]
+    },
+    "explanation": {
+     "surface": "A show offers half a dance routine and a double helping of applause.",
+     "definitionFit": "A cantata is a vocal composition for singers and instruments, so it is a sung musical work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +509,74 @@
      }
     ]
    },
-   "solution": "STANDTO"
+   "solution": "STANDTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "STAND-TO",
+    "definitions": [
+     {
+      "text": "Alert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacated",
+      "for": "letter_selection",
+      "note": "a vacated word has been emptied of its middle, keeping only its ends"
+     },
+     {
+      "text": "catastrophic",
+      "for": "anagram",
+      "note": "a catastrophic toast has gone badly wrong, so its letters are wrecked into a new order"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toast",
+      "gives": "TOAST",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "newlywed",
+      "gives": "ND",
+      "select": "outer",
+      "note": "first and last letters of newlywed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "ND",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOAST",
+       "gives": "STATO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newlywed has to stay alert when the wedding toast goes horribly wrong.",
+     "walkthrough": "TOAST becomes STA TO with ND placed in the middle.",
+     "definitionFit": "Stand-to is the military state of readiness when soldiers take up positions, as at dawn, a call to be on alert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +590,75 @@
     "text": "Colonising group, the European migrants initially in temporary accommodation",
     "enumeration": "10"
    },
-   "solution": "SETTLEMENT"
+   "solution": "SETTLEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SETTLEMENT",
+    "definitions": [
+     {
+      "text": "Colonising",
+      "at": 0,
+      "note": "a gerund used as a noun; the answer is the act of colonising"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially takes just the opening letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the shelter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "temporary accommodation",
+      "gives": "TENT",
+      "note": "a tent is a short-term shelter"
+     },
+     {
+      "clueFragment": "the European",
+      "gives": "LE",
+      "note": "le is the French for the, a European word for it"
+     },
+     {
+      "clueFragment": "migrants",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of migrants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "T",
+      "LEM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of European migrants is housed in temporary camps.",
+     "walkthrough": "'Colonising group' looks like a single definition, but colonising alone defines the answer and group is wordplay. The French article counts as a European 'the'.",
+     "definitionFit": "Settlement means the act of settling people in a new territory, which is exactly what colonising involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +672,64 @@
     "text": "Give a Fig Newton for recipe as source of sugar",
     "enumeration": "4"
    },
-   "solution": "CANE"
+   "solution": "CANE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CANE",
+    "definitions": [
+     {
+      "text": "source of sugar",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "X for Y means put X where Y was, swapping one letter in"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give a Fig",
+      "gives": "CARE",
+      "note": "to give a fig is to care, as in 'I don't give a fig'"
+     },
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passes off a Fig Newton biscuit as the sweet part of a recipe.",
+     "walkthrough": "Fig Newton reads as a biscuit, but it splits into Fig and Newton. N replaces the R in CARE.",
+     "definitionFit": "Sugar cane is a tall grass whose stems are crushed to extract most of the world's sugar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Newton"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +757,78 @@
    "group": [
     "11-across",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BALL AND CHAIN",
+    "definitions": [
+     {
+      "text": "Spouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw round it, so the song goes round the next letter"
+     },
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "something absorbed is taken inside, so the first piece goes into the second"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "BALLAD",
+      "note": "a ballad is a song"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "first child",
+      "gives": "CAIN",
+      "note": "Cain was the first son of Adam and Eve"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALLA",
+      "N",
+      "D",
+      "C",
+      "H",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife sings about her new husband being taken up with their firstborn.",
+     "walkthrough": "N goes into BALLAD for BALLAND, and H goes into CAIN for CHAIN.",
+     "definitionFit": "Ball and chain is jokey slang for a wife or husband, picturing marriage as a prisoner's shackle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +842,63 @@
     "text": "Frosty perhaps, sun presently starts to materialise around noon",
     "enumeration": "7"
    },
-   "solution": "SNOWMAN"
+   "solution": "SNOWMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SNOWMAN",
+    "definitions": [
+     {
+      "text": "Frosty perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the next three words are their first letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun or Sunday"
+     },
+     {
+      "clueFragment": "presently",
+      "gives": "NOW",
+      "note": "presently can mean at the present time"
+     },
+     {
+      "clueFragment": "materialise around noon",
+      "gives": "MAN",
+      "select": "first",
+      "note": "first letters of materialise, around and noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOW",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report: frost possible, the sun starting to come out around midday.",
+     "walkthrough": "Frosty is not weather but the name of a famous character from a Christmas song.",
+     "definitionFit": "Frosty the Snowman is the title figure of a popular Christmas song, an example of a figure built from snow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frosty"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +912,54 @@
     "text": "Priest meeting holy texts' writer",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELIOT",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "meeting puts the two pieces side by side, one after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel, a crossword favourite"
+     },
+     {
+      "clueFragment": "holy texts'",
+      "gives": "OT",
+      "note": "OT is the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest meets the author of some sacred scriptures.",
+     "walkthrough": "The writer is George Eliot or T.S. Eliot.",
+     "definitionFit": "George Eliot the novelist and T.S. Eliot the poet are both famous authors bearing this surname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Priest"
+    }
+   }
   },
   {
    "number": 14,
@@ -268,7 +987,68 @@
    "group": [
     "14-across",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLY-ON-THE-WALL",
+    "definitions": [
+     {
+      "text": "kind of documentary",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, so the words before it are scattered into a new order"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means the season's name holds the jumbled letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot, newly",
+      "gives": "HOTNEWLY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "US season",
+      "gives": "FALL",
+      "note": "fall is the American word for autumn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LYONTHEW",
+      "ALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOTNEWLY",
+       "gives": "LYONTHEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV listing: a hot new American series featuring a documentary.",
+     "walkthrough": "HOT NEWLY is rearranged and placed after the F of FALL.",
+     "definitionFit": "Fly-on-the-wall films observe their subjects unobtrusively without narration, a recognised style of observational documentary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 15,
@@ -282,7 +1062,66 @@
     "text": "Billionaire? Idiot carrying unreasonable clout",
     "enumeration": "9"
    },
-   "solution": "PLUTOCRAT"
+   "solution": "PLUTOCRAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PLUTOCRAT",
+    "definitions": [
+     {
+      "text": "Billionaire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unreasonable",
+      "for": "anagram",
+      "note": "something unreasonable is out of order, so the word after it is rearranged"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding, so the idiot wraps around the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "gives": "PRAT",
+      "note": "prat is British slang for a fool"
+     },
+     {
+      "clueFragment": "clout",
+      "gives": "CLOUT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUTOC",
+      "RAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLOUT",
+       "gives": "LUTOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at a billionaire: a fool wielding unreasonable influence.",
+     "definitionFit": "A plutocrat is someone whose power comes from great wealth, so a billionaire is a typical instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clout"
+    }
+   }
   },
   {
    "number": 16,
@@ -296,7 +1135,54 @@
     "text": "Opener part of Ireland's team",
     "enumeration": "9"
    },
-   "solution": "CORKSCREW"
+   "solution": "CORKSCREW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORKSCREW",
+    "definitions": [
+     {
+      "text": "Opener",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Ireland",
+      "gives": "CORK",
+      "note": "Cork is a county and city in Ireland"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending kept as it is"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "CREW",
+      "note": "a crew is a team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORK",
+      "S",
+      "CREW"
+     ]
+    },
+    "explanation": {
+     "surface": "An opening player in an Irish sports team.",
+     "walkthrough": "Opener suggests a sports batsman, but it means a tool for opening bottles.",
+     "definitionFit": "A corkscrew is the spiral tool used to pull corks out of wine bottles, so it opens them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Opener"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1196,67 @@
     "text": "Engineering student failing his essential GCSE",
     "enumeration": "7"
    },
-   "solution": "ENGLISH"
+   "solution": "ENGLISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENGLISH",
+    "definitions": [
+     {
+      "text": "essential GCSE",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "failing suggests breaking down, so the word beside it is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engineering",
+      "gives": "ENG",
+      "note": "Eng is the abbreviation for engineering"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENG",
+      "L",
+      "ISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIS",
+       "gives": "ISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineering student fails one of his compulsory school exams.",
+     "walkthrough": "GCSEs are the exams English pupils take at about 16, and English is a compulsory subject.",
+     "definitionFit": "English language is one of the core subjects every pupil sits at GCSE, the standard exam at age sixteen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1270,66 @@
     "text": "Running after detectives apprehending popular poet",
     "enumeration": "9"
    },
-   "solution": "DICKINSON"
+   "solution": "DICKINSON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DICKINSON",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apprehending",
+      "for": "container",
+      "note": "detectives apprehending someone take them in, so they hold the next piece"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the first-named piece at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "DICKS",
+      "note": "dick is old American slang for a detective"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "Running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DICK",
+      "IN",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives chase down and arrest a well-loved poet.",
+     "definitionFit": "Emily Dickinson was a celebrated nineteenth-century American poet, known for short lyrics full of dashes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1343,59 @@
     "text": "Playwright's changed since winning Oscar upon Oscar",
     "enumeration": "7"
    },
-   "solution": "IONESCO"
+   "solution": "IONESCO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IONESCO",
+    "definitions": [
+     {
+      "text": "Playwright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so the letters that follow are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "winning"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar upon Oscar",
+      "gives": "OO",
+      "note": "Oscar is O in the NATO alphabet, given twice"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINCEOO",
+       "gives": "IONESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright has been transformed after winning one Oscar after another.",
+     "definitionFit": "Eugène Ionesco was a Romanian-French dramatist, a leading figure of the Theatre of the Absurd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1409,66 @@
     "text": "Smell one primarily associated with earlier memory",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AROMA",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, picking the opening letter"
+     },
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "earlier puts the memory piece in front of the letter just chosen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "memory",
+      "gives": "ROM",
+      "note": "ROM is read-only memory in a computer"
+     },
+     {
+      "clueFragment": "associated",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of associated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A scent is most closely linked with an old memory.",
+     "definitionFit": "An aroma is a distinctive, usually pleasant odour, so it is a kind of smell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1482,55 @@
     "text": "Copper plated with light element",
     "enumeration": "7"
    },
-   "solution": "MERCURY"
+   "solution": "MERCURY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MERCURY",
+    "definitions": [
+     {
+      "text": "element",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plated with",
+      "for": "container",
+      "note": "plated with means covered by a layer, so the second piece surrounds the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "MERRY",
+      "note": "light-hearted, cheerful"
+     },
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MER",
+      "CU",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry note: copper coated with a lightweight element.",
+     "walkthrough": "'Light' tempts towards hydrogen or helium, but here it means cheerful, as in light-hearted.",
+     "definitionFit": "Mercury is a chemical element, the metal that is liquid at room temperature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1544,67 @@
     "text": "Relatively plain creature, cold, lacking in beauty, hollow even",
     "enumeration": "6"
    },
-   "solution": "PEAHEN"
+   "solution": "PEAHEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEAHEN",
+    "definitions": [
+     {
+      "text": "Relatively plain creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking in",
+      "for": "deletion",
+      "note": "lacking in means without, so a letter is removed from the word"
+     },
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow word is emptied of its middle, leaving only its ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beauty",
+      "gives": "PEACH",
+      "note": "a peach is a beauty, something very attractive"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EN",
+      "select": "outer",
+      "note": "first and last letters of even"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEAH",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dowdy animal, frosty and short on looks, even empty inside.",
+     "walkthrough": "C is removed from PEACH, leaving PEAH.",
+     "definitionFit": "The peahen is the female peafowl, drab brown beside the dazzling peacock, so plain by comparison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beauty"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1628,64 @@
    "group": [
     "23-across",
     "29-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KNUCKLE DOWN",
+    "definitions": [
+     {
+      "text": "initiate work",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without leader",
+      "for": "deletion",
+      "note": "without its leader means the word loses its opening letter"
+     },
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "houses means holds inside, so the first word wraps the second"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Famous",
+      "gives": "KNOWN",
+      "note": "famous means well known"
+     },
+     {
+      "clueFragment": "succumbed to strain",
+      "gives": "BUCKLED",
+      "note": "something that buckled gave way under pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KN",
+      "UCKLED",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Famous buildings collapsed under the weight of an unwilling workforce.",
+     "walkthrough": "'Houses' looks like buildings, but it is the verb meaning holds inside.",
+     "definitionFit": "To knuckle down is to start applying oneself seriously to a task, getting stuck in to the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1712,51 @@
     "text": "Change in Romania certain to bring about unemployment",
     "enumeration": "7"
    },
-   "solution": "LEISURE"
+   "solution": "LEISURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEISURE",
+    "definitions": [
+     {
+      "text": "unemployment",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "to bring about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change in Romania",
+      "gives": "LEI",
+      "note": "the leu, plural lei, is Romania's currency, and change means coins"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEI",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "An economist predicts that reform in Romania is bound to cause joblessness.",
+     "walkthrough": "Change looks like reform, but it means small money: Romanian coins.",
+     "definitionFit": "Leisure is time free from work, and unemployment in its literal sense is simply not being occupied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1770,55 @@
     "text": "Drink noisily, not quietly, and speak drunkenly",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLUR",
+    "definitions": [
+     {
+      "text": "speak drunkenly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means the letter for the following word is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink noisily",
+      "gives": "SLURP",
+      "note": "to slurp is to drink with a sucking noise"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano, the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk gulps loudly, can't keep quiet, and mumbles.",
+     "definitionFit": "To slur is to run words together indistinctly, the classic mark of someone who has had too much drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1832,53 @@
     "text": "The East Australian singer preceded by amateur",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "The East",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "preceded by",
+      "for": "charade",
+      "note": "preceded by puts the later-named piece in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is the abbreviation for amateur"
+     },
+     {
+      "clueFragment": "Australian singer",
+      "gives": "SIA",
+      "note": "Sia is the Australian pop singer-songwriter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SIA"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian singer tours the East, with an amateur opening the show.",
+     "definitionFit": "Asia is the continent traditionally meant by the East or the Orient in Western usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amateur"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1892,80 @@
     "text": "Returning and briefly dwelling around old city with hellish odour",
     "enumeration": "10"
    },
-   "solution": "SULPHUROUS"
+   "solution": "SULPHUROUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SULPHUROUS",
+    "definitions": [
+     {
+      "text": "with hellish odour",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read from the end"
+     },
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter is dropped"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the shortened dwelling surrounds the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "PLUS",
+      "note": "plus means and"
+     },
+     {
+      "clueFragment": "dwelling",
+      "gives": "HOUSE",
+      "note": "a house is a dwelling"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SULP",
+      "H",
+      "UR",
+      "OUS"
+     ],
+     "reversals": [
+      {
+       "from": "PLUS",
+       "to": "SULP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming back to an old town's house to find it reeking of brimstone.",
+     "walkthrough": "'And' looks like a mere joining word, but it stands for its mathematical synonym.",
+     "definitionFit": "Sulphur, the biblical brimstone, burns with a choking stench linked with hell, so sulphurous describes that infernal smell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 29,
@@ -500,7 +1992,50 @@
     "text": "Unwary as desperate fugitives",
     "enumeration": "8"
    },
-   "solution": "RUNAWAYS"
+   "solution": "RUNAWAYS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUNAWAYS",
+    "definitions": [
+     {
+      "text": "fugitives",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "desperate suggests wild and frantic, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unwary as",
+      "gives": "UNWARYAS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNWARYAS",
+       "gives": "RUNAWAYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Escapees on the run grow careless when desperate.",
+     "definitionFit": "Runaways are people who have fled, from home or custody, so they are escapees on the run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
+    }
+   }
   }
  ]
 }

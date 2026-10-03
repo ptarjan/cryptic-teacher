@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Morse perhaps starts to criticise other detectives' evidence",
     "enumeration": "4"
    },
-   "solution": "CODE"
+   "solution": "CODE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CODE",
+    "definitions": [
+     {
+      "text": "Morse perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their opening letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticise other detectives' evidence",
+      "gives": "CODE",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspector Morse finds fault with the evidence gathered by rival detectives.",
+     "walkthrough": "Morse is the famous TV detective, which makes the clue look like police business; here it means the telegraph alphabet of dots and dashes.",
+     "definitionFit": "Morse is one example of a signalling system that turns letters into dots and dashes, which is a kind of cipher or encoding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Morse"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,59 @@
     "text": "A bicycle's broken - no riding in this state",
     "enumeration": "8"
    },
-   "solution": "CELIBACY"
+   "solution": "CELIBACY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CELIBACY",
+    "definitions": [
+     {
+      "text": "no riding in this state",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has its parts out of place, so the preceding letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bicycle",
+      "gives": "ABICYCLE",
+      "note": "both words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELIBACY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABICYCLE",
+       "gives": "CELIBACY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist's bike is broken, so they cannot go riding while it is in this condition.",
+     "walkthrough": "'Riding' is slang for having sex, so the state of no riding is sexual abstinence.",
+     "definitionFit": "Celibacy is the condition of abstaining from sex, and riding is vulgar slang for sexual intercourse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "riding"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,63 @@
     "text": "Whimsical nobleman upset by lake",
     "enumeration": "5"
    },
-   "solution": "DROLL"
+   "solution": "DROLL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DROLL",
+    "definitions": [
+     {
+      "text": "Whimsical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word is read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobleman",
+      "gives": "LORD",
+      "note": "a lord is a nobleman"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROL",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LORD",
+       "to": "DROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fanciful aristocrat is distressed beside a lake.",
+     "definitionFit": "Droll humour is quirky and amusing in an odd way, which matches the sense of whimsical or fanciful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +235,43 @@
      }
     ]
    },
-   "solution": "HOTSTUFF"
+   "solution": "HOTSTUFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOT STUFF",
+    "definitions": [
+     {
+      "text": "A dish",
+      "at": 0
+     },
+     {
+      "text": "vindaloo",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A dish",
+      "note": "first meaning: an attractive person, informally called a dish"
+     },
+     {
+      "clueFragment": "vindaloo",
+      "note": "second meaning: a fiery curry, something with a lot of chilli heat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as though vindaloo is offered as an example of a dish; instead 'dish' is slang for a sexy person, and both halves share one phrase. Vindaloo is a very spicy curry, a staple of British curry houses.",
+     "definitionFit": "The phrase is slang for a sexually attractive person and also literally describes spicy, fiery food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +291,60 @@
      }
     ]
    },
-   "solution": "OLDHAND"
+   "solution": "OLDHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD HAND",
+    "definitions": [
+     {
+      "text": "Someone experienced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits beneath, so it is written after the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "OLD",
+      "note": "old means former, as in an old flame"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "H",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran is still helping out his ex-husband.",
+     "walkthrough": "'And' looks like a joining word, but it is a piece of the answer placed under the others.",
+     "definitionFit": "A veteran with long practice at something is described with this idiom for a seasoned expert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +364,39 @@
      }
     ]
    },
-   "solution": "SAVINGSACCOUNT"
+   "solution": "SAVINGSACCOUNT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAVINGS ACCOUNT",
+    "definitions": [
+     {
+      "text": "Place for rhino attracting interest?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for rhino attracting interest?",
+      "note": "surface reading: a zoo enclosure where a rhinoceros draws curious visitors"
+     },
+     {
+      "clueFragment": "rhino attracting interest",
+      "note": "setter's reading: rhino is old British slang for money, and interest is what a bank pays on deposits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rhino is old British slang for cash; interest is the bank's payment, not curiosity.",
+     "definitionFit": "A bank deposit where cash is kept and earns interest over time is exactly this sort of account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rhino"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +410,75 @@
     "text": "Tuna swimming around northern river? Weird",
     "enumeration": "9"
    },
-   "solution": "UNNATURAL"
+   "solution": "UNNATURAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "UNNATURAL",
+    "definitions": [
+     {
+      "text": "Weird",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "a fish swimming moves about freely, so its letters are shifted into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the jumbled fish encloses the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tuna",
+      "gives": "TUNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "URAL",
+      "note": "the Ural is a river flowing from the Ural Mountains to the Caspian Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "N",
+      "AT",
+      "URAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUNA",
+       "gives": "UNAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tuna swimming in a northern river would be a strange sight.",
+     "walkthrough": "The question mark admits the setter's tuna has strayed far from salt water.",
+     "definitionFit": "Something unnatural is abnormal and strange, outside the usual run of things, which is what weird means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +492,50 @@
     "text": "Break from female trouble",
     "enumeration": "4"
    },
-   "solution": "FAIL"
+   "solution": "FAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAIL",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble, as in what ails you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a break from the trouble caused by a woman.",
+     "walkthrough": "'Break' looks like a noun for a rest; it is the verb, as when a machine stops working.",
+     "definitionFit": "When a machine or engine breaks down it stops working, and that is what the verb fail means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +555,57 @@
      }
     ]
    },
-   "solution": "WATERINGPLACES"
+   "solution": "WATERINGPLACES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WATERING PLACES",
+    "definitions": [
+     {
+      "text": "health resorts",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means milled or crushed, so the letters are reduced and remade in another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Replacing waste",
+      "gives": "REPLACINGWASTE",
+      "note": "both words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATERINGPLACES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REPLACINGWASTE",
+       "gives": "WATERINGPLACES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wasteland is redeveloped to build health spas.",
+     "walkthrough": "'Waste ground' reads as derelict land; 'ground' is the signal and 'waste' part of the letters.",
+     "definitionFit": "Spa towns such as Bath, where visitors took the mineral waters for their health, were known by this old phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +619,63 @@
     "text": "Help father to get over bad habit",
     "enumeration": "6"
    },
-   "solution": "ADVICE"
+   "solution": "ADVICE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADVICE",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get over",
+      "for": "reversal",
+      "note": "in a down clue, getting over means flipping upward, so the word is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "DA",
+      "note": "da is an informal word for dad"
+     },
+     {
+      "clueFragment": "bad habit",
+      "gives": "VICE",
+      "note": "a vice is a bad habit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VICE"
+     ],
+     "reversals": [
+      {
+       "from": "DA",
+       "to": "AD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dad tries to help his child kick a bad habit.",
+     "definitionFit": "Counsel or guidance offered to someone is a form of assistance, so the noun can stand for help."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +699,55 @@
      }
     ]
    },
-   "solution": "LEONARDODAVINCI"
+   "solution": "LEONARDODAVINCI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEONARDO DA VINCI",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surreal",
+      "for": "anagram",
+      "note": "something surreal is bizarrely distorted, so the preceding letters are jumbled into a strange new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dali carved onion",
+      "gives": "DALICARVEDONION",
+      "note": "all three words are used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEONARDODAVINCI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DALICARVEDONION",
+       "gives": "LEONARDODAVINCI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Salvador Dali sculpts an onion, and the result is a surreal work of art.",
+     "walkthrough": "'Carved' looks like the anagram signal and 'surreal artist' like a description of Dali; in fact 'carved' is part of the letters, 'surreal' is the signal, and the artist is a different painter entirely.",
+     "definitionFit": "Leonardo da Vinci was the Renaissance painter of the Mona Lisa and The Last Supper, so he is an artist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "carved"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +767,39 @@
      }
     ]
    },
-   "solution": "BALLERINA"
+   "solution": "BALLERINA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BALLERINA",
+    "definitions": [
+     {
+      "text": "She might display attitude in Romeo and Juliet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She might display attitude",
+      "note": "surface reading: a stroppy girl, perhaps a teenage Juliet, showing defiance"
+     },
+     {
+      "clueFragment": "attitude in Romeo and Juliet",
+      "note": "setter's reading: an attitude is a classical ballet pose on one leg, and Romeo and Juliet is Prokofiev's ballet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Attitude' suggests sulky behaviour, but in ballet it is a position with one leg raised behind and bent; Romeo and Juliet here is the ballet, not the play.",
+     "definitionFit": "A female dancer performing in the ballet version of Romeo and Juliet would hold the pose called an attitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attitude"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +813,43 @@
     "text": "Acorns, perhaps, out of one's tree",
     "enumeration": "4"
    },
-   "solution": "NUTS"
+   "solution": "NUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUTS",
+    "definitions": [
+     {
+      "text": "Acorns, perhaps",
+      "at": 0
+     },
+     {
+      "text": "out of one's tree",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acorns, perhaps",
+      "note": "first meaning: acorns are an example of hard-shelled tree fruit"
+     },
+     {
+      "clueFragment": "out of one's tree",
+      "note": "second meaning: an idiom for crazy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures acorns falling out of an oak; 'out of one's tree' is in fact an idiom for being mad.",
+     "definitionFit": "Acorns are oak fruits with shells, and the word is also informal slang for crazy or insane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +863,66 @@
     "text": "Marry groom and fashionable bride, finally",
     "enumeration": "7"
    },
-   "solution": "COMBINE"
+   "solution": "COMBINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COMBINE",
+    "definitions": [
+     {
+      "text": "Marry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the preceding word, so only its closing letter is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groom",
+      "gives": "COMB",
+      "note": "to groom hair is to comb it"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in fashion is in"
+     },
+     {
+      "clueFragment": "bride",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of bride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMB",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding scene: the groom and his stylish bride are getting married at last.",
+     "walkthrough": "'Groom' and 'bride' look like the couple but are a verb for tidying hair and a letter source.",
+     "definitionFit": "To marry two things is to join or unite them, which is what this verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +936,48 @@
     "text": "Quiet person chops Cheddar cheese",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "Cheddar cheese",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet person",
+      "gives": "MOUSE",
+      "note": "a timid, quiet person is called a mouse"
+     },
+     {
+      "clueFragment": "chops",
+      "gives": "TRAP",
+      "note": "chops and trap are both slang for the mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUSE",
+      "TRAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy person cuts up some cheddar.",
+     "walkthrough": "'Chops' reads as a verb for cutting, but it is slang for the mouth. In Britain, cheap mild cheddar is nicknamed after what it is used to bait.",
+     "definitionFit": "British slang names bland, cheap cheese after the device it would bait, so a block of supermarket cheddar qualifies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chops"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +991,56 @@
     "text": "Fancy gentleman wearing flower",
     "enumeration": "6"
    },
-   "solution": "DESIRE"
+   "solution": "DESIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESIRE",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "whatever is wearing something is enclosed by it, so the gentleman sits inside the flower"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "DEE",
+      "note": "a flower is something that flows, a river; the Dee is a river in Wales, Scotland and England"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "the form of address for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dapper gentleman wears a flower in his buttonhole.",
+     "walkthrough": "'Flower' is the crossword trick for a river, something that flows.",
+     "definitionFit": "To fancy something is to want or long for it, and as a noun a fancy is a wish or craving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1054,65 @@
     "text": "One who fights with the French king after all others",
     "enumeration": "8"
    },
-   "solution": "WRESTLER"
+   "solution": "WRESTLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRESTLER",
+    "definitions": [
+     {
+      "text": "One who fights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the words before it behind the one that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "all others",
+      "gives": "REST",
+      "note": "the rest means all the others"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REST",
+      "LE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A warrior battles alongside the French monarch while everyone else hangs back.",
+     "definitionFit": "A grappler in the ring is a sportsman who fights opponents by throwing and pinning them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1126,66 @@
     "text": "The woman traps animal, reflecting need for food",
     "enumeration": "6"
    },
-   "solution": "HUNGER"
+   "solution": "HUNGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "HUNGER",
+    "definitions": [
+     {
+      "text": "need for food",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection shows things mirror-wise, so the animal's name is read backwards"
+     },
+     {
+      "text": "traps",
+      "for": "container",
+      "note": "to trap something is to hold it inside, so the woman encloses the animal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The woman",
+      "gives": "HER",
+      "note": "the pronoun for a woman"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "GNU",
+      "note": "a wildebeest, the crossword's favourite animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UNG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "GNU",
+       "to": "UNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman catches an animal for her dinner, thinking about how hungry she is.",
+     "definitionFit": "The noun names the feeling of wanting to eat, a physical craving or appetite when the stomach is empty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflecting"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1199,63 @@
     "text": "Bond hit right in belly",
     "enumeration": "7"
    },
-   "solution": "RAPPORT"
+   "solution": "RAPPORT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RAPPORT",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the letter for right inside the word for belly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "RAP",
+      "note": "a rap is a sharp blow"
+     },
+     {
+      "clueFragment": "belly",
+      "gives": "POT",
+      "note": "a pot belly; pot is slang for a paunch"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "PO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "James Bond punches a villain squarely in the stomach.",
+     "walkthrough": "'Bond' suggests 007, but here it is a connection between people.",
+     "definitionFit": "A rapport is a close, harmonious relationship, a connection or tie of understanding between people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1269,75 @@
     "text": "Lay awake initially beset by terrible ulcers",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "Lay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before it"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "terrible suggests something wrecked, so the letters of the following word are rearranged"
+     },
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "to be beset is to be surrounded, so the single letter goes inside the jumble"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awake",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of awake"
+     },
+     {
+      "clueFragment": "ulcers",
+      "gives": "ULCERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECUL",
+      "A",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ULCERS",
+       "gives": "SECULR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lies awake at night, kept up by painful ulcers.",
+     "walkthrough": "'Lay' looks like a verb, past tense of lie; it is the adjective meaning not of the clergy.",
+     "definitionFit": "Lay people are those not ordained in a church, so the adjective means worldly, non-religious or non-clerical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1351,60 @@
     "text": "Mean pop star - my money is missing",
     "enumeration": "6"
    },
-   "solution": "STINGY"
+   "solution": "STINGY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STINGY",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "missing means absent, so the named letter is taken out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pop star",
+      "gives": "STING",
+      "note": "Sting is the singer, formerly of The Police"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STING",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A tight-fisted pop star complains that his cash has gone.",
+     "walkthrough": "The pop star is the singer Sting; removing M from my leaves Y.",
+     "definitionFit": "Mean in the British sense is ungenerous with money, tight-fisted and unwilling to spend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1418,51 @@
     "text": "Go with Liberal Prime Minister",
     "enumeration": "4"
    },
-   "solution": "PEEL"
+   "solution": "PEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEEL",
+    "definitions": [
+     {
+      "text": "Prime Minister",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PEE",
+      "note": "to go is a euphemism for urinating"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "the standard abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician joins a Liberal Prime Minister in coalition.",
+     "walkthrough": "'Liberal Prime Minister' reads as one phrase, but Liberal only gives a letter; Robert Peel was in fact a Conservative.",
+     "definitionFit": "Sir Robert Peel served twice as Britain's leader in the nineteenth century and founded the modern police force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1482,55 @@
      }
     ]
    },
-   "solution": "POISONGAS"
+   "solution": "POISONGAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "POISON GAS",
+    "definitions": [
+     {
+      "text": "I soon gasp fighting this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fighting",
+      "for": "anagram",
+      "note": "things that are fighting are in a tangled melee, so the preceding letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I soon gasp",
+      "gives": "ISOONGASP",
+      "note": "all three words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POISONGAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISOONGASP",
+       "gives": "POISONGAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier in battle finds himself choking almost at once.",
+     "walkthrough": "The whole clue is both the letter mix and the picture: a soldier fighting in a chemical attack quickly struggles for breath.",
+     "definitionFit": "Chlorine and mustard weapons of the First World War made soldiers in the trenches choke and struggle for breath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1544,65 @@
     "text": "Booze thrown up, with European revealing stomach contents",
     "enumeration": "5"
    },
-   "solution": "GORGE"
+   "solution": "GORGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GORGE",
+    "definitions": [
+     {
+      "text": "stomach contents",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown up",
+      "for": "reversal",
+      "note": "in a down clue, thrown up means sent upward, so the word is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Booze",
+      "gives": "GROG",
+      "note": "grog is alcoholic drink, originally rum and water"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GORG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GROG",
+       "to": "GORG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk vomits after too much alcohol, and a European sees what was in his stomach.",
+     "walkthrough": "'Thrown up' fits the vomiting picture but signals the reversal.",
+     "definitionFit": "In older usage the word means what has been swallowed, as in one's gorge rising with disgust or nausea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1616,48 @@
     "text": "View model scratching bottom",
     "enumeration": "4"
    },
-   "solution": "IDEA"
+   "solution": "IDEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDEA",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching bottom",
+      "for": "deletion",
+      "note": "scratching means striking out, and the bottom of a down entry is its last letter, which goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "IDEAL",
+      "note": "an ideal is a model to follow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model is seen scratching her backside.",
+     "definitionFit": "An opinion or way of thinking about something can be called a view, as in having an idea of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1677,54 @@
      }
     ]
    },
-   "solution": "DIRECTORGENERAL"
+   "solution": "DIRECTORGENERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIRECTOR-GENERAL",
+    "definitions": [
+     {
+      "text": "BBC head maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, as seed is, so the preceding letters are dispersed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recreating older",
+      "gives": "RECREATINGOLDER",
+      "note": "both words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRECTORGENERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RECREATINGOLDER",
+       "gives": "DIRECTORGENERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The BBC's boss is accused of repeating old programmes on air.",
+     "walkthrough": "'Broadcast' fits the BBC so well it looks like part of the picture, but it signals the letter mix.",
+     "definitionFit": "The chief executive of the British Broadcasting Corporation holds this title, so the BBC's head is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1738,60 @@
     "text": "Suitable place to carry parrot? On the contrary",
     "enumeration": "8"
    },
-   "solution": "APPOSITE"
+   "solution": "APPOSITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPOSITE",
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "to carry something is to hold it inside, so one piece goes within another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this flips the roles just described, so the parrot does the carrying rather than the place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parrot",
+      "gives": "APE",
+      "note": "to parrot or ape is to mimic"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "POSIT",
+      "note": "to posit is to put or place in position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POSIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a place is suitable for carrying a pet parrot, and is told the reverse.",
+     "walkthrough": "Both 'place' and 'parrot' are verbs here, and 'On the contrary' swaps which word holds which.",
+     "definitionFit": "An apposite remark is apt and well-suited to the occasion, so the adjective means appropriate or fitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parrot"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1805,55 @@
     "text": "Does perhaps run after girl",
     "enumeration": "4"
    },
-   "solution": "DEER"
+   "solution": "DEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEER",
+    "definitions": [
+     {
+      "text": "Does perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word before it behind the one that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "DEE",
+      "note": "Dee is a girl's name"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs off after a girl.",
+     "walkthrough": "'Does' looks like the verb do; it is the plural of doe, a female deer.",
+     "definitionFit": "Does are female animals of the antlered family, so they are examples of the plural animal named here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Does"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Misplaced call to musician produces error",
     "enumeration": "14"
    },
-   "solution": "MISCALCULATION"
+   "solution": "MISCALCULATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISCALCULATION",
+    "definitions": [
+     {
+      "text": "error",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Misplaced",
+      "for": "anagram",
+      "note": "things misplaced are put in the wrong positions, so the letters that follow are rearranged"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call to musician",
+      "gives": "CALLTOMUSICIAN",
+      "note": "the three words supply all fourteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISCALCULATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CALLTOMUSICIAN",
+       "gives": "MISCALCULATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets a phone call to a performer muddled and a blunder follows.",
+     "definitionFit": "A miscalculation is a mistake in reckoning or judgement, so it is a kind of error."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Misplaced"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,44 @@
      }
     ]
    },
-   "solution": "MASSPRODUCTION"
+   "solution": "MASSPRODUCTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MASS-PRODUCTION",
+    "definitions": [
+     {
+      "text": "Work for Schubert perhaps",
+      "at": 0
+     },
+     {
+      "text": "making multiple copies",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work for Schubert perhaps",
+      "note": "read cryptically: a staging of a sung Mass, the kind of choral work Schubert composed"
+     },
+     {
+      "clueFragment": "making multiple copies",
+      "note": "the everyday meaning: manufacturing goods in huge identical quantities"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer's piece is being reproduced over and over.",
+     "walkthrough": "Schubert wrote several settings of the Mass, so a performance of one is literally a production of a Mass.",
+     "definitionFit": "Factory output of identical goods in vast numbers is the standard industrial sense of the phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +162,58 @@
      }
     ]
    },
-   "solution": "SEALANE"
+   "solution": "SEALANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEA LANE",
+    "definitions": [
+     {
+      "text": "main route",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocks",
+      "for": "container",
+      "note": "to block something is to sit in the middle of it, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "view",
+      "gives": "SEE",
+      "note": "to view is to see"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "ALAN",
+      "note": "a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ALAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stands in the way of the view along a major road.",
+     "walkthrough": "'Main' is the poetic word for the open sea, not the adjective it seems.",
+     "definitionFit": "A shipping lane is a recognised route across the ocean, and the main is an old literary word for ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +233,66 @@
      }
     ]
    },
-   "solution": "ANIMALFAT"
+   "solution": "ANIMALFAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANIMAL FAT",
+    "definitions": [
+     {
+      "text": "dripping?",
+      "at": 30,
+      "note": "the question mark marks dripping as one example"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means brought upwards, so the word for plate is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plate",
+      "gives": "LAMINA",
+      "note": "a lamina is a thin plate or layer"
+     },
+     {
+      "clueFragment": "stout",
+      "gives": "FAT",
+      "note": "stout means plump, fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANIMAL",
+      "FAT"
+     ],
+     "reversals": [
+      {
+       "from": "LAMINA",
+       "to": "ANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner plate carried in with a pint of stout, and someone asking if it is dripping.",
+     "walkthrough": "Dripping is the British name for the fat that runs off roasting meat, kept for cooking.",
+     "definitionFit": "Dripping is fat rendered from roast meat, so it is one example of fat from an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stout"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +306,58 @@
     "text": "Charlie getting on man's nerves in wealthy district",
     "enumeration": "8"
    },
-   "solution": "CHISWICK"
+   "solution": "CHISWICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHISWICK",
+    "definitions": [
+     {
+      "text": "wealthy district",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "getting on",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "HIS",
+      "note": "belonging to a man"
+     },
+     {
+      "clueFragment": "nerves",
+      "gives": "WICK",
+      "note": "British slang: 'get on someone's wick' means get on their nerves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIS",
+      "WICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Charlie is irritating someone in a posh neighbourhood.",
+     "walkthrough": "CHISWICK is an affluent district of west London; the clue borrows the idiom 'get on someone's wick'.",
+     "definitionFit": "Chiswick is a prosperous residential area of west London, known for expensive riverside housing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nerves"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +371,42 @@
     "text": "Checks borders",
     "enumeration": "6"
    },
-   "solution": "LIMITS"
+   "solution": "LIMITS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIMITS",
+    "definitions": [
+     {
+      "text": "Checks",
+      "at": 0
+     },
+     {
+      "text": "borders",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Checks",
+      "note": "first meaning: restricts or restrains, as a verb"
+     },
+     {
+      "clueFragment": "borders",
+      "note": "second meaning: boundaries or edges, as a plural noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests customs checks at a frontier; the two words are separate meanings.",
+     "definitionFit": "As a verb it means restrains or curbs; as a noun it means the outer edges or boundaries of an area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Checks"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +420,39 @@
     "text": "Have trying experience?",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "Have trying experience?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have trying experience?",
+      "note": "surface reading: go through an ordeal, something difficult to endure"
+     },
+     {
+      "clueFragment": "trying experience",
+      "note": "setter's reading: an experience of trying, that is sampling food or drink"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Trying' sounds like 'stressful', but it means having a try, sampling a mouthful.",
+     "definitionFit": "To sample food or drink in small amounts is the verb sense of this word, an experience of trying flavours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trying"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +466,56 @@
     "text": "Creditor showing explosive ego and bile",
     "enumeration": "7"
    },
-   "solution": "OBLIGEE"
+   "solution": "OBLIGEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBLIGEE",
+    "definitions": [
+     {
+      "text": "Creditor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "explosive",
+      "for": "anagram",
+      "note": "an explosion scatters things, so the letters are blown apart and reassembled"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ego and bile",
+      "gives": "EGOBILE",
+      "note": "the letters of both words are combined as fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBLIGEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGOBILE",
+       "gives": "OBLIGEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lender with a fiery temper and a bitter, self-important manner.",
+     "definitionFit": "In law, the party to whom an obligation such as a debt is owed is the one entitled to payment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +535,67 @@
      }
     ]
    },
-   "solution": "FOUNDINGFATHER"
+   "solution": "FOUNDINGFATHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FOUNDING FATHER",
+    "definitions": [
+     {
+      "text": "Patriarch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing means seizing and holding, so one word takes another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discovered",
+      "gives": "FOUND",
+      "note": "discovered means found"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "during means in, as in 'in the night'"
+     },
+     {
+      "clueFragment": "harvest",
+      "gives": "GATHER",
+      "note": "to harvest crops is to gather them"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOUND",
+      "IN",
+      "G",
+      "F",
+      "ATHER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old man is found out in the middle of harvest time, seizing a woman.",
+     "definitionFit": "A patriarch is the originator or senior figure of a family or institution, exactly the role of a founder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harvest"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +609,62 @@
     "text": "Angered animists taking line in totalitarian ideology",
     "enumeration": "9"
    },
-   "solution": "STALINISM"
+   "solution": "STALINISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STALINISM",
+    "definitions": [
+     {
+      "text": "totalitarian ideology",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Angered",
+      "for": "anagram",
+      "note": "angry people are worked up and agitated, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animists",
+      "gives": "ANIMISTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STALINISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANIMISTSL",
+       "gives": "STALINISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spirit-worshippers are furious at having to toe the party line under a dictatorship.",
+     "definitionFit": "The system of rule associated with Stalin was a totalitarian doctrine of total state control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +678,42 @@
     "text": "Organised discharge of colossal volume",
     "enumeration": "5"
    },
-   "solution": "SALVO"
+   "solution": "SALVO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SALVO",
+    "definitions": [
+     {
+      "text": "Organised discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "'of' here means drawn from, so the letters are taken from inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colossal volume",
+      "gives": "SALVO",
+      "note": "the letters run across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A huge, deliberate outpouring, like a volley of noise.",
+     "definitionFit": "A simultaneous, coordinated firing of guns is the standard military meaning of this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +727,58 @@
     "text": "Contrive to wipe out each unfinished city square",
     "enumeration": "5"
    },
-   "solution": "PLAZA"
+   "solution": "PLAZA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PLAZA",
+    "definitions": [
+     {
+      "text": "city square",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "each unfinished",
+      "for": "deletion",
+      "note": "both of the preceding words are left incomplete, so each loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contrive",
+      "gives": "PLAN",
+      "note": "to contrive is to plan"
+     },
+     {
+      "clueFragment": "wipe out",
+      "gives": "ZAP",
+      "note": "to zap is to destroy or wipe out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "ZA"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme to demolish every half-built town square.",
+     "walkthrough": "'Each' looks like part of the surface, but it tells you both words are cut short.",
+     "definitionFit": "This Spanish-derived word names an open public space or marketplace in a town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "each"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +810,43 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WITH EGG ON ONE'S FACE",
+    "definitions": [
+     {
+      "text": "Looking ridiculous",
+      "at": 0
+     },
+     {
+      "text": "after carelessly consuming chocolate at Easter?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looking ridiculous",
+      "note": "first meaning: the idiom for being embarrassed or made to look foolish"
+     },
+     {
+      "clueFragment": "after carelessly consuming chocolate at Easter?",
+      "note": "second meaning, read literally: smeared with a chocolate Easter egg after messy eating"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom is taken literally: someone who has eaten a chocolate Easter egg sloppily would have it on their face.",
+     "definitionFit": "The idiom describes someone humiliated after a mistake, appearing foolish in public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carelessly"
+    }
+   }
   },
   {
    "number": 13,
@@ -276,7 +879,59 @@
     "text": "Arab sycophants shunning second one",
     "enumeration": "6"
    },
-   "solution": "YEMENI"
+   "solution": "YEMENI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "YEMENI",
+    "definitions": [
+     {
+      "text": "Arab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shunning",
+      "for": "deletion",
+      "note": "shunning means avoiding or keeping away from, so the letter for second is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sycophants",
+      "gives": "YESMEN",
+      "note": "yes-men are sycophantic followers"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YEMEN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Arabia avoids a toady sidekick.",
+     "definitionFit": "Someone from Yemen, on the Arabian peninsula, is an Arab by nationality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +945,54 @@
     "text": "Conductor travelled to support those chosen",
     "enumeration": "9"
    },
-   "solution": "ELECTRODE"
+   "solution": "ELECTRODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRODE",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue a supporter sits underneath, so the travel word goes below the chosen word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those chosen",
+      "gives": "ELECT",
+      "note": "the elect are those chosen"
+     },
+     {
+      "clueFragment": "travelled",
+      "gives": "RODE",
+      "note": "rode means travelled on horseback or by vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RODE"
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra's conductor journeyed to back the selected few.",
+     "walkthrough": "'Conductor' suggests a musician or bus worker, but here it is something that carries electric current.",
+     "definitionFit": "An electrode is a solid electric conductor through which current enters or leaves a circuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conductor"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1012,67 @@
      }
     ]
    },
-   "solution": "ONDEMAND"
+   "solution": "ONDEMAND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ON DEMAND",
+    "definitions": [
+     {
+      "text": "as requested",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the single word wraps around the letter for daughter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "ONE",
+      "note": "single means one"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "D is the abbreviation for died, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "D",
+      "E",
+      "MAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone man dies hugging his daughter, as he had wished.",
+     "definitionFit": "Supplying something whenever it is asked for is the meaning of this phrase, as in video streaming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "died"
+    }
+   }
   },
   {
    "number": 17,
@@ -324,7 +1086,51 @@
     "text": "Attending Oxford maybe Ruth becomes arrogant",
     "enumeration": "6"
    },
-   "solution": "UPPITY"
+   "solution": "UPPITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPPITY",
+    "definitions": [
+     {
+      "text": "arrogant",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attending Oxford maybe",
+      "gives": "UP",
+      "note": "being 'up' at a university means studying there; Oxford is one example"
+     },
+     {
+      "clueFragment": "Ruth",
+      "gives": "PITY",
+      "note": "ruth is an old word for compassion or pity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "PITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Ruth gets snooty once she is at Oxford University.",
+     "walkthrough": "Ruth looks like a name, but it is the old noun behind 'ruthless'.",
+     "definitionFit": "This informal word describes someone self-important who behaves as if above their station."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ruth"
+    }
+   }
   },
   {
    "number": 18,
@@ -338,7 +1144,81 @@
     "text": "Crumpet and cooked leek in bread: no thanks",
     "enumeration": "7"
    },
-   "solution": "PIKELET"
+   "solution": "PIKELET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "container"
+    ],
+    "answer": "PIKELET",
+    "definitions": [
+     {
+      "text": "Crumpet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the vegetable's letters are mixed up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the mixed-up letters inside the word for bread"
+     },
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no means without, so the word for thanks is removed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bread",
+      "gives": "PITTA",
+      "note": "pitta is a flat Middle Eastern bread"
+     },
+     {
+      "clueFragment": "leek",
+      "gives": "LEEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "TA is informal British for thank you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "KELE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEEK",
+       "gives": "KELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen order: a crumpet plus cooked leek in a pitta, but don't bother thanking me.",
+     "walkthrough": "The deletion happens first: the bread loses its thanks before the vegetable goes inside what remains.",
+     "definitionFit": "A pikelet is a regional British name for a thin crumpet or griddle cake eaten toasted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1232,58 @@
     "text": "Cook too little grub for starter and unfancied competitor",
     "enumeration": "8"
    },
-   "solution": "UNDERDOG"
+   "solution": "UNDERDOG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNDERDOG",
+    "definitions": [
+     {
+      "text": "unfancied competitor",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starter",
+      "for": "letter_selection",
+      "note": "a starter is the opening item, so only the first letter of grub is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook too little",
+      "gives": "UNDERDO",
+      "note": "to underdo food is to undercook it"
+     },
+     {
+      "clueFragment": "grub",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of grub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERDO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen advice: undercook the food for the first course.",
+     "definitionFit": "The contestant whom nobody expects to win, the outsider in betting, is the classic sporting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1297,51 @@
     "text": "Duke with healthier — though incorrectly formed — liver",
     "enumeration": "7"
    },
-   "solution": "DWELLER"
+   "solution": "DWELLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DWELLER",
+    "definitions": [
+     {
+      "text": "liver",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "healthier — though incorrectly formed",
+      "gives": "WELLER",
+      "note": "a nonstandard comparative of well, meaning healthier; the setter admits it is not proper English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke whose liver is in better shape, though the organ is malformed.",
+     "walkthrough": "'Liver' reads as the organ, but it means one who lives somewhere.",
+     "definitionFit": "A liver in the sense of someone who lives in a place is a resident or inhabitant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liver"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1355,59 @@
     "text": "Scoundrel in American intelligence finds bug",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CICADA",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for scoundrel inside the intelligence agency's initials"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American intelligence",
+      "gives": "CIA",
+      "note": "the Central Intelligence Agency"
+     },
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "CAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue spy at the CIA discovers a listening device.",
+     "walkthrough": "'Bug' suggests a spy's microphone, but it is an insect.",
+     "definitionFit": "The cicada is a loud chirping insect, and bug is a common word for an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 22,
@@ -404,7 +1431,43 @@
      }
     ]
    },
-   "solution": "TAKEAHIKE"
+   "solution": "TAKEAHIKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE A HIKE",
+    "definitions": [
+     {
+      "text": "Get lost",
+      "at": 0
+     },
+     {
+      "text": "on the moors?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get lost",
+      "note": "first meaning: a rude command to go away"
+     },
+     {
+      "clueFragment": "on the moors?",
+      "note": "second meaning, read literally: go for a long walk across open upland"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like losing your way on a moor; the phrase is a dismissal and also literal walking.",
+     "definitionFit": "The phrase is informal slang ordering someone to go away, just as 'get lost' does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 23,
@@ -418,7 +1481,54 @@
     "text": "Man soon consumes ton",
     "enumeration": "5"
    },
-   "solution": "ANTON"
+   "solution": "ANTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANTON",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "consuming means taking in, so the word for soon swallows the letter for ton"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soon",
+      "gives": "ANON",
+      "note": "anon is an old word for soon"
+     },
+     {
+      "clueFragment": "ton",
+      "gives": "T",
+      "note": "T is the abbreviation for ton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "T",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A man will shortly eat a huge amount.",
+     "definitionFit": "Anton is a male first name, and crosswords often define a name simply by its bearer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ton"
+    }
+   }
   },
   {
    "number": 24,
@@ -432,7 +1542,52 @@
     "text": "Leaders among the rabbinate examining food ascertain it to be so?",
     "enumeration": "5"
    },
-   "solution": "TREFA"
+   "solution": "TREFA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "TREFA",
+    "definitions": [
+     {
+      "text": "Leaders among the rabbinate examining food ascertain it to be so?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so the opening letter of each following word is taken"
+     }
+    ],
+    "linkWords": [
+     "among"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the rabbinate examining food ascertain",
+      "gives": "TREFA",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREFA"
+     ]
+    },
+    "explanation": {
+     "surface": "Senior rabbis inspect a dish and declare it unfit under dietary law.",
+     "walkthrough": "The whole clue is also the definition: rabbis examining food might declare it forbidden.",
+     "definitionFit": "Trefa is food that is not kosher, which is what a rabbinical inspection would rule it to be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -446,7 +1601,66 @@
     "text": "Initially obstructive wife to enable young head-turner",
     "enumeration": "5"
    },
-   "solution": "OWLET"
+   "solution": "OWLET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OWLET",
+    "definitions": [
+     {
+      "text": "young head-turner",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of obstructive is used"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obstructive",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of obstructive"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "enable",
+      "gives": "LET",
+      "note": "to let is to allow or enable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "W",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A difficult wife at first, who then gives in to a youngster turning heads.",
+     "walkthrough": "'Head-turner' suggests someone attractive, but owls can swivel their heads almost all the way round.",
+     "definitionFit": "A baby owl, a bird famous for rotating its head, is a young head-turner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "head-turner"
+    }
+   }
   },
   {
    "number": 26,
@@ -460,7 +1674,66 @@
     "text": "Greeting Scottish banker and a regressively religious authority",
     "enumeration": "9"
    },
-   "solution": "AYATOLLAH"
+   "solution": "AYATOLLAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AYATOLLAH",
+    "definitions": [
+     {
+      "text": "religious authority",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regressively",
+      "for": "reversal",
+      "note": "regressing means going backwards, so the whole string is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greeting",
+      "gives": "HALLO",
+      "note": "hallo is a greeting"
+     },
+     {
+      "clueFragment": "Scottish banker",
+      "gives": "TAY",
+      "note": "a banker in crosswords is a river; the Tay is Scotland's longest river"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "YAT",
+      "OLLAH"
+     ],
+     "reversals": [
+      {
+       "from": "HALLOTAYA",
+       "to": "AYATOLLAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Saying hello to a Scottish bank manager and a backward-looking cleric.",
+     "definitionFit": "An ayatollah is a high-ranking Shia Muslim cleric and scholar in Iran."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1753,43 @@
      }
     ]
    },
-   "solution": "STANDARDBEARER"
+   "solution": "STANDARDBEARER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STANDARD-BEARER",
+    "definitions": [
+     {
+      "text": "Outstanding leader",
+      "at": 0
+     },
+     {
+      "text": "one below par?",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outstanding leader",
+      "note": "first meaning: a prominent leader of a movement or cause"
+     },
+     {
+      "clueFragment": "one below par?",
+      "note": "second meaning, read literally: someone beneath a flag held aloft, a standard also meaning par"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Below par' sounds like underperforming, but par is a standard, and whoever carries one stands beneath it.",
+     "definitionFit": "A person who carries the flag at the front of a group is figuratively the leading champion of a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "par"
+    }
+   }
   }
  ]
 }

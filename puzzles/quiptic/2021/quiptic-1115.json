@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Humanitarian crisis caused by a 25 in unoccupied France",
     "enumeration": "6"
    },
-   "solution": "FAMINE"
+   "solution": "FAMINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FAMINE",
+    "definitions": [
+     {
+      "text": "Humanitarian crisis",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unoccupied",
+      "for": "letter_selection",
+      "note": "a word left unoccupied has its interior emptied, keeping only the two letters at its ends"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France",
+      "gives": "FE",
+      "select": "outer",
+      "note": "the first and last letters of France"
+     },
+     {
+      "clueFragment": "a 25",
+      "gives": "AMIN",
+      "note": "25 across is DESPOT, and Idi Amin of Uganda was a notorious one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AMIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A disaster caused by a tyrant in a France emptied of its people.",
+     "walkthrough": "The cross-reference sends you to 25 across, DESPOT; 'a 25' asks for an example of one, Idi Amin. He sits inside F_E to give FAMINE.",
+     "definitionFit": "A famine is a severe food shortage, a classic example of a humanitarian emergency affecting whole populations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unoccupied"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,69 @@
     "text": "Team getting victory launched revolutionary air-to-air missile",
     "enumeration": "10"
    },
-   "solution": "SIDEWINDER"
+   "solution": "SIDEWINDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SIDEWINDER",
+    "definitions": [
+     {
+      "text": "air-to-air missile",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "launched",
+      "for": "reversal",
+      "note": "something launched goes upwards, and in a down clue going up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "RED",
+      "note": "a Red is a communist revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "WIN",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team celebrating a win fires off a revolutionary new missile.",
+     "definitionFit": "The Sidewinder is a well-known heat-seeking missile fired by one aircraft at another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "launched"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +184,88 @@
     "text": "English king upset large part of church before start of divorce is declined",
     "enumeration": "8"
    },
-   "solution": "RELAPSED"
+   "solution": "RELAPSED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RELAPSED",
+    "definitions": [
+     {
+      "text": "declined",
+      "at": 67
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset suggests turning something upside down, so the letters read upwards"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before tells you the pieces are placed one after another in this order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English king",
+      "gives": "ER",
+      "note": "E for English and R for rex, king"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "part of church",
+      "gives": "APSE",
+      "note": "the apse is the rounded end of a church"
+     },
+     {
+      "clueFragment": "divorce",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of divorce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "L",
+      "APSE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English king overturns the church's authority before a divorce, as Henry VIII famously did.",
+     "walkthrough": "The surface evokes Henry VIII breaking with Rome to divorce; 'upset' really just flips the royal cipher, and 'large part of church' is two pieces, L plus the curved end.",
+     "definitionFit": "To relapse is to fall back into a worse condition, so relapsed means having worsened or deteriorated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +279,69 @@
     "text": "Cop guarding god leaving hospital in Texas city",
     "enumeration": "6"
    },
-   "solution": "DALLAS"
+   "solution": "DALLAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DALLAS",
+    "definitions": [
+     {
+      "text": "Texas city",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "a guard surrounds what it protects, so one piece goes around the other"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving, it is taken away from the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cop",
+      "gives": "DS",
+      "note": "DS is a Detective Sergeant"
+     },
+     {
+      "clueFragment": "god",
+      "gives": "ALLAH",
+      "note": "Allah is God in Islam"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map symbol for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ALLA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer protects a deity who has just walked out of a Texan hospital.",
+     "walkthrough": "The removed H is the map symbol for a hospital, a standard crossword abbreviation.",
+     "definitionFit": "Dallas is a large city in the US state of Texas, famous for its oil and its television soap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "god"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +355,61 @@
     "text": "Menial worker follows lad smuggling diamonds",
     "enumeration": "8"
    },
-   "solution": "DOGSBODY"
+   "solution": "DOGSBODY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOGSBODY",
+    "definitions": [
+     {
+      "text": "Menial worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "a smuggler hides goods inside something, so one piece is concealed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "follows",
+      "gives": "DOGS",
+      "note": "to dog someone is to follow them"
+     },
+     {
+      "clueFragment": "lad",
+      "gives": "BOY",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card-game abbreviation for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOGS",
+      "BO",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A lowly worker tails a youth who is smuggling diamonds.",
+     "definitionFit": "A dogsbody is British slang for someone given all the boring, menial jobs, a drudge or general skivvy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "follows"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +423,65 @@
     "text": "Drug used in game turned up in sweet",
     "enumeration": "8"
    },
-   "solution": "LOLLIPOP"
+   "solution": "LOLLIPOP",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "LOLLIPOP",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in another thing is put inside it"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means flipped to read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "POOL",
+      "note": "pool is a cue game played on a table"
+     },
+     {
+      "clueFragment": "Drug",
+      "gives": "PILL",
+      "note": "a pill is a dose of a drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOLLIPOP"
+     ],
+     "reversals": [
+      {
+       "from": "POPILLOL",
+       "to": "LOLLIPOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs smuggled into a game end up hidden in a piece of confectionery.",
+     "walkthrough": "The insertion happens first and the whole result is then read upwards, as 'turned up' in a down clue means flipping the lot.",
+     "definitionFit": "A lollipop is a hard candy on a stick, a type of confectionery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +501,65 @@
      }
     ]
    },
-   "solution": "FINEGAEL"
+   "solution": "FINEGAEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FINE GAEL",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "a word taking something in holds it within its letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beautiful",
+      "gives": "FINE",
+      "note": "fine can mean beautiful or handsome"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "GAL",
+      "note": "gal is a colloquial word for a girl"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINE",
+      "GA",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretty young woman takes drugs before heading to a party.",
+     "walkthrough": "The surface makes 'party' a celebration; it is an Irish political party.",
+     "definitionFit": "Fine Gael is one of the main political parties in the Republic of Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +573,42 @@
     "text": "Creatures eaten by giant spiders",
     "enumeration": "4"
    },
-   "solution": "ANTS"
+   "solution": "ANTS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTS",
+    "definitions": [
+     {
+      "text": "Creatures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "hidden_word",
+      "note": "something eaten by other words is swallowed inside them, concealed in the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant spiders",
+      "gives": "ANTS",
+      "note": "the letters run across the end of giant and the start of spiders"
+     }
+    ],
+    "explanation": {
+     "surface": "Small creatures being devoured by huge spiders.",
+     "definitionFit": "Ants are insects, and insects are living creatures, so a general word stands for the specific one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +622,66 @@
     "text": "Lecturer joining end of impromptu party game",
     "enumeration": "4"
    },
-   "solution": "LUDO"
+   "solution": "LUDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUDO",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is kept"
+     },
+     {
+      "text": "joining",
+      "for": "charade",
+      "note": "joining means the pieces link together one after another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lecturer",
+      "gives": "L",
+      "note": "L is a standard abbreviation for lecturer"
+     },
+     {
+      "clueFragment": "impromptu",
+      "gives": "U",
+      "select": "last",
+      "note": "the final letter of impromptu"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or social event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer turns up at a spontaneous party and joins in a game.",
+     "definitionFit": "Ludo is a simple board game where players race counters around the board by throwing dice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lecturer"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +695,49 @@
     "text": "Small drink that's for shooting party's guide in Scotland",
     "enumeration": "6"
    },
-   "solution": "GILLIE"
+   "solution": "GILLIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GILLIE",
+    "definitions": [
+     {
+      "text": "shooting party's guide in Scotland",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small drink",
+      "gives": "GILL",
+      "note": "a gill is a small measure of liquor, a quarter of a pint"
+     },
+     {
+      "clueFragment": "that's",
+      "gives": "IE",
+      "note": "ie, id est, means that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GILL",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A little dram handed out to the guide leading a Highland shoot.",
+     "definitionFit": "A gillie is a Scottish attendant who assists people out hunting, stalking deer or fishing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "that's"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +751,55 @@
     "text": "Left share covered by legal agreement",
     "enumeration": "8"
    },
-   "solution": "DEPARTED"
+   "solution": "DEPARTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPARTED",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another thing is wrapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal agreement",
+      "gives": "DEED",
+      "note": "a deed is a signed legal document"
+     },
+     {
+      "clueFragment": "share",
+      "gives": "PART",
+      "note": "a part is a share or portion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "PART",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's portion of an estate laid down in a legal contract.",
+     "walkthrough": "'Left' looks like an inheritance in this surface; it is the past tense of leave.",
+     "definitionFit": "To have departed is to have gone away, the same meaning as left as the past of leave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +813,78 @@
     "text": "Boy cycles to end of platform to help Southern train attendants",
     "enumeration": "11"
    },
-   "solution": "BRIDESMAIDS"
+   "solution": "BRIDESMAIDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BRIDESMAIDS",
+    "definitions": [
+     {
+      "text": "train attendants",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that one is taken"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "B",
+      "note": "b is a dictionary abbreviation for boy"
+     },
+     {
+      "clueFragment": "cycles",
+      "gives": "RIDES",
+      "note": "to cycle is to ride a bike"
+     },
+     {
+      "clueFragment": "platform",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of platform"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIDES",
+      "M",
+      "AID",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy cycles to the far end of the station platform to help passengers onto a Southern train.",
+     "walkthrough": "Southern is also the name of a British rail operator, which strengthens the railway picture. The train here is the long tail of a wedding dress.",
+     "definitionFit": "Bridesmaids attend a bride at her wedding and often carry the trailing back of her gown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +898,73 @@
     "text": "Closure of pub in old hamlet somehow put on hold",
     "enumeration": "10"
    },
-   "solution": "MOTHBALLED"
+   "solution": "MOTHBALLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MOTHBALLED",
+    "definitions": [
+     {
+      "text": "put on hold",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Closure of",
+      "for": "letter_selection",
+      "note": "the closure of a word is where it ends, so just its last letter is used"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow suggests the letters are put together in some other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old hamlet",
+      "gives": "OLDHAMLET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "B",
+      "select": "last",
+      "note": "the last letter of pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTH",
+      "B",
+      "ALLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDHAMLET",
+       "gives": "MOTHALLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The village pub in an old hamlet has shut down, its future put on ice.",
+     "definitionFit": "Something mothballed has been stored away unused and its development suspended for the time being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Closure"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +978,72 @@
     "text": "Drink for drunk not starting to get cold during snooze",
     "enumeration": "8"
    },
-   "solution": "NIGHTCAP"
+   "solution": "NIGHTCAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "NIGHTCAP",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "not starting means the word loses its opening letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another thing falls within it"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snooze",
+      "gives": "NAP",
+      "note": "a nap is a snooze"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "TIGHT",
+      "note": "tight is slang for drunk"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IGHT",
+      "C",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink for a drunk who is starting to feel cold while dozing.",
+     "walkthrough": "'Not starting to get cold' tempts you to read 'not starting' with 'to get'; it belongs to drunk, and 'to get' merely joins in cold.",
+     "definitionFit": "A nightcap is an alcoholic drink taken just before going to bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +1057,61 @@
     "text": "Best-dressed males standing trial",
     "enumeration": "8"
    },
-   "solution": "SMARTEST"
+   "solution": "SMARTEST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SMARTEST",
+    "definitions": [
+     {
+      "text": "Best-dressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "standing means upright, and in a down clue a word stood up reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males",
+      "gives": "RAMS",
+      "note": "rams are male sheep"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMAR",
+      "TEST"
+     ],
+     "reversals": [
+      {
+       "from": "RAMS",
+       "to": "SMAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smartly dressed men standing in the dock at their trial.",
+     "walkthrough": "'Standing trial' reads as one courtroom phrase, but 'standing' acts on the males and the trial is separate.",
+     "definitionFit": "Smartest is the superlative of smart, meaning most stylishly and neatly turned out in clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1125,74 @@
     "text": "Republican in reflective frame of mind visiting downtrodden individual",
     "enumeration": "7"
    },
-   "solution": "DOORMAT"
+   "solution": "DOORMAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DOORMAT",
+    "definitions": [
+     {
+      "text": "downtrodden individual",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflective",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the word is read back to front"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frame of mind",
+      "gives": "MOOD",
+      "note": "a mood is a frame of mind"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "visiting",
+      "gives": "AT",
+      "note": "visiting somewhere means being at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOO",
+      "R",
+      "M",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "MROOD",
+       "to": "DOORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican in a thoughtful mood goes to see someone who is down on their luck.",
+     "walkthrough": "'Reflective' reads as thoughtful, but here it mirrors the word for frame of mind.",
+     "definitionFit": "A doormat is figuratively a person who lets others walk all over them, a pushover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reflective"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1206,77 @@
     "text": "Noah may be relaxed about source of gopher wood",
     "enumeration": "8"
    },
-   "solution": "MAHOGANY"
+   "solution": "MAHOGANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MAHOGANY",
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it begins, so only its first letter is used"
+     },
+     {
+      "text": "relaxed",
+      "for": "anagram",
+      "note": "relaxed letters are loosened from their order and can settle into a new one"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noah may",
+      "gives": "NOAHMAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gopher",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of gopher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAHO",
+      "G",
+      "ANY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOAHMAY",
+       "gives": "MAHOANY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noah, at ease, considers the gopher wood from which God told him to build the ark.",
+     "walkthrough": "In Genesis the ark is made of gopher wood, so the surface reads as Bible lore; 'wood' alone is the definition.",
+     "definitionFit": "Mahogany is a hard reddish-brown tropical timber used for fine furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gopher"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1290,58 @@
     "text": "Elevated position embraced by parent's artistic movement",
     "enumeration": "7"
    },
-   "solution": "DADAISM"
+   "solution": "DADAISM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DADAISM",
+    "definitions": [
+     {
+      "text": "artistic movement",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraced by",
+      "for": "container",
+      "note": "something embraced by another is held within its arms, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "DAM",
+      "note": "a dam is the mother of an animal, especially a horse"
+     },
+     {
+      "clueFragment": "Elevated position",
+      "gives": "DAIS",
+      "note": "a dais is a raised platform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "DAIS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent hugging someone on a podium seems to be the parent's own art movement.",
+     "walkthrough": "'Parent's' looks possessive, but the 's is 'is', linking wordplay to definition.",
+     "definitionFit": "Dadaism, or Dada, was an early twentieth-century avant-garde art movement that rejected logic and convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parent's"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1355,67 @@
     "text": "Shopkeeper kneading her bread round remains of fire",
     "enumeration": "11"
    },
-   "solution": "HABERDASHER"
+   "solution": "HABERDASHER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HABERDASHER",
+    "definitions": [
+     {
+      "text": "Shopkeeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kneading",
+      "for": "anagram",
+      "note": "kneading works and pummels dough, so the letters are worked into a new shape"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her bread",
+      "gives": "HERBREAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "remains of fire",
+      "gives": "ASH",
+      "note": "ash is what remains after a fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HABERD",
+      "ASH",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERBREAD",
+       "gives": "HABERDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper kneads dough for her loaf beside the embers of the oven fire.",
+     "walkthrough": "Kneading and bread point to a baker, but the shopkeeper sells sewing goods; a haberdasher is a seller of buttons, thread and ribbons in Britain, of men's clothing in the US.",
+     "definitionFit": "A haberdasher is a retailer selling small sewing articles or menswear, a particular kind of trader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kneading"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1429,62 @@
     "text": "Like retired Victorian PM maybe after a 13?",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "after a 13?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so in this down clue the name reads back upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means like, in comparisons"
+     },
+     {
+      "clueFragment": "Victorian PM maybe",
+      "gives": "PEEL",
+      "note": "Sir Robert Peel was Prime Minister early in Victoria's reign; maybe marks him as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEL",
+       "to": "LEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Like a Victorian Prime Minister in retirement, perhaps after a nightcap.",
+     "walkthrough": "13 down is NIGHTCAP, and after one you might be sound off; the question mark flags that the definition is by example. 'Retired' also hints at bed.",
+     "definitionFit": "A nightcap is drunk at bedtime, so the likely state that follows is sleeping soundly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1498,52 @@
     "text": "Man in garden determined to eradicate insect",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADAM",
+    "definitions": [
+     {
+      "text": "Man in garden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eradicate",
+      "for": "deletion",
+      "note": "to eradicate something is to wipe it out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "determined",
+      "gives": "ADAMANT",
+      "note": "adamant means firmly determined"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener resolved to wipe out a bug infestation.",
+     "definitionFit": "In Genesis Adam was the first man, placed by God in the Garden of Eden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "garden"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1557,54 @@
     "text": "Style worn by new Danish king",
     "enumeration": "4"
    },
-   "solution": "CNUT"
+   "solution": "CNUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CNUT",
+    "definitions": [
+     {
+      "text": "Danish king",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "something worn by another is wrapped around it like clothing, so that piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Style",
+      "gives": "CUT",
+      "note": "a cut is a style, of clothing or hair"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "N",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable new look sported by the King of Denmark.",
+     "definitionFit": "Cnut, also called Canute, was an eleventh-century Danish ruler who also became king of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Style"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1618,74 @@
     "text": "Traditional story about collecting a penny tax in Anglo-Saxon England",
     "enumeration": "8"
    },
-   "solution": "DANEGELD"
+   "solution": "DANEGELD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DANEGELD",
+    "definitions": [
+     {
+      "text": "tax in Anglo-Saxon England",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word is read from right to left"
+     },
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means taking in, so the word gathers another piece inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traditional story",
+      "gives": "LEGEND",
+      "note": "a legend is a traditional story"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "penny",
+      "gives": "D",
+      "note": "d was the abbreviation for a penny in pre-decimal British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "A",
+      "NEGEL",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "LEGEND",
+       "to": "DNEGEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old tale about someone collecting a penny in tax in Saxon times.",
+     "walkthrough": "LEGEND reversed is DNEGEL; it takes in A after its first letter and adds the penny at the end.",
+     "definitionFit": "Danegeld was a levy raised by English kings to pay off or defend against Viking raiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penny"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1699,65 @@
     "text": "Water found in edges of Charlie's hat",
     "enumeration": "6"
    },
-   "solution": "CLOCHE"
+   "solution": "CLOCHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CLOCHE",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its first and last letters"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "a thing found in another is located inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of Charlie"
+     },
+     {
+      "clueFragment": "Water",
+      "gives": "LOCH",
+      "note": "a loch is a Scottish lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Water discovered along the brim of Charlie's hat after the rain.",
+     "walkthrough": "The 's of Charlie's stands for 'is', joining the wordplay to the definition.",
+     "definitionFit": "A cloche is a close-fitting bell-shaped women's hat popular in the 1920s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1771,63 @@
     "text": "Rebel with pointed object intercepting letter from abroad to the Queen",
     "enumeration": "8"
    },
-   "solution": "MUTINEER"
+   "solution": "MUTINEER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MUTINEER",
+    "definitions": [
+     {
+      "text": "Rebel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intercepting",
+      "for": "container",
+      "note": "to intercept is to come between, so this piece goes in the middle of the others"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter from abroad",
+      "gives": "MU",
+      "note": "mu is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     },
+     {
+      "clueFragment": "pointed object",
+      "gives": "TINE",
+      "note": "a tine is a prong of a fork or antler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "TINE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An insurgent with a knife stops a foreign letter being delivered to the monarch.",
+     "definitionFit": "A mutineer is someone who rebels against authority, especially sailors rising against a ship's captain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1841,61 @@
     "text": "Dictator imprisoning Sudanese leader in warehouse",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DESPOT",
+    "definitions": [
+     {
+      "text": "Dictator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     },
+     {
+      "text": "imprisoning",
+      "for": "container",
+      "note": "to imprison is to shut something inside, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warehouse",
+      "gives": "DEPOT",
+      "note": "a depot is a storage warehouse"
+     },
+     {
+      "clueFragment": "Sudanese",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Sudanese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant locking up an African leader in a storehouse.",
+     "definitionFit": "A despot is a ruler holding absolute power, often used cruelly, which is what a dictator is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   }
  ]
 }

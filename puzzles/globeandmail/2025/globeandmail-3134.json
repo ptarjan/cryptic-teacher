@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Royal income’s half covered by news media",
     "enumeration": "8"
    },
-   "solution": "PRINCESS"
+   "solution": "PRINCESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRINCESS",
+    "definitions": [
+     {
+      "text": "Royal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half of a six-letter word means keeping only its first three letters"
+     },
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another thing sits inside it, so the media word wraps around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news media",
+      "gives": "PRESS",
+      "note": "the press is the news media collectively"
+     },
+     {
+      "clueFragment": "income’s",
+      "gives": "INC",
+      "select": "first",
+      "note": "the front half of the word income"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "INC",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal's private finances being picked over by the tabloid papers.",
+     "walkthrough": "Income is six letters, so its half is the first three; 'Royal' reads as an adjective but is the noun definition.",
+     "definitionFit": "A princess is a female member of a monarch's family, so she counts as a royal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Royal"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,55 @@
     "text": "Maybe piano phrase changed",
     "enumeration": "7"
    },
-   "solution": "PERHAPS"
+   "solution": "PERHAPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERHAPS",
+    "definitions": [
+     {
+      "text": "Maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "letters that have been changed are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, meaning soft"
+     },
+     {
+      "clueFragment": "phrase",
+      "gives": "PHRASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PPHRASE",
+       "gives": "PERHAPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician wondering whether a piano passage has been altered.",
+     "definitionFit": "Both words are adverbs expressing uncertainty about whether something is so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,56 @@
     "text": "Deduce Hell is without number",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INFER",
+    "definitions": [
+     {
+      "text": "Deduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a piece is taken away from the word for hell"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hell",
+      "gives": "INFERNO",
+      "note": "the inferno is hell, as in Dante"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone concluding that hell has no numbers in it.",
+     "walkthrough": "INFERNO loses its NO to leave INFER.",
+     "definitionFit": "To infer is to reach a conclusion by reasoning from evidence, exactly as deducing does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,51 @@
     "text": "Pantomime character recalled in breaks",
     "enumeration": "10"
    },
-   "solution": "CINDERELLA"
+   "solution": "CINDERELLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINDERELLA",
+    "definitions": [
+     {
+      "text": "Pantomime character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "when something breaks its pieces scatter and can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recalled in",
+      "gives": "RECALLEDIN",
+      "note": "taken as written, both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECALLEDIN",
+       "gives": "CINDERELLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor being called back on stage during intervals in a pantomime.",
+     "walkthrough": "'Recalled' reads as the verb of the surface, but it is just letters to rearrange together with 'in'. Pantomime is the British Christmas stage show for families.",
+     "definitionFit": "Cinderella is one of the most popular stories staged as a British Christmas pantomime, and its heroine is a stock role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +288,67 @@
     "text": "Jump, beginning to pogo in small circle",
     "enumeration": "6"
    },
-   "solution": "SPRING"
+   "solution": "SPRING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SPRING",
+    "definitions": [
+     {
+      "text": "Jump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "pogo",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pogo"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "RING",
+      "note": "a ring is a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Bouncing on a pogo stick inside a little circle.",
+     "definitionFit": "A spring is a sudden leap upward or forward, so it serves as a synonym of a jump."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pogo"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +362,53 @@
     "text": "Detect the best turns",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "Detect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "something that turns faces the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the best",
+      "gives": "TOPS",
+      "note": "the tops is a slang term for the very best"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOPS",
+       "to": "SPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Working out which of several twists is the finest.",
+     "definitionFit": "To spot something is to notice or catch sight of it, the same as detecting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +422,67 @@
     "text": "Drunken rave-up gatecrashed by northern upstart",
     "enumeration": "7"
    },
-   "solution": "PARVENU"
+   "solution": "PARVENU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PARVENU",
+    "definitions": [
+     {
+      "text": "upstart",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunken",
+      "for": "anagram",
+      "note": "a drunken thing staggers about out of order, so these letters are jumbled"
+     },
+     {
+      "text": "gatecrashed by",
+      "for": "container",
+      "note": "a gatecrasher gets inside a party, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rave-up",
+      "gives": "PARVEU",
+      "note": "the letters of rave-up rearranged"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARVE",
+      "N",
+      "U"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAVEUP",
+       "gives": "PARVEU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud boozy party invaded by an uninvited northerner on the make.",
+     "walkthrough": "A rave-up is a wild party; N goes into the rearranged PARVEU between E and U.",
+     "definitionFit": "A parvenu is a person who has risen suddenly in wealth or status and is seen as not belonging, an upstart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunken"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +496,52 @@
     "text": "Doctor rates provider of shocking treatment",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "provider of shocking treatment",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rates",
+      "gives": "RATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATES",
+       "gives": "TASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician grading a supplier of electroconvulsive therapy.",
+     "walkthrough": "'Doctor' looks like a medical person in the scene, but it is a verb meaning tamper with.",
+     "definitionFit": "A Taser is a weapon that fires darts delivering an electric jolt, a witty take on giving someone a shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +555,59 @@
     "text": "Plant’s extremely rare elaborate decoration",
     "enumeration": "8"
    },
-   "solution": "REFINERY"
+   "solution": "REFINERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REFINERY",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of rare"
+     },
+     {
+      "clueFragment": "elaborate decoration",
+      "gives": "FINERY",
+      "note": "finery is showy, elaborate clothing or ornament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden plant that is notable for its unusual, ornate appearance.",
+     "walkthrough": "'Plant' suggests a flower in the surface but means a factory.",
+     "definitionFit": "A refinery is an industrial installation for purifying oil or sugar, and plant is a word for such a works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +621,59 @@
     "text": "King returned gentleman’s dagger",
     "enumeration": "4"
    },
-   "solution": "KRIS"
+   "solution": "KRIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KRIS",
+    "definitions": [
+     {
+      "text": "dagger",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the title is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess and card abbreviation for king"
+     },
+     {
+      "clueFragment": "gentleman’s",
+      "gives": "SIR",
+      "note": "sir is the title for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "RIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch giving back a nobleman's knife.",
+     "definitionFit": "A kris is a Malay or Indonesian blade with a wavy edge, a kind of short sword or knife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +687,41 @@
     "text": "Job control under a foreign power",
     "enumeration": "10"
    },
-   "solution": "OCCUPATION"
+   "solution": "OCCUPATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OCCUPATION",
+    "definitions": [
+     {
+      "text": "Job",
+      "at": 0
+     },
+     {
+      "text": "control under a foreign power",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job",
+      "note": "first meaning: a person's line of work"
+     },
+     {
+      "clueFragment": "control under a foreign power",
+      "note": "second meaning: a territory held and run by another country's forces"
+     }
+    ],
+    "explanation": {
+     "surface": "A post that involves governing on behalf of another nation.",
+     "definitionFit": "The word means both one's trade or employment and military seizure and holding of territory by an outside state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +735,41 @@
     "text": "Meagre enemies partially concur",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGREE",
+    "definitions": [
+     {
+      "text": "concur",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partially",
+      "for": "hidden_word",
+      "note": "partially means only part of the words is used, so the answer is concealed inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meagre enemies",
+      "gives": "AGREE",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Sparse foes coming round to the same view in part.",
+     "definitionFit": "To agree is to be of the same opinion, which is what concurring means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +783,58 @@
     "text": "After bringing forward note, ambiguous about energy?",
     "enumeration": "7"
    },
-   "solution": "NUCLEAR"
+   "solution": "NUCLEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NUCLEAR",
+    "definitions": [
+     {
+      "text": "about energy?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing forward",
+      "for": "deletion",
+      "note": "bringing something forward lifts it from its place and sets it at the front"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "ambiguous",
+      "gives": "UNCLEAR",
+      "note": "something ambiguous is unclear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "UCLEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vague on the subject of power after a musical note is moved ahead.",
+     "walkthrough": "The N in UNCLEAR is moved from second place to the front, giving N-UCLEAR.",
+     "definitionFit": "Nuclear power is a major energy source, so the adjective describes things concerning that kind of power, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +848,67 @@
     "text": "Adder’s venom finally treated with serum",
     "enumeration": "6"
    },
-   "solution": "SUMMER"
+   "solution": "SUMMER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUMMER",
+    "definitions": [
+     {
+      "text": "Adder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "treated means processed or worked on, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "venom",
+      "gives": "M",
+      "select": "last",
+      "note": "the closing letter of venom"
+     },
+     {
+      "clueFragment": "serum",
+      "gives": "SERUM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MSERUM",
+       "gives": "SUMMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snake bite being treated with antivenom.",
+     "walkthrough": "'Adder' looks like the snake, which the venom and serum support, but it means one who adds up, pronounced SUM-er.",
+     "definitionFit": "Someone who sums figures is a summer, a crossword-only sense of a word that normally names the season."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Adder"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +922,65 @@
     "text": "Second bishop in valley is not fixed",
     "enumeration": "7"
    },
-   "solution": "MOVABLE"
+   "solution": "MOVABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOVABLE",
+    "definitions": [
+     {
+      "text": "not fixed",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the cleric piece inside the landscape piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "valley",
+      "gives": "VALE",
+      "note": "a vale is a valley"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "VA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner-up cleric living in a valley has no settled home.",
+     "walkthrough": "MO is a British informal word for a moment, as in 'half a mo'.",
+     "definitionFit": "Something movable can be shifted from place to place, so it is not fixed in position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +994,66 @@
     "text": "Faculty regularly joining core trio of alumnae fall for some",
     "enumeration": "6"
    },
-   "solution": "AUTUMN"
+   "solution": "AUTUMN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUTUMN",
+    "definitions": [
+     {
+      "text": "fall for some",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at fixed intervals, so every other letter is kept"
+     },
+     {
+      "text": "core trio of",
+      "for": "letter_selection",
+      "note": "the core is the centre, so the three middle letters are taken"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faculty",
+      "gives": "AUT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of faculty"
+     },
+     {
+      "clueFragment": "alumnae",
+      "gives": "UMN",
+      "select": "middle",
+      "note": "the three central letters of alumnae"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUT",
+      "UMN"
+     ]
+    },
+    "explanation": {
+     "surface": "University staff and female graduates coming together, with some of them falling for each other.",
+     "walkthrough": "'Fall for' reads as falling in love, but fall is the North American name for the season.",
+     "definitionFit": "In North American English the season after summer is called fall, so for some speakers it is their word for autumn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1073,56 @@
      }
     ]
    },
-   "solution": "NOSWEAT"
+   "solution": "NOSWEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO SWEAT",
+    "definitions": [
+     {
+      "text": "Walk in the park",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground has been crushed and broken up, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "waste",
+      "gives": "WASTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ON WASTE",
+       "gives": "NOSWEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stroll in a park built on derelict land.",
+     "walkthrough": "'Ground' looks like land in the surface, but it is the past tense of grind.",
+     "definitionFit": "Both are idioms for a task that is very easy, needing no effort at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1136,55 @@
     "text": "Victory period does not include last season",
     "enumeration": "6"
    },
-   "solution": "WINTER"
+   "solution": "WINTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WINTER",
+    "definitions": [
+     {
+      "text": "season",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "does not include last",
+      "for": "deletion",
+      "note": "not including the last means the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "TERM",
+      "note": "a term is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell of triumph that leaves out the previous season.",
+     "walkthrough": "TERM loses its last letter to give TER.",
+     "definitionFit": "Winter is the coldest of the four seasons of the year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1198,68 @@
     "text": "He scored 50 on oral exam I’d brought back",
     "enumeration": "7"
    },
-   "solution": "VIVALDI"
+   "solution": "VIVALDI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VIVALDI",
+    "definitions": [
+     {
+      "text": "He scored",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oral exam",
+      "gives": "VIVA",
+      "note": "a viva is an oral examination"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     },
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "I'd without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIVA",
+      "L",
+      "DI"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student boasting of getting 50 marks on a spoken test.",
+     "walkthrough": "'Scored' suggests marks, but it means wrote a musical score; the 50 sits after VIVA though the clue puts it first.",
+     "definitionFit": "Vivaldi was the Italian Baroque composer of The Four Seasons, so he wrote out musical scores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scored"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1273,48 @@
     "text": "Clergyman cut grass border",
     "enumeration": "5"
    },
-   "solution": "VERGE"
+   "solution": "VERGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VERGE",
+    "definitions": [
+     {
+      "text": "grass border",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means shortened, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "VERGER",
+      "note": "a verger is a church official who looks after the building"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman mowing the lawn edge.",
+     "walkthrough": "'Cut' looks like mowing grass but tells you to clip VERGER.",
+     "definitionFit": "A verge is the strip of grass along the edge of a road or path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1328,50 @@
     "text": "Store’s first-class service",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Store",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-class",
+      "gives": "A",
+      "note": "A as in A1 or grade A stands for top quality"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop boasting of its excellent customer service.",
+     "walkthrough": "'Service' reads as customer care but means a church service.",
+     "definitionFit": "To store things is to gather and accumulate a stock of them, which is what amassing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1385,45 @@
     "text": "Entertain a writer’s inspiration?",
     "enumeration": "5"
    },
-   "solution": "AMUSE"
+   "solution": "AMUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMUSE",
+    "definitions": [
+     {
+      "text": "Entertain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "writer’s inspiration",
+      "gives": "MUSE",
+      "note": "a muse is a source of artistic inspiration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a writer's source of ideas simply there to keep them diverted?",
+     "definitionFit": "To amuse someone is to hold their attention pleasantly, which is entertaining them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1437,56 @@
     "text": "Medal attached to queen’s gown",
     "enumeration": "4"
    },
-   "solution": "ROBE"
+   "solution": "ROBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROBE",
+    "definitions": [
+     {
+      "text": "gown",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "attached to",
+      "for": "charade",
+      "note": "attached to means fixed on after something, so the medal follows the royal letter"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R is short for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "Medal",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "An honour pinned to the monarch's dress.",
+     "walkthrough": "The clue says the medal is attached to the queen, so OBE goes after R.",
+     "definitionFit": "A robe is a long loose outer garment, the same as a gown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1500,44 @@
     "text": "Antagonistic manner and posture",
     "enumeration": "8"
    },
-   "solution": "ATTITUDE"
+   "solution": "ATTITUDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTITUDE",
+    "definitions": [
+     {
+      "text": "Antagonistic manner",
+      "at": 0
+     },
+     {
+      "text": "posture",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antagonistic manner",
+      "note": "first meaning: a hostile, uncooperative way of behaving"
+     },
+     {
+      "clueFragment": "posture",
+      "note": "second meaning: a position of the body, as in ballet"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone combative in both their behaviour and their stance.",
+     "definitionFit": "Informally the word means truculent behaviour, and it also names a bodily pose or stance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1551,48 @@
     "text": "Eg Jacob’s mate runs vessel",
     "enumeration": "4"
    },
-   "solution": "EWER"
+   "solution": "EWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EWER",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eg Jacob’s mate",
+      "gives": "EWE",
+      "note": "a Jacob is a breed of spotted sheep, so its mate is a female sheep"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Biblical Jacob's wife hurrying off with a container.",
+     "walkthrough": "Jacob suggests the patriarch of Genesis, whose wife Rachel's name means ewe, but here it is the sheep breed.",
+     "definitionFit": "A ewer is a large jug for water, a vessel for holding liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jacob’s"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1606,52 @@
     "text": "Swirling patterns in part of church",
     "enumeration": "8"
    },
-   "solution": "TRANSEPT"
+   "solution": "TRANSEPT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSEPT",
+    "definitions": [
+     {
+      "text": "part of church",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Swirling",
+      "for": "anagram",
+      "note": "swirling means twisting about, so these letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "patterns",
+      "gives": "PATTERNS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PATTERNS",
+       "gives": "TRANSEPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Whirling designs decorating a church interior.",
+     "definitionFit": "The transept is the cross arm of a cruciform church, running across the nave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Judge sees dope and ecstasy used by two sons",
     "enumeration": "6"
    },
-   "solution": "ASSESS"
+   "solution": "ASSESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSESS",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "sees",
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dope",
+      "gives": "ASS",
+      "note": "a dope is a fool, an ass"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "two sons",
+      "gives": "SS",
+      "note": "S is the abbreviation for son, taken twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "E",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge discovers drugs being taken by a pair of brothers.",
+     "walkthrough": "'used by' just places the sons after the drugs; 'dope' and 'ecstasy' both look like drugs but only the second is.",
+     "definitionFit": "To assess something is to evaluate or weigh it up, which is what a judge does as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,60 @@
     "text": "Whip up a distribution of euros",
     "enumeration": "6"
    },
-   "solution": "AROUSE"
+   "solution": "AROUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AROUSE",
+    "definitions": [
+     {
+      "text": "Whip up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distribution of",
+      "for": "anagram",
+      "note": "a distribution spreads things around, so the letters of the word that follows are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "euros",
+      "gives": "EUROS",
+      "note": "the anagram fodder, the European currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROUSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EUROS",
+       "gives": "ROUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to stir up feeling over how the single currency is shared out.",
+     "definitionFit": "To whip up a crowd or emotion is to stir or excite it, the same sense as arouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +173,39 @@
      }
     ]
    },
-   "solution": "SAFEHOUSE"
+   "solution": "SAFEHOUSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAFE HOUSE",
+    "definitions": [
+     {
+      "text": "Where a mole hides when ratting takes place?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where a mole hides when ratting takes place?",
+      "note": "surface reading: a burrowing animal taking cover while dogs hunt rats"
+     },
+     {
+      "clueFragment": "Where a mole hides when ratting takes place?",
+      "note": "setter's reading: a mole is a spy, and ratting is informing or betraying, so this is a secure refuge for an agent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In espionage a mole is a planted agent and to rat is to betray; the hideout is a secret address used by intelligence services.",
+     "definitionFit": "A secure secret residence where an agent can shelter is exactly the hideaway a spy flees to once betrayed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mole"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +233,43 @@
      }
     ]
    },
-   "solution": "SPUROFTHEMOMENT"
+   "solution": "SPUROFTHEMOMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPUR-OF-THE-MOMENT",
+    "definitions": [
+     {
+      "text": "Impulsive",
+      "at": 0
+     },
+     {
+      "text": "Harry Kane at penalty time?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impulsive",
+      "note": "first meaning: done on a sudden whim"
+     },
+     {
+      "clueFragment": "Harry Kane at penalty time?",
+      "note": "second meaning, read cryptically: Kane played for Tottenham Hotspur, nicknamed Spurs, so he is a Spur, and a spot kick makes him the man of the moment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Harry Kane is an England footballer who spent most of his career at Tottenham Hotspur, whose players are called Spurs.",
+     "definitionFit": "The idiom describes acting suddenly without planning, which is what impulsive means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kane"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +283,66 @@
     "text": "Beg surgeon to work to save Charlie",
     "enumeration": "8"
    },
-   "solution": "SCROUNGE"
+   "solution": "SCROUNGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCROUNGE",
+    "definitions": [
+     {
+      "text": "Beg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to work",
+      "for": "anagram",
+      "note": "putting something to work sets it in motion, so the word before it is reworked into another order"
+     },
+     {
+      "text": "to save",
+      "for": "container",
+      "note": "to save something is to keep it safe inside, so the following letter is held within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgeon",
+      "gives": "SURGEON",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ROUNGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURGEON",
+       "gives": "SROUNGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pleads with a doctor to go into theatre and rescue a patient called Charlie.",
+     "definitionFit": "To scrounge is to cadge or get something by begging rather than paying for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +356,62 @@
     "text": "One may need fresh ice brought over occasionally",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "CHEF",
+    "definitions": [
+     {
+      "text": "One may need fresh ice brought over occasionally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter of the phrase is kept"
+     },
+     {
+      "text": "brought over",
+      "for": "reversal",
+      "note": "bringing something over turns it upside down, so the kept letters run back to front in this down entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fresh ice",
+      "gives": "FEHC",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEF"
+     ],
+     "reversals": [
+      {
+       "from": "FEHC",
+       "to": "CHEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen worker who now and then needs a delivery of fresh ice.",
+     "walkthrough": "The whole clue is also the definition: a cook in a kitchen may well need fresh ice from time to time.",
+     "definitionFit": "A professional cook in a restaurant kitchen is someone who might reasonably need ice delivered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "occasionally"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +431,43 @@
      }
     ]
    },
-   "solution": "OPERATINGSYSTEM"
+   "solution": "OPERATINGSYSTEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OPERATING SYSTEM",
+    "definitions": [
+     {
+      "text": "A surgeon depends on this",
+      "at": 0
+     },
+     {
+      "text": "connecting tool",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A surgeon depends on this",
+      "note": "first meaning, read cryptically: the method of working in the theatre where a surgeon operates"
+     },
+     {
+      "clueFragment": "connecting tool",
+      "note": "second meaning: computer software that links programs and users to the hardware"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A surgeon works within a system of operating, but the phrase is also the core software of a computer, such as Windows or Linux.",
+     "definitionFit": "This core computer software manages hardware and connects programs to it, while also literally being a surgeon's working method."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surgeon"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +481,61 @@
     "text": "Marine overturned US city vehicle",
     "enumeration": "5"
    },
-   "solution": "NAVAL"
+   "solution": "NAVAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NAVAL",
+    "definitions": [
+     {
+      "text": "Marine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, which in a down entry flips the following words' letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAV",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAVAN",
+       "to": "NAVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US marine flips a car in an American city.",
+     "walkthrough": "'Marine' looks like a soldier noun, but it is the adjective meaning to do with the sea.",
+     "definitionFit": "Naval means relating to the sea or the navy, as marine does when used as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marine"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +549,39 @@
     "text": "Compromise, in a word or two",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENDANGER",
+    "definitions": [
+     {
+      "text": "Compromise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compromise",
+      "note": "surface reading: meet halfway in a dispute"
+     },
+     {
+      "clueFragment": "in a word or two",
+      "note": "setter's reading: written as one word it means put at risk; split in two it says stop being angry, which is what a compromise does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As one word the answer means to put at risk, the other sense of compromise; split as END ANGER it describes settling a quarrel.",
+     "definitionFit": "To compromise safety is to put it in danger, while ending hostility is how a compromise settles a row."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Compromise"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +595,49 @@
     "text": "Bit stranded, having swapped sides",
     "enumeration": "6"
    },
-   "solution": "OFFCUT"
+   "solution": "OFFCUT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "OFFCUT",
+    "definitions": [
+     {
+      "text": "Bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having swapped sides",
+      "for": "cycling",
+      "note": "swapping sides moves the back half to the front, so the word for stranded is split and its halves exchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stranded",
+      "gives": "CUTOFF",
+      "note": "someone stranded is cut off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "CUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone a little marooned after switching allegiance.",
+     "walkthrough": "'Bit' looks like an adverb before 'stranded'; it is the noun definition.",
+     "definitionFit": "An offcut is a leftover piece trimmed from wood, cloth or paper, so a bit of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bit"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +651,45 @@
     "text": "Ordered to be quiet",
     "enumeration": "8"
    },
-   "solution": "RESERVED"
+   "solution": "RESERVED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVED",
+    "definitions": [
+     {
+      "text": "Ordered",
+      "at": 0
+     },
+     {
+      "text": "quiet",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ordered",
+      "note": "first meaning: booked in advance, as a table"
+     },
+     {
+      "clueFragment": "quiet",
+      "note": "second meaning: shy and restrained in manner"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone told to keep silent.",
+     "definitionFit": "A table can be booked ahead of time, and a person who keeps their feelings to themselves is described with the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ordered"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +703,47 @@
     "text": "Ruin of the French city that was besieged",
     "enumeration": "7"
    },
-   "solution": "DESTROY"
+   "solution": "DESTROY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESTROY",
+    "definitions": [
+     {
+      "text": "Ruin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the French",
+      "gives": "DES",
+      "note": "des is French for 'of the' before a plural"
+     },
+     {
+      "clueFragment": "city that was besieged",
+      "gives": "TROY",
+      "note": "Troy was besieged by the Greeks for ten years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "TROY"
+     ]
+    },
+    "explanation": {
+     "surface": "The ruins of an ancient French city that once came under siege.",
+     "walkthrough": "'Ruin' looks like a noun, but it is the verb.",
+     "definitionFit": "To ruin something is to wreck or demolish it completely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruin"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +757,55 @@
     "text": "Glass of sherry rather welcoming in church",
     "enumeration": "8"
    },
-   "solution": "SCHOONER"
+   "solution": "SCHOONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCHOONER",
+    "definitions": [
+     {
+      "text": "Glass of sherry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming in",
+      "for": "container",
+      "note": "welcoming in means letting a guest inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather",
+      "gives": "SOONER",
+      "note": "'I would rather' is 'I would sooner'"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CH",
+      "OONER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who would prefer a drop of sherry at church.",
+     "walkthrough": "In Britain a schooner is a tall glass for sherry; in Australia it is a beer glass.",
+     "definitionFit": "A schooner is the name for a large stemmed glass used for serving sherry or port."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rather"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +825,47 @@
      }
     ]
    },
-   "solution": "FALLIN"
+   "solution": "FALLIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALL IN",
+    "definitions": [
+     {
+      "text": "Line up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foxtrot",
+      "gives": "F",
+      "note": "Foxtrot is F in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "exhausted",
+      "gives": "ALLIN",
+      "note": "all in is a colloquial phrase for worn out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ALLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Dancers form a line, worn out after a foxtrot.",
+     "walkthrough": "'after' places the dance letter first: the exhausted piece comes after it.",
+     "definitionFit": "Fall in is the military command to form ranks, meaning to line up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foxtrot"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +879,76 @@
     "text": "With most of the Continent looking skywards, Verne’s voyaging proceeds",
     "enumeration": "7"
    },
-   "solution": "REVENUE"
+   "solution": "REVENUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "REVENUE",
+    "definitions": [
+     {
+      "text": "proceeds",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voyaging",
+      "for": "anagram",
+      "note": "voyaging means travelling about, so the author's name wanders into a new letter order"
+     },
+     {
+      "text": "looking skywards",
+      "for": "reversal",
+      "note": "in a down entry, looking skywards points the letters upward, so they read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verne",
+      "gives": "VERNE",
+      "note": "the author's name is the anagram fodder"
+     },
+     {
+      "clueFragment": "most of the Continent",
+      "gives": "EU",
+      "note": "the European Union covers most of the countries of Europe, the Continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVEN",
+      "UE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VERNE",
+       "gives": "REVEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EU",
+       "to": "UE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jules Verne gazes at the sky on a journey across Europe, perhaps a lecture tour earning him money.",
+     "walkthrough": "The Continent is the British name for mainland Europe; 'proceeds' looks like a verb but is the noun for money taken.",
+     "definitionFit": "Revenue is income, the money that comes in, which is what proceeds means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "proceeds"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +976,67 @@
      }
     ]
    },
-   "solution": "UPTOTHEMINUTE"
+   "solution": "UPTOTHEMINUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UP-TO-THE-MINUTE",
+    "definitions": [
+     {
+      "text": "Cool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks into",
+      "for": "container",
+      "note": "breaking into somewhere means getting inside it, so these pieces sit within the word for song"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "until",
+      "gives": "UPTO",
+      "note": "up to means until, as in up to midnight"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "THEME",
+      "note": "a theme is a tune, as in a theme song"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fan",
+      "gives": "NUT",
+      "note": "a nut is an enthusiast, as in a fitness nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTO",
+      "THEM",
+      "I",
+      "NUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Everything is fine until a fan starts singing.",
+     "definitionFit": "Something fashionable and current is cool, in the slang sense of being trendy and modern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cool"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1050,55 @@
     "text": "Perfect tango, maybe, apart from opening statement",
     "enumeration": "9"
    },
-   "solution": "UTTERANCE"
+   "solution": "UTTERANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UTTERANCE",
+    "definitions": [
+     {
+      "text": "statement",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart from opening",
+      "for": "deletion",
+      "note": "apart from means excluding, so the first letter is left off the example word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "UTTER",
+      "note": "perfect as in a perfect stranger, an utter one"
+     },
+     {
+      "clueFragment": "tango, maybe",
+      "gives": "DANCE",
+      "note": "the tango is an example of a dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer delivers a spoken assessment of a flawless tango.",
+     "walkthrough": "'Perfect' means complete or absolute here, not flawless.",
+     "definitionFit": "An utterance is something said aloud, a spoken remark or declaration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perfect"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1112,50 @@
     "text": "Occasional alcoholic, I do sip entire upended bottles",
     "enumeration": "8"
    },
-   "solution": "EPISODIC"
+   "solution": "EPISODIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EPISODIC",
+    "definitions": [
+     {
+      "text": "Occasional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "bottles here is a verb meaning holds inside, so the answer is held within the words"
+     },
+     {
+      "text": "upended",
+      "for": "reversal",
+      "note": "upended means turned upside down, which in a down entry runs the letters backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcoholic, I do sip entire",
+      "gives": "CIDOSIPE",
+      "note": "the last letter of the first word through the first letter of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A drinker who claims only to indulge sometimes admits sipping whole bottles upside down.",
+     "walkthrough": "'bottles' looks like a noun for drink containers, but it is a verb meaning contains.",
+     "definitionFit": "Episodic means happening at irregular intervals, now and then, which is what occasional means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1179,46 @@
      }
     ]
    },
-   "solution": "PIECESOFEIGHT"
+   "solution": "PIECESOFEIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PIECES OF EIGHT",
+    "definitions": [
+     {
+      "text": "Two-and-six",
+      "at": 0
+     },
+     {
+      "text": "old money",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two-and-six",
+      "note": "first meaning, read cryptically: two and six add up to eight, so they are parts of that number"
+     },
+     {
+      "clueFragment": "old money",
+      "note": "second meaning: Spanish silver dollars of pirate stories, each worth eight reales"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two-and-six looks like pre-1971 British money, two shillings and sixpence or half a crown, which the question mark and 'old money' play on.",
+     "definitionFit": "The Spanish silver dollar was worth eight reales, and two and six are literally portions of a number totalling eight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1232,54 @@
     "text": "Shows article’s disregarded parties",
     "enumeration": "6"
    },
-   "solution": "REVELS"
+   "solution": "REVELS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REVELS",
+    "definitions": [
+     {
+      "text": "parties",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disregarded",
+      "for": "deletion",
+      "note": "disregarded means ignored, so the article is dropped from the word for shows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shows",
+      "gives": "REVEALS",
+      "note": "to show something is to reveal it"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "ELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper report about which parties were ignored.",
+     "walkthrough": "'Shows' looks like the definition, a noun for performances; it is the verb source.",
+     "definitionFit": "Revels are lively celebrations with drinking and dancing, merrymaking of the kind thrown at parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shows"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1293,61 @@
     "text": "Poles touring Texas site overlooking centre for swimmers",
     "enumeration": "6"
    },
-   "solution": "SALMON"
+   "solution": "SALMON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SALMON",
+    "definitions": [
+     {
+      "text": "swimmers",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking centre",
+      "for": "deletion",
+      "note": "overlooking means ignoring, so the middle letter of the Texas site is dropped"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling around, so the poles go around the reduced site"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poles",
+      "gives": "SN",
+      "note": "S and N are the south and north poles"
+     },
+     {
+      "clueFragment": "Texas site",
+      "gives": "ALAMO",
+      "note": "the Alamo is the San Antonio mission famous for its 1836 siege"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALMO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Polish tourists visit a Texas landmark, skipping the city centre.",
+     "walkthrough": "'Poles' looks like people from Poland; it is the two ends of the earth.",
+     "definitionFit": "The noun names both a single fish and many of them, so it works as a plural for creatures that swim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1361,49 @@
     "text": "Creature lying up in stream — alligator?",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer is lying inside the words that follow"
+     },
+     {
+      "text": "lying up",
+      "for": "reversal",
+      "note": "lying up means positioned upward, which in a down entry reads the letters from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stream — alligator",
+      "gives": "AMALL",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Something lurking in a river: could it be an alligator?",
+     "walkthrough": "The question mark invites the alligator as the creature, but the animal hides in the letters.",
+     "definitionFit": "The llama is a South American animal related to the camel, so any creature definition fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alligator"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1423,49 @@
      }
     ]
    },
-   "solution": "DUTYFREE"
+   "solution": "DUTYFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUTY-FREE",
+    "definitions": [
+     {
+      "text": "airport shop?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job",
+      "gives": "DUTY",
+      "note": "a duty is a task or job"
+     },
+     {
+      "clueFragment": "vacant",
+      "gives": "FREE",
+      "note": "a vacant seat is a free one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUTY",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vacancy is advertised for work in an airport store.",
+     "definitionFit": "Airports have tax-exempt stores for travellers, and the question mark flags that the answer describes rather than names the shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacant"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1479,49 @@
     "text": "Wilfred Owen’s words, perhaps: ‘Soldiers, every second counts’",
     "enumeration": "4"
    },
-   "solution": "ODES"
+   "solution": "ODES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ODES",
+    "definitions": [
+     {
+      "text": "Wilfred Owen’s words, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every second counts",
+      "for": "letter_selection",
+      "note": "only every second one is counted, so the even-placed letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "ODES",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODES"
+     ]
+    },
+    "explanation": {
+     "surface": "A war poet's line to troops that every moment matters.",
+     "walkthrough": "Wilfred Owen was a First World War poet; 'perhaps' shows his poems are just an example of the answer.",
+     "definitionFit": "Odes are lyric poems, and a war poet's verses are examples of written poetry of that kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counts"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1541,43 @@
      }
     ]
    },
-   "solution": "DEADENDS"
+   "solution": "DEADENDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEAD ENDS",
+    "definitions": [
+     {
+      "text": "Eventually we’ll all come to these",
+      "at": 0
+     },
+     {
+      "text": "streets",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eventually we’ll all come to these",
+      "note": "first meaning, read cryptically: everyone finishes up dead, so these are the ends of the dead"
+     },
+     {
+      "clueFragment": "streets",
+      "note": "second meaning: roads closed at one end, with no way through"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue sounds like a remark about mortality; the answer is a cul-de-sac read as the way we all finish.",
+     "definitionFit": "Roads that are closed at one end lead nowhere, and the phrase also evokes the final destination of mortal life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eventually"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1597,55 @@
      }
     ]
    },
-   "solution": "ATONCE"
+   "solution": "ATONCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AT ONCE",
+    "definitions": [
+     {
+      "text": "with no delay",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxes",
+      "for": "container",
+      "note": "boxes is a verb meaning encloses, so the time phrase is wrapped around the letter for cold"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When you could have lunch",
+      "gives": "ATONE",
+      "note": "one o'clock is a typical lunchtime"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATON",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A packed lunch in a cold box, eaten as soon as possible.",
+     "walkthrough": "'boxes' suggests lunch boxes, but it is the verb meaning encloses.",
+     "definitionFit": "Doing something immediately means doing it straight away, without any wait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1659,70 @@
     "text": "Hunt gathering stand back, showing discipline",
     "enumeration": "8"
    },
-   "solution": "CHASTISE"
+   "solution": "CHASTISE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CHASTISE",
+    "definitions": [
+     {
+      "text": "discipline",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word for stand runs in reverse"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means collecting in, so the word for hunt takes the other piece inside it"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunt",
+      "gives": "CHASE",
+      "note": "to hunt is to chase"
+     },
+     {
+      "clueFragment": "stand",
+      "gives": "SIT",
+      "note": "to stand for election in Britain is to sit for a seat, as with an exam you sit or stand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAS",
+      "TIS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SIT",
+       "to": "TIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunt meeting makes a stand and shows its discipline.",
+     "walkthrough": "'discipline' is a verb here, meaning punish.",
+     "definitionFit": "To chastise is to punish or rebuke someone severely, which is a verb sense of discipline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 27,
@@ -485,7 +1736,55 @@
     "text": "Recalls missing Stipe’s band — they’re burnt out",
     "enumeration": "6"
    },
-   "solution": "EMBERS"
+   "solution": "EMBERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMBERS",
+    "definitions": [
+     {
+      "text": "they’re burnt out",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so the band's name is taken out of the word for recalls"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recalls",
+      "gives": "REMEMBERS",
+      "note": "to recall is to remember"
+     },
+     {
+      "clueFragment": "Stipe’s band",
+      "gives": "REM",
+      "note": "REM is the American rock band fronted by Michael Stipe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMBERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans reminisce about a rock band no longer around, now burnt out.",
+     "definitionFit": "Embers are the glowing remains of a fire that has mostly died down, so what is left when burnt out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Recalls"
+    }
+   }
   }
  ]
 }

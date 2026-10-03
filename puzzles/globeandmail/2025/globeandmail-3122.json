@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Chemist quick to bandage injury",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHARMACY",
+    "definitions": [
+     {
+      "text": "Chemist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bandage",
+      "for": "container",
+      "note": "a bandage wraps around a wound, so one word is wrapped around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quick",
+      "gives": "PACY",
+      "note": "pacy means fast-moving"
+     },
+     {
+      "clueFragment": "injury",
+      "gives": "HARM",
+      "note": "harm is damage or injury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HARM",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pharmacist rushes to dress someone's wound.",
+     "walkthrough": "In British usage a chemist is the shop, so the definition is a place rather than a scientist.",
+     "definitionFit": "In Britain a chemist is also the shop that dispenses medicines, which elsewhere is called a pharmacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bandage"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,56 @@
     "text": "Chatter about one’s bishop?",
     "enumeration": "7"
    },
-   "solution": "PRIMATE"
+   "solution": "PRIMATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRIMATE",
+    "definitions": [
+     {
+      "text": "bishop?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the talk word goes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chatter",
+      "gives": "PRATE",
+      "note": "to prate is to talk on idly"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "IM",
+      "note": "one is, written as I + 'M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IM",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gossiping about their own bishop.",
+     "walkthrough": "The question mark admits that the definition is loose: a primate is a senior bishop, and the word also hints at the ape sense.",
+     "definitionFit": "A primate is the chief archbishop of a church province, such as the Primate of All England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chatter"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,48 @@
     "text": "Bringer of good luck, supposedly, heading off for racecourse",
     "enumeration": "5"
    },
-   "solution": "ASCOT"
+   "solution": "ASCOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASCOT",
+    "definitions": [
+     {
+      "text": "racecourse",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the head of a word is its first letter, and taking it off removes that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bringer of good luck, supposedly",
+      "gives": "MASCOT",
+      "note": "a mascot is a charm thought to bring luck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky charm heads for the races.",
+     "walkthrough": "MASCOT loses its M. Ascot is a famous English racecourse near Windsor, home of Royal Ascot.",
+     "definitionFit": "Ascot is the name of a well-known horse-racing venue in Berkshire, England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +216,50 @@
     "text": "Aristocrat chases minor criminal",
     "enumeration": "11"
    },
-   "solution": "MARCHIONESS"
+   "solution": "MARCHIONESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARCHIONESS",
+    "definitions": [
+     {
+      "text": "Aristocrat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the letters before it are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chases minor",
+      "gives": "CHASESMINOR",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHASESMINOR",
+       "gives": "MARCHIONESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noblewoman pursues a petty offender.",
+     "definitionFit": "A marchioness is a woman holding the rank of marquess, or a marquess's wife, a member of the nobility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +273,60 @@
     "text": "Clubs let in awkward customer",
     "enumeration": "6"
    },
-   "solution": "CLIENT"
+   "solution": "CLIENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CLIENT",
+    "definitions": [
+     {
+      "text": "customer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkward",
+      "for": "anagram",
+      "note": "awkward suggests clumsy and out of place, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "let in",
+      "gives": "LETIN",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LETIN",
+       "gives": "LIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub admits a difficult patron.",
+     "definitionFit": "A client is a person who buys services from a business, just as a customer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +340,48 @@
     "text": "Anglers regularly disappearing for long periods",
     "enumeration": "4"
    },
-   "solution": "AGES"
+   "solution": "AGES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AGES",
+    "definitions": [
+     {
+      "text": "long periods",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly disappearing",
+      "for": "letter_selection",
+      "note": "letters vanishing at regular intervals means every other one is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anglers",
+      "gives": "AGES",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Fishermen keep vanishing for a long time.",
+     "definitionFit": "Ages is an informal plural meaning a very long time, as in waiting for ages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Anglers"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +395,50 @@
     "text": "Transported gold on a boat",
     "enumeration": "7"
    },
-   "solution": "GONDOLA"
+   "solution": "GONDOLA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GONDOLA",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Transported",
+      "for": "anagram",
+      "note": "transported means carried elsewhere, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold on a",
+      "gives": "GOLDONA",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOLDONA",
+       "gives": "GONDOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bullion being carried by ship.",
+     "definitionFit": "A gondola is a long flat-bottomed Venetian rowing vessel steered with a single oar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Transported"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +452,43 @@
     "text": "Back incapable of bending",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     },
+     {
+      "text": "incapable of bending",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "note": "first meaning: the rear part of a ship"
+     },
+     {
+      "clueFragment": "incapable of bending",
+      "note": "second meaning: strict and unyielding"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone with a back too stiff to bend.",
+     "definitionFit": "The rear of a vessel is its stern, and a stern person is severe and refuses to relax rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +502,48 @@
     "text": "Contract eaten by dog?",
     "enumeration": "5"
    },
-   "solution": "INCUR"
+   "solution": "INCUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCUR",
+    "definitions": [
+     {
+      "text": "Contract",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eaten by",
+      "gives": "IN",
+      "note": "what has been eaten is inside the eater"
+     },
+     {
+      "clueFragment": "dog?",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "An agreement gobbled up by the family pet.",
+     "walkthrough": "Something eaten by a dog is IN the CUR; the question mark flags that unusual reading. Contract here is the verb, as in contracting a debt.",
+     "definitionFit": "To contract an illness or debt is to acquire it, which is what incur means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Contract"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +557,71 @@
     "text": "Forceful tennis played by beginner in Essex",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "Forceful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played suggests the letters are toyed with and set out afresh"
+     },
+     {
+      "text": "beginner in",
+      "for": "letter_selection",
+      "note": "the beginner of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis",
+      "gives": "TENNIS",
+      "note": "the letters used as written"
+     },
+     {
+      "clueFragment": "Essex",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the county name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENNIS",
+       "gives": "INTENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A powerful game of tennis from a novice in Essex.",
+     "walkthrough": "Essex is an English county east of London.",
+     "definitionFit": "Intense means extreme in strength or degree, so something intense is powerful and vigorous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +635,50 @@
     "text": "Carelessly omit salient reference",
     "enumeration": "11"
    },
-   "solution": "TESTIMONIAL"
+   "solution": "TESTIMONIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TESTIMONIAL",
+    "definitions": [
+     {
+      "text": "reference",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Carelessly",
+      "for": "anagram",
+      "note": "done carelessly, the letters are thrown down in a messy new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "omit salient",
+      "gives": "OMITSALIENT",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OMITSALIENT",
+       "gives": "TESTIMONIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sloppily leaves out the key point.",
+     "definitionFit": "A testimonial is a formal statement vouching for someone's character, which is what a job reference provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reference"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +692,52 @@
     "text": "Law court led by American",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "Law",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "led by",
+      "for": "charade",
+      "note": "being led by means coming after, so the other piece goes in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal case heard in a court headed by a US judge.",
+     "definitionFit": "An act is a statute passed by a legislature, a piece of legislation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +757,44 @@
      }
     ]
    },
-   "solution": "HANDSDOWN"
+   "solution": "HANDSDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANDS DOWN",
+    "definitions": [
+     {
+      "text": "Passes on",
+      "at": 0
+     },
+     {
+      "text": "effortlessly",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passes on",
+      "note": "first meaning: gives to the next generation"
+     },
+     {
+      "clueFragment": "effortlessly",
+      "note": "second meaning: winning easily"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dies peacefully.",
+     "walkthrough": "'Passes on' reads as dying, but here it means bequeathing an heirloom.",
+     "definitionFit": "To hand down is to bequeath to successors, and to win hands down is to triumph with ease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Passes"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +808,67 @@
     "text": "Take legal action, about to name station",
     "enumeration": "6"
    },
-   "solution": "EUSTON"
+   "solution": "EUSTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EUSTON",
+    "definitions": [
+     {
+      "text": "station",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the preceding word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take legal action",
+      "gives": "SUE",
+      "note": "to sue is to take someone to court"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUS",
+      "TO",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "SUE",
+       "to": "EUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A litigant is about to identify a railway terminus.",
+     "walkthrough": "SUE reversed is EUS, then TO and N. Euston is a main-line railway terminus in London.",
+     "definitionFit": "Euston is the name of a major London railway terminus serving lines to the north-west."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +882,53 @@
     "text": "War poet presently following special forces",
     "enumeration": "7"
    },
-   "solution": "SASSOON"
+   "solution": "SASSOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SASSOON",
+    "definitions": [
+     {
+      "text": "War poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special forces",
+      "gives": "SAS",
+      "note": "the SAS is the British Army's Special Air Service"
+     },
+     {
+      "clueFragment": "presently",
+      "gives": "SOON",
+      "note": "presently means before long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAS",
+      "SOON"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier-poet soon joins the commandos.",
+     "definitionFit": "Siegfried Sassoon was an English poet famed for verse written about the trenches of the First World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "presently"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +942,56 @@
     "text": "US spies entrapping rogue drone producer",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CICADA",
+    "definitions": [
+     {
+      "text": "drone producer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrapping",
+      "for": "container",
+      "note": "entrapping means holding something captive inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US spies",
+      "gives": "CIA",
+      "note": "the CIA is America's foreign intelligence agency"
+     },
+     {
+      "clueFragment": "rogue",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "CAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "American agents snare a rogue maker of drones, the unmanned aircraft.",
+     "walkthrough": "Drone suggests a military aircraft in a spy story, but here it is a monotonous buzzing sound.",
+     "definitionFit": "The cicada is an insect whose males make a loud, continuous droning song in summer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1005,42 @@
     "text": "Attend to element of salad dressing",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Attend to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "element of",
+      "for": "hidden_word",
+      "note": "an element is a part, so the letters sit within the following phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salad dressing",
+      "gives": "ADDRESS",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Seeing to a component of a salad's vinaigrette.",
+     "definitionFit": "To address a problem is to deal with it or turn your attention to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1054,62 @@
     "text": "Less worried about chronic condition in both hands",
     "enumeration": "6"
    },
-   "solution": "CALMER"
+   "solution": "CALMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CALMER",
+    "definitions": [
+     {
+      "text": "Less worried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the pair that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca, short for circa, means about"
+     },
+     {
+      "clueFragment": "both hands",
+      "gives": "LR",
+      "note": "L and R for left and right"
+     },
+     {
+      "clueFragment": "chronic condition",
+      "gives": "ME",
+      "note": "ME is myalgic encephalomyelitis, a chronic fatigue illness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "L",
+      "ME",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone less anxious about a long-term illness affecting their hands.",
+     "walkthrough": "Both hands means one letter for each: left and right.",
+     "definitionFit": "Calmer is the comparative of calm, describing someone more relaxed and at ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1123,50 @@
     "text": "Reads op-ed about outlaw",
     "enumeration": "9"
    },
-   "solution": "DESPERADO"
+   "solution": "DESPERADO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPERADO",
+    "definitions": [
+     {
+      "text": "outlaw",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters moved around into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reads op-ed",
+      "gives": "READSOPED",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READSOPED",
+       "gives": "DESPERADO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reading an opinion column on a bandit.",
+     "definitionFit": "A desperado is a reckless, violent criminal, especially a Wild West bandit on the run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1180,58 @@
     "text": "Extremely disagreeable enemy for novelist",
     "enumeration": "5"
    },
-   "solution": "DEFOE"
+   "solution": "DEFOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEFOE",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disagreeable",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "FOE",
+      "note": "a foe is an adversary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FOE"
+     ]
+    },
+    "explanation": {
+     "surface": "A really nasty adversary for a writer.",
+     "definitionFit": "Daniel Defoe was the English author of Robinson Crusoe, one of the earliest novels in English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1245,48 @@
     "text": "Unhappy, sulky and disgruntled at first",
     "enumeration": "3"
    },
-   "solution": "SAD"
+   "solution": "SAD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SAD",
+    "definitions": [
+     {
+      "text": "Unhappy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sulky and disgruntled",
+      "gives": "SAD",
+      "select": "first",
+      "note": "the initial letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone miserable, moody and fed up from the start.",
+     "walkthrough": "The definition, Unhappy, matches the sulky mood of the wordplay.",
+     "definitionFit": "Sad is the plain word for feeling sorrow, the opposite of cheerful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1300,45 @@
     "text": "Reportedly remained sober",
     "enumeration": "5"
    },
-   "solution": "STAID"
+   "solution": "STAID",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAID",
+    "definitions": [
+     {
+      "text": "sober",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as told by someone, so the word is heard not seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remained",
+      "gives": "STAID",
+      "soundsLike": "STAYED",
+      "note": "the past tense of stay"
+     }
+    ],
+    "explanation": {
+     "surface": "Word is that someone stayed off the drink.",
+     "walkthrough": "Sober looks like not drunk, but here it means serious and restrained.",
+     "definitionFit": "A staid person is sedate and serious, which is the restrained sense of sober."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sober"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1352,73 @@
     "text": "Wreckage of spar returned on tide briefly",
     "enumeration": "7"
    },
-   "solution": "FLOTSAM"
+   "solution": "FLOTSAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "FLOTSAM",
+    "definitions": [
+     {
+      "text": "Wreckage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word runs in the opposite direction"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, on means placed after the following piece"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tide",
+      "gives": "FLOW",
+      "note": "the flow is the incoming tide"
+     },
+     {
+      "clueFragment": "spar",
+      "gives": "MAST",
+      "note": "a mast is a ship's spar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLO",
+      "TSAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAST",
+       "to": "TSAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remains of a ship's spar washed back on the tide.",
+     "definitionFit": "Flotsam is the floating debris of a shipwreck, the wreckage left on the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1432,62 @@
     "text": "Empty last of contents out of potty",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means taken away from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "potty",
+      "gives": "INSANE",
+      "note": "potty is British slang for crazy"
+     },
+     {
+      "clueFragment": "contents",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "Emptying the last of what's in a child's potty.",
+     "walkthrough": "INSANE loses its S. Potty sounds like a toddler's toilet, but it is the slang adjective for mad.",
+     "definitionFit": "Inane means silly and lacking substance, and empty can describe talk with no meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "potty"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1501,50 @@
     "text": "Italian smoker lying around in Nantes",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "Italian smoker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters lie inside the next word"
+     },
+     {
+      "text": "lying around",
+      "for": "reversal",
+      "note": "lying around suggests turned round, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nantes",
+      "gives": "ANTE",
+      "note": "the letters inside the city name"
+     }
+    ],
+    "explanation": {
+     "surface": "An Italian cigarette-smoker lounging around in a French city.",
+     "walkthrough": "Smoker suggests a person, but it is a volcano that sends up smoke.",
+     "definitionFit": "Etna is the active volcano on Sicily, so it is an Italian mountain that smokes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoker"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1558,63 @@
     "text": "Old maids accepting essentially loveless overtures",
     "enumeration": "8"
    },
-   "solution": "PRELUDES"
+   "solution": "PRELUDES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRELUDES",
+    "definitions": [
+     {
+      "text": "overtures",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so one piece is held inside the other"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, its middle letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old maids",
+      "gives": "PRUDES",
+      "note": "prudes are prim, easily shocked people, the old-maid stereotype"
+     },
+     {
+      "clueFragment": "loveless",
+      "gives": "EL",
+      "select": "middle",
+      "note": "the central two letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "EL",
+      "UDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Spinsters receive romantic advances without any love in them.",
+     "walkthrough": "Overtures suggests romantic approaches, but here it is musical openings.",
+     "definitionFit": "A prelude is an introductory piece of music, so preludes are opening movements like overtures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overtures"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,68 @@
      }
     ]
    },
-   "solution": "ALLFIREDUP"
+   "solution": "ALLFIREDUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALL FIRED UP",
+    "definitions": [
+     {
+      "text": "Motivated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the start of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     },
+     {
+      "clueFragment": "sacked",
+      "gives": "FIRED",
+      "note": "sacked from a job is fired"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "Physics",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of Physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "FIRED",
+      "U",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A university physics head is thrilled once all the staff have been sacked.",
+     "walkthrough": "'After' tells you the university-and-physics letters come after the everyone-sacked part.",
+     "definitionFit": "Someone fired up is eager and energised, so the phrase is an idiom for being keen and driven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +121,49 @@
     "text": "Fat, heartless Scottish landowner",
     "enumeration": "4"
    },
-   "solution": "LARD"
+   "solution": "LARD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LARD",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter of the following word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish landowner",
+      "gives": "LAIRD",
+      "note": "a laird is a Scottish estate owner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "An insult aimed at a portly Scottish landowner who also lacks compassion.",
+     "walkthrough": "LAIRD loses its middle letter I to leave LARD.",
+     "definitionFit": "Lard is rendered pig fat used in cooking, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +177,56 @@
     "text": "Identify good, more exquisite clothes",
     "enumeration": "6"
    },
-   "solution": "FINGER"
+   "solution": "FINGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINGER",
+    "definitions": [
+     {
+      "text": "Identify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "used as a verb, clothes means dresses or wraps around, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more exquisite",
+      "gives": "FINER",
+      "note": "more exquisite means finer"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "G",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing between good and even more exquisite garments.",
+     "walkthrough": "'Clothes' looks like a noun about garments but is a verb: FINER wraps round G.",
+     "definitionFit": "To finger someone is slang for pointing them out to the police, informally naming or picking out a culprit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +240,40 @@
     "text": "One of the strings pulled to get on in the Parachute Regiment?",
     "enumeration": "7"
    },
-   "solution": "RIPCORD"
+   "solution": "RIPCORD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RIPCORD",
+    "definitions": [
+     {
+      "text": "One of the strings pulled to get on in the Parachute Regiment?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of the strings pulled to get on",
+      "note": "surface reading: pulling strings, using influence to get ahead in one's career"
+     },
+     {
+      "clueFragment": "in the Parachute Regiment?",
+      "note": "setter's reading: a literal cord a paratrooper pulls to open the canopy and carry on safely down"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone using connections to win promotion in the Paras.",
+     "walkthrough": "Pulling strings is an idiom for using influence; here the string is real, the cord that opens a parachute.",
+     "definitionFit": "A ripcord is the cord pulled to release a parachute from its pack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strings"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +287,53 @@
     "text": "Sailor under the doctor, looking bleak",
     "enumeration": "4"
    },
-   "solution": "DRAB"
+   "solution": "DRAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAB",
+    "definitions": [
+     {
+      "text": "looking bleak",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under something means coming below it, so this piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor being treated by the doctor and looking miserable.",
+     "definitionFit": "Drab means dull and cheerless in appearance, matching a bleak look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +347,42 @@
     "text": "Throw out work assignment",
     "enumeration": "7"
    },
-   "solution": "PROJECT"
+   "solution": "PROJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROJECT",
+    "definitions": [
+     {
+      "text": "Throw out",
+      "at": 0
+     },
+     {
+      "text": "work assignment",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Throw out",
+      "note": "first meaning: a verb, to cast or thrust forward"
+     },
+     {
+      "clueFragment": "work assignment",
+      "note": "second meaning: a noun, a planned piece of work set for someone"
+     }
+    ],
+    "explanation": {
+     "surface": "Rejecting a task you were handed at work.",
+     "definitionFit": "As a verb the word means to hurl or cast forward; as a noun it is a planned undertaking or task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Throw"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +396,57 @@
     "text": "Junk (tandem) rows with the current",
     "enumeration": "10"
    },
-   "solution": "DOWNSTREAM"
+   "solution": "DOWNSTREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOWNSTREAM",
+    "definitions": [
+     {
+      "text": "with the current",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Junk",
+      "for": "anagram",
+      "note": "to junk something is to scrap it, so these letters are broken up and remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tandem",
+      "gives": "TANDEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rows",
+      "gives": "ROWS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TANDEMROWS",
+       "gives": "DOWNSTREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese junk crewed by rowers pulling in tandem, going along with the flow.",
+     "walkthrough": "Junk looks like the boat in the picture but is the instruction to rearrange.",
+     "definitionFit": "Going downstream means travelling in the direction a river flows, along with its current."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Junk"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +466,68 @@
      }
     ]
    },
-   "solution": "LADYCHAPEL"
+   "solution": "LADYCHAPEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LADY CHAPEL",
+    "definitions": [
+     {
+      "text": "place of worship",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clear out",
+      "for": "letter_selection",
+      "note": "clearing out the inside of a word empties it, so only its outermost letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a boy is a lad"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is a mathematical unknown"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "CHAP",
+      "note": "chap is informal for man"
+     },
+     {
+      "clueFragment": "episcopal",
+      "gives": "EL",
+      "select": "outer",
+      "note": "the first and last letters of episcopal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAD",
+      "Y",
+      "CHAP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy and a stranger clearing out a bishop's church.",
+     "walkthrough": "'Episcopal place of worship' reads as one phrase, but episcopal is only the source of two letters.",
+     "definitionFit": "A Lady Chapel is a chapel dedicated to the Virgin Mary within a larger church, so a place for prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "episcopal"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +541,49 @@
     "text": "Spanish master returning banana yogurt pots",
     "enumeration": "4"
    },
-   "solution": "GOYA"
+   "solution": "GOYA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GOYA",
+    "definitions": [
+     {
+      "text": "Spanish master",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pots",
+      "for": "hidden_word",
+      "note": "to pot is to hold in a container, so the words that follow hold the answer inside them"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the concealed letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banana yogurt",
+      "gives": "AYOG",
+      "note": "the end of banana and the start of yogurt run together"
+     }
+    ],
+    "explanation": {
+     "surface": "A Spanish chef coming back to pot up banana yogurt.",
+     "definitionFit": "Francisco Goya was a celebrated Spanish painter, and an old master is a great painter of earlier centuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pots"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +603,60 @@
      }
     ]
    },
-   "solution": "GRANDPIANO"
+   "solution": "GRANDPIANO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAND PIANO",
+    "definitions": [
+     {
+      "text": "Joanna",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sozzled",
+      "for": "anagram",
+      "note": "sozzled means very drunk, and drunk things lurch about out of order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pandora",
+      "gives": "PANDORA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PANDORAGIN",
+       "gives": "GRANDPIANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two women, Joanna and Pandora, getting drunk on gin.",
+     "walkthrough": "Joanna looks like a woman's name but is Cockney rhyming slang: joanna rhymes with piano.",
+     "definitionFit": "Joanna is rhyming slang for a piano, and a grand is the large horizontal concert kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joanna"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +670,66 @@
     "text": "Sprightly corvid eating nut excitedly",
     "enumeration": "6"
    },
-   "solution": "JAUNTY"
+   "solution": "JAUNTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "JAUNTY",
+    "definitions": [
+     {
+      "text": "Sprightly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "something done excitedly is agitated and jumbled, so these letters get rearranged"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corvid",
+      "gives": "JAY",
+      "note": "the jay is a member of the crow family"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "NUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "UNT",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUT",
+       "gives": "UNT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crow-family bird happily pecking at a nut.",
+     "walkthrough": "Corvid is the family name for crows, jays, magpies and rooks.",
+     "definitionFit": "Jaunty describes a lively, cheerful and self-confident manner, much like sprightly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +743,74 @@
     "text": "Ordinary retired clergyman discovering barmy bowling technique",
     "enumeration": "7"
    },
-   "solution": "OVERARM"
+   "solution": "OVERARM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "OVERARM",
+    "definitions": [
+     {
+      "text": "bowling technique",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to withdraw or go back, so the clergyman's title is read backwards"
+     },
+     {
+      "text": "discovering",
+      "for": "letter_selection",
+      "note": "dis-covering means taking the cover off, so the outer letters are stripped away leaving the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a clergyman"
+     },
+     {
+      "clueFragment": "barmy",
+      "gives": "ARM",
+      "select": "middle",
+      "note": "barmy without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "ARM"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary retired vicar finding a crazy way to bowl.",
+     "walkthrough": "'Discovering' seems to mean finding, but split as dis-covering it means removing the cover.",
+     "definitionFit": "Overarm bowling, with the arm swung above the shoulder, is the standard delivery action in cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discovering"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +830,53 @@
      }
     ]
    },
-   "solution": "OFFBALANCE"
+   "solution": "OFFBALANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OFF BALANCE",
+    "definitions": [
+     {
+      "text": "unstable",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so these letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fan of cable",
+      "gives": "FANOFCABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FANOFCABLE",
+       "gives": "OFFBALANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cable-TV enthusiast whose favourite channel is shaky.",
+     "definitionFit": "Being off balance means wobbly and liable to fall, the physical sense of lacking steadiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +896,67 @@
      }
     ]
    },
-   "solution": "EPSOMDOWNS"
+   "solution": "EPSOMDOWNS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EPSOM DOWNS",
+    "definitions": [
+     {
+      "text": "Railway station for Derby",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "turned around signals the letters are moved about into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mopes",
+      "gives": "MOPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "DOWN",
+      "note": "depressed means down"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPSOM",
+      "DOWN",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOPES",
+       "gives": "EPSOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moping about a gloomy station on the Southern Railway line.",
+     "walkthrough": "Southern Railway reads as a train company, but it splits: S from Southern, Railway starts the definition. The Derby is the famous horse race run on the Downs at Epsom in Surrey.",
+     "definitionFit": "Epsom Downs is a station in Surrey serving the racecourse where the Derby is held each summer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Derby"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +976,63 @@
      }
     ]
    },
-   "solution": "MEDAL"
+   "solution": "MEDAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MEDAL",
+    "definitions": [
+     {
+      "text": "Gong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word beside it"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the middle of, so the letter sits inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dinner for One",
+      "gives": "MEAL",
+      "note": "dinner is one example of a meal"
+     },
+     {
+      "clueFragment": "sounded",
+      "gives": "D",
+      "select": "last",
+      "note": "the closing letter of sounded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "D",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner gong sounding at the end of a table-for-one meal; Dinner for One is also a famous comic sketch.",
+     "walkthrough": "'For one' means 'for example': dinner is an instance of a meal.",
+     "definitionFit": "Gong is British slang for a medal or decoration, as in an honour from the Queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gong"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1046,62 @@
     "text": "Nick caught vermin in school",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCRATCH",
+    "definitions": [
+     {
+      "text": "Nick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so these pieces go within the school"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "vermin",
+      "gives": "RAT",
+      "note": "a rat is vermin"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is the abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RAT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Nick caught a rat in the school building.",
+     "walkthrough": "Nick looks like a man's name but is a small cut.",
+     "definitionFit": "A nick and a scratch are both small superficial cuts or marks on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nick"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1115,41 @@
     "text": "Ground spice put into tiramisu macaroons",
     "enumeration": "5"
    },
-   "solution": "SUMAC"
+   "solution": "SUMAC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SUMAC",
+    "definitions": [
+     {
+      "text": "Ground spice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put into",
+      "for": "hidden_word",
+      "note": "something put into the dessert is sitting inside those words, concealed across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiramisu macaroons",
+      "gives": "SUMAC",
+      "note": "the tail of tiramisu joined to the start of macaroons"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe step: sprinkle ground spice into the tiramisu and macaroons.",
+     "definitionFit": "Sumac is a tangy red Middle Eastern seasoning made by grinding the dried berries of a shrub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1163,55 @@
     "text": "Went by Underground (westbound) for the first time",
     "enumeration": "5"
    },
-   "solution": "DEBUT"
+   "solution": "DEBUT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEBUT",
+    "definitions": [
+     {
+      "text": "for the first time",
+      "at": 32,
+      "note": "used adjectivally, as in a debut album, one appearing for the first time"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westbound",
+      "for": "reversal",
+      "note": "in an across entry, heading west means travelling right to left, the opposite way to normal reading"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went by Underground",
+      "gives": "TUBED",
+      "note": "the London Underground is the Tube, so travelling by it is tubed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUBED",
+       "to": "DEBUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-ever ride on the London Underground heading west.",
+     "walkthrough": "The Underground is London's metro, nicknamed the Tube.",
+     "definitionFit": "A debut is a first appearance, so the word describes something happening or performed initially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "westbound"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1225,40 @@
     "text": "Secure quickly",
     "enumeration": "4"
    },
-   "solution": "FAST"
+   "solution": "FAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAST",
+    "definitions": [
+     {
+      "text": "Secure",
+      "at": 0
+     },
+     {
+      "text": "quickly",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "note": "first meaning: firmly fixed, as in held tight"
+     },
+     {
+      "clueFragment": "quickly",
+      "note": "second meaning: at speed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means firmly fixed, as in stuck tight, and also rapidly, as in running at speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1272,52 @@
     "text": "Succour pup losing weight",
     "enumeration": "4"
    },
-   "solution": "HELP"
+   "solution": "HELP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HELP",
+    "definitions": [
+     {
+      "text": "Succour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means giving something up, so a letter drops out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pup",
+      "gives": "WHELP",
+      "note": "a whelp is a puppy"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HELP"
+     ]
+    },
+    "explanation": {
+     "surface": "Caring for a puppy that is losing weight.",
+     "walkthrough": "WHELP without its W leaves the answer.",
+     "definitionFit": "Succour means aid or assistance given to someone in need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1331,44 @@
     "text": "Lacquer, usually Black Country",
     "enumeration": "5"
    },
-   "solution": "JAPAN"
+   "solution": "JAPAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JAPAN",
+    "definitions": [
+     {
+      "text": "Lacquer, usually Black",
+      "at": 0
+     },
+     {
+      "text": "Country",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacquer, usually Black",
+      "note": "first meaning: a hard glossy varnish, typically black"
+     },
+     {
+      "clueFragment": "Country",
+      "note": "second meaning: the East Asian nation"
+     }
+    ],
+    "explanation": {
+     "surface": "Black Country lacquer, as if from the industrial West Midlands.",
+     "walkthrough": "The Black Country is an industrial area of the English West Midlands, but here Black and Country belong to different meanings.",
+     "definitionFit": "Japan is a glossy black varnish named after the lacquerware of that island nation, which is also an Asian state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Black"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1382,60 @@
     "text": "Sailor departs area with flighty thief",
     "enumeration": "7"
    },
-   "solution": "JACKDAW"
+   "solution": "JACKDAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACKDAW",
+    "definitions": [
+     {
+      "text": "flighty thief",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "JACK",
+      "note": "jack, as in Jack Tar, is a sailor"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "D",
+      "A",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor runs off with a fickle crook.",
+     "walkthrough": "Flighty suggests fickle but literally means able to fly.",
+     "definitionFit": "The jackdaw is a small crow famous for snatching shiny objects, so a winged robber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flighty"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1449,72 @@
     "text": "Arrest fine, very old revolutionary writer",
     "enumeration": "7"
    },
-   "solution": "NABOKOV"
+   "solution": "NABOKOV",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NABOKOV",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution is a turning round, so the last two letters are turned back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrest",
+      "gives": "NAB",
+      "note": "to nab is to arrest"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAB",
+      "OK",
+      "O",
+      "V"
+     ],
+     "reversals": [
+      {
+       "from": "VO",
+       "to": "OV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police arrest and fine an elderly radical author.",
+     "definitionFit": "Vladimir Nabokov was the Russian-American novelist who wrote Lolita and Pale Fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1528,65 @@
     "text": "Senior sailor making a mark in Dead Sea?",
     "enumeration": "7"
    },
-   "solution": "ADMIRAL"
+   "solution": "ADMIRAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADMIRAL",
+    "definitions": [
+     {
+      "text": "Senior sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the mark goes into the sea"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead Sea?",
+      "gives": "ARAL",
+      "note": "the Aral Sea in Central Asia has largely dried up, so it is a dead sea"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "DM",
+      "note": "DM is the abbreviation for the Deutschmark"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "I",
+      "note": "a means one, written as the Roman numeral I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DM",
+      "I",
+      "RAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior naval officer leaving his mark on the Dead Sea.",
+     "walkthrough": "'A mark' means one Deutschmark, the old German currency, with the one written as a Roman numeral after the currency symbol. The Dead Sea of the surface is not the sea used; the question mark flags a dead sea, one that has dried up.",
+     "definitionFit": "An admiral is the highest-ranking officer in a navy, so the most senior seafarer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dead"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1600,66 @@
     "text": "Golden brown mare running in The Golden State?",
     "enumeration": "7"
    },
-   "solution": "CARAMEL"
+   "solution": "CARAMEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CARAMEL",
+    "definitions": [
+     {
+      "text": "Golden brown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "something running is in motion, so these letters move about"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means sitting inside, so the mixed letters go within the state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Golden State?",
+      "gives": "CAL",
+      "note": "California is nicknamed the Golden State; CAL is a short form"
+     },
+     {
+      "clueFragment": "mare",
+      "gives": "MARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RAME",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARE",
+       "gives": "RAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golden-brown horse galloping in California.",
+     "definitionFit": "Caramel is the warm yellowish-brown colour of melted burnt sugar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1673,53 @@
     "text": "American soft fruit crop up",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPEAR",
+    "definitions": [
+     {
+      "text": "crop up",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "P, piano, is the musical notation for soft"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a pear is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "An American soft-fruit harvest coming in.",
+     "walkthrough": "'Fruit crop' looks like a harvest, but crop belongs with up.",
+     "definitionFit": "To crop up is to arise or turn up unexpectedly, which is to show oneself or emerge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crop"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1733,45 @@
     "text": "Geeky individual in waterproof clothing",
     "enumeration": "6"
    },
-   "solution": "ANORAK"
+   "solution": "ANORAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANORAK",
+    "definitions": [
+     {
+      "text": "Geeky individual",
+      "at": 0
+     },
+     {
+      "text": "waterproof clothing",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Geeky individual",
+      "note": "first meaning: British slang for an obsessive enthusiast"
+     },
+     {
+      "clueFragment": "waterproof clothing",
+      "note": "second meaning: a hooded weatherproof jacket"
+     }
+    ],
+    "explanation": {
+     "surface": "A nerd dressed in a rain jacket.",
+     "walkthrough": "In Britain an anorak is a nerdy obsessive, from the jackets worn by trainspotters.",
+     "definitionFit": "The word names a hooded weatherproof jacket and, by association with train spotters, an obsessive hobbyist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1785,49 @@
     "text": "Prey of female bird of prey?",
     "enumeration": "4"
    },
-   "solution": "FOWL"
+   "solution": "FOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOWL",
+    "definitions": [
+     {
+      "text": "Prey",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "bird of prey",
+      "gives": "OWL",
+      "note": "an owl is a bird of prey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering what a hen hawk or she-owl might hunt.",
+     "walkthrough": "The whole clue also describes the answer: poultry is what a raptor might catch.",
+     "definitionFit": "Fowl, game birds and poultry, are among the creatures hunted and eaten by predators."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1841,48 @@
     "text": "Fine summer in Paris for a garden party",
     "enumeration": "4"
    },
-   "solution": "FETE"
+   "solution": "FETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FETE",
+    "definitions": [
+     {
+      "text": "garden party",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "summer in Paris",
+      "gives": "ETE",
+      "note": "French for summer is été"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fine summer weather in Paris, ideal for an outdoor party.",
+     "definitionFit": "A fete is an outdoor fundraising event with stalls and games, typically held on a lawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1896,56 @@
     "text": "Bouncer rejecting rude-sounding goalie",
     "enumeration": "10"
    },
-   "solution": "DOORKEEPER"
+   "solution": "DOORKEEPER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DOORKEEPER",
+    "definitions": [
+     {
+      "text": "Bouncer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means as heard spoken, so the word is replaced by one pronounced the same"
+     },
+     {
+      "text": "rejecting",
+      "for": "reversal",
+      "note": "rejecting means throwing back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude",
+      "gives": "ROOD",
+      "soundsLike": "RUDE",
+      "note": "rood, a cross, is pronounced like rude"
+     },
+     {
+      "clueFragment": "goalie",
+      "gives": "KEEPER",
+      "note": "a goalie is a goalkeeper"
+     }
+    ],
+    "explanation": {
+     "surface": "A nightclub bouncer turning away a goalkeeper who sounds rude.",
+     "walkthrough": "Bouncer suggests a nightclub heavy, a sense that does fit the doorman role here.",
+     "definitionFit": "A bouncer guards an entrance, deciding who comes in, which is the job of a person posted at a door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejecting"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1959,51 @@
     "text": "Tory Kelvin is a snitch",
     "enumeration": "4"
    },
-   "solution": "CONK"
+   "solution": "CONK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONK",
+    "definitions": [
+     {
+      "text": "snitch",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "CON is short for Conservative, a Tory"
+     },
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K is the symbol for kelvin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician called Kelvin turns informer.",
+     "walkthrough": "Snitch here is old British slang for the nose, not an informer.",
+     "definitionFit": "Both are informal slang words for the nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "snitch"
+    }
+   }
   },
   {
    "number": 29,
@@ -513,7 +2023,63 @@
      }
     ]
    },
-   "solution": "WELLVERSED"
+   "solution": "WELLVERSED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WELL-VERSED",
+    "definitions": [
+     {
+      "text": "Very knowledgeable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freshly",
+      "for": "anagram",
+      "note": "freshly means anew, so these letters are made up again in a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "source of water",
+      "gives": "WELL",
+      "note": "a well is a source of water"
+     },
+     {
+      "clueFragment": "served",
+      "gives": "SERVED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "VERSED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SERVED",
+       "gives": "VERSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert on spring water that has just been poured.",
+     "definitionFit": "Being well-versed in a subject means being thoroughly experienced and informed about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "source"
+    }
+   }
   }
  ]
 }

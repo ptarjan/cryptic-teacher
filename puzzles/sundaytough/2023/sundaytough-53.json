@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "New victory of prisoner involved in appeal",
     "enumeration": "10"
    },
-   "solution": "RECONQUEST"
+   "solution": "RECONQUEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECONQUEST",
+    "definitions": [
+     {
+      "text": "New victory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in another thing is caught up inside it, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appeal",
+      "gives": "REQUEST",
+      "note": "an appeal is a request"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict, short for convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CON",
+      "QUEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A detainee's appeal succeeds a second time, a fresh win in the courts.",
+     "walkthrough": "'Victory' with 'prisoner' and 'appeal' suggests a court win, but the definition is a military recapture of territory.",
+     "definitionFit": "A reconquest is the winning back of territory, a renewed military triumph over land once held."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "victory"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,57 @@
     "text": "Maybe guy that goes into Public Relations for real",
     "enumeration": "4"
    },
-   "solution": "ROPE"
+   "solution": "ROPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROPE",
+    "definitions": [
+     {
+      "text": "Maybe guy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes into",
+      "for": "deletion",
+      "note": "the answer is what goes into the abbreviation, so taking the abbreviation away from the longer word leaves it"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for real",
+      "gives": "PROPER",
+      "note": "proper means real or genuine"
+     },
+     {
+      "clueFragment": "Public Relations",
+      "gives": "PR",
+      "note": "PR is the usual abbreviation; its letters are the outer ones removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a man who seriously enters the publicity business.",
+     "walkthrough": "This works backwards: the answer placed inside the abbreviation makes the word for real. 'Guy' looks like a man but is a guy rope, the cord that steadies a tent.",
+     "definitionFit": "A guy is a cord holding a tent steady, so a guy is one example of a rope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,52 @@
     "text": "Bird caught, when very careful",
     "enumeration": "9"
    },
-   "solution": "CASSOWARY"
+   "solution": "CASSOWARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASSOWARY",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "very careful",
+      "gives": "SOWARY",
+      "note": "so means very and wary means careful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AS",
+      "SOWARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird was trapped when it was being extremely cautious.",
+     "definitionFit": "The cassowary is a large flightless bird of New Guinea and northern Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +238,62 @@
      }
     ]
    },
-   "solution": "NOTOFTHISWORLD"
+   "solution": "NOTOFTHISWORLD",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NOT OF THIS WORLD",
+    "definitions": [
+     {
+      "text": "Supernatural",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts the force abbreviation inside the other letters"
+     },
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "transformed means changed in form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     },
+     {
+      "clueFragment": "now to Sith Lord",
+      "gives": "NOWTOSITHLORD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOWTOSITHFLORD",
+       "gives": "NOTOFTHISWORLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Star Wars mystic energy turns a hero into a dark lord, Sith Lords being Star Wars villains.",
+     "walkthrough": "F joins the letters of NOW TO SITH LORD and the lot is rearranged.",
+     "definitionFit": "Something not of this world is otherworldly, beyond the natural realm, which is what supernatural means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +307,55 @@
     "text": "I’m not sure Greek character looking embarrassed should be judged",
     "enumeration": "7"
    },
-   "solution": "UMPIRED"
+   "solution": "UMPIRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UMPIRED",
+    "definitions": [
+     {
+      "text": "judged",
+      "at": 59
+     }
+    ],
+    "linkWords": [
+     "should be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m not sure",
+      "gives": "UM",
+      "note": "um is a hesitant noise of uncertainty"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PI",
+      "note": "pi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "looking embarrassed",
+      "gives": "RED",
+      "note": "someone looking embarrassed is red in the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "PI",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A hesitant, blushing Greek feels they ought to be assessed.",
+     "definitionFit": "To have umpired a match is to have officiated and ruled on play, so to have judged it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +369,51 @@
     "text": "Occasionally using such, I get niche expertise",
     "enumeration": "7"
    },
-   "solution": "SCIENCE"
+   "solution": "SCIENCE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SCIENCE",
+    "definitions": [
+     {
+      "text": "expertise",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "such, I get niche",
+      "gives": "SCIENCE",
+      "select": "alternate",
+      "note": "the odd-numbered letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCIENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Every so often, a person picks up specialist knowledge this way.",
+     "definitionFit": "Science can mean a body of skill or knowledge in a field, as in the science of cooking, hence expertise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Occasionally"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +427,67 @@
     "text": "Retreating king trapped by huge monsters",
     "enumeration": "4"
    },
-   "solution": "ORCS"
+   "solution": "ORCS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ORCS",
+    "definitions": [
+     {
+      "text": "monsters",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retreating",
+      "for": "reversal",
+      "note": "something retreating goes backwards, so the royal letters are read from right to left"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "being trapped means being held inside something else, here the abbreviation for huge"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge",
+      "gives": "OS",
+      "note": "OS is the clothing-size abbreviation for outsize"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "CR",
+      "note": "CR stands for Carolus Rex, King Charles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RC",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "CR",
+       "to": "RC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch flees and is captured by enormous beasts.",
+     "walkthrough": "The king is Charles, whose royal cipher stands for Carolus Rex; huge is the outsize label on clothing.",
+     "definitionFit": "Orcs are the brutish goblin creatures of Tolkien's fiction, a kind of fantasy monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "huge"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +501,67 @@
     "text": "Always turned up to take in family-friendly show",
     "enumeration": "5"
    },
-   "solution": "REVUE"
+   "solution": "REVUE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REVUE",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means flipped to read from the bottom upwards"
+     },
+     {
+      "text": "to take in",
+      "for": "container",
+      "note": "to take in means to hold within, so the rating letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "family-friendly",
+      "gives": "U",
+      "note": "U is the British film certificate for films suitable for all ages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "U",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EUVER",
+       "to": "REVUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer always arrives to put on an entertainment for all ages.",
+     "walkthrough": "EVER reversed is REVE; U goes inside: REV-U-E.",
+     "definitionFit": "A revue is a light theatrical entertainment of songs and sketches, so a type of show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +581,50 @@
      }
     ]
    },
-   "solution": "SOLARFLARE"
+   "solution": "SOLARFLARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLAR FLARE",
+    "definitions": [
+     {
+      "text": "Far-off eruption",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shocking",
+      "for": "anagram",
+      "note": "shocking suggests a jolt that throws things into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for all ears",
+      "gives": "FORALLEARS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORALLEARS",
+       "gives": "SOLARFLARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distant explosion makes a dreadful noise that everyone hears.",
+     "definitionFit": "A solar flare is a sudden burst of energy on the Sun, an eruption very far from Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +648,48 @@
      }
     ]
    },
-   "solution": "TAKETHEBISCUIT"
+   "solution": "TAKETHEBISCUIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKE THE BISCUIT",
+    "definitions": [
+     {
+      "text": "bizarrely beat them all",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appropriate",
+      "gives": "TAKE",
+      "note": "to appropriate is to take"
+     },
+     {
+      "clueFragment": "tea partner",
+      "gives": "THEBISCUIT",
+      "note": "the biscuit is the classic companion to a cup of tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "THEBISCUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Stealing the snack that goes with a cuppa was outrageous behaviour.",
+     "walkthrough": "'Appropriate' looks like an adjective meaning suitable but is the verb to seize. The phrase is British: to take the biscuit is to be the most outrageous.",
+     "definitionFit": "Something that takes the biscuit is the most extraordinary or absurd of all, outdoing every rival in strangeness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +703,67 @@
     "text": "Vessel harbouring is from east state",
     "enumeration": "5"
    },
-   "solution": "POSIT"
+   "solution": "POSIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "POSIT",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from east",
+      "for": "reversal",
+      "note": "read from the east means read from the right-hand end, so the little word runs backwards"
+     },
+     {
+      "text": "harbouring",
+      "for": "container",
+      "note": "a harbour shelters ships inside it, so the vessel holds the other word within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel",
+      "gives": "POT",
+      "note": "a pot is a vessel for holding things"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "SI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's container carries a message from the east about a nation.",
+     "walkthrough": "'State' looks like a noun for a nation, but it is the verb to assert.",
+     "definitionFit": "To posit is to put forward an idea as fact, the same as to state or assert it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +777,52 @@
     "text": "Ancient Amazon offering harm, we heard",
     "enumeration": "9"
    },
-   "solution": "PRIMAEVAL"
+   "solution": "PRIMAEVAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PRIMAEVAL",
+    "definitions": [
+     {
+      "text": "Ancient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we heard",
+      "for": "homophone",
+      "note": "what we heard is what was spoken, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amazon offering",
+      "gives": "PRIMA",
+      "soundsLike": "PRIME",
+      "note": "Prime is the subscription service sold by Amazon"
+     },
+     {
+      "clueFragment": "harm",
+      "gives": "EVAL",
+      "soundsLike": "EVIL",
+      "note": "evil is harm or wickedness"
+     }
+    ],
+    "explanation": {
+     "surface": "An online retailer's product causes damage, according to what we have been told.",
+     "walkthrough": "Said aloud, 'prime evil' matches the British spelling PRIMAEVAL.",
+     "definitionFit": "Primaeval describes the earliest ages of the world, so it means extremely old or primitive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +842,70 @@
      }
     ]
    },
-   "solution": "CONFERENCEPEAR"
+   "solution": "CONFERENCEPEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONFERENCE PEAR",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in a group is placed among its members, so the vegetable goes inside"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the meeting word ahead of the running abbreviation in the line"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "CONFERENCE",
+      "note": "a diet is a formal assembly, like the Diet of Worms"
+     },
+     {
+      "clueFragment": "veg",
+      "gives": "PEA",
+      "note": "a pea is a vegetable"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONFERENCE",
+      "PEA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit and vegetables form part of a healthy eating plan before going jogging.",
+     "walkthrough": "'Diet' reads as food intake but means a formal assembly, as in the Diet of Worms. The vegetable is slotted in just ahead of the run.",
+     "definitionFit": "Conference is a popular variety of pear grown widely in Britain, so it is an example of a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "diet"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +919,55 @@
     "text": "On cue, rains regularly mask land by sea",
     "enumeration": "10"
    },
-   "solution": "OCEANFRONT"
+   "solution": "OCEANFRONT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OCEANFRONT",
+    "definitions": [
+     {
+      "text": "land by sea",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On cue, rains",
+      "gives": "OCEAN",
+      "select": "alternate",
+      "note": "the odd-numbered letters of these words"
+     },
+     {
+      "clueFragment": "mask",
+      "gives": "FRONT",
+      "note": "a front is a cover or disguise for something hidden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCEAN",
+      "FRONT"
+     ]
+    },
+    "explanation": {
+     "surface": "Showers arrive right on time to hide the coast.",
+     "definitionFit": "Oceanfront is the strip of land or property facing the open water, a shoreline or seafront area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mask"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +981,63 @@
     "text": "Fought using right instead of left and failed",
     "enumeration": "7"
    },
-   "solution": "CRASHED"
+   "solution": "CRASHED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CRASHED",
+    "definitions": [
+     {
+      "text": "failed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using right instead of left",
+      "for": "substitution",
+      "note": "instead of says one letter is swapped for another, the right abbreviation taking the left's place"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fought",
+      "gives": "CLASHED",
+      "note": "armies that fought clashed"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ASHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer who swapped from left-handed punches to right-handed ones lost the fight.",
+     "walkthrough": "The L of CLASHED is replaced by R.",
+     "definitionFit": "A computer or business that crashed has broken down or collapsed, which is to have failed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1051,65 @@
     "text": "Theatrical cast might display such decent art",
     "enumeration": "7"
    },
-   "solution": "ETHICAL"
+   "solution": "ETHICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "ETHICAL",
+    "definitions": [
+     {
+      "text": "decent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast metal is to remould it, so the theatre word is reshaped into new words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatrical",
+      "gives": "THEATRICAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "might display such",
+      "note": "surface padding: these words say the rearranged letters show the answer followed by the next word"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written; the clue names the leftover word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETHICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEATRICAL",
+       "gives": "ETHICALART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troupe of actors might put on a show of respectable artistic work.",
+     "walkthrough": "THEATRICAL rearranges to ETHICAL ART; take away ART and what remains is the 'such' that describes it.",
+     "definitionFit": "Ethical conduct is morally sound and principled, the sense of decent as upright and honourable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1123,45 @@
     "text": "What’s potentially fatty stuffed in typiCAL ORIFICe?",
     "enumeration": "9"
    },
-   "solution": "CALORIFIC"
+   "solution": "CALORIFIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "CALORIFIC",
+    "definitions": [
+     {
+      "text": "What’s potentially fatty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffed in",
+      "for": "hidden_word",
+      "note": "stuffed in says the letters are packed inside the words that follow, waiting to be pulled out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "typiCAL ORIFICe",
+      "gives": "CALORIFIC",
+      "note": "the letters run across the two words, shown in capitals"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about what greasy food gets crammed into the usual opening, the mouth.",
+     "walkthrough": "The capitals give the game away; the whole clue also describes the answer, food stuffed into a mouth.",
+     "definitionFit": "Calorific food is high in calories, so rich and likely to be fattening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "stuffed"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1175,54 @@
     "text": "Idiots gathering beside pits",
     "enumeration": "7"
    },
-   "solution": "ABYSSES"
+   "solution": "ABYSSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABYSSES",
+    "definitions": [
+     {
+      "text": "pits",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means taking something in and holding it, so the fools enclose the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiots",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     },
+     {
+      "clueFragment": "beside",
+      "gives": "BY",
+      "note": "by means next to or beside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BY",
+      "SSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish people crowd together next to some holes in the ground.",
+     "definitionFit": "Abysses are bottomless chasms or deep holes in the earth, so very deep pits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beside"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1236,63 @@
     "text": "Kind of blue diamonds inspector hid in belt",
     "enumeration": "7"
    },
-   "solution": "SADDISH"
+   "solution": "SADDISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SADDISH",
+    "definitions": [
+     {
+      "text": "Kind of blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hid in",
+      "for": "container",
+      "note": "something hidden in a belt is tucked inside it, so the jewels and the officer go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belt",
+      "gives": "SASH",
+      "note": "a sash is a band worn round the waist"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card abbreviation for diamonds"
+     },
+     {
+      "clueFragment": "inspector",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "D",
+      "DI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer concealed gems in a waistband, leaving a sort of blue colour.",
+     "walkthrough": "'Blue' looks like a colour but means sad here.",
+     "definitionFit": "Saddish means somewhat sad, and blue is an informal word for sad or low, so a kind of blue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1306,66 @@
     "text": "Bath attached to totally exposed dull part like pipe",
     "enumeration": "7"
    },
-   "solution": "TUBULAR"
+   "solution": "TUBULAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TUBULAR",
+    "definitions": [
+     {
+      "text": "like pipe",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "totally exposed",
+      "for": "letter_selection",
+      "note": "exposed means stripped of its covering, and totally says both following words lose their outer letters"
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bath",
+      "gives": "TUB",
+      "note": "a tub is a bath"
+     },
+     {
+      "clueFragment": "dull",
+      "gives": "UL",
+      "select": "middle",
+      "note": "the word with its first and last letters stripped away"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "AR",
+      "select": "middle",
+      "note": "the word with its first and last letters stripped away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "UL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A bathtub is fixed to a fully bare, drab section of plumbing.",
+     "walkthrough": "'Totally' applies the stripping to both 'dull' and 'part', not just one.",
+     "definitionFit": "Tubular means shaped like a tube, which is what a pipe is: long, hollow and cylindrical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bath"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1379,68 @@
     "text": "Left holding support going up for part of service?",
     "enumeration": "7"
    },
-   "solution": "TREETOP"
+   "solution": "TREETOP",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TREETOP",
+    "definitions": [
+     {
+      "text": "part of service?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having inside, so the side word wraps around the support"
+     },
+     {
+      "text": "going up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee is the peg that supports a golf ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EET",
+      "OP"
+     ],
+     "reversals": [
+      {
+       "from": "POTEERT",
+       "to": "TREETOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A departing player lifts a prop for part of a tennis serve.",
+     "walkthrough": "PORT holds TEE to give PO-TEE-RT, which reads upwards as the answer. The service here is the service tree, a European tree, which the question mark flags.",
+     "definitionFit": "A service tree is a rowan-like tree, and the treetop is its uppermost part, crown and branches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1464,75 @@
      }
     ]
    },
-   "solution": "FORGOODMEASURE"
+   "solution": "FORGOODMEASURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "FOR GOOD MEASURE",
+    "definitions": [
+     {
+      "text": "to boot",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "something travelling is on the move, so the letters of resume move about"
+     },
+     {
+      "text": "clamping",
+      "for": "container",
+      "note": "a clamp grips something between its jaws, so the moved letters hold the article inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permanently",
+      "gives": "FORGOOD",
+      "note": "for good means for ever, permanently"
+     },
+     {
+      "clueFragment": "resume",
+      "gives": "RESUME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORGOOD",
+      "ME",
+      "A",
+      "SURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESUME",
+       "gives": "MESURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves to go back on the road for ever, clutching an item of footwear.",
+     "walkthrough": "'To boot' looks like footwear after 'clamping', but it is the definition. RESUME becomes MESURE, then A goes inside.",
+     "definitionFit": "For good measure means as an extra or in addition, the same idiom as to boot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boot"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1546,62 @@
     "text": "Review power plant being erected",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being erected",
+      "for": "reversal",
+      "note": "erected means raised upright, so in a down clue the letters read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "ACER",
+      "note": "an acer is a maple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECA",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "PACER",
+       "to": "RECAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on a power station under construction.",
+     "walkthrough": "'Plant' suggests a factory next to 'power', but it is a tree.",
+     "definitionFit": "A recap is a brief summary going back over the main points, which is a review."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1615,51 @@
     "text": "Top cryptic devices for creative works",
     "enumeration": "4"
    },
-   "solution": "ODES"
+   "solution": "ODES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODES",
+    "definitions": [
+     {
+      "text": "creative works",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top",
+      "for": "deletion",
+      "note": "to top something is to cut off its head, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cryptic devices",
+      "gives": "CODES",
+      "note": "codes are ciphers, devices for secret writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODES"
+     ]
+    },
+    "explanation": {
+     "surface": "The best clueing tricks make for imaginative pieces.",
+     "walkthrough": "'Top' reads as best but is the beheading verb.",
+     "definitionFit": "Odes are lyric poems, so they are literary compositions produced by poets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1673,64 @@
     "text": "This magician working with fakir might make fruit cocktails",
     "enumeration": "9"
    },
-   "solution": "OCCULTIST"
+   "solution": "OCCULTIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "OCCULTIST",
+    "definitions": [
+     {
+      "text": "This magician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might make",
+      "for": "anagram",
+      "note": "might make says the letters together could be refashioned into the other phrase"
+     }
+    ],
+    "linkWords": [
+     "working with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit cocktails",
+      "gives": "FRUITCOCKTAILS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fakir",
+      "gives": "FAKIR",
+      "note": "taken as written; these letters are set aside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCCULTIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FRUITCOCKTAILS",
+       "gives": "OCCULTISTFAKIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conjuror teaming up with an Indian holy man could produce mixed fruit drinks as a trick.",
+     "walkthrough": "This is a composite anagram: the answer plus FAKIR has the same letters as FRUIT COCKTAILS, so removing FAKIR from the rearranged phrase leaves the magician.",
+     "definitionFit": "An occultist practises magic and the supernatural arts, so is a kind of magician or sorcerer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1744,54 @@
     "text": "Nancy’s a fine journalist needing provisions",
     "enumeration": "5"
    },
-   "solution": "UNFED"
+   "solution": "UNFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNFED",
+    "definitions": [
+     {
+      "text": "needing provisions",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nancy’s a",
+      "gives": "UN",
+      "note": "un is French for a, and Nancy is a city in France"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "F",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Nancy has a good reporter who is short of supplies.",
+     "walkthrough": "'Nancy' reads as a woman's name but is the French city, so its 'a' is the French article.",
+     "definitionFit": "Someone unfed has not been given food, so they are in want of provisions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nancy’s"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1805,58 @@
     "text": "Cooking device turns and tilts",
     "enumeration": "4"
    },
-   "solution": "TIPS"
+   "solution": "TIPS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TIPS",
+    "definitions": [
+     {
+      "text": "tilts",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "turns here means turns round, so the cooking word is read the other way"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cooking device",
+      "gives": "SPIT",
+      "note": "a spit is a rod for roasting meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPIT",
+       "to": "TIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotisserie rotates and leans over.",
+     "walkthrough": "'Turns' fits a spit literally, which is the misdirection: it is the reversal signal.",
+     "definitionFit": "Something that tips leans or slopes over to one side, just as something that tilts does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1870,60 @@
     "text": "Piano piece noted pianist’s rejecting in seconds",
     "enumeration": "10"
    },
-   "solution": "CHOPSTICKS"
+   "solution": "CHOPSTICKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHOPSTICKS",
+    "definitions": [
+     {
+      "text": "Piano piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejecting",
+      "for": "deletion",
+      "note": "rejecting means throwing out, so the following little word is removed from the composer's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noted pianist’s",
+      "gives": "CHOPINS",
+      "note": "Chopin was a celebrated pianist and composer"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; these letters are thrown out"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "TICKS",
+      "note": "ticks are moments, as in 'back in a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOPS",
+      "TICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous pianist's composition throws something out within seconds.",
+     "walkthrough": "CHOPIN'S minus IN leaves CHOPS, followed by TICKS.",
+     "definitionFit": "Chopsticks is a simple waltz tune played with two fingers, a well-known piano piece for beginners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   }
  ]
 }

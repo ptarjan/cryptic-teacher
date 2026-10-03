@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,43 @@
      }
     ]
    },
-   "solution": "OFFTHEWALL"
+   "solution": "OFFTHEWALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFF-THE-WALL",
+    "definitions": [
+     {
+      "text": "Where ineptly hung art may be found",
+      "at": 0
+     },
+     {
+      "text": "avant-garde",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where ineptly hung art may be found",
+      "note": "first meaning, read literally: a badly hung picture ends up on the floor, having come away from where it hung"
+     },
+     {
+      "clueFragment": "avant-garde",
+      "note": "second meaning: unconventional, eccentric, bizarre"
+     }
+    ],
+    "explanation": {
+     "surface": "A gallery visitor sniffs that clumsily displayed pictures are where you will find the cutting-edge work.",
+     "definitionFit": "The phrase is an idiom for wildly unconventional, and literally describes a picture that has dropped from its hook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hung"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +96,60 @@
     "text": "Get rid of creative Frenchman! Get rid of Pierre Renoir for starters!",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "OUST",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Get rid of Pierre",
+      "for": "deletion",
+      "note": "the second 'Get rid of' tells us to remove letters from the novelist's name"
+     },
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the opening letters, so only the initials of the painter's two names are wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "creative Frenchman",
+      "gives": "PROUST",
+      "note": "Marcel Proust, the French novelist"
+     },
+     {
+      "clueFragment": "Pierre Renoir",
+      "gives": "PR",
+      "select": "first",
+      "note": "initials of the painter Pierre-Auguste Renoir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUST"
+     ]
+    },
+    "explanation": {
+     "surface": "Two exclamations demanding that famous French artists be thrown out.",
+     "walkthrough": "The first 'Get rid of' is the definition; the second is the instruction to strip PR from PROUST.",
+     "definitionFit": "To oust someone is to force them out or remove them, a straightforward synonym for expelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "creative"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +163,45 @@
     "text": "Some of logpile is deal",
     "enumeration": "4"
    },
-   "solution": "FLOG"
+   "solution": "FLOG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FLOG",
+    "definitions": [
+     {
+      "text": "deal",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'Some of' means only part of the following words is wanted, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of logpile",
+      "gives": "FLOG",
+      "note": "the letters run across the end of 'of' into 'logpile'"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone haggling over firewood claims part of the woodpile is the bargain.",
+     "definitionFit": "In informal British usage to flog something is to sell it, and to deal is to trade goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +229,63 @@
      }
     ]
    },
-   "solution": "HIGHONTHEHOG"
+   "solution": "HIGHONTHEHOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HIGH ON THE HOG",
+    "definitions": [
+     {
+      "text": "Luxuriously",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the face of it",
+      "for": "letter_selection",
+      "note": "the face of a word is its front, so only the first letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy state",
+      "gives": "HIGH",
+      "note": "a high is a state of elation"
+     },
+     {
+      "clueFragment": "Ontario",
+      "gives": "ONT",
+      "note": "the standard abbreviation for the Canadian province"
+     },
+     {
+      "clueFragment": "however, everyone's hammered on grass",
+      "gives": "HEHOG",
+      "select": "first",
+      "note": "first letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "ONT",
+      "HEHOG"
+     ]
+    },
+    "explanation": {
+     "surface": "A woozy report from Ontario where, it seems, everybody is stoned on marijuana.",
+     "walkthrough": "'Hammered on grass' sounds like the stoned crowd's state, but it is only supplying initials.",
+     "definitionFit": "Living high on the hog is an idiom for living in luxury and comfort, eating the best cuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +299,48 @@
     "text": "Setting up wireless Mac? Beware concealed peripherals",
     "enumeration": "7"
    },
-   "solution": "WEBCAMS"
+   "solution": "WEBCAMS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WEBCAMS",
+    "definitions": [
+     {
+      "text": "peripherals",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed",
+      "for": "hidden_word",
+      "note": "something concealed lies tucked inside the surrounding words"
+     },
+     {
+      "text": "Setting up",
+      "for": "reversal",
+      "note": "in a down entry, setting something up raises it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wireless Mac? Beware",
+      "gives": "SMACBEW",
+      "note": "the run of letters spanning the end of 'wireless', all of 'Mac' and the start of 'Beware'"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to someone installing a wireless Apple computer that hidden accessories may be spying on them.",
+     "definitionFit": "Small cameras plugged into or built into a computer are peripheral devices, accessory hardware attached to a machine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Setting"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +360,49 @@
      }
     ]
    },
-   "solution": "LOGJAMS"
+   "solution": "LOGJAMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOG JAMS",
+    "definitions": [
+     {
+      "text": "bottlenecks",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     },
+     {
+      "clueFragment": "improvisations",
+      "gives": "JAMS",
+      "note": "jams are informal improvised music sessions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "JAMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician wants to tape their improvised sessions, but keeps running into hold-ups.",
+     "definitionFit": "Both words describe blockages where movement is held up, such as timber stuck in a river or traffic jams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +416,53 @@
     "text": "Jetty's ripe for renovation",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIER",
+    "definitions": [
+     {
+      "text": "Jetty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for renovation",
+      "for": "anagram",
+      "note": "renovating something rebuilds it, so the letters are put back together differently"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripe",
+      "gives": "RIPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIPE",
+       "gives": "PIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside landing stage is in such a poor state that it is due for repair.",
+     "definitionFit": "A pier is a platform built out into water where boats tie up, essentially another word for a landing stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ripe"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +476,70 @@
     "text": "Oversee Everyman cooking veal with gin and it",
     "enumeration": "10"
    },
-   "solution": "INVIGILATE"
+   "solution": "INVIGILATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INVIGILATE",
+    "definitions": [
+     {
+      "text": "Oversee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking ingredients mixes and transforms them, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter, Everyman, refers to himself as I"
+     },
+     {
+      "clueFragment": "veal",
+      "gives": "VEAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IVEALGINIT",
+       "gives": "INVIGILATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is in the kitchen making a boozy veal dish, with gin and Italian vermouth (gin and it is a cocktail).",
+     "walkthrough": "Gin and it is a British cocktail of gin and Italian vermouth, but here 'it' is simply two letters of fodder.",
+     "definitionFit": "To invigilate is to supervise candidates during an examination, which is a specific kind of watching over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +553,56 @@
     "text": "Part of summer pudding studied, they say, declared 'in season'",
     "enumeration": "10"
    },
-   "solution": "REDCURRANT"
+   "solution": "REDCURRANT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "REDCURRANT",
+    "definitions": [
+     {
+      "text": "Part of summer pudding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "'they say' points to how a word is spoken rather than spelt"
+     },
+     {
+      "text": "declared",
+      "for": "homophone",
+      "note": "to declare something is to say it out loud, so again the pronunciation counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studied",
+      "gives": "RED",
+      "soundsLike": "READ",
+      "note": "the past tense of read is pronounced like the colour"
+     },
+     {
+      "clueFragment": "in season",
+      "gives": "CURRANT",
+      "soundsLike": "CURRENT",
+      "note": "current means of the present time, like something in season"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who has researched a fruit dessert announces that its ingredient is in season.",
+     "walkthrough": "Summer pudding is a British dessert of bread soaked in the juice of summer berries.",
+     "definitionFit": "This small red berry is one of the traditional fruits used in that dessert, so it is one ingredient of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "studied"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +622,48 @@
      }
     ]
    },
-   "solution": "SPONGEBAGS"
+   "solution": "SPONGEBAGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPONGE BAGS",
+    "definitions": [
+     {
+      "text": "What you might see in bathroom",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bum",
+      "gives": "SPONGE",
+      "note": "to bum is to cadge or scrounge, as is to sponge"
+     },
+     {
+      "clueFragment": "trousers put on",
+      "gives": "BAGS",
+      "note": "bags are loose trousers, the kind one puts on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPONGE",
+      "BAGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A scene in the bathroom of someone's backside appearing before they pull their trousers up.",
+     "walkthrough": "'Bum' looks like a backside, but it is the verb meaning to scrounge; 'before' just places it in front.",
+     "definitionFit": "Waterproof toiletry cases holding washing kit are typically kept in or carried to a bathroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 10,
@@ -215,7 +683,45 @@
      }
     ]
    },
-   "solution": "OVID"
+   "solution": "OVID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OVID",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "40% of",
+      "for": "hidden_word",
+      "note": "a fraction of a ten-letter word means four of its letters, taken as a run from inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Providence",
+      "gives": "OVID",
+      "note": "letters three to six of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A statement that some versifier makes up a portion of a Rhode Island city or of fate.",
+     "definitionFit": "Ovid was the Roman writer of the Metamorphoses, one of the great classical Latin verse authors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Providence"
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +741,63 @@
      }
     ]
    },
-   "solution": "LOWCOUNTRIES"
+   "solution": "LOWCOUNTRIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOW COUNTRIES",
+    "definitions": [
+     {
+      "text": "Benelux",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "representation",
+      "for": "anagram",
+      "note": "a representation renders something in another form, so the quoted word is recast"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unhappy",
+      "gives": "LOW",
+      "note": "feeling low is feeling unhappy"
+     },
+     {
+      "clueFragment": "'cretinous'",
+      "gives": "CRETINOUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "COUNTRIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRETINOUS",
+       "gives": "COUNTRIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Belgians, Dutch and Luxembourgers are upset at being depicted as stupid.",
+     "definitionFit": "Belgium, the Netherlands and Luxembourg form the Benelux union and are collectively known as this low-lying region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "representation"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +811,71 @@
     "text": "Endlessly taking our Aga's dough out? Capital!",
     "enumeration": "11"
    },
-   "solution": "OUAGADOUGOU"
+   "solution": "OUAGADOUGOU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OUAGADOUGOU",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end, so each of the following four words loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Aga's",
+      "gives": "AGAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dough",
+      "gives": "DOUGH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OU",
+      "AGA",
+      "DOUG",
+      "OU"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps lifting bread dough out of the family range cooker, and an onlooker exclaims 'Capital!'",
+     "walkthrough": "An Aga is a heavy British range cooker. 'Capital!' looks like old-fashioned praise but is the definition.",
+     "definitionFit": "Ouagadougou is the seat of government of Burkina Faso in West Africa, so it is a national capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +895,61 @@
      }
     ]
    },
-   "solution": "TRUMPCARDS"
+   "solution": "TRUMPCARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRUMP CARDS",
+    "definitions": [
+     {
+      "text": "advantages",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "TRUMP",
+      "note": "Donald Trump, US president"
+     },
+     {
+      "clueFragment": "comical figure",
+      "gives": "CARD",
+      "note": "a card is an amusing, eccentric person"
+     },
+     {
+      "clueFragment": "sans",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUMP",
+      "CARD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A president and a comedian end up with no advantages at all.",
+     "definitionFit": "Playing cards from the winning suit beat others, so figuratively they are decisive resources held in reserve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sans"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +963,51 @@
     "text": "Bush's grimly humorous letter from long ago",
     "enumeration": "10"
    },
-   "solution": "BLACKTHORN"
+   "solution": "BLACKTHORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLACKTHORN",
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grimly humorous",
+      "gives": "BLACK",
+      "note": "black comedy is grim humour"
+     },
+     {
+      "clueFragment": "letter from long ago",
+      "gives": "THORN",
+      "note": "thorn is an Old English letter, þ, standing for th"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLACK",
+      "THORN"
+     ]
+    },
+    "explanation": {
+     "surface": "A former US President writes a darkly funny old letter.",
+     "walkthrough": "'Bush' looks like the American presidential family, but it is the shrub.",
+     "definitionFit": "Blackthorn, or sloe, is a thorny shrub of hedgerows with white flowers and dark fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1021,52 @@
     "text": "Tells senior churchmen to cede power",
     "enumeration": "7"
    },
-   "solution": "RELATES"
+   "solution": "RELATES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RELATES",
+    "definitions": [
+     {
+      "text": "Tells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cede",
+      "for": "deletion",
+      "note": "to cede is to give up or hand over, so something is surrendered from the churchmen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior churchmen",
+      "gives": "PRELATES",
+      "note": "prelates are bishops and other high-ranking clergy"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the abbreviation for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone instructs the bishops to give up their authority.",
+     "definitionFit": "To relate a story is to narrate or recount it, the same as telling it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tells"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1080,48 @@
     "text": "Earthly stench, ugly air's regularly expelled",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "Earthly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly expelled",
+      "for": "letter_selection",
+      "note": "throwing out at regular intervals removes every second letter, leaving the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stench, ugly air's",
+      "gives": "SECULAR",
+      "select": "alternate",
+      "note": "the first, third, fifth and every other letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECULAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A foul smell, which periodically wafts out of a room with nasty air.",
+     "definitionFit": "Secular things belong to the worldly, non-religious realm rather than the spiritual one, matching mundane worldliness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "expelled"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1135,55 @@
     "text": "Bach met liberal King",
     "enumeration": "7"
    },
-   "solution": "MACBETH"
+   "solution": "MACBETH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MACBETH",
+    "definitions": [
+     {
+      "text": "King",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberal",
+      "for": "anagram",
+      "note": "liberal means free and loose, so these letters are allowed to move freely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bach",
+      "gives": "BACH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "met",
+      "gives": "MET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BACH MET",
+       "gives": "MACBETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The composer once encountered a broad-minded monarch.",
+     "definitionFit": "Macbeth was an eleventh-century ruler of Scotland, best known as the title figure of Shakespeare's tragedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1197,42 @@
     "text": "Warhol being, to some extent, portraitist",
     "enumeration": "7"
    },
-   "solution": "HOLBEIN"
+   "solution": "HOLBEIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HOLBEIN",
+    "definitions": [
+     {
+      "text": "portraitist",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only partly, so the letters are a portion of the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warhol being",
+      "gives": "HOLBEIN",
+      "note": "the letters spanning the end of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Andy Warhol was, in a way, a painter of faces.",
+     "definitionFit": "Hans Holbein the Younger painted famous likenesses of Henry VIII and his Tudor court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Warhol"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1246,48 @@
     "text": "Train station with aspiration to become space station",
     "enumeration": "7"
    },
-   "solution": "HOUSTON"
+   "solution": "HOUSTON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HOUSTON",
+    "definitions": [
+     {
+      "text": "space station",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with aspiration",
+      "for": "homophone",
+      "note": "aspiration is a breathy H sound at the start of a spoken word, so pronunciation is what matters"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Train station",
+      "gives": "HOUSTON",
+      "soundsLike": "HEUSTON",
+      "note": "Euston is a London railway terminus; give it an H sound at the front"
+     }
+    ],
+    "explanation": {
+     "surface": "A humble railway terminus dreams of becoming an orbiting outpost.",
+     "walkthrough": "'Aspiration' looks like ambition, but here it is the phonetic term for breathing an H.",
+     "definitionFit": "NASA's mission control centre is in this Texas city, which radioed astronauts and spacecraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aspiration"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1301,60 @@
     "text": "Artist displayed headless earth-hog",
     "enumeration": "7"
    },
-   "solution": "HOGARTH"
+   "solution": "HOGARTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HOGARTH",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "with its head removed, the first letter goes"
+     },
+     {
+      "text": "displayed",
+      "for": "anagram",
+      "note": "displayed things are set out or arranged, so the letters are laid out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth-hog",
+      "gives": "EARTHHOG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOGARTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTHHOG",
+       "gives": "HOGARTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallery shows a decapitated aardvark (earth-hog is another name for one).",
+     "definitionFit": "William Hogarth was an eighteenth-century English painter and engraver of satirical scenes like A Rake's Progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 20,
@@ -391,7 +1378,76 @@
      }
     ]
    },
-   "solution": "CITYOFLIGHT"
+   "solution": "CITYOFLIGHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CITY OF LIGHT",
+    "definitions": [
+     {
+      "text": "Paris",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following release of",
+      "for": "deletion",
+      "note": "once something is released it is let go, so those letters leave the word"
+     },
+     {
+      "text": "pliable",
+      "for": "anagram",
+      "note": "something pliable can be bent into a new shape, so what remains is rearranged"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PR",
+      "gives": "PR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cypriot",
+      "gives": "CYPRIOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "FLIGHT",
+      "note": "a flight is a journey by air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CITYO",
+      "FLIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CYIOT",
+       "gives": "CITYO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After being let go by a public relations firm, an accommodating man from Cyprus flies to France.",
+     "walkthrough": "PR looks like public relations, but it is just two letters removed from CYPRIOT.",
+     "definitionFit": "The French capital's nickname, la Ville Lumière, refers to its early street lamps and Enlightenment role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 21,
@@ -405,7 +1461,50 @@
     "text": "Primarily, word hollered exhibiting exuberance?",
     "enumeration": "4"
    },
-   "solution": "WHEE"
+   "solution": "WHEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "WHEE",
+    "definitions": [
+     {
+      "text": "Primarily, word hollered exhibiting exuberance?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means in first place, so the opening letter of each following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "word hollered exhibiting exuberance",
+      "gives": "WHEE",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what you call a shout of high spirits.",
+     "walkthrough": "The whole clue is both the instruction and the definition: the initials spell out exactly such a cry.",
+     "definitionFit": "It is an exclamation of delight shouted on a fairground ride or slide, a cry of excitement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Primarily"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1518,46 @@
     "text": "Novelist's ego",
     "enumeration": "4"
    },
-   "solution": "SELF"
+   "solution": "SELF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SELF",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     },
+     {
+      "text": "ego",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novelist",
+      "note": "first meaning: Will ..., English writer of Great Apes"
+     },
+     {
+      "clueFragment": "ego",
+      "note": "second meaning: one's own identity or person"
+     }
+    ],
+    "explanation": {
+     "surface": "A comment on the vanity of a writer.",
+     "definitionFit": "The word names a contemporary English author and is also a synonym for one's individual identity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Novelist"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1571,47 @@
     "text": "Cricket captain, heartless automaton",
     "enumeration": "4"
    },
-   "solution": "ROOT"
+   "solution": "ROOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROOT",
+    "definitions": [
+     {
+      "text": "Cricket captain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "having lost its heart, the middle letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "automaton",
+      "gives": "ROBOT",
+      "note": "a robot is a mechanical automaton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at a sports team leader who plays like an unfeeling machine.",
+     "definitionFit": "Joe Root captained the England Test team from 2017 to 2022, so he is a famous skipper of the sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 24,
@@ -457,7 +1635,43 @@
      }
     ]
    },
-   "solution": "BEARWITHME"
+   "solution": "BEARWITHME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAR WITH ME",
+    "definitions": [
+     {
+      "text": "How Christopher Robin might describe himself?",
+      "at": 0
+     },
+     {
+      "text": "Hang on",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How Christopher Robin might describe himself?",
+      "note": "first meaning: Winnie-the-Pooh's young owner always has his toy animal at his side"
+     },
+     {
+      "clueFragment": "Hang on",
+      "note": "second meaning: please be patient, wait a moment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Christopher Robin is the boy in A. A. Milne's Pooh stories; the phrase splits into his companion and himself.",
+     "definitionFit": "The phrase is a polite request for patience, the same as asking someone to wait a moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "describe"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1685,49 @@
     "text": "Lucid? Regularly wiped out. Slàinte!",
     "enumeration": "4"
    },
-   "solution": "SANE"
+   "solution": "SANE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SANE",
+    "definitions": [
+     {
+      "text": "Lucid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly wiped out",
+      "for": "letter_selection",
+      "note": "removing at regular intervals deletes every second letter, keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slàinte",
+      "gives": "SANE",
+      "select": "alternate",
+      "note": "Slàinte is the Gaelic drinking toast; its first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker asks if they are still clear-headed, finds they are often legless, and raises another toast.",
+     "definitionFit": "A lucid person thinks clearly and rationally, which is what being of sound mind means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wiped"
+    }
+   }
   },
   {
    "number": 26,
@@ -495,7 +1751,44 @@
      }
     ]
    },
-   "solution": "ONTHESHELF"
+   "solution": "ONTHESHELF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE SHELF",
+    "definitions": [
+     {
+      "text": "Where some penguins are",
+      "at": 0
+     },
+     {
+      "text": "unlikely to marry",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where some penguins are",
+      "note": "first meaning: Penguin paperbacks sit on a bookcase"
+     },
+     {
+      "clueFragment": "unlikely to marry",
+      "note": "second meaning: past the age when people expect a wedding"
+     }
+    ],
+    "explanation": {
+     "surface": "Some flightless birds are said to have poor prospects of finding a mate.",
+     "walkthrough": "Penguin is a British publisher of paperbacks, so the birds are really books.",
+     "definitionFit": "The idiom describes someone considered too old or unattractive to find a spouse, and literally where books are stored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "penguins"
+    }
+   }
   }
  ]
 }

@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Black taxi in Hackney, say",
     "enumeration": "7"
    },
-   "solution": "MACABRE"
+   "solution": "MACABRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACABRE",
+    "definitions": [
+     {
+      "text": "Black",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another means the first word's letters sit inside the second's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hackney, say",
+      "gives": "MARE",
+      "note": "a hackney is a breed of horse, and a mare is one kind of horse, so 'say' marks an example"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CAB",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A black London cab out on the streets of Hackney, an East London borough.",
+     "walkthrough": "Hackney looks like the London borough a black cab drives through; here it is a breed of horse.",
+     "definitionFit": "Black humour is grim, gruesome comedy, and macabre describes exactly that dark, death-obsessed quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hackney"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +98,45 @@
     "text": "Reptilian old fogey on the radio?",
     "enumeration": "4"
    },
-   "solution": "CROC"
+   "solution": "CROC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CROC",
+    "definitions": [
+     {
+      "text": "Reptilian",
+      "at": 0,
+      "note": "adjective clueing a noun: a croc is a reptilian creature"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "something heard on the radio is only heard, so we go by sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old fogey",
+      "gives": "CROC",
+      "soundsLike": "CROCK",
+      "note": "an old crock is a worn-out, decrepit old person"
+     }
+    ],
+    "explanation": {
+     "surface": "A cold-blooded old bore holding forth on a radio programme.",
+     "definitionFit": "A croc is the short informal name for a crocodile, which is a large reptile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reptilian"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +150,49 @@
     "text": "Antipodean, also in French and English",
     "enumeration": "6"
    },
-   "solution": "AUSSIE"
+   "solution": "AUSSIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUSSIE",
+    "definitions": [
+     {
+      "text": "Antipodean",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also in French",
+      "gives": "AUSSI",
+      "note": "aussi is the French word for also"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSSI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Down Under who speaks French as well as English.",
+     "definitionFit": "The Antipodes means Australia and New Zealand, and an Aussie is an Australian, a native of that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "also"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +212,55 @@
      }
     ]
    },
-   "solution": "STAKEOUT"
+   "solution": "STAKEOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STAKE-OUT",
+    "definitions": [
+     {
+      "text": "Observation of suspect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter in",
+      "for": "letter_selection",
+      "note": "a starter comes at the beginning, so only the opening letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "savoury",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of savoury"
+     },
+     {
+      "clueFragment": "meal to go",
+      "gives": "TAKEOUT",
+      "note": "a takeout is a meal bought to eat elsewhere, food to go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAKEOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives watching a suspect order a savoury starter as a takeaway.",
+     "definitionFit": "A stakeout is a police surveillance operation, keeping a watch on a suspect or place for some time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +280,50 @@
      }
     ]
    },
-   "solution": "CHICKENOUT"
+   "solution": "CHICKENOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICKEN OUT",
+    "definitions": [
+     {
+      "text": "Back away",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "CHICKEN",
+      "note": "a chicken is a bird"
+     },
+     {
+      "clueFragment": "having escaped",
+      "gives": "OUT",
+      "note": "an escaped animal is out of its pen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHICKEN",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone retreats from a fight, like a hen that has got loose from the coop.",
+     "definitionFit": "To chicken out is to withdraw from something through fear, which is a cowardly retreat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +337,62 @@
     "text": "A record maintained in vote against similar relationship, explained",
     "enumeration": "7"
    },
-   "solution": "ANALOGY"
+   "solution": "ANALOGY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANALOGY",
+    "definitions": [
+     {
+      "text": "similar relationship, explained",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintained in",
+      "for": "container",
+      "note": "something maintained in a thing is held within it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vote against",
+      "gives": "NAY",
+      "note": "nay is a vote against, as in ayes and nays"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a record, as in a ship's log"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NA",
+      "LOG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A record kept of a no vote, set against a comparable case.",
+     "walkthrough": "Nay is the parliamentary word for a vote against, as in 'the ayes and the nays'.",
+     "definitionFit": "An analogy explains something by comparing it with a parallel case, drawing out a likeness between two things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maintained"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +406,63 @@
     "text": "Helmet worn by Irish copper — style!",
     "enumeration": "7"
    },
-   "solution": "HAIRCUT"
+   "solution": "HAIRCUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HAIRCUT",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "a hat worn by someone sits around them, so the helmet goes outside the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Helmet",
+      "gives": "HAT",
+      "note": "a helmet is a kind of hat"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is an abbreviation for Irish"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "IR",
+      "CU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An Irish policeman in his helmet makes a fashion statement.",
+     "walkthrough": "Copper suggests a policeman in a helmet, but it is the metal, symbol Cu. HA(IR CU)T.",
+     "definitionFit": "A haircut is the style in which a person's hair is cut and shaped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +476,53 @@
     "text": "Work of art that’s beautiful, though first scratched?",
     "enumeration": "7"
    },
-   "solution": "ETCHING"
+   "solution": "ETCHING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETCHING",
+    "definitions": [
+     {
+      "text": "Work of art",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first scratched",
+      "for": "deletion",
+      "note": "scratched means struck out, and first says it is the opening letter that goes"
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beautiful",
+      "gives": "FETCHING",
+      "note": "fetching means attractive or beautiful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETCHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely print that was made by scratching into a plate.",
+     "walkthrough": "FETCHING loses its F. The surface is apt, since an etching is made by scratching lines into a metal plate.",
+     "definitionFit": "An etching is a print made from a plate whose design was cut by acid, a recognised form of artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scratched"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +542,51 @@
      }
     ]
    },
-   "solution": "SITTINGDUCK"
+   "solution": "SITTINGDUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SITTING DUCK",
+    "definitions": [
+     {
+      "text": "defenceless individual",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Session",
+      "gives": "SITTING",
+      "note": "a sitting is a session, as of a court or a portrait painter"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "DUCK",
+      "note": "in cricket a duck is a score of nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SITTING",
+      "DUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting that achieves nothing to help the vulnerable.",
+     "walkthrough": "A duck is a batsman's score of zero in cricket.",
+     "definitionFit": "A sitting duck is an easy target, someone exposed to attack and unable to protect themselves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Session"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +600,55 @@
     "text": "Thin piece of wood put alongside similar piece?",
     "enumeration": "10"
    },
-   "solution": "MATCHSTICK"
+   "solution": "MATCHSTICK",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "MATCHSTICK",
+    "definitions": [
+     {
+      "text": "Thin piece of wood put alongside similar piece?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put alongside",
+      "for": "charade",
+      "note": "put alongside means placed next to, so the two pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "similar piece",
+      "gives": "MATCH",
+      "note": "a match is a thin piece of wood too, so it is a similar piece"
+     },
+     {
+      "clueFragment": "Thin piece of wood",
+      "gives": "STICK",
+      "note": "a stick is a thin piece of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATCH",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A sliver of timber is laid next to another like it.",
+     "walkthrough": "The whole clue doubles as the definition: a stick set next to a match describes the answer, and the question mark flags the double duty.",
+     "definitionFit": "A matchstick is the slender wooden shaft of a match, literally a stick joined to a match head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +662,48 @@
     "text": "Drink some sentimental octogenarian knocked over",
     "enumeration": "4"
    },
-   "solution": "COLA"
+   "solution": "COLA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "COLA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used, a run of letters inside them"
+     },
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over is upended, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sentimental octogenarian",
+      "gives": "ALOC",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A soppy old person in their eighties spills a drink.",
+     "definitionFit": "Cola is a sweet fizzy soft drink flavoured with kola nut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +717,62 @@
     "text": "Hope for power in cult",
     "enumeration": "8"
    },
-   "solution": "PROSPECT"
+   "solution": "PROSPECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROSPECT",
+    "definitions": [
+     {
+      "text": "Hope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another means its letters go inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of, for"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "cult",
+      "gives": "SECT",
+      "note": "a sect is a cult or religious faction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "S",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wish for influence within a religious cult.",
+     "walkthrough": "Only the power sits inside the cult; 'for' stays in front as a separate piece.",
+     "definitionFit": "A prospect is a possibility or expectation of something in the future, much like a hope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +792,50 @@
      }
     ]
    },
-   "solution": "SWEATGLAND"
+   "solution": "SWEATGLAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEAT GLAND",
+    "definitions": [
+     {
+      "text": "One of those active during strenuous exercise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in knots",
+      "for": "anagram",
+      "note": "something in knots is twisted and tangled up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was tangled",
+      "gives": "WASTANGLED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WASTANGLED",
+       "gives": "SWEATGLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working out hard got tied up in knots.",
+     "definitionFit": "Sweat glands in the skin secrete perspiration, so they work hardest when the body is exerted in a workout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tangled"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +855,66 @@
      }
     ]
    },
-   "solution": "ONEDGE"
+   "solution": "ONEDGE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ON EDGE",
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     },
+     {
+      "text": "having backfired",
+      "for": "reversal",
+      "note": "something that has backfired has gone the wrong way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "personal pride",
+      "gives": "EGO",
+      "note": "ego is a sense of self-importance or personal pride"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "DEN",
+      "note": "a den is a private room for work, a study or office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NED",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDENO",
+       "to": "ONEDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous person whose self-importance at work has come back to bite them.",
+     "definitionFit": "To be on edge is an idiom meaning tense, nervous or jumpy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backfired"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +928,51 @@
     "text": "Where one goes to India, sent abroad",
     "enumeration": "11"
    },
-   "solution": "DESTINATION"
+   "solution": "DESTINATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESTINATION",
+    "definitions": [
+     {
+      "text": "Where one goes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean widely scattered, so the letters are dispersed and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to India, sent",
+      "gives": "TOINDIASENT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOINDIASENT",
+       "gives": "DESTINATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone posted overseas heads off to India.",
+     "walkthrough": "'Where one goes to' reads naturally as a phrase, but 'to' belongs with the letters to rearrange.",
+     "definitionFit": "A destination is the place a person is travelling toward, the end point of a journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +992,74 @@
      }
     ]
    },
-   "solution": "TIREDOUT"
+   "solution": "TIREDOUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TIRED OUT",
+    "definitions": [
+     {
+      "text": "All in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over or disturbed, so the letters are put in a new order"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is wanted"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detroit",
+      "gives": "DETROIT",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "unemployment",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of unemployment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIREDO",
+      "U",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DETROIT",
+       "gives": "TIREDOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers in Detroit, the US car-making city, are exhausted and distressed by joblessness.",
+     "walkthrough": "All in is British slang for exhausted, not a gambling term here.",
+     "definitionFit": "Being all in means completely worn out, just as tired out means utterly exhausted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "All"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1073,42 @@
     "text": "Musician, 24 Down supposedly?",
     "enumeration": "7"
    },
-   "solution": "FIDDLER"
+   "solution": "FIDDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDDLER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     },
+     {
+      "text": "24 Down supposedly",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musician",
+      "note": "first meaning: a violinist, especially in folk music"
+     },
+     {
+      "clueFragment": "24 Down supposedly",
+      "note": "second meaning: Nero is said to have fiddled while Rome burned"
+     }
+    ],
+    "explanation": {
+     "surface": "Was the emperor at 24 Down really a performer?",
+     "walkthrough": "24 Down is NERO; the legend that he played the fiddle while Rome burned is doubtful, hence 'supposedly'.",
+     "definitionFit": "A fiddler plays the violin, and legend casts the Roman emperor as one who played while his city went up in flames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1122,48 @@
     "text": "Biscuit that’s alcoholic?",
     "enumeration": "7"
    },
-   "solution": "BOURBON"
+   "solution": "BOURBON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOURBON",
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     },
+     {
+      "text": "alcoholic",
+      "at": 15,
+      "note": "adjective clueing a noun: bourbon is an alcoholic drink"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biscuit",
+      "note": "first meaning: a British chocolate sandwich biscuit with a chocolate cream filling"
+     },
+     {
+      "clueFragment": "alcoholic",
+      "note": "second meaning: an American whiskey distilled mainly from corn"
+     }
+    ],
+    "explanation": {
+     "surface": "Is there booze in this biscuit?",
+     "walkthrough": "A bourbon is a familiar British biscuit: two oblong chocolate biscuits with chocolate cream between.",
+     "definitionFit": "The same name covers a chocolate cream biscuit in Britain and a corn whiskey from Kentucky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "alcoholic"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1177,43 @@
     "text": "Drink with a horrid taste?",
     "enumeration": "6"
    },
-   "solution": "BITTER"
+   "solution": "BITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BITTER",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     },
+     {
+      "text": "with a horrid taste",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "note": "first meaning: a British style of draught beer, strongly hopped"
+     },
+     {
+      "clueFragment": "with a horrid taste",
+      "note": "second meaning: sharp and unpleasant on the tongue"
+     }
+    ],
+    "explanation": {
+     "surface": "A drink that tastes awful.",
+     "walkthrough": "In Britain bitter is a type of pale beer served in pubs.",
+     "definitionFit": "The word names an English ale and also the sharp, acrid flavour of things like strong coffee or quinine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1227,49 @@
     "text": "Complete race for some charity",
     "enumeration": "8"
    },
-   "solution": "DONATION"
+   "solution": "DONATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONATION",
+    "definitions": [
+     {
+      "text": "some charity",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complete",
+      "gives": "DO",
+      "note": "to do a task is to complete it"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "NATION",
+      "note": "a nation is a people or race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Finishing a sponsored run to raise money for a good cause.",
+     "definitionFit": "A donation is a gift of money, and charity in this sense means alms given to those in need."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1283,58 @@
     "text": "Caught, felon ultimately suffered",
     "enumeration": "6"
    },
-   "solution": "NAILED"
+   "solution": "NAILED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NAILED",
+    "definitions": [
+     {
+      "text": "Caught",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the last letter is wanted"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felon",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of felon"
+     },
+     {
+      "clueFragment": "suffered",
+      "gives": "AILED",
+      "note": "ailed means was unwell, suffered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AILED"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal is arrested and eventually pays the price.",
+     "definitionFit": "Nailed is informal for caught or arrested, as when police finally pin a culprit down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1348,44 @@
     "text": "Great actor resting, by the sound of it?",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "Great actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by sound means the word is heard, not read, so spelling can change"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resting",
+      "gives": "IDOL",
+      "soundsLike": "IDLE",
+      "note": "idle means inactive or resting; actors call being out of work resting"
+     }
+    ],
+    "explanation": {
+     "surface": "A celebrated star between jobs, which actors politely call resting.",
+     "definitionFit": "An idol is a much-admired celebrity, a star worshipped by fans, which suits a great actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resting"
+    }
+   }
   },
   {
    "number": 23,
@@ -376,7 +1399,56 @@
     "text": "Reference that’s indicatory, with arrangement of letters?",
     "enumeration": "10"
    },
-   "solution": "DICTIONARY"
+   "solution": "DICTIONARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DICTIONARY",
+    "definitions": [
+     {
+      "text": "Reference",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement puts things into a fresh order, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "that’s",
+     "with",
+     "of letters"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indicatory",
+      "gives": "INDICATORY",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INDICATORY",
+       "gives": "DICTIONARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reference book that points the way, its letters set in order.",
+     "walkthrough": "Fittingly, a dictionary is itself an arrangement of letters, alphabetically ordered words.",
+     "definitionFit": "A dictionary is a reference book listing words with their meanings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "indicatory"
+    }
+   }
   },
   {
    "number": 24,
@@ -390,7 +1462,54 @@
     "text": "Emperor certainly not impressing queen",
     "enumeration": "4"
    },
-   "solution": "NERO"
+   "solution": "NERO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NERO",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impressing",
+      "for": "container",
+      "note": "impressing means pressing into, so the second piece is held within the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certainly not",
+      "gives": "NO",
+      "note": "no is a firm refusal"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina, Queen Elizabeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An emperor fails to win over the queen.",
+     "definitionFit": "Nero was a Roman ruler of the first century AD, one of the most notorious of the Caesars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impressing"
+    }
+   }
   },
   {
    "number": 25,
@@ -404,7 +1523,50 @@
     "text": "Shocking in-house reforms",
     "enumeration": "7"
    },
-   "solution": "HEINOUS"
+   "solution": "HEINOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEINOUS",
+    "definitions": [
+     {
+      "text": "Shocking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "to reform is to form again, so the letters are reshaped into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in-house",
+      "gives": "INHOUSE",
+      "note": "the letters to rearrange, hyphen ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INHOUSE",
+       "gives": "HEINOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Internal company changes cause outrage.",
+     "definitionFit": "Heinous means wicked or atrocious, so outrageous that it appals people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 26,
@@ -418,7 +1580,65 @@
     "text": "Space where Othello, for example, returned on stage",
     "enumeration": "7"
    },
-   "solution": "LEGROOM"
+   "solution": "LEGROOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEGROOM",
+    "definitions": [
+     {
+      "text": "Space",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey or race"
+     },
+     {
+      "clueFragment": "Othello, for example",
+      "gives": "MOOR",
+      "note": "Shakespeare's Othello is the Moor of Venice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "ROOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOOR",
+       "to": "ROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor playing Othello comes back on stage.",
+     "walkthrough": "'Stage' suggests a theatre with Othello on it, but it is a leg of a journey.",
+     "definitionFit": "Legroom is the space available for a seated person's legs, as in a car or aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   }
  ]
 }
