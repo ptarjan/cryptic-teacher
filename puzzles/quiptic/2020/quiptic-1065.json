@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Agreeable friend with a place to eat",
     "enumeration": "9"
    },
-   "solution": "PALATABLE"
+   "solution": "PALATABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALATABLE",
+    "definitions": [
+     {
+      "text": "Agreeable",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "place to eat",
+      "gives": "TABLE",
+      "note": "you sit at a table for meals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "A",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant friend who also owns somewhere to have dinner.",
+     "definitionFit": "Palatable food is pleasant to taste, and by extension a palatable idea is acceptable or agreeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,46 @@
     "text": "Quiet noble paragon",
     "enumeration": "5"
    },
-   "solution": "PEARL"
+   "solution": "PEARL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEARL",
+    "definitions": [
+     {
+      "text": "paragon",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "noble",
+      "gives": "EARL",
+      "note": "an earl is a nobleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EARL"
+     ]
+    },
+    "explanation": {
+     "surface": "A softly spoken aristocrat who is a model of virtue.",
+     "definitionFit": "Figuratively a pearl is a person of great worth, a prized example held up for admiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noble"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,59 @@
     "text": "Wash and clean regularly beneath",
     "enumeration": "7"
    },
-   "solution": "LAUNDER"
+   "solution": "LAUNDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAUNDER",
+    "definitions": [
+     {
+      "text": "Wash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking every other letter at even intervals from the word clean"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "LA",
+      "select": "alternate",
+      "note": "the second and fourth letters of clean"
+     },
+     {
+      "clueFragment": "beneath",
+      "gives": "UNDER",
+      "note": "beneath means under"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UNDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for doing the washing and cleaning the floor underneath often.",
+     "walkthrough": "'Wash and clean' looks like a single domestic definition, but only 'Wash' defines; 'clean' supplies letters.",
+     "definitionFit": "To launder clothes is to wash and iron them; the word comes from the same root as laundry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clean"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +217,58 @@
     "text": "Article meant, initially, for the others",
     "enumeration": "4"
    },
-   "solution": "THEM"
+   "solution": "THEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THEM",
+    "definitions": [
+     {
+      "text": "the others",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter only of the word meant"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "meant",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of meant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece written with other people in mind.",
+     "definitionFit": "The pronoun refers to a group of other people apart from the speaker, as in us and them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +282,48 @@
     "text": "Food served up in coffee breaks",
     "enumeration": "4"
    },
-   "solution": "BEEF"
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow, spanning the gap between them"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coffee breaks",
+      "gives": "FEEB",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Something to eat offered during office tea breaks.",
+     "definitionFit": "Meat from cattle is a staple foodstuff, so this is an example of the broader category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +337,51 @@
     "text": "Origin of old drawing",
     "enumeration": "10"
    },
-   "solution": "EXTRACTION"
+   "solution": "EXTRACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTRACTION",
+    "definitions": [
+     {
+      "text": "Origin",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "drawing",
+      "gives": "TRACTION",
+      "note": "traction is the action of drawing or pulling a load"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "The source of an antique sketch or picture.",
+     "walkthrough": "'Drawing' suggests art, but here it means pulling.",
+     "definitionFit": "Someone of Irish extraction has Irish ancestry, so the word means descent or lineage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +395,53 @@
     "text": "Snake artist follows horse",
     "enumeration": "5"
    },
-   "solution": "COBRA"
+   "solution": "COBRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COBRA",
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows tells you the artist's letters are placed after those of the horse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "COB",
+      "note": "a cob is a sturdy short-legged horse"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COB",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter rides behind a horse.",
+     "definitionFit": "A venomous hooded serpent of Africa and Asia, a specific kind of the reptile named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "follows"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +461,47 @@
      }
     ]
    },
-   "solution": "CORNERSHOP"
+   "solution": "CORNERSHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORNER SHOP",
+    "definitions": [
+     {
+      "text": "Convenience store",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monopolises",
+      "gives": "CORNERS",
+      "note": "to corner a market is to monopolise it"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "HOP",
+      "note": "to hop is to spring or jump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORNERS",
+      "HOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A local shop dominates trade during the springtime.",
+     "walkthrough": "The split is not CORNER + SHOP: the S belongs to 'monopolises'.",
+     "definitionFit": "A small local British grocer open long hours, sometimes literally on a street corner, selling everyday goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +515,51 @@
     "text": "Black rabbit on bush",
     "enumeration": "7"
    },
-   "solution": "BRAMBLE"
+   "solution": "BRAMBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAMBLE",
+    "definitions": [
+     {
+      "text": "bush",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "B is the pencil abbreviation for black"
+     },
+     {
+      "clueFragment": "rabbit",
+      "gives": "RAMBLE",
+      "note": "to rabbit (on) is British slang for chattering, i.e. to ramble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark-furred rabbit sitting on a shrub.",
+     "walkthrough": "'Rabbit' is not the animal: in British slang to rabbit is to talk at length.",
+     "definitionFit": "The blackberry plant is a thorny shrub, so the word names a particular kind of prickly bush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +573,75 @@
     "text": "Stories are sadly second-rate, without a hint of realism",
     "enumeration": "9"
    },
-   "solution": "ANECDOTES"
+   "solution": "ANECDOTES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "ANECDOTES",
+    "definitions": [
+     {
+      "text": "Stories",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means a letter is to be removed from the fodder"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters are jumbled"
+     },
+     {
+      "text": "a hint of",
+      "for": "deletion",
+      "note": "a hint of means only the opening letter of the following word is what goes missing"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second-rate",
+      "gives": "SECONDRATE",
+      "note": "taken as written, ignoring the hyphen"
+     },
+     {
+      "clueFragment": "realism",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of realism, the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANECDOTES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECONDATE",
+       "gives": "ANECDOTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic complains that some stories are poor and unrealistic.",
+     "walkthrough": "'are' is just the link, not part of the fodder; the ten letters of the hyphenated word lose one.",
+     "definitionFit": "Anecdotes are short amusing or interesting accounts of real incidents, a kind of story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +661,68 @@
      }
     ]
    },
-   "solution": "AMUSEMENTARCADE"
+   "solution": "AMUSEMENTARCADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AMUSEMENT ARCADE",
+    "definitions": [
+     {
+      "text": "place with slot machines",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered letters are thrown about and land in a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the jumbled letters go around another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cremated seaman",
+      "gives": "CREMATEDSEAMAN",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "U",
+      "SEMENTARCADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREMATEDSEAMAN",
+       "gives": "AMSEMENTARCADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's ashes are strewn around a smart seaside gaming hall.",
+     "walkthrough": "U for upper-class is a crossword convention; the anagram's letters wrap around it.",
+     "definitionFit": "This seaside venue is full of coin-operated games, fruit machines and penny falls for entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Cremated"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +736,54 @@
     "text": "Place holding dead woman",
     "enumeration": "4"
    },
-   "solution": "LADY"
+   "solution": "LADY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LADY",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means one word grips another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "LAY",
+      "note": "to lay is to place or put down"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "d is the abbreviation for dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A location where a deceased woman is kept.",
+     "definitionFit": "A polite general term for any adult female person, as in ladies and gentlemen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +803,64 @@
      }
     ]
    },
-   "solution": "WATERBED"
+   "solution": "WATERBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WATER BED",
+    "definitions": [
+     {
+      "text": "sleep here?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so those letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give drink",
+      "gives": "WATER",
+      "note": "to water animals or plants is to give them a drink"
+     },
+     {
+      "clueFragment": "upper-class young woman",
+      "gives": "DEB",
+      "note": "a deb (debutante) is a young upper-class woman entering society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "BED"
+     ],
+     "reversals": [
+      {
+       "from": "DEB",
+       "to": "BED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Offering a drink to a society girl coming back to bed.",
+     "walkthrough": "The question mark flags a definition by example: this is one place where you might sleep.",
+     "definitionFit": "A mattress filled with liquid is something people lie on at night, a place for slumber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +874,70 @@
     "text": "Aggressive dog is able to back up promises",
     "enumeration": "10"
    },
-   "solution": "PUGNACIOUS"
+   "solution": "PUGNACIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PUGNACIOUS",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back up",
+      "for": "reversal",
+      "note": "in a down entry, going back up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PUG",
+      "note": "a pug is a small breed of dog"
+     },
+     {
+      "clueFragment": "is able",
+      "gives": "CAN",
+      "note": "can means is able"
+     },
+     {
+      "clueFragment": "promises",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUG",
+      "NAC",
+      "IOUS"
+     ],
+     "reversals": [
+      {
+       "from": "CAN",
+       "to": "NAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fierce dog can be relied upon to support its pledges.",
+     "walkthrough": "'Back up' looks like 'support' but is the reversal signal; IOU is short for 'I owe you'.",
+     "definitionFit": "Someone pugnacious is eager to argue or fight, combative and belligerent by nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +957,71 @@
      }
     ]
    },
-   "solution": "DEEPSEATED"
+   "solution": "DEEPSEATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEEP-SEATED",
+    "definitions": [
+     {
+      "text": "entrenched",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word for race is flipped end to end"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Race",
+      "gives": "SPEED",
+      "note": "to speed is to race"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "EAT",
+      "note": "to eat someone is to bother them, as in what's eating you"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ed, short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEEPS",
+      "EAT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "SPEED",
+       "to": "DEEPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter is distressed when a competition ends.",
+     "walkthrough": "'upset' is a verb meaning to trouble, which is one sense of eat.",
+     "definitionFit": "A deep-seated belief or fear is firmly fixed and hard to remove, which is what entrenched describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1035,53 @@
     "text": "Port uncle drunk getting fat",
     "enumeration": "9"
    },
-   "solution": "CORPULENT"
+   "solution": "CORPULENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORPULENT",
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so these letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Port uncle",
+      "gives": "PORTUNCLE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PORTUNCLE",
+       "gives": "CORPULENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle who drinks too much port is putting on weight.",
+     "definitionFit": "Corpulent is a formal adjective for a person who is stout and overweight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1095,55 @@
     "text": "Heads below box trees",
     "enumeration": "9"
    },
-   "solution": "CHESTNUTS"
+   "solution": "CHESTNUTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHESTNUTS",
+    "definitions": [
+     {
+      "text": "trees",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "below in a down entry means the heads come under the box when written top to bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box",
+      "gives": "CHEST",
+      "note": "a chest is a large box"
+     },
+     {
+      "clueFragment": "Heads",
+      "gives": "NUTS",
+      "note": "nut is slang for head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEST",
+      "NUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Plants growing beneath hedges of box trees.",
+     "walkthrough": "'box' looks like the shrub in a scene about trees, but it is a container.",
+     "definitionFit": "Horse and sweet varieties of this tree are common in parks, producing glossy brown seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1157,46 @@
     "text": "Smell small American coin",
     "enumeration": "5"
    },
-   "solution": "SCENT"
+   "solution": "SCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCENT",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s is the abbreviation for small"
+     },
+     {
+      "clueFragment": "American coin",
+      "gives": "CENT",
+      "note": "a US coin worth one hundredth of a dollar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffs at a tiny piece of US currency.",
+     "definitionFit": "A scent is an odour or perfume, the noun sense of what the nose detects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Smell"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1216,52 @@
      }
     ]
    },
-   "solution": "EGGON"
+   "solution": "EGGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGG ON",
+    "definitions": [
+     {
+      "text": "Encourage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g., exempli gratia"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the abbreviation for good"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "ON",
+      "note": "on means touching, as in a cup on a table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "G",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging someone on, citing 'good' as an example in contact.",
+     "definitionFit": "To egg someone on is an idiom meaning to urge them to do something, often foolish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touching"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1275,43 @@
     "text": "On the radio, visitor conjectured",
     "enumeration": "7"
    },
-   "solution": "GUESSED"
+   "solution": "GUESSED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUESSED",
+    "definitions": [
+     {
+      "text": "conjectured",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the radio",
+      "for": "homophone",
+      "note": "on the radio you hear words rather than see them, so the spelling may differ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visitor",
+      "gives": "GUESSED",
+      "soundsLike": "GUEST",
+      "note": "a guest is a visitor"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcast in which a visiting speaker speculated.",
+     "definitionFit": "To conjecture is to form an opinion without proof, which is to estimate or speculate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visitor"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1325,63 @@
     "text": "Trunk for leader taking in Channel Islands",
     "enumeration": "9"
    },
-   "solution": "PROBOSCIS"
+   "solution": "PROBOSCIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PROBOSCIS",
+    "definitions": [
+     {
+      "text": "Trunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking in means absorbing something inside, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "BOSS",
+      "note": "a boss leads others"
+     },
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "CI is the abbreviation for the Channel Islands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "BOS",
+      "CI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trunk shipped for a chief who is visiting Jersey and Guernsey.",
+     "walkthrough": "'for' looks like a link word but supplies letters; the Channel Islands lie between England and France.",
+     "definitionFit": "An elephant's long flexible nose is its trunk; the formal zoological name for it is this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trunk"
+    }
+   }
   },
   {
    "number": 19,
@@ -357,7 +1395,60 @@
     "text": "Friendly face seen beside choir regularly",
     "enumeration": "7"
    },
-   "solution": "CORDIAL"
+   "solution": "CORDIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CORDIAL",
+    "definitions": [
+     {
+      "text": "Friendly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at even intervals, here the odd positions of choir"
+     },
+     {
+      "text": "seen beside",
+      "for": "charade",
+      "note": "seen beside says the two pieces sit next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choir",
+      "gives": "COR",
+      "select": "alternate",
+      "note": "first, third and fifth letters of choir"
+     },
+     {
+      "clueFragment": "face",
+      "gives": "DIAL",
+      "note": "dial is slang for face, and also the face of a clock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "DIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A warm smiling face spotted next to a group of singers.",
+     "definitionFit": "A cordial welcome is warm and sincere, so the adjective means genial and amiable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "face"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1462,62 @@
     "text": "Ditches new child in forest?",
     "enumeration": "8"
    },
-   "solution": "TRENCHES"
+   "solution": "TRENCHES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRENCHES",
+    "definitions": [
+     {
+      "text": "Ditches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the first pieces go inside the word for forest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n is the abbreviation for new"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "ch is the abbreviation for child"
+     },
+     {
+      "clueFragment": "forest",
+      "gives": "TREES",
+      "note": "a forest is made of trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "NCH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons a newborn in the woods.",
+     "walkthrough": "'Ditches' reads as a verb meaning abandons, but it is the plural noun; the question mark admits forest for trees is loose.",
+     "definitionFit": "Trenches are long narrow excavations, which is what the plural noun ditches describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ditches"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1531,42 @@
     "text": "New rental housing bird",
     "enumeration": "4"
    },
-   "solution": "WREN"
+   "solution": "WREN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WREN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means the preceding words contain the answer within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New rental",
+      "gives": "WREN",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A recently let flat is home to a small bird.",
+     "definitionFit": "A tiny brown songbird with a cocked tail, a specific example of the general class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1580,50 @@
     "text": "Requires dense brew",
     "enumeration": "5"
    },
-   "solution": "NEEDS"
+   "solution": "NEEDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEEDS",
+    "definitions": [
+     {
+      "text": "Requires",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brew",
+      "for": "anagram",
+      "note": "a brew is something mixed and stirred, so the letters are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dense",
+      "gives": "DENSE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENSE",
+       "gives": "NEEDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a strong, thick cup of tea.",
+     "definitionFit": "Both verbs mean must have or lacks something essential, in the third person singular form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brew"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1637,48 @@
     "text": "Heads of some military units get complacent",
     "enumeration": "4"
    },
-   "solution": "SMUG"
+   "solution": "SMUG",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SMUG",
+    "definitions": [
+     {
+      "text": "complacent",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "heads are the front ends, so take the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some military units get",
+      "gives": "SMUG",
+      "select": "first",
+      "note": "first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMUG"
+     ]
+    },
+    "explanation": {
+     "surface": "Commanders of certain army formations become self-satisfied.",
+     "definitionFit": "Being self-satisfied and overly pleased with one's own position is the shared sense of both adjectives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heads"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1692,55 @@
     "text": "Smack climbing insect",
     "enumeration": "4"
    },
-   "solution": "GNAT"
+   "solution": "GNAT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GNAT",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down entry means the letters go upwards, read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smack",
+      "gives": "TANG",
+      "note": "a smack is a slight taste or flavour, a tang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNAT"
+     ],
+     "reversals": [
+      {
+       "from": "TANG",
+       "to": "GNAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swatting a bug as it crawls up the wall.",
+     "walkthrough": "'Smack' suggests a slap, but here it is a noun for flavour, as in smacks of.",
+     "definitionFit": "A small two-winged fly that often bites, so it is one particular sort of insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Smack"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1754,54 @@
     "text": "Random insolent mark-ups? It's just not cricket",
     "enumeration": "15"
    },
-   "solution": "UNSPORTSMANLIKE"
+   "solution": "UNSPORTSMANLIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNSPORTSMANLIKE",
+    "definitions": [
+     {
+      "text": "just not cricket",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Random",
+      "for": "anagram",
+      "note": "random means without any set order, so the letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insolent mark-ups",
+      "gives": "INSOLENTMARKUPS",
+      "note": "the fodder, taken as written, ignoring the hyphen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSOLENTMARKUPS",
+       "gives": "UNSPORTSMANLIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arbitrary, cheeky price rises are simply unfair.",
+     "walkthrough": "'Not cricket' is a British idiom for unfair behaviour, from the game's code of fair play.",
+     "definitionFit": "Behaviour that breaks the code of fair play in games is unfair, which the idiom describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mark-ups"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1815,53 @@
     "text": "Edges left out of playground features",
     "enumeration": "5"
    },
-   "solution": "SIDES"
+   "solution": "SIDES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SIDES",
+    "definitions": [
+     {
+      "text": "Edges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means the letter is taken away from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playground features",
+      "gives": "SLIDES",
+      "note": "slides are fixtures in a playground"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l is the abbreviation for left, the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "The borders were omitted from the playground's equipment.",
+     "definitionFit": "The outer boundaries or margins of something are its flanks, as in the edges of a field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1875,60 @@
     "text": "Numbers swallowing a lithium drug",
     "enumeration": "9"
    },
-   "solution": "DIGITALIS"
+   "solution": "DIGITALIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIGITALIS",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing means taking something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "gives": "DIGITS",
+      "note": "digits are numbers"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lithium",
+      "gives": "LI",
+      "note": "Li is the chemical symbol for lithium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGIT",
+      "ALI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Figures on someone's intake of a lithium-based medicine.",
+     "definitionFit": "A heart medication extracted from foxglove leaves, used to treat heart failure and irregular rhythm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Numbers"
+    }
+   }
   }
  ]
 }
