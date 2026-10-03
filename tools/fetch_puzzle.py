@@ -3101,6 +3101,10 @@ SOURCE_CLUE_WRONG = {
         "Sailors’ stew. with highball from Liverpool",
         "Sailors’ stew with highball from Liverpool",
         "OCR misread: a stray full stop after stew"),
+    ("book-4034", "7-down"): (
+        "Takea turn for the worse. Screw up the inflation rate",
+        "Take a turn for the worse. Screw up the inflation rate",
+        "OCR misread: the first definition needs Take a, two words"),
 }
 
 
