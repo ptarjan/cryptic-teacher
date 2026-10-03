@@ -1898,6 +1898,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17036", "13-down"): (
+        "A player, bat no true gentleman",
+        "A player, but no true gentleman",
+        "OCR misread: the sense needs 'but', a professional yet no true amateur"),
     ("times-17723", "20-across"): (
         "Hall fellow? Well, mel in short!",
         "Hail fellow? Well, met in short!",
