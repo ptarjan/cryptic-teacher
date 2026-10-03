@@ -5,6 +5,7 @@ numbers nothing else holds.
     python3 tools/fetch_times_feed.py --walk      # cache every Quick the feed has
     python3 tools/fetch_times_feed.py --gaps      # look again for numbers it skipped
     python3 tools/fetch_times_feed.py --file      # file the cached ones not on disk
+    python3 tools/fetch_times_feed.py --first     # fetch and file No 1 alone
     python3 tools/fetch_times_feed.py --dry-run --file
 
 feeds.thetimes.co.uk/puzzles/crossword/<YYYYMMDD>/<id>/data.json is the JSON
@@ -14,7 +15,8 @@ when the date is the puzzle's print date and the id is its own, and lists
 nothing, so the walk finds each puzzle from the last: the feed numbers a
 series' puzzles in batches of consecutive ids, so the next Quick is a few ids
 on and a day later, and a week's batch may sit hundreds of ids from the last,
-so the search widens outward from the last id until it finds the next. Only found puzzles are cached, one file per puzzle in
+so the search widens outward from the last id, and from the ids the blog's
+own links to the feed give for the fortnight ahead, until it finds the next. Only found puzzles are cached, one file per puzzle in
 ~/cryptic-setter-data/times-feed/.
 
 Filing goes through write_puzzle_file like any fetcher; a number already on
@@ -43,7 +45,9 @@ TOOL = "tools/fetch_times_feed.py"
 FIRST = (datetime.date(2014, 3, 10), 100)
 #: How far either side of the last id the search for the next reaches, in
 #: widening rounds, and over how many printing days.
-RADII = (2, 400, 4000)
+RADII = (2, 300, 1500, 6000)
+#: How many days after the last Quick a blog link's id is taken as a centre.
+HINT_DAYS = 14
 DAYS_AHEAD = 3
 CHUNK = 64
 #: How far past its neighbours' ids fill_gaps looks for a skipped number.
@@ -91,6 +95,35 @@ def cached():
     return sorted(out, key=lambda t: (t[0], t[1]))
 
 
+def blog_hints():
+    """{date: [id, ...]} of every feed link the timesforthetimes posts carry:
+    any puzzle's id that week puts the search near that week's batch."""
+    import collections
+    posts = Path.home() / "cryptic-setter-data" / "timesforthetimes" / "posts"
+    link = re.compile(r"feeds\.thetimes\.co\.uk/(?:timescrossword|puzzles/crossword)/(\d{8})/(\d+)")
+    out = collections.defaultdict(set)
+    for p in posts.glob("*.json"):
+        for d, pid in link.findall(p.read_text(encoding="utf-8", errors="replace")):
+            try:
+                out[datetime.datetime.strptime(d, "%Y%m%d").date()].add(int(pid))
+            except ValueError:
+                continue
+    return {d: sorted(v) for d, v in out.items()}
+
+
+HINTS = None
+
+
+def centres(date, pid):
+    """`pid`, then the ids the blog links in the fortnight after `date`."""
+    global HINTS
+    if HINTS is None:
+        HINTS = blog_hints()
+    near = [i for d, ids in HINTS.items()
+            if date < d <= date + datetime.timedelta(days=HINT_DAYS) for i in ids]
+    return [pid, *sorted(set(near) - {pid}, key=lambda i: abs(i - pid))]
+
+
 def find_next(pool, date, pid, number, until):
     """The next Quick after No `number` (printed `date`, id `pid`): on one of
     the next printing days, at the id nearest `pid`. A week's Quicks take
@@ -104,19 +137,21 @@ def find_next(pool, date, pid, number, until):
         if d.weekday() != SUNDAY:
             days.append(d)
     tried = set()
+    middles = centres(date, pid)
     for radius in RADII:
         for day in days:
-            deltas = [k for r in range(1, radius + 1) for k in (r, -r)
-                      if (day, k) not in tried and pid + k > 0]
-            for at in range(0, len(deltas), CHUNK):
-                chunk = deltas[at:at + CHUNK]
-                tried.update((day, k) for k in chunk)
-                got = pool.map(lambda k, day=day: fetch(day, pid + k), chunk)
-                hits = [(day, pid + k, data) for k, data in zip(chunk, got)
-                        if data and data["copy"].get("crosswordtype") == QUICK
-                        and (number_of(data) or 0) > number]
-                if hits:
-                    return min(hits, key=lambda h: (number_of(h[2]), abs(h[1] - pid)))
+            for mid in middles if radius > RADII[0] else [pid]:
+                ids = [mid + k for r in range(radius + 1) for k in ((r, -r) if r else (0,))]
+                ids = [i for i in ids if (day, i) not in tried and i > 0]
+                for at in range(0, len(ids), CHUNK):
+                    chunk = ids[at:at + CHUNK]
+                    tried.update((day, i) for i in chunk)
+                    got = pool.map(lambda i, day=day: fetch(day, i), chunk)
+                    hits = [(day, i, data) for i, data in zip(chunk, got)
+                            if data and data["copy"].get("crosswordtype") == QUICK
+                            and (number_of(data) or 0) > number]
+                    if hits:
+                        return min(hits, key=lambda h: (number_of(h[2]), abs(h[1] - pid)))
     return None
 
 
@@ -260,7 +295,7 @@ def convert(data, date):
     }, None
 
 
-def file_all(write=True, log=print):
+def file_all(write=True, log=print, only=None):
     import file_blog_puzzles
     from fetch_puzzle import puzzle_path, write_puzzle_file
 
@@ -270,6 +305,8 @@ def file_all(write=True, log=print):
         if data["copy"].get("crosswordtype") != QUICK:
             continue
         number = number_of(data)
+        if only is not None and number != only:
+            continue
         by = number and file_blog_puzzles.reprinted_by(reprints, "timesquick", number)
         if by:
             skipped[f"{by} reprints it"] = skipped.get(f"{by} reprints it", 0) + 1
@@ -299,12 +336,25 @@ def file_all(write=True, log=print):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--walk", action="store_true", help="cache every Quick the feed has")
+    ap.add_argument("--first", action="store_true", help="fetch and file No 1 alone")
     ap.add_argument("--until", type=datetime.date.fromisoformat, help="walk no further")
     ap.add_argument("--below", type=int, help="walk no further than this number")
     ap.add_argument("--gaps", action="store_true", help="look again for numbers the walk skipped")
     ap.add_argument("--file", action="store_true", help="file the cached Quicks not on disk")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     a = ap.parse_args(argv)
+    if a.first:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        data = fetch(*FIRST)
+        if not data:
+            print(f"Quick Cryptic No 1: {URL.format(date=f'{FIRST[0]:%Y%m%d}', id=FIRST[1])} "
+                  "answered nothing", file=sys.stderr)
+            return 1
+        cache_path(*FIRST).write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        file_all(only=1)
+        import fetch_puzzle
+        fetch_puzzle.reindex()
+        return 0
     if a.walk:
         walk(a.until, a.below, log=lambda s: print(s, flush=True))
     if a.gaps:
