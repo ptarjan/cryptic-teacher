@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Bird losing argument in fight",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPAR",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means doing without it, so the bird's name has those letters taken away"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "SPARROW",
+      "note": "a common small brown bird"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "ROW",
+      "note": "a row is a noisy quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird gives up a squabble rather than come to blows.",
+     "walkthrough": "Remove ROW from SPARROW and SPAR is left.",
+     "definitionFit": "To spar is to box or exchange blows, especially in practice, a milder sort of fighting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +105,87 @@
      }
     ]
    },
-   "solution": "HOLDFAST"
+   "solution": "HOLDFAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HOLD FAST",
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "a host welcoming guests takes them inside, so the other letters go within"
+     },
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something made strange or unfamiliar, so the letters are rearranged"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it inside, so one letter is placed within the jumbled pair"
+     },
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip of a word is its very first letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Landlady",
+      "gives": "HOST",
+      "note": "a host keeps guests, as a landlady keeps lodgers"
+     },
+     {
+      "clueFragment": "lad",
+      "gives": "LAD",
+      "note": "taken as written, then mixed up"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "LD",
+      "F",
+      "A",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAD",
+       "gives": "LDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A landlady puts up a lad from abroad who is carrying a French loaf.",
+     "walkthrough": "Read 'stick' as a verb, not a loaf: the answer is the phrase HOLD FAST. A landlady is a host to her lodgers.",
+     "definitionFit": "To hold fast is to cling firmly and refuse to let go, which is what sticking to something means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +209,79 @@
    "group": [
     "3-down",
     "27-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "POOR RELATIONS",
+    "definitions": [
+     {
+      "text": "inferiors",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Relaxed",
+      "for": "anagram",
+      "note": "something relaxed has loosened its fixed shape, so the letters fall into a new order"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is whatever comes at its front, its opening letter"
+     }
+    ],
+    "linkWords": [
+     "meeting with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alone",
+      "gives": "ALONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prior",
+      "gives": "PRIOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "supposed",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POORRELATIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALONEPRIORTOS",
+       "gives": "POORRELATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at ease alone before a meeting with the boss of those thought to be beneath them.",
+     "walkthrough": "'Prior to' reads like a phrase meaning before, but both words are part of the letters to be shuffled.",
+     "definitionFit": "Poor relations are people or things regarded as lesser members of a group, looked down on by the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prior"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +295,70 @@
     "text": "Saint sent abridged papal document to Byzantium",
     "enumeration": "8"
    },
-   "solution": "ISTANBUL"
+   "solution": "ISTANBUL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ISTANBUL",
+    "definitions": [
+     {
+      "text": "Byzantium",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent",
+      "for": "anagram",
+      "note": "sent in the sense of carried away or sent flying, so the word's letters are thrown into a new order"
+     },
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text has been shortened, so the last letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ISTAN",
+      "note": "the letters of saint rearranged"
+     },
+     {
+      "clueFragment": "papal document",
+      "gives": "BULL",
+      "note": "a bull is a formal edict issued by the Pope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISTAN",
+      "BUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAINT",
+       "gives": "ISTAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint posts a shortened papal letter to the old Byzantine capital.",
+     "walkthrough": "'Sent' looks like the verb of posting, but it means carried away, which signals the shuffle.",
+     "definitionFit": "Byzantium was the ancient Greek name of the city later called Constantinople and now known as Istanbul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +372,73 @@
     "text": "Large queue turning up to receive tons of basic foodstuff",
     "enumeration": "6"
    },
-   "solution": "LENTIL"
+   "solution": "LENTIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "LENTIL",
+    "definitions": [
+     {
+      "text": "basic foodstuff",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up means reading from the bottom, so the queue word runs backwards"
+     },
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "receiving something means taking it in, so a letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large"
+     },
+     {
+      "clueFragment": "queue",
+      "gives": "LINE",
+      "note": "a line of people waiting"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for ton or tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EN",
+      "T",
+      "IL"
+     ],
+     "reversals": [
+      {
+       "from": "LINE",
+       "to": "ENIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big queue forms for tonnes of a staple food, as in a famine.",
+     "definitionFit": "Lentils are dried pulses eaten as a cheap staple across much of the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +452,54 @@
     "text": "Advertising for irreligious lawyer?",
     "enumeration": "10"
    },
-   "solution": "PROPAGANDA"
+   "solution": "PROPAGANDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROPAGANDA",
+    "definitions": [
+     {
+      "text": "Advertising",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro is Latin for in favour of"
+     },
+     {
+      "clueFragment": "irreligious",
+      "gives": "PAGAN",
+      "note": "a pagan follows no mainstream religion"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "DA is a District Attorney, a US prosecuting lawyer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "PAGAN",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question: is there any promotional material in favour of an unbelieving attorney?",
+     "walkthrough": "The question mark flags that 'Advertising' is a loose definition: propaganda is promotion of a cause rather than strictly advertising.",
+     "definitionFit": "Propaganda is material spread to promote a cause or viewpoint, a kind of publicity or advertising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +513,58 @@
     "text": "Policeman from the south is Scandinavian",
     "enumeration": "6"
    },
-   "solution": "NORDIC"
+   "solution": "NORDIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NORDIC",
+    "definitions": [
+     {
+      "text": "Scandinavian",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down clue, reading from the south means reading upwards from the bottom, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "CIDRON",
+      "note": "split as Police plus man: CID is the Criminal Investigation Department of a British police force, and Ron is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORDIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIDRON",
+       "to": "NORDIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer who has come up from the south claims to be Scandinavian.",
+     "walkthrough": "'Policeman' looks like one word for an officer, but it must be split in two, and the result is read upwards.",
+     "definitionFit": "Nordic describes the peoples and countries of northern Europe, including Scandinavia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Policeman"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +578,42 @@
     "text": "Border held by determined Germans",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDGE",
+    "definitions": [
+     {
+      "text": "Border",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "hidden_word",
+      "note": "held by means contained within, so the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "determined Germans",
+      "gives": "EDGE",
+      "note": "the end of determined and the start of Germans"
+     }
+    ],
+    "explanation": {
+     "surface": "A frontier is defended by resolute Germans.",
+     "definitionFit": "An edge is the outer limit or margin of something, the same as its border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Border"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +627,73 @@
     "text": "Retired principal keeping hands over picture",
     "enumeration": "5"
    },
-   "solution": "PHOTO"
+   "solution": "PHOTO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "PHOTO",
+    "definitions": [
+     {
+      "text": "picture",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the word is read backwards"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so a letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principal",
+      "gives": "TOP",
+      "note": "top means chief or principal"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "H",
+      "note": "H is the abbreviation for hand, as in a farm hand"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "OT",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "TOP",
+       "to": "POT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired headteacher keeps handing over a picture.",
+     "definitionFit": "A photo is a photograph, a picture taken with a camera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +707,60 @@
     "text": "Foil covering display of bad language",
     "enumeration": "9"
    },
-   "solution": "SWEARWORD"
+   "solution": "SWEARWORD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEARWORD",
+    "definitions": [
+     {
+      "text": "bad language",
+      "at": 25,
+      "note": "bad language is a mass noun; the answer is one example of it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "something covering another wraps around it, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foil",
+      "gives": "SWORD",
+      "note": "a foil is a light fencing sword"
+     },
+     {
+      "clueFragment": "display",
+      "gives": "WEAR",
+      "note": "to wear a smile or a frown is to display it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEAR",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheet of foil is used to hide an offensive display.",
+     "walkthrough": "'Foil' suggests kitchen foil, but it is the fencer's sword, which goes around WEAR after its S: S-WEAR-WORD.",
+     "definitionFit": "A swearword is a single obscene or profane word, an instance of bad language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Foil"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +774,57 @@
     "text": "Confused rat breeds with bird!",
     "enumeration": "9"
    },
-   "solution": "REDBREAST"
+   "solution": "REDBREAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REDBREAST",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Confused",
+      "for": "anagram",
+      "note": "confused means mixed up, so the letters are jumbled into another order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rat breeds",
+      "gives": "RATBREEDS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDBREAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATBREEDS",
+       "gives": "REDBREAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddled rodent attempts to mate with a bird, absurdly.",
+     "definitionFit": "Redbreast is an old name for the robin, a small bird with an orange-red chest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "breeds"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +838,55 @@
     "text": "Army chaplain has accommodation next to soldiers",
     "enumeration": "5"
    },
-   "solution": "PADRE"
+   "solution": "PADRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PADRE",
+    "definitions": [
+     {
+      "text": "Army chaplain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to means placed alongside, so one piece follows directly after the other"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accommodation",
+      "gives": "PAD",
+      "note": "a pad is informal for a flat or home"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAD",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "The regimental chaplain is billeted beside the troops.",
+     "definitionFit": "Padre is the informal title for a chaplain serving in the armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +906,78 @@
      }
     ]
    },
-   "solution": "BEARCUB"
+   "solution": "BEARCUB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEAR CUB",
+    "definitions": [
+     {
+      "text": "a little grizzly",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged word wraps the other letters"
+     },
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so only the opening letter of each word is used"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Babe",
+      "gives": "BABE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "rattle coming unstuck",
+      "gives": "RCU",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEA",
+      "RCU",
+      "B"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BABE",
+       "gives": "BEAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baby upset that its rattle has broken starts to get a little grumpy.",
+     "walkthrough": "'Grizzly' looks like the word for a whining child, which suits the babe, but here it is the bear.",
+     "definitionFit": "Young bears are called cubs, so a small, immature grizzly is one of these youngsters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grizzly"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +991,46 @@
     "text": "Financial middleman almost bankrupt",
     "enumeration": "5"
    },
-   "solution": "BROKE"
+   "solution": "BROKE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BROKE",
+    "definitions": [
+     {
+      "text": "bankrupt",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Financial middleman",
+      "gives": "BROKER",
+      "note": "a broker buys and sells on behalf of clients"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stockbroker who is nearly ruined.",
+     "definitionFit": "Broke is informal for having no money at all, penniless or ruined."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +1044,72 @@
     "text": "Man eating guts of putrefied fish is a skinflint",
     "enumeration": "10"
    },
-   "solution": "CHEAPSKATE"
+   "solution": "CHEAPSKATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CHEAPSKATE",
+    "definitions": [
+     {
+      "text": "skinflint",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating something takes it inside, so a letter goes within the word for man"
+     },
+     {
+      "text": "guts of",
+      "for": "letter_selection",
+      "note": "guts are innards, so the central letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "CHAP",
+      "note": "chap is informal for a man"
+     },
+     {
+      "clueFragment": "putrefied",
+      "gives": "E",
+      "select": "middle",
+      "note": "middle letter of the nine-letter word"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "SKATE",
+      "note": "a skate is a flat ray-like sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "E",
+      "AP",
+      "SKATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who eats rotten fish innards must be very mean with money.",
+     "definitionFit": "A cheapskate is a stingy person who hates spending, just like a miser or skinflint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "guts"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1123,59 @@
     "text": "Sound made by soldier in pub",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside another, so the soldier sits within the pub"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "LOCAL",
+      "note": "your local is the pub you regularly drink at"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A noise is made by a soldier drinking in a bar.",
+     "walkthrough": "'Sound' looks like a noise, but it is the adjective, as in a sound argument.",
+     "definitionFit": "A sound argument is valid and well reasoned, which is what logical means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1189,51 @@
     "text": "Large port is charged",
     "enumeration": "5"
    },
-   "solution": "LADEN"
+   "solution": "LADEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LADEN",
+    "definitions": [
+     {
+      "text": "charged",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "ADEN",
+      "note": "Aden is a port city in Yemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ADEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A large harbour city is billed for its services.",
+     "walkthrough": "'Charged' suggests a fee or an electrical charge, but here it means loaded.",
+     "definitionFit": "Laden means loaded or burdened, as a ship charged with cargo is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1289,44 @@
     "text": "Insignificant fluid loss?",
     "enumeration": "8"
    },
-   "solution": "PIDDLING"
+   "solution": "PIDDLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PIDDLING",
+    "definitions": [
+     {
+      "text": "Insignificant",
+      "at": 0
+     },
+     {
+      "text": "fluid loss",
+      "at": 14,
+      "note": "a noun phrase; the answer is the gerund of the verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insignificant",
+      "note": "first meaning: trivial or very small"
+     },
+     {
+      "clueFragment": "fluid loss?",
+      "note": "second meaning, slangy and signalled by the question mark: passing water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark warns that the second definition is playful: a loss of fluid is a trip to relieve oneself.",
+     "definitionFit": "The word is both an adjective for something trifling and the gerund of an informal verb for urinating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1340,51 @@
     "text": "Spied for heads of national organisation, scrutinising every document",
     "enumeration": "5"
    },
-   "solution": "NOSED"
+   "solution": "NOSED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NOSED",
+    "definitions": [
+     {
+      "text": "Spied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their first letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "national organisation, scrutinising every document",
+      "gives": "NOSED",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOSED"
+     ]
+    },
+    "explanation": {
+     "surface": "An agent spied for the leaders of a national body that checks every paper.",
+     "definitionFit": "To nose around is to pry or snoop, much as a spy does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1398,61 @@
     "text": "Stays for two drinks before end of festivities",
     "enumeration": "8"
    },
-   "solution": "SUPPORTS"
+   "solution": "SUPPORTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUPPORTS",
+    "definitions": [
+     {
+      "text": "Stays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two drinks",
+      "gives": "SUPPORT",
+      "note": "sup is a drink or sip, and port is a fortified wine"
+     },
+     {
+      "clueFragment": "festivities",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPPORT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lingers for a couple of drinks before the party ends.",
+     "walkthrough": "'Stays' looks like a verb about lingering, but it is a plural noun: props or braces.",
+     "definitionFit": "Stays are props or braces, such as a ship's ropes or corset bones, that hold something up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stays"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1466,63 @@
     "text": "Power given to the French after test case",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "case",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first pieces later in the word, following the next one"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "EXAM",
+      "note": "an exam is a test"
+     },
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the abbreviation for power in physics"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is a French word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXAM",
+      "P",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Authority is handed to the French after a legal test case.",
+     "walkthrough": "'Test case' reads as a single legal phrase, but test is wordplay and case is the definition.",
+     "definitionFit": "An example is an instance or case that illustrates something more general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1536,41 @@
     "text": "Summary found in newspaper cutting",
     "enumeration": "6"
    },
-   "solution": "APERCU"
+   "solution": "APERCU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APERCU",
+    "definitions": [
+     {
+      "text": "Summary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in means located inside, so the letters are contained in the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper cutting",
+      "gives": "APERCU",
+      "note": "the end of newspaper and the start of cutting"
+     }
+    ],
+    "explanation": {
+     "surface": "A short summary turns up in a press clipping.",
+     "definitionFit": "An aperçu is a brief outline or quick survey of a subject, borrowed from French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1584,69 @@
     "text": "Recorded observations originally left in spaces in registers",
     "enumeration": "6"
    },
-   "solution": "ENROLS"
+   "solution": "ENROLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENROLS",
+    "definitions": [
+     {
+      "text": "registers",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the beginning, so the first letter of each word is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these letters inside the word for spaces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spaces",
+      "gives": "ENS",
+      "note": "an en is a printer's unit of space"
+     },
+     {
+      "clueFragment": "Recorded observations",
+      "gives": "RO",
+      "select": "first",
+      "note": "first letters of the two words"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "R",
+      "O",
+      "L",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Notes once written down were left in the blank spaces of the records.",
+     "walkthrough": "'Registers' looks like a noun, but here it is a verb; an en is a printing measure half the width of an em.",
+     "definitionFit": "To enrol is to put a name on an official list, signing up just as one registers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "registers"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1660,70 @@
     "text": "College fellow holding fragments of pad that's hard to decipher",
     "enumeration": "7"
    },
-   "solution": "DEADPAN"
+   "solution": "DEADPAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEADPAN",
+    "definitions": [
+     {
+      "text": "hard to decipher",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something keeps it inside, so the shuffled letters go within"
+     },
+     {
+      "text": "fragments of",
+      "for": "anagram",
+      "note": "fragments are broken pieces, so the word is smashed and put back together differently"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "College fellow",
+      "gives": "DEAN",
+      "note": "a dean is a senior fellow in a college"
+     },
+     {
+      "clueFragment": "pad",
+      "gives": "PAD",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ADP",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAD",
+       "gives": "ADP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A don clutches scraps of a notepad covered in illegible writing.",
+     "walkthrough": "'Hard to decipher' suggests bad handwriting, but it describes an unreadable expression.",
+     "definitionFit": "A deadpan face shows no emotion, so it is impossible to read, like an inscrutable poker face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "decipher"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1737,57 @@
     "text": "European garlic's beginning to pong!",
     "enumeration": "5"
    },
-   "solution": "GREEK"
+   "solution": "GREEK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREEK",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "a word's beginning is its first letter, so just that one is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garlic's",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "pong",
+      "gives": "REEK",
+      "note": "pong is British slang for a bad smell, and to reek is to stink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "REEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A European notices the garlic beginning to smell.",
+     "definitionFit": "A Greek is a native of Greece, a country in southern Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1827,49 @@
     "text": "Relative with endless string ...",
     "enumeration": "4"
    },
-   "solution": "TWIN"
+   "solution": "TWIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TWIN",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "string",
+      "gives": "TWINE",
+      "note": "twine is strong thin string"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member is holding an endless ball of string, continuing into the next clue.",
+     "definitionFit": "A twin is a sibling born at the same birth, so a close family member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1883,41 @@
     "text": "... killed a great number",
     "enumeration": "4"
    },
-   "solution": "SLEW"
+   "solution": "SLEW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEW",
+    "definitions": [
+     {
+      "text": "killed",
+      "at": 4
+     },
+     {
+      "text": "a great number",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "killed",
+      "note": "first meaning: past tense of slay"
+     },
+     {
+      "clueFragment": "a great number",
+      "note": "second meaning: a large quantity, as in a whole lot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ellipsis links this to the previous clue so that a relative seems to have murdered many people with string.",
+     "definitionFit": "The word is the past tense of slay and also an informal noun meaning a large amount or many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +1931,57 @@
     "text": "Cook latched on to competition involving various disciplines",
     "enumeration": "9"
    },
-   "solution": "DECATHLON"
+   "solution": "DECATHLON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECATHLON",
+    "definitions": [
+     {
+      "text": "competition involving various disciplines",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook is to doctor or rework, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "latched on",
+      "gives": "LATCHEDON",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECATHLON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATCHEDON",
+       "gives": "DECATHLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef gets hooked on a multi-sport contest.",
+     "walkthrough": "'Cook' looks like a person, but it is the verb meaning to falsify, signalling the shuffle.",
+     "definitionFit": "A decathlon is an athletics contest of ten different track and field events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 31,
@@ -531,7 +2011,53 @@
     "18-across",
     "17-across",
     "26-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN THE LAP OF THE GODS",
+    "definitions": [
+     {
+      "text": "beyond human control",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Restructuring",
+      "for": "anagram",
+      "note": "restructuring means rebuilding in a different form, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "helped things afoot",
+      "gives": "HELPEDTHINGSAFOOT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTHELAPOFTHEGODS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HELPEDTHINGSAFOOT",
+       "gives": "INTHELAPOFTHEGODS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reorganisation helped things already under way that nobody could influence.",
+     "definitionFit": "The idiom says an outcome rests with fate or chance, so no person can influence it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "afoot"
+    }
+   }
   }
  ]
 }
