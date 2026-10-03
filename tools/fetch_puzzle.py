@@ -880,8 +880,9 @@ def generator_of(path):
 
 
 def committed_copy(puzzle):
-    """The puzzle's file as committed at HEAD, or None: what a puzzle that was
-    deleted and is being filed again looked like before."""
+    """The puzzle's file as last committed, or None: what a puzzle that was
+    deleted and is being filed again looked like before. That is HEAD's copy,
+    or for a file deleted in an earlier commit, the copy that commit removed."""
     import subprocess  # noqa: PLC0415
     path = puzzle_paths.file_for(puzzle)
     if path is None or not path.is_relative_to(ROOT):
@@ -889,6 +890,13 @@ def committed_copy(puzzle):
     rel = path.relative_to(ROOT).as_posix()
     out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
                          capture_output=True, text=True)
+    if out.returncode != 0:
+        gone = subprocess.run(["git", "-C", str(ROOT), "log", "-1", "--diff-filter=D",
+                               "--format=%H", "--", rel],
+                              capture_output=True, text=True).stdout.strip()
+        if gone:
+            out = subprocess.run(["git", "-C", str(ROOT), "show", f"{gone}^:{rel}"],
+                                 capture_output=True, text=True)
     try:
         return json.loads(out.stdout) if out.returncode == 0 else None
     except ValueError:
