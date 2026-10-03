@@ -134,8 +134,12 @@ ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
 PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
-#: The daily cryptic's title: not the Concise, the Jumbo or Times Two.
-TITLE = re.compile(r"^\W*(?:the\s+)?times\s+crossword\s+(?:puzzle\s+)?no\.?\s*" + NUMBER, re.I)
+#: The daily cryptic's title: not the Concise, the Jumbo or Times Two. The
+#: OCR misreads its first word ("Hie"), puts a mark before "Crossword",
+#: splits the number ("1 8,862") and reads its comma as any mark ("21*065");
+#: read_puzzle checks the number against the date.
+TITLE = re.compile(r"^\W*(?:\w{1,3}\s+)?times\W{1,3}crossword\s+(?:puzzle\s+)?n[o0]\W{0,2}\s*"
+                   r"(\d\s?\d[^\w\s]?\s?\d{3})", re.I)
 #: The previous puzzle's solution, printed under the clues.
 SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
 #: A column line that ends the clues.
@@ -208,15 +212,75 @@ def ink_box(img):
     return trove_grid.largest_component(gray < trove_grid.otsu(gray))
 
 
-def grid_box(img, title):
-    """Where the grid under a title is on the page: the largest ink below it."""
+def grid_shaped(box):
+    """Whether an ink box is a grid's size and shape at the scans' 3296px
+    page width."""
+    if box is None:
+        return False
+    gw, gh = box[2] - box[0], box[3] - box[1]
+    return 500 <= gw <= 1100 and 0.85 <= gw / max(gh, 1) <= 1.18
+
+
+#: How far, in pixels, a crop grows on a side its largest ink touches, and
+#: how many times, so a grid wider or further from its title than the
+#: first crop is read whole.
+GROW, GROW_TIMES = 200, 6
+
+
+def ink_in(img, crop, fixed=()):
+    """The largest ink in `crop` of `img`, in page coordinates, the crop
+    grown on each side (but those named in `fixed`, of "left", "top",
+    "right", "bottom") that the ink touches. Ink that grows out of a grid's
+    shape (a grid joined to a rule across the page) gives the last
+    grid-shaped box instead."""
+    crop, shaped = list(crop), None
+    for _ in range(GROW_TIMES + 1):
+        box = ink_box(img.crop(tuple(crop)))
+        if box is None:
+            return shaped
+        page_box = (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
+        shaped = page_box if grid_shaped(page_box) else shaped
+        cw, ch = crop[2] - crop[0], crop[3] - crop[1]
+        grow = {"left": box[0] <= 2 and crop[0] > 0, "top": box[1] <= 2 and crop[1] > 0,
+                "right": box[2] >= cw - 2 and crop[2] < img.width,
+                "bottom": box[3] >= ch - 2 and crop[3] < img.height}
+        grow = [side for side, on in grow.items() if on and side not in fixed]
+        if not grow:
+            break
+        for side in grow:
+            k = ("left", "top", "right", "bottom").index(side)
+            crop[k] = max(0, crop[k] - GROW) if k < 2 else min((img.width, img.height)[k - 2], crop[k] + GROW)
+    return page_box if grid_shaped(page_box) or shaped is None else shaped
+
+
+def locate_grid(img, title):
+    """(box, side) of the grid a title heads: the largest ink under it, else
+    over it (the 1980s Times prints its title under the grid), else left of
+    it (the FT's Monday Prize prints it right of the grid's top); `side` is
+    "below", "above" or "left". (box, None) when no ink there is a grid,
+    the box the ink under the title; (None, None) when there is none."""
     x0, y0, x1, y1 = title
     w = x1 - x0
-    crop = (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + int(1.3 * w) + 80))
-    box = ink_box(img.crop(crop))
-    if box is None:
-        return None
-    return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
+    span = int(1.3 * w) + 80
+    tries = (("below", (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + span)), ("top",)),
+             ("above", (max(0, x0 - 120), max(0, y0 - span), min(img.width, x1 + 120), y0), ("bottom",)),
+             ("left", (max(0, x0 - span), max(0, y0 - 80), x0, min(img.height, y0 + span)), ()))
+    first = None
+    for side, crop, fixed in tries:
+        box = ink_in(img, crop, fixed)
+        # A grid under its title clears the title's line, and one left of it
+        # ends short of the title's middle: other ink is something else's.
+        clear = box is not None and (side != "below" or box[1] > crop[1] + 2) \
+            and (side != "left" or box[2] < (x0 + x1) / 2)
+        if clear and grid_shaped(box):
+            return box, side
+        first = first or box
+    return first, None
+
+
+def grid_box(img, title):
+    """Where the grid a title heads is on the page; see locate_grid()."""
+    return locate_grid(img, title)[0]
 
 
 def grid_under_clues(img, title):
@@ -265,7 +329,7 @@ def gutter(lines, grid, top, lo=None, hi=None):
     return best[1]
 
 
-def windows(grid, third=None, margin=40, above=None):
+def windows(grid, third=None, margin=40, above=None, left=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
@@ -273,8 +337,13 @@ def windows(grid, third=None, margin=40, above=None):
     column starts `margin` left of the grid (the Times outdents its numbers).
     With `above`, (top, gutter, right), the two columns are over the grid
     instead, from `top` down, split at the gutter, the right one ending at
-    `right` (it may overhang the grid)."""
+    `right` (it may overhang the grid). With `left`, (x0, gutter), they are
+    left of the grid from x0, split at the gutter, from LEFT_RISE over the
+    grid's top down."""
     gx0, gy0, gx1, gy1 = grid
+    if left:
+        x0, split = left
+        return [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
     if above:
         top, split, right = above
         return [(gx0 - margin, split, split, top), (split, right, right, top)]
@@ -285,13 +354,14 @@ def windows(grid, third=None, margin=40, above=None):
     return out
 
 
-def columns(lines, grid, third=None, margin=40, above=None):
+def columns(lines, grid, third=None, margin=40, above=None, left=None):
     """The clue columns under the grid (and with `third`, right of it; with
-    `above`, over it; see windows()): [[(y0, y1, x0, x1, text) per line] per
-    column, left to right], each cut where the clues stop."""
+    `above`, over it; with `left`, left of it; see windows()): [[(y0, y1, x0,
+    x1, text) per line] per column, left to right], each cut where the clues
+    stop."""
     gx0, gy0, gx1, gy1 = grid
-    bottom = gy0 - 3 if above else gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin, above)
+    bottom = gy0 - 3 if above else left_bottom(grid) if left else gy1 + 1.8 * (gx1 - gx0)
+    wins = windows(grid, third, margin, above, left)
     cols = [[] for _ in wins]
     for ws in lines:
         for side, (x0, x1, right, top) in enumerate(wins):
@@ -324,7 +394,27 @@ def columns(lines, grid, third=None, margin=40, above=None):
 
 
 
-def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None):
+#: How far over the grid's top, and under its foot as a share of its height,
+#: clue columns left of the grid may run.
+LEFT_RISE, LEFT_DROP = 80, 0.3
+
+
+def left_bottom(grid):
+    return grid[3] + LEFT_DROP * (grid[3] - grid[1])
+
+
+def left_columns(lines, grid):
+    """(x0, gutter) of the two clue columns left of the grid (the FT's
+    Monday Prize): from a grid's width left of it, split where the fewest
+    words (`lines`, every reading's) cross."""
+    gx0, gy0, gx1, _ = grid
+    x0 = max(0, gx0 - (gx1 - gx0) - 60)
+    floor = left_bottom(grid)
+    lo, hi = x0 + 0.3 * (gx0 - x0), x0 + 0.7 * (gx0 - x0)
+    return x0, gutter(lines, (lo, floor, hi, floor), gy0 - LEFT_RISE, lo, hi)
+
+
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
@@ -336,6 +426,8 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None)
         box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
     if above is not None:
         box = (max(0, gx0 - margin), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
+    if left:
+        box = (max(0, gx0 - gw - 60), max(0, gy0 - LEFT_RISE), gx0, min(img.height, int(left_bottom(grid))))
     if cache_path.exists():
         cached = json.loads(cache_path.read_text())
         if isinstance(cached, list):
@@ -917,12 +1009,12 @@ def read_puzzle(d, found, hit, solutions):
         return verdict, None
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf})[leaf]
-    gbox = (grid_under_clues if paper.clues_above else grid_box)(img, hit["box"])
+    gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"])
     if gbox is None:
         verdict["refused"] = "no ink under the title"
         return verdict, None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
-    if not (500 <= gw <= 1100 and 0.85 <= gw / max(gh, 1) <= 1.18):
+    if side is None or not grid_shaped(gbox):
         verdict["refused"] = f"the ink under the title is {gw}x{gh}, not a grid"
         return verdict, None
     key = f"{d.name}_{n}"
@@ -931,17 +1023,20 @@ def read_puzzle(d, found, hit, solutions):
     # Clues over the grid: from the title line down, split where the fewest
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
-    rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top)
-             for which in READERS}
-    above = None
+    beside = side == "left"
+    rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
+                                beside) for which in READERS}
+    above = left = None
+    every = lines + [ws for r in rapid.values() for ws in r]
     if top is not None:
-        every = lines + [ws for r in rapid.values() for ws in r]
         above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
-    cols = {"djvu": columns(lines, gbox, third, m, above)}
+    if beside:
+        left = left_columns(every, gbox)
+    cols = {"djvu": columns(lines, gbox, third, m, above, left)}
     for which in READERS:
-        cols[which] = columns(rapid[which], gbox, third, m, above)
+        cols[which] = columns(rapid[which], gbox, third, m, above, left)
     texts = {k: column_text(c) for k, c in cols.items()}
-    wins = windows(gbox, third, m, above)
+    wins = windows(gbox, third, m, above, left)
     # The desktop's VLM, when it answers, is one more reading.
     if vlm.reachable():
         try:
@@ -954,8 +1049,8 @@ def read_puzzle(d, found, hit, solutions):
     # recognisers are.
     gpath = CROPS / "grids" / f"{key}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
-    if not gpath.exists():
-        img.crop((gbox[0] - 6, gbox[1] - 6, gbox[2] + 6, gbox[3] + 6)).save(gpath)
+    # Cut afresh on every read, so the crop is always of this grid box.
+    img.crop((gbox[0] - 6, gbox[1] - 6, gbox[2] + 6, gbox[3] + 6)).save(gpath)
     image, why = trove_grid.read_grid(gpath, block_above=BLOCK_ABOVE)
     g = image
     if g and not trove_grid.symmetric(g):
@@ -1222,6 +1317,32 @@ def read_solution(sol, grid, above=False):
 WORKERS = 2
 
 
+def scan_key():
+    """A hash of this file's code that finds an edition's titles and solution
+    headings (SCAN_CODE, read from the file): a scan made by other code is
+    made again."""
+    if not _SCAN_KEY:
+        import ast
+        text = Path(__file__).read_text()
+        h = hashlib.sha256()
+        for node in ast.parse(text).body:
+            names = ([node.name] if isinstance(node, (ast.FunctionDef, ast.ClassDef)) else
+                     [t.id for t in node.targets if isinstance(t, ast.Name)] if isinstance(node, ast.Assign) else [])
+            if set(names) & SCAN_CODE:
+                h.update(ast.get_source_segment(text, node).encode())
+        _SCAN_KEY.append(h.hexdigest()[:16])
+    return _SCAN_KEY[0]
+
+
+#: The names whose code scan() runs.
+SCAN_CODE = {"leaf_lines", "headings", "scan", "ft_headings", "guardian_headings", "telegraph_headings", "Paper",
+             "numbered_heading", "heading_of", "digits", "box_of", "centred", "number_of", "NUMBER", "TITLE",
+             "SOLUTION", "FT_TITLE", "FT_NUMBER", "FT_SETTER", "FT_SOLUTION", "G_NUMBER", "GUARDIAN_TITLE",
+             "GUARDIAN_SOLUTION", "TELEGRAPH_SOLUTION", "NUMBERED_HEADING", "FT_GRID_SPAN", "FT_SOLUTION_SPAN",
+             "TELEGRAPH_SOLUTION_SPAN", "OBJECT_TAG"}
+_SCAN_KEY = []
+
+
 def input_hash(d):
     """The edition's files by name and size."""
     h = hashlib.sha256()
@@ -1276,13 +1397,16 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
-    files (input_hash) or the solutions it can see moved, read without the
+    files (input_hash) or the solutions it can see moved, its titles moved
+    since its verdicts (a scan by new code, see scan_key), read without the
     VLM that now answers, or last read before `reread` (a datetime: the
     explicit --reread)."""
     if "inputs" not in row:
         return "never read"
     if row["inputs"] != inputs or row.get("solutionsSeen") != sol_seen:
         return "inputs changed"
+    if sorted(p["number"] for p in row["scan"]["puzzles"]) != sorted(v["number"] for v in row.get("verdicts", ())):
+        return "titles changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
     if reread and scan_queue.read_before(row, reread):
@@ -1312,14 +1436,15 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for d in dirs:
         row = known.get(rels[d])
         fh = input_hash(d)
-        if row and row.get("filesHash") == fh and "scan" in row:
+        if row and row.get("filesHash") == fh and row.get("scanKey") == scan_key() and "scan" in row:
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh
     for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers):
         scans[rels[d]] = found
         progress(f"scanned {rels[d]}: {len(found['puzzles'])} puzzle(s)")
-        known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d]}
+        known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d],
+                          "scanKey": scan_key()}
     if unscanned and write:
         save(ledger, known)
     solutions = {}
@@ -1371,7 +1496,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                         verdict["wrote"] = True
                         held.add(hit_number)
             verdicts.append(verdict)
-        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h,
+        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h, "scanKey": scan_key(),
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             known[rel]["vlm"] = seen_by
