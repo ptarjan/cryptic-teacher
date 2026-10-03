@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Great bit of prep I completed",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "hidden_word",
+      "note": "only a bit of the following run of words is wanted, a stretch sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prep I completed",
+      "gives": "EPIC",
+      "note": "the letters run across the end of prep, the I and the start of completed"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil boasts of finishing a large chunk of homework.",
+     "walkthrough": "Prep is British school slang for homework, which helps the surface hide the join.",
+     "definitionFit": "Something epic is grand in scale, so the adjective is a lively informal synonym for great."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +91,39 @@
      }
     ]
    },
-   "solution": "JETSET"
+   "solution": "JETSET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JET SET",
+    "definitions": [
+     {
+      "text": "(Very!) high society?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "(Very!) high society?",
+      "note": "surface reading: an upper-class social circle, very posh indeed"
+     },
+     {
+      "clueFragment": "(Very!) high",
+      "note": "setter's reading: a society that is literally very high, cruising at altitude in aircraft"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bracketed 'Very!' turns high society, meaning the elite, into a crowd that is physically high in the sky on jet planes.",
+     "definitionFit": "The phrase names wealthy fashionable people who fly around the world between glamorous resorts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +137,74 @@
     "text": "Rival not open to change buttonholing leader in parliament",
     "enumeration": "8"
    },
-   "solution": "OPPONENT"
+   "solution": "OPPONENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "OPPONENT",
+    "definitions": [
+     {
+      "text": "Rival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "the preceding words are told to change, so their letters must be rearranged"
+     },
+     {
+      "text": "buttonholing",
+      "for": "container",
+      "note": "to buttonhole someone is to grab and hold them, so one piece is held inside the other"
+     },
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not open",
+      "gives": "NOTOPEN",
+      "note": "the two words used as letters to rearrange"
+     },
+     {
+      "clueFragment": "parliament",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "P",
+      "ONENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTOPEN",
+       "gives": "OPONENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An MP opposes some reform but grabs the party leader in the corridor.",
+     "walkthrough": "The jumbled letters give OPONENT, and the P is held after its first two letters to make OPPONENT.",
+     "definitionFit": "An opponent is someone competing against you, which is exactly what a rival is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buttonholing"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +218,66 @@
     "text": "Cheers filling said redeveloped sporting arenas",
     "enumeration": "6"
    },
-   "solution": "STADIA"
+   "solution": "STADIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STADIA",
+    "definitions": [
+     {
+      "text": "sporting arenas",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "one piece fills the inside of the other, sitting within it"
+     },
+     {
+      "text": "redeveloped",
+      "for": "anagram",
+      "note": "something redeveloped has been rebuilt in a new form, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said",
+      "gives": "SAID",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks, like cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TA",
+      "DIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAID",
+       "gives": "SDIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds cheer as reports say rebuilt football grounds are now full.",
+     "definitionFit": "Stadia is the Latin plural of stadium, a large ground where sports are played before spectators."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +297,54 @@
      }
     ]
    },
-   "solution": "AGNUSDEI"
+   "solution": "AGNUSDEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNUS DEI",
+    "definitions": [
+     {
+      "text": "Prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddball",
+      "for": "anagram",
+      "note": "an oddball is eccentric and out of order, so these letters come out in a strange arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guides an",
+      "gives": "GUIDESAN",
+      "note": "the two words used as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGNUSDEI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUIDESAN",
+       "gives": "AGNUSDEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange person leads a group in prayer.",
+     "walkthrough": "Agnus Dei, Latin for 'Lamb of God', is a prayer said or sung during the Mass.",
+     "definitionFit": "It is a specific liturgical invocation in the Christian Mass, so it is an example of a prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddball"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +358,44 @@
     "text": "Jacket that’s far too warm?",
     "enumeration": "6"
    },
-   "solution": "BLAZER"
+   "solution": "BLAZER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLAZER",
+    "definitions": [
+     {
+      "text": "Jacket",
+      "at": 0
+     },
+     {
+      "text": "that’s far too warm?",
+      "at": 7,
+      "note": "a noun phrase: a thing that is far too warm"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jacket",
+      "note": "first meaning: a lightweight sports or school coat"
+     },
+     {
+      "clueFragment": "that’s far too warm?",
+      "note": "second meaning: something that blazes, burning fiercely hot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the whimsical second sense: anything that blazes would be a blazer.",
+     "definitionFit": "A blazer is a smart coat often worn as part of a uniform, and literally one that burns hot like a fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +409,42 @@
     "text": "Key in model",
     "enumeration": "4"
    },
-   "solution": "TYPE"
+   "solution": "TYPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TYPE",
+    "definitions": [
+     {
+      "text": "Key in",
+      "at": 0
+     },
+     {
+      "text": "model",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key in",
+      "note": "first meaning: enter text on a keyboard"
+     },
+     {
+      "clueFragment": "model",
+      "note": "second meaning: a kind or example of something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a key being inserted into a scale model, but splits into two separate meanings.",
+     "definitionFit": "The verb means enter characters on a keyboard, and the noun means a sort or standard pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +464,52 @@
      }
     ]
    },
-   "solution": "PEPPERPOT"
+   "solution": "PEPPERPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEPPER POT",
+    "definitions": [
+     {
+      "text": "might one be on the table?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PEP",
+      "note": "go and pep both mean energy or vigour"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "prize",
+      "gives": "POT",
+      "note": "a pot is a prize or trophy, or the money to be won"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEP",
+      "PER",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiz host urges contestants to try for every prize on offer.",
+     "definitionFit": "A pepper pot is a shaker for ground pepper, a condiment holder that typically stands on the dining table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +523,56 @@
     "text": "Saw dog restrained by lead",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained by",
+      "for": "container",
+      "note": "something restrained is held in on both sides, so one piece is kept inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for the metal lead"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "ROVER",
+      "note": "Rover is a traditional name for a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted a dog being held back on its lead.",
+     "walkthrough": "'Saw' looks like the past tense of see, and 'lead' like a dog's leash; both are something else here.",
+     "definitionFit": "A saw is an old saying, a short familiar maxim, the same thing as a proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +586,56 @@
     "text": "Channel seabird ending on Jersey",
     "enumeration": "5"
    },
-   "solution": "GULLY"
+   "solution": "GULLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GULLY",
+    "definitions": [
+     {
+      "text": "Channel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending on",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seabird",
+      "gives": "GULL",
+      "note": "a gull is a common seabird"
+     },
+     {
+      "clueFragment": "Jersey",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of Jersey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GULL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A seagull perches on the coast of Jersey beside the Channel.",
+     "walkthrough": "Jersey is one of the Channel Islands, so the surface makes 'Channel' look like the English Channel.",
+     "definitionFit": "A gully is a narrow ravine or ditch cut by running water, which is a kind of channel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +655,65 @@
      }
     ]
    },
-   "solution": "CROSSWORDPUZZLE"
+   "solution": "CROSSWORDPUZZLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CROSSWORD PUZZLE",
+    "definitions": [
+     {
+      "text": "this",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inscribed",
+      "for": "container",
+      "note": "words inscribed are written into something, so one piece goes inside the joined others"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christian symbol",
+      "gives": "CROSS",
+      "note": "the cross is the central symbol of Christianity"
+     },
+     {
+      "clueFragment": "floor",
+      "gives": "PUZZLE",
+      "note": "to floor someone is to baffle them"
+     },
+     {
+      "clueFragment": "oath",
+      "gives": "WORD",
+      "note": "giving your word is making a solemn promise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WORD",
+      "PUZZLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross is carved on a church floor beneath a written vow.",
+     "walkthrough": "'This' is the setter pointing at the very grid being solved, so the definition is a single self-referential word.",
+     "definitionFit": "The setter's self-reference: the grid being solved right now is itself an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +727,71 @@
     "text": "Staff in secret set out to seize power",
     "enumeration": "7"
    },
-   "solution": "SCEPTRE"
+   "solution": "SCEPTRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCEPTRE",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set out",
+      "for": "anagram",
+      "note": "to set something out is to lay it out afresh, so these letters are rearranged"
+     },
+     {
+      "text": "to seize",
+      "for": "container",
+      "note": "seizing something means grabbing it and holding it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "SECRET",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the standard abbreviation for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCE",
+      "P",
+      "TRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECRET",
+       "gives": "SCETRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office staff are secretly scheming to take control of the company.",
+     "walkthrough": "'Staff' looks like employees, but it means a rod carried as a symbol of office.",
+     "definitionFit": "A sceptre is an ornamental rod carried by a monarch, a ceremonial staff representing royal authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +805,48 @@
     "text": "Bones found in jar, casually tipped over",
     "enumeration": "5"
    },
-   "solution": "SACRA"
+   "solution": "SACRA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SACRA",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the letters are found sitting inside the following words"
+     },
+     {
+      "text": "tipped over",
+      "for": "reversal",
+      "note": "a down entry tipped over is turned upside down, so the letters read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jar, casually",
+      "gives": "ARCAS",
+      "note": "the letters span the end of jar and the start of casually"
+     }
+    ],
+    "explanation": {
+     "surface": "Some bones turn up in a jar that someone knocked over carelessly.",
+     "definitionFit": "The sacra are the plural of sacrum, the triangular bone at the base of the spine, so they are bones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tipped"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +860,59 @@
     "text": "With golden river, a small country",
     "enumeration": "7"
    },
-   "solution": "ANDORRA"
+   "solution": "ANDORRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANDORRA",
+    "definitions": [
+     {
+      "text": "small country",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "AND",
+      "note": "and means along with"
+     },
+     {
+      "clueFragment": "golden",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "OR",
+      "R",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny nation boasts a river that gleams gold.",
+     "walkthrough": "OR as gold comes from heraldry, the language of coats of arms, and is a crossword staple.",
+     "definitionFit": "Andorra is a tiny principality in the Pyrenees between France and Spain, an example of a little nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "golden"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +926,54 @@
     "text": "Match, on in time",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGREE",
+    "definitions": [
+     {
+      "text": "Match",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in, inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in a letter heading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports fixture is on schedule.",
+     "definitionFit": "Two things that agree correspond or tally with each other, which is the verb sense of match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +993,77 @@
      }
     ]
    },
-   "solution": "CABINETMINISTER"
+   "solution": "CABINETMINISTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "CABINET MINISTER",
+    "definitions": [
+     {
+      "text": "politician",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is odd and out of order, so these letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the combined pieces go in, inside the larger word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Receptacle",
+      "gives": "BIN",
+      "note": "a bin is a receptacle for rubbish"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "ITEM",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "CANISTER",
+      "note": "a canister is a small container, often for tea or coffee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BIN",
+      "ETMI",
+      "NISTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITEM",
+       "gives": "ETMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of storage items: a receptacle, an odd object inside a box.",
+     "walkthrough": "'Receptacle' tempts you to write in the first word straight off, but the clue builds the whole phrase letter by letter, with the bin and jumbled item packed inside a tea caddy.",
+     "definitionFit": "A cabinet minister is a senior government member who sits in the cabinet, so the phrase names a type of politician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Receptacle"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1077,53 @@
     "text": "US return surprisingly offers encouragement",
     "enumeration": "8"
    },
-   "solution": "NURTURES"
+   "solution": "NURTURES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NURTURES",
+    "definitions": [
+     {
+      "text": "offers encouragement",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something that turns out surprisingly arrives in an unexpected form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US return",
+      "gives": "USRETURN",
+      "note": "the two words used as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NURTURES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USRETURN",
+       "gives": "NURTURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unexpected homecoming to America brings people hope.",
+     "definitionFit": "To nurture is to foster and support growth, so someone who nurtures is giving encouragement and care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1137,48 @@
     "text": "At home, old canary",
     "enumeration": "8"
    },
-   "solution": "INFORMER"
+   "solution": "INFORMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFORMER",
+    "definitions": [
+     {
+      "text": "canary",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "someone who is in is at home"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "FORMER",
+      "note": "former means old or previous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FORMER"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly pet bird sits in its house.",
+     "walkthrough": "A canary is slang for a police informant, one who sings to the authorities.",
+     "definitionFit": "Underworld slang calls a person who sings to the police a canary, so the bird name means a grass or tip-off source."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "canary"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1192,56 @@
     "text": "As this day ends, cricket side accommodated in snug",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "As this day ends",
+      "at": 0,
+      "note": "an adverbial phrase, matching the adverb sense of the answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodated in",
+      "for": "container",
+      "note": "a guest accommodated in a house is put up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snug",
+      "gives": "TIGHT",
+      "note": "snug and tight both mean close-fitting"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "ON",
+      "note": "the on side is the leg side of a cricket field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ON",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "At the end of the day a cricket team is put up in a cosy pub.",
+     "walkthrough": "A snug is also a small private room in a British pub, which colours the surface.",
+     "definitionFit": "The word refers to the evening of the present day, the time when today is drawing to its close."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "snug"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1255,54 @@
     "text": "Tailor married lover",
     "enumeration": "7"
    },
-   "solution": "ADMIRER"
+   "solution": "ADMIRER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRER",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tailor",
+      "for": "anagram",
+      "note": "to tailor is to cut and alter to fit, so these letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "MARRIED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADMIRER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARRIED",
+       "gives": "ADMIRER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor has wed his sweetheart.",
+     "walkthrough": "'Tailor' reads as a noun, a person, but it is a verb telling you to alter the next word.",
+     "definitionFit": "An admirer is someone romantically attracted to another, a suitor or devotee, which is what a lover is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tailor"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1316,42 @@
     "text": "Desert colour",
     "enumeration": "6"
    },
-   "solution": "MAROON"
+   "solution": "MAROON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAROON",
+    "definitions": [
+     {
+      "text": "Desert",
+      "at": 0
+     },
+     {
+      "text": "colour",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Desert",
+      "note": "first meaning: abandon someone, especially on an island"
+     },
+     {
+      "clueFragment": "colour",
+      "note": "second meaning: a dark brownish-red shade"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a sandy shade, as if desert were an adjective, but desert is the verb meaning abandon.",
+     "definitionFit": "To maroon is to strand someone in a remote place, and maroon is also a deep reddish-brown hue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Desert"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1365,50 @@
     "text": "Motive in crime, initially unseen",
     "enumeration": "6"
    },
-   "solution": "REASON"
+   "solution": "REASON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REASON",
+    "definitions": [
+     {
+      "text": "Motive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially unseen",
+      "for": "deletion",
+      "note": "the initial letter of the word cannot be seen, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crime",
+      "gives": "TREASON",
+      "note": "treason is the crime of betraying one's country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective looks for the motive behind an undetected crime.",
+     "definitionFit": "A reason is the cause or purpose behind an action, which is what a motive is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crime"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1422,55 @@
     "text": "Intended to hold name back",
     "enumeration": "7"
    },
-   "solution": "FINANCE"
+   "solution": "FINANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FINANCE",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intended",
+      "gives": "FIANCE",
+      "note": "your intended is the person you are engaged to marry"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "N",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "An engaged partner keeps their own surname rather than going back to it.",
+     "walkthrough": "'Intended' looks like an adjective meaning planned, but it is a noun for a betrothed partner.",
+     "definitionFit": "To back a venture is to fund it, so the verb means provide money for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Intended"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1484,55 @@
     "text": "Put in order, administration finally finished off",
     "enumeration": "6"
    },
-   "solution": "NEATEN"
+   "solution": "NEATEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEATEN",
+    "definitions": [
+     {
+      "text": "Put in order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "administration",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of administration"
+     },
+     {
+      "clueFragment": "finished off",
+      "gives": "EATEN",
+      "note": "food that is finished off has been eaten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EATEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A new government tidies up after the old administration is finally ousted.",
+     "definitionFit": "To neaten something is to tidy it, arranging it so it is orderly and spruce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "administration"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1552,65 @@
      }
     ]
    },
-   "solution": "BERMUDATRIANGLE"
+   "solution": "BERMUDATRIANGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BERMUDA TRIANGLE",
+    "definitions": [
+     {
+      "text": "Atlantic region",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "something at sea is confused and adrift, so these letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mature bird",
+      "gives": "MATUREBIRD",
+      "note": "the two words used as letters to rearrange"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish with a rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BERMUDATRI",
+      "ANGLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MATUREBIRD",
+       "gives": "BERMUDATRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old seabird out on the ocean catches fish in the Atlantic.",
+     "walkthrough": "'fish' looks like a noun, prey for the bird, but it is the verb, and the 'at' belongs to the anagram signal, not the fodder.",
+     "definitionFit": "The Bermuda Triangle is a stretch of the western North Atlantic famed for mysterious disappearances of ships and aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1624,43 @@
     "text": "Deep swimmer",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Deep",
+      "at": 0
+     },
+     {
+      "text": "swimmer",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deep",
+      "note": "first meaning: low in pitch, as a voice or note"
+     },
+     {
+      "clueFragment": "swimmer",
+      "note": "second meaning: a fish found in sea and fresh water"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a diver who goes far down, but the two words are separate meanings.",
+     "definitionFit": "The adjective describes the lowest range of musical pitch, and the noun is a common edible perch-like fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Deep"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1674,48 @@
     "text": "Relax when letters read out?",
     "enumeration": "4"
    },
-   "solution": "EASE"
+   "solution": "EASE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EASE",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "something read out is spoken, so we want what it sounds like rather than how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters",
+      "gives": "EASE",
+      "soundsLike": "EES",
+      "note": "the plural of the letter E, said as E's"
+     }
+    ],
+    "explanation": {
+     "surface": "Take it easy when the post is being read to you.",
+     "walkthrough": "'letters' suggests mail, but it means letters of the alphabet: several Es.",
+     "definitionFit": "To ease off is to loosen up and take things more gently, the verb sense of relax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1729,43 @@
     "text": "Woman’s accessory committed crime",
     "enumeration": "5"
    },
-   "solution": "STOLE"
+   "solution": "STOLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOLE",
+    "definitions": [
+     {
+      "text": "Woman’s accessory",
+      "at": 0
+     },
+     {
+      "text": "committed crime",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman’s accessory",
+      "note": "first meaning: a scarf or wrap worn over the shoulders"
+     },
+     {
+      "clueFragment": "committed crime",
+      "note": "second meaning: took something unlawfully, past tense of steal"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Accessory' teases a criminal accomplice, an accessory to a crime, but here it is a fashion item.",
+     "definitionFit": "A stole is a long scarf worn by women over the shoulders, and the past tense of steal names a theft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accessory"
+    }
+   }
   },
   {
    "number": 27,
@@ -460,7 +1779,65 @@
     "text": "See motel breakfast finally cooked – egg dishes",
     "enumeration": "9"
    },
-   "solution": "OMELETTES"
+   "solution": "OMELETTES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OMELETTES",
+    "definitions": [
+     {
+      "text": "egg dishes",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked ingredients are transformed and mixed, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See motel",
+      "gives": "SEEMOTEL",
+      "note": "the two words used as letters to rearrange"
+     },
+     {
+      "clueFragment": "breakfast",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of breakfast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMELETTES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEMOTELT",
+       "gives": "OMELETTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look: the motel's breakfast eventually arrives, cooked egg dishes.",
+     "definitionFit": "Omelettes are made from beaten eggs fried in a pan, so they are a kind of dish based on eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   }
  ]
 }
