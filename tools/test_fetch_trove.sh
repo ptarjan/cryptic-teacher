@@ -35,5 +35,28 @@ try: tv.get("/b"); msg = ""
 except ft.Transient: msg = "transient"
 except RuntimeError as e: msg = str(e)
 check("4xx is not retried and stays loud", "HTTP 403" in msg and len(calls) == 2)
+# `zones` fetches clue columns only for articles the ledger leaves pending
+# without them, at most N a run, and one failure stops nothing.
+import io, json, pathlib, contextlib
+d = pathlib.Path(tempfile.mkdtemp()); out, zones = d / 'trove', d / 'trove-clues'
+for aid in ('1', '2', '3', '4', '5'):
+    (out / aid).mkdir(parents=True); (out / aid / 'meta.json').write_text('{}')
+(zones / '3').mkdir(parents=True); (zones / '3' / 'zone0.png').write_bytes(b'')
+rows = [{'article': '1', 'pending': 'no grid'}, {'article': '2', 'id': 'canberra-1'},
+        {'article': '3', 'pending': 'no grid'}, {'article': '4', 'pending': 'no grid'},
+        {'article': '5', 'pending': 'no grid'}, {'article': '6', 'pending': 'no grid'}]
+(out / 'filed.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows))
+seen = []
+def fake(tv_, out_, zones_, aid):
+    seen.append(aid)
+    if aid == '1':
+        raise OSError('HTTP 503')
+ft.fetch_zones = fake
+want = ft.pending_zones(str(out), str(zones))
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    nfail = ft.fetch_all_zones(None, str(out), str(zones), want, 2)
+check("zones: only pending articles without zones, capped, past a failure",
+      want == ['1', '4', '5'] and nfail == 1 and seen == ['1', '4'] and '503' in buf.getvalue())
 sys.exit(1 if fails else 0)
 PY

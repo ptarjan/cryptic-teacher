@@ -5,8 +5,12 @@
 #     setsid nohup bash tools/ocr_full_pass.sh >>~/.cache/ocr_full_pass.log 2>&1 </dev/null &
 #
 # The nightly reads none of them: the scans are cached by hand-run fetchers
-# (tools/fetch_trove.py, tools/fetch_archive_org_editions.py), so run this
-# after one, or after changing a reader, to file what they now read. Resumable: each filer's ledger
+# (tools/fetch_trove.py fetch, then fetch_trove.py zones for the clue columns
+# of articles left pending; tools/fetch_archive_org_editions.py), so run this
+# after one, or after changing a reader, to file what they now read. This
+# pass only reads caches and never downloads: an article whose clue columns
+# are not cached stays pending ("no reading of the page's clues") until
+# fetch_trove.py zones caches them. Resumable: each filer's ledger
 # (~/.cache/trove/filed.jsonl, ~/.cache/archive_org_editions/filed.jsonl)
 # is saved after every source, the never-read go first, and a rerun picks up
 # where a killed one stopped. Each filer runs in OCR_FULL_PASS_CHUNK-second
@@ -55,10 +59,6 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   done
 }
 
-# A Trove clue list no grid fits waits on its page scan's clue columns, which
-# the filer reads; fetch them for every pending article first.
-nice -n 10 python3 tools/trove_clue_ocr.py --fetch-pending 100000 ||
-  echo "trove_clue_ocr --fetch-pending failed (rc=$?); pending Canberra Times clue lists stay without clue columns"
 slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 for paper in telegraph guardian ft times; do

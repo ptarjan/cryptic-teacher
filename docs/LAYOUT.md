@@ -107,7 +107,8 @@ tools/fetch_metro.py                         the Metro’s cryptic; today’s on
 tools/fetch_trove.py                         Canberra Times crosswords from Trove (London Times
                                              1967-85, Guardian 1986-95): OCR text and the grid
                                              cut from the page scan, anonymously, past its
-                                             Anubis proof of work
+                                             Anubis proof of work; `zones` also caches the clue
+                                             columns of articles left pending
 tools/file_trove_puzzles.py                  files the Canberra Times cryptics fetch_trove.py
                                              cached as puzzles/canberra/ (numbered YYMMDD by
                                              print date): clues from the OCR, the grid read off
@@ -120,7 +121,8 @@ tools/trove_grid.py                          reads a crossword's black squares o
                                              refuses rather than guesses
 tools/test_fetch_trove.sh                    fetch_trove.py with a stubbed opener: a timeout
                                              and a 500 retried to success, a persistent 500
-                                             named by URL, a 4xx not retried
+                                             named by URL, a 4xx not retried, and `zones`
+                                             fetching only pending articles that lack them
 tools/test_file_trove_puzzles.sh             files three real Trove articles: the grid read
                                              cell for cell, the solution grid skipped, a count
                                              the OCR misread held back by name, a second run
@@ -129,8 +131,9 @@ tools/test_file_trove_puzzles.sh             files three real Trove articles: th
 tools/trove_clue_ocr.py                      repairs the clues Trove's OCR loses (a number read
                                              as junk, a broken bracket, "(S)") from RapidOCR's
                                              reading of the page's clue columns, cached in
-                                             ~/.cache/trove-clues; file_trove_puzzles.py
-                                             applies it, anchored on text both readings share
+                                             ~/.cache/trove-clues by fetch_trove.py zones;
+                                             file_trove_puzzles.py applies it, anchored on text
+                                             both readings share
 tools/fixtures/trove-repair/                 the 14 July 1967 cryptic, whose OCR glued 6-down
                                              onto 5-down, with RapidOCR's reading of its clue
                                              columns and our three readers' text of them: the
