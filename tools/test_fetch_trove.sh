@@ -1,6 +1,7 @@
 #!/bin/bash
-# Does tools/fetch_trove.py retry a timed-out or 5xx request, give up on one
-# article with a line naming it, and carry on? Offline: the opener is stubbed.
+# Does tools/fetch_trove.py retry a timed-out or 5xx request within the
+# article's time, give up on one article with a line naming it, carry on, and
+# stop when every article fails? Offline: the opener is stubbed.
 #
 #     bash tools/test_fetch_trove.sh
 set -uo pipefail
@@ -55,8 +56,22 @@ ft.fetch_zones = fake
 want = ft.pending_zones(str(out), str(zones))
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
-    nfail = ft.fetch_all_zones(None, str(out), str(zones), want, 2)
+    nfail, stopped = ft.fetch_all_zones(tv, str(out), str(zones), want, 2)
 check("zones: only pending articles without zones, capped, past a failure",
-      want == ['1', '4', '5'] and nfail == 1 and seen == ['1', '4'] and '503' in buf.getvalue())
+      want == ['1', '4', '5'] and (nfail, stopped) == (1, False) and seen == ['1', '4']
+      and '503' in buf.getvalue())
+# Past its ITEM_SECONDS an article's failed request is not retried.
+tv.deadline = 0
+script(*[(500, b"boom")] * 4)
+try: tv.get("/late"); msg = ""
+except ft.Transient as e: msg = str(e)
+check("no retry past the article's deadline", "after 1 tries" in msg and len(calls) == 1)
+# Articles failing back to back stop the run instead of failing through it.
+def down(aid):
+    raise ft.Transient("HTTP 503")
+with contextlib.redirect_stdout(io.StringIO()) as buf:
+    nfail, stopped = ft.each_article(tv, [str(i) for i in range(50)], down, "article")
+check("FAILURES_IN_A_ROW failures stop the run",
+      (nfail, stopped) == (ft.FAILURES_IN_A_ROW, True) and "Trove looks down" in buf.getvalue())
 sys.exit(1 if fails else 0)
 PY

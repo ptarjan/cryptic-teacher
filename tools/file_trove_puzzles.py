@@ -847,6 +847,10 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
         if write:
             save(ledger, known)
         del due[d]
+        print(f"{time.strftime('%H:%M:%S')} read {aid}: "
+              + ("wrote " + row["id"] if row.get("wrote") else
+                 str(row.get("id") or row.get("skip") or row.get("pending") or row.get("refused") or "read"))[:80],
+              file=sys.stderr, flush=True)
     tally = {}
     for d in dirs:
         row = known.get(d.name)

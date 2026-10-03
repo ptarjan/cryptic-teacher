@@ -121,8 +121,10 @@ tools/trove_grid.py                          reads a crossword's black squares o
                                              refuses rather than guesses
 tools/test_fetch_trove.sh                    fetch_trove.py with a stubbed opener: a timeout
                                              and a 500 retried to success, a persistent 500
-                                             named by URL, a 4xx not retried, and `zones`
-                                             fetching only pending articles that lack them
+                                             named by URL, a 4xx not retried, no retry past an
+                                             article's ITEM_SECONDS, a run of failures stopping
+                                             the run, and `zones` fetching only pending
+                                             articles that lack them
 tools/test_file_trove_puzzles.sh             files three real Trove articles: the grid read
                                              cell for cell, the solution grid skipped, a count
                                              the OCR misread held back by name, a second run
@@ -1191,6 +1193,10 @@ tools/test_file_georgeho_puzzles.sh          does tools/file_georgeho_puzzles.py
                                              and file_blog_puzzles.build take?
 tools/fetch_archive_org_editions.py          fetch archive.org newspaper editions' OCR, word
                                              positions and crossword page scans
+tools/test_fetch_archive_org_editions.sh     fetch_archive_org_editions.py with urlopen
+                                             stubbed: 500s retried within an edition's
+                                             ITEM_SECONDS, none past it, so one bad edition
+                                             cannot hold the queue
 
 fetching
 tools/file_archive_org_puzzles.py            files the daily Times, FT, Guardian and Telegraph

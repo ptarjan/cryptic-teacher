@@ -51,7 +51,12 @@ fetches only the page images it newly finds; no text is downloaded again.
 
 Politeness: one request at a time, at least --delay seconds apart, and a
 retry with backoff (honouring Retry-After) on 429, 5xx and network errors.
-A 404 is permanent: logged to failures.tsv, and the edition stays undone.
+
+No edition holds the queue: retries stop once it has had ITEM_SECONDS, and
+an edition whose request then fails is logged to failures.tsv and left
+undone for the next run, and the run moves on. FAILURES_IN_A_ROW editions
+failing back to back means archive.org itself is down: the run stops with
+exit 4 and the errors in its log.
 """
 
 import argparse
@@ -73,7 +78,9 @@ UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
 DETECTOR_VERSION = 3
 EMPTY_OCR_CHARS = 200
-RETRY_WAITS = (5, 15, 45, 120, 300, 600)
+RETRY_WAITS = (5, 15, 45, 120)
+ITEM_SECONDS = 300
+FAILURES_IN_A_ROW = 10
 
 # (group, advancedsearch query, title regex that keeps an item, first date kept)
 GROUPS = [
@@ -100,11 +107,14 @@ class Fetcher:
         self.out = out
         self.delay = delay
         self.last = 0.0
+        #: time.monotonic() after which a failed request is not retried.
+        self.deadline = float("inf")
 
     def get(self, url, what, retry=True):
         """GET url politely; returns bytes, raises HTTPError on 404/403/400.
 
-        retry=False raises on the first failure instead of waiting and retrying.
+        retry=False raises on the first failure instead of waiting and retrying,
+        and so does any failure whose wait would end past self.deadline.
         """
         for attempt, wait in enumerate(RETRY_WAITS + (None,) if retry else (None,)):
             gap = self.last + self.delay - time.monotonic()
@@ -112,7 +122,7 @@ class Fetcher:
                 time.sleep(gap)
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": UA})
-                with urllib.request.urlopen(req, timeout=300) as r:
+                with urllib.request.urlopen(req, timeout=120) as r:
                     data = r.read()
                 self.last = time.monotonic()
                 return data
@@ -121,10 +131,12 @@ class Fetcher:
                 if e.code not in (429, 500, 502, 503, 504) or wait is None:
                     raise
                 wait = max(wait, int(e.headers.get("Retry-After") or 0))
+                if time.monotonic() + wait > self.deadline:
+                    raise
                 err = f"HTTP {e.code}"
             except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
                 self.last = time.monotonic()
-                if wait is None:
+                if wait is None or time.monotonic() + wait > self.deadline:
                     raise
                 err = f"{type(e).__name__}: {e}"
             log(f"  retry {attempt + 1} in {wait}s: {what}: {err}")
@@ -339,12 +351,13 @@ def main():
     else:
         plan = [(g, it) for g in (args.group or [g[0] for g in GROUPS]) for it in items_of(fx, g)]
 
-    n = 0
+    n = in_a_row = 0
     for group, item in plan:
+        fx.deadline = time.monotonic() + ITEM_SECONDS
         try:
             meta = fx.metadata(item)
-        except (urllib.error.HTTPError, RuntimeError) as e:
-            log(f"{item}: metadata failed: {e}")
+        except (urllib.error.URLError, RuntimeError, OSError, ValueError) as e:
+            log(f"{item}: metadata failed, left for the next run: {e}")
             append(args.out, "failures.tsv", [time.strftime("%F %T"), item, "", f"metadata: {e}"])
             continue
         names = editions_of(meta)
@@ -365,13 +378,20 @@ def main():
                 log(f"stopping: {free:.0f} GB free < --min-free-gb {args.min_free_gb}")
                 return 3
             t = time.monotonic()
+            fx.deadline = t + ITEM_SECONDS
             try:
                 hits = fetch_edition(fx, item, meta, name)
             except (urllib.error.HTTPError, urllib.error.URLError, RuntimeError, OSError,
                     ET.ParseError, EOFError) as e:
-                log(f"  FAIL {name}: {type(e).__name__}: {e}")
+                log(f"  FAIL {name} after {time.monotonic() - t:.0f}s, left for the next run: "
+                    f"{type(e).__name__}: {e}")
                 append(args.out, "failures.tsv", [time.strftime("%F %T"), item, name, f"{type(e).__name__}: {e}"])
+                in_a_row += 1
+                if in_a_row >= FAILURES_IN_A_ROW:
+                    log(f"stopping: {in_a_row} editions in a row failed; archive.org looks down")
+                    return 4
                 continue
+            in_a_row = 0
             append(args.out, "done.tsv", [item, name, DETECTOR_VERSION])
             n += 1
             heads = "; ".join(h for hit in hits for h in hit.get("headings", ["(blank OCR)"])[:2])
