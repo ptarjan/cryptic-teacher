@@ -1889,6 +1889,102 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16391", "12-across"): (
+        "Spirit of brave fellow ) outmanoeuvred",
+        "Spirit of brave fellow I outmanoeuvred",
+        "OCR misread: the wordplay needs the letter I, not a bracket"),
+    ("times-16377", "1-down"): (
+        "To rescue eg a sinking ship is somewhat hai soothing",
+        "To rescue eg a sinking ship is somewhat soothing",
+        "OCR misread: hai is stray scan debris; the double definition needs somewhat soothing"),
+    ("times-16377", "10-across"): (
+        "All rite\" possibly a printing error?",
+        "All rite possibly a printing error?",
+        "OCR misread: the stray quote mark is scan debris before the anagram signal"),
+    ("times-16377", "15-across"): (
+        "Article., no thanks to Edward., is given textual comment",
+        "Article, no thanks to Edward, is given textual comment",
+        "OCR misread: the stray full stops are scan debris in the charade"),
+    ("times-16350", "2-down"): (
+        "Sluggish sca, perhaps, to go to ” one's bunk in",
+        "Sluggish sae, perhaps, to go to one's bunk in",
+        "OCR misread: the wordplay needs sae, the envelope SAE, around TURN IN"),
+    ("times-16350", "12-down"): (
+        "Outdated, be meant to reform",
+        "Outdated, he meant to reform",
+        "OCR misread: the anagram needs he, giving the H of MOTH-EATEN"),
+    ("times-16348", "14-across"): (
+        "Caught the sort of bone that gels knocked",
+        "Caught the sort of bone that gets knocked",
+        "OCR misread: the wordplay needs gets knocked, RAPPED, not gels"),
+    ("times-16348", "19-across"): (
+        "Joint bolder is crooked to start with",
+        "Joint holder is crooked to start with",
+        "OCR misread: the definition is a joint holder, a skewer, not bolder"),
+    ("times-16348", "21-across"): (
+        "Put your foot down to get going (71. '",
+        "Put your foot down to get going",
+        "OCR misread: the enumeration was read as stray text"),
+    ("times-16348", "7-down"): (
+        "Having had more than enough of broken dates (5k",
+        "Having had more than enough of broken dates",
+        "OCR misread: the enumeration was read as stray text"),
+    ("times-16348", "8-down"): (
+        "Sharks making tenders (6",
+        "Sharks making tenders",
+        "OCR misread: the enumeration was read as stray text"),
+    ("times-16348", "29-across"): (
+        "Shallow, like a forked — , said Falsiaff",
+        "Shallow, like a forked — , said Falstaff",
+        "OCR misread: the quotation is Falstaff's, not Falsiaff"),
+    ("telegraph-18338", "8-across"): (
+        "A 'gadfly that would be welcome in the doldrums",
+        "A gadfly that would be welcome in the doldrums",
+        "OCR misread: stray apostrophe before gadfly"),
+    ("telegraph-18338", "9-across"): (
+        "Badly tailored i image-worshipper",
+        "Badly tailored image-worshipper",
+        "OCR misread: stray i before image; the anagram needs tailored alone"),
+    ("telegraph-18338", "14-across"): (
+        "Comparatively -peaceful though quite different return?",
+        "Comparatively peaceful though quite different return?",
+        "OCR misread: stray hyphen before peaceful"),
+    ("telegraph-18338", "19-down"): (
+        "A good Lip for the writer?",
+        "A good tip for the writer?",
+        "OCR misread: the answer, a metal for pen nibs, needs tip"),
+    ("telegraph-18338", "23-across"): (
+        "Use force to bold down a country",
+        "Use force to hold down a country",
+        "OCR misread: occupying a country needs hold down"),
+    ("times-16349", "3-down"): (
+        ".Standard-bearer in .Arizona",
+        "Standard-bearer in Arizona",
+        "OCR misread: stray full stops before Standard and Arizona"),
+    ("times-16349", "4-down"): (
+        "Eurasian employed in paint-making\"",
+        "Eurasian employed in paint-making",
+        "OCR misread: a stray quote mark after paint-making"),
+    ("times-16349", "13-across"): (
+        "Teams 'e's meeting in the ica interval?",
+        "Teams 'e's meeting in the tea interval?",
+        "OCR misread: the definition needs tea interval, a break like elevenses"),
+    ("times-16349", "15-down"): (
+        "Cal receiving first murderer's ungrammatical confession?",
+        "Cat receiving first murderer's ungrammatical confession?",
+        "OCR misread: the answer is Mehitabel the cat, so Cat, not Cal"),
+    ("times-16349", "16-down"): (
+        "Two men of distinction begin to moe",
+        "Two men of distinction begin to move",
+        "OCR misread: the definition is begin to move"),
+    ("times-16349", "19-down"): (
+        "Cell not very different from Briton",
+        "Celt not very different from Briton",
+        "OCR misread: the definition is Celt, which a Breton is"),
+    ("times-16349", "20-down"): (
+        "Island colony's \"' founder",
+        "Island colony's founder",
+        "OCR misread: stray quote marks before founder"),
     ("times-16347", "1-across"): (
         "Degree was Ok. though very far from hot",
         "Degree was 0K, though very far from hot",
