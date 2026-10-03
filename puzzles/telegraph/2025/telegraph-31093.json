@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,44 @@
     "text": "Vehicle moved slowly and aimlessly",
     "enumeration": "5"
    },
-   "solution": "MOPED"
+   "solution": "MOPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOPED",
+    "definitions": [
+     {
+      "text": "Vehicle",
+      "at": 0
+     },
+     {
+      "text": "moved slowly and aimlessly",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "note": "first meaning: a small motorbike with pedals"
+     },
+     {
+      "clueFragment": "moved slowly and aimlessly",
+      "note": "second meaning: the past tense of a verb for drifting about listlessly"
+     }
+    ],
+    "explanation": {
+     "surface": "A car or bike crawling along with nowhere particular to go.",
+     "walkthrough": "The surface reads as one sentence about a vehicle, but the clue is two separate meanings of one word.",
+     "definitionFit": "The noun names a low-powered motorcycle; the verb in the past tense describes wandering about in a dull, gloomy way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Vehicle"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +86,66 @@
     "text": "Blue marble is cracked on base",
     "enumeration": "9"
    },
-   "solution": "MISERABLE"
+   "solution": "MISERABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MISERABLE",
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is cracked",
+      "for": "anagram",
+      "note": "something cracked is broken, so these letters are smashed and reassembled"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the base letter comes at the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marble is",
+      "gives": "MARBLEIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISERABL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARBLEIS",
+       "gives": "MISERABL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A blue marble statue is cracked on its plinth.",
+     "walkthrough": "'is' belongs to the fodder: rearrange MARBLE IS, then add E, the mathematical base.",
+     "definitionFit": "Feeling blue means feeling sad or low, so wretchedly unhappy is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +159,61 @@
     "text": "Dad’s crossing the endless tracks",
     "enumeration": "5"
    },
-   "solution": "PATHS"
+   "solution": "PATHS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PATHS",
+    "definitions": [
+     {
+      "text": "tracks",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter is cut off"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means straddling, so the father's word reaches across and around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad’s",
+      "gives": "PAS",
+      "note": "pa is dad, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "TH",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A father walking over tracks that go on forever.",
+     "walkthrough": "The possessive 's supplies a letter of the answer rather than joining parts; the shortened article sits between pa and that S.",
+     "definitionFit": "Paths are tracks or trails worn by walkers across open ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +227,69 @@
     "text": "Diet regularly abandoned? Lock up pudding!",
     "enumeration": "7"
    },
-   "solution": "DESSERT"
+   "solution": "DESSERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DESSERT",
+    "definitions": [
+     {
+      "text": "pudding",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly abandoned",
+      "for": "letter_selection",
+      "note": "every other letter is dropped at a steady interval, leaving alternate ones"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diet",
+      "gives": "DE",
+      "select": "alternate",
+      "note": "the first and third letters, with the others thrown away"
+     },
+     {
+      "clueFragment": "Lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SSERT"
+     ],
+     "reversals": [
+      {
+       "from": "TRESS",
+       "to": "SSERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter has given up, so the sweets must be locked away.",
+     "walkthrough": "'Lock up' looks like an order to secure the food; 'Lock' is a lock of hair and 'up' turns it round to SSERT.",
+     "definitionFit": "In British usage pudding is the general word for the sweet course served after the main meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lock"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +303,61 @@
     "text": "Decorated sailor following the Spanish lecture",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "Decorated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after places the sailor's letters behind the article in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish word for 'the'"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the standard crossword sailor"
+     },
+     {
+      "clueFragment": "lecture",
+      "gives": "ORATE",
+      "note": "to orate is to speak at length, as in a lecture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "AB",
+      "ORATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A medal-winning sailor gives a talk after a Spanish speaker.",
+     "walkthrough": "'Decorated' tempts you to read it as honoured with a medal, describing the sailor; it is the definition in its sense of ornate.",
+     "definitionFit": "Something ornamented in intricate detail is ornate, richly adorned and fussy in design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Decorated"
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +371,67 @@
     "text": "Half upset about court orders",
     "enumeration": "6"
    },
-   "solution": "EDICTS"
+   "solution": "EDICTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EDICTS",
+    "definitions": [
+     {
+      "text": "orders",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means overturned, so in this down clue the word is flipped bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the flipped word goes round the court abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half",
+      "gives": "SIDE",
+      "note": "each side of something is one of its two halves"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "CT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SIDE",
+       "to": "EDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half the people are unhappy with the court's rulings.",
+     "walkthrough": "'Half' looks like a fraction of a word to take; it is a whole word, one side of something.",
+     "definitionFit": "Edicts are official decrees or proclamations issued by an authority, commands to be obeyed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +445,61 @@
     "text": "Hearing car touching fence, not loudly",
     "enumeration": "8"
    },
-   "solution": "AUDIENCE"
+   "solution": "AUDIENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AUDIENCE",
+    "definitions": [
+     {
+      "text": "Hearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not loudly",
+      "for": "deletion",
+      "note": "loudly is f, forte in music, and not means that letter is taken away"
+     },
+     {
+      "text": "touching",
+      "for": "charade",
+      "note": "touching means adjoining, so the two pieces sit next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "Audi is a German car make"
+     },
+     {
+      "clueFragment": "fence",
+      "gives": "FENCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A court hearing about a car that scraped a fence.",
+     "walkthrough": "F is forte, loud, in music notation; FENCE without it is ENCE.",
+     "definitionFit": "An audience is a formal interview or a chance to be heard, as in an audience with the Pope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hearing"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +513,55 @@
     "text": "See lob – not the first tennis shot?",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OBSERVE",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is removed from the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lob",
+      "gives": "LOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tennis shot",
+      "gives": "SERVE",
+      "note": "the serve is the shot that starts each tennis point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch the lob: was that really not the opening stroke of the rally?",
+     "walkthrough": "The question reads as tennis talk; 'not the first' cuts L from lob.",
+     "definitionFit": "To observe is to notice or watch carefully, which is to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +575,60 @@
     "text": "Fixed a page by cutting",
     "enumeration": "9"
    },
-   "solution": "APPOINTED"
+   "solution": "APPOINTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPOINTED",
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so the last piece is placed next to the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "cutting",
+      "gives": "POINTED",
+      "note": "a cutting remark is a pointed one, sharp and barbed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "POINTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mended a page by trimming it.",
+     "walkthrough": "'Cutting' looks like the method of repair; it is an adjective meaning sharp or barbed.",
+     "definitionFit": "An appointed time or place is one that has been fixed or set in advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +642,49 @@
     "text": "Mistake picked up in anger or resentment",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ERROR",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie inside the run of words that follows"
+     },
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, picked up means lifted from bottom to top, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger or resentment",
+      "gives": "RORRE",
+      "note": "found across the end of anger, all of or, and the first letter of resentment"
+     }
+    ],
+    "explanation": {
+     "surface": "A blunder that is noticed and met with fury or bitterness.",
+     "walkthrough": "'Picked up' looks like a sound-alike signal, but in a down entry it means read upwards; the letters run backwards across the three words.",
+     "definitionFit": "An error is a mistake, an inaccurate or wrong action or judgement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +698,65 @@
     "text": "Met doctor as I shifted hospital’s shed",
     "enumeration": "9"
    },
-   "solution": "SATISFIED"
+   "solution": "SATISFIED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SATISFIED",
+    "definitions": [
+     {
+      "text": "Met",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters that follow are rearranged"
+     },
+     {
+      "text": "shed",
+      "for": "deletion",
+      "note": "something shed is cast off, so the hospital's letter is dropped from the mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as I shifted",
+      "gives": "ASISHIFTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATISFIED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASISIFTED",
+       "gives": "SATISFIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor, moved between posts, finds a hospital has lost a building.",
+     "walkthrough": "'Doctor' looks like a person but is the anagram signal; 'shifted' is only part of the letters. Remove H from AS I SHIFTED and rearrange.",
+     "definitionFit": "When demands or conditions have been met they have been fulfilled, so the requirement is satisfied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +770,42 @@
     "text": "First-rate police officer",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "First-rate",
+      "at": 0
+     },
+     {
+      "text": "police officer",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First-rate",
+      "note": "first meaning: excellent, top quality"
+     },
+     {
+      "clueFragment": "police officer",
+      "note": "second meaning: short for superintendent, a senior British police rank"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for an outstanding constable.",
+     "definitionFit": "The word is informal praise for something excellent, and also the colloquial clipping of superintendent, a senior British police rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +819,67 @@
     "text": "Particular exercises by Charlie in period of inactivity",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RESPECT",
+    "definitions": [
+     {
+      "text": "Particular",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the two short pieces sit side by side"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those joined pieces inside the word for a period of inactivity"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercises",
+      "gives": "PE",
+      "note": "PE is physical education, school exercises"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "period of inactivity",
+      "gives": "REST",
+      "note": "a rest is a break from activity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "PE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fussy about doing their workouts even while resting.",
+     "walkthrough": "'Particular' tempts as an adjective meaning fussy; it is a noun here, a detail or point.",
+     "definitionFit": "A respect is an aspect or detail, as in 'in this respect', meaning in this particular point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +893,67 @@
     "text": "Before each run, recline and recuperate initially",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "Before",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter only of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the standard abbreviation for each"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is run in cricket scoring"
+     },
+     {
+      "clueFragment": "recline",
+      "gives": "LIE",
+      "note": "to lie back is to recline"
+     },
+     {
+      "clueFragment": "recuperate",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of recuperate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "R",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to lie back and recover before every jog.",
+     "definitionFit": "Something that happened before happened at a previous, sooner time; the comparative adverb is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +967,56 @@
     "text": "Creatures son found in socks",
     "enumeration": "6"
    },
-   "solution": "BEASTS"
+   "solution": "BEASTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEASTS",
+    "definitions": [
+     {
+      "text": "Creatures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means located inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socks",
+      "gives": "BEATS",
+      "note": "to sock someone is to punch them, so socks means hits"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEA",
+      "S",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Little creatures, or a child, discovered hiding inside hosiery.",
+     "walkthrough": "'Socks' looks like clothing; here it is the verb for punching. S goes inside BEATS.",
+     "definitionFit": "Beasts are animals, living creatures, especially large or wild four-legged ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "socks"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +1030,69 @@
     "text": "A little time with paper and editor’s captivated",
     "enumeration": "9"
    },
-   "solution": "ATTRACTED"
+   "solution": "ATTRACTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTRACTED",
+    "definitions": [
+     {
+      "text": "captivated",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means accompanied by, so the pieces are joined one after another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the short form of time"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "TRACT",
+      "note": "a tract is a pamphlet or short written treatise"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "TRACT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor is charmed after spending a short time with a newspaper.",
+     "walkthrough": "The 's stands for 'is' or 'has', joining the wordplay to the definition.",
+     "definitionFit": "To be drawn in or charmed by something is to be attracted, held by its appeal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +1106,56 @@
     "text": "Admitted what thespian did with mushroom inside",
     "enumeration": "8"
    },
-   "solution": "ACCEPTED"
+   "solution": "ACCEPTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCEPTED",
+    "definitions": [
+     {
+      "text": "Admitted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with mushroom inside",
+      "for": "container",
+      "note": "inside says the mushroom sits within what the thespian did"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what thespian did",
+      "gives": "ACTED",
+      "note": "a thespian is an actor, and what an actor did was perform"
+     },
+     {
+      "clueFragment": "mushroom",
+      "gives": "CEP",
+      "note": "a cep is a porcini, an edible wild mushroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CEP",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor confesses to performing after eating a magic mushroom.",
+     "walkthrough": "The cep is the porcini, prized in Italian and French cooking.",
+     "definitionFit": "To be admitted is to be let in or received as a member, which is to be taken in and approved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Admitted"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1169,51 @@
     "text": "Fend off chap’s cleaner",
     "enumeration": "9"
    },
-   "solution": "DETERGENT"
+   "solution": "DETERGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETERGENT",
+    "definitions": [
+     {
+      "text": "cleaner",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fend off",
+      "gives": "DETER",
+      "note": "to deter is to discourage or ward off"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a gentleman, a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Repel a man's cleaning lady.",
+     "walkthrough": "'Cleaner' looks like a person; here it is a cleaning product, and the 's is 'is'.",
+     "definitionFit": "Detergent is a soap-like substance used for washing, a cleaning agent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1227,68 @@
     "text": "Physicist, surrounded by reeling drunkards, suffers",
     "enumeration": "8"
    },
-   "solution": "STOMACHS"
+   "solution": "STOMACHS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STOMACHS",
+    "definitions": [
+     {
+      "text": "suffers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reeling",
+      "for": "reversal",
+      "note": "reeling means staggering back, so the drunkards' word is read backwards"
+     },
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "surrounded by says the physicist sits inside the drunkards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunkards",
+      "gives": "SOTS",
+      "note": "a sot is a habitual drunkard"
+     },
+     {
+      "clueFragment": "Physicist",
+      "gives": "MACH",
+      "note": "Ernst Mach, Austrian physicist of the Mach number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STO",
+      "MACH",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SOTS",
+       "to": "STOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist hemmed in by staggering drunks has a bad time.",
+     "walkthrough": "'Suffers' looks like complaint; it means tolerates, as in can't stomach it.",
+     "definitionFit": "To stomach something is to tolerate or put up with it, which is to endure or bear it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "suffers"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1302,50 @@
     "text": "Teatime’s rearranged for judge",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTIMATE",
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rearranged",
+      "for": "anagram",
+      "note": "rearranged says the letters before it are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teatime’s",
+      "gives": "TEATIMES",
+      "note": "taken as written, the apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEATIMES",
+       "gives": "ESTIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Afternoon tea has been moved to a new slot for a judge.",
+     "definitionFit": "To judge a quantity is to gauge it roughly, an approximate calculation by eye or reckoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1359,52 @@
     "text": "Turning calmer? I wonder",
     "enumeration": "7"
    },
-   "solution": "MIRACLE"
+   "solution": "MIRACLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIRACLE",
+    "definitions": [
+     {
+      "text": "wonder",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "anagram",
+      "note": "turning means changing, so these letters take on a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calmer? I",
+      "gives": "CALMERI",
+      "note": "taken as written, ignoring the punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALMERI",
+       "gives": "MIRACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses on whether the weather or a person is becoming more peaceful.",
+     "walkthrough": "'I wonder' reads as a musing aside; the I belongs to the letters and 'wonder' is a noun.",
+     "definitionFit": "A miracle is a marvel, an extraordinary and astonishing event, a thing of wonder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wonder"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1418,59 @@
     "text": "Praise? Conservative gets embarrassed by it",
     "enumeration": "6"
    },
-   "solution": "CREDIT"
+   "solution": "CREDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREDIT",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets",
+      "for": "charade",
+      "note": "gets means acquires, so the following pieces are added after the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "going red is blushing with embarrassment"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RED",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician blushes when complimented.",
+     "definitionFit": "Credit is acknowledgement or recognition given for an achievement, as in giving someone credit for their work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1484,48 @@
     "text": "Check concerning heartbeat",
     "enumeration": "7"
    },
-   "solution": "REPULSE"
+   "solution": "REPULSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPULSE",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "heartbeat",
+      "gives": "PULSE",
+      "note": "the pulse is the throb of the heartbeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PULSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor checking someone's pulse.",
+     "walkthrough": "'Check' tempts as a medical check on the pulse; it means halt an attack.",
+     "definitionFit": "To repulse an enemy is to drive back or halt its advance, so to check it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1539,59 @@
     "text": "Indicate group of animals going round a lake",
     "enumeration": "6"
    },
-   "solution": "HERALD"
+   "solution": "HERALD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERALD",
+    "definitions": [
+     {
+      "text": "Indicate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means encircling, so the animals' word wraps the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of animals",
+      "gives": "HERD",
+      "note": "a herd is a group of cattle or similar"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "A",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Point out the cattle walking around the lakeside.",
+     "definitionFit": "To herald something is to signal or announce that it is coming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1605,68 @@
     "text": "A good artist is enthralled by obscure technical drawing",
     "enumeration": "7"
    },
-   "solution": "DIAGRAM"
+   "solution": "DIAGRAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIAGRAM",
+    "definitions": [
+     {
+      "text": "technical drawing",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is enthralled by",
+      "for": "container",
+      "note": "enthralled means held captive, so these pieces are held within the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "DIM",
+      "note": "dim means faint or hard to make out"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the standard crossword artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "A",
+      "G",
+      "RA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine painter is captivated by an obscure engineering sketch.",
+     "walkthrough": "'Obscure' reads as describing the drawing, but it supplies the outer word, meaning faint.",
+     "definitionFit": "A diagram is a schematic plan or chart showing how something is constructed or works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enthralled"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1680,58 @@
     "text": "Adult supporting tot’s play",
     "enumeration": "5"
    },
-   "solution": "DRAMA"
+   "solution": "DRAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAMA",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting means placed underneath, so this letter comes after the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tot",
+      "gives": "DRAM",
+      "note": "a tot is a small measure of spirits, a dram"
+     },
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film ratings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up helps a toddler with a game.",
+     "walkthrough": "'Tot' looks like a toddler but is a small drink; the 's is 'is'.",
+     "definitionFit": "A drama is a play for performance on stage, radio or television."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1745,61 @@
     "text": "Give authority to European politician and leaders in Oslo will expect results",
     "enumeration": "7"
    },
-   "solution": "EMPOWER"
+   "solution": "EMPOWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EMPOWER",
+    "definitions": [
+     {
+      "text": "Give authority to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so the opening letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "Oslo will expect results",
+      "gives": "OWER",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "OWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Euro-politician and Norway's leaders are waiting for outcomes after being handed power.",
+     "definitionFit": "To empower someone is to grant them power or legal capacity to act."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1813,55 @@
     "text": "Grimace from wife in church",
     "enumeration": "5"
    },
-   "solution": "WINCE"
+   "solution": "WINCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINCE",
+    "definitions": [
+     {
+      "text": "Grimace",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse pulls a face during a church service.",
+     "definitionFit": "To wince is to make a brief pained facial expression, a flinching grimace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1875,69 @@
     "text": "Greek’s sign of nerves after old group of soldiers retreated",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retreated",
+      "for": "reversal",
+      "note": "to retreat is to go back, so the soldiers' letters run backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the sign of nerves behind the soldiers in the finished word"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old group of soldiers",
+      "gives": "TA",
+      "note": "TA is the Territorial Army, the British volunteer reserve, since renamed the Army Reserve, hence old"
+     },
+     {
+      "clueFragment": "sign of nerves",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch, often brought on by nerves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek soldier twitches nervously as his old unit falls back.",
+     "walkthrough": "The 's stands for 'is', joining definition to wordplay. TA backwards is AT.",
+     "definitionFit": "Attic describes ancient Athens and its region, Attica, and the Greek dialect spoken there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Greek’s"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1951,62 @@
     "text": "Children argue about new, difficult task",
     "enumeration": "9"
    },
-   "solution": "CHALLENGE"
+   "solution": "CHALLENGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CHALLENGE",
+    "definitions": [
+     {
+      "text": "difficult task",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for argue wraps the letter that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Children",
+      "gives": "CH",
+      "note": "CH is the abbreviation for children"
+     },
+     {
+      "clueFragment": "argue",
+      "gives": "ALLEGE",
+      "note": "to allege is to assert or claim"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ALLE",
+      "N",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Kids bickering over something new is a tough job to handle.",
+     "walkthrough": "'Argue' means claim or assert here, not quarrel.",
+     "definitionFit": "A challenge is a demanding undertaking that tests someone's abilities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "argue"
+    }
+   }
   },
   {
    "number": 28,
@@ -452,7 +2020,60 @@
     "text": "Talked to lady bare, then put clothes on",
     "enumeration": "9"
    },
-   "solution": "ADDRESSED"
+   "solution": "ADDRESSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADDRESSED",
+    "definitions": [
+     {
+      "text": "Talked to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bare",
+      "for": "letter_selection",
+      "note": "bare means stripped, so the word before loses its outside letters"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the inside letters, with first and last stripped away"
+     },
+     {
+      "clueFragment": "put clothes on",
+      "gives": "DRESSED",
+      "note": "to have put clothes on is to have dressed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Spoke to a naked woman, then got her clothed.",
+     "walkthrough": "The surface invites a racy scene; 'bare' is the instruction to strip the outer letters from lady.",
+     "definitionFit": "To address someone is to speak to them directly, so the past form means spoke to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bare"
+    }
+   }
   },
   {
    "number": 29,
@@ -466,7 +2087,59 @@
     "text": "Detainee finally let out, creating incident",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "incident",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter only of the word before it"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detainee",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of detainee"
+     },
+     {
+      "clueFragment": "let out",
+      "gives": "VENT",
+      "note": "to vent is to let out, as feelings or steam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner's eventual release causes a stir.",
+     "walkthrough": "'Let out' looks like the prisoner's release, but it is the wordplay for VENT.",
+     "definitionFit": "An event is an occurrence or happening, something that takes place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   }
  ]
 }
