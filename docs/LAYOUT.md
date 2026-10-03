@@ -142,10 +142,16 @@ tools/trove_clue_ocr.py                      repairs the clues Trove's OCR loses
                                              ~/.cache/trove-clues by fetch_trove.py zones;
                                              file_trove_puzzles.py applies it, anchored on text
                                              both readings share
-tools/fixtures/archive-org-grids/            three archive.org page crops whose grid lies far
-                                             under, over and left of its title (cases.json:
-                                             scan, title box, and the FT one's words), the
-                                             grids test_file_archive_org_puzzles.sh locates
+tools/fixtures/archive-org-grids/            archive.org page crops whose grid lies far under,
+                                             over or left of its title, touches its title or
+                                             has text touching its foot (cases.json: scan,
+                                             title box, and the FT one's words), the grids
+                                             test_file_archive_org_puzzles.sh locates
+tools/fixtures/archive-org-clues/            real clue-column readings of archive.org Times
+                                             editions with each one's scanned grid (cases.json;
+                                             16,960 also RapidOCR's words), the blank, cut-off
+                                             and misnumbered clues
+                                             test_file_archive_org_puzzles.sh files whole
 tools/fixtures/archive-org-titles/           four archive.org page crops whose title
                                              archive.org's own text lacks (cases.json: scan,
                                              paper, date, and our readers' words in each title

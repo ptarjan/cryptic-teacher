@@ -150,6 +150,13 @@ STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+cr
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by)\b", re.I)
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
 GAP = 80
+#: How far, in pixels, a line must start left of the split between two
+#: columns and run on right of it to be printed across both (a centred
+#: notice); a right-hand clue's outdented number starts a pixel or two left.
+ACROSS_GUTTER = 60
+#: What a line printed across both columns reads as in columns().
+NOTICE = "\x00across the columns"
+
 
 
 def number_of(text):
@@ -270,15 +277,58 @@ def locate_grid(img, title):
              ("left", (max(0, x0 - span), max(0, y0 - 80), x0, min(img.height, y0 + span)), ()))
     first = None
     for side, crop, fixed in tries:
-        box = ink_in(img, crop, fixed)
+        box = footed(img, ink_in(img, crop, fixed))
         # A grid under its title clears the title's line, and one left of it
         # ends short of the title's middle: other ink is something else's.
-        clear = box is not None and (side != "below" or box[1] > crop[1] + 2) \
+        clear = box is not None and (side != "below" or box[1] > crop[1] + 2
+                                     or starts_under(img, box, crop[1])) \
             and (side != "left" or box[2] < (x0 + x1) / 2)
         if clear and grid_shaped(box):
             return box, side
         first = first or box
     return first, None
+
+
+#: The share of a grid box's width a row of ink must cover to be the grid's
+#: frame: a line of text, even one touching the grid, has gaps.
+FRAME_SHARE = 0.8
+#: How far up a grid box (a share of its height) its foot frame may lie:
+#: ink under it is a heading or clue line touching the grid.
+FOOT_INSET = 0.1
+#: How far, in pixels, a grid's top frame may reach up into its title's box.
+TITLE_OVERLAP = 12
+
+
+def dark_rows(img, box):
+    import numpy as np
+    gray = np.asarray(img.crop(box).convert("L"), dtype=np.uint8)
+    return (gray < trove_grid.otsu(gray)).mean(axis=1)
+
+
+def footed(img, box):
+    """`box` ending at the grid's foot frame, the lowest row in its bottom
+    FOOT_INSET that ink covers FRAME_SHARE of: "ACROSS" printed touching the
+    grid joins its ink, and the box would end under the first clue line,
+    which every clue crop then loses. Unchanged when no row is a frame."""
+    if box is None:
+        return None
+    rows = dark_rows(img, box)
+    reach = int(FOOT_INSET * len(rows))
+    foot = next((k for k in range(len(rows) - 1, len(rows) - 1 - reach, -1) if rows[k] >= FRAME_SHARE), None)
+    if foot is None or foot == len(rows) - 1:
+        return box
+    trimmed = (box[0], box[1], box[2], box[1] + foot + 1)
+    return trimmed if grid_shaped(trimmed) else box
+
+
+def starts_under(img, box, top):
+    """Whether the ink of `box`, cut at `top` (its title's foot), starts
+    within TITLE_OVERLAP over it: the grid's top frame reaching into the
+    title's box, not ink running down through the title."""
+    if box[1] > top + 2:
+        return True
+    above = ink_box(img.crop((box[0], max(0, top - TITLE_OVERLAP), box[2], top + 1)))
+    return above is None or above[1] > 0
 
 
 def grid_box(img, title):
@@ -370,16 +420,24 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None):
         for side, (x0, x1, right, top) in enumerate(wins):
             part = [w for w in ws if x0 <= w[0] < x1 and w[2] <= right and top <= w[1] <= bottom]
             if part:
+                text = " ".join(w[4] for w in part)
+                if side + 1 < len(wins) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
+                        and max(w[2] for w in part) > x1 + ACROSS_GUTTER:
+                    # A line printed across both columns, not a clue's ("Prize
+                    # Crossword in The Times tomorrow", "The solution to the
+                    # Collins Competition ..."): it ends the column like STOP.
+                    text = NOTICE
                 cols[side].append((min(w[1] for w in part), max(w[3] for w in part),
-                                   min(w[0] for w in part), max(w[2] for w in part),
-                                   " ".join(w[4] for w in part)))
+                                   min(w[0] for w in part), max(w[2] for w in part), text))
     out = []
-    for col in cols:
+    for side, col in enumerate(cols):
         col = merge_rows(col)
         kept, last = [], None
         for line in col:
-            if kept and (STOP.match(line[4]) or line[0] - last > GAP):
+            if kept and (STOP.match(line[4]) or line[4] == NOTICE or line[0] - last > GAP):
                 break
+            if line[4] == NOTICE:
+                continue
             if not re.search(r"[A-Za-z0-9]", line[4]):
                 continue  # specks read as marks: no clue text
             heading = numbered_heading(line[4])
@@ -387,8 +445,12 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None):
                 line = line[:4] + (heading,)
             if not kept and not re.match(r"\W*(across|down)\b", line[4], re.I) and last is None:
                 # The column's first line is ACROSS, DOWN or a clue: a stray
-                # word the grid's numbers left is not.
-                if not re.match(r"\W*\d", line[4]):
+                # word the grid's numbers left is not. A column under the
+                # grid after the first may open on a clue whose number was
+                # lost ("Peer inside the pearly gates").
+                carried = (side and above is None and not left and re.match(r"[A-Z][a-z]", line[4])
+                           and len(re.findall(r"[A-Za-z]{2,}", line[4])) >= 3)
+                if not re.match(r"\W*\d", line[4]) and not carried:
                     continue
             kept.append(line)
             last = line[1]
@@ -487,7 +549,69 @@ def tidy(text):
     for k, line in enumerate(out):
         if k + 1 == len(out) or heading_of(out[k + 1]):
             out[k] = re.sub(r"\((\d{1,2})[^\d)\s]?$", r"(\1)", line)
-    return "\n".join(out)
+    return "\n".join(uncounted_dropped(counts_mended(out)))
+
+
+#: A count torn at a clue's end: "(" read as 1, I or l ("17).", "IS).") or
+#: lost, ")" read as a letter or lost ("(5X", "(8k", "(8").
+TORN_COUNT = re.compile(r"(?<=\S)\s*(?:\(([\dS]{1,2})[A-Za-z]?|(?<=\s)[1Il]([\dS]{1,2})\))\W{0,2}$")
+
+
+def counts_mended(lines):
+    """`lines` with the torn count that ends a clue (its next line a clue's
+    number, a heading or the column's end) read as a count: "writer 17)."
+    is "writer (7)", for a count of 17 could not go in a 15-square grid,
+    and "(8" before "4 American city" is (8). A whole count is left alone."""
+    out = list(lines)
+    for k, line in enumerate(out):
+        nxt = out[k + 1] if k + 1 < len(out) else None
+        if nxt is not None and not (re.match(r"\d{1,2}\s+\S", nxt) or heading_of(nxt)):
+            continue
+        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", line):
+            continue
+        m = TORN_COUNT.search(line)
+        if not m:
+            if re.fullmatch(r"\W{0,2}(?:[A-Za-z]?\d{1,2}|\d[A-Za-z])\)\W{0,2}", line) and not (
+                    k and out[k - 1].count("(") > out[k - 1].count(")")):
+                # A line of nothing but a bracket and a digit or so ("U0).")
+                # is the clue's count, unread: the grid gives it; after a
+                # count left open ("(5-"), it is that count's end.
+                out[k] = "(?)"
+            continue
+        if m[2] and m[2].isdigit() and int("1" + m[2]) <= 15:
+            continue  # "12)": a count of 12 lost its bracket, or of 2 its "(": unsure
+        out[k] = line[:m.start()] + f" ({m[1] or m[2]})"
+    return out
+
+
+#: A count closing a line, its bracket maybe torn: "(8)", "(8", "(3,7)".
+COUNT_END = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)?\W{0,2}$")
+
+
+def uncounted_dropped(lines):
+    """`lines` (tidy()'s) without text that is no clue: after a count, lines
+    with no count of their own that run into the next clue's number, a
+    heading or the column's end ("Prize Crossword in The Times tomorrow",
+    a notice printed across the columns). A clue whose number was lost
+    ("? Holds fast (5)") still ends on its count."""
+    out, k = [], 0
+    while k < len(lines):
+        if not lines[k].startswith("? "):
+            out.append(lines[k])
+            k += 1
+            continue
+        end = k
+        while end < len(lines) and not COUNT_END.search(lines[end]) and (
+                end == k or not (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end])
+                                 or lines[end].startswith("? "))):
+            end += 1
+        if end < len(lines) and COUNT_END.search(lines[end]) and not (
+                end > k and (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end]))):
+            out.extend(lines[k:end + 1])
+            k = end + 1
+        else:
+            k = end
+    return out
 
 
 #: A list heading led by the puzzle's number: the Telegraph's "No. 18,340
@@ -1238,6 +1362,9 @@ def read_puzzle(d, found, hit, solutions):
             if trove_clue_ocr.complete(parsed):
                 break
             parsed, _ = trove_clue_ocr.repair(parsed, texts[other])
+        # A number its list's order refuses ("12" after 19) is left for the
+        # grid to place, never handed to the rebuild as read.
+        parsed, _ = ftp.renumber(parsed)
         laid, why = ftp.match(parsed, g) if g else (None, None)
         tried.append((laid is not None, trove_clue_ocr.complete(parsed),
                       sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
@@ -1265,7 +1392,7 @@ def read_puzzle(d, found, hit, solutions):
             if k not in {o[0] for o, _ in lists} and texts[k].strip():
                 p, _ = parse(texts[k])
                 if p is not None:
-                    lists.append(((k,), p))
+                    lists.append(((k,), ftp.renumber(p)[0]))
         loose, src = {}, {}
         for o, p in lists:
             for lid, v in lay_loose(p, g)[0].items():
