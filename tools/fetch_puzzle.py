@@ -3017,6 +3017,30 @@ SOURCE_CLUE_WRONG = {
         "Connecting link and chain as an accessory*).",
         "Connecting link and chain as an accessory",
         "OCR misread: stray marks after accessory"),
+    ("times-16800", "1-across"): (
+        "One served Scottish, king, for, example",
+        "One served Scottish king, for example",
+        "OCR misread: stray commas after Scottish and for"),
+    ("times-16800", "3-down"): (
+        "Ready, perhaps.. to, change? That's the ticket!",
+        "Ready, perhaps, to change? That's the ticket!",
+        "OCR misread: stray marks after perhaps and to"),
+    ("times-16800", "4-down"): (
+        "Don informed.of Jane Eyre's marriage",
+        "Don informed of Jane Eyre's marriage",
+        "OCR misread: a stray full stop for the space before of"),
+    ("times-16800", "11-across"): (
+        "' Indescribable confusion of salesmen",
+        "Indescribable confusion of salesmen",
+        "OCR misread: a stray mark before Indescribable"),
+    ("times-16800", "18-across"): (
+        "Nasty type returns'best woollen garments",
+        "Nasty type returns best woollen garments",
+        "OCR misread: a stray apostrophe for the space before best"),
+    ("times-16800", "20-down"): (
+        "Recently, acquired EEC  capital",
+        "Recently acquired EEC capital",
+        "OCR misread: a stray comma after Recently"),
     ("times-16421", "1-down"): (
         "What's going round the Southcast about a report, it appears",
         "What's going round the Southeast about a report, it appears",
