@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Escapes while crossing Gulf",
     "enumeration": "6"
    },
-   "solution": "AVOIDS"
+   "solution": "AVOIDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AVOIDS",
+    "definitions": [
+     {
+      "text": "Escapes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "one word crossing another spans it, so the first word's letters wrap around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as can mean while, as in 'as I was walking'"
+     },
+     {
+      "clueFragment": "Gulf",
+      "gives": "VOID",
+      "note": "a gulf is a yawning gap or void"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VOID",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A fugitive gets away while making the crossing of a gulf of water.",
+     "walkthrough": "Gulf looks like a body of sea water to be crossed; here it means an empty gap.",
+     "definitionFit": "Someone who escapes a duty or danger steers clear of it, which is exactly what avoiding means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gulf"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +104,44 @@
      }
     ]
    },
-   "solution": "VIOLA"
+   "solution": "VIOLA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIOLA",
+    "definitions": [
+     {
+      "text": "One played",
+      "at": 0
+     },
+     {
+      "text": "a character in Twelfth Night",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One played",
+      "note": "first meaning: a musical instrument, something that is played"
+     },
+     {
+      "clueFragment": "a character in Twelfth Night",
+      "note": "second meaning: the heroine of Shakespeare's comedy"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor recalls playing a role in Shakespeare's Twelfth Night.",
+     "walkthrough": "The surface reads 'played' as acting a part; in the first definition it means playing an instrument.",
+     "definitionFit": "The viola is a stringed instrument a musician plays, and Viola is the shipwrecked heroine of Shakespeare's comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +155,49 @@
     "text": "Children raised in the US sisterhood",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Children",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the phrase that follows, spanning its words"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means the letters are read upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the US sisterhood",
+      "gives": "EUSSI",
+      "note": "the run of letters across the end of the, US and the start of sisterhood"
+     }
+    ],
+    "explanation": {
+     "surface": "A note on how girls are brought up in an American sorority.",
+     "walkthrough": "EUSSI read upwards gives ISSUE.",
+     "definitionFit": "Issue is a formal, legal word for a person's offspring or descendants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +211,62 @@
     "text": "Write hurriedly to cancel test money",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRATCH",
+    "definitions": [
+     {
+      "text": "Write hurriedly",
+      "at": 0
+     },
+     {
+      "text": "cancel",
+      "at": 19
+     },
+     {
+      "text": "test",
+      "at": 26
+     },
+     {
+      "text": "money",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write hurriedly",
+      "note": "first meaning: scrawl a note quickly"
+     },
+     {
+      "clueFragment": "cancel",
+      "note": "second meaning: withdraw, as a horse from a race"
+     },
+     {
+      "clueFragment": "test",
+      "note": "third meaning: a hardness test by scraping, or a skin allergy test"
+     },
+     {
+      "clueFragment": "money",
+      "note": "fourth meaning: slang for cash"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dashes off a note calling off a trial of some currency.",
+     "walkthrough": "Four separate meanings of one word are strung together; 'to' just joins them.",
+     "definitionFit": "One word covers scribbling quickly, withdrawing an entry, a skin or hardness test, and slang for cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +280,49 @@
     "text": "Link arrest to Matthew's follower",
     "enumeration": "8"
    },
-   "solution": "BOOKMARK"
+   "solution": "BOOKMARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOKMARK",
+    "definitions": [
+     {
+      "text": "Link",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "BOOK",
+      "note": "police book a suspect when they arrest and charge them"
+     },
+     {
+      "clueFragment": "Matthew's follower",
+      "gives": "MARK",
+      "note": "Mark's gospel comes after Matthew's in the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOK",
+      "MARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives connect an arrest to a disciple of the apostle Matthew.",
+     "definitionFit": "A bookmark in a web browser is a saved link to a page."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "follower"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +336,55 @@
     "text": "In the middle of venture involving confectionery",
     "enumeration": "7"
    },
-   "solution": "BETWIXT"
+   "solution": "BETWIXT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BETWIXT",
+    "definitions": [
+     {
+      "text": "In the middle of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something in, so one word is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "venture",
+      "gives": "BET",
+      "note": "to venture money is to bet it"
+     },
+     {
+      "clueFragment": "confectionery",
+      "gives": "TWIX",
+      "note": "Twix is a chocolate bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "TWIX",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A business gamble in the sweets trade.",
+     "walkthrough": "Twix is a chocolate-and-caramel biscuit bar sold in Britain and elsewhere.",
+     "definitionFit": "Betwixt is an old-fashioned word for between, placed among two things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "confectionery"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +404,56 @@
      }
     ]
    },
-   "solution": "OILLAMP"
+   "solution": "OILLAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OIL LAMP",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "OIL",
+      "note": "oiling something makes it run smoothly"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "LA",
+      "note": "la is the sixth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "fairly quiet",
+      "gives": "MP",
+      "note": "mp is mezzo piano, the musical marking for moderately soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OIL",
+      "LA",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's instruction: play a smooth, light note, fairly quietly.",
+     "walkthrough": "The bracket reads as a performance direction, but it supplies the musical abbreviation mp.",
+     "definitionFit": "An oil lamp is a source of illumination that burns oil through a wick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +473,64 @@
      }
     ]
    },
-   "solution": "MASSMEDIA"
+   "solution": "MASSMEDIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MASS MEDIA",
+    "definitions": [
+     {
+      "text": "TV and radio?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reactionary",
+      "for": "anagram",
+      "note": "read as re-actionary, the word is put into new action and so rearranged"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "MASS",
+      "note": "Mass is the abbreviation for Massachusetts, a US state"
+     },
+     {
+      "clueFragment": "aimed",
+      "gives": "AIMED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "MEDIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIMED",
+       "gives": "MEDIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A right-winger aims to prop up state broadcasting.",
+     "walkthrough": "In a down clue, A supporting B puts A underneath, so the shuffled letters come after MASS.",
+     "definitionFit": "Television and radio are examples of channels of mass communication; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reactionary"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +550,39 @@
      }
     ]
    },
-   "solution": "RAINDANCE"
+   "solution": "RAINDANCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RAIN DANCE",
+    "definitions": [
+     {
+      "text": "Precipitative movement?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precipitative movement?",
+      "note": "surface reading: a hasty, headlong motion, as in acting precipitately"
+     },
+     {
+      "clueFragment": "Precipitative movement?",
+      "note": "setter's reading: steps danced to bring on precipitation, that is, wet weather"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Precipitative sounds like rash or hurried; here it means causing precipitation, and the movement is a dance.",
+     "definitionFit": "A ritual dance performed to summon showers is literally a movement meant to produce precipitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Precipitative"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +596,63 @@
     "text": "East End icon dropping drug in Spar",
     "enumeration": "8"
    },
-   "solution": "BOWSPRIT"
+   "solution": "BOWSPRIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BOWSPRIT",
+    "definitions": [
+     {
+      "text": "Spar",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting something fall away, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East End",
+      "gives": "BOW",
+      "note": "Bow is a district of London's East End"
+     },
+     {
+      "clueFragment": "icon",
+      "gives": "SPRITE",
+      "note": "a sprite is a small computer graphic, like an icon"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "SPRIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous East Ender gives up drugs while in Spar, the convenience store chain.",
+     "walkthrough": "Spar looks like the shop chain, capitalised for the surface; it is the definition, a pole on a ship.",
+     "definitionFit": "A bowsprit is the pole, or spar, that projects forward from a sailing ship's bow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spar"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +666,65 @@
     "text": "Young girl's story about a ship",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LASSIE",
+    "definitions": [
+     {
+      "text": "Young girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word surrounds the others"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "SS",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's tale about a voyage on a ship.",
+     "walkthrough": "The 's after girl is just a joiner meaning 'is'.",
+     "definitionFit": "Lassie is a Scottish and northern English word for a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +738,54 @@
     "text": "A part with lines composed for musician",
     "enumeration": "10"
    },
-   "solution": "PALESTRINA"
+   "solution": "PALESTRINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PALESTRINA",
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "composed means put together or arranged, so the letters are set in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A part with lines",
+      "gives": "APARTLINES",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APARTLINES",
+       "gives": "PALESTRINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A score with a written part composed specially for a performer.",
+     "walkthrough": "'with' is part of the fodder phrase only as a joiner; the letters come from A, part and lines.",
+     "definitionFit": "Palestrina was a sixteenth-century Italian composer of Renaissance church music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +799,70 @@
     "text": "Forced English, Dutch and American to return",
     "enumeration": "4"
    },
-   "solution": "MADE"
+   "solution": "MADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MADE",
+    "definitions": [
+     {
+      "text": "Forced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to go back, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "Am is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "D",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EDAM",
+       "to": "MADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three nationals compelled to go home.",
+     "walkthrough": "EDAM, a Dutch cheese by chance, read backwards gives MADE.",
+     "definitionFit": "If someone was made to do something, they were compelled or obliged to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forced"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +882,52 @@
      }
     ]
    },
-   "solution": "SMASHHIT"
+   "solution": "SMASHHIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMASH HIT",
+    "definitions": [
+     {
+      "text": "blockbuster",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performing",
+      "for": "anagram",
+      "note": "something performing is acting up and moving about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This ham's",
+      "gives": "THISHAMS",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISHAMS",
+       "gives": "SMASHHIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overacting star's performance turns into a box-office triumph.",
+     "walkthrough": "The apostrophe-s supplies its S to the letters being rearranged.",
+     "definitionFit": "A blockbuster is a hugely successful film or show, which is what a smash hit is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "performing"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +941,65 @@
     "text": "Spoil man eating a daughter's preserve",
     "enumeration": "9"
    },
-   "solution": "MARMALADE"
+   "solution": "MARMALADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARMALADE",
+    "definitions": [
+     {
+      "text": "preserve",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking something inside, so one word goes into the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MALE",
+      "note": "a man is a male"
+     },
+     {
+      "clueFragment": "a daughter",
+      "gives": "AD",
+      "note": "A as written, and D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "MAL",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man ruins things by eating his daughter's jam.",
+     "walkthrough": "Preserve looks like a verb, as in spoil and preserve; it is the noun for a jam-like spread.",
+     "definitionFit": "Marmalade is a citrus fruit preserve, usually made from oranges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "preserve"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1019,53 @@
      }
     ]
    },
-   "solution": "STAGENAME"
+   "solution": "STAGENAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAGE NAME",
+    "definitions": [
+     {
+      "text": "Lady Gaga?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get seaman",
+      "gives": "GETSEAMAN",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSEAMAN",
+       "gives": "STAGENAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor gets thrilled at meeting the pop star Lady Gaga.",
+     "definitionFit": "Lady Gaga is the professional name the singer Stefani Germanotta performs under; the question mark marks her as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1079,43 @@
     "text": "Stopped Anthony arresting quibbler",
     "enumeration": "6"
    },
-   "solution": "PEDANT"
+   "solution": "PEDANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PEDANT",
+    "definitions": [
+     {
+      "text": "quibbler",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arresting",
+      "for": "hidden_word",
+      "note": "arresting means holding captive, so the words hold the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stopped Anthony",
+      "gives": "PEDANT",
+      "note": "the run of letters across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Police stop a man called Anthony and arrest a nitpicker.",
+     "walkthrough": "Stopped and Anthony look like separate wordplay pieces; the answer is simply hidden across them.",
+     "definitionFit": "A pedant fusses over minor details and rules, which makes them a quibbler."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stopped"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1129,52 @@
     "text": "Harry Chandler seen regularly in mall",
     "enumeration": "6"
    },
-   "solution": "ARCADE"
+   "solution": "ARCADE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ARCADE",
+    "definitions": [
+     {
+      "text": "mall",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "seen",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harry Chandler",
+      "gives": "ARCADE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCADE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Harry Chandler is often spotted at the shopping centre.",
+     "definitionFit": "A shopping arcade is a covered passage lined with shops, much like a mall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1188,39 @@
     "text": "He is one!",
     "enumeration": "7"
    },
-   "solution": "ELEMENT"
+   "solution": "ELEMENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELEMENT",
+    "definitions": [
+     {
+      "text": "He is one!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He is one!",
+      "note": "surface reading: a man is pointed out as one of some group"
+     },
+     {
+      "clueFragment": "He is one!",
+      "note": "setter's reading: He is the chemical symbol for helium, one of the substances in the periodic table"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "He looks like a pronoun; it is the chemical symbol for helium.",
+     "definitionFit": "Helium is one of the chemical substances listed in the periodic table, made of a single kind of atom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1234,54 @@
     "text": "Reportedly purchase trees to make aircraft",
     "enumeration": "8"
    },
-   "solution": "BIPLANES"
+   "solution": "BIPLANES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "BIPLANES",
+    "definitions": [
+     {
+      "text": "aircraft",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard said, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purchase",
+      "gives": "BI",
+      "soundsLike": "BUY",
+      "note": "to purchase is to buy, which is pronounced like the prefix bi"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "PLANES",
+      "note": "plane trees, common in London streets"
+     }
+    ],
+    "explanation": {
+     "surface": "Buying timber to build aircraft.",
+     "walkthrough": "Spoken aloud, the two pieces say buy planes.",
+     "definitionFit": "Biplanes are aircraft with two sets of wings, one above the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trees"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1301,44 @@
      }
     ]
    },
-   "solution": "BUTCHER"
+   "solution": "BUTCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUTCHER",
+    "definitions": [
+     {
+      "text": "In EastEnders, Pat maybe",
+      "at": 0
+     },
+     {
+      "text": "more manly",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In EastEnders, Pat maybe",
+      "note": "first meaning: the surname of Pat, a long-running character in the BBC soap EastEnders"
+     },
+     {
+      "clueFragment": "more manly",
+      "note": "second meaning: comparative of butch, meaning masculine"
+     }
+    ],
+    "explanation": {
+     "surface": "A character in the soap EastEnders seems rather masculine.",
+     "walkthrough": "EastEnders is a long-running BBC soap set in east London; Pat Butcher was a famous landlady in it.",
+     "definitionFit": "Butch means aggressively masculine, so its comparative form means more manly; Pat's surname is the other sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pat"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1352,57 @@
     "text": "Show left and right united over indication of agreement",
     "enumeration": "7"
    },
-   "solution": "PORTRAY"
+   "solution": "PORTRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTRAY",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "united over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "indication of agreement",
+      "gives": "AY",
+      "note": "ay, or aye, is a way of saying yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "R",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Politicians of left and right display unity over a vote of assent.",
+     "walkthrough": "In a down clue, 'over' puts the first pieces above the last.",
+     "definitionFit": "To portray something is to depict or represent it, which is to show it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1416,53 @@
     "text": "Lover left out celebrity",
     "enumeration": "4"
    },
-   "solution": "FAME"
+   "solution": "FAME",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FAME",
+    "definitions": [
+     {
+      "text": "celebrity",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed or left absent, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover",
+      "gives": "FLAME",
+      "note": "an old flame is a former lover"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweetheart who has been dumped becomes a celebrity.",
+     "walkthrough": "FLAME without its L leaves the answer.",
+     "definitionFit": "Celebrity as an abstract noun means the state of being famous, which is fame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "celebrity"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1476,47 @@
     "text": "Data may be on-board here for business",
     "enumeration": "10"
    },
-   "solution": "ENTERPRISE"
+   "solution": "ENTERPRISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENTERPRISE",
+    "definitions": [
+     {
+      "text": "Data may be on-board here",
+      "at": 0
+     },
+     {
+      "text": "business",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Data may be on-board here",
+      "note": "first meaning: Data is the android officer aboard the starship of that name in Star Trek"
+     },
+     {
+      "clueFragment": "business",
+      "note": "second meaning: a company or firm"
+     }
+    ],
+    "explanation": {
+     "surface": "Computer information can be stored on a company system.",
+     "walkthrough": "Data looks like computer information, and on-board like a circuit board; it is the Star Trek android.",
+     "definitionFit": "An enterprise is a firm or commercial undertaking, and the Starship Enterprise carries Data in Star Trek."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Data"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1530,61 @@
     "text": "Argue about origin of native tree",
     "enumeration": "5"
    },
-   "solution": "ROWAN"
+   "solution": "ROWAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROWAN",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "origin of",
+      "for": "letter_selection",
+      "note": "the origin of a word is its beginning, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argue",
+      "gives": "ROW",
+      "note": "to row, rhyming with cow, is to quarrel"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "A",
+      "note": "a is a dictionary abbreviation for about"
+     },
+     {
+      "clueFragment": "native",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROW",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "People quarrel over where a native tree comes from.",
+     "definitionFit": "The rowan, or mountain ash, is a tree with clusters of red berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "origin"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1598,50 @@
     "text": "Small ice-cream provides tea time treat",
     "enumeration": "5"
    },
-   "solution": "SCONE"
+   "solution": "SCONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCONE",
+    "definitions": [
+     {
+      "text": "tea time treat",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "ice-cream",
+      "gives": "CONE",
+      "note": "an ice-cream cone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small ice cream makes a nice afternoon snack.",
+     "walkthrough": "A scone is a small British baked bun, eaten with jam and cream at afternoon tea.",
+     "definitionFit": "Scones are the classic baked item served at afternoon tea with jam and clotted cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ice-cream"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1655,56 @@
     "text": "Wedding venue starts to prepare elegant finger food",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "finger food",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts of words are their first letters, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wedding venue",
+      "gives": "CANA",
+      "note": "Cana is where Jesus turned water into wine at a wedding feast"
+     },
+     {
+      "clueFragment": "prepare elegant",
+      "gives": "PE",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANA",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "Caterers at a wedding begin preparing stylish nibbles.",
+     "walkthrough": "Wedding venue looks like a hotel or church; it is the Biblical Cana.",
+     "definitionFit": "Canapés are small savoury bites served at parties, eaten with the fingers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "venue"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1718,50 @@
     "text": "Knotty bowl in mahogany?",
     "enumeration": "8"
    },
-   "solution": "HARDWOOD"
+   "solution": "HARDWOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARDWOOD",
+    "definitions": [
+     {
+      "text": "mahogany?",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knotty",
+      "gives": "HARD",
+      "note": "a knotty problem is a difficult, hard one"
+     },
+     {
+      "clueFragment": "bowl",
+      "gives": "WOOD",
+      "note": "in the game of lawn bowls, the balls are called woods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "WOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "A knot-patterned bowl carved from mahogany.",
+     "walkthrough": "Knotty suggests wood grain, but means difficult.",
+     "definitionFit": "Mahogany is an example of timber from broadleaved trees; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knotty"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1775,50 @@
     "text": "Maybe Arctic queen's a rat",
     "enumeration": "8"
    },
-   "solution": "DESERTER"
+   "solution": "DESERTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESERTER",
+    "definitions": [
+     {
+      "text": "a rat",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Arctic",
+      "gives": "DESERT",
+      "note": "the Arctic is a polar desert, being so dry"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, Queen Elizabeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESERT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An insult: the Arctic queen is a rat.",
+     "walkthrough": "Arctic and Antarctic count as deserts because they get so little precipitation.",
+     "definitionFit": "A rat is slang for a person who betrays or abandons their side, as a runaway soldier does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arctic"
+    }
+   }
   },
   {
    "number": 28,
@@ -481,7 +1832,60 @@
     "text": "Unknown drone flying around over there",
     "enumeration": "6"
    },
-   "solution": "YONDER"
+   "solution": "YONDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "YONDER",
+    "definitions": [
+     {
+      "text": "over there",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying around",
+      "for": "anagram",
+      "note": "something flying around moves this way and that, so the letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unknown",
+      "gives": "Y",
+      "note": "in algebra, x, y and z stand for unknowns"
+     },
+     {
+      "clueFragment": "drone",
+      "gives": "DRONE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ONDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRONE",
+       "gives": "ONDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious drone circles somewhere in the distance.",
+     "definitionFit": "Yonder is an old or dialect word meaning at some distance away, within sight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
+   }
   }
  ]
 }
