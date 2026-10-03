@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "Train routes run across sea out of south-east – this?",
     "enumeration": "8"
    },
-   "solution": "EUROSTAR"
+   "solution": "EUROSTAR",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EUROSTAR",
+    "definitions": [
+     {
+      "text": "Train routes run across sea out of south-east – this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Train",
+      "for": "anagram",
+      "note": "to train something is to shape or direct it, so the following letters are reworked into a fresh order"
+     },
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "taking something out of a word means its letters are removed, leaving the remainder behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routes",
+      "gives": "ROUTES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scorecard abbreviation for a run"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "A",
+      "note": "the word sea with S and E, the compass abbreviation for south-east, taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUROSTAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROUTESRA",
+       "gives": "EUROSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which train runs across the sea from south-east England.",
+     "walkthrough": "Read whole, the clue describes the Channel Tunnel service, though strictly the train goes under the sea rather than across it, so this is a near all-in-one.",
+     "definitionFit": "The Channel Tunnel passenger service carries travellers from London in the south-east under the Channel to France and Belgium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +114,80 @@
     "text": "Open Jug lifted in Faldo’s penultimate year",
     "enumeration": "6"
    },
-   "solution": "DEPLOY"
+   "solution": "DEPLOY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "DEPLOY",
+    "definitions": [
+     {
+      "text": "Open",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penultimate",
+      "for": "letter_selection",
+      "note": "penultimate means last but one, so only the second-to-last letter of the name is kept"
+     },
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word raises it upward so that it reads from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the middle of the others, which wrap around it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faldo’s",
+      "gives": "D",
+      "select": 4,
+      "note": "the golfer's surname, of which the last-but-one letter is kept"
+     },
+     {
+      "clueFragment": "Jug",
+      "gives": "OLPE",
+      "note": "an olpe is an ancient Greek jug with a spout"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EPLO",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "OLPE",
+       "to": "EPLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golf story: the Open trophy, the Claret Jug, lifted by Nick Faldo in his second-to-last winning year.",
+     "walkthrough": "The surface sells the Open championship and its Claret Jug; in fact Open is a verb and the jug is an obscure Greek vessel.",
+     "definitionFit": "To deploy something like a parachute or sail is to spread it out or unfurl it, a verb sense close to opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Open"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +201,61 @@
     "text": "Troublesome partner once buried by tax chits?",
     "enumeration": "9"
    },
-   "solution": "VEXATIOUS"
+   "solution": "VEXATIOUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "VEXATIOUS",
+    "definitions": [
+     {
+      "text": "Troublesome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buried by",
+      "for": "container",
+      "note": "something buried by other material is covered over and sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT, value added tax, is the UK sales tax"
+     },
+     {
+      "clueFragment": "partner once",
+      "gives": "EX",
+      "note": "a former partner is an ex"
+     },
+     {
+      "clueFragment": "chits",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay, chits for debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EX",
+      "AT",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner swamped by tax demands and unpaid notes is causing trouble.",
+     "definitionFit": "Something vexatious causes annoyance or worry, which is a direct synonym of being bothersome and irritating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chits"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +269,65 @@
     "text": "Ear-bone being analysed, pathologist’s left gaps",
     "enumeration": "7"
    },
-   "solution": "OTOLITH"
+   "solution": "OTOLITH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OTOLITH",
+    "definitions": [
+     {
+      "text": "Ear-bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being analysed",
+      "for": "anagram",
+      "note": "something being analysed is broken down and taken apart, so its letters are rearranged"
+     },
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "here left is the past tense of leave, so the named letters depart and are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pathologist’s",
+      "gives": "PATHOLOGIST",
+      "note": "the word taken as written, without the possessive"
+     },
+     {
+      "clueFragment": "gaps",
+      "gives": "GAPS",
+      "note": "these four letters are the ones that leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTOLITH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THOLOIT",
+       "gives": "OTOLITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pathologist examining an ear bone leaves gaps in the analysis.",
+     "walkthrough": "Remove P, A, G and S from PATHOLOGIST and seven letters remain to be rearranged.",
+     "definitionFit": "An otolith is a tiny calcium carbonate structure in the inner ear of vertebrates, often called an ear stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gaps"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +341,54 @@
     "text": "Film artistic pair receiving degree from medical school",
     "enumeration": "5"
    },
-   "solution": "DUMBO"
+   "solution": "DUMBO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DUMBO",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving another thing takes it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artistic pair",
+      "gives": "DUO",
+      "note": "a pair of performers is a duo"
+     },
+     {
+      "clueFragment": "degree from medical school",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a medical degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "MB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of artists at medical school gets a degree.",
+     "definitionFit": "Dumbo is the 1941 Disney animated feature about a baby elephant with enormous ears who learns to fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artistic"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +408,75 @@
      }
     ]
    },
-   "solution": "KISSCURL"
+   "solution": "KISSCURL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "KISS-CURL",
+    "definitions": [
+     {
+      "text": "Superman’s trademark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests the letters are disordered or out of place, so they are rearranged"
+     },
+     {
+      "text": "spurned",
+      "for": "deletion",
+      "note": "to spurn is to reject, so the named letters are thrown out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luck",
+      "gives": "LUCK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Red “S”",
+      "gives": "REDS",
+      "note": "the word red followed by the letter S"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor; these letters are rejected"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KISSCURL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUCKISRS",
+       "gives": "KISSCURL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Superman's luck runs out when an editor turns down his red S emblem.",
+     "walkthrough": "The red S on his chest looks like his trademark; the real trademark is the curl on his forehead.",
+     "definitionFit": "Superman is drawn with a small lock of hair curled flat on his forehead, a styling known as a kiss curl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +490,49 @@
     "text": "Serpent and Fury rise up toweringly",
     "enumeration": "6"
    },
-   "solution": "ASPIRE"
+   "solution": "ASPIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPIRE",
+    "definitions": [
+     {
+      "text": "rise up toweringly",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serpent",
+      "gives": "ASP",
+      "note": "an asp is a venomous snake"
+     },
+     {
+      "clueFragment": "Fury",
+      "gives": "IRE",
+      "note": "ire is anger or fury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASP",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake rears up in fury, towering over its victim.",
+     "definitionFit": "Aspire has an archaic literal sense of rising high or soaring upward, like a spire reaching to the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fury"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +546,51 @@
     "text": "This is nothing odd in fraudster",
     "enumeration": "4"
    },
-   "solution": "RUSE"
+   "solution": "RUSE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "RUSE",
+    "definitions": [
+     {
+      "text": "This is nothing odd in fraudster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nothing odd",
+      "for": "letter_selection",
+      "note": "keeping nothing from the odd positions leaves only the letters in even places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraudster",
+      "gives": "RUSE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trick is perfectly normal behaviour for a con artist.",
+     "walkthrough": "The whole clue is both definition and wordplay: a con trick is nothing unusual for a swindler.",
+     "definitionFit": "A ruse is a deceptive trick or stratagem, exactly the kind of scheme a swindler routinely employs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +604,67 @@
     "text": "I like males this way with cycling spirit",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIASM"
+   "solution": "ENTHUSIASM",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "ENTHUSIASM",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so letters from the front are carried round to the back"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like and as both mean in the manner of"
+     },
+     {
+      "clueFragment": "males",
+      "gives": "MEN",
+      "note": "men are males"
+     },
+     {
+      "clueFragment": "this way",
+      "gives": "THUS",
+      "note": "thus means in this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTHUSIASM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who likes men to go cycling, sharing their spirited approach.",
+     "walkthrough": "IASMENTHUS has its first four letters moved round to the end to make the answer.",
+     "definitionFit": "Spirit in the sense of eager energy and keenness is a common synonym for zeal and passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +684,39 @@
      }
     ]
    },
-   "solution": "ROLLCALL"
+   "solution": "ROLLCALL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROLL-CALL",
+    "definitions": [
+     {
+      "text": "“Sausage?”: here!; “Spring?”: present!; “Swiss?” …",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "“Sausage?”: here!; “Spring?”: present!; “Swiss?” …",
+      "note": "surface reading: a nonsense list of questions and exclamations about food and seasons"
+     },
+     {
+      "clueFragment": "“Sausage?”: here!; “Spring?”: present!",
+      "note": "setter's reading: names are being called out and answered, each name being a kind of roll — sausage, spring, Swiss"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Each called name pairs with roll: sausage roll, spring roll, Swiss roll; the replies here and present are what pupils say when names are read out.",
+     "definitionFit": "A register is read aloud and each person answers here or present, the classroom attendance check."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +730,67 @@
     "text": "British occupying correspondingly backward area where Ottomans ruled",
     "enumeration": "6"
    },
-   "solution": "BOSNIA"
+   "solution": "BOSNIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOSNIA",
+    "definitions": [
+     {
+      "text": "where Ottomans ruled",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "going backward means the expression is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "occupying correspondingly",
+      "gives": "INSO",
+      "note": "occupying gives IN and correspondingly gives SO, an expression read together"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OSNI",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "INSO",
+       "to": "OSNI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "British forces occupying an area, with the Ottomans' former territory mentioned in passing.",
+     "walkthrough": "British occupying looks like a container, but B simply comes first.",
+     "definitionFit": "The Balkan territory was part of the Ottoman Empire from the fifteenth century until Austro-Hungarian occupation in 1878."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occupying"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +810,74 @@
      }
     ]
    },
-   "solution": "ITTYBITTY"
+   "solution": "ITTYBITTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "deletion"
+    ],
+    "answer": "ITTY-BITTY",
+    "definitions": [
+     {
+      "text": "Small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the word is used"
+     },
+     {
+      "text": "splits",
+      "for": "container",
+      "note": "a letter that splits something goes in between, dividing it into two parts"
+     },
+     {
+      "text": "setting aside",
+      "for": "deletion",
+      "note": "setting things aside removes them, so the named letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "funds",
+      "gives": "KITTYKITTY",
+      "note": "a kitty is a pool of money, and funds is plural, so two of them"
+     },
+     {
+      "clueFragment": "2K",
+      "gives": "KK",
+      "note": "two letter Ks, the ones set aside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITTY",
+      "B",
+      "ITTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A small bank divides its funds after setting aside two thousand pounds.",
+     "walkthrough": "2K looks like two thousand; here it means two letter Ks, one from the front of each kitty.",
+     "definitionFit": "Itty-bitty is an informal, childlike reduplicated word meaning tiny or very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "2K"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +891,50 @@
     "text": "Half-hearted person taking meal of exceptional quality",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "of exceptional quality",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half-hearted",
+      "for": "deletion",
+      "note": "half-hearted means half of the middle is lost, so one central letter of a doubled pair goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person taking meal",
+      "gives": "SUPPER",
+      "note": "one who sups, that is takes a meal, could be called a supper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner who is only half-hearted about the meal in front of them.",
+     "walkthrough": "The heart of SUPPER is PP; halving it leaves a single P.",
+     "definitionFit": "Super is an informal adjective meaning excellent or first-rate, describing something outstandingly good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +948,48 @@
     "text": "Ornamental shrub reported by London park warden",
     "enumeration": "9"
    },
-   "solution": "HYDRANGEA"
+   "solution": "HYDRANGEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYDRANGEA",
+    "definitions": [
+     {
+      "text": "Ornamental shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound of the phrase matters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London park warden",
+      "gives": "HYDRANGEA",
+      "soundsLike": "HYDE RANGER",
+      "note": "Hyde Park is a large London park, and a ranger is a park warden"
+     }
+    ],
+    "explanation": {
+     "surface": "A shrub mentioned by a keeper in a London park.",
+     "walkthrough": "Hyde Park is one of London's royal parks, looked after by park rangers; the non-rhotic British pronunciation makes ranger and -rangea match.",
+     "definitionFit": "Hydrangeas are flowering garden bushes with large rounded heads of blue, pink or white blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reported"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1003,62 @@
     "text": "Naked reviewer consumed, it’s implied, rare form of H",
     "enumeration": "7"
    },
-   "solution": "TRITIUM"
+   "solution": "TRITIUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRITIUM",
+    "definitions": [
+     {
+      "text": "rare form of H",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Naked",
+      "for": "deletion",
+      "note": "something naked is stripped of its covering, so the outer letters are removed"
+     },
+     {
+      "text": "consumed",
+      "for": "container",
+      "note": "whatever is consumed ends up inside the eater, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reviewer",
+      "gives": "CRITIC",
+      "note": "a critic reviews books, plays or films"
+     },
+     {
+      "clueFragment": "it’s implied",
+      "gives": "TUM",
+      "note": "the stomach is not named but is implied by consuming, as food goes into the tummy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RITI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A naked reviewer is swallowed up, with a rare element hinted at.",
+     "walkthrough": "TUM, informal for stomach, is never stated: consumed implies the reviewer goes into it.",
+     "definitionFit": "Tritium is the radioactive isotope of hydrogen with two neutrons, naturally very scarce, so a rare variety of H."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Naked"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1072,47 @@
     "text": "Salt barely covered herb",
     "enumeration": "8"
    },
-   "solution": "TARRAGON"
+   "solution": "TARRAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARRAGON",
+    "definitions": [
+     {
+      "text": "herb",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salt",
+      "gives": "TAR",
+      "note": "a salt and a tar are both old names for a sailor"
+     },
+     {
+      "clueFragment": "barely covered",
+      "gives": "RAGON",
+      "note": "wearing just a rag is to be barely covered: rag on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "RAGON"
+     ]
+    },
+    "explanation": {
+     "surface": "Salt only just sprinkled over a herb.",
+     "walkthrough": "Salt looks like seasoning beside a herb; it is the sailor.",
+     "definitionFit": "Tarragon is an aromatic culinary plant with anise-flavoured leaves, used in French cooking and béarnaise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Salt"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1126,45 @@
     "text": "Athlete heard catalogue of shrink’s patients?",
     "enumeration": "7"
    },
-   "solution": "CYCLIST"
+   "solution": "CYCLIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYCLIST",
+    "definitions": [
+     {
+      "text": "Athlete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we go by how the phrase is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catalogue of shrink’s patients",
+      "gives": "CYCLIST",
+      "soundsLike": "PSYCH LIST",
+      "note": "a shrink is a psychiatrist, so a roll of patients is a psych list"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports figure overhears a reading of a psychiatrist's list of clients.",
+     "walkthrough": "Shrink is informal for a psychiatrist.",
+     "definitionFit": "A competitive rider in road or track racing is a sportsperson, so an example of an athlete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shrink’s"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1178,74 @@
     "text": "They covered mail working together, a cos and Truss (only one succeeded)",
     "enumeration": "8"
    },
-   "solution": "SURCOATS"
+   "solution": "SURCOATS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SURCOATS",
+    "definitions": [
+     {
+      "text": "They covered mail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working are set in motion and moved about into a new order"
+     },
+     {
+      "text": "only one succeeded",
+      "for": "deletion",
+      "note": "only one of the two letters standing for succeeded survives, so the other is dropped"
+     }
+    ],
+    "linkWords": [
+     "together"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cos",
+      "gives": "COS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Truss",
+      "gives": "TRUSS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURCOATS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACOSTRUS",
+       "gives": "SURCOATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political tale of Truss and others working together, where only one got the top job.",
+     "walkthrough": "S is the abbreviation for succeeded; Truss has two, and only one is kept. Liz Truss was briefly UK Prime Minister in 2022.",
+     "definitionFit": "Surcoats were loose tunics worn by knights over their chain armour, so these garments covered mail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mail"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1265,44 @@
      }
     ]
    },
-   "solution": "OFFPEAK"
+   "solution": "OFFPEAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFF-PEAK",
+    "definitions": [
+     {
+      "text": "Avoiding the rush-hour",
+      "at": 0
+     },
+     {
+      "text": "like yodellers yodelling?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoiding the rush-hour",
+      "note": "first meaning: at a quieter time when travel is cheaper"
+     },
+     {
+      "clueFragment": "like yodellers yodelling?",
+      "note": "second meaning, cryptic: yodellers call out from a mountain top"
+     }
+    ],
+    "explanation": {
+     "surface": "Travelling outside busy times, compared to Alpine singers.",
+     "walkthrough": "Split the answer as two words for the cryptic half: yodelling is done from a summit, sending the sound away from it.",
+     "definitionFit": "Tickets and journeys outside the busiest commuting periods are described as off-peak, a fixed travel term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "yodelling"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1316,56 @@
     "text": "Musical arrangement close to his heart",
     "enumeration": "5"
    },
-   "solution": "SCORE"
+   "solution": "SCORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCORE",
+    "definitions": [
+     {
+      "text": "Musical arrangement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the heart of something is its core"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music that is very dear to someone.",
+     "walkthrough": "Close to his heart reads as a fond phrase; close is the end of his.",
+     "definitionFit": "A score is the written version of a composition showing every part, an orchestration or setting for instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1385,68 @@
      }
     ]
    },
-   "solution": "CAPGUN"
+   "solution": "CAPGUN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CAP GUN",
+    "definitions": [
+     {
+      "text": "Loud kid’s toy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "waggly tail",
+      "for": "reversal",
+      "note": "a waggly tail swings back and forth, so the end letters switch round"
+     },
+     {
+      "text": "set about",
+      "for": "container",
+      "note": "to be set about something is to be placed around it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "may",
+      "gives": "CAN",
+      "note": "may and can both express permission"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "PUG",
+      "note": "a pug is a small breed of dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "P",
+      "GU",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "UG",
+       "to": "GU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy toy may make a dog with a wagging tail jump.",
+     "walkthrough": "The tail of the dog is its last two letters, swapped round.",
+     "definitionFit": "A cap gun is a toy pistol that fires small explosive paper caps with a sharp bang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "may"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1466,67 @@
      }
     ]
    },
-   "solution": "AFORTIORI"
+   "solution": "AFORTIORI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "A FORTIORI",
+    "definitions": [
+     {
+      "text": "more conclusively",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into a word slices through it and sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep",
+      "gives": "FORT",
+      "note": "a keep is the stronghold of a castle"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "AIR",
+      "note": "air is a mixture of gases"
+     },
+     {
+      "clueFragment": "oxygenated",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen, put into the gas"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electrical current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FORT",
+      "IOR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep cutting the oxygen-rich gas supply, more firmly.",
+     "walkthrough": "O, the symbol for oxygen, goes into AIR to give AIOR, which FORT then cuts after its first letter.",
+     "definitionFit": "This Latin phrase means with even stronger reason, used when one argument follows still more certainly from another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keep"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1540,54 @@
     "text": "Nursemaid engrossed in moderately religious book",
     "enumeration": "6"
    },
-   "solution": "ISAIAH"
+   "solution": "ISAIAH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ISAIAH",
+    "definitions": [
+     {
+      "text": "religious book",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engrossed in",
+      "for": "container",
+      "note": "someone engrossed in something is absorbed within it, so one piece is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderately",
+      "gives": "ISH",
+      "note": "-ish as a word means somewhat or to a moderate degree"
+     },
+     {
+      "clueFragment": "Nursemaid",
+      "gives": "AIA",
+      "note": "an aia (ayah) is an Indian nursemaid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "AIA",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A nanny absorbed in a book of mildly religious content.",
+     "definitionFit": "Isaiah is one of the major prophetic books of the Old Testament in the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moderately"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1601,61 @@
     "text": "Delightful Greek valley is leaving couple a walk in the park",
     "enumeration": "5"
    },
-   "solution": "TEMPE"
+   "solution": "TEMPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TEMPE",
+    "definitions": [
+     {
+      "text": "Delightful Greek valley",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "letters that are leaving depart from the word and are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couple",
+      "gives": "ITEM",
+      "note": "a couple in a relationship is an item"
+     },
+     {
+      "clueFragment": "a walk in the park",
+      "gives": "PIE",
+      "note": "something easy as pie is a walk in the park"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "II",
+      "note": "read as the plural of I: two letter Is, which leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEM",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely Greek valley is a stroll in the park for a couple.",
+     "walkthrough": "Is is read as Is, the plural of the letter I; both Is come out of ITEMPIE.",
+     "definitionFit": "The Vale of Tempe in Thessaly was celebrated by ancient poets for its beauty, so its name came to stand for any lovely vale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1675,60 @@
      }
     ]
    },
-   "solution": "TPLATE"
+   "solution": "TPLATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "T-PLATE",
+    "definitions": [
+     {
+      "text": "something stiffening joints",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "a letter that is ignored is left out, so it is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of advice",
+      "gives": "TIP",
+      "note": "a tip is a piece of advice"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one; this is the letter dropped"
+     },
+     {
+      "clueFragment": "near the end",
+      "gives": "LATE",
+      "note": "late means near the end of a period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TP",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice ignored towards the end, while something makes the joints stiff.",
+     "walkthrough": "Stiffening joints suggests arthritis; here it is carpentry.",
+     "definitionFit": "A T-shaped metal bracket is screwed across woodwork to strengthen a corner or junction between two pieces of timber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "joints"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1742,52 @@
     "text": "Restrict graffito to military building",
     "enumeration": "8"
    },
-   "solution": "PENTAGON"
+   "solution": "PENTAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENTAGON",
+    "definitions": [
+     {
+      "text": "military building",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restrict",
+      "gives": "PEN",
+      "note": "to pen is to confine or restrict"
+     },
+     {
+      "clueFragment": "graffito",
+      "gives": "TAG",
+      "note": "a tag is a graffiti artist's signature"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "ON",
+      "note": "to and on can both mean towards or against, as in put the lid to or on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "TAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping graffiti confined at a military headquarters.",
+     "definitionFit": "The five-sided headquarters of the US Department of Defense in Arlington, Virginia, houses the armed forces' leadership."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Restrict"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1811,54 @@
      }
     ]
    },
-   "solution": "OUTOFPLACE"
+   "solution": "OUTOFPLACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUT OF PLACE",
+    "definitions": [
+     {
+      "text": "Tactless perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dances",
+      "for": "anagram",
+      "note": "the letters dance about, moving into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of couple at",
+      "gives": "OFCOUPLEAT",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTOFPLACE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OFCOUPLEAT",
+       "gives": "OUTOFPLACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple behaving tactlessly at dances.",
+     "walkthrough": "Perhaps marks tactless as one example: a tactless remark is inappropriate.",
+     "definitionFit": "A tactless comment is inappropriate or unsuitable for the situation, one instance of something improper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dances"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1872,43 @@
     "text": "Disagreeing with politician ticking boxes",
     "enumeration": "4"
    },
-   "solution": "ANTI"
+   "solution": "ANTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTI",
+    "definitions": [
+     {
+      "text": "Disagreeing with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxes",
+      "for": "hidden_word",
+      "note": "the phrase boxes up the letters, holding them inside across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician ticking",
+      "gives": "ANTI",
+      "note": "found inside, spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Disagreeing with a politician who ticks boxes.",
+     "walkthrough": "Ticking boxes is a stock phrase, but boxes is the verb: politician ticking contains the answer.",
+     "definitionFit": "Anti works as a preposition meaning opposed to or against, so it substitutes for being against."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxes"
+    }
+   }
   }
  ]
 }
