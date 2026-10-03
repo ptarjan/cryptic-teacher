@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Traveller, regularly on vacation, touring country",
     "enumeration": "6"
    },
-   "solution": "ROMANY"
+   "solution": "ROMANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROMANY",
+    "definitions": [
+     {
+      "text": "Traveller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation has been emptied out, leaving only its two outside letters"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means going all round something, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regularly",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the word regularly with its insides vacated"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "OMAN",
+      "note": "Oman is a country on the Arabian peninsula"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OMAN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller who regularly goes on holiday touring a country.",
+     "walkthrough": "'regularly' looks like an instruction to take alternate letters, but here it is the word being emptied.",
+     "definitionFit": "Romany people are traditionally a nomadic group, so in British usage a Romany is often called a traveller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +110,42 @@
      }
     ]
    },
-   "solution": "RETYPE"
+   "solution": "RETYPE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RE-TYPE",
+    "definitions": [
+     {
+      "text": "Insert text again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entirety perhaps",
+      "gives": "RETYPE",
+      "note": "found spanning the end of entirety and the start of perhaps"
+     }
+    ],
+    "explanation": {
+     "surface": "Typing out the whole text again, perhaps in its entirety.",
+     "definitionFit": "To key in text a second time is to type it once more, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +159,71 @@
     "text": "Modern household item, clanger primarily in war movie that's shot",
     "enumeration": "9"
    },
-   "solution": "MICROWAVE"
+   "solution": "MICROWAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MICROWAVE",
+    "definitions": [
+     {
+      "text": "Modern household item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letter of the word before it"
+     },
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is wrecked or ruined, so these letters are broken up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clanger",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of clanger"
+     },
+     {
+      "clueFragment": "war movie",
+      "gives": "WARMOVIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICROWAVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CWARMOVIE",
+       "gives": "MICROWAVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A war film featuring an anachronistic modern gadget, a clanger in the shooting.",
+     "walkthrough": "'shot' seems to describe filming the movie, but it is the signal to rearrange; a clanger is a blunder.",
+     "definitionFit": "A microwave oven is a fairly recent kitchen appliance found in most homes today."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +237,76 @@
     "text": "Capital from Italy mostly weary Scotsman raised",
     "enumeration": "7"
    },
-   "solution": "NAIROBI"
+   "solution": "NAIROBI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NAIROBI",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter of the next word is dropped"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "weary",
+      "gives": "BORE",
+      "note": "to weary someone is to bore them"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is a typically Scottish first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAI",
+      "ROB",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IBORIAN",
+       "to": "NAIROBI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capital city where a tired Scotsman from Italy grew up.",
+     "walkthrough": "BORE loses its final E to give BOR, then I + BOR + IAN is read upwards.",
+     "definitionFit": "Definition by example: the Kenyan seat of government is one of many national capitals around the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +320,61 @@
     "text": "Figure they use regularly to feed anger",
     "enumeration": "8"
    },
-   "solution": "PHYSIQUE"
+   "solution": "PHYSIQUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PHYSIQUE",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking every other letter of the phrase before it"
+     },
+     {
+      "text": "to feed",
+      "for": "container",
+      "note": "feeding something puts it inside, so these letters go into the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger",
+      "gives": "PIQUE",
+      "note": "pique is irritation or resentment"
+     },
+     {
+      "clueFragment": "they use",
+      "gives": "HYS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of they use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HYS",
+      "IQUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A figure people habitually use to stoke their anger.",
+     "definitionFit": "Someone's figure is their bodily shape and build, which is what physique describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +388,45 @@
     "text": "Carol maybe that man picked up",
     "enumeration": "4"
    },
-   "solution": "HYMN"
+   "solution": "HYMN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HYMN",
+    "definitions": [
+     {
+      "text": "Carol maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, as a radio picks up a signal, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that man",
+      "gives": "HYMN",
+      "soundsLike": "HIM",
+      "note": "him refers to that man"
+     }
+    ],
+    "explanation": {
+     "surface": "Carol, perhaps, being the woman that man collected.",
+     "walkthrough": "Carol looks like a woman's name, but it is a Christmas song.",
+     "definitionFit": "A carol is a festive religious song, one example of a hymn, as the question mark signals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +440,57 @@
     "text": "Doubting Thomas is infected, visited by Charlie",
     "enumeration": "7"
    },
-   "solution": "SCEPTIC"
+   "solution": "SCEPTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCEPTIC",
+    "definitions": [
+     {
+      "text": "Doubting Thomas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visited by",
+      "for": "container",
+      "note": "a place visited by someone has that visitor inside it, so one letter goes within"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infected",
+      "gives": "SEPTIC",
+      "note": "a septic wound is infected"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "EPTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubter falls ill after a visit from a man called Charlie.",
+     "definitionFit": "The apostle Thomas would not believe in the resurrection without proof, so a doubting Thomas is a habitual doubter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +504,63 @@
     "text": "Ready to replace Conservative with right peculiarity",
     "enumeration": "5"
    },
-   "solution": "QUIRK"
+   "solution": "QUIRK",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "QUIRK",
+    "definitions": [
+     {
+      "text": "peculiarity",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "to replace one thing with another swaps a letter out for a new one"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready",
+      "gives": "QUICK",
+      "note": "quick as in ready or prompt with an answer"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUI",
+      "R",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician ready to swap the Tories for the right, an odd move.",
+     "walkthrough": "The C in QUICK is swapped for R.",
+     "definitionFit": "A quirk is an odd habit or trait, which is just what a peculiarity is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +580,46 @@
      }
     ]
    },
-   "solution": "EXCUSEME"
+   "solution": "EXCUSEME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXCUSE-ME",
+    "definitions": [
+     {
+      "text": "Apology",
+      "at": 0
+     },
+     {
+      "text": "a dance",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apology",
+      "note": "first meaning: the polite phrase said when saying sorry"
+     },
+     {
+      "clueFragment": "a dance",
+      "note": "second meaning: a dance in which people may cut in and take another's partner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like someone asking pardon for a dance; an excuse-me is also a ballroom dance where partners can be claimed by others.",
+     "definitionFit": "The phrase is a stock way of saying sorry, and the hyphenated noun names a partner-changing ballroom dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +633,65 @@
     "text": "Before start of play, tense captain's opening ploy",
     "enumeration": "6"
    },
-   "solution": "TACTIC"
+   "solution": "TACTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TACTIC",
+    "definitions": [
+     {
+      "text": "ploy",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "Before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "start of play",
+      "gives": "ACTI",
+      "note": "a play starts with Act I"
+     },
+     {
+      "clueFragment": "captain's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of captain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ACTI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Before kick-off, a nervous captain opens with a ploy.",
+     "walkthrough": "'start of play' tempts you to take a P, but it means the first act of a stage play; T goes before it.",
+     "definitionFit": "A tactic is a planned manoeuvre to gain an advantage, which is what a ploy is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +705,50 @@
     "text": "One failing to remember a cinema's being renovated",
     "enumeration": "8"
    },
-   "solution": "AMNESIAC"
+   "solution": "AMNESIAC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNESIAC",
+    "definitions": [
+     {
+      "text": "One failing to remember",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being renovated",
+      "for": "anagram",
+      "note": "a building being renovated is rebuilt, so these letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cinema's",
+      "gives": "ACINEMAS",
+      "note": "taken as written, the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACINEMAS",
+       "gives": "AMNESIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who forgot a cinema was shut for refurbishment.",
+     "definitionFit": "An amnesiac is a person suffering memory loss, so someone who cannot recall things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "renovated"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +762,62 @@
     "text": "Etiquette for old army officer over time",
     "enumeration": "8"
    },
-   "solution": "PROTOCOL"
+   "solution": "PROTOCOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTOCOL",
+    "definitions": [
+     {
+      "text": "Etiquette",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "army officer",
+      "gives": "COL",
+      "note": "Col is the abbreviation for colonel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "T",
+      "O",
+      "COL"
+     ]
+    },
+    "explanation": {
+     "surface": "Proper conduct expected of a retired military officer over the years.",
+     "walkthrough": "'for' looks like a link word, but it supplies PRO; 'over time' places old colonel after T.",
+     "definitionFit": "Protocol is the formal code of correct behaviour, especially in official or diplomatic settings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +831,53 @@
     "text": "Old ladies wanting month's rest",
     "enumeration": "6"
    },
-   "solution": "OTHERS"
+   "solution": "OTHERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTHERS",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the letter that follows is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old ladies",
+      "gives": "MOTHERS",
+      "note": "old lady is slang for mother"
+     },
+     {
+      "clueFragment": "month's",
+      "gives": "M",
+      "note": "M is the abbreviation for month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTHERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly women who need a month of rest.",
+     "walkthrough": "'rest' looks like a verb about relaxing, but it means the remainder.",
+     "definitionFit": "The rest means the remaining people or things, the others left over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +891,50 @@
     "text": "Interest son in horse race",
     "enumeration": "6"
    },
-   "solution": "STAKES"
+   "solution": "STAKES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAKES",
+    "definitions": [
+     {
+      "text": "horse race",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interest",
+      "gives": "STAKE",
+      "note": "a stake is a share or interest in something"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAKE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A father's financial interest in his son riding in a race.",
+     "walkthrough": "'in' looks like a container signal, but it simply joins wordplay to the definition.",
+     "definitionFit": "Stakes is the name of a horse race in which owners put up the prize money, such as the Diamond Stakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +948,60 @@
     "text": "Course with tenth green repeatedly out of bounds",
     "enumeration": "6"
    },
-   "solution": "ENTREE"
+   "solution": "ENTREE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENTREE",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly out of bounds",
+      "for": "letter_selection",
+      "note": "out of bounds twice means both words lose their boundary letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenth",
+      "gives": "ENT",
+      "select": "middle",
+      "note": "tenth without its first and last letters"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "REE",
+      "select": "middle",
+      "note": "green without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "REE"
+     ]
+    },
+    "explanation": {
+     "surface": "A golf course with the ball hit off the tenth green again and again.",
+     "walkthrough": "The golfing picture hides the meal: course means a part of dinner.",
+     "definitionFit": "An entree is one course of a meal, the main dish in American usage or the one before it in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1021,39 @@
      }
     ]
    },
-   "solution": "VANISHINGCREAM"
+   "solution": "VANISHINGCREAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VANISHING CREAM",
+    "definitions": [
+     {
+      "text": "Cosmetic appearing in fewer and fewer shops?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cosmetic appearing in fewer and fewer shops?",
+      "note": "surface reading: a beauty product whose stock is dwindling across the high street"
+     },
+     {
+      "clueFragment": "fewer and fewer",
+      "note": "setter's reading: the product is disappearing, which names a type of face cream"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue describes a product becoming scarce; a cream that is disappearing from shops is literally vanishing.",
+     "definitionFit": "Vanishing cream is a light moisturiser that seems to disappear into the skin, used as a make-up base."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fewer"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1067,62 @@
     "text": "Creating a peer of knight nine blog furiously about",
     "enumeration": "9"
    },
-   "solution": "ENNOBLING"
+   "solution": "ENNOBLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENNOBLING",
+    "definitions": [
+     {
+      "text": "Creating a peer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furiously about",
+      "for": "anagram",
+      "note": "moving about furiously suggests wild disorder, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     },
+     {
+      "clueFragment": "nine blog",
+      "gives": "NINEBLOG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNOBLING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NNINEBLOG",
+       "gives": "ENNOBLING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knight angrily blogs about being made a peer.",
+     "definitionFit": "To ennoble someone is to raise them to the nobility, which is how a peer is made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blog"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1136,70 @@
     "text": "Further man upset over verse in Slovenian formerly?",
     "enumeration": "8"
    },
-   "solution": "YUGOSLAV"
+   "solution": "YUGOSLAV",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YUGOSLAV",
+    "definitions": [
+     {
+      "text": "Slovenian formerly?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Further",
+      "gives": "ALSO",
+      "note": "also means in addition, further"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GUY",
+      "note": "a guy is a man"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUGOSLA",
+      "V"
+     ],
+     "reversals": [
+      {
+       "from": "ALSOGUY",
+       "to": "YUGOSLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Another man getting upset about a poem written in Slovenian.",
+     "walkthrough": "'over' is a down-clue position word: the reversed part sits above V.",
+     "definitionFit": "Slovenia was part of Yugoslavia until 1991, so a Slovenian was once a Yugoslav, as the question mark admits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Further"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1213,54 @@
     "text": "Fiddle Peter is running that's lacking in initiative",
     "enumeration": "14"
    },
-   "solution": "UNENTERPRISING"
+   "solution": "UNENTERPRISING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNENTERPRISING",
+    "definitions": [
+     {
+      "text": "lacking in initiative",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fiddle",
+      "for": "anagram",
+      "note": "to fiddle with something is to tinker and rearrange it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter is running",
+      "gives": "PETERISRUNNING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETERISRUNNING",
+       "gives": "UNENTERPRISING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter is running a scam, which shows little drive.",
+     "walkthrough": "'Fiddle' looks like a verb meaning to cheat, or a violin, but it signals the rearrangement.",
+     "definitionFit": "An enterprise is a bold venture, so someone without enterprise shows no drive or initiative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fiddle"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1280,76 @@
      }
     ]
    },
-   "solution": "THELIKE"
+   "solution": "THELIKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THE LIKE",
+    "definitions": [
+     {
+      "text": "similar things",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "something done awkwardly is clumsy and out of order"
+     },
+     {
+      "text": "skinned",
+      "for": "letter_selection",
+      "note": "skinned means the outside layer is removed, leaving just the inner letters"
+     },
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "whatever eats takes something inside itself"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keith",
+      "gives": "KEITH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "eels",
+      "gives": "EL",
+      "select": "middle",
+      "note": "eels with first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "EL",
+      "IKE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEITH",
+       "gives": "THIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keith clumsily eating skinned eels and similar dishes.",
+     "definitionFit": "The phrase 'and the like' means and other things of a similar kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skinned"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1363,43 @@
     "text": "Broadcast witnesses your arrest",
     "enumeration": "7"
    },
-   "solution": "SEIZURE"
+   "solution": "SEIZURE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEIZURE",
+    "definitions": [
+     {
+      "text": "arrest",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "something broadcast is spoken on air, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "witnesses your",
+      "gives": "SEIZURE",
+      "soundsLike": "SEES YOUR",
+      "note": "witnesses means sees, followed by your"
+     }
+    ],
+    "explanation": {
+     "surface": "A news bulletin reports that witnesses saw you being arrested.",
+     "definitionFit": "A seizure is the act of taking hold of someone or something by force, as in an arrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1413,57 @@
     "text": "Very bad cut on end of toe",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Very bad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SEVER",
+      "note": "to sever is to cut"
+     },
+     {
+      "clueFragment": "toe",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of toe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty cut on the end of someone's toe.",
+     "definitionFit": "Severe describes something serious or intense, such as a very bad injury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1477,42 @@
     "text": "Schoolboys terrified to swallow shellfish",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "shellfish",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to swallow",
+      "for": "hidden_word",
+      "note": "to swallow is to hold something inside, so the answer lies within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Schoolboys terrified",
+      "gives": "OYSTER",
+      "note": "found across the end of Schoolboys and start of terrified"
+     }
+    ],
+    "explanation": {
+     "surface": "Pupils are scared of having to eat shellfish.",
+     "definitionFit": "An oyster is a bivalve mollusc, a common kind of shellfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1526,59 @@
     "text": "Number of Poles surrounding First Lady",
     "enumeration": "5"
    },
-   "solution": "SEVEN"
+   "solution": "SEVEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEVEN",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means placed around, so the two letters go on either side"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poles",
+      "gives": "SN",
+      "note": "S and N are the south and north poles"
+     },
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A number of Polish people gathered around the president's wife.",
+     "walkthrough": "'First Lady' suggests a president's wife, but it means Eve, the first woman.",
+     "definitionFit": "Seven is a whole number, one more than six."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1592,70 @@
     "text": "Back island runner to lose lead for sure",
     "enumeration": "8"
    },
-   "solution": "RELIABLE"
+   "solution": "RELIABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RELIABLE",
+    "definitions": [
+     {
+      "text": "sure",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "back means going backwards, so the whole wordplay is read from right to left"
+     },
+     {
+      "text": "to lose lead",
+      "for": "deletion",
+      "note": "losing the lead means losing the first letter of the word before"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "ELBA",
+      "note": "Elba is the Italian island where Napoleon was exiled"
+     },
+     {
+      "clueFragment": "runner",
+      "gives": "MILER",
+      "note": "a miler is an athlete who runs the mile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELI",
+      "ABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBAILER",
+       "to": "RELIABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Backing an island athlete who is sure to lose the lead.",
+     "walkthrough": "MILER drops its M to give ILER; ELBA + ILER is then read backwards.",
+     "definitionFit": "Something reliable can be depended on, so it is sure or certain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1669,40 @@
     "text": "Barely deserved",
     "enumeration": "4"
    },
-   "solution": "JUST"
+   "solution": "JUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUST",
+    "definitions": [
+     {
+      "text": "Barely",
+      "at": 0
+     },
+     {
+      "text": "deserved",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barely",
+      "note": "first meaning: only ..., by a narrow margin"
+     },
+     {
+      "clueFragment": "deserved",
+      "note": "second meaning: fair, as in a merited punishment"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word works as an adverb for scarcely managing and as an adjective for something fair or merited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1726,54 @@
      }
     ]
    },
-   "solution": "LIVEITUP"
+   "solution": "LIVEITUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIVE IT UP",
+    "definitions": [
+     {
+      "text": "revel",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop something is to plug it, sitting inside the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunken",
+      "gives": "LITUP",
+      "note": "lit up is slang for drunk"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "I've is the short form of I have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IVE",
+      "ITUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares they must give up drunken partying.",
+     "definitionFit": "To live it up is an idiom for enjoying oneself lavishly, which is to revel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1787,51 @@
     "text": "Useless female subsequently useful?",
     "enumeration": "6"
    },
-   "solution": "FUTILE"
+   "solution": "FUTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FUTILE",
+    "definitions": [
+     {
+      "text": "Useless",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "subsequently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "useful",
+      "gives": "UTILE",
+      "note": "utile is a rare word for useful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "UTILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who was useless turns out to be useful later?",
+     "walkthrough": "The surface contradicts itself, useless then useful, which is the joke.",
+     "definitionFit": "Futile describes an effort that achieves nothing, so it is pointless or without value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "useful"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1845,66 @@
     "text": "Lengthy quarrel at event sadly involving daughter",
     "enumeration": "8"
    },
-   "solution": "VENDETTA"
+   "solution": "VENDETTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VENDETTA",
+    "definitions": [
+     {
+      "text": "Lengthy quarrel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly means badly or wrongly, so the letters come out in a new order"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so one letter goes inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at event",
+      "gives": "ATEVENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEN",
+      "D",
+      "ETTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATEVENT",
+       "gives": "VENETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long-running family row that sadly involved a daughter at some occasion.",
+     "definitionFit": "A vendetta is a prolonged feud, often between families, which is a long-running quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1918,44 @@
     "text": "Old measure of class",
     "enumeration": "6"
    },
-   "solution": "LEAGUE"
+   "solution": "LEAGUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAGUE",
+    "definitions": [
+     {
+      "text": "Old measure",
+      "at": 0
+     },
+     {
+      "text": "class",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old measure",
+      "note": "first meaning: an old unit of distance, roughly three miles"
+     },
+     {
+      "clueFragment": "class",
+      "note": "second meaning: a level of quality, as in out of someone's class"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "It was a historic unit of length of about three miles, and also a grade of ability, as in a different league."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   }
  ]
 }
