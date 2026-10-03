@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,66 @@
      }
     ]
    },
-   "solution": "ASSISTANTDOCTOR"
+   "solution": "ASSISTANTDOCTOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASSISTANT DOCTOR",
+    "definitions": [
+     {
+      "text": "Physician’s helper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unnatural",
+      "for": "anagram",
+      "note": "something unnatural is not in its normal state, so these letters leave their usual order"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trains cats to do",
+      "gives": "TRAINSCATSTODO",
+      "note": "the three words taken letter for letter as raw material"
+     },
+     {
+      "clueFragment": "something",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSISTANTDOCTOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAINSCATSTODOS",
+       "gives": "ASSISTANTDOCTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's aide spends their time teaching cats to perform tricks no cat would do naturally.",
+     "definitionFit": "A junior hospital doctor working under a senior physician is literally that physician's helper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "unnatural"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +115,52 @@
     "text": "Marg as an alternative is one of these",
     "enumeration": "8"
    },
-   "solution": "ANAGRAMS"
+   "solution": "ANAGRAMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ANAGRAMS",
+    "definitions": [
+     {
+      "text": "Marg as an alternative is one of these",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version of the letters is a different arrangement of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marg as an",
+      "gives": "MARGASAN",
+      "note": "the three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARGASAN",
+       "gives": "ANAGRAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Margarine offered as a substitute for butter is one of a family of spreads.",
+     "walkthrough": "The whole clue does double duty: rearranging MARG AS AN gives the answer, and that very rearrangement is one example of what the answer names. Marg is British shorthand for margarine.",
+     "definitionFit": "Words formed by rearranging the letters of other words are called this, and the clue's own trick is one such rearrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Marg"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +174,54 @@
     "text": "Foolish grandma that is welcoming",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "Foolish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "a host welcoming a guest takes it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin abbreviation id est, meaning that is"
+     },
+     {
+      "clueFragment": "grandma",
+      "gives": "NAN",
+      "note": "nan is an informal word for a grandmother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A silly grandmother greeting her visitors at the door.",
+     "definitionFit": "Inane describes something silly or senseless, a straightforward synonym of foolish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcoming"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +235,52 @@
     "text": "Mishap’s found in Dallas, Rev Erikson upset",
     "enumeration": "8"
    },
-   "solution": "REVERSAL"
+   "solution": "REVERSAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REVERSAL",
+    "definitions": [
+     {
+      "text": "Mishap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the letters are found in the run of words that follows, spanning the gaps between them"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dallas, Rev Erikson",
+      "gives": "LASREVER",
+      "note": "the letters straddle dalLAS REV ERikson"
+     }
+    ],
+    "explanation": {
+     "surface": "A news story about some misfortune befalling a clergyman named Erikson in Dallas.",
+     "walkthrough": "The answer is also the name of the very device used to clue it, a fitting touch in a puzzle themed on clue types.",
+     "definitionFit": "A reversal is a setback or change for the worse in someone's fortunes, so it serves as a mishap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +294,47 @@
     "text": "‘Solvable’, you said for a match",
     "enumeration": "6"
    },
-   "solution": "DOUBLE"
+   "solution": "DOUBLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DOUBLE",
+    "definitions": [
+     {
+      "text": "match",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you said",
+      "for": "homophone",
+      "note": "the words point to how something is pronounced, not how it is written"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘Solvable’",
+      "gives": "DOUBLE",
+      "soundsLike": "DOABLE",
+      "note": "solvable means doable, which spoken quickly comes out like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports commentator calling a fixture winnable.",
+     "definitionFit": "A double is an exact counterpart or duplicate of something, which is what a perfect match is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +354,82 @@
      }
     ]
    },
-   "solution": "KINGEDGAR"
+   "solution": "KINGEDGAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "KING EDGAR",
+    "definitions": [
+     {
+      "text": "Old monarch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so a letter is taken away"
+     },
+     {
+      "text": "to be employed",
+      "for": "anagram",
+      "note": "letters put to work are reshaped for a new use, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are your family"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "agreed",
+      "gives": "AGREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "G",
+      "EDGAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGRED",
+       "gives": "EDGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historical monarch's relatives consented to be given jobs on condition that the English were absent.",
+     "walkthrough": "Only one E of agreed goes, leaving five letters to rearrange.",
+     "definitionFit": "Edgar the Peaceful ruled England in the tenth century, so he is a monarch from long ago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employed"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +443,44 @@
     "text": "Discovered orchid Dennis covered",
     "enumeration": "6"
    },
-   "solution": "HIDDEN"
+   "solution": "HIDDEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HIDDEN",
+    "definitions": [
+     {
+      "text": "covered",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discovered",
+      "for": "hidden_word",
+      "note": "something discovered has been found lurking within, here inside the next two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orchid Dennis",
+      "gives": "HIDDEN",
+      "note": "the letters run across orcHID DENnis"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener named Dennis found an orchid that had been kept under wraps.",
+     "walkthrough": "'Discovered' looks like the definition, but it means the opposite of the answer; it is the signal, and 'covered' at the end defines. The answer also names the clue type.",
+     "definitionFit": "Something covered over is concealed from view, which is what this word means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Discovered"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +504,40 @@
      }
     ]
    },
-   "solution": "BREAKSNEWGROUND"
+   "solution": "BREAKSNEWGROUND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BREAKS NEW GROUND",
+    "definitions": [
+     {
+      "text": "Does something innovative",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggesting bankers?",
+      "note": "surface reading: hinting at people who work in banks"
+     },
+     {
+      "clueFragment": "bankers",
+      "note": "setter's reading: in crosswords a banker is a river, and a river that bursts its banks cuts a fresh course across the land"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone pioneering a new idea, perhaps in the world of finance.",
+     "walkthrough": "A river shifting its course literally breaks into land it never crossed before, the idea the question mark flags.",
+     "definitionFit": "The idiom means doing pioneering work nobody has attempted before, which is acting innovatively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bankers"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +557,59 @@
      }
     ]
    },
-   "solution": "SANANGELO"
+   "solution": "SANANGELO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAN ANGELO",
+    "definitions": [
+     {
+      "text": "Western city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that turn out unfortunately go awry, so these letters are thrown out of order"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lasagne",
+      "gives": "LASAGNE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NO LASAGNE",
+       "gives": "SANANGELO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant review grumbling that a town out West has no Italian food on the menu.",
+     "walkthrough": "'no' looks like it removes the pasta dish, but its two letters join the rearranging.",
+     "definitionFit": "This city lies in western Texas, and 'Western' suggests the American West of cowboy films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +623,53 @@
     "text": "Nastier king leaving more frozen",
     "enumeration": "5"
    },
-   "solution": "ICIER"
+   "solution": "ICIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICIER",
+    "definitions": [
+     {
+      "text": "more frozen",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving it departs, so a letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nastier",
+      "gives": "ICKIER",
+      "note": "ickier means more unpleasant"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "Things got worse when the king departed, and the weather turned colder too.",
+     "definitionFit": "Icier is the comparative of icy, describing something colder and more covered with ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +683,51 @@
     "text": "Genuine, busy young woman lacking experience",
     "enumeration": "7"
    },
-   "solution": "INGENUE"
+   "solution": "INGENUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INGENUE",
+    "definitions": [
+     {
+      "text": "young woman lacking experience",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy suggests bustling activity, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genuine",
+      "gives": "GENUINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENUINE",
+       "gives": "INGENUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a sincere, hard-working newcomer who is still green.",
+     "walkthrough": "'Genuine' reads as an adjective for the young woman, but it supplies all the letters.",
+     "definitionFit": "An ingénue is an innocent, unsophisticated girl, especially the stock role of one on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "busy"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +747,59 @@
      }
     ]
    },
-   "solution": "BIGIDEA"
+   "solution": "BIGIDEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BIG IDEA",
+    "definitions": [
+     {
+      "text": "clever scheme",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "deletion",
+      "note": "something rejected is thrown out, so that letter is removed from the saint's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female saint",
+      "gives": "BRIGID",
+      "note": "Saint Brigid is one of Ireland's patron saints"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R stands for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "ea. is the standard abbreviation for each"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIGID",
+      "EA"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen turned down every plan a woman saint put forward.",
+     "definitionFit": "A big idea is an ambitious or ingenious plan, often said ironically, so it fits a scheme thought clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +813,54 @@
     "text": "Company mate’s one of 2",
     "enumeration": "4"
    },
-   "solution": "TEAM"
+   "solution": "TEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEAM",
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one of 2",
+      "for": "anagram",
+      "note": "the answer to 2 down names letter rearrangements, so this is a rearranged version of the word before"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mate",
+      "gives": "MATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATE",
+       "gives": "TEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend belongs to one of two firms.",
+     "walkthrough": "The cross-reference points to the entry at 2 down, which names the very rearrangement needed here.",
+     "definitionFit": "A team is a group of people working together, one sense of a company, as in a theatre company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +874,63 @@
     "text": "Ancestors’ DNA sets can get misconstrued",
     "enumeration": "10"
    },
-   "solution": "ASCENDANTS"
+   "solution": "ASCENDANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASCENDANTS",
+    "definitions": [
+     {
+      "text": "Ancestors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get misconstrued",
+      "for": "anagram",
+      "note": "misconstrued means wrongly put together, so the letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "’"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DNA",
+      "gives": "DNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sets",
+      "gives": "SETS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DNA SETS CAN",
+       "gives": "ASCENDANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that genetic tests tracing family history can be misread.",
+     "definitionFit": "Ascendants are forebears, people from whom one is descended, the opposite of descendants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "DNA"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +944,50 @@
     "text": "Rock star Jeremy’s air",
     "enumeration": "9"
    },
-   "solution": "IRONSTONE"
+   "solution": "IRONSTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRONSTONE",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star Jeremy",
+      "gives": "IRONS",
+      "note": "Jeremy Irons is an Oscar-winning English actor"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "TONE",
+      "note": "an air is a tune, and tone is its musical quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRONS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock star called Jeremy and his public persona.",
+     "walkthrough": "'Rock star' reads as one phrase about music, but 'Rock' alone is the definition and the star is an actor.",
+     "definitionFit": "Ironstone is a sedimentary rock rich in iron ore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1001,63 @@
     "text": "End of breathing tube is torn and left at sea",
     "enumeration": "7"
    },
-   "solution": "NOSTRIL"
+   "solution": "NOSTRIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSTRIL",
+    "definitions": [
+     {
+      "text": "End of breathing tube",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused and adrift, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "torn",
+      "gives": "TORN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IS TORN L",
+       "gives": "NOSTRIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diver's snorkel has ripped and been abandoned in the ocean.",
+     "definitionFit": "Each nostril is an external opening of the nose, where the airway through which we breathe ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tube"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1071,51 @@
     "text": "A riddle, sweetened tea perhaps is one",
     "enumeration": "7"
    },
-   "solution": "CHARADE"
+   "solution": "CHARADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARADE",
+    "definitions": [
+     {
+      "text": "A riddle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "perhaps is one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHAR",
+      "note": "char is British slang for tea"
+     },
+     {
+      "clueFragment": "sweetened",
+      "gives": "ADE",
+      "note": "an ade is a sweetened fruit drink, as in lemonade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "ADE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puzzling over whether a sugary cup of tea counts as a riddle.",
+     "walkthrough": "'Sweetened tea' read as tea plus a sweet drink is built exactly like a clue of this very kind, which is what 'perhaps is one' points out.",
+     "definitionFit": "A charade is a riddle or word game where a word is acted out or pieced together syllable by syllable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweetened"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1129,70 @@
     "text": "Best desserts not cold for once, tasty at the beginning",
     "enumeration": "8"
    },
-   "solution": "CHOICEST"
+   "solution": "CHOICEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHOICEST",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so one letter is left out"
+     },
+     {
+      "text": "at the beginning",
+      "for": "letter_selection",
+      "note": "at the beginning points to the very first letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "for once"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desserts",
+      "gives": "CHOCICES",
+      "note": "choc ices are ice-cream bars coated in chocolate, a British favourite"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "tasty",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tasty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOICES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "For a change, the finest puddings are served warm, with the tasty ones first.",
+     "walkthrough": "'for once' reminds you that only one of the two C's goes.",
+     "definitionFit": "Choicest is the superlative of choice in its adjective sense of excellent, so it means the finest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1206,50 @@
     "text": "This starts from any crossword, reading of sign that is clear",
     "enumeration": "8"
    },
-   "solution": "ACROSTIC"
+   "solution": "ACROSTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ACROSTIC",
+    "definitions": [
+     {
+      "text": "This starts from any crossword, reading of sign that is clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts from",
+      "for": "letter_selection",
+      "note": "the starts of the following words are taken, one from each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any crossword, reading of sign that is clear",
+      "gives": "ACROSTIC",
+      "select": "first",
+      "note": "the opening letters of the eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACROSTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that a puzzle becomes plain once you read the signs properly.",
+     "walkthrough": "The clue is itself an example of the answer: its word initials spell it out.",
+     "definitionFit": "An acrostic is a text in which the first letters of each line or word spell something, exactly what the clue does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1263,41 @@
     "text": "This might be 5 or 24 interpretation",
     "enumeration": "10"
    },
-   "solution": "DEFINITION"
+   "solution": "DEFINITION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEFINITION",
+    "definitions": [
+     {
+      "text": "This might be 5 or 24",
+      "at": 0
+     },
+     {
+      "text": "interpretation",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This might be 5 or 24",
+      "note": "first meaning: with the answers at 5 and 24, the kinds of clue that are double or cryptic ones of this word"
+     },
+     {
+      "clueFragment": "interpretation",
+      "note": "second meaning: an explanation of what something means"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The cross-references give DOUBLE and CRYPTIC, two clue types whose names end in this word.",
+     "definitionFit": "A definition states or interprets the meaning of a word, and double and cryptic versions are both standard clue types."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1311,48 @@
     "text": "Theatre workers are 23 guys",
     "enumeration": "6"
    },
-   "solution": "FLYMEN"
+   "solution": "FLYMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLYMEN",
+    "definitions": [
+     {
+      "text": "Theatre workers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "23",
+      "gives": "FLY",
+      "note": "the answer at 23 means smart, and fly is slang for smart or knowing"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLY",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Backstage crew described as smart fellows.",
+     "definitionFit": "Flymen work above the stage in the fly loft, raising and lowering scenery on ropes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1366,49 @@
     "text": "Method of army signals after cycling",
     "enumeration": "6"
    },
-   "solution": "TACTIC"
+   "solution": "TACTIC",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "TACTIC",
+    "definitions": [
+     {
+      "text": "Method of army",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after cycling",
+      "for": "cycling",
+      "note": "cycling moves letters round from the front to the back, as on a wheel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "signals",
+      "gives": "TICTAC",
+      "note": "tic-tac is the hand-signalling code used by British racecourse bookmakers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Military communications sent after a bicycle ride.",
+     "walkthrough": "'army signals' looks like one phrase, but 'army' belongs to the definition.",
+     "definitionFit": "A tactic is a planned manoeuvre, and military tactics are the methods an army uses in battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1422,67 @@
     "text": "Out of uniform, retired conductor is a bore",
     "enumeration": "4"
    },
-   "solution": "DRAG"
+   "solution": "DRAG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "DRAG",
+    "definitions": [
+     {
+      "text": "a bore",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Out of",
+      "for": "deletion",
+      "note": "out of means without, so that letter goes missing"
+     },
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "something retired has withdrawn backwards, so the word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is the NATO phonetic alphabet word for U"
+     },
+     {
+      "clueFragment": "conductor",
+      "gives": "GUARD",
+      "note": "a train guard is the British name for a conductor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAG"
+     ],
+     "reversals": [
+      {
+       "from": "GARD",
+       "to": "DRAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An off-duty conductor, now in civvies, turns out to be tedious company.",
+     "definitionFit": "A drag is informally something or someone tiresome and dull, the same sense as a bore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1496,50 @@
     "text": "Wilful cruelty depicted by pictures is trendy",
     "enumeration": "5"
    },
-   "solution": "SMART"
+   "solution": "SMART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMART",
+    "definitions": [
+     {
+      "text": "trendy",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "depicted by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wilful cruelty",
+      "gives": "SM",
+      "note": "S and M stands for sadism and masochism"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures are works of art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "Fashionable modern paintings that portray deliberate cruelty.",
+     "definitionFit": "Smart can mean stylish and fashionable, as in the smart set, so it matches trendy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pictures"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1553,46 @@
     "text": "Strange vault I see",
     "enumeration": "7"
    },
-   "solution": "CRYPTIC"
+   "solution": "CRYPTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRYPTIC",
+    "definitions": [
+     {
+      "text": "Strange",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vault",
+      "gives": "CRYPT",
+      "note": "a crypt is an underground vault in a church"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "I stays, and see is said like the letter C"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRYPT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone peering into a strange burial chamber.",
+     "definitionFit": "Cryptic means mysterious or obscure in meaning, so it serves as a synonym for strange or puzzling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vault"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1612,50 @@
      }
     ]
    },
-   "solution": "COMESTO"
+   "solution": "COMESTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMES TO",
+    "definitions": [
+     {
+      "text": "Recovers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "sad musical",
+      "gives": "MESTO",
+      "note": "mesto is the Italian musical direction to play sadly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MESTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre group bouncing back after staging a depressing show.",
+     "walkthrough": "'musical' reads as a noun for a show, but it marks the word that follows as a score marking.",
+     "definitionFit": "To come to is to regain consciousness, so someone who comes to is recovering after fainting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1669,74 @@
     "text": "Lots of water buffalo ultimately stir, eating the middle of reeds",
     "enumeration": "5"
    },
-   "solution": "OCEAN"
+   "solution": "OCEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OCEAN",
+    "definitions": [
+     {
+      "text": "Lots of water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the closing letter is kept"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece goes into the other"
+     },
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the central letter of the next word is the only one wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buffalo",
+      "gives": "O",
+      "select": "last",
+      "note": "the final letter of buffalo"
+     },
+     {
+      "clueFragment": "stir",
+      "gives": "CAN",
+      "note": "stir and can are both slang for prison"
+     },
+     {
+      "clueFragment": "reeds",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of reeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "C",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A buffalo wading in, churning up the water and chewing the reeds.",
+     "definitionFit": "An ocean is a vast expanse of sea water, so it is a huge quantity of water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stir"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1750,66 @@
     "text": "Entry by passage right for college",
     "enumeration": "9"
    },
-   "solution": "INSERTION"
+   "solution": "INSERTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "INSERTION",
+    "definitions": [
+     {
+      "text": "Entry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means it stands in that place instead"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "IN",
+      "note": "by and in are interchangeable in phrases such as by or in the evening"
+     },
+     {
+      "clueFragment": "passage",
+      "gives": "SECTION",
+      "note": "a passage of text is a section of it"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is the abbreviation for college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SE",
+      "R",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting into a university by switching from one college to another and finding the right way in.",
+     "definitionFit": "An insertion is something put in, such as an entry added to a text or register."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "college"
+    }
+   }
   }
  ]
 }
