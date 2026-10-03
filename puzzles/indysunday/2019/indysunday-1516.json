@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Muzzle small bear that crosses river",
     "enumeration": "4"
    },
-   "solution": "CURB"
+   "solution": "CURB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURB",
+    "definitions": [
+     {
+      "text": "Muzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crosses",
+      "for": "container",
+      "note": "a creature that crosses something sits astride it, so its letters end up spread around the other piece"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small bear",
+      "gives": "CUB",
+      "note": "a cub is a young, small bear"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "R",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear cub wading over a river is having its jaws fastened shut.",
+     "walkthrough": "The cub straddles the river: CU + R + B gives CURB.",
+     "definitionFit": "To curb is to restrain or hold back, just as muzzling someone keeps them quiet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Muzzle"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +101,53 @@
     "text": "Orders to discard fine cheese",
     "enumeration": "4"
    },
-   "solution": "BRIE"
+   "solution": "BRIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRIE",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to discard",
+      "for": "deletion",
+      "note": "discarding means throwing something away, so a letter is dropped from the word for orders"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orders",
+      "gives": "BRIEF",
+      "note": "a brief is a set of instructions or orders"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to throw out a good piece of cheese.",
+     "walkthrough": "BRIEF loses its F to leave BRIE.",
+     "definitionFit": "Brie is a soft French cow's-milk cheese with a white rind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,51 @@
     "text": "Faustina regularly seen in huge region",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "huge region",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every other letter of the name is kept"
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faustina",
+      "gives": "ASIA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Faustina is often spotted across some vast territory.",
+     "definitionFit": "Asia is the largest continent on Earth, an enormous area of land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,60 @@
     "text": "Satirist simply not good man: easily corrupted",
     "enumeration": "7"
    },
-   "solution": "JUVENAL"
+   "solution": "JUVENAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "JUVENAL",
+    "definitions": [
+     {
+      "text": "Satirist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the abbreviation for a holy man is taken away from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simply",
+      "gives": "JUST",
+      "note": "simply and just both mean merely"
+     },
+     {
+      "clueFragment": "good man",
+      "gives": "ST",
+      "note": "a good man is a saint, abbreviated ST"
+     },
+     {
+      "clueFragment": "easily corrupted",
+      "gives": "VENAL",
+      "note": "venal means open to bribery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JU",
+      "VENAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical writer is described as a plain bad lot, quick to take a bribe.",
+     "walkthrough": "'Not' works as 'without': the saint is removed from the word for simply before the bribable part is added.",
+     "definitionFit": "Juvenal was a Roman poet whose Satires mocked the vices of imperial Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "simply"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +286,55 @@
     "text": "Permit Oslo or Rome to slip badly as city",
     "enumeration": "10"
    },
-   "solution": "METROPOLIS"
+   "solution": "METROPOLIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METROPOLIS",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to slip badly",
+      "for": "anagram",
+      "note": "slipping badly suggests losing one's footing and falling into disorder, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "or Rome",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permit Oslo",
+      "gives": "PERMITOSLO",
+      "note": "the two words supply all ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERMITOSLO",
+       "gives": "METROPOLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lets Oslo, or perhaps Rome, decline sharply as a city.",
+     "walkthrough": "Only the letters of 'Permit Oslo' are rearranged; 'or Rome' just offers a second example city for the surface.",
+     "definitionFit": "A metropolis is a large and important city, often the chief one of a country or region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Permit"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +348,70 @@
     "text": "Coppers to arrest socialist outside church as priority",
     "enumeration": "10"
    },
-   "solution": "PRECEDENCE"
+   "solution": "PRECEDENCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRECEDENCE",
+    "definitions": [
+     {
+      "text": "priority",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to arrest",
+      "for": "container",
+      "note": "arresting someone means taking hold of them, so the coins grip the next part inside"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so the socialist wraps around the church abbreviation"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coppers",
+      "gives": "PENCE",
+      "note": "coppers are copper coins, pennies"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is a common label for a socialist"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "CE",
+      "D",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Police detain a left-winger outside a church, treating it as urgent.",
+     "walkthrough": "Coppers misleads towards police officers, but here it means copper coins. Two containers nest: church inside socialist, then that inside the coins.",
+     "definitionFit": "Precedence is the condition of coming first in importance or order, which is what priority means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coppers"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +431,53 @@
      }
     ]
    },
-   "solution": "CURRYSAUCE"
+   "solution": "CURRYSAUCE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CURRY SAUCE",
+    "definitions": [
+     {
+      "text": "Hot stuff perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner was famous for swapping the opening sounds of two words, so that swap is applied here"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epsom",
+      "gives": "CURRYSAUCE",
+      "soundsLike": "SURREY COURSE",
+      "note": "Epsom is the racecourse in the county of Surrey, home of the Derby; swap the opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURRYSAUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about something hot found at Epsom, as the Reverend Spooner might say it.",
+     "walkthrough": "Epsom Downs is a famous racecourse in Surrey, a county south of London, so Epsom is a Surrey course; swap the S and C sounds.",
+     "definitionFit": "A curry sauce is spicy, so it is a fair example of hot stuff, with perhaps flagging the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Epsom"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +491,53 @@
     "text": "Eastern leader open to the West",
     "enumeration": "4"
    },
-   "solution": "RAJA"
+   "solution": "RAJA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RAJA",
+    "definitions": [
+     {
+      "text": "Eastern leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the West",
+      "for": "reversal",
+      "note": "in an across answer, heading west means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open",
+      "gives": "AJAR",
+      "note": "ajar means slightly open, of a door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAJA"
+     ],
+     "reversals": [
+      {
+       "from": "AJAR",
+       "to": "RAJA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler from the East is receptive to Western ideas.",
+     "definitionFit": "A raja is an Indian king or prince, a ruler from the East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +565,64 @@
    "group": [
     "9-down",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "JACOB REES-MOGG",
+    "definitions": [
+     {
+      "text": "Brexiteer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infuriated",
+      "for": "anagram",
+      "note": "someone infuriated is thrown into turmoil, so these letters are churned up"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "aggro becomes",
+      "gives": "AGGROBECOMES",
+      "note": "these twelve letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "ACOBREESMOGG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGGROBECOMES",
+       "gives": "ACOBREESMOGG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge, faced with aggression, loses his temper over Brexit.",
+     "walkthrough": "Aggro is British slang for aggressive trouble-making.",
+     "definitionFit": "Jacob Rees-Mogg is a Conservative MP who campaigned prominently for Britain to leave the EU."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +636,67 @@
     "text": "Deny Blunt's smuggled back dope",
     "enumeration": "8"
    },
-   "solution": "ABNEGATE"
+   "solution": "ABNEGATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ABNEGATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so the word for dope is read right to left"
+     },
+     {
+      "text": "smuggled",
+      "for": "container",
+      "note": "something smuggled is carried hidden inside, so one piece is tucked within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blunt's",
+      "gives": "ABATE",
+      "note": "to abate is to blunt or lessen; the 's is 'has'"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "GEN",
+      "note": "gen and dope both mean inside information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "NEG",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "GEN",
+       "to": "NEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Blunt denies bringing drugs back into the country.",
+     "walkthrough": "Blunt looks like a surname and dope like drugs; the 's stands for 'has', so Blunt has smuggled the dope.",
+     "definitionFit": "To abnegate is to renounce or refuse, so it can mean deny, as in denying oneself something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +710,48 @@
     "text": "Turkish commander edges away from infidel",
     "enumeration": "3"
    },
-   "solution": "AGA"
+   "solution": "AGA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AGA",
+    "definitions": [
+     {
+      "text": "Turkish commander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges away from",
+      "for": "letter_selection",
+      "note": "with its edges taken away, a word keeps only its inner letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infidel",
+      "gives": "AGA",
+      "select": "middle",
+      "note": "an infidel is a pagan; the first and last letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Turkish officer slowly backs away from an unbeliever.",
+     "definitionFit": "An aga was a military officer or chief in the Ottoman Empire, a title of Turkish rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +765,58 @@
     "text": "Canine elevated to become Anubis?",
     "enumeration": "3"
    },
-   "solution": "GOD"
+   "solution": "GOD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GOD",
+    "definitions": [
+     {
+      "text": "Anubis?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "elevated",
+      "for": "reversal",
+      "note": "in a down answer, raising a word means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canine",
+      "gives": "DOG",
+      "note": "a canine is a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD"
+     ],
+     "reversals": [
+      {
+       "from": "DOG",
+       "to": "GOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog is raised up to become the jackal-headed Egyptian deity.",
+     "walkthrough": "Anubis was depicted with a jackal's head, which is why a canine fits the surface so neatly.",
+     "definitionFit": "Anubis was the ancient Egyptian deity of the dead, so he is one example of a divine being; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elevated"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +830,61 @@
     "text": "Short male in jumper, elaborate in style",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "elaborate in style",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "short means cut off, so the final letter of the word for a male bird goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumper",
+      "gives": "ROO",
+      "note": "a kangaroo, or roo, is a famous jumper"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "COCK",
+      "note": "a cock is a male bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "COC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A short man wearing a sweater, dressed in a fancy manner.",
+     "walkthrough": "Jumper looks like the British word for a sweater, but here it is the kangaroo, which jumps.",
+     "definitionFit": "Rococo describes the highly ornate eighteenth-century European style of decoration, full of elaborate scrolls and curves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +908,64 @@
      }
     ]
    },
-   "solution": "AIDEDECAMP"
+   "solution": "AIDEDECAMP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIDE-DE-CAMP",
+    "definitions": [
+     {
+      "text": "Military adviser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistaken",
+      "for": "anagram",
+      "note": "a mistaken word has gone wrong, so its letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idea",
+      "gives": "IDEA",
+      "note": "four letters to be rearranged"
+     },
+     {
+      "clueFragment": "abscond",
+      "gives": "DECAMP",
+      "note": "to decamp is to leave suddenly or secretly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIDE",
+      "DECAMP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEA",
+       "gives": "AIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer's counsellor wrongly thinks of running away.",
+     "definitionFit": "An aide-de-camp is an officer who acts as personal assistant to a senior commander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mistaken"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +979,55 @@
     "text": "VIP is more prepared to make do",
     "enumeration": "9"
    },
-   "solution": "IMPROVISE"
+   "solution": "IMPROVISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPROVISE",
+    "definitions": [
+     {
+      "text": "make do",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made ready or cooked up, so these letters are worked into something new"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "VIP is more",
+      "gives": "VIPISMORE",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIPISMORE",
+       "gives": "IMPROVISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very important person is readier to cope with whatever is at hand.",
+     "walkthrough": "The irony is that the person who prepares is the one least likely to need this answer.",
+     "definitionFit": "To improvise is to manage with whatever is available, without planning, which is the idiom make do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1041,39 @@
     "text": "One adopting the missionary position?",
     "enumeration": "10"
    },
-   "solution": "EVANGELIST"
+   "solution": "EVANGELIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EVANGELIST",
+    "definitions": [
+     {
+      "text": "One adopting the missionary position?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One adopting the missionary position?",
+      "note": "surface reading: a cheeky reference to a sexual position"
+     },
+     {
+      "clueFragment": "missionary position",
+      "note": "setter's reading: someone who takes on the job and outlook of a missionary, spreading the gospel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase is a well-known name for a sex position, but here position means a role or stance.",
+     "definitionFit": "An evangelist preaches the Christian gospel to win converts, which is exactly the work of a missionary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1087,66 @@
     "text": "Academic worried by Burke or Hare finally choosing body",
     "enumeration": "10"
    },
-   "solution": "ELECTORATE"
+   "solution": "ELECTORATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELECTORATE",
+    "definitions": [
+     {
+      "text": "choosing body",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of each name, so only its closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burke or Hare",
+      "gives": "E",
+      "select": "last",
+      "note": "either name ends with the same letter"
+     },
+     {
+      "clueFragment": "Academic",
+      "gives": "LECTOR",
+      "note": "a lector is a university lecturer or reader"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "worried as in ate away at, gnawed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LECTOR",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer frets about the Edinburgh body-snatchers Burke and Hare.",
+     "walkthrough": "'By' means next to, so E stands beside the rest, here at the front. Burke and Hare murdered people in 1820s Edinburgh to sell their bodies.",
+     "definitionFit": "The electorate is everyone entitled to vote, the group of people who select representatives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1160,38 @@
     "text": "Something outstanding that nobody wants?",
     "enumeration": "4"
    },
-   "solution": "DEBT"
+   "solution": "DEBT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEBT",
+    "definitions": [
+     {
+      "text": "Something outstanding that nobody wants?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something outstanding",
+      "note": "surface reading: something excellent or remarkable, which oddly nobody wants"
+     },
+     {
+      "clueFragment": "outstanding",
+      "note": "setter's reading: still unpaid, owed and awaiting settlement"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Money owed and not yet paid is said to be outstanding, and nobody likes to have it hanging over them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1205,43 @@
     "text": "One calls to order audio equipment",
     "enumeration": "7"
    },
-   "solution": "SPEAKER"
+   "solution": "SPEAKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPEAKER",
+    "definitions": [
+     {
+      "text": "One calls to order",
+      "at": 0
+     },
+     {
+      "text": "audio equipment",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One calls to order",
+      "note": "first meaning: the presiding officer of the House of Commons, who calls MPs to order"
+     },
+     {
+      "clueFragment": "audio equipment",
+      "note": "second meaning: a loudspeaker"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests someone placing an order for hi-fi gear.",
+     "definitionFit": "The Commons chair keeps debates in order, while a loudspeaker turns signals into sound for a stereo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1255,58 @@
     "text": "Large tool shown around brings calumny",
     "enumeration": "7"
    },
-   "solution": "SLANDER"
+   "solution": "SLANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLANDER",
+    "definitions": [
+     {
+      "text": "calumny",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown around",
+      "for": "container",
+      "note": "around means surrounding, so the tool wraps itself about the single letter"
+     }
+    ],
+    "linkWords": [
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tool",
+      "gives": "SANDER",
+      "note": "a sander is a power tool for smoothing wood"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "ANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A big power tool on display causes false accusations.",
+     "walkthrough": "L goes inside SANDER after the S.",
+     "definitionFit": "Calumny and slander both mean false spoken statements made to damage someone's reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shown"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1320,55 @@
     "text": "Instrument doctor used to probe woman",
     "enumeration": "7"
    },
-   "solution": "MARIMBA"
+   "solution": "MARIMBA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARIMBA",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used to probe",
+      "for": "container",
+      "note": "a probe is pushed into something, so the doctor's letters go inside the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "MARIA",
+      "note": "Maria is a woman's name"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARI",
+      "MB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical instrument is used by a doctor to examine a female patient.",
+     "walkthrough": "Instrument looks surgical, given the doctor and the probe, but it is musical.",
+     "definitionFit": "A marimba is a percussion instrument like a large xylophone, with wooden bars and resonators."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Instrument"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1395,65 @@
     "text": "Managed to penetrate works by Eliot, initially cross",
     "enumeration": "10"
    },
-   "solution": "TRANSVERSE"
+   "solution": "TRANSVERSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRANSVERSE",
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to penetrate",
+      "for": "container",
+      "note": "penetrating means getting inside, so this word goes within the poet's letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eliot, initially",
+      "gives": "TS",
+      "note": "the poet T. S. Eliot's initials"
+     },
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "ran as in ran a business, managed it"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "VERSE",
+      "note": "a poet's works are verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAN",
+      "S",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone got into Eliot's poetry and at first was annoyed.",
+     "walkthrough": "Initially looks like a first-letter signal, but here it means the poet's initials. Cross looks like angry, yet it is the adjective meaning crossways.",
+     "definitionFit": "Transverse means lying or extending across something, so it matches the adjective cross, as in crossways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1467,53 @@
     "text": "Pounds lost to repugnant rival",
     "enumeration": "3"
    },
-   "solution": "VIE"
+   "solution": "VIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIE",
+    "definitions": [
+     {
+      "text": "rival",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost to",
+      "for": "deletion",
+      "note": "something lost to a word has gone missing from it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pounds",
+      "gives": "L",
+      "note": "L, from Latin libra, is the abbreviation for pounds"
+     },
+     {
+      "clueFragment": "repugnant",
+      "gives": "VILE",
+      "note": "vile means disgusting, repugnant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Money is lost to a disgusting competitor.",
+     "walkthrough": "VILE without its L leaves VIE.",
+     "definitionFit": "To vie is to compete, and to rival someone is to compete with them on equal terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pounds"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1527,44 @@
     "text": "Beast taking zig-zag course?",
     "enumeration": "3"
    },
-   "solution": "EWE"
+   "solution": "EWE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EWE",
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zig-zag course",
+      "gives": "EWE",
+      "note": "a route going east, then west, then east again, using the compass abbreviations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWE"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal wandering back and forth across a field.",
+     "walkthrough": "E, W and E are compass points; heading east, west, then east again is a zig-zag.",
+     "definitionFit": "A ewe is a female sheep, an animal, so beast in its general sense of a creature fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "zig-zag"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1578,45 @@
     "text": "Extremely impressive and hilarious joke",
     "enumeration": "6"
    },
-   "solution": "KILLER"
+   "solution": "KILLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KILLER",
+    "definitions": [
+     {
+      "text": "Extremely impressive",
+      "at": 0
+     },
+     {
+      "text": "hilarious joke",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely impressive",
+      "note": "first meaning: informal adjective for something excellent"
+     },
+     {
+      "clueFragment": "hilarious joke",
+      "note": "second meaning: a joke so funny it slays the audience"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one description of a great joke; split it at 'and'.",
+     "definitionFit": "In slang a knockout thing is a killer, and a gag that makes people die laughing is also one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1630,68 @@
     "text": "Fool in island stream, unending in distance",
     "enumeration": "8"
    },
-   "solution": "IMBECILE"
+   "solution": "IMBECILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "IMBECILE",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unending",
+      "for": "deletion",
+      "note": "without an ending means the final letter of the stream word is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened stream within the distance"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "distance",
+      "gives": "MILE",
+      "note": "a mile is a distance"
+     },
+     {
+      "clueFragment": "stream",
+      "gives": "BECK",
+      "note": "a beck is a small stream in northern England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "BEC",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot is stuck in an island brook that goes on for miles.",
+     "walkthrough": "Beck is a northern English word for a brook, common in crosswords.",
+     "definitionFit": "An imbecile is a stupid person, so the word is an insulting synonym for a fool or idiot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1705,51 @@
     "text": "Ship's pub Kelvin attends",
     "enumeration": "4"
    },
-   "solution": "BARK"
+   "solution": "BARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARK",
+    "definitions": [
+     {
+      "text": "Ship",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "attends"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K is the symbol for the kelvin temperature unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Kelvin goes to the vessel's own pub.",
+     "walkthrough": "'Ship's' reads as 'Ship is'. Kelvin looks like a man's name but is the unit symbol.",
+     "definitionFit": "A bark, also spelt barque, is a sailing vessel with three or more masts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kelvin"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1763,59 @@
     "text": "Banker round loch finding shellfish",
     "enumeration": "4"
    },
-   "solution": "CLAM"
+   "solution": "CLAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAM",
+    "definitions": [
+     {
+      "text": "shellfish",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the river's letters go about the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banker",
+      "gives": "CAM",
+      "note": "a banker is something with banks, a river; the Cam flows through Cambridge"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the abbreviation for loch or lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A financier travelling around a Scottish lake comes across seafood.",
+     "walkthrough": "Banker is a crossword joke for a river, which has banks. L goes inside CAM after the C.",
+     "definitionFit": "A clam is a bivalve mollusc living in sand or mud, eaten as seafood, so a shellfish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Banker"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1829,49 @@
     "text": "Girl probably disheartened",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing its heart means the central letters of the word are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "probably",
+      "gives": "LIKELY",
+      "note": "likely and probably both mean in all probability"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is most likely feeling discouraged.",
+     "walkthrough": "LIKELY loses its middle KE to leave LILY.",
+     "definitionFit": "Lily is a female first name, so it can stand for a girl in crossword style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +1885,43 @@
     "text": "Where those who serve eat dog's dinner",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MESS",
+    "definitions": [
+     {
+      "text": "Where those who serve eat",
+      "at": 0
+     },
+     {
+      "text": "dog's dinner",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where those who serve eat",
+      "note": "first meaning: the dining room of members of the armed forces"
+     },
+     {
+      "clueFragment": "dog's dinner",
+      "note": "second meaning: British slang for a shambles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Serve means serve in the forces, not wait at table; a dog's dinner is British slang for a muddle.",
+     "definitionFit": "Military personnel take meals in the officers' or sergeants' hall, and a chaotic botched job is a muddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "serve"
+    }
+   }
   },
   {
    "number": 31,
@@ -496,7 +1935,70 @@
     "text": "Bad NBC are caught in lie, seeking sanctuary",
     "enumeration": "10"
    },
-   "solution": "TABERNACLE"
+   "solution": "TABERNACLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TABERNACLE",
+    "definitions": [
+     {
+      "text": "sanctuary",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bad",
+      "for": "anagram",
+      "note": "bad means gone wrong, so these letters are put out of order"
+     },
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "caught in means trapped inside, so the rearranged letters go within the word for lie"
+     }
+    ],
+    "linkWords": [
+     "seeking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NBC are",
+      "gives": "NBCARE",
+      "note": "six letters to be rearranged"
+     },
+     {
+      "clueFragment": "lie",
+      "gives": "TALE",
+      "note": "a tale is a lie, as in telling tales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "BERNAC",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NBCARE",
+       "gives": "BERNAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American TV network caught out in a falsehood runs for cover.",
+     "walkthrough": "NBC is an American television network.",
+     "definitionFit": "A tabernacle is a place of worship or a holy tent, and a sanctuary is a sacred place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bad"
+    }
+   }
   }
  ]
 }
