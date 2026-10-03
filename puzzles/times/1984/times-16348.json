@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 60 crossings, 0 conflicts"
+  "check": "32 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "23-across",
+    "was": "OCCUR",
+    "now": "OSCAR",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,59 @@
     "text": "Personality has black-out arriving at this speed",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CELERITY",
+    "definitions": [
+     {
+      "text": "speed",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "something put out is removed, so one word's letter is taken away from the other"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "arriving at this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Personality",
+      "gives": "CELEBRITY",
+      "note": "a personality is a famous person, a celebrity"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELE",
+      "RITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous figure suffers a blackout just as they arrive somewhere at speed.",
+     "walkthrough": "'Black-out' reads as fainting, but it splits into black, the letter B, and out, its removal from CELEBRITY to leave CELERITY.",
+     "definitionFit": "Celerity is a formal, somewhat literary word for swiftness of movement or action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "black-out"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +112,40 @@
     "text": "It protects woods from intruders",
     "enumeration": "8"
    },
-   "solution": "CREOSOTE"
+   "solution": "CREOSOTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CREOSOTE",
+    "definitions": [
+     {
+      "text": "It protects woods from intruders",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It protects woods",
+      "note": "surface reading: something guarding a forest, like a gamekeeper"
+     },
+     {
+      "clueFragment": "from intruders",
+      "note": "setter's reading: a preservative painted on timber to keep out insects and rot"
+     }
+    ],
+    "explanation": {
+     "surface": "A guardian keeping trespassers out of the forest.",
+     "walkthrough": "Woods suggests a forest; it means pieces of timber, such as fence panels.",
+     "definitionFit": "Creosote is a tarry oil brushed onto fences and sheds to preserve timber against insects and fungal decay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "woods"
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +165,51 @@
      }
     ]
    },
-   "solution": "LANCEJACK"
+   "solution": "LANCEJACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANCE-JACK",
+    "definitions": [
+     {
+      "text": "may be acting without pay",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "carrying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spear",
+      "gives": "LANCE",
+      "note": "a lance is a long spear"
+     },
+     {
+      "clueFragment": "knave",
+      "gives": "JACK",
+      "note": "the jack is the knave in a pack of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANCE",
+      "JACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal with a spear might be an unpaid actor.",
+     "walkthrough": "A lance-jack is British army slang for a lance corporal, a rank once often held as an acting, unpaid appointment.",
+     "definitionFit": "Lance corporals were historically soldiers given temporary, unpaid acting rank, so one may be acting without pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +223,64 @@
     "text": "Increase left out of the new serial",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "something left out of a group is omitted, so that letter goes missing"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "serial",
+      "gives": "SERIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERIA",
+       "gives": "RAISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something has been increased but omitted from the latest television serial.",
+     "definitionFit": "To raise something is to lift it higher or make it greater, as in raising prices or wages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +300,50 @@
      }
     ]
    },
-   "solution": "TOEHOLD"
+   "solution": "TOEHOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOE-HOLD",
+    "definitions": [
+     {
+      "text": "lodgement",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terminal",
+      "gives": "TOE",
+      "note": "the toe is the terminal part of the foot"
+     },
+     {
+      "clueFragment": "stop",
+      "gives": "HOLD",
+      "note": "to hold is to stop or keep back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOE",
+      "HOLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A notice about the last stop on a line, at some lodging.",
+     "walkthrough": "Terminal suggests a station; it is the far end of something, here the toe.",
+     "definitionFit": "A toehold is a small foothold or initial position gained, a precarious lodgement from which to advance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terminal"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +357,44 @@
     "text": "Sounds like Pict country of old",
     "enumeration": "6"
    },
-   "solution": "CHOSEN"
+   "solution": "CHOSEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHOSEN",
+    "definitions": [
+     {
+      "text": "Sounds like Pict",
+      "at": 0
+     },
+     {
+      "text": "country of old",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sounds like Pict",
+      "note": "first meaning: the word means picked, which is said exactly like Pict"
+     },
+     {
+      "clueFragment": "country of old",
+      "note": "second meaning: the former name of Korea under Japanese rule"
+     }
+    ],
+    "explanation": {
+     "surface": "An old-fashioned remark that something resembles the ancient land of the Picts.",
+     "walkthrough": "The Picts' old country suggests Scotland, but the second meaning is far away: Chosen was the name of Korea from 1910 to 1945.",
+     "definitionFit": "Chosen equals picked, which is pronounced like Pict; separately, Chosen was the historical name used for Korea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pict"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +408,43 @@
     "text": "Christmas rose that may restore balance",
     "enumeration": "9"
    },
-   "solution": "HELLEBORE"
+   "solution": "HELLEBORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HELLEBORE",
+    "definitions": [
+     {
+      "text": "Christmas rose",
+      "at": 0
+     },
+     {
+      "text": "that may restore balance",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas rose",
+      "note": "first meaning: the winter-flowering plant of that common name"
+     },
+     {
+      "clueFragment": "that may restore balance",
+      "note": "second meaning: a herb prescribed in former times as a cure for madness"
+     }
+    ],
+    "explanation": {
+     "surface": "A Christmas flower credited with power to steady someone.",
+     "walkthrough": "Balance sounds physical, but here it is mental: the ancients prescribed this plant against insanity.",
+     "definitionFit": "Hellebore is the genus of the Christmas rose, and black hellebore was a classical remedy for madness and melancholy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "balance"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +458,53 @@
     "text": "Having had more than enough of broken dates",
     "enumeration": "5"
    },
-   "solution": "SATED"
+   "solution": "SATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATED",
+    "definitions": [
+     {
+      "text": "Having had more than enough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken thing is in pieces, so the word's letters are put back together differently"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dates",
+      "gives": "DATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATES",
+       "gives": "SATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sick of too many appointments that keep falling through, or of crushed dried fruit.",
+     "definitionFit": "Sated means fully satisfied, with appetite filled to the point of wanting nothing further."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +518,47 @@
     "text": "Sharks making tenders",
     "enumeration": "6"
    },
-   "solution": "NURSES"
+   "solution": "NURSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NURSES",
+    "definitions": [
+     {
+      "text": "Sharks",
+      "at": 0
+     },
+     {
+      "text": "tenders",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sharks",
+      "note": "first meaning: nurse sharks, a kind of bottom-dwelling shark"
+     },
+     {
+      "clueFragment": "tenders",
+      "note": "second meaning: people who tend or look after the sick"
+     }
+    ],
+    "explanation": {
+     "surface": "Swindlers putting in bids for a contract.",
+     "walkthrough": "Sharks suggests swindlers and tenders suggests bids; both are meant literally, as fish and as carers.",
+     "definitionFit": "Nurse sharks are a species of shark, and nurses are carers who tend patients in hospitals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tenders"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +572,43 @@
     "text": "Reams of paper - put it on the floor",
     "enumeration": "6"
    },
-   "solution": "SCREED"
+   "solution": "SCREED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCREED",
+    "definitions": [
+     {
+      "text": "Reams of paper",
+      "at": 0
+     },
+     {
+      "text": "put it on the floor",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reams of paper",
+      "note": "first meaning: a long, tedious piece of writing"
+     },
+     {
+      "clueFragment": "put it on the floor",
+      "note": "second meaning: a smooth layer of mortar spread over a concrete base"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to dump a stack of paper on the floor.",
+     "definitionFit": "A screed is a lengthy written discourse, and also the levelled cement layer laid as a floor surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reams"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +622,40 @@
     "text": "Dissatisfaction at not having any interest",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Dissatisfaction at not having any interest",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dissatisfaction",
+      "note": "surface reading: someone unhappy, perhaps a saver earning nothing on their money"
+     },
+     {
+      "clueFragment": "at not having any interest",
+      "note": "setter's reading: the weary discontent of finding nothing interesting at all"
+     }
+    ],
+    "explanation": {
+     "surface": "A saver grumbles that their account pays no interest.",
+     "walkthrough": "Interest suggests money in a bank; here it is the feeling of being engaged by something.",
+     "definitionFit": "Ennui is listless boredom, a weary discontent arising from lack of anything to occupy or excite the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "interest"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +669,40 @@
     "text": "Short-haul flight carrier",
     "enumeration": "9"
    },
-   "solution": "ESCALATOR"
+   "solution": "ESCALATOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ESCALATOR",
+    "definitions": [
+     {
+      "text": "Short-haul flight carrier",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short-haul flight",
+      "note": "surface reading: a brief journey by aeroplane"
+     },
+     {
+      "clueFragment": "carrier",
+      "note": "setter's reading: a machine that carries people up a flight of stairs"
+     }
+    ],
+    "explanation": {
+     "surface": "An airline operating brief hops between nearby airports.",
+     "walkthrough": "Flight and carrier both point at airlines; the flight is of stairs.",
+     "definitionFit": "A moving staircase transports passengers a short distance between floors, which is a flight of steps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +716,50 @@
     "text": "Gustave follows the boy porter",
     "enumeration": "9"
    },
-   "solution": "STEVEDORE"
+   "solution": "STEVEDORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEVEDORE",
+    "definitions": [
+     {
+      "text": "porter",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "follows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the boy",
+      "gives": "STEVE",
+      "note": "a boy's name, here standing for any boy"
+     },
+     {
+      "clueFragment": "Gustave",
+      "gives": "DORE",
+      "note": "Gustave Doré was the French illustrator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEVE",
+      "DORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Gustave walks behind a lad carrying luggage.",
+     "walkthrough": "Gustave Doré, the nineteenth-century French illustrator, supplies his surname; 'follows' puts it after the boy.",
+     "definitionFit": "A stevedore is a dock worker who loads and unloads cargo from ships, a porter at the docks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gustave"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +773,50 @@
     "text": "Supply bridge opponents with the fee",
     "enumeration": "5"
    },
-   "solution": "ENDUE"
+   "solution": "ENDUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDUE",
+    "definitions": [
+     {
+      "text": "Supply",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bridge opponents",
+      "gives": "EN",
+      "note": "East and North sit as opponents at the bridge table"
+     },
+     {
+      "clueFragment": "the fee",
+      "gives": "DUE",
+      "note": "a due is a fee or charge owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Paying a fee to the rival players at a bridge game.",
+     "walkthrough": "In bridge, the four players are named by compass points, and East and North are on opposing sides.",
+     "definitionFit": "To endue is to provide or endow someone with a quality or possession, so it means to supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +830,51 @@
     "text": "Caught the sort of bone that gets knocked",
     "enumeration": "7"
    },
-   "solution": "TRAPPED"
+   "solution": "TRAPPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAPPED",
+    "definitions": [
+     {
+      "text": "Caught",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sort of bone",
+      "gives": "T",
+      "note": "a T-bone is a kind of steak bone, so the sort is T"
+     },
+     {
+      "clueFragment": "knocked",
+      "gives": "RAPPED",
+      "note": "rapped means knocked, as on a door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is caught out by the kind of bone that tends to get knocked, like a funny bone.",
+     "walkthrough": "The sort of bone is the letter shape in T-bone steak.",
+     "definitionFit": "Trapped means caught, held fast in a snare or confined with no way out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bone"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +888,44 @@
     "text": "Out of control - having blown a fuse, perhaps",
     "enumeration": "9"
    },
-   "solution": "POWERLESS"
+   "solution": "POWERLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POWERLESS",
+    "definitions": [
+     {
+      "text": "Out of control",
+      "at": 0
+     },
+     {
+      "text": "having blown a fuse, perhaps",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of control",
+      "note": "first meaning: unable to influence events"
+     },
+     {
+      "clueFragment": "having blown a fuse, perhaps",
+      "note": "second meaning: without electricity after a fuse fails"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone loses their temper and runs wild.",
+     "walkthrough": "Blowing a fuse sounds like an outburst of anger; here it is literal, an electrical circuit cut off.",
+     "definitionFit": "Powerless means lacking authority to act, and also literally lacking an electrical supply after an outage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +939,48 @@
     "text": "Old Penny Herries, windbag",
     "enumeration": "6"
    },
-   "solution": "DROGUE"
+   "solution": "DROGUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROGUE",
+    "definitions": [
+     {
+      "text": "windbag",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Penny",
+      "gives": "D",
+      "note": "D stood for the pre-decimal British penny, from Latin denarius"
+     },
+     {
+      "clueFragment": "Herries",
+      "gives": "ROGUE",
+      "note": "Rogue Herries is Hugh Walpole's 1930 novel and its hero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ROGUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of names, Old Penny Herries, followed by a jibe at a talker.",
+     "walkthrough": "Herries is the hero of Hugh Walpole's Lakeland novel Rogue Herries, so he is the rogue. Windbag sounds like an insult but is literal: a fabric bag that catches wind.",
+     "definitionFit": "A drogue is a conical fabric sleeve, such as a windsock or sea anchor, that fills with air or water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "windbag"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +994,40 @@
     "text": "Writers who do this get a type of stress",
     "enumeration": "9"
    },
-   "solution": "UNDERLINE"
+   "solution": "UNDERLINE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNDERLINE",
+    "definitions": [
+     {
+      "text": "Writers who do this get a type of stress",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writers who do this",
+      "note": "surface reading: authors who suffer from some job-related strain"
+     },
+     {
+      "clueFragment": "get a type of stress",
+      "note": "setter's reading: drawing a line beneath words gives them emphasis"
+     }
+    ],
+    "explanation": {
+     "surface": "Authors who work a certain way end up stressed.",
+     "walkthrough": "Stress means emphasis, not anxiety.",
+     "definitionFit": "To underline is to draw a line under words, the handwritten and typed way of marking emphasis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1041,68 @@
     "text": "Last quarter of the autobahn round Europe needs re-making at this stage",
     "enumeration": "8"
    },
-   "solution": "HEREUPON"
+   "solution": "HEREUPON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "HEREUPON",
+    "definitions": [
+     {
+      "text": "at this stage",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last quarter of",
+      "for": "letter_selection",
+      "note": "the final quarter of a word is its closing fourth, here two of its eight letters"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something surrounds it, so one piece wraps the other"
+     },
+     {
+      "text": "needs re-making",
+      "for": "anagram",
+      "note": "remaking something builds it afresh, so the combined letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the autobahn",
+      "gives": "HN",
+      "select": "last",
+      "note": "the final two of the eight letters of autobahn"
+     },
+     {
+      "clueFragment": "Europe",
+      "gives": "EUROPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEUROPEN",
+       "gives": "HEREUPON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final section of a German motorway, ringing Europe, must now be rebuilt.",
+     "definitionFit": "Hereupon is a formal adverb meaning immediately after this, at this point in proceedings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1116,40 @@
     "text": "Joint holder is crooked to start with",
     "enumeration": "6"
    },
-   "solution": "SKEWER"
+   "solution": "SKEWER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SKEWER",
+    "definitions": [
+     {
+      "text": "Joint holder",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joint holder",
+      "note": "surface reading: a co-owner, or something holding a joint of a structure"
+     },
+     {
+      "clueFragment": "is crooked to start with",
+      "note": "setter's reading: the word's first four letters spell a synonym of crooked"
+     }
+    ],
+    "explanation": {
+     "surface": "A shareholder in a joint venture is dishonest from the outset.",
+     "walkthrough": "The joint is meat on a spit. SKEW, meaning crooked, starts the answer, but the last two letters are not clued.",
+     "definitionFit": "A skewer is a long pin pushed through a joint of meat to hold it together while roasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1169,44 @@
      }
     ]
    },
-   "solution": "REDHOT"
+   "solution": "REDHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RED-HOT",
+    "definitions": [
+     {
+      "text": "Highly exciting",
+      "at": 0
+     },
+     {
+      "text": "poker",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Highly exciting",
+      "note": "first meaning: thrilling, sensational"
+     },
+     {
+      "clueFragment": "poker",
+      "note": "second meaning: a fire poker heated until it glows"
+     }
+    ],
+    "explanation": {
+     "surface": "A card game that is especially thrilling.",
+     "walkthrough": "Poker reads as the card game; it is the fireside iron, famously red-hot.",
+     "definitionFit": "Red-hot describes intense excitement and also a metal poker heated until it glows red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "poker"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1220,40 @@
     "text": "Put your foot down to get going",
     "enumeration": "7"
    },
-   "solution": "TREADLE"
+   "solution": "TREADLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TREADLE",
+    "definitions": [
+     {
+      "text": "Put your foot down to get going",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put your foot down",
+      "note": "surface reading: press the accelerator, or insist firmly"
+     },
+     {
+      "clueFragment": "to get going",
+      "note": "setter's reading: a foot pedal that drives a machine such as a sewing machine or loom"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver is urged to accelerate to get moving.",
+     "walkthrough": "Putting your foot down usually means accelerating or being firm; here it is literal pressing of a pedal that powers a machine.",
+     "definitionFit": "A treadle is a foot-operated lever that powers machines like old sewing machines, potter's wheels and spinning wheels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1273,40 @@
      }
     ]
    },
-   "solution": "TEATRAY"
+   "solution": "TEATRAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEA-TRAY",
+    "definitions": [
+     {
+      "text": "This takes the service to the consumer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This takes the service",
+      "note": "surface reading: something delivering a business service to customers"
+     },
+     {
+      "clueFragment": "to the consumer",
+      "note": "setter's reading: the service is a set of cups and pot, carried to the drinker"
+     }
+    ],
+    "explanation": {
+     "surface": "A business slogan about delivering service to customers.",
+     "walkthrough": "Service sounds commercial, but it is a tea service, the set of cups, saucers and pot.",
+     "definitionFit": "A tray is used to carry cups, saucers and teapot from the kitchen to those drinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1320,40 @@
     "text": "Sensational start for a spoilsport down under",
     "enumeration": "6"
    },
-   "solution": "WOWSER"
+   "solution": "WOWSER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WOWSER",
+    "definitions": [
+     {
+      "text": "spoilsport down under",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensational start",
+      "note": "setter's reading: the answer begins with an exclamation meaning sensational"
+     },
+     {
+      "clueFragment": "for a spoilsport down under",
+      "note": "surface and definition: an Australian word for a killjoy"
+     }
+    ],
+    "explanation": {
+     "surface": "A spoilsport in Australia gets off to a dazzling start.",
+     "walkthrough": "Down under is Australia. WOW, meaning sensational, starts the answer; the remaining letters are not clued.",
+     "definitionFit": "Wowser is Australian slang for a puritanical killjoy who disapproves of drinking and other pleasures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sensational"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1367,51 @@
     "text": "Wild cry follows him round the crag",
     "enumeration": "5"
    },
-   "solution": "OCCUR"
+   "solution": "OSCAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSCAR",
+    "definitions": [
+     {
+      "text": "Wild cry follows him",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape is a circle, the letter O"
+     },
+     {
+      "clueFragment": "crag",
+      "gives": "SCAR",
+      "note": "a scar is a steep rocky outcrop or cliff, a word common in northern English place names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A climber's wild shout echoes after him as he works his way around a rocky crag.",
+     "walkthrough": "The definition is a pun: 'Wild', cried out, sounds like Wilde, and the surname Wilde follows this first name. Scar for a crag is common in Yorkshire and the Lake District.",
+     "definitionFit": "Oscar Wilde, the Irish playwright and wit, bore this first name, so his surname comes straight after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1425,44 @@
     "text": "Somerset town blacked, we hear",
     "enumeration": "5"
    },
-   "solution": "CHARD"
+   "solution": "CHARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHARD",
+    "definitions": [
+     {
+      "text": "Somerset town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken rather than written, so the word is judged by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blacked",
+      "gives": "CHARD",
+      "soundsLike": "CHARRED",
+      "note": "charred means blackened by fire"
+     }
+    ],
+    "explanation": {
+     "surface": "A town in Somerset has been blackened, so people say.",
+     "walkthrough": "Chard is a market town in Somerset, a county in south-west England.",
+     "definitionFit": "Chard is a town in south Somerset, England, best known as the birthplace of powered flight experiments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blacked"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1476,51 @@
     "text": "Sorcery to make Ariel bide",
     "enumeration": "9"
    },
-   "solution": "DIABLERIE"
+   "solution": "DIABLERIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIABLERIE",
+    "definitions": [
+     {
+      "text": "Sorcery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to make",
+      "for": "anagram",
+      "note": "making something new from the given letters means rearranging them into another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ariel bide",
+      "gives": "ARIELBIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARIELBIDE",
+       "gives": "DIABLERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spell that would make Ariel, the sprite of The Tempest, stay put.",
+     "walkthrough": "Ariel is Prospero's magical servant in Shakespeare's The Tempest, always eager to be freed, so sorcery forcing him to bide fits.",
+     "definitionFit": "Diablerie is black magic or devilry, dealings with devils, so it is a word for sorcery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1534,43 @@
     "text": "Rope in the “Dallas” solicitor",
     "enumeration": "5"
    },
-   "solution": "LASSO"
+   "solution": "LASSO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LASSO",
+    "definitions": [
+     {
+      "text": "Rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the",
+      "for": "hidden_word",
+      "note": "being in a phrase means sitting inside its run of letters, across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dallas” solicitor",
+      "gives": "LASSO",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A lawyer from the TV soap Dallas is roped into something.",
+     "walkthrough": "Dallas was the American oil-family TV drama; 'Rope in' wants to be one phrase, but rope alone is the definition.",
+     "definitionFit": "A lasso is a rope with a running noose used by cowboys for catching cattle, and to lasso is to rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1590,40 @@
      }
     ]
    },
-   "solution": "STAGEDOOR"
+   "solution": "STAGEDOOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STAGE DOOR",
+    "definitions": [
+     {
+      "text": "Assembly point for Johnnie",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assembly point",
+      "note": "surface reading: a place where people gather, as in a fire drill"
+     },
+     {
+      "clueFragment": "for Johnnie",
+      "note": "setter's reading: Johnnie is an Edwardian admirer who waited for actresses after the show"
+     }
+    ],
+    "explanation": {
+     "surface": "Directions telling a man named Johnnie where to gather.",
+     "walkthrough": "Johnnie looks like a name, but stage-door johnnies were Edwardian admirers who hung about theatres hoping to meet chorus girls.",
+     "definitionFit": "The backstage entrance of a theatre is where admirers waited for performers, so it was their gathering place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Johnnie"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1637,49 @@
     "text": "Be mean to winter sports representative",
     "enumeration": "5"
    },
-   "solution": "SKIMP"
+   "solution": "SKIMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKIMP",
+    "definitions": [
+     {
+      "text": "Be mean",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winter sports",
+      "gives": "SKI",
+      "note": "skiing is the classic winter sport"
+     },
+     {
+      "clueFragment": "representative",
+      "gives": "MP",
+      "note": "a Member of Parliament represents a constituency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to be stingy towards a skiing official.",
+     "definitionFit": "To skimp is to spend or provide too little, stinting on something, which is being mean or ungenerous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "representative"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +1693,40 @@
     "text": "Shallow, like a forked — , said Falstaff",
     "enumeration": "6"
    },
-   "solution": "RADISH"
+   "solution": "RADISH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RADISH",
+    "definitions": [
+     {
+      "text": "Shallow, like a forked — , said Falstaff",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shallow",
+      "note": "surface reading: lacking depth; setter's reading: Justice Shallow in Henry IV Part 2"
+     },
+     {
+      "clueFragment": "like a forked — , said Falstaff",
+      "note": "setter's reading: fill the gap with the vegetable in Falstaff's mocking description of the skinny Shallow"
+     }
+    ],
+    "explanation": {
+     "surface": "A quotation-completion puzzle about a superficial person.",
+     "walkthrough": "Shallow is not an adjective but Justice Shallow; in Henry IV Part 2 Falstaff remembers him as 'like a man made after supper of a cheese-paring', 'like a forked' root vegetable.",
+     "definitionFit": "Falstaff compares the thin, spindly Shallow to a pale forked root vegetable with legs, completing his quotation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shallow"
+    }
+   }
   },
   {
    "number": 30,
@@ -499,7 +1740,59 @@
     "text": "The French notary, curiously, is Austrian",
     "enumeration": "8"
    },
-   "solution": "TYROLEAN"
+   "solution": "TYROLEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TYROLEAN",
+    "definitions": [
+     {
+      "text": "Austrian",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curiously",
+      "for": "anagram",
+      "note": "doing something curiously means doing it in an odd way, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "notary",
+      "gives": "NOTARY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LENOTARY",
+       "gives": "TYROLEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French notary turns out, oddly, to be from Austria.",
+     "definitionFit": "The Tyrol is an Alpine region of western Austria, so something Tyrolean is Austrian in origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curiously"
+    }
+   }
   }
  ]
 }
