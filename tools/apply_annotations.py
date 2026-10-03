@@ -33,6 +33,13 @@ was scaffolding around a dict, rebuilt nightly and deleted, and none of it is th
 part a model should be spending turns on: the annotations themselves are the
 work, and they are all that goes in the JSON now.
 
+On a grid a model solved (solutions.origin "model"), an annotation whose
+`answer` differs from its light's letters corrects them, once the new fill
+agrees with every crossing, every answer the paper printed and every blog we
+hold (model_corrections); the change is listed in solutions.corrected. Anything
+else is refused whole. Elsewhere the grid is the key and the validator refuses
+the mismatch.
+
 Validation runs automatically once the write succeeds, because the write is never
 the last step — `--no-validate` if you want it separately.
 
@@ -262,6 +269,52 @@ def move_alteration(entry):
         entry["alteration"] = alteration
 
 
+def letters(text):
+    return re.sub(r"[^A-Z]", "", str(text or "").upper())
+
+
+def model_corrections(puzzle, annotations):
+    """(entry id -> new letters, problems) for the lights of a model-solved grid
+    whose annotation's `answer` spells something else.
+
+    A cold solve's answer is a guess the crossings could not rule out, and the
+    annotator reading the clue word by word is the first thing that can. So it
+    may replace one, but only with a fill the solve's own gate would pass:
+    every crossing agreeing, every printed answer and blog answer kept. A
+    correction that needs a crossing changed must change that light's answer
+    too, in the same file. ({}, []) on any other grid, and for an entry whose
+    answer is altered before entry (its `answer` is not the grid's word)."""
+    import apply_solution
+    if provenance.solution_origin_from_file(puzzle) != "model" or not all(
+            e.get("solution") for e in puzzle["entries"]):
+        return {}, []
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    fixes = {}
+    for eid, ann in annotations.items():
+        if not isinstance(ann, dict) or eid not in by_id or ann.get("alteration"):
+            continue
+        lights = [by_id.get(i) for i in by_id[eid].get("group") or [eid]]
+        if not all(lights) or any(l.get("alteration") for l in lights):
+            continue
+        want, have = letters(ann.get("answer")), "".join(l["solution"] for l in lights)
+        if not want or want == have or len(want) != len(have):
+            continue                     # a wrong length is the validator's to name
+        at = 0
+        for light in lights:
+            new = want[at:at + light["length"]]
+            at += light["length"]
+            if new != light["solution"]:
+                fixes[entry_id(light)] = new
+    if not fixes:
+        return {}, []
+    fill = {eid: fixes.get(eid, e["solution"]) for eid, e in by_id.items()}
+    _, _, problems = apply_solution.check_fill(puzzle, fill)
+    problems += apply_solution.check_printed(puzzle, fill)
+    if not problems:
+        problems = apply_solution.check_sources(puzzle, fill)
+    return fixes, problems
+
+
 ENTRY_PATH = re.compile(r"\$\.entries\[(\d+)\]")
 BLOCKS_HELP = ("write `blocks` as annotate_prompt.md shows: a cryptic_definition has "
                "2+ blocks without `gives`; a double_definition has one block per definition")
@@ -321,6 +374,28 @@ def apply(path, annotations, by=None):
                        "leader's annotation covers the whole answer: "
                        + ", ".join(covered))
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
+    by_id_all = {entry_id(e): e for e in puzzle["entries"]}
+    fixes, problems = model_corrections(puzzle, {
+        k: normalize(v, by_id_all[k], puzzle["entries"]) for k, v in annotations.items()
+        if k in required and k in by_id_all and isinstance(v, dict)})
+    if problems:
+        raise SystemExit(
+            f"apply_annotations: {path.name}: refused to write — an `answer` here "
+            f"replaces the model's {', '.join(f'{k} with {v}' for k, v in fixes.items())}, "
+            f"but the fill it makes fails the grid:\n"
+            + "\n".join(f"  {p}" for p in problems)
+            + "\nA corrected answer must agree with every crossing and every answer "
+            "the paper printed. Correct the crossing light's answer too if its clue "
+            "gives that letter, or put the model's answer back and leave the clue null.")
+    if fixes:
+        today = time.strftime("%Y-%m-%d")
+        log = list(provenance.solution_detail(puzzle).get("corrected") or [])
+        for eid, new in fixes.items():
+            log.append({"entry": eid, "was": by_id_all[eid]["solution"], "now": new,
+                        "date": today})
+            by_id_all[eid]["solution"] = new
+        puzzle = provenance.with_solution_detail(
+            puzzle, {**provenance.solution_detail(puzzle), "corrected": log})
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
     # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
@@ -353,6 +428,9 @@ def apply(path, annotations, by=None):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
+    for eid, new in fixes.items():
+        print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
+              f"crossing and printed answer (solutions.corrected)")
     solved = sum(1 for k in required if annotations[k] is not None)
     return solved, len(required)
 

@@ -222,14 +222,12 @@ def check_fill(puzzle, fill):
 
 def check_printed(puzzle, fill):
     """Problems for every answer the fill gives that differs from one the paper
-    printed. None for a puzzle whose answers are a previous model fill, which
-    this may replace."""
-    if provenance.solution_detail(puzzle):
-        return []
-    return [f"{entry_id(e)}: the paper printed {e['solution']}, the fill has "
-            f"{normalise(fill.get(entry_id(e), '')) or 'nothing'}"
-            for e in puzzle["entries"]
-            if e.get("solution") and normalise(fill.get(entry_id(e), "")) != normalise(e["solution"])]
+    printed (provenance.printed_answers). A previous model fill's own answers
+    may be replaced; the printed ones it was filled around may not."""
+    return [f"{eid}: the paper printed {answer}, the fill has "
+            f"{normalise(fill.get(eid, '')) or 'nothing'}"
+            for eid, answer in provenance.printed_answers(puzzle).items()
+            if normalise(fill.get(eid, "")) != normalise(answer)]
 
 
 def check_sources(puzzle, fill, sources=None):
@@ -390,8 +388,8 @@ def main():
     if args.check_only:
         return
 
-    printed = (0 if provenance.solution_detail(puzzle)
-               else sum(1 for e in puzzle["entries"] if e.get("solution")))
+    kept = provenance.printed_answers(puzzle)
+    printed = len(kept)
     if printed == len(puzzle["entries"]):
         # Nothing to solve: the paper printed every answer.
         raise SystemExit(f"{args.number} already has published solutions — refusing to overwrite")
@@ -411,6 +409,13 @@ def main():
     # this function, and a reprint that reached the site without it would have
     # tools/build_seo_pages.py promise official answers "as soon as those
     # appear" for a book that prints its solutions as pictures.
+    if kept:
+        detail["printed"] = kept
+    # What earlier runs did to this grid's answers outlives a re-solve: a
+    # reopened entry is solved again once, never twice.
+    for key in ("corrected", "reopened"):
+        if key in provenance.solution_detail(puzzle):
+            detail[key] = puzzle["solutions"][key]
     never = official_key(puzzle.get("series"))
     if never:
         detail["officialKey"] = never

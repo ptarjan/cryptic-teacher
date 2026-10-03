@@ -37,7 +37,13 @@ A grid the publisher answered is ground truth; a grid this repo cold-solved is
 a self-consistent guess; both are 15x15 of capital letters. `origin` says which
 (SOLUTION_ORIGINS). Answers not from the publisher carry the detail that backs
 the claim: a write-up names its `blog` and `url`, a model solve its `model`, and
-both the `date` and the crossing `check`. The detail keys imply the origin
+both the `date` and the crossing `check`. A model solve of a scan that kept
+some of its answers lists them in `printed` (entry id -> answer): those stay
+the paper's, and check() refuses a grid that differs from one. An answer the
+annotator replaced because the clue gives another word is in `corrected`
+({entry, was, now, date}), and one sent back to be solved again because no
+parse supported it is in `reopened` (entry id -> the answer that was there),
+once per entry. The detail keys imply the origin
 (solution_origin_from_file) and check() holds `origin` to them. A Cyclops
 puzzle is the ordinary mixed case: grid and clues from Private Eye, answers
 from a fifteensquared write-up.
@@ -65,6 +71,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import puzzle_schema  # noqa: E402
+from groups import entry_id  # noqa: E402
 import series as series_table  # noqa: E402
 
 # One series per BOOK, with the volume in the number (series.py:
@@ -419,7 +426,8 @@ def book_of(series, number):
 SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
                    "gridOrigin")
 #: The keys that back a claim that the answers are not the publisher's.
-SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey")
+SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey",
+                   "printed", "corrected", "reopened")
 #: What each non-published origin must carry.
 DETAIL_REQUIRED = {"writeup": ("blog", "url", "date", "check"),
                    "model": ("model", "date", "check")}
@@ -467,6 +475,69 @@ def solution_detail(puzzle):
     """The keys of `solutions` that back a non-published origin; {} when none."""
     solutions = puzzle.get("solutions") or {}
     return {k: solutions[k] for k in SOLUTION_DETAIL if k in solutions}
+
+
+def printed_answers(puzzle):
+    """Entry id -> the answer the paper printed. With no solution detail every
+    answer in the grid is the paper's; under answers from a model or a blog,
+    the ones the detail's `printed` lists."""
+    if not solution_detail(puzzle):
+        return {entry_id(e): e["solution"] for e in puzzle.get("entries") or []
+                if e.get("solution")}
+    return dict((puzzle.get("solutions") or {}).get("printed") or {})
+
+
+#: The count apply_solution.py writes into `check` when it filled around answers
+#: the paper printed; `printed` must then list that many.
+PRINTED_COUNT = re.compile(r"agrees with the (\d+) answers the paper printed")
+
+
+def check_answer_detail(puzzle):
+    """Findings for `printed`, `corrected` and `reopened` against the grid."""
+    findings = []
+    solutions = puzzle.get("solutions") or {}
+    grid = {entry_id(e): e.get("solution") or "" for e in puzzle.get("entries") or []}
+    printed = solutions.get("printed")
+    if printed is not None and not (isinstance(printed, dict) and printed):
+        findings.append(f"solutions.printed is {printed!r} — want entry id -> answer")
+        printed = {}
+    printed = printed or {}
+    for eid, answer in printed.items():
+        if eid not in grid:
+            findings.append(f"solutions.printed names {eid}, which is not an entry")
+        elif grid[eid] != answer:
+            findings.append(f"{eid}: the paper printed {answer} but the grid has "
+                            f"{grid[eid] or 'nothing'} — a printed answer is ground "
+                            f"truth and nothing writes over it")
+    m = PRINTED_COUNT.search(str(solutions.get("check") or ""))
+    if m and len(printed) != int(m[1]):
+        findings.append(f"solutions.check says the fill agrees with {m[1]} printed "
+                        f"answers but solutions.printed lists {len(printed)}")
+    corrected = solutions.get("corrected")
+    if corrected is not None and not (isinstance(corrected, list) and corrected):
+        findings.append(f"solutions.corrected is {corrected!r} — want a list")
+        corrected = []
+    for c in corrected or []:
+        if not (isinstance(c, dict) and set(c) == {"entry", "was", "now", "date"}):
+            findings.append(f"solutions.corrected has {c!r} — want entry, was, now, date")
+        elif c["entry"] not in grid:
+            findings.append(f"solutions.corrected names {c['entry']}, which is not an entry")
+        elif c["entry"] in printed:
+            findings.append(f"solutions.corrected changes {c['entry']}, whose answer "
+                            f"the paper printed")
+        elif c["was"] == c["now"]:
+            findings.append(f"solutions.corrected {c['entry']} changes nothing")
+    reopened = solutions.get("reopened")
+    if reopened is not None and not (isinstance(reopened, dict) and reopened):
+        findings.append(f"solutions.reopened is {reopened!r} — want entry id -> answer")
+        reopened = {}
+    for eid in reopened or {}:
+        if eid not in grid:
+            findings.append(f"solutions.reopened names {eid}, which is not an entry")
+        elif eid in printed:
+            findings.append(f"solutions.reopened sends {eid} to be solved again, "
+                            f"but the paper printed its answer")
+    return findings
 
 
 def with_solution_detail(puzzle, detail):
@@ -656,6 +727,7 @@ def check(puzzle):
                         f"model solve")
     if "blog" in detail and "model" in detail:
         findings.append("solutions names both a blog and a model")
+    findings += check_answer_detail(puzzle)
 
     credits = puzzle.get("annotatedBy")
     if has_hints(puzzle) and not credits:
