@@ -1889,18 +1889,22 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
-    ("times-16357", "9-across"): (
-        "Centre circle - where passes lead 10 attacks",
-        "Centre circle - where passes lead to attacks",
-        "OCR misread: the definition needs lead to attacks, not the number 10"),
+    ("times-16360", "5-down"): (
+        "Cockney's description of Dobermann n is faulty",
+        "Cockney's description of Dobermann is faulty",
+        "OCR misread: the stray n is scan debris; the wordplay needs Dobermann alone"),
+    ("times-16360", "11-across"): (
+        "Vacation ordered for emperor-to-bc",
+        "Vacation ordered for emperor-to-be",
+        "OCR misread: the definition needs emperor-to-be, Octavian before he became Augustus"),
+    ("times-16360", "22-down"): (
+        "Player who calls a dob is such a batsman",
+        "Player who calls a bid is such a batsman",
+        "OCR misread: the bridge sense needs a bid, which the opener calls first"),
     ("times-16357", "10-across"): (
         "Transport left one' in one capital or another",
         "Transport left one in one capital or another",
         "OCR misread: the stray apostrophe is scan debris in the container"),
-    ("times-16363", "1-down"): (
-        "Down i Beginning to take a chance with the letters",
-        "Beginning to take a chance with the letters",
-        "OCR misread: Down i is the column heading and its number read into the clue"),
     ("times-16363", "5-down"): (
         "Walter's' lot., more adaptable as coast-guards",
         "Walter's lot, more adaptable as coast-guards",
@@ -1917,14 +1921,26 @@ SOURCE_CLUE_WRONG = {
         "How to> stand a soccer team",
         "How to stand a soccer team",
         "OCR misread: the stray angle bracket is scan debris"),
+    ("times-16376", "1-down"): (
+        "Wooing, but was in time to sail, we hear (9",
+        "Wooing, but was in time to sail, we hear",
+        "OCR misread: the trailing (9 is a duplicated enumeration"),
+    ("times-16376", "13-down"): (
+        "Teenager going up to receive social security (10",
+        "Teenager going up to receive social security",
+        "OCR misread: the trailing (10 is a duplicated enumeration"),
+    ("times-16376", "23-down"): (
+        "Relative is some Tuscan! (i.c. Cellini) (3",
+        "Relative is some Tuscan! (i.e. Cellini)",
+        "OCR misread: the hidden word needs i.e., and the trailing (3 is scan debris"),
+    ("times-16376", "24-across"): (
+        "Forces vandalized work of art (6t",
+        "Forces vandalized work of art",
+        "OCR misread: the trailing (6t is a duplicated enumeration"),
     ("times-16391", "12-across"): (
         "Spirit of brave fellow ) outmanoeuvred",
         "Spirit of brave fellow I outmanoeuvred",
         "OCR misread: the wordplay needs the letter I, not a bracket"),
-    ("times-16377", "1-down"): (
-        "To rescue eg a sinking ship is somewhat hai soothing",
-        "To rescue eg a sinking ship is somewhat soothing",
-        "OCR misread: hai is stray scan debris; the double definition needs somewhat soothing"),
     ("times-16377", "10-across"): (
         "All rite\" possibly a printing error?",
         "All rite possibly a printing error?",
