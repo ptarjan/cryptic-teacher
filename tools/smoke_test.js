@@ -5831,7 +5831,6 @@ global.realSetTimeout(() => {
   // names and what the grader accepts are read off the page.
   {
     const hits = (t) => new Set(t.map((k) => TYPE_FAMILY[k])).size;
-    const plain = found;
     found = null;
     for (const id of Object.keys(puzzles).sort()) {
       for (const e of puzzles[id].entries || []) {
@@ -5849,13 +5848,13 @@ global.realSetTimeout(() => {
     const secondary = Object.keys(v).find((k) => v[k] && k !== main[0]);
     assert(secondary, `a family other than ${main[0]} is graded right on `
       + `${found.e.annotation.type}: ` + JSON.stringify(v));
-    found = plain;
   }
 
   // How the ladder works is said once and then stops. It is a line about the
   // whole ladder, so once a rung has been worked out it has been demonstrated,
   // and a solver who has done it does not need telling again on every clue they
-  // open after.
+  // open after. The second clue comes from the puzzle still open, the compound
+  // clue's, which need not be the first puzzle with a typed clue.
   assert(/asks you a question before it tells you/.test(cold), "a cold clue says what the ladder is: " + cold);
   const other = (puzzles[found.id].entries || []).find(
     (x) => entryId(x) !== entryId(found.e) && x.annotation && (x.annotation.type || []).length);
