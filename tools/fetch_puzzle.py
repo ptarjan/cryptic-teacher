@@ -1893,6 +1893,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("ftcryptic-8650", "24-across"): (
+        "( Where a girl is turned back after six",
+        "Where a girl is turned back after six",
+        "OCR misread: a stray bracket before Where"),
     ("times-16412", "5-down"): (
         "Surface appearance 'of Orwell's book",
         "Surface appearance of Orwell's book",
