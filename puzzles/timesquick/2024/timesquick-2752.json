@@ -24,6 +24,9 @@
   "date": "2024-08-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,65 @@
      }
     ]
    },
-   "solution": "NONSTARTER"
+   "solution": "NONSTARTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NON-STARTER",
+    "definitions": [
+     {
+      "text": "Competitor withdrawing from race",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' puts the course word behind the midday word in the answer"
+     },
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "something that loses a thing has it taken away, so a letter drops out of the combined word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "midday",
+      "gives": "NOON",
+      "note": "midday is noon"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "STARTER",
+      "note": "a starter is the first course of a meal"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NON",
+      "STARTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner pulls out of a race meeting at the course just after noon, empty-handed.",
+     "walkthrough": "NOON plus STARTER loses one O to give NON-STARTER. 'Race course' reads as one thing, but 'course' is the meal course.",
+     "definitionFit": "A non-starter is literally an entrant scratched before a race begins, hence one withdrawing from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +118,61 @@
     "text": "Tastier sorbet, say, eaten by empty neighbour",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NICER",
+    "definitions": [
+     {
+      "text": "Tastier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its inside removed, leaving only its first and last letters"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "something eaten by another ends up inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neighbour",
+      "gives": "NR",
+      "select": "outer",
+      "note": "the outside letters of neighbour"
+     },
+     {
+      "clueFragment": "sorbet, say",
+      "gives": "ICE",
+      "note": "sorbet is an example of an ice, the 'say' marking it as an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ICE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a sorbet more delicious when a hungry neighbour wolfs it down.",
+     "definitionFit": "Nicer can mean more pleasant to eat, so tastier works as a comparative synonym for food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +186,43 @@
     "text": "Malice admitted by gymnast in Essex",
     "enumeration": "9"
    },
-   "solution": "NASTINESS"
+   "solution": "NASTINESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NASTINESS",
+    "definitions": [
+     {
+      "text": "Malice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "hidden_word",
+      "note": "the answer is let in by the following words, lying inside them as a run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gymnast in Essex",
+      "gives": "NASTINESS",
+      "note": "the letters run across all three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A gymnast in an English county confesses to spite.",
+     "walkthrough": "Essex is a county east of London.",
+     "definitionFit": "Malice is the wish to hurt others, which is spiteful unkindness, the same quality as nastiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +236,69 @@
     "text": "Drunk turned up and caught a Puccini work",
     "enumeration": "5"
    },
-   "solution": "TOSCA"
+   "solution": "TOSCA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOSCA",
+    "definitions": [
+     {
+      "text": "Puccini work",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning a word up means reading it from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "SOT",
+      "note": "a sot is a habitual drunkard"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOS",
+      "C",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "SOT",
+       "to": "TOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk staggers into the opera house and gets caught watching Puccini.",
+     "definitionFit": "Tosca is one of the Italian composer's most famous operas, first staged in Rome in 1900."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +312,54 @@
     "text": "Friend of Harry’s working under Rex",
     "enumeration": "3"
    },
-   "solution": "RON"
+   "solution": "RON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RON",
+    "definitions": [
+     {
+      "text": "Friend of Harry’s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, a piece under another is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "note": "R is the abbreviation for rex, Latin for king"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Harry's friend has a job working for a king.",
+     "walkthrough": "Harry is Harry Potter, and 'Rex' looks like a dog's name or a person but is the king.",
+     "definitionFit": "Ron Weasley is Harry Potter's best friend in the J. K. Rowling novels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rex"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +373,55 @@
     "text": "Old policeman with energy to become really angry",
     "enumeration": "7"
    },
-   "solution": "EXPLODE"
+   "solution": "EXPLODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLODE",
+    "definitions": [
+     {
+      "text": "become really angry",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "policeman",
+      "gives": "PLOD",
+      "note": "plod is British slang for a police officer, after Mr Plod in the Noddy books"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLOD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired copper, still full of energy, flies into a rage.",
+     "definitionFit": "To explode figuratively is to lose one's temper violently, an outburst of fury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +445,42 @@
      }
     ]
    },
-   "solution": "ONTHEHOUSE"
+   "solution": "ONTHEHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE HOUSE",
+    "definitions": [
+     {
+      "text": "Where roofers work",
+      "at": 0
+     },
+     {
+      "text": "for free",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where roofers work",
+      "note": "first meaning, literal: up on top of a building"
+     },
+     {
+      "clueFragment": "for free",
+      "note": "second meaning: paid for by the establishment, as a drink given away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is taken literally; the second is the idiom used by pubs and restaurants.",
+     "definitionFit": "A drink offered by the bar costs the customer nothing, while roofers literally stand atop buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +494,43 @@
     "text": "Thieves — or where they might end up",
     "enumeration": "5"
    },
-   "solution": "NICKS"
+   "solution": "NICKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICKS",
+    "definitions": [
+     {
+      "text": "Thieves",
+      "at": 0
+     },
+     {
+      "text": "where they might end up",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thieves",
+      "note": "first meaning, as a verb: steals"
+     },
+     {
+      "clueFragment": "where they might end up",
+      "note": "second meaning: police stations or prisons, in British slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Thieves' reads as a plural noun, but it is the verb meaning steals. In British slang the nick is a police station or jail.",
+     "definitionFit": "To nick is informal British for stealing, and a criminal arrested is taken to the nick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thieves"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +544,55 @@
     "text": "Following tabloid, see blemish on the face of a star",
     "enumeration": "7"
    },
-   "solution": "SUNSPOT"
+   "solution": "SUNSPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNSPOT",
+    "definitions": [
+     {
+      "text": "blemish on the face of a star",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following",
+      "for": "charade",
+      "note": "the seeing word comes following the newspaper, so it is placed after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tabloid",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "SPOT",
+      "note": "to spot is to see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "SPOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid zooms in on a pimple on a celebrity's face.",
+     "walkthrough": "The 'star' sounds like a celebrity caught by the paparazzi; it is the Sun itself.",
+     "definitionFit": "Sunspots are dark patches on the visible surface of our nearest star, like marks on a face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +606,61 @@
     "text": "Utterly hot, moving about",
     "enumeration": "10"
    },
-   "solution": "THOROUGHLY"
+   "solution": "THOROUGHLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THOROUGHLY",
+    "definitions": [
+     {
+      "text": "Utterly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift out of their places into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "HOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ROUGHLY",
+      "note": "about a number means roughly that number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THO",
+      "ROUGHLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOT",
+       "gives": "THO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is completely overheated, pacing to and fro.",
+     "walkthrough": "'Moving about' looks like one phrase, but 'about' is a separate piece of wordplay.",
+     "definitionFit": "Thoroughly and utterly both mean completely, through and through, as adverbs of degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +674,54 @@
     "text": "Raunchier novel creating terrible storm",
     "enumeration": "9"
    },
-   "solution": "HURRICANE"
+   "solution": "HURRICANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HURRICANE",
+    "definitions": [
+     {
+      "text": "terrible storm",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raunchier",
+      "gives": "RAUNCHIER",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAUNCHIER",
+       "gives": "HURRICANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steamier novel stirs up a storm of outrage.",
+     "walkthrough": "'Novel' reads as a book but is the anagram signal.",
+     "definitionFit": "A hurricane is a violent tropical cyclone with winds above seventy-four miles per hour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +735,67 @@
     "text": "Explain cryptic clue, I see",
     "enumeration": "9"
    },
-   "solution": "ELUCIDATE"
+   "solution": "ELUCIDATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ELUCIDATE",
+    "definitions": [
+     {
+      "text": "Explain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cryptic",
+      "for": "anagram",
+      "note": "something cryptic is obscured, so the letters are scrambled out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "DATE",
+      "note": "to see someone romantically is to date them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELUC",
+      "I",
+      "DATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "ELUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver asks for a puzzling clue to be explained, then says they understand.",
+     "walkthrough": "'I see' looks like a phrase of understanding, but the two words are separate pieces.",
+     "definitionFit": "To elucidate is to make something clear by explaining it, a formal synonym for clarify."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +809,52 @@
     "text": "I’m surprised Rothko gets regularly scratched",
     "enumeration": "3"
    },
-   "solution": "OHO"
+   "solution": "OHO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OHO",
+    "definitions": [
+     {
+      "text": "I’m surprised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly scratched",
+      "for": "letter_selection",
+      "note": "every other letter is struck out at regular intervals, keeping the rest"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rothko",
+      "gives": "OHO",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of Rothko"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHO"
+     ]
+    },
+    "explanation": {
+     "surface": "An onlooker is shocked to see a Rothko painting repeatedly damaged.",
+     "walkthrough": "Mark Rothko was an American abstract painter.",
+     "definitionFit": "Oho is an interjection voicing surprise or triumph, so it stands for the exclamation 'I'm surprised'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scratched"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +868,53 @@
     "text": "Hurry in Athens, travelling around",
     "enumeration": "6"
    },
-   "solution": "HASTEN"
+   "solution": "HASTEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HASTEN",
+    "definitions": [
+     {
+      "text": "Hurry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling around",
+      "for": "anagram",
+      "note": "letters travelling around move from place to place into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athens",
+      "gives": "ATHENS",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATHENS",
+       "gives": "HASTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist rushes from site to site in the Greek capital.",
+     "definitionFit": "To hasten is to move quickly or rush, a verb that matches hurry exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +928,50 @@
     "text": "Just one tango in vest",
     "enumeration": "7"
    },
-   "solution": "SINGLET"
+   "solution": "SINGLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLET",
+    "definitions": [
+     {
+      "text": "vest",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just one",
+      "gives": "SINGLE",
+      "note": "single means just one"
+     },
+     {
+      "clueFragment": "tango",
+      "gives": "T",
+      "note": "T is tango in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGLE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone dancer performs the tango in a vest.",
+     "walkthrough": "In British English a vest is a sleeveless undershirt, not a waistcoat.",
+     "definitionFit": "A singlet is a sleeveless athletic top, which British speakers also call a vest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tango"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +985,68 @@
     "text": "DJ cross during day before party",
     "enumeration": "6"
    },
-   "solution": "TUXEDO"
+   "solution": "TUXEDO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TUXEDO",
+    "definitions": [
+     {
+      "text": "DJ",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something during a period falls within it, so one piece sits inside the other"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "the day piece comes before the party piece in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "TUE",
+      "note": "Tue is the abbreviation for Tuesday"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is written as X"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "X",
+      "E",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross disc jockey works through the day ahead of a party.",
+     "walkthrough": "DJ reads as disc jockey, but here it is dinner jacket. The day piece holds the cross: TU(X)E.",
+     "definitionFit": "DJ is short for dinner jacket, the British name for the formal evening jacket Americans call a tuxedo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "DJ"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1060,54 @@
     "text": "Queen breaking a French vase",
     "enumeration": "3"
    },
-   "solution": "URN"
+   "solution": "URN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "URN",
+    "definitions": [
+     {
+      "text": "vase",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means entering it, so the royal letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R stands for regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen smashes a valuable French vase.",
+     "definitionFit": "An urn is a tall rounded vase, often ornamental or used to hold ashes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1121,52 @@
     "text": "Stretching son with schooling",
     "enumeration": "9"
    },
-   "solution": "STRAINING"
+   "solution": "STRAINING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAINING",
+    "definitions": [
+     {
+      "text": "Stretching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means accompanied by, so the two pieces are joined side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "schooling",
+      "gives": "TRAINING",
+      "note": "schooling is training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAINING"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent is stretched to the limit by a son's education.",
+     "definitionFit": "Straining means pulling taut or exerting to the limit, the same as stretching a muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1180,44 @@
     "text": "Classical piece penned by composer on document",
     "enumeration": "5"
    },
-   "solution": "RONDO"
+   "solution": "RONDO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RONDO",
+    "definitions": [
+     {
+      "text": "Classical piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "hidden_word",
+      "note": "something penned by words is enclosed in them, sitting inside their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer on document",
+      "gives": "RONDO",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer writes a classical work down on paper.",
+     "walkthrough": "'Penned by composer' suggests writing music; here it means held inside the words.",
+     "definitionFit": "A rondo is a musical form in which a main theme returns between contrasting episodes, common in Mozart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1231,48 @@
     "text": "Suggest merely going topless",
     "enumeration": "5"
    },
-   "solution": "IMPLY"
+   "solution": "IMPLY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IMPLY",
+    "definitions": [
+     {
+      "text": "Suggest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going topless",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, which is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merely",
+      "gives": "SIMPLY",
+      "note": "merely means simply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone merely hints at going topless.",
+     "definitionFit": "To imply is to hint at something without stating it directly, which is what suggest means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1286,66 @@
     "text": "Add spice to starter of lamb, even in cooking",
     "enumeration": "7"
    },
-   "solution": "ENLIVEN"
+   "solution": "ENLIVEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENLIVEN",
+    "definitions": [
+     {
+      "text": "Add spice to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "the starter of a word is its opening letter"
+     },
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients together, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lamb"
+     },
+     {
+      "clueFragment": "even in",
+      "gives": "EVENIN",
+      "note": "taken as written, the six letters joining the fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENLIVEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEVENIN",
+       "gives": "ENLIVEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe tip: liven up the lamb starter while cooking.",
+     "walkthrough": "'In' looks like a link word but is part of the letters mixed.",
+     "definitionFit": "To enliven something is to make it livelier or more interesting, as spice brightens a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1359,69 @@
     "text": "Tub or the box containing article, overturned",
     "enumeration": "3"
    },
-   "solution": "VAT"
+   "solution": "VAT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "VAT",
+    "definitions": [
+     {
+      "text": "Tub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding something inside, so the article goes within"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "in a down clue, overturned means flipped upside down, so read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the box",
+      "gives": "TV",
+      "note": "the box is British slang for television"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "A",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TAV",
+       "to": "VAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone knocks over either a tub or the television with something in it.",
+     "definitionFit": "A vat is a large container for liquids, much like a big tub used in brewing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1435,59 @@
     "text": "Horrify a learner on TikTok or Instagram, say",
     "enumeration": "5"
    },
-   "solution": "APPAL"
+   "solution": "APPAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPAL",
+    "definitions": [
+     {
+      "text": "Horrify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, a piece placed on another follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TikTok or Instagram, say",
+      "gives": "APP",
+      "note": "both are phone apps, the 'say' marking them as examples"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, from the L-plates on British learner drivers' cars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A student is shocked by something seen on social media.",
+     "definitionFit": "To appal is to fill someone with horror or dismay, matching horrify as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learner"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1501,51 @@
     "text": "Material used when writing intro Yeats devised",
     "enumeration": "10"
    },
-   "solution": "STATIONERY"
+   "solution": "STATIONERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STATIONERY",
+    "definitions": [
+     {
+      "text": "Material used when writing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devised",
+      "for": "anagram",
+      "note": "something devised is newly made up, so these letters are reworked into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intro Yeats",
+      "gives": "INTROYEATS",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTROYEATS",
+       "gives": "STATIONERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Writing materials that W. B. Yeats used when composing an introduction.",
+     "walkthrough": "Yeats was an Irish poet; 'intro' is the first piece of fodder, not an instruction.",
+     "definitionFit": "Stationery covers paper, envelopes and pens, the supplies a person needs to write letters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intro"
+    }
+   }
   }
  ]
 }
