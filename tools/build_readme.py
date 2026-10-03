@@ -75,6 +75,8 @@ LAYOUT = [
     ("fetching", "tools/fetch_observer.py", "the Observer’s Everyman"),
     ("fetching", "tools/fetch_wayback.py", "recovers Guardian puzzles older than the live site keeps, out of the Wayback Machine’s captures"),
     ("fetching", "tools/fetch_globeandmail.py", "the Globe and Mail’s cryptic, a Times of London syndication, decoded from its Amuse Labs player"),
+    ("fetching", "tools/fetch_times_feed.py", "the Times Quick Cryptic from the Times’s own web player feed, grids and answers as printed, back to No 1; fills the numbers the blog wrote no clues for"),
+    ("fetching", "tools/test_fetch_times_feed.sh", "proves the Times feed's data.json becomes a puzzle with its lights placed and enumerations kept, and that a light with no clue is refused"),
     ("fetching", "tools/fetch_privateeye.py", "Private Eye’s Cyclops — the grid from the paper, the answers joined from fifteensquared, which is the only place they are published"),
     ("fetching", "tools/file_cyclops_christmas.py", "the Cyclops Christmas specials, which have no .puz: the grid read off the Eye's image by pixel sampling, clues and answers from fifteensquared, the shaded quotation as an unclued light checked against the preamble's letter list"),
     ("fetching", "tools/fetch_metro.py", "the Metro’s cryptic; today’s only, because the paper keeps no archive"),
