@@ -21,6 +21,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,56 @@
     "text": "Restrain mongrel starting to bark",
     "enumeration": "4"
    },
-   "solution": "CURB"
+   "solution": "CURB",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CURB",
+    "definitions": [
+     {
+      "text": "Restrain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mongrel",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     },
+     {
+      "clueFragment": "to bark",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter of the word bark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog owner holds back a mutt that has begun barking.",
+     "walkthrough": "'Restrain' sits naturally beside the dog, but it is the definition; the mongrel and its bark supply the letters.",
+     "definitionFit": "To curb something is to check or keep it under control, a plain verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mongrel"
+    }
+   }
   },
   {
    "number": 2,
@@ -48,7 +100,59 @@
     "text": "Team is up to making two appearances in London",
     "enumeration": "6"
    },
-   "solution": "EDISON"
+   "solution": "EDISON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EDISON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "is up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "making two appearances in London",
+      "gives": "ON",
+      "note": "the letter pair that occurs twice in the word London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIS",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "SIDE",
+       "to": "EDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team is in a position to appear twice in London.",
+     "walkthrough": "Thomas Edison, the inventor, is one of the eight Thomases the preamble leaves undefined. 'Making two appearances in London' is a cryptic pointer to the letters seen twice in that word.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas Edison was the American inventor of the phonograph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +166,75 @@
     "text": "Fault finder cites Right Reverend's unruly gathering here in Paris",
     "enumeration": "10"
    },
-   "solution": "CRITICISER"
+   "solution": "CRITICISER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CRITICISER",
+    "definitions": [
+     {
+      "text": "Fault finder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unruly",
+      "for": "anagram",
+      "note": "unruly things refuse to stay in order, so these letters are rearranged"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "to gather something is to take it in, so one piece is put inside another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cites",
+      "gives": "CITES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Right Reverend",
+      "gives": "RR",
+      "note": "standard abbreviation for the title of a bishop"
+     },
+     {
+      "clueFragment": "here in Paris",
+      "gives": "ICI",
+      "note": "ici is French for here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIT",
+      "ICI",
+      "SER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CITESRR",
+       "gives": "CRITSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carping critic quotes a bishop's rowdy meeting held in Paris.",
+     "walkthrough": "'Gathering' looks like a noun for the bishop's meeting, but it is a verb telling the rearranged letters to enclose the French word; 'here in Paris' is a common way to ask for a French translation.",
+     "definitionFit": "A criticiser is someone who finds fault, so the phrase describes the person exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +248,52 @@
     "text": "Yellows all at sea after losing centre",
     "enumeration": "6"
    },
-   "solution": "WOLSEY"
+   "solution": "WOLSEY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "WOLSEY",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "after losing centre",
+      "for": "deletion",
+      "note": "losing the centre means dropping the middle letter of the word"
+     },
+     {
+      "text": "all at sea",
+      "for": "anagram",
+      "note": "something all at sea is confused and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yellows",
+      "gives": "YELLOWS",
+      "note": "taken as written; its middle letter, the fourth of seven, is L"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YELOWS",
+       "gives": "WOLSEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Yellow-coloured boats are drifting aimlessly at sea, missing their middle section.",
+     "walkthrough": "Thomas Wolsey was Henry VIII's cardinal and chancellor. Drop the central L of YELLOWS, then rearrange the six remaining letters.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Cardinal Thomas Wolsey was Henry VIII's chief minister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yellows"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +307,43 @@
     "text": "Old car rallying point",
     "enumeration": "8"
    },
-   "solution": "STANDARD"
+   "solution": "STANDARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STANDARD",
+    "definitions": [
+     {
+      "text": "Old car",
+      "at": 0
+     },
+     {
+      "text": "rallying point",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old car",
+      "note": "first meaning: a car made by the defunct British ... Motor Company"
+     },
+     {
+      "clueFragment": "rallying point",
+      "note": "second meaning: a flag around which troops gather in battle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a vintage car rally; the Standard was a British make of car, and a standard is a battle flag.",
+     "definitionFit": "Standard was a British car brand, and a standard is also a banner raised for soldiers to rally around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rallying"
+    }
+   }
   },
   {
    "number": 6,
@@ -104,7 +357,48 @@
     "text": "Spirit said to be made from pears",
     "enumeration": "4"
    },
-   "solution": "PERI"
+   "solution": "PERI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PERI",
+    "definitions": [
+     {
+      "text": "Spirit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "something said is spoken, so the word is judged by its sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made from pears",
+      "gives": "PERI",
+      "soundsLike": "PERRY",
+      "note": "perry is an alcoholic drink fermented from pears, like cider from apples"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone claims a particular liquor is distilled from pears.",
+     "walkthrough": "'Spirit' looks like a drink, which fits the pears; it is in fact a supernatural being. Perry is a British pear cider.",
+     "definitionFit": "A peri is a fairy or elf-like spirit in Persian mythology, a word mostly met in crosswords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spirit"
+    }
+   }
   },
   {
    "number": 7,
@@ -118,7 +412,60 @@
     "text": "Like 5, reported to be angry and oversuspicious",
     "enumeration": "8"
    },
-   "solution": "PARANOID"
+   "solution": "PARANOID",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PARANOID",
+    "definitions": [
+     {
+      "text": "oversuspicious",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is something spoken, so the word is wanted for its sound"
+     }
+    ],
+    "linkWords": [
+     "to be",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like 5",
+      "gives": "PAR",
+      "note": "5 down is STANDARD, and par is the standard level"
+     },
+     {
+      "clueFragment": "angry",
+      "gives": "ANOID",
+      "soundsLike": "ANNOYED",
+      "note": "annoyed means angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "ANOID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, like the person in another clue, is said to be cross and distrustful.",
+     "walkthrough": "The cross-reference points to STANDARD, which PAR means; the second half is spelt to sound like ANNOYED.",
+     "definitionFit": "Being paranoid means harbouring excessive, unfounded distrust of others, which is what being oversuspicious describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reported"
+    }
+   }
   },
   {
    "number": 8,
@@ -132,7 +479,48 @@
     "text": "Mount where 24 across is one of 4 losing speed",
     "enumeration": "4"
    },
-   "solution": "MORE"
+   "solution": "MORE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MORE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "to lose something is to be left without it, so those letters drop out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mount where 24 across is one of 4",
+      "gives": "RUSHMORE",
+      "note": "Mount Rushmore carves four presidents, Jefferson among them"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "RUSH",
+      "note": "to rush is to speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle cross-reference: the mountain where a president is one of four faces.",
+     "walkthrough": "Thomas More was Henry VIII's chancellor and author of Utopia. Mount Rushmore in South Dakota carries the faces of four US presidents, including Jefferson at 24 across.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Sir Thomas More wrote Utopia and was executed by Henry VIII."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 9,
@@ -146,7 +534,52 @@
     "text": "Dance tour abroad put on first of all",
     "enumeration": "9"
    },
-   "solution": "UNDERCOAT"
+   "solution": "UNDERCOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERCOAT",
+    "definitions": [
+     {
+      "text": "put on first of all",
+      "at": 18,
+      "note": "describes the layer of paint applied first, so stands for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean astray or widely scattered, so the letters are moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance tour",
+      "gives": "DANCETOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANCETOUR",
+       "gives": "UNDERCOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dance company's overseas tour is staged before anything else.",
+     "walkthrough": "'Abroad' reads as overseas travel for the tour, but it signals scrambling. The definition describes paint rather than a show.",
+     "definitionFit": "An undercoat is the layer of paint applied before the top coat, so it goes on first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 10,
@@ -160,7 +593,53 @@
     "text": "Retroaction regularly is seen amongst the Gods",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "seen amongst the Gods",
+      "at": 25,
+      "note": "a descriptive phrase for a figure of Greek myth"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals means taking every other letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retroaction",
+      "gives": "ERATO",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERATO"
+     ]
+    },
+    "explanation": {
+     "surface": "A backward-acting effect is regularly observed among the deities.",
+     "walkthrough": "Erato is the Greek Muse of love poetry, one of the nine daughters of Zeus, so she belongs among the gods of Olympus.",
+     "definitionFit": "Erato is a Muse, a minor goddess of Greek mythology, so she is found among the divine company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retroaction"
+    }
+   }
   },
   {
    "number": 11,
@@ -174,7 +653,58 @@
     "text": "Stupefy with gamble taken over shipping order",
     "enumeration": "5"
    },
-   "solution": "BESOT"
+   "solution": "BESOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BESOT",
+    "definitions": [
+     {
+      "text": "Stupefy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken over",
+      "for": "container",
+      "note": "something taken over is covered from above, so one piece goes round another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gamble",
+      "gives": "BET",
+      "note": "a bet is a gamble"
+     },
+     {
+      "clueFragment": "shipping order",
+      "gives": "SO",
+      "note": "SO is the abbreviation for a shipping order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "SO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A risky wager placed on a cargo consignment leaves someone dazed.",
+     "walkthrough": "'Taken over' sounds like the cargo being seized, but it means the gamble sits over, and so around, the shipping order.",
+     "definitionFit": "To besot is to muddle or dull someone's wits, typically with drink or infatuation, a synonym of stupefy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 12,
@@ -188,7 +718,65 @@
     "text": "Acting considerately, chucking up role in consortium",
     "enumeration": "9"
    },
-   "solution": "SYNDICATE"
+   "solution": "SYNDICATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SYNDICATE",
+    "definitions": [
+     {
+      "text": "consortium",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chucking up",
+      "for": "deletion",
+      "note": "to chuck up something is to give it up or abandon it, so those letters are removed"
+     },
+     {
+      "text": "Acting",
+      "for": "anagram",
+      "note": "acting means performing a part, so the letters play new roles in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "considerately",
+      "gives": "CONSIDERATELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "ROLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CNSIDATEY",
+       "gives": "SYNDICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful member gives up a position within a business group.",
+     "walkthrough": "Remove R, O, L and E from CONSIDERATELY, then rearrange the nine letters left.",
+     "definitionFit": "A syndicate is a group of companies or people pooling resources for a shared venture, which is what a consortium is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Acting"
+    }
+   }
   },
   {
    "number": 13,
@@ -202,7 +790,59 @@
     "text": "Frightened as the result of a slight cut in earnings",
     "enumeration": "7"
    },
-   "solution": "PANICKY"
+   "solution": "PANICKY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PANICKY",
+    "definitions": [
+     {
+      "text": "Frightened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being inside another means it is enclosed"
+     }
+    ],
+    "linkWords": [
+     "as the result of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earnings",
+      "gives": "PAY",
+      "note": "pay is what one earns"
+     },
+     {
+      "clueFragment": "a slight cut",
+      "gives": "NICK",
+      "note": "a nick is a small cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NICK",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is scared after a small reduction in wages.",
+     "walkthrough": "The 'cut in earnings' reads as a pay cut, but the cut is a small notch placed inside the pay.",
+     "definitionFit": "Panicky means overcome by sudden fear or anxiety, so it is a close synonym of frightened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +856,60 @@
     "text": "Old man at home finds sweetheart",
     "enumeration": "5"
    },
-   "solution": "PAINE"
+   "solution": "PAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PAINE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of the five-letter word sweet, read off its heart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man staying in discovers a lover.",
+     "walkthrough": "Thomas Paine wrote Common Sense and Rights of Man. 'Sweetheart' looks like one word for a lover but splits into the word and its centre.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas Paine was the radical pamphleteer of the American Revolution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 14,
@@ -230,7 +923,54 @@
     "text": "Against old order once found in Turkey",
     "enumeration": "7"
    },
-   "solution": "ANTIOCH"
+   "solution": "ANTIOCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTIOCH",
+    "definitions": [
+     {
+      "text": "once found in Turkey",
+      "at": 18,
+      "note": "a descriptive phrase for a place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Against",
+      "gives": "ANTI",
+      "note": "anti means opposed to"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "CH",
+      "note": "CH is the Companion of Honour, a British order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "O",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opposes an outdated system once seen in Turkey.",
+     "walkthrough": "The Order of the Companions of Honour is a British honour abbreviated CH. Antioch was an ancient city whose site is now Antakya in southern Turkey.",
+     "definitionFit": "Antioch was a great ancient city whose ruins lie at modern Antakya, within present-day Turkey's borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +990,67 @@
      }
     ]
    },
-   "solution": "TANKENGINE"
+   "solution": "TANKENGINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TANK ENGINE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "finisher",
+      "for": "letter_selection",
+      "note": "a finisher is what comes at the end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "TAN",
+      "note": "to tan someone is to beat them"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken means range of knowledge"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of the word late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "KEN",
+      "GIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sharp wits and drink beat someone who finishes late.",
+     "walkthrough": "Thomas the Tank Engine, the children's railway engine, is the fictional member of the preamble's eight. To tan someone's hide is to thrash them.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas the Tank Engine is the fictional locomotive of children's stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +1064,59 @@
     "text": "Only just failing to secure the Labour leadership",
     "enumeration": "5"
    },
-   "solution": "HARDY"
+   "solution": "HARDY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "HARDY",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "failing to secure",
+      "for": "deletion",
+      "note": "failing to hold on to something means it is lost, so that letter drops out"
+     },
+     {
+      "text": "leadership",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only just",
+      "gives": "HARDLY",
+      "note": "hardly means barely, only just"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A political candidate narrowly misses winning the leadership of the Labour Party.",
+     "walkthrough": "Thomas Hardy wrote Tess of the d'Urbervilles. Labour is Britain's main left-of-centre party, which makes the surface sound political.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas Hardy was the novelist and poet of Wessex."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leadership"
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1130,54 @@
     "text": "Try to get out of manufacturing, which originates in Tibet",
     "enumeration": "5"
    },
-   "solution": "INDUS"
+   "solution": "INDUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INDUS",
+    "definitions": [
+     {
+      "text": "which originates in Tibet",
+      "at": 33,
+      "note": "a descriptive phrase for a river"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get out of",
+      "for": "deletion",
+      "note": "getting out of something means leaving it, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manufacturing",
+      "gives": "INDUSTRY",
+      "note": "industry is the business of manufacturing"
+     },
+     {
+      "clueFragment": "Try",
+      "gives": "TRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to leave manufacturing, a business that started in Tibet.",
+     "walkthrough": "'Which' seems to refer to manufacturing, but it is the answer itself: the river Indus rises on the Tibetan plateau.",
+     "definitionFit": "The Indus is a major river of South Asia whose source lies in western Tibet before it flows through Pakistan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1197,51 @@
      }
     ]
    },
-   "solution": "DRIPFEED"
+   "solution": "DRIPFEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRIP FEED",
+    "definitions": [
+     {
+      "text": "slow administration",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "can act as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dope",
+      "gives": "DRIP",
+      "note": "a drip is a feeble, dull person, a dope"
+     },
+     {
+      "clueFragment": "stooge",
+      "gives": "FEED",
+      "note": "a feed is a comedian's straight man who sets up the jokes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIP",
+      "FEED"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot can serve as a fall guy for a sluggish government.",
+     "walkthrough": "'Administration' suggests government, but here it means giving medicine. A feed in comedy is the stooge who supplies the lines.",
+     "definitionFit": "A drip feed delivers fluid or medicine into a patient gradually, drop by drop, which is giving something slowly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "administration"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1255,52 @@
     "text": "Bar starts with roll of drums",
     "enumeration": "3"
    },
-   "solution": "ROD"
+   "solution": "ROD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROD",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are the opening letters of each word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roll of drums",
+      "gives": "ROD",
+      "select": "first",
+      "note": "opening letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub's evening begins with a drum roll.",
+     "walkthrough": "'Bar' suggests a pub or music bar, which suits the drums, but it means a metal rod.",
+     "definitionFit": "A rod is a thin straight bar of metal or wood, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1314,61 @@
     "text": "Consider once more dimwits having a role in limited research",
     "enumeration": "8"
    },
-   "solution": "REASSESS"
+   "solution": "REASSESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REASSESS",
+    "definitions": [
+     {
+      "text": "Consider once more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limited",
+      "for": "deletion",
+      "note": "something limited is cut short, so the word is truncated"
+     },
+     {
+      "text": "having a role in",
+      "for": "container",
+      "note": "playing a part inside something places one piece within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "research",
+      "gives": "RES",
+      "note": "the word cut down to its first three letters, a common abbreviation"
+     },
+     {
+      "clueFragment": "dimwits",
+      "gives": "ASSES",
+      "note": "asses are fools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ASSES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Think again about fools getting a part in a small study.",
+     "walkthrough": "'Limited research' suggests a small study, but it means the word research cut short to its standard abbreviation, with the fools then placed inside it.",
+     "definitionFit": "To reassess is to evaluate or judge something again, so it means thinking it over another time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limited"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1382,54 @@
     "text": "Drain away from lowest point",
     "enumeration": "5"
    },
-   "solution": "NADIR"
+   "solution": "NADIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NADIR",
+    "definitions": [
+     {
+      "text": "lowest point",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "anagram",
+      "note": "away suggests letters gone astray from their places, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drain",
+      "gives": "DRAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRAIN",
+       "gives": "NADIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water drains off from the lowest spot.",
+     "walkthrough": "'Drain away' reads as one phrasal verb; split it, and 'away' rearranges the five letters.",
+     "definitionFit": "The nadir is the bottom or worst moment of something, literally the point directly beneath an observer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1443,65 @@
     "text": "Corrupt secretariat cast out of country",
     "enumeration": "7"
    },
-   "solution": "ERITREA"
+   "solution": "ERITREA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ERITREA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "taken out means removed, so those letters go"
+     },
+     {
+      "text": "Corrupt",
+      "for": "anagram",
+      "note": "to corrupt something is to spoil its proper form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretariat",
+      "gives": "SECRETARIAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "CAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERERIAT",
+       "gives": "ERITREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked government office is expelled from a nation.",
+     "walkthrough": "'Cast out' reads as expelled, but cast is letters to remove and only 'out' signals it.",
+     "definitionFit": "Eritrea is a nation in the Horn of Africa on the Red Sea coast, so it is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1515,43 @@
     "text": "Quite recently acting in an amorous manner",
     "enumeration": "7"
    },
-   "solution": "FRESHLY"
+   "solution": "FRESHLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRESHLY",
+    "definitions": [
+     {
+      "text": "Quite recently",
+      "at": 0
+     },
+     {
+      "text": "acting in an amorous manner",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quite recently",
+      "note": "first meaning: newly, just now"
+     },
+     {
+      "clueFragment": "acting in an amorous manner",
+      "note": "second meaning: in a forward, overfamiliar way, as when someone gets fresh"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To get fresh with someone is to make cheeky romantic or sexual advances, so the adverb serves both senses.",
+     "definitionFit": "Freshly means newly or just now, and fresh also describes impudent romantic forwardness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1565,56 @@
     "text": "The very best clothes are about to leave processing plant",
     "enumeration": "6"
    },
-   "solution": "FINERY"
+   "solution": "FINERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FINERY",
+    "definitions": [
+     {
+      "text": "The very best clothes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "leaving means departing, so those letters go"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "processing plant",
+      "gives": "REFINERY",
+      "note": "a refinery processes raw materials such as oil or sugar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINERY"
+     ]
+    },
+    "explanation": {
+     "surface": "The best garments are about to leave a factory.",
+     "walkthrough": "'About to leave' reads as soon departing; split it, and 'about' is the letters taken from the front of the plant.",
+     "definitionFit": "Finery is elaborate, showy dress worn on special occasions, someone's best outfit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1628,49 @@
     "text": "Limps along having no use of left leg",
     "enumeration": "6"
    },
-   "solution": "HOBBES"
+   "solution": "HOBBES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOBBES",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "having no use of",
+      "for": "deletion",
+      "note": "being without the use of something means it is missing, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Limps along",
+      "gives": "HOBBLES",
+      "note": "to hobble is to walk awkwardly, to limp"
+     },
+     {
+      "clueFragment": "left leg",
+      "gives": "L",
+      "note": "L for left; the leg only completes the limping picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOBB",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone limps along, unable to use their left leg.",
+     "walkthrough": "Thomas Hobbes was the philosopher who wrote Leviathan.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas Hobbes was the English political philosopher behind Leviathan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1684,57 @@
     "text": "Scoffs very loudly — interjecting four times in constitutional convention",
     "enumeration": "9"
    },
-   "solution": "JEFFERSON"
+   "solution": "JEFFERSON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "JEFFERSON",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "interjecting",
+      "for": "container",
+      "note": "to interject is to put something in between, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoffs",
+      "gives": "JEERS",
+      "note": "to jeer is to scoff"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "fortissimo, the musical direction for very loud"
+     },
+     {
+      "clueFragment": "four times in constitutional convention",
+      "gives": "ON",
+      "note": "the letter pair that occurs four times in those two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "FF",
+      "ERS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Delegates heckle noisily, interrupting four times at a gathering to draft a constitution.",
+     "walkthrough": "Thomas Jefferson drafted the Declaration of Independence. Count the letter pair in cONstitutiONal cONventiON to see the four appearances.",
+     "definitionFit": "The preamble's shared theme is the forename Thomas, and Thomas Jefferson was the third US president."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convention"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1748,64 @@
     "text": "Root receives Kent cap (just kidding)!",
     "enumeration": "4"
    },
-   "solution": "JOKE"
+   "solution": "JOKE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "JOKE",
+    "definitions": [
+     {
+      "text": "just kidding",
+      "at": 24,
+      "note": "a phrase signalling something not meant seriously; the answer is the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "to receive something is to take it in, so one piece is put inside another"
+     },
+     {
+      "text": "cap",
+      "for": "letter_selection",
+      "note": "a cap sits on top, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Root",
+      "gives": "JOE",
+      "note": "Joe Root is an England cricket captain and batsman"
+     },
+     {
+      "clueFragment": "Kent",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of Kent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "England batsman Joe Root is awarded a county cap by Kent, only in jest.",
+     "walkthrough": "Joe Root plays cricket for Yorkshire and England; Kent is another English county side, and a cap is the honour of selection. 'Root' looks like a plant's root, but it is his surname.",
+     "definitionFit": "A joke is something said or done in fun, not meant seriously, which is what 'just kidding' declares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Root"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1819,43 @@
     "text": "She led church movement in a circle",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "She led church",
+      "at": 0
+     },
+     {
+      "text": "movement in a circle",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She led church",
+      "note": "first meaning: Mary Baker ..., founder of the Christian Science church"
+     },
+     {
+      "clueFragment": "movement in a circle",
+      "note": "second meaning: a swirl of water or air turning round"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a woman leading a congregation in a circular procession; the founder of Christian Science and a swirling current share one surname.",
+     "definitionFit": "Mary Baker Eddy founded the Church of Christ, Scientist, and an eddy is a circular current of water or air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1869,53 @@
     "text": "George is fit to be called the King",
     "enumeration": "5"
    },
-   "solution": "GABLE"
+   "solution": "GABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GABLE",
+    "definitions": [
+     {
+      "text": "called the King",
+      "at": 20,
+      "note": "describes a person by nickname, standing for a name"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "George",
+      "gives": "G",
+      "note": "G stands for George, as in the old phonetic alphabet and GR for George Rex"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "able means fit or capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named George is worthy of being crowned monarch.",
+     "walkthrough": "With six King Georges in British history, the surface sounds royal; the answer is Clark Gable, whom Hollywood dubbed the King.",
+     "definitionFit": "Clark Gable, star of Gone with the Wind, was popularly nicknamed the King of Hollywood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1929,51 @@
     "text": "Consumes a variety of teas",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EATS",
+    "definitions": [
+     {
+      "text": "Consumes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a variety of",
+      "for": "anagram",
+      "note": "a variety offers a different form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teas",
+      "gives": "TEAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAS",
+       "gives": "EATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drinks many different kinds of tea.",
+     "walkthrough": "'A variety of teas' sounds like a tea sampler, but it signals a rearrangement.",
+     "definitionFit": "To eat food is to take it in and use it up, which matches the verb consumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variety"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1987,47 @@
     "text": "Articulated demand to work making bread",
     "enumeration": "5"
    },
-   "solution": "KNEAD"
+   "solution": "KNEAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNEAD",
+    "definitions": [
+     {
+      "text": "work making bread",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Articulated",
+      "for": "homophone",
+      "note": "articulated means spoken clearly, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demand",
+      "gives": "KNEAD",
+      "soundsLike": "NEED",
+      "note": "a need is a demand or requirement"
+     }
+    ],
+    "explanation": {
+     "surface": "A clearly stated demand to get on with baking.",
+     "walkthrough": "'Articulated' suggests a lorry or joints, but here it means spoken; the silent K turns the sound into the baker's word.",
+     "definitionFit": "To knead is to work dough with the hands, pressing and folding it, when making bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Articulated"
+    }
+   }
   },
   {
    "number": 29,
@@ -494,7 +2041,56 @@
     "text": "Strict way to call hospital department",
     "enumeration": "9"
    },
-   "solution": "STRINGENT"
+   "solution": "STRINGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRINGENT",
+    "definitions": [
+     {
+      "text": "Strict",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to ring is to telephone, to call"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ear, nose and throat, a hospital department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RING",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Tight rules govern how to phone a hospital ward.",
+     "walkthrough": "ENT is the ear, nose and throat department.",
+     "definitionFit": "Stringent rules are rigorous and exacting, so the word is a close synonym of strict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   }
  ]
 }
