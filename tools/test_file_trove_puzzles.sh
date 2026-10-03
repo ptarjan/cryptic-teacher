@@ -114,6 +114,64 @@ def laid(a1):
 print(laid('S')[0]['1-across'][1], laid('I0')[0], laid('6')[1])")
 check "slips decided by the light" "5 None 1-across: the enumeration reads as ['6'], the grid holds 5 letters" "$got"
 
+# A one-number count read as another digit ("(9)" over a five) is the
+# light's; a count of several words slips only between 1 and 7; past
+# MOST_DIGIT_SLIPS slipped counts the grid is the one misread.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+grid = ['.....', '.#.#.', '.....', '.#.#.', '.....']
+def laid(a, d):
+    across, _ = F.clues(f'1 One ({a[0]}). 4 Two ({a[1]}). 5 Three (5).')
+    down, _ = F.clues(f'1 Four ({d}). 2 Five (5). 3 Six (5).')
+    return F.match({'across': across, 'down': down}, grid)
+print(laid('95', '5')[0]['1-across'][1], laid('99', '5')[0]['4-across'][1], laid('99', '9')[1])
+print(F.digit_slips('5,1') & {'9,1'}, F.enum_readings('X'))")
+check "a count's digit slips decided by the light, a few per grid" "5 5 the counts of 1-across, 4-across, 1-down fit the grid only read as other digits
+set() set()" "$got"
+
+# A number misread past its slips is out of order: it goes unknown, and the
+# grid places it between its neighbours. A down list that starts by running
+# on from the across list ("12 ... 29, 2, 3") is the across list's tail.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+def lst(nums):
+    return [{'tokens': [{n}], 'text': 'x', 'enums': {'5'}, 'see': None} for n in nums]
+p, moved = F.renumber({'across': lst([1, 4, 9, 10, 1, 12, 75, 14]), 'down': lst([1, 2, 3, 5, 6, 13, 3])})
+print([sorted(c['tokens'][0]) for c in p['across']], [sorted(c['tokens'][0]) for c in p['down']], moved)
+p, moved = F.renumber({'across': lst([1, 5, 9]), 'down': lst([10, 12, 14, 16, 2, 3, 4, 6, 7])})
+print([next(iter(c['tokens'][0])) for c in p['across']], [next(iter(c['tokens'][0])) for c in p['down']], moved)
+grid = ['.....', '.#.#.', '.....', '.#.#.', '.....']
+across, down = F.clues('1 One (5). 4 Two (5). 5 Three (5).')[0], F.clues('1 Four (5). 2 Five (5). 3 Six (5).')[0]
+across[0]['tokens'][0] = across[1]['tokens'][0] = down[1]['tokens'][0] = down[2]['tokens'][0] = set()
+print(sorted(F.match({'across': across, 'down': down}, grid)[0]))
+# A clue lost before an unknown one: the one light its count fits.
+grid = ['.....', '.#.#.', '...#.', '.#.#.', '.....']
+across = F.clues('4 Two (3). 5 Three (5).')[0]
+across[0]['tokens'][0] = set()
+print(sorted(F.match({'across': across, 'down': down}, grid)[0]))")
+check "out-of-order numbers go unknown and are placed by the grid" "[[1], [4], [9], [10], [], [12], [], [14]] [[1], [2], [3], [5], [6], [13], []] False
+[1, 5, 9, 10, 12, 14, 16] [2, 3, 4, 6, 7] True
+['1-across', '1-down', '2-down', '3-down', '4-across', '5-across']
+['1-down', '2-down', '3-down', '4-across', '5-across']" "$got"
+
+# Specks and punctuation between a count and the next clue's number, and
+# after that number, do not glue two clues together; a bracket that is no
+# count ends a clue only before a number with a digit in it.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+cl, why = F.clues(\"1 One (10). : 6 Two (5)' 7 Three (9) 8;Four (5) 11.12A linked (5,2,3,4) 13- Five (5V 14 Six (4). .15 Seven (9). 16' It's (8) 17 A big record (laugh!) is beginning (5) 18 Pot 17). 19 Lac (7). < 20 Geneve (5)\")
+print(why, [(sorted(map(sorted, c['tokens'])), c['text']) for c in cl], cl[-3]['enums'])")
+check "a clue's start found past OCR's punctuation" "None [([[1]], 'One'), ([[6]], 'Two'), ([[7]], 'Three'), ([[8]], 'Four'), ([[11], [12]], 'A linked'), ([[]], 'Five'), ([[14]], 'Six'), ([[15]], 'Seven'), ([[16]], \"It's\"), ([[17]], 'A big record (laugh!) is beginning'), ([[18]], 'Pot'), ([[19]], 'Lac'), ([[20]], 'Geneve')] {'7'}" "$got"
+
+# A symmetric grid's across lights read the same lengths from both ends: a
+# count read two ways takes its mirror's, a pair that disagrees goes
+# unknown, and past MOST_DIGIT_SLIPS such pairs the list stands as read.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+print(F.mirrored([{5}, {5, 8}, {7}, None, {8}, {5}]), F.mirrored([{5}, {9}, {7}, {6}, {5}, {5}]),
+      F.mirrored([{1}, {2}, {3}, {4}, {5}, {6}]))")
+check "across lengths read with their mirrors" "[5, 8, 7, 7, 8, 5] [5, None, None, None, None, 5] [1, 2, 3, 4, 5, 6]" "$got"
+
 # Without a picture the rebuild takes what the OCR leaves uncertain as
 # unknown -- a number read two ways, a count read two ways, a linked clue's
 # lights -- and the numbering still pins the grid down.
