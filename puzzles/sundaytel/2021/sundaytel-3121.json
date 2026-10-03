@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,60 @@
     "text": "First of nails pulled from gift fixed earlier",
     "enumeration": "6"
    },
-   "solution": "PRESET"
+   "solution": "PRESET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PRESET",
+    "definitions": [
+     {
+      "text": "fixed earlier",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "'first of' asks for only the opening letter of the following word"
+     },
+     {
+      "text": "pulled from",
+      "for": "deletion",
+      "note": "something pulled from a thing is taken out of it, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gift",
+      "gives": "PRESENT",
+      "note": "a present is a gift"
+     },
+     {
+      "clueFragment": "nails",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter of nails"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prises the first nail out of a gift box that had been fastened shut beforehand.",
+     "walkthrough": "Remove the N from PRESENT to leave PRESET.",
+     "definitionFit": "Something preset has had its settings decided and locked in advance, before use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nails"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +102,55 @@
     "text": "A collector stuffing favourite bird",
     "enumeration": "8"
    },
-   "solution": "PARAKEET"
+   "solution": "PARAKEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARAKEET",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing goes inside something, so these letters are packed into the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "A collector",
+      "gives": "ARAKE",
+      "note": "A as written, plus a rake, a garden tool that collects leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARAKE",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who collects things is cramming a favourite bird with stuffing.",
+     "walkthrough": "A RAKE goes inside P_ET to give PARAKEET.",
+     "definitionFit": "A parakeet is a small long-tailed parrot, so it is a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collector"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +170,62 @@
      }
     ]
    },
-   "solution": "FOREXAMPLE"
+   "solution": "FOREXAMPLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FOR EXAMPLE",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fill in",
+      "for": "container",
+      "note": "to fill in something is to go inside it, so these letters sit within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puzzle",
+      "gives": "FOX",
+      "note": "to fox someone is to puzzle them"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "jumbo",
+      "gives": "AMPLE",
+      "note": "jumbo means very large, ample"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "RE",
+      "X",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tackles a big puzzle, a jumbo crossword perhaps.",
+     "walkthrough": "'Puzzle' reads as a noun but is the verb meaning to baffle, and 'jumbo' is not the elephant, just an adjective for big.",
+     "definitionFit": "Say is used to introduce an instance, exactly as the phrase introducing an illustration does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +239,57 @@
     "text": "OK in the main, others way different",
     "enumeration": "9"
    },
-   "solution": "SEAWORTHY"
+   "solution": "SEAWORTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEAWORTHY",
+    "definitions": [
+     {
+      "text": "OK in the main",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "made different, these letters are set out in another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "OTHERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "WAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTHERSWAY",
+       "gives": "SEAWORTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things are fine on the whole, though other people go about it differently.",
+     "walkthrough": "'In the main' reads as 'mostly' but here means on the sea, the main being an old word for the ocean.",
+     "definitionFit": "A vessel fit to sail is sound enough for the open ocean, the poetic 'main'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +303,65 @@
     "text": "Number coming up with a story",
     "enumeration": "4"
    },
-   "solution": "SAGA"
+   "solution": "SAGA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAGA",
+    "definitions": [
+     {
+      "text": "story",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "GAS",
+      "note": "read as numb-er, something that numbs: an anaesthetic gas"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "GAS",
+       "to": "SAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure crops up alongside a tale.",
+     "walkthrough": "'Number' is not a figure but numb-er, something that makes you numb.",
+     "definitionFit": "A saga is a long narrative tale, originally an Icelandic heroic story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +375,49 @@
     "text": "Mexican, say, in Lisbon, Italian heading north",
     "enumeration": "6"
    },
-   "solution": "LATINO"
+   "solution": "LATINO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LATINO",
+    "definitions": [
+     {
+      "text": "Mexican, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the following words, running across the word break"
+     },
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down clue, heading north means read upwards, from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lisbon, Italian",
+      "gives": "ONITAL",
+      "note": "the end of Lisbon and start of Italian"
+     }
+    ],
+    "explanation": {
+     "surface": "A Mexican in Portugal's capital and an Italian set off travelling north.",
+     "walkthrough": "lisbON ITALian read backwards gives LATINO.",
+     "definitionFit": "A Mexican is one example of a Latin American person; 'say' flags it as an instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +431,42 @@
     "text": "Experienced a little unease, as one does",
     "enumeration": "8"
    },
-   "solution": "SEASONED"
+   "solution": "SEASONED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SEASONED",
+    "definitions": [
+     {
+      "text": "Experienced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "only a little of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unease, as one does",
+      "gives": "SEASONED",
+      "note": "the run starts in the end of unease and stops inside does"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone felt slightly uneasy, as people tend to.",
+     "definitionFit": "A seasoned campaigner is a veteran, someone hardened by long practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Experienced"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +486,67 @@
      }
     ]
    },
-   "solution": "READOUT"
+   "solution": "READOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "READ-OUT",
+    "definitions": [
+     {
+      "text": "display of data",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "a false version is not the true order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Error’s",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of error"
+     },
+     {
+      "clueFragment": "due to a",
+      "gives": "DUETOA",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EADOUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUETOA",
+       "gives": "EADOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer screen shows wrong figures because a mistake has crept back in.",
+     "definitionFit": "A readout is the information an instrument shows on its screen or dial."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Error’s"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +560,41 @@
     "text": "Sharp, sweet or savoury dish",
     "enumeration": "4"
    },
-   "solution": "TART"
+   "solution": "TART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TART",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     },
+     {
+      "text": "sweet or savoury dish",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sharp",
+      "note": "first meaning: sour or acidic in taste"
+     },
+     {
+      "clueFragment": "sweet or savoury dish",
+      "note": "second meaning: a pastry case with a filling"
+     }
+    ],
+    "explanation": {
+     "surface": "A menu note on a dish with a tangy flavour.",
+     "definitionFit": "The word means sour-tasting as an adjective, and as a noun an open pastry with filling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +608,53 @@
     "text": "Issue English fellow took in",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "took in",
+      "gives": "ATE",
+      "note": "to take in food is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MAN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman was deceived over some matter.",
+     "walkthrough": "'Took in' suggests deceived, but it means swallowed food.",
+     "definitionFit": "To issue is to come out or flow from a source, which is what emanate means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +668,70 @@
     "text": "Frightening figure in bank after vehicle impounded in half a tick?",
     "enumeration": "9"
    },
-   "solution": "SCARECROW"
+   "solution": "SCARECROW",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCARECROW",
+    "definitions": [
+     {
+      "text": "Frightening figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impounded in",
+      "for": "container",
+      "note": "something impounded is locked up inside, so these letters go within the next piece"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first piece behind what follows it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half a tick",
+      "gives": "SEC",
+      "note": "a tick is a second, and half of SECOND is SEC"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "ROW",
+      "note": "a bank of seats or keys is a row"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAR",
+      "EC",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A car gets towed away in an instant, with someone frightened in a bank.",
+     "walkthrough": "The question mark admits that half a tick is a stretch: tick means second, and only half that word is used.",
+     "definitionFit": "A scarecrow is a dummy in human shape set up to frighten birds off crops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +745,61 @@
     "text": "Other handle a skipper pulled back",
     "enumeration": "5"
    },
-   "solution": "ALIAS"
+   "solution": "ALIAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ALIAS",
+    "definitions": [
+     {
+      "text": "Other handle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled back",
+      "for": "reversal",
+      "note": "pulled back means the word is drawn in the opposite direction, read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "skipper",
+      "gives": "SAIL",
+      "note": "taken as a sail, something that skims or skips over the water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAIL",
+       "to": "LIAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A captain has been given a different nickname.",
+     "walkthrough": "A then SAIL reversed gives ALIAS; 'skipper' wants to be the captain but is something that skips across water.",
+     "definitionFit": "A handle is slang for a name, so another name a person goes by is an assumed one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "skipper"
+    }
+   }
   },
   {
    "number": 13,
@@ -212,7 +813,59 @@
     "text": "Greek character is absent in this Greek letter",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THETA",
+    "definitions": [
+     {
+      "text": "Greek letter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absent in",
+      "for": "deletion",
+      "note": "absent in means missing from the next word, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is the seventh letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ETA"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about one Greek character being missing from another.",
+     "walkthrough": "The setter uses Greek twice: once inside the wordplay, once in the definition at the end.",
+     "definitionFit": "Theta is the eighth character of the Greek alphabet, written as a barred circle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -226,7 +879,62 @@
     "text": "Massage round edges of brow, vigorously",
     "enumeration": "7"
    },
-   "solution": "RUBDOWN"
+   "solution": "RUBDOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RUBDOWN",
+    "definitions": [
+     {
+      "text": "Massage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     },
+     {
+      "text": "vigorously",
+      "for": "anagram",
+      "note": "treated vigorously, these letters are worked over and thrown into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "ROUND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brow",
+      "gives": "BW",
+      "select": "outer",
+      "note": "first and last letters of brow"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUNDBW",
+       "gives": "RUBDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A masseur works energetically around someone's forehead.",
+     "definitionFit": "A rubdown is a brisk massage of the body, often given to an athlete after exercise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 15,
@@ -240,7 +948,62 @@
     "text": "Lovely sense of humour, feature required in request",
     "enumeration": "10"
    },
-   "solution": "BEWITCHING"
+   "solution": "BEWITCHING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BEWITCHING",
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "required in",
+      "for": "container",
+      "note": "required in means needed inside the next word, so those pieces go within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "request",
+      "gives": "BEG",
+      "note": "to beg is to request"
+     },
+     {
+      "clueFragment": "sense of humour",
+      "gives": "WIT",
+      "note": "wit is a sense of humour"
+     },
+     {
+      "clueFragment": "feature",
+      "gives": "CHIN",
+      "note": "a chin is a facial feature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "WIT",
+      "CHIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely-hearts request asking for a nice person with a sense of humour.",
+     "walkthrough": "'Feature' means a part of the face here, not a quality.",
+     "definitionFit": "Bewitching describes someone enchanting or captivating, a stronger way to call them attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 16,
@@ -254,7 +1017,54 @@
     "text": "Kids bound to support cricket side",
     "enumeration": "9"
    },
-   "solution": "OFFSPRING"
+   "solution": "OFFSPRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSPRING",
+    "definitions": [
+     {
+      "text": "Kids",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue, a piece that supports another sits underneath it, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket side",
+      "gives": "OFF",
+      "note": "the off side is one half of a cricket field, facing the batsman's bat"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "SPRING",
+      "note": "to bound is to spring or leap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "Children are sure to cheer on a cricket team.",
+     "walkthrough": "'Bound' looks like 'certain to' but is a leap.",
+     "definitionFit": "Offspring are the children of a parent, as kids are informally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1096,43 @@
      }
     ]
    },
-   "solution": "ONTOPOFTHEWORLD"
+   "solution": "ONTOPOFTHEWORLD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON TOP OF THE WORLD",
+    "definitions": [
+     {
+      "text": "Euphoric",
+      "at": 0
+     },
+     {
+      "text": "in the extreme north?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Euphoric",
+      "note": "first meaning: overjoyed, elated"
+     },
+     {
+      "clueFragment": "in the extreme north?",
+      "note": "second meaning, taken literally: sitting at the very top of the globe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a playful literal reading of an idiom: on maps the north is at the top.",
+     "definitionFit": "The idiom describes extreme happiness, while literally the North Pole is the planet's highest point on a map."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1146,47 @@
     "text": "Immediately extinguished, just",
     "enumeration": "8"
    },
-   "solution": "OUTRIGHT"
+   "solution": "OUTRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRIGHT",
+    "definitions": [
+     {
+      "text": "Immediately",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extinguished",
+      "gives": "OUT",
+      "note": "a fire that is extinguished is out"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "RIGHT",
+      "note": "just means fair, right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fire was put out only a moment ago.",
+     "walkthrough": "'Just' reads as 'only now' but means fair.",
+     "definitionFit": "Outright can mean at once, as when someone is killed outright on the spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1200,62 @@
     "text": "Phone signal gone in outskirts of Tadcaster, unfortunately",
     "enumeration": "8"
    },
-   "solution": "RINGTONE"
+   "solution": "RINGTONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RINGTONE",
+    "definitions": [
+     {
+      "text": "Phone signal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so only the outer letters count"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so these letters end up out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gone in",
+      "gives": "GONEIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tadcaster",
+      "gives": "TR",
+      "select": "outer",
+      "note": "first and last letters of Tadcaster, a small market town in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GONEINTR",
+       "gives": "RINGTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mobile reception has vanished on the edge of a Yorkshire town, sadly.",
+     "definitionFit": "A ringtone is the sound a mobile makes to alert you to an incoming call."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "signal"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1269,60 @@
     "text": "Cat hair covering wig, trimmed at the front",
     "enumeration": "7"
    },
-   "solution": "TIGRESS"
+   "solution": "TIGRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TIGRESS",
+    "definitions": [
+     {
+      "text": "Cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed at the front",
+      "for": "deletion",
+      "note": "trimmed at the front means the opening letter is cut off"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering something means wrapping around it, so that piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "wig",
+      "gives": "WIG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IG",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat's fur grows over a wig that has been cut at the front.",
+     "walkthrough": "'Cat hair' reads as one phrase, but the definition stops at 'Cat'.",
+     "definitionFit": "A tigress is a female tiger, which belongs to the big cat family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1336,50 @@
     "text": "Miss street in Irish county",
     "enumeration": "6"
    },
-   "solution": "GALWAY"
+   "solution": "GALWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALWAY",
+    "definitions": [
+     {
+      "text": "Irish county",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss",
+      "gives": "GAL",
+      "note": "a miss is a girl, informally a gal"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "WAY",
+      "note": "way is a street name, as in Broadway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAL",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes the wrong road in a county of Ireland.",
+     "walkthrough": "'Miss' looks like a verb but is a young woman.",
+     "definitionFit": "Galway is a county on the west coast of the Republic of Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1393,56 @@
     "text": "Habit of Romans to blockade northern kingdom",
     "enumeration": "5"
    },
-   "solution": "TONGA"
+   "solution": "TONGA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONGA",
+    "definitions": [
+     {
+      "text": "kingdom",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to blockade",
+      "for": "container",
+      "note": "to blockade is to surround and enclose, so a letter is shut inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Habit of Romans",
+      "gives": "TOGA",
+      "note": "the toga was the customary garment worn by Roman citizens"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "N",
+      "GA"
+     ]
+    },
+    "explanation": {
+     "surface": "It was the custom in Rome to besiege a kingdom in the north.",
+     "walkthrough": "'Habit' suggests a custom, but it is clothing, as a monk's habit is. N goes inside TO_GA.",
+     "definitionFit": "Tonga is a Polynesian island nation in the Pacific and remains a monarchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Habit"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1456,41 @@
     "text": "Splendid time of year",
     "enumeration": "6"
    },
-   "solution": "AUGUST"
+   "solution": "AUGUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUGUST",
+    "definitions": [
+     {
+      "text": "Splendid",
+      "at": 0
+     },
+     {
+      "text": "time of year",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splendid",
+      "note": "first meaning: grand, majestic, inspiring respect"
+     },
+     {
+      "clueFragment": "time of year",
+      "note": "second meaning: the eighth calendar month"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for a lovely season.",
+     "definitionFit": "As an adjective stressed on the second syllable it means venerable; capitalised it is the summer month."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1504,62 @@
     "text": "I become faint after lifting skirt",
     "enumeration": "4"
    },
-   "solution": "MIDI"
+   "solution": "MIDI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MIDI",
+    "definitions": [
+     {
+      "text": "skirt",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after lifting",
+      "for": "reversal",
+      "note": "in a down clue, lifting raises the letters so they read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "become faint",
+      "gives": "DIM",
+      "note": "to dim is to grow faint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MID",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IDIM",
+       "to": "MIDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly passes out after raising a skirt.",
+     "walkthrough": "I DIM read upwards gives MIDI.",
+     "definitionFit": "A midi is a skirt whose hem falls to mid-calf, between a mini and a maxi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "faint"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1573,52 @@
     "text": "Scrabble tiles key",
     "enumeration": "5"
    },
-   "solution": "ISLET"
+   "solution": "ISLET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISLET",
+    "definitions": [
+     {
+      "text": "key",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Scrabble",
+      "for": "anagram",
+      "note": "to scrabble is to scramble about, so these letters get mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiles",
+      "gives": "TILES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TILES",
+       "gives": "ISLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tiles from the board game are the crucial factor.",
+     "walkthrough": "'Scrabble' looks like the word game but is a verb meaning to scramble; 'key' means a low island, as in the Florida Keys.",
+     "definitionFit": "A key or cay is a low small island or reef, and an islet is a tiny island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1632,57 @@
     "text": "Bear: little one ending in cave",
     "enumeration": "4"
    },
-   "solution": "TOTE"
+   "solution": "TOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOTE",
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little one",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "cave",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of cave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear and its cub at the back of a cave.",
+     "walkthrough": "'Bear' looks like the animal but is the verb meaning carry.",
+     "definitionFit": "To tote something is to carry it about, as you would bear a load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1696,54 @@
     "text": "Get chairs out for assembly in Germany",
     "enumeration": "9"
    },
-   "solution": "REICHSTAG"
+   "solution": "REICHSTAG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REICHSTAG",
+    "definitions": [
+     {
+      "text": "assembly in Germany",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters put out of place are no longer in their given order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chairs",
+      "gives": "CHAIRS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETCHAIRS",
+       "gives": "REICHSTAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to set out seats for a meeting in Germany.",
+     "definitionFit": "The Reichstag is the parliament building in Berlin, once the name of the German parliament itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1757,50 @@
     "text": "Pick up figure in lift",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pick up",
+      "gives": "HEAR",
+      "note": "to pick up a sound is to hear it"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a number, a figure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collects a number in an elevator.",
+     "walkthrough": "'Pick up' wants to be the definition, and does fit, but 'lift' is; 'pick up' gives the first piece.",
+     "definitionFit": "To lift someone's spirits is to encourage and cheer them, giving them heart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1814,48 @@
     "text": "Life earnings originally spent",
     "enumeration": "7"
    },
-   "solution": "INNINGS"
+   "solution": "INNINGS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INNINGS",
+    "definitions": [
+     {
+      "text": "Life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally spent",
+      "for": "deletion",
+      "note": "the original, first letter is spent, used up and gone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earnings",
+      "gives": "WINNINGS",
+      "note": "winnings are money earned, as from a bet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A lifetime's pay was all used up at the start.",
+     "walkthrough": "WINNINGS loses its first letter. In cricket an innings is a batsman's turn, and 'a good innings' is a long life.",
+     "definitionFit": "A long life is called a good innings, after the period a cricketer spends batting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Life"
+    }
+   }
   }
  ]
 }
