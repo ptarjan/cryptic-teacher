@@ -2212,6 +2212,14 @@ SOURCE_CLUE_WRONG = {
         "Cheat is a bestial person -- holds back ≤500",
         "Cheat is a bestial person -- holds back 550",
         "OCR misread: the wordplay needs 550, LD in Roman numerals, reversed inside SWINE"),
+    ("times-16182", "7-down"): (
+        "Not quito eighteen inches of rope",
+        "Not quite eighteen inches of rope",
+        "OCR misread: the deletion needs 'Not quite', not quito"),
+    ("times-16182", "5-down"): (
+        "King not subject of the idylls but/ might describe their writer",
+        "King not subject of the idylls but might describe their writer",
+        "OCR misread: stray slash after but"),
     ("telegraph-18338", "8-across"): (
         "A 'gadfly that would be welcome in the doldrums",
         "A gadfly that would be welcome in the doldrums",
