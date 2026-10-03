@@ -2925,6 +2925,50 @@ SOURCE_CLUE_WRONG = {
         "His merchandise is measured by the fool",
         "His merchandise is measured by the foot",
         "OCR misread: the definition needs foot, as socks are sized by the foot"),
+    ("times-15547", "1-across"): (
+        "Tied up ? 'ow irritating that \"was",
+        "Tied up? 'Ow irritating that was",
+        "OCR misread: stray marks around up and was"),
+    ("times-15547", "1-down"): (
+        "Have a crafty sip 0on rim of jug",
+        "Have a crafty sip on rim of jug",
+        "OCR misread: the anagram needs on, not 0on"),
+    ("times-15547", "4-across"): (
+        "Key pages are not shortly to -be seen",
+        "Key pages are not shortly to be seen",
+        "OCR misread: a stray hyphen before be"),
+    ("times-15547", "10-across"): (
+        "Displays neat contents : but they appear  contradictory",
+        "Displays neat contents: but they appear contradictory",
+        "OCR misread: stray spaces around the colon and before contradictory"),
+    ("times-15547", "12-across"): (
+        "It's hell to \"find a number -by deduction-",
+        "It's hell to find a number by deduction",
+        "OCR misread: stray marks around find and by deduction"),
+    ("times-15547", "15-across"): (
+        "Disorder she'd live make up.for.",
+        "Disorder she'd live make up for",
+        "OCR misread: stray points around for"),
+    ("times-15547", "17-down"): (
+        "To have everything in-place is intelligent",
+        "To have everything in place is intelligent",
+        "OCR misread: a stray hyphen in in place"),
+    ("times-15547", "21-down"): (
+        "Stamps .no name, when closed for business",
+        "Stamps no name, when closed for business",
+        "OCR misread: a stray point before no"),
+    ("times-15547", "22-down"): (
+        "One 'Red secret police chief in SW Europe",
+        "One Red secret police chief in SW Europe",
+        "OCR misread: a stray apostrophe before Red"),
+    ("times-15547", "27-across"): (
+        "Life meant a struggle for- Darwin",
+        "Life meant a struggle for Darwin",
+        "OCR misread: a stray hyphen after for"),
+    ("times-15547", "28-across"): (
+        "Fossil .found by tribesman",
+        "Fossil found by tribesman",
+        "OCR misread: a stray point before found"),
     ("times-15552", "1-across"): (
         "Look into detail of East- West crossing with Charlie",
         "Look into detail of East-West crossing with Charlie",
