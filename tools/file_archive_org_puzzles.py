@@ -19,7 +19,11 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     the size with two recognisers (multilingual PP-OCRv4 and English
     PP-OCRv5), and Tesseract, whose errors are not RapidOCR's (READERS). Each is parsed as file_trove_puzzles.py parses
     Trove's text, after tidy() undoes the print's commonest slips, and each
-    list is repaired from another reading (tools/trove_clue_ocr.py).
+    list is repaired from each other reading in turn (tools/trove_clue_ocr.py).
+  - A reading votes only when it has clue words and its clues lie on the
+    scanned grid by number and count and read like the others' clues of
+    those numbers (screened): one with every clue blank is no reading, and
+    one of another part of the page is dropped whole.
   - The grid read off the scan is used when it is symmetric and a list lies
     on it whole, or when at least LOOSE_SHARE of its lights each take a
     clue by that clue's own number and count (lay_loose); the rest are
@@ -958,21 +962,34 @@ def read_puzzle(d, found, hit, solutions):
         g, why = None, "not 180-degree symmetric"
     if not g:
         verdict["imageUnread"] = why
+    texts, dropped = screened(texts, g)
+    if dropped:
+        verdict["dropped"] = dropped
     # Each reading in turn is the list, repaired from the other: archive.org's
     # against RapidOCR's, and where archive.org has no words for the columns,
     # RapidOCR's two recognisers against each other. The first list that
     # lies on the scanned grid wins; failing all, the most complete list is
     # rebuilt.
     pairs = ([("djvu", "ch"), ("ch", "djvu"), ("djvu", "en5"), ("en5", "djvu")]
-             if texts["djvu"].strip() else [("ch", "en5"), ("en5", "ch")])
+             if texts.get("djvu", "").strip() else [("ch", "en5"), ("en5", "ch")])
+    # A reading the screen dropped is in no pair; the readings no pair names
+    # (Tesseract's, the VLM's) lead when none of those parses.
+    pairs = [o for o in pairs if all(k in texts for k in o)]
+    named = {k for o in pairs for k in o}
+    rest = [(k, next((o for o in texts if o != k), k)) for k in texts if k not in named]
     tried = []
-    for order in pairs:
+    for order in pairs + rest:
+        if order in rest and tried:
+            break
         parsed, why = parse(texts[order[0]])
         if parsed is None:
             verdict.setdefault("unparsed", {})[order[0]] = why
             continue
-        if not trove_clue_ocr.complete(parsed):
-            parsed, _ = trove_clue_ocr.repair(parsed, texts[order[1]])
+        # A clue this list lost is taken from each other reading in turn.
+        for other in [order[1]] + [k for k in texts if k not in order]:
+            if trove_clue_ocr.complete(parsed):
+                break
+            parsed, _ = trove_clue_ocr.repair(parsed, texts[other])
         laid, why = ftp.match(parsed, g) if g else (None, None)
         tried.append((laid is not None, trove_clue_ocr.complete(parsed),
                       sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
@@ -1053,6 +1070,68 @@ def read_puzzle(d, found, hit, solutions):
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
     return verdict, puzzle
+
+
+#: The share of a reading's clues that must lie on the scanned grid by their
+#: own number and count, and agree with the other readings' clue of that
+#: number, for the reading to vote at all.
+FIT_SHARE = 0.5
+#: How like the other readings' clue of its number a clue must read to agree.
+AGREE_SIMILAR = 0.5
+#: How many numbered clues a reading needs before its share is judged.
+FIT_MIN = 4
+
+
+def numbered(parsed):
+    """{(number, direction): (text, enums)} of each clue that names one light."""
+    return {(next(iter(c["tokens"][0])), d): (c["text"], c["enums"])
+            for d in ("across", "down") for c in parsed[d]
+            if len(c["tokens"]) == 1 and len(c["tokens"][0]) == 1 and c["see"] is None}
+
+
+def screened(texts, grid):
+    """({reader: text} that vote, {reader: why} dropped): a reading with no
+    clue words (every clue blank, or nothing but headings) is no reading,
+    and one whose clues mostly name no light of the scanned grid with
+    their count, or mostly disagree with what the other readings print
+    under the same numbers, read another part of the page."""
+    clues = {}
+    for k, t in texts.items():
+        p = parse(t)[0] if t.strip() else None
+        clues[k] = numbered(p) if p else None
+    lights = rg.light_cells(grid) if grid else None
+    keep, dropped = {}, {}
+    for k, t in texts.items():
+        if not t.strip():
+            continue
+        cs = clues[k]
+        if not ocr_clues.tokens(re.sub(r"\b(?:ACROSS|DOWN)\b", "", t)) or (
+                cs and not any(ocr_clues.tokens(text) for text, _ in cs.values())):
+            dropped[k] = "no clue words"
+            continue
+        if not cs or len(cs) < FIT_MIN:
+            keep[k] = t
+            continue
+        # A clue whose count was lost says nothing of where it was read, and
+        # a reading that lost most counts is judged by its text alone.
+        counted = {key: enums for key, (_, enums) in cs.items() if enums}
+        if lights and len(counted) >= max(FIT_MIN, len(cs) / 2):
+            fit = sum(1 for (n, d), enums in counted.items()
+                      if (n, d) in lights and any(ftp.count(e) == len(lights[(n, d)]) for e in enums))
+            if fit < FIT_SHARE * len(counted):
+                dropped[k] = f"{fit} of {len(counted)} counted clues lie on the grid"
+                continue
+        shared = []
+        for key, (text, _) in cs.items():
+            others = [clues[j][key][0] for j in texts if j != k and clues[j] and key in clues[j]]
+            if others:
+                shared.append(max(similar(text.lower(), o.lower()) for o in others))
+        agree = sum(1 for v in shared if v >= AGREE_SIMILAR)
+        if len(shared) >= FIT_MIN and agree < FIT_SHARE * len(shared):
+            dropped[k] = f"{agree} of {len(shared)} clues agree with the other readings"
+            continue
+        keep[k] = t
+    return keep, dropped
 
 
 def vlm_pick(img, wins, readings, texts, laid, blank):

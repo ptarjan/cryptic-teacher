@@ -645,6 +645,48 @@ check("two counts in one clue are two clues", "two clues run together",
 check("a clue cut at its own count when text follows it", ["Entice Fortune?", "Entice Fortune? (5,4)"],
       [ocr_clues.cut_at_count("Entice Fortune? (5,4) - 18 &", "5,4"), ocr_clues.cut_at_count("Entice Fortune? (5,4)", "5,4")])
 
+# The desktop VLM's failures (Times heldout, VLM alone): a reading of another
+# part of the page (No 20,989), a reading with every clue blank (No 19,742),
+# and its pick's single-word misreads ("gain" for gait, "linner" for linnet).
+g5 = ["....."] * 5
+good = ("ACROSS\n1 Bird in a tree (5)\n6 Fish in the sea (5)\n7 Dog on a lead (5)\n"
+        "DOWN\n1 Cat on a mat (5)\n2 Cow in a field (5)\n3 Hen in a coop (5)")
+elsewhere = ("ACROSS\n1 Advantageous position not the first part (6,5)\n4 One accepted by Constable (7)\n"
+             "12 Sounds like sort of horse (5)\nDOWN\n14 Encouragement after slipping (3-1-5)\n"
+             "16 Improperly assigned to throne (2,3,4)")
+same_slots = ("ACROSS\n1 Seize illegal drugs (5)\n6 Thoughts of leader (5)\n7 Tried to get editor (5)\n"
+              "DOWN\n1 Again request harvest (5)\n2 Servant with carriage (5)\n3 Child looked after (5)")
+kept, dropped = f.screened({"djvu": good, "ch": good.replace("tree", "trec"), "vlm": elsewhere}, g5)
+check("a reading whose clues name no light of the grid with their count is dropped",
+      (["ch", "djvu"], ["vlm"]), (sorted(kept), sorted(dropped)))
+kept, dropped = f.screened({"djvu": good, "ch": good.replace("tree", "trec"), "vlm": same_slots}, g5)
+check("a reading that fits the slots but disagrees with every other reading's clue of each number is dropped",
+      ["vlm"], sorted(dropped))
+kept, dropped = f.screened({"djvu": good, "ch": good, "vlm": "ACROSS\n1 (5)\n6 (5)\nDOWN\n1 (5)\n2 (5)"}, g5)
+check("a reading with every clue blank is no reading", {"vlm": "no clue words"}, dropped)
+kept, dropped = f.screened({"djvu": good, "vlm": "\n".join(good.splitlines()[:3] + ["DOWN"])}, g5)
+check("a partial reading still votes: its clues lose to the others clue by clue", ({}, 2), (dropped, len(kept)))
+got, _ = ocr_clues.reconcile({"21-across": ("Poet's", "6", None)},
+                             ["21 Poet's uninteresting study (6)", "21 Poet's uninteresting study (6)"])
+check("words a partial reading lost are put back from the others", "Poet's uninteresting study", got["21-across"][0])
+check("a pick's real word no reading has, where every reading has one a letter off, takes theirs",
+      "Walk the street unsteady gait", ocr_clues.held("Walk the street unsteady gain", ["Walk the street unsteady gait (6)"]))
+check("a pick's non-word takes the lexicon word another reading has there",
+      "For example, a linnet entangled in a bush",
+      ocr_clues.held("For example, a linner entangled in a bush", ["For example, a linnet entangled in a bush (9)",
+                                                                  "For exampie, a llnner entangled ia a bush"]))
+check("a pick's non-word no reading has a lexicon word for fails the pick", "",
+      ocr_clues.held("For example, a linner entangled in a bush", ["For example, a linner entangled in a bush (9)"]))
+check("a pick that is another clue's text (No 20,989's 1 across read as 11 down) fails", "",
+      ocr_clues.held("Advantageous position - not the first part of record?",
+                     ["First issue in 1999, for example (5,6)"]))
+laid, blank = ocr_clues.vlm_pick({"vlm": "x"}, {"13-across": ("", "9", None)}, {"13-across": "readings differ"},
+                                 lambda t: ({"across": [{"tokens": [{13}], "text": "For example, a linner entangled",
+                                                         "enums": {"9"}, "see": None}], "down": []}, None),
+                                 lambda lid, cands: "For example, a linner entangled")
+check("the VLM's pick of a non-word no reading corrects is not filed", ("", ["13-across"]),
+      (laid["13-across"][0], sorted(blank)))
+
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
 
