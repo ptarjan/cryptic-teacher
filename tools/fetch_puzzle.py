@@ -1898,6 +1898,22 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17859", "5-down"): (
+        "How's (that for an attraction?",
+        "How's that for an attraction?",
+        "OCR misread: a stray bracket splits the cricketer's cry How's that, which the double definition needs whole"),
+    ("times-17859", "20-across"): (
+        "Sort of currant, say, in plum take",
+        "Sort of currant, say, in plum cake",
+        "OCR misread: the definition is cake, which MACAROON is; AC inside MAROON"),
+    ("times-17859", "28-across"): (
+        "Often pickled, servant has 10 leave",
+        "Often pickled, servant has to leave",
+        "OCR misread: the wordplay is MAN has to GO, so 10 is the word to"),
+    ("times-17859", "29-across"): (
+        "Portray . separately incidental information",
+        "Portray separately incidental information",
+        "OCR misread: a stray full stop sits between the two words of wordplay"),
     ("times-17031", "17-across"): (
         "Mr Toward's acid drop",
         "Mr Coward's acid drop",
