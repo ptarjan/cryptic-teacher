@@ -13,6 +13,7 @@ wrong has its annotation thrown away and rewritten.
 This prints every clue with its length, plus a crossing map. The map shows, for
 each entry, which of its letters are shared with which letter of which other
 entry. Use it. It is the only thing that can tell you an answer is wrong.
+An entry marked `printed answer` is the paper's own: your fill must agree with it.
 
 ## Output
 

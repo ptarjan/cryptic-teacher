@@ -2656,6 +2656,18 @@ def clue_coverage(puzzle):
             "total": len(puzzle["entries"])}
 
 
+def cold_solvable(row):
+    """Whether a model can solve an index row's puzzle cold: it can read the
+    clues of a majority of the entries (a row without `clues` has them all).
+
+    A majority, not "any clue at all": unclued entries come out of the
+    crossings, and apply_solution.py's crossing check cannot tell an invented
+    fill that happens to interlock from a solved one. A gap or two the rest of
+    the grid pins down is fine; past that the model is writing the puzzle."""
+    coverage = row.get("clues")
+    return not coverage or coverage["present"] * 2 > coverage["total"]
+
+
 def index_row(path):
     """Write the puzzle's shim and return its row of the index, all but the
     difficulty, which reindex() adds from the corpus-wide ratings. One read of
