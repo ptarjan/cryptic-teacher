@@ -2565,6 +2565,18 @@ SOURCE_CLUE_WRONG = {
         "Sleer to leave this part of Africa",
         "Steer to leave this part of Africa",
         "OCR misread: the wordplay needs steer, which gives CON"),
+    ("times-16415", "15-across"): (
+        "A Hop who should change roles",
+        "A flop who should change roles",
+        "OCR misread: the definition needs flop, a failure"),
+    ("times-16415", "8-down"): (
+        "Such com comforts arc material to",
+        "Such com comforts are material to",
+        "OCR misread: the surface needs are, not arc"),
+    ("times-16415", "25-across"): (
+        "Connecting link and chain as an accessory*).",
+        "Connecting link and chain as an accessory",
+        "OCR misread: stray marks after accessory"),
 }
 
 
