@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Check safe's cover again",
     "enumeration": "8"
    },
-   "solution": "REINSURE"
+   "solution": "REINSURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINSURE",
+    "definitions": [
+     {
+      "text": "cover again",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "REIN",
+      "note": "to rein in is to check or restrain"
+     },
+     {
+      "clueFragment": "safe",
+      "gives": "SURE",
+      "note": "sure in the sense of secure, as in 'a sure footing'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIN",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a householder to look at whether the safe is still covered by the policy again.",
+     "walkthrough": "'Check safe's' reads like an instruction about a strongbox; the apostrophe-s is just 'has' joining the wordplay to the definition.",
+     "definitionFit": "To reinsure is to take out insurance once more, providing fresh protection against loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,73 @@
     "text": "Bring back spun fabric in right length",
     "enumeration": "6"
    },
-   "solution": "RECALL"
+   "solution": "RECALL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RECALL",
+    "definitions": [
+     {
+      "text": "Bring back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spun",
+      "for": "reversal",
+      "note": "something spun round is turned to face the other way, so the fabric's word runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the turned fabric sits inside the letters for right and length"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "fabric",
+      "gives": "LACE",
+      "note": "lace is a delicate openwork fabric"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the usual abbreviation for length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECA",
+      "L",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LLACE",
+       "to": "ECALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor is asked to return some spun cloth cut to the correct length.",
+     "walkthrough": "'Spun fabric' sounds like yarn or thread, but spun only tells you to turn the fabric word round.",
+     "definitionFit": "To recall is to summon back or order the return of something, such as a faulty product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spun"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,49 @@
     "text": "In uprising, declare billionaires opposed to freedom",
     "enumeration": "9"
    },
-   "solution": "ILLIBERAL"
+   "solution": "ILLIBERAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ILLIBERAL",
+    "definitions": [
+     {
+      "text": "opposed to freedom",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "'in' says the letters sit inside the run of words that follows"
+     },
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down clue, rising up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "declare billionaires",
+      "gives": "LAREBILLI",
+      "note": "the letters straddling the two words, from the end of declare to the start of billionaires"
+     }
+    ],
+    "explanation": {
+     "surface": "A political call to denounce the super-rich during a revolt as enemies of liberty.",
+     "walkthrough": "'Uprising' suggests a revolution, which suits the anti-billionaire surface, but here it just turns the hidden letters upside down in a down entry.",
+     "definitionFit": "Illiberal views restrict personal liberties and resist tolerance, so they are hostile to freedom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +229,60 @@
     "text": "Able seaman's beginning to get wasted",
     "enumeration": "7"
    },
-   "solution": "SKILLED"
+   "solution": "SKILLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKILLED",
+    "definitions": [
+     {
+      "text": "Able",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seaman's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of seaman"
+     },
+     {
+      "clueFragment": "wasted",
+      "gives": "KILLED",
+      "note": "wasted is slang for killed, as in a gangster film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KILLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's first steps towards getting thoroughly drunk.",
+     "walkthrough": "'Able seaman' is a naval rank, which hides that 'Able' alone is the definition; 'wasted' looks like drunk but means murdered.",
+     "definitionFit": "Someone skilled has the expertise or competence to do a task well, so is capable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Able"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +296,45 @@
     "text": "Thick-skinned type articulated sarcastic denial",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Thick-skinned type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "articulated",
+      "for": "homophone",
+      "note": "articulated means spoken out, so the words are to be judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sarcastic denial",
+      "gives": "RHINO",
+      "soundsLike": "RIGHT, NO",
+      "note": "a drawled 'Ri-ight... no' is a sarcastic way of refusing something, said quickly with the T swallowed"
+     }
+    ],
+    "explanation": {
+     "surface": "An insensitive person mouths a sneering refusal.",
+     "walkthrough": "'Thick-skinned type' reads as an unfeeling person, but it is the animal with a famously tough hide.",
+     "definitionFit": "The rhinoceros has an armour-like hide, making it literally a heavy-hided beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Thick-skinned"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +348,59 @@
     "text": "One dotting i, crossing t with style",
     "enumeration": "6"
    },
-   "solution": "TITTLE"
+   "solution": "TITTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TITTLE",
+    "definitions": [
+     {
+      "text": "One dotting i",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "a word crossing a letter lies across it, so the letter ends up within that word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "style",
+      "gives": "TITLE",
+      "note": "a style is a title or form of address, as in 'styled Lord'"
+     },
+     {
+      "clueFragment": "t",
+      "gives": "T",
+      "note": "the letter t as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "T",
+      "TLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Handwriting advice: dot your i's and cross your t's with a flourish.",
+     "walkthrough": "The surface echoes 'dot the i's and cross the t's'; the dot over a lower-case i has its own name.",
+     "definitionFit": "A tittle is the small diacritic mark, such as the point placed above a lower-case letter i or j."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +414,64 @@
     "text": "Depth marker is near middle of hot tub",
     "enumeration": "7"
    },
-   "solution": "ISOBATH"
+   "solution": "ISOBATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ISOBATH",
+    "definitions": [
+     {
+      "text": "Depth marker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a three-letter word is its central letter alone"
+     }
+    ],
+    "linkWords": [
+     "near"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "O",
+      "select": "middle",
+      "note": "the centre letter of hot"
+     },
+     {
+      "clueFragment": "tub",
+      "gives": "BATH",
+      "note": "a bath is a tub for bathing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "O",
+      "BATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A gauge for water depth stands next to the centre of a hot tub.",
+     "definitionFit": "An isobath is a line on a chart joining points of equal water depth, used to show the seabed's contours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +485,64 @@
     "text": "Upset at repetitive strain injury in ankle bones",
     "enumeration": "5"
    },
-   "solution": "TARSI"
+   "solution": "TARSI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TARSI",
+    "definitions": [
+     {
+      "text": "ankle bones",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the short word reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "repetitive strain injury",
+      "gives": "RSI",
+      "note": "RSI is the usual initialism for repetitive strain injury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "RSI"
+     ],
+     "reversals": [
+      {
+       "from": "AT",
+       "to": "TA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker distressed at a typing injury that has spread to their ankles.",
+     "walkthrough": "'Upset' looks like an emotion, but it only flips the little word at.",
+     "definitionFit": "The tarsal bones form the rear part of the foot, joining the leg at the joint above the heel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +556,81 @@
     "text": "Boost source of electric current throttled by Greens misguidedly",
     "enumeration": "8"
    },
-   "solution": "ENERGISE"
+   "solution": "ENERGISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ENERGISE",
+    "definitions": [
+     {
+      "text": "Boost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, its first letter"
+     },
+     {
+      "text": "misguidedly",
+      "for": "anagram",
+      "note": "something misguided has gone astray, so these letters are led into a new order"
+     },
+     {
+      "text": "throttled by",
+      "for": "container",
+      "note": "something throttled is gripped round the neck, so it ends up enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electric",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of electric"
+     },
+     {
+      "clueFragment": "Greens",
+      "gives": "GREENS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NERG",
+      "I",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREENS",
+       "gives": "NERGSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Environmental campaigners clumsily choke off a supply of electricity.",
+     "walkthrough": "The first letter of electric stands at the front; the current symbol then goes inside the rearranged Greens.",
+     "definitionFit": "To energise is to give vitality or power to something, so it means to invigorate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Greens"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +644,57 @@
     "text": "Deduced most of info was wrong",
     "enumeration": "8"
    },
-   "solution": "INFERRED"
+   "solution": "INFERRED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INFERRED",
+    "definitions": [
+     {
+      "text": "Deduced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all but its final letter"
+     }
+    ],
+    "linkWords": [
+     "was"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "info",
+      "gives": "INFO",
+      "note": "taken as written; its last letter goes"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "ERRED",
+      "note": "to have erred is to have been wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "ERRED"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective works out that the bulk of the information was false.",
+     "definitionFit": "To infer is to reach a conclusion by reasoning from evidence, the past tense matching worked out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +714,40 @@
      }
     ]
    },
-   "solution": "COLLISIONCOURSE"
+   "solution": "COLLISIONCOURSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COLLISION COURSE",
+    "definitions": [
+     {
+      "text": "Way in which we're sure to have an impact?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way in which we're sure to have an impact?",
+      "note": "surface reading: a method guaranteed to make an impression or be influential"
+     },
+     {
+      "clueFragment": "Way in which we're sure to have an impact?",
+      "note": "setter's reading: a route on which two moving things will certainly crash into each other"
+     }
+    ],
+    "explanation": {
+     "surface": "A campaigner asks how to be sure of making a difference.",
+     "walkthrough": "'Impact' is taken figuratively in the surface, but literally means a crash; 'way' is a path or trajectory.",
+     "definitionFit": "The phrase names a trajectory that, if unchanged, will end in a crash with another object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impact"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +761,59 @@
     "text": "Lance corporal ultimately introduced by dog tag",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LABEL",
+    "definitions": [
+     {
+      "text": "tag",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the closing letters of the two words are kept"
+     }
+    ],
+    "linkWords": [
+     "introduced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "LAB",
+      "note": "a lab is a Labrador retriever"
+     },
+     {
+      "clueFragment": "Lance corporal",
+      "gives": "EL",
+      "select": "last",
+      "note": "the final letters of Lance and of corporal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAB",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is finally fitted with a dog tag for identification.",
+     "walkthrough": "'Lance corporal' looks like a single rank to abbreviate, but each word gives its own last letter. 'Introduced by' puts the dog first.",
+     "definitionFit": "A label is a small attached ticket identifying something, the same as an identifying tag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lance"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +827,62 @@
     "text": "Working out at first gym class",
     "enumeration": "9"
    },
-   "solution": "OPERATING"
+   "solution": "OPERATING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OPERATING",
+    "definitions": [
+     {
+      "text": "Working",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of out"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE, physical education, is the school subject often called gym"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "RATING",
+      "note": "a rating is a class or grade, as in a film's age rating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "RATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working out, starting with a gym class.",
+     "walkthrough": "'Working out' looks like a phrase, but 'Working' alone is the definition.",
+     "definitionFit": "A machine that is operating is running and functioning, i.e. in action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +896,70 @@
     "text": "One making play has to nudge Romeo after botched cue",
     "enumeration": "8"
    },
-   "solution": "PRODUCER"
+   "solution": "PRODUCER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PRODUCER",
+    "definitions": [
+     {
+      "text": "One making play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "botched",
+      "for": "anagram",
+      "note": "a botched job is messed up, so the letters of the short word are jumbled"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to nudge",
+      "gives": "PROD",
+      "note": "to prod is to nudge or poke"
+     },
+     {
+      "clueFragment": "cue",
+      "gives": "CUE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROD",
+      "UCE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUE",
+       "gives": "UCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre producer has to prompt the actor playing Romeo after he misses his cue.",
+     "walkthrough": "Romeo is a theatrical name here, which helps hide that he is just the letter R; 'after' puts him at the end.",
+     "definitionFit": "A producer is the person who stages and finances a show, so is responsible for mounting a theatrical work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +973,70 @@
     "text": "Recording caught asset with the shot of heroin",
     "enumeration": "8"
    },
-   "solution": "CASSETTE"
+   "solution": "CASSETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CASSETTE",
+    "definitions": [
+     {
+      "text": "Recording",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot of",
+      "for": "deletion",
+      "note": "to be shot of something is to be rid of it, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "asset",
+      "gives": "ASSET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written, then losing a letter"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin; this letter is the one removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASSET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was caught on tape with valuables and a shot of heroin.",
+     "walkthrough": "'Shot of heroin' paints a drug fix, but 'shot of' means rid of, so the word the loses its H.",
+     "definitionFit": "A cassette is a tape cartridge holding recorded sound, so it is a recording medium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1050,45 @@
     "text": "Somewhere on campus, does drag for audience",
     "enumeration": "5"
    },
-   "solution": "HALLS"
+   "solution": "HALLS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HALLS",
+    "definitions": [
+     {
+      "text": "Somewhere on campus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for audience",
+      "for": "homophone",
+      "note": "something put on for an audience is heard rather than read, so go by the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does drag",
+      "gives": "HALLS",
+      "soundsLike": "HAULS",
+      "note": "hauls means drags along, and in British speech it sounds like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A university venue puts on drag shows for an audience.",
+     "walkthrough": "'Does drag' suggests performing in drag; read it as a verb, it means pulls. Halls of residence are student accommodation.",
+     "definitionFit": "Halls, short for halls of residence, are the student accommodation blocks found at a university."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drag"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1102,74 @@
     "text": "Huge monster returning? No thanks, I've left!",
     "enumeration": "9"
    },
-   "solution": "LEVIATHAN"
+   "solution": "LEVIATHAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEVIATHAN",
+    "definitions": [
+     {
+      "text": "Huge monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the string of words is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NAH",
+      "note": "nah is a casual no"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thanks"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EVI",
+      "AT",
+      "HAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAHTAIVEL",
+       "to": "LEVIATHAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees a returning monster, shouting that they want no part of it and are off.",
+     "walkthrough": "The exclamation looks like the definition's punchline, but every word of it feeds the reversed string.",
+     "definitionFit": "Leviathan is the biblical sea beast, and the word now denotes anything enormous and powerful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1183,71 @@
     "text": "Copper tucked into fresh scampi and pepper",
     "enumeration": "8"
    },
-   "solution": "CAPSICUM"
+   "solution": "CAPSICUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CAPSICUM",
+    "definitions": [
+     {
+      "text": "pepper",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh suggests something made anew, so the seafood's letters are remade in another order"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into a thing is pushed inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scampi",
+      "gives": "SCAMPI",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPSI",
+      "CU",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCAMPI",
+       "gives": "CAPSIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman tucks into a plate of fresh scampi with pepper.",
+     "walkthrough": "'Copper' looks like a police officer eating, but it is the chemical element. Scampi are breaded fried prawns.",
+     "definitionFit": "Capsicum is the botanical genus of sweet and chilli peppers, and the usual name for a bell pepper in some countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1261,62 @@
     "text": "Maps mineral area to the west",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "Maps",
+      "at": 0,
+      "note": "a plural noun for a singular answer: the answer is a book of maps"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the west",
+      "for": "reversal",
+      "note": "in an across entry, heading west means running right to left, so the letters go backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mineral",
+      "gives": "SALT",
+      "note": "salt is a common mineral"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TLAS"
+     ],
+     "reversals": [
+      {
+       "from": "SALTA",
+       "to": "ATLAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist charts mineral deposits in a region to the west.",
+     "walkthrough": "'Maps' looks like a verb, but it is the definition as a noun.",
+     "definitionFit": "An atlas is a bound collection of charts of the world or a region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maps"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1330,66 @@
     "text": "Attacked and brought back spoils by sea",
     "enumeration": "7"
    },
-   "solution": "STORMED"
+   "solution": "STORMED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STORMED",
+    "definitions": [
+     {
+      "text": "Attacked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns along its path, so the word reads in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoils",
+      "gives": "ROTS",
+      "note": "food that spoils rots"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOR",
+      "MED"
+     ],
+     "reversals": [
+      {
+       "from": "ROTS",
+       "to": "STOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raiders attacked and carried off plunder by ship.",
+     "walkthrough": "'Spoils' looks like loot, which suits the pirate picture, but it is a verb meaning goes bad.",
+     "definitionFit": "To storm a position is to assault it violently, so the past tense matches made an assault on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1403,51 @@
     "text": "Drug's bearing on case",
     "enumeration": "8"
    },
-   "solution": "SEDATIVE"
+   "solution": "SEDATIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEDATIVE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bearing",
+      "gives": "SE",
+      "note": "SE, south-east, is a compass bearing"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "DATIVE",
+      "note": "the dative is a grammatical case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A medicine has an effect on a patient's condition.",
+     "walkthrough": "'Bearing on case' reads like relevance to a lawsuit or patient; it is a compass direction then a grammatical case.",
+     "definitionFit": "A sedative is a calming medicine that induces sleep or reduces anxiety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1461,55 @@
     "text": "Having bequests start from these belongings",
     "enumeration": "7"
    },
-   "solution": "TESTATE"
+   "solution": "TESTATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TESTATE",
+    "definitions": [
+     {
+      "text": "Having bequests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start from",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of these"
+     },
+     {
+      "clueFragment": "belongings",
+      "gives": "ESTATE",
+      "note": "an estate is everything a person owns, especially at death"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ESTATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaving gifts in a will, beginning with these possessions.",
+     "definitionFit": "A person dying testate has left a valid will, so their legacies are set out in writing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1523,67 @@
     "text": "Left poorly after eating yellow bit of broccoli",
     "enumeration": "6"
    },
-   "solution": "FLORET"
+   "solution": "FLORET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLORET",
+    "definitions": [
+     {
+      "text": "bit of broccoli",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "something poorly is out of sorts, so the letters are disordered"
+     },
+     {
+      "text": "after eating",
+      "for": "container",
+      "note": "having eaten something, a word holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "LEFT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "OR",
+      "note": "or is gold or yellow in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "OR",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEFT",
+       "gives": "FLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels unwell after eating a yellowing piece of broccoli.",
+     "walkthrough": "Or is the heraldic word for gold, standing for yellow here.",
+     "definitionFit": "A floret is one of the small flowering heads that make up a head of broccoli or cauliflower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1603,62 @@
      }
     ]
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "drama",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leads on",
+      "for": "letter_selection",
+      "note": "the leads of words are their front letters, so the first letter of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sets of",
+      "gives": "SO",
+      "select": "first",
+      "note": "the first letters of sets and of"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "APOP",
+      "note": "a pop means each, as in 'five pounds a pop'"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "APOP",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "Star actors working on the sets of every costume drama.",
+     "walkthrough": "'Period drama' is a strong phrase, but 'period' belongs to the wordplay and 'drama' alone is the definition.",
+     "definitionFit": "A soap opera is a long-running serial drama on TV or radio about the lives of a group of characters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "period"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1672,62 @@
     "text": "Cancel yearly bar crawl at centre",
     "enumeration": "5"
    },
-   "solution": "ANNUL"
+   "solution": "ANNUL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ANNUL",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at centre",
+      "for": "letter_selection",
+      "note": "at centre picks out the single middle letter of the word before it"
+     },
+     {
+      "text": "bar",
+      "for": "deletion",
+      "note": "bar means except, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yearly",
+      "gives": "ANNUAL",
+      "note": "annual means once a year"
+     },
+     {
+      "clueFragment": "crawl",
+      "gives": "A",
+      "select": "middle",
+      "note": "the middle letter of crawl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNU",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling off the annual pub crawl in the town centre.",
+     "walkthrough": "'Bar crawl' reads as a pub crawl, but 'bar' means minus and 'crawl at centre' is a single letter.",
+     "definitionFit": "To annul is to declare void or invalid, as with a marriage or contract, so it means revoke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1741,55 @@
     "text": "Early barely understood slang",
     "enumeration": "5"
    },
-   "solution": "ARGOT"
+   "solution": "ARGOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARGOT",
+    "definitions": [
+     {
+      "text": "slang",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "deletion",
+      "note": "barely suggests something stripped bare, so the word loses its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early",
+      "gives": "EARLY",
+      "note": "taken as written, then stripped down to its two inner letters"
+     },
+     {
+      "clueFragment": "understood",
+      "gives": "GOT",
+      "note": "to have got something is to have understood it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Early dialect that was hardly comprehended.",
+     "walkthrough": "Strip early of its first letter and its -ly ending, leaving AR, then add GOT.",
+     "definitionFit": "Argot is the jargon or private vocabulary of a particular group, such as thieves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1803,55 @@
     "text": "Small, hard tool making holes in woollen cloth",
     "enumeration": "5"
    },
-   "solution": "SHAWL"
+   "solution": "SHAWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAWL",
+    "definitions": [
+     {
+      "text": "woollen cloth",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "making holes in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "tool",
+      "gives": "AWL",
+      "note": "an awl is a pointed tool for piercing leather or wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A small hard tool punches holes in a piece of wool fabric.",
+     "walkthrough": "'Making holes' describes the awl and is not a container signal; the pieces simply run in order.",
+     "definitionFit": "A shawl is a piece of fabric, often knitted from wool, worn around the shoulders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1865,51 @@
     "text": "Filmmaker misrepresented Taichang Emperor",
     "enumeration": "15"
    },
-   "solution": "CINEMATOGRAPHER"
+   "solution": "CINEMATOGRAPHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINEMATOGRAPHER",
+    "definitions": [
+     {
+      "text": "Filmmaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misrepresented",
+      "for": "anagram",
+      "note": "something misrepresented is shown wrongly, so the letters are presented in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taichang Emperor",
+      "gives": "TAICHANGEMPEROR",
+      "note": "taken as written; the Taichang Emperor was a Ming ruler of China in 1620"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAICHANGEMPEROR",
+       "gives": "CINEMATOGRAPHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A director made a misleading film about a Chinese emperor.",
+     "walkthrough": "The obscure emperor's name is there only for its fifteen letters.",
+     "definitionFit": "A cinematographer is the director of photography who controls camera and lighting when shooting a movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Taichang"
+    }
+   }
   },
   {
    "number": 28,
@@ -437,7 +1923,66 @@
     "text": "Combine yttrium with oxygen in air",
     "enumeration": "6"
    },
-   "solution": "MELODY"
+   "solution": "MELODY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MELODY",
+    "definitions": [
+     {
+      "text": "air",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the element's symbol goes inside the letters already assembled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Combine",
+      "gives": "MELD",
+      "note": "to meld is to blend or combine"
+     },
+     {
+      "clueFragment": "yttrium",
+      "gives": "Y",
+      "note": "Y is the chemical symbol for yttrium"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEL",
+      "O",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry instruction to mix elements in the open air.",
+     "walkthrough": "'Air' looks like part of the chemistry, but it is the musical sense.",
+     "definitionFit": "An air is a tune or song, so it is the same as a musical line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 29,
@@ -451,7 +1996,78 @@
     "text": "What surfer may use, having disturbed the sea-eagle close to nest",
     "enumeration": "8"
    },
-   "solution": "ETHERNET"
+   "solution": "ETHERNET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ETHERNET",
+    "definitions": [
+     {
+      "text": "What surfer may use",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "disturbed means thrown out of place, so the letters of the little word are rearranged"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its last letter is taken"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "sea-eagle",
+      "gives": "ERNE",
+      "note": "the erne is the white-tailed sea eagle"
+     },
+     {
+      "clueFragment": "nest",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of nest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETH",
+      "ERNE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wave rider disturbs a sea eagle near its nest.",
+     "walkthrough": "The surfer looks like someone on a board, but is a web surfer.",
+     "definitionFit": "Ethernet is the standard wired networking technology for connecting computers to the internet, which web browsers rely on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surfer"
+    }
+   }
   }
  ]
 }

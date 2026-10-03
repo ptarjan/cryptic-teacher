@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,62 @@
     "text": "Certainly not a hundred drunk by spy, single glass",
     "enumeration": "7"
    },
-   "solution": "MONOCLE"
+   "solution": "MONOCLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MONOCLE",
+    "definitions": [
+     {
+      "text": "single glass",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk by",
+      "for": "container",
+      "note": "something drunk is taken in, so the first words are swallowed inside the spy word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "MOLE",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "Certainly not",
+      "gives": "NO",
+      "note": "a firm refusal"
+     },
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NO",
+      "C",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy pointedly refuses to down a hundred drinks, keeping one glass for show.",
+     "walkthrough": "'Drunk' looks like it describes the hundred drinks, but it means swallowed, so the refusal and the numeral go inside the spy.",
+     "definitionFit": "A monocle is a lens worn over one eye, a lone eyeglass rather than a pair of spectacles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +104,41 @@
     "text": "Writer hasn’t been identified in a little while",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "Writer hasn’t been identified",
+      "at": 0
+     },
+     {
+      "text": "in a little while",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer hasn’t been identified",
+      "note": "first meaning: the short form of anonymous, used where an author is unknown"
+     },
+     {
+      "clueFragment": "in a little while",
+      "note": "second meaning: an old word for soon"
+     }
+    ],
+    "explanation": {
+     "surface": "A mystery author will be unmasked any moment now.",
+     "definitionFit": "The abbreviation for anonymous credits unknown authors, and the archaic adverb means soon or shortly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +152,46 @@
     "text": "Mend about two",
     "enumeration": "6"
    },
-   "solution": "REPAIR"
+   "solution": "REPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPAIR",
+    "definitions": [
+     {
+      "text": "Mend",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "PAIR",
+      "note": "a pair is a set of two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fix roughly a couple of things.",
+     "definitionFit": "To repair something is to fix it, a plain synonym of mending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +205,73 @@
     "text": "Something to climb over drunk locates round back of pub",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "Something to climb over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the word locates loses its order"
+     },
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end of pub is kept"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it, so the jumbled word wraps the kept letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "locates",
+      "gives": "LOCATES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "B",
+      "select": "last",
+      "note": "the final letter of pub"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "STACLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCATES",
+       "gives": "OSTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk finds his way around the rear of the pub, over whatever is in his path.",
+     "definitionFit": "An obstacle is a barrier or hurdle in your way, the kind of thing you clamber over to get past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +285,53 @@
     "text": "Pacific region where nice Maoris scattered",
     "enumeration": "10"
    },
-   "solution": "MICRONESIA"
+   "solution": "MICRONESIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MICRONESIA",
+    "definitions": [
+     {
+      "text": "Pacific region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "things scattered are thrown about in disorder, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice Maoris",
+      "gives": "NICEMAORIS",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICEMAORIS",
+       "gives": "MICRONESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corner of the Pacific where friendly Maori people are dispersed among the islands.",
+     "definitionFit": "Micronesia is a group of small islands in the western Pacific Ocean, including several nations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nice"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +345,61 @@
     "text": "Go in off snooker ball pushed to one side",
     "enumeration": "7"
    },
-   "solution": "IGNORED"
+   "solution": "IGNORED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IGNORED",
+    "definitions": [
+     {
+      "text": "pushed to one side",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of order, so the letters before it are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go in",
+      "gives": "GOIN",
+      "note": "the letters of both words, to be rearranged"
+     },
+     {
+      "clueFragment": "snooker ball",
+      "gives": "RED",
+      "note": "the reds are the fifteen basic balls in snooker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGNO",
+      "RED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOIN",
+       "gives": "IGNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player's ball goes in off another and is cast aside.",
+     "walkthrough": "'In off' is a real snooker term for potting the cue ball off another ball, which hides the anagram signal. Snooker is a British table game played with fifteen red balls.",
+     "definitionFit": "Something ignored is disregarded or sidelined, deliberately given no attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +413,43 @@
     "text": "Chip worktop",
     "enumeration": "7"
    },
-   "solution": "COUNTER"
+   "solution": "COUNTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COUNTER",
+    "definitions": [
+     {
+      "text": "Chip",
+      "at": 0
+     },
+     {
+      "text": "worktop",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chip",
+      "note": "first meaning: a token used for betting in a casino"
+     },
+     {
+      "clueFragment": "worktop",
+      "note": "second meaning: a flat surface in a kitchen or shop"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chip and worktop together suggest a damaged kitchen surface, but each is a separate meaning.",
+     "definitionFit": "A gaming token is called a counter, and so is a kitchen or shop surface where food is prepared or goods served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chip"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +463,45 @@
     "text": "Curtail a card game",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABRIDGE",
+    "definitions": [
+     {
+      "text": "Curtail",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "card game",
+      "gives": "BRIDGE",
+      "note": "bridge is a card game for four players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts short a hand of cards.",
+     "definitionFit": "To abridge a text or event is to shorten it, a close synonym for cutting it short."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +515,62 @@
     "text": "The two are not, I gathered, rats!",
     "enumeration": "11"
    },
-   "solution": "BOTHERATION"
+   "solution": "BOTHERATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BOTHERATION",
+    "definitions": [
+     {
+      "text": "rats!",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathered",
+      "for": "anagram",
+      "note": "fabric that is gathered is bunched and rumpled, so the preceding letters are pulled out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The two",
+      "gives": "BOTH",
+      "note": "both means the two together"
+     },
+     {
+      "clueFragment": "are not, I",
+      "gives": "ARENOTI",
+      "note": "the letters of these words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTH",
+      "ERATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARENOTI",
+       "gives": "ERATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works out that a pair of creatures are not rats after all.",
+     "walkthrough": "'Rats!' looks like the conclusion of the sentence, but it is the definition as an exclamation of annoyance.",
+     "definitionFit": "Both words are mild exclamations of irritation, used when something goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rats"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +584,43 @@
     "text": "Turning circle, more or less",
     "enumeration": "10"
    },
-   "solution": "ROUNDABOUT"
+   "solution": "ROUNDABOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROUNDABOUT",
+    "definitions": [
+     {
+      "text": "Turning circle",
+      "at": 0
+     },
+     {
+      "text": "more or less",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turning circle",
+      "note": "first meaning: a circular road junction that traffic goes round"
+     },
+     {
+      "clueFragment": "more or less",
+      "note": "second meaning: approximately, in a vague or indirect way"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Turning circle' sounds like a car's steering measurement; here it is a traffic circle, which Britain calls by this name.",
+     "definitionFit": "A traffic circle is a circular junction, and as an adjective the word also means approximate or circuitous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +634,43 @@
     "text": "Man, that can fly!",
     "enumeration": "4"
    },
-   "solution": "ROOK"
+   "solution": "ROOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROOK",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     },
+     {
+      "text": "that can fly",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "note": "first meaning: a chess piece, which chess players call a man"
+     },
+     {
+      "clueFragment": "that can fly",
+      "note": "second meaning: a black bird of the crow family"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation suggests a man taking flight; a chessman and a bird share the name.",
+     "definitionFit": "The castle-shaped chess piece and the black crow-like bird both carry this four-letter name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +684,53 @@
     "text": "Rich, goal staggering for powerful ruler",
     "enumeration": "8"
    },
-   "solution": "OLIGARCH"
+   "solution": "OLIGARCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLIGARCH",
+    "definitions": [
+     {
+      "text": "powerful ruler",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "staggering",
+      "for": "anagram",
+      "note": "staggering means lurching about unsteadily, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rich, goal",
+      "gives": "RICHGOAL",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICHGOAL",
+       "gives": "OLIGARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy man's astonishing aim is to become a mighty ruler.",
+     "definitionFit": "An oligarch is one of a small group holding power, often a very wealthy business magnate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staggering"
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +750,50 @@
      }
     ]
    },
-   "solution": "GOODNESSME"
+   "solution": "GOODNESSME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOODNESS ME",
+    "definitions": [
+     {
+      "text": "I say!",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blurred",
+      "for": "anagram",
+      "note": "something blurred has lost its clear shape, so these letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moon’s edges",
+      "gives": "MOONSEDGES",
+      "note": "the letters of both words, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOONSEDGES",
+       "gives": "GOODNESSME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stargazer exclaims in surprise at the fuzzy rim of the moon.",
+     "definitionFit": "Both are mild exclamations of surprise, the kind of polite expression an old-fashioned speaker might use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +807,43 @@
     "text": "Pace of horse entering American territory",
     "enumeration": "6"
    },
-   "solution": "CANTER"
+   "solution": "CANTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANTER",
+    "definitions": [
+     {
+      "text": "Pace of horse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "hidden_word",
+      "note": "entering means going inside, so the answer is found sitting within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American territory",
+      "gives": "CANTER",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A rider trots a horse across the border into the United States.",
+     "walkthrough": "'Entering' reads as the horse crossing a border, but it signals that the answer is buried in the two words after it.",
+     "definitionFit": "This gait is a smooth three-beat run, quicker than a trot but slower than a gallop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entering"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +857,68 @@
     "text": "Container filled with grit, else toxic spirit",
     "enumeration": "11"
    },
-   "solution": "POLTERGEIST"
+   "solution": "POLTERGEIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "POLTERGEIST",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toxic",
+      "for": "anagram",
+      "note": "something toxic is corrupt or poisoned, so the letters of grit and else are corrupted into a new order"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a vessel filled with something holds it inside, so the container word wraps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "gives": "POT",
+      "note": "a pot is a vessel that holds things"
+     },
+     {
+      "clueFragment": "grit, else",
+      "gives": "GRITELSE",
+      "note": "the letters of both words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "LTERGEIS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRITELSE",
+       "gives": "LTERGEIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tub full of sand and something poisonous, which turns out to be a nasty drink.",
+     "walkthrough": "'Spirit' reads as alcohol after 'toxic', but it is a ghost.",
+     "definitionFit": "A poltergeist is a noisy ghost said to throw objects about, a kind of supernatural spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +932,55 @@
     "text": "Fielder’s skill is absent in this sport",
     "enumeration": "8"
    },
-   "solution": "THROWING"
+   "solution": "THROWING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THROWING",
+    "definitions": [
+     {
+      "text": "Fielder’s skill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is absent in",
+      "for": "deletion",
+      "note": "if the word is is absent, those letters are taken away from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written, before two letters are removed"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "ROWING",
+      "note": "rowing is the sport of racing boats with oars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ROWING"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket fielder's talent counts for nothing in this game.",
+     "walkthrough": "'This sport' seems to point back at cricket, but sport is simply rowing; THIS minus IS leaves TH.",
+     "definitionFit": "Fielders in cricket or baseball must return the ball accurately, so throwing is a key part of their craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absent"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +994,53 @@
     "text": "Joke about girl, prude",
     "enumeration": "7"
    },
-   "solution": "PURITAN"
+   "solution": "PURITAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PURITAN",
+    "definitions": [
+     {
+      "text": "prude",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the joke word goes round the girl's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on a word's double meaning"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "RITA",
+      "note": "a common girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "RITA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cracks a joke at a girl's expense, and she is far too prim to laugh.",
+     "definitionFit": "A puritan is someone with strict moral views who disapproves of pleasure, much like a prim, easily shocked person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1054,51 @@
     "text": "Heroism, surprisingly addictive",
     "enumeration": "7"
    },
-   "solution": "MOREISH"
+   "solution": "MOREISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOREISH",
+    "definitions": [
+     {
+      "text": "addictive",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly suggests an unexpected outcome, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heroism",
+      "gives": "HEROISM",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEROISM",
+       "gives": "MOREISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bravery turns out to be habit-forming.",
+     "walkthrough": "The word is informal British for food so tasty you want another helping.",
+     "definitionFit": "Food described this way is so tempting you cannot stop at one piece, a jokey form of addictive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1112,43 @@
     "text": "For example, a gramophone record artist",
     "enumeration": "6"
    },
-   "solution": "TURNER"
+   "solution": "TURNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNER",
+    "definitions": [
+     {
+      "text": "For example, a gramophone record",
+      "at": 0
+     },
+     {
+      "text": "artist",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, a gramophone record",
+      "note": "first meaning: something that spins round, as a record does on a player"
+     },
+     {
+      "clueFragment": "artist",
+      "note": "second meaning: J. M. W. ..., the English painter of seascapes and light"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Record artist' reads as a recording star, but the phrase splits after record.",
+     "definitionFit": "A record revolves on the turntable, so it is one thing that turns, and the surname is that of a celebrated painter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 20,
@@ -314,7 +1172,43 @@
      }
     ]
    },
-   "solution": "TAKEABOW"
+   "solution": "TAKEABOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE A BOW",
+    "definitions": [
+     {
+      "text": "Prepare to go on the fiddle?",
+      "at": 0
+     },
+     {
+      "text": "I applaud you!",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare to go on the fiddle?",
+      "note": "first meaning: pick up the stick a violinist draws across the strings"
+     },
+     {
+      "clueFragment": "I applaud you!",
+      "note": "second meaning: the phrase used to invite praise for a performer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On the fiddle' is British slang for cheating; here it means playing a violin.",
+     "definitionFit": "Taking a bow acknowledges applause, and a violinist literally takes up a bow before playing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1228,46 @@
      }
     ]
    },
-   "solution": "KEEPUP"
+   "solution": "KEEPUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEEP UP",
+    "definitions": [
+     {
+      "text": "stay with me!",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of castle",
+      "gives": "KEEP",
+      "note": "the keep is a castle's central stronghold tower"
+     },
+     {
+      "clueFragment": "built",
+      "gives": "UP",
+      "note": "a building that is put up has been built"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour guide shows off a castle wing and urges the group to follow closely.",
+     "definitionFit": "The command urges someone to match your pace and not fall behind, the same plea as asking them to stay close."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "built"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1281,41 @@
     "text": "Yearn for girl",
     "enumeration": "4"
    },
-   "solution": "MISS"
+   "solution": "MISS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MISS",
+    "definitions": [
+     {
+      "text": "Yearn for",
+      "at": 0
+     },
+     {
+      "text": "girl",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yearn for",
+      "note": "first meaning: to feel the lack of someone absent"
+     },
+     {
+      "clueFragment": "girl",
+      "note": "second meaning: a young unmarried woman, as a form of address"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as pining for a girlfriend; the two are separate meanings.",
+     "definitionFit": "To long for an absent person is to feel their absence, and the title for a young woman shares the spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -362,7 +1329,50 @@
     "text": "Merchant here allows fake",
     "enumeration": "10"
    },
-   "solution": "WHOLESALER"
+   "solution": "WHOLESALER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHOLESALER",
+    "definitions": [
+     {
+      "text": "Merchant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fake",
+      "for": "anagram",
+      "note": "a fake is a made-up version, so the letters are made up into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here allows",
+      "gives": "HEREALLOWS",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEREALLOWS",
+       "gives": "WHOLESALER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trader here permits counterfeit goods.",
+     "definitionFit": "A wholesaler is a trader who sells goods in bulk to shops, a kind of dealer or merchant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fake"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1386,50 @@
     "text": "Clever board has sacked leader",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacked leader",
+      "for": "deletion",
+      "note": "the leader is the first letter, and sacking it removes it from the word"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a table is a board, as in board and lodging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart board of directors has fired its chairman.",
+     "definitionFit": "Someone able is capable and competent, a fair match for clever or skilled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 25,
@@ -390,7 +1443,56 @@
     "text": "Member welcomed by man — top, say?",
     "enumeration": "7"
    },
-   "solution": "GARMENT"
+   "solution": "GARMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GARMENT",
+    "definitions": [
+     {
+      "text": "top, say",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "someone welcomed by a host is taken inside, so the member word goes inside the man word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "short for gentleman"
+     },
+     {
+      "clueFragment": "Member",
+      "gives": "ARM",
+      "note": "a limb is a member of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ARM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A club member is greeted by a gentleman who is the boss, perhaps.",
+     "walkthrough": "'Top' looks like the man in charge, but it is a piece of clothing; 'say' marks it as one example.",
+     "definitionFit": "A top is a shirt or jumper for the upper body, one example of an item of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 26,
@@ -404,7 +1506,45 @@
     "text": "Blade caused injury to female",
     "enumeration": "7"
    },
-   "solution": "CUTLASS"
+   "solution": "CUTLASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTLASS",
+    "definitions": [
+     {
+      "text": "Blade",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caused injury to",
+      "gives": "CUT",
+      "note": "to cut someone is to wound them"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "LASS",
+      "note": "a lass is a girl or young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A knife was used to wound a woman.",
+     "definitionFit": "A cutlass is a short curved sword with one sharp edge, the pirate's traditional weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }

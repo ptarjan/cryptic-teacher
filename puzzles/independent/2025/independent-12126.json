@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Smoke when discontented? Possibly smoke to become contented",
     "enumeration": "6"
    },
-   "solution": "SECURE"
+   "solution": "SECURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SECURE",
+    "definitions": [
+     {
+      "text": "contented",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "with its contents taken away, the word keeps only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smoke",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Possibly smoke",
+      "gives": "CURE",
+      "note": "to cure fish or meat is one way to smoke it, hence 'possibly'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy person reaches for a cigarette, hoping a smoke will cheer them up.",
+     "walkthrough": "The clue plays 'discontented' against 'contented': the first is the instruction to hollow out the first word, the second is the definition.",
+     "definitionFit": "Someone who is secure feels safe and untroubled, which is close to being happy with their lot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discontented"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,61 @@
     "text": "Saw insulted Labour leader leaving",
     "enumeration": "7"
    },
-   "solution": "SIGHTED"
+   "solution": "SIGHTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SIGHTED",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, at the front"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so it is removed from the word for insulted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insulted",
+      "gives": "SLIGHTED",
+      "note": "to slight someone is to insult them"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IGHTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted a slighted Labour Party leader walking out.",
+     "walkthrough": "SLIGHTED loses its L to leave SIGHTED.",
+     "definitionFit": "Having sighted something means having caught a glimpse of it, a past-tense synonym of spotted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,42 @@
     "text": "Car chase",
     "enumeration": "5"
    },
-   "solution": "CHEVY"
+   "solution": "CHEVY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHEVY",
+    "definitions": [
+     {
+      "text": "Car",
+      "at": 0
+     },
+     {
+      "text": "chase",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "note": "first meaning: an informal name for a Chevrolet automobile"
+     },
+     {
+      "clueFragment": "chase",
+      "note": "second meaning: a British verb, to hunt or harry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Car chase reads as an action-film set piece, but the two words are separate meanings; chevy (also chivvy) is an old British hunting word.",
+     "definitionFit": "The word names an American motor brand informally and is also a dated verb meaning to pursue or hound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chase"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,56 @@
     "text": "Scoundrel joins mother in port",
     "enumeration": "9"
    },
-   "solution": "ROTTERDAM"
+   "solution": "ROTTERDAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROTTERDAM",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joins",
+      "for": "charade",
+      "note": "one word joining another means they sit side by side, one after the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "ROTTER",
+      "note": "a rotter is a cad or scoundrel"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "dam is the mother of an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTTER",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue meets up with his mother at a harbour.",
+     "definitionFit": "Rotterdam in the Netherlands is Europe's largest seaport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +284,72 @@
     "text": "Church drops housing constraint at last, to be sure",
     "enumeration": "7"
    },
-   "solution": "CERTAIN"
+   "solution": "CERTAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CERTAIN",
+    "definitions": [
+     {
+      "text": "sure",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "housing something means holding it inside, so the precipitation word surrounds a letter"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word just before"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "drops",
+      "gives": "RAIN",
+      "note": "drops falling from the sky"
+     },
+     {
+      "clueFragment": "constraint",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of constraint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "R",
+      "T",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A church abandons its last restriction, apparently quite firmly.",
+     "walkthrough": "'Drops' looks like a verb about the church abandoning something; it is a noun meaning rain.",
+     "definitionFit": "Being certain of something is having no doubt about it, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +363,63 @@
     "text": "I'm not sure Earl is after fee for outfit",
     "enumeration": "7"
    },
-   "solution": "COSTUME"
+   "solution": "COSTUME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COSTUME",
+    "definitions": [
+     {
+      "text": "outfit",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is after",
+      "for": "charade",
+      "note": "being after another piece places these letters behind it in the line"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fee",
+      "gives": "COST",
+      "note": "a fee is a cost"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "UM",
+      "note": "um is the hesitant sound of doubt"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the abbreviation for Earl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COST",
+      "UM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dithering earl wonders what the charge is for hiring a costume.",
+     "walkthrough": "'I'm not sure' looks like part of the surface's hesitation; it is the filler sound a doubtful speaker makes.",
+     "definitionFit": "A costume is a set of clothes worn together, especially for a role or occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sure"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +433,51 @@
     "text": "Boundaries ignored by most angry judges",
     "enumeration": "5"
    },
-   "solution": "RATES"
+   "solution": "RATES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RATES",
+    "definitions": [
+     {
+      "text": "judges",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Boundaries ignored",
+      "for": "deletion",
+      "note": "ignoring the boundaries of a word drops its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most angry",
+      "gives": "IRATEST",
+      "note": "irate means angry, so irate-st is the most angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Furious judges brush aside the limits of the rules.",
+     "walkthrough": "IRATEST without its outer letters leaves RATES.",
+     "definitionFit": "To rate something is to assess or appraise it, so this is the verb for forming a verdict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boundaries"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +497,73 @@
      }
     ]
    },
-   "solution": "AGENTNOUN"
+   "solution": "AGENTNOUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGENT NOUN",
+    "definitions": [
+     {
+      "text": "employer?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding something means keeping it inside, so the nun surrounds a letter"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "a gent is a gentleman"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "NUN",
+      "note": "a nun is a religious sister"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GENT",
+      "N",
+      "O",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "An American, a man and a nun secretly in love, all working for one boss.",
+     "walkthrough": "'Employer' looks like a person who hires; it is a grammatical example, hence the question mark.",
+     "definitionFit": "Grammar term: a noun formed from a verb to denote the doer, like worker from work, which this example fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "employer"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +577,69 @@
     "text": "Former President is idiot, donning new gear regularly",
     "enumeration": "6"
    },
-   "solution": "NASSER"
+   "solution": "NASSER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NASSER",
+    "definitions": [
+     {
+      "text": "Former President",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, taking every other letter of gear"
+     },
+     {
+      "text": "donning",
+      "for": "container",
+      "note": "donning is putting on clothes, so the idiot is wrapped in the other letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "gear",
+      "gives": "ER",
+      "select": "alternate",
+      "note": "second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASS",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A slur on an ex-president: a fool dressed up in new kit.",
+     "definitionFit": "Gamal Abdel Nasser led Egypt as its second president, from 1956 until his death in 1970."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +653,66 @@
     "text": "Missing wife, went on English course",
     "enumeration": "6"
    },
-   "solution": "ENTREE"
+   "solution": "ENTREE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTREE",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Missing",
+      "for": "deletion",
+      "note": "missing the spouse means the word for went appears without that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went",
+      "gives": "WENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man without his wife carried on with an English class.",
+     "walkthrough": "'Went on' looks like a phrasal verb; 'on' works alone as RE. 'Course' suggests a class, but it is a course of a meal.",
+     "definitionFit": "An entree is a dish served as part of a meal, in Britain the one before the main dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +726,53 @@
     "text": "Perhaps his reign gets misinterpreted",
     "enumeration": "9"
    },
-   "solution": "GREETINGS"
+   "solution": "GREETINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREETINGS",
+    "definitions": [
+     {
+      "text": "Perhaps his",
+      "at": 0,
+      "note": "his is read as hi's, the plural of hi"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misinterpreted",
+      "for": "anagram",
+      "note": "something misinterpreted is read wrongly, so the letters are taken in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reign gets",
+      "gives": "REIGNGETS",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REIGNGETS",
+       "gives": "GREETINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's rule could be seen in quite the wrong light.",
+     "walkthrough": "'his' looks like a possessive pronoun; it is the plural of the word hi, and saying hi is an example of a greeting.",
+     "definitionFit": "Each hi is a salutation, so several of them are examples of welcomes offered on meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "his"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +786,47 @@
     "text": "Youngsters support Poles",
     "enumeration": "5"
    },
-   "solution": "TEENS"
+   "solution": "TEENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEENS",
+    "definitions": [
+     {
+      "text": "Youngsters",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee is the peg supporting a golf ball"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "N and S, the north and south poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Young people back Polish people.",
+     "walkthrough": "'Poles' looks like the nationality; it is the two compass poles.",
+     "definitionFit": "Teens are people aged thirteen to nineteen, so adolescents or young people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +840,56 @@
     "text": "Leaves your old mate on vacation",
     "enumeration": "5"
    },
-   "solution": "THYME"
+   "solution": "THYME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THYME",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacated means emptied, so only the outer letters of mate stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "your old",
+      "gives": "THY",
+      "note": "thy is the old form of your"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "ME",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THY",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "Your old friend goes off on holiday.",
+     "walkthrough": "'Leaves' looks like a verb of departure; it is the noun, a herb's foliage.",
+     "definitionFit": "Thyme is a herb whose small leaves are used for flavouring in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +903,42 @@
     "text": "Generous setter protects fruit bat",
     "enumeration": "9"
    },
-   "solution": "ROUSSETTE"
+   "solution": "ROUSSETTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ROUSSETTE",
+    "definitions": [
+     {
+      "text": "fruit bat",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protects",
+      "for": "hidden_word",
+      "note": "protecting something means keeping it safely inside, here inside the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generous setter",
+      "gives": "ROUSSETTE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A kindly crossword compiler looks after a bat.",
+     "definitionFit": "Rousettes are large Old World fruit-eating bats, also called flying foxes; the setter uses an alternative spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protects"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +962,49 @@
      }
     ]
    },
-   "solution": "DOORDIE"
+   "solution": "DOORDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DO-OR-DIE",
+    "definitions": [
+     {
+      "text": "very determined",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entrance",
+      "gives": "DOOR",
+      "note": "a door is an entrance"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DIE",
+      "note": "die is a German word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOOR",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A German doorway proves extremely resolute.",
+     "definitionFit": "A do-or-die attitude is one of total commitment, ready to win or perish trying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Entrance"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1018,55 @@
     "text": "Watchful old bishop gets help",
     "enumeration": "9"
    },
-   "solution": "OBSERVANT"
+   "solution": "OBSERVANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSERVANT",
+    "definitions": [
+     {
+      "text": "Watchful",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "SERVANT",
+      "note": "a servant is a domestic help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SERVANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An alert elderly cleric acquires assistance.",
+     "definitionFit": "An observant person notices things and keeps alert, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1080,45 @@
     "text": "Convert from Islam in national park?",
     "enumeration": "6"
    },
-   "solution": "EXMOOR"
+   "solution": "EXMOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXMOOR",
+    "definitions": [
+     {
+      "text": "national park?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convert from Islam",
+      "gives": "EXMOOR",
+      "note": "a former Moor: someone who was once a Muslim of North Africa but has converted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXMOOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has left Islam is found in a national park.",
+     "walkthrough": "Split as EX MOOR: ex means former and a Moor is a North African Muslim. Exmoor is a national park in south-west England.",
+     "definitionFit": "Exmoor is moorland in Somerset and Devon designated one of England's protected landscapes in 1954."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Convert"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1132,53 @@
     "text": "Alarm mode activated in emotive play",
     "enumeration": "9"
    },
-   "solution": "MELODRAMA"
+   "solution": "MELODRAMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MELODRAMA",
+    "definitions": [
+     {
+      "text": "emotive play",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "activated",
+      "for": "anagram",
+      "note": "activated means set going, so the letters are stirred into motion and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alarm mode",
+      "gives": "ALARMMODE",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALARMMODE",
+       "gives": "MELODRAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar alarm goes off during a tense stage show.",
+     "definitionFit": "A melodrama is a sensational dramatic piece with exaggerated characters designed to stir the feelings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "activated"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1192,65 @@
     "text": "Chemical entity, close to another one, and one or other close to another",
     "enumeration": "6"
    },
-   "solution": "ISOMER"
+   "solution": "ISOMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ISOMER",
+    "definitions": [
+     {
+      "text": "Chemical entity, close to another",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its ending, so take the final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "one or other",
+      "gives": "SOME",
+      "note": "as in 'some person', meaning one or other unspecified"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SOME",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry description of a molecule closely resembling its neighbour.",
+     "walkthrough": "'close to another' does double duty: in the definition it means similar, in the wordplay it means the last letter of another.",
+     "definitionFit": "An isomer is a compound with the same atoms as another arranged differently, so the two are close relations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1264,68 @@
     "text": "Degenerate put up trellis after one departs",
     "enumeration": "7"
    },
-   "solution": "RELAPSE"
+   "solution": "RELAPSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RELAPSE",
+    "definitions": [
+     {
+      "text": "Degenerate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departs",
+      "for": "deletion",
+      "note": "the numeral departing means it is taken out of the trellis word"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up means writing it bottom to top"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trellis",
+      "gives": "ESPALIER",
+      "note": "an espalier is a lattice on which fruit trees are trained flat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELAPSE"
+     ],
+     "reversals": [
+      {
+       "from": "ESPALER",
+       "to": "RELAPSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wastrel erects a garden trellis once someone has left.",
+     "walkthrough": "'Degenerate' looks like a noun for a depraved person; it is a verb, to get worse.",
+     "definitionFit": "To relapse is to fall back into a worse state after improving, so to deteriorate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Degenerate"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1339,53 @@
     "text": "Post Office loaned a staple",
     "enumeration": "7"
    },
-   "solution": "POLENTA"
+   "solution": "POLENTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POLENTA",
+    "definitions": [
+     {
+      "text": "staple",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for Post Office"
+     },
+     {
+      "clueFragment": "loaned",
+      "gives": "LENT",
+      "note": "loaned means lent"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "LENT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "The Post Office lent someone a staple for their papers.",
+     "walkthrough": "'Staple' suggests stationery; it is a basic food.",
+     "definitionFit": "Polenta, boiled cornmeal, is a basic everyday food in northern Italy, which makes it a dietary mainstay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "staple"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1399,65 @@
     "text": "Sleep around, and score in rugby store",
     "enumeration": "6"
    },
-   "solution": "PANTRY"
+   "solution": "PANTRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PANTRY",
+    "definitions": [
+     {
+      "text": "store",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around makes the word for sleep face the other way"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     },
+     {
+      "clueFragment": "score in rugby",
+      "gives": "TRY",
+      "note": "a try is the main way of scoring points in rugby"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "TRY"
+     ],
+     "reversals": [
+      {
+       "from": "NAP",
+       "to": "PAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promiscuous rugby player boasts about his tries.",
+     "walkthrough": "'Sleep around' reads as a phrase about promiscuity; the two words are a noun and its reversal signal.",
+     "definitionFit": "A pantry is a small room or cupboard where food is kept, so a store."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1471,52 @@
     "text": "Increase mutagen supply",
     "enumeration": "7"
    },
-   "solution": "AUGMENT"
+   "solution": "AUGMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUGMENT",
+    "definitions": [
+     {
+      "text": "Increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, flexibly, so the letters bend into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mutagen",
+      "gives": "MUTAGEN",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUTAGEN",
+       "gives": "AUGMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lab orders more of a substance that causes genetic mutation.",
+     "walkthrough": "'Supply' looks like a noun or verb about provision; read it as supple-y, meaning in a supple way.",
+     "definitionFit": "To augment something is to make it larger or add to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1536,46 @@
      }
     ]
    },
-   "solution": "ATWILL"
+   "solution": "ATWILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT WILL",
+    "definitions": [
+     {
+      "text": "When one chooses",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Scottish fabric",
+      "gives": "TWILL",
+      "note": "twill is a diagonally ribbed cloth; the Scots form tweel gave tweed its name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TWILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Pick whichever tartan cloth you fancy.",
+     "definitionFit": "Doing something at will means doing it whenever you like, as and when you choose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chooses"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1589,51 @@
     "text": "Cover urinal apt to wobble",
     "enumeration": "9"
    },
-   "solution": "TARPAULIN"
+   "solution": "TARPAULIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TARPAULIN",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wobble",
+      "for": "anagram",
+      "note": "something wobbling is unsteady, so the letters shift out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urinal apt",
+      "gives": "URINALAPT",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URINALAPT",
+       "gives": "TARPAULIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Throw a sheet over that rickety public toilet.",
+     "definitionFit": "A tarpaulin is a large waterproof sheet used to protect things from the weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Cover"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1647,42 @@
     "text": "Kamikaze ritual enthrals Asian",
     "enumeration": "5"
    },
-   "solution": "AZERI"
+   "solution": "AZERI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AZERI",
+    "definitions": [
+     {
+      "text": "Asian",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthrals",
+      "for": "hidden_word",
+      "note": "to enthral once meant to hold captive, so the answer is held inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kamikaze ritual",
+      "gives": "AZERI",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A suicide pilot's ceremony captivates a visitor from the East.",
+     "definitionFit": "An Azeri is a person from Azerbaijan, in the Caucasus at the edge of western Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enthrals"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1696,56 @@
     "text": "Behaving as wild dog, Oscar advanced",
     "enumeration": "5"
    },
-   "solution": "DOING"
+   "solution": "DOING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DOING",
+    "definitions": [
+     {
+      "text": "Behaving as",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "advanced",
+      "for": "container",
+      "note": "advanced means moved forward, so the letter is taken out and set back in nearer the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild dog",
+      "gives": "DINGO",
+      "note": "the dingo is the wild dog of Australia"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "O",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild dog impersonator, promoted by an Oscar win.",
+     "walkthrough": "DINGO has its O moved up to second place.",
+     "definitionFit": "Doing a role, as in doing a Scrooge, means acting the part or imitating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1759,54 @@
     "text": "Like the Taoiseach, former British PM cycles",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "Like the Taoiseach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycles",
+      "for": "cycling",
+      "note": "cycling moves letters round from one end of the word to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former British PM",
+      "gives": "RISHI",
+      "note": "Rishi Sunak, UK prime minister 2022 to 2024"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RISHI",
+       "gives": "IRISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-premier of Britain goes on a bike ride, like Ireland's leader.",
+     "walkthrough": "Move the R from the front of RISHI to the back. The Taoiseach is the prime minister of Ireland.",
+     "definitionFit": "The Taoiseach heads the government of Ireland and is of that nation, so the adjective fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cycles"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1820,46 @@
     "text": "Setter is mature in photograph?",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "photograph?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter is",
+      "gives": "IM",
+      "note": "the setter says I am, shortened to I'm"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to age is to mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "The compiler appears older in a snapshot.",
+     "definitionFit": "A photograph is one kind of picture or likeness, hence the question mark on an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1873,54 @@
     "text": "Give up art careers to provide medicine",
     "enumeration": "9"
    },
-   "solution": "PURGATIVE"
+   "solution": "PURGATIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PURGATIVE",
+    "definitions": [
+     {
+      "text": "medicine",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "careers",
+      "for": "anagram",
+      "note": "to career is to rush about wildly, so the letters hurtle out of order"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give up art",
+      "gives": "GIVEUPART",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIVEUPART",
+       "gives": "PURGATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to abandon artistic jobs for medicine.",
+     "walkthrough": "'careers' looks like a plural noun about jobs; it is the verb, to rush headlong.",
+     "definitionFit": "A purgative is a strong laxative drug that empties the bowels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "careers"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1934,54 @@
     "text": "Reliant on working toilet",
     "enumeration": "7"
    },
-   "solution": "LATRINE"
+   "solution": "LATRINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LATRINE",
+    "definitions": [
+     {
+      "text": "toilet",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means being worked on, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reliant",
+      "gives": "RELIANT",
+      "note": "taken as written as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELIANT",
+       "gives": "LATRINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone depends on a lavatory that functions.",
+     "walkthrough": "'Reliant' may suggest the Reliant Robin, a British three-wheeled car; here it is just letters.",
+     "definitionFit": "A latrine is a simple communal lavatory, as in a camp or barracks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1995,45 @@
     "text": "Dictator's ostentatious walk to get packet of ketchup?",
     "enumeration": "6"
    },
-   "solution": "SACHET"
+   "solution": "SACHET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SACHET",
+    "definitions": [
+     {
+      "text": "packet of ketchup?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dictator's",
+      "for": "homophone",
+      "note": "a dictator here is one who dictates, speaking words for another to write down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ostentatious walk",
+      "gives": "SACHET",
+      "soundsLike": "SASHAY",
+      "note": "to sashay is to walk in a showy, swaggering way"
+     }
+    ],
+    "explanation": {
+     "surface": "A tyrant swaggers off to fetch a sauce portion.",
+     "walkthrough": "'Dictator' looks like a tyrant; it means a speaker dictating, so the next words are heard.",
+     "definitionFit": "A sachet is a small sealed packet, and single portions of ketchup often come in one, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dictator's"
+    }
+   }
   }
  ]
 }

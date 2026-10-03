@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,72 @@
     "text": "Playing Riga, go around European country",
     "enumeration": "7"
    },
-   "solution": "GEORGIA"
+   "solution": "GEORGIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GEORGIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing about with letters means juggling them into some fresh order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around tells us the shuffled letters wrap themselves about another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Riga",
+      "gives": "RIGA",
+      "note": "the Latvian capital, taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "E",
+      "ORGIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIGAGO",
+       "gives": "GORGIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team plays in Riga and then tours round another European country.",
+     "walkthrough": "'Playing' looks like a sports team in action, but it only tells you to rearrange letters before the E goes in.",
+     "definitionFit": "Georgia is a nation in the Caucasus, between Russia and Turkey, so it is a straightforward example of a sovereign state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +114,60 @@
     "text": "Fool not entirely following chat about your stomach",
     "enumeration": "7"
    },
-   "solution": "GASTRIC"
+   "solution": "GASTRIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GASTRIC",
+    "definitions": [
+     {
+      "text": "about your stomach",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means one letter short of complete, so the final one is dropped"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the shortened word after the other piece in reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chat",
+      "gives": "GAS",
+      "note": "to gas is to chat idly"
+     },
+     {
+      "clueFragment": "Fool",
+      "gives": "TRICK",
+      "note": "to fool someone is to trick them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "TRIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone half-fooling around after a chat about digestion.",
+     "walkthrough": "'Following' sends the shortened word to the end, and 'chat' here is idle talk, in the slangy sense of hot air.",
+     "definitionFit": "Gastric is the adjective for things relating to the stomach, so it describes anything concerning that organ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fool"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +181,67 @@
     "text": "Late, drove badly and periodically fumed",
     "enumeration": "7"
    },
-   "solution": "OVERDUE"
+   "solution": "OVERDUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVERDUE",
+    "definitions": [
+     {
+      "text": "Late",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is messed up, so the preceding word's letters are jumbled"
+     },
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so only every other letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drove",
+      "gives": "DROVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fumed",
+      "gives": "UE",
+      "select": "alternate",
+      "note": "the second and fourth letters of fumed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERD",
+      "UE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DROVE",
+       "gives": "OVERD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running behind, a driver drove poorly and seethed now and then.",
+     "definitionFit": "Overdue means arriving after the expected or scheduled time, so it is a synonym for late."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +255,47 @@
     "text": "By the sound of it, gather in country",
     "enumeration": "5"
    },
-   "solution": "GHANA"
+   "solution": "GHANA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GHANA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "these words say we want what a word sounds like, not how it is written"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gather",
+      "gives": "GHANA",
+      "soundsLike": "GARNER",
+      "note": "to garner is to gather, and in a non-rhotic British accent it is said like the West African nation"
+     }
+    ],
+    "explanation": {
+     "surface": "Apparently someone is collecting things out in the countryside.",
+     "walkthrough": "The homophone works in British English, where the R in garner is silent.",
+     "definitionFit": "Ghana is a nation on the Gulf of Guinea in West Africa, a straightforward example of a sovereign state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +309,44 @@
     "text": "Somewhat mean tip, as tiny course",
     "enumeration": "9"
    },
-   "solution": "ANTIPASTI"
+   "solution": "ANTIPASTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTIPASTI",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 27,
+      "note": "the answer is plural, a set of dishes served as one course"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of something, so the answer is a section of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean tip, as tiny",
+      "gives": "ANTIPASTI",
+      "note": "found running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A stingy diner leaves a small tip, matching the meagre portions.",
+     "walkthrough": "The letters run from meAN TIP AS TIny.",
+     "definitionFit": "Antipasti are Italian starters, the selection of cold meats and vegetables served as the opening part of a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +360,55 @@
     "text": "Forces English soccer to reform",
     "enumeration": "7"
    },
-   "solution": "COERCES"
+   "solution": "COERCES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COERCES",
+    "definitions": [
+     {
+      "text": "Forces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to reform",
+      "for": "anagram",
+      "note": "to reform something is to reshape it, so the letters before it are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual abbreviation for English"
+     },
+     {
+      "clueFragment": "soccer",
+      "gives": "SOCCER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESOCCER",
+       "gives": "COERCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is pressuring English football's authorities into overhauling the game.",
+     "definitionFit": "To coerce someone is to compel them by pressure or threats, a synonym for the verb forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Forces"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +422,47 @@
     "text": "Bad guy and French trainee policeman?",
     "enumeration": "5"
    },
-   "solution": "CADET"
+   "solution": "CADET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CADET",
+    "definitions": [
+     {
+      "text": "trainee policeman?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad guy",
+      "gives": "CAD",
+      "note": "a cad is a man who behaves dishonourably"
+     },
+     {
+      "clueFragment": "and French",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain and a Frenchman enrol at the police academy.",
+     "walkthrough": "The question mark admits that a police recruit is only one kind of cadet; military trainees are another.",
+     "definitionFit": "A cadet is a young person training for a disciplined service, such as the police force or armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +476,51 @@
     "text": "Leaderless uprising in development",
     "enumeration": "9"
    },
-   "solution": "EVOLUTION"
+   "solution": "EVOLUTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVOLUTION",
+    "definitions": [
+     {
+      "text": "development",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaderless",
+      "for": "deletion",
+      "note": "without a leader means the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uprising",
+      "gives": "REVOLUTION",
+      "note": "an uprising against rulers is a revolution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOLUTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellion without a figurehead is still forming.",
+     "walkthrough": "Leaderless is apt in the surface, since rebellions often have figureheads; here it only removes the R.",
+     "definitionFit": "Evolution is gradual change and growth over time, which is a synonym for development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaderless"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +534,54 @@
     "text": "Some butter absorbed by spiced tea bread",
     "enumeration": "7"
    },
-   "solution": "CHAPATI"
+   "solution": "CHAPATI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAPATI",
+    "definitions": [
+     {
+      "text": "bread",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "something absorbed is taken right inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiced tea",
+      "gives": "CHAI",
+      "note": "chai is Indian tea brewed with spices"
+     },
+     {
+      "clueFragment": "Some butter",
+      "gives": "PAT",
+      "note": "a pat is a small slab of butter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "PAT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A knob of butter melting into flatbread served with masala tea.",
+     "definitionFit": "A chapati is an unleavened Indian flatbread cooked on a griddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +601,63 @@
      }
     ]
    },
-   "solution": "STATION"
+   "solution": "STATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STATION",
+    "definitions": [
+     {
+      "text": "Paddington?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding something keeps it tucked away inside, so one piece is concealed in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Figure",
+      "gives": "STAT",
+      "note": "a stat is a statistic, a figure"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "I",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear-like figure lying low above Paddington.",
+     "walkthrough": "'Paddington' summons the bear from the children's books; the question mark signals the London rail terminus of that name instead.",
+     "definitionFit": "Paddington is a major London railway terminus, so it is one example of a train stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Paddington"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +671,71 @@
     "text": "Rod perhaps gets water on flipping paintings etc",
     "enumeration": "7"
    },
-   "solution": "STEWART"
+   "solution": "STEWART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STEWART",
+    "definitions": [
+     {
+      "text": "Rod perhaps",
+      "at": 0,
+      "note": "a definition by example: Rod Stewart is one bearer of the surname"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way, so the word for water is read backwards"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on places one piece directly beside the next in the finished word"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "WETS",
+      "note": "to water a plant is to wet it, giving the verb form wets"
+     },
+     {
+      "clueFragment": "paintings etc",
+      "gives": "ART",
+      "note": "paintings, sculptures and the like are art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEW",
+      "ART"
+     ],
+     "reversals": [
+      {
+       "from": "WETS",
+       "to": "STEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man with a fishing rod collects water while flicking through paintings and the like.",
+     "walkthrough": "'Rod' looks like a fishing rod, but it is the singer Rod Stewart; the 'perhaps' warns that he is just one example.",
+     "definitionFit": "Stewart is the surname of the singer Rod Stewart, so Rod is a famous first name paired with it here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rod"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +749,57 @@
     "text": "Fashion designer with a postgraduate degree makes a scene",
     "enumeration": "7"
    },
-   "solution": "DIORAMA"
+   "solution": "DIORAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIORAMA",
+    "definitions": [
+     {
+      "text": "a scene",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion designer",
+      "gives": "DIOR",
+      "note": "Christian Dior, the French couturier"
+     },
+     {
+      "clueFragment": "with a",
+      "gives": "A",
+      "note": "the article a; with simply joins it on"
+     },
+     {
+      "clueFragment": "postgraduate degree",
+      "gives": "MA",
+      "note": "MA is a Master of Arts degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIOR",
+      "A",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A couturier who has also earned a master's degree causes a fuss.",
+     "walkthrough": "'Makes a scene' reads as an idiom for kicking up a fuss, but 'a scene' alone is the definition.",
+     "definitionFit": "A diorama is a three-dimensional model representing a scene, often in a museum display case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scene"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +819,51 @@
      }
     ]
    },
-   "solution": "REDCARPET"
+   "solution": "REDCARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED CARPET",
+    "definitions": [
+     {
+      "text": "special welcome",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Racecourse",
+      "gives": "REDCAR",
+      "note": "Redcar is a horse-racing course in North Yorkshire, England"
+     },
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a teacher's pet is the favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDCAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "The horse fancied at a racecourse receives a celebratory reception.",
+     "walkthrough": "'Favourite' reads as the betting favourite in a race, but here it means a pet.",
+     "definitionFit": "Rolling out a carpet in that colour is the idiomatic way of giving an important visitor a lavish ceremonial reception."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "favourite"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +877,46 @@
     "text": "I'm not sure about that Parisian's friend's taste",
     "enumeration": "5"
    },
-   "solution": "UMAMI"
+   "solution": "UMAMI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UMAMI",
+    "definitions": [
+     {
+      "text": "taste",
+      "at": 44
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm not sure about that",
+      "gives": "UM",
+      "note": "the hesitant noise of someone who doubts something"
+     },
+     {
+      "clueFragment": "Parisian's friend",
+      "gives": "AMI",
+      "note": "ami is French for friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "AMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubter questions whether a French person's friend has good taste.",
+     "definitionFit": "Umami is the savoury flavour counted as the fifth basic one alongside sweet, sour, salt and bitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taste"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +930,56 @@
     "text": "Stuff from the dairy, stuff full of energy",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "Stuff from the dairy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a thing holds it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "CRAM",
+      "note": "to stuff a bag is to cram it"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Dairy produce, rich and packed with calories.",
+     "walkthrough": "The repeated 'stuff' changes jobs: first a noun for produce in the definition, then a verb meaning to pack tightly in the wordplay.",
+     "definitionFit": "Cream is the fatty layer skimmed from milk, one of the main products a dairy makes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +993,62 @@
     "text": "Spice girl barely tours north-eastern Australian city",
     "enumeration": "9"
    },
-   "solution": "MELBOURNE"
+   "solution": "MELBOURNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MELBOURNE",
+    "definitions": [
+     {
+      "text": "Australian city",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "letter_selection",
+      "note": "barely suggests stripped bare, so the word loses its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spice girl",
+      "gives": "MELB",
+      "note": "Mel B, Scary Spice, was a member of the Spice Girls pop group"
+     },
+     {
+      "clueFragment": "tours",
+      "gives": "OUR",
+      "select": "middle",
+      "note": "the inner letters of tours"
+     },
+     {
+      "clueFragment": "north-eastern",
+      "gives": "NE",
+      "note": "NE is the compass abbreviation for north-eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MELB",
+      "OUR",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop singer, scantily clad, travels around a city in north-east Australia.",
+     "walkthrough": "'North-eastern Australian city' looks like the definition, but Melbourne is in the south-east; north-eastern is wordplay.",
+     "definitionFit": "Melbourne is the state capital of Victoria and the second largest metropolis in Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1062,77 @@
     "text": "Distrust of South American private eye, one visiting crook",
     "enumeration": "9"
    },
-   "solution": "SUSPICION"
+   "solution": "SUSPICION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUSPICION",
+    "definitions": [
+     {
+      "text": "Distrust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes inside someone's home, so the one stands within the word for crook"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for South"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US, the United States, for American"
+     },
+     {
+      "clueFragment": "private eye",
+      "gives": "PI",
+      "note": "PI is a private investigator"
+     },
+     {
+      "clueFragment": "crook",
+      "gives": "CON",
+      "note": "a con man is a crook"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PI",
+      "C",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Mistrust of a South American detective who calls on a criminal.",
+     "walkthrough": "'South American' looks like one idea, but it splits into S and US.",
+     "definitionFit": "Suspicion is a feeling that someone cannot be trusted, which is the noun distrust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1146,39 @@
     "text": "Go for a stroll when you're out for the night?",
     "enumeration": "9"
    },
-   "solution": "SLEEPWALK"
+   "solution": "SLEEPWALK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SLEEPWALK",
+    "definitions": [
+     {
+      "text": "Go for a stroll when you're out for the night?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go for a stroll when you're out for the night?",
+      "note": "surface reading: heading out on an evening walk"
+     },
+     {
+      "clueFragment": "out for the night",
+      "note": "setter's reading: being out cold, fast asleep, while still on the move"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Out for the night' sounds like a night on the town, but it means asleep.",
+     "definitionFit": "Somnambulism means walking about while asleep, so a sleeper taking a stroll is doing exactly that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1192,55 @@
     "text": "Moon affected little sea",
     "enumeration": "9"
    },
-   "solution": "SATELLITE"
+   "solution": "SATELLITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATELLITE",
+    "definitions": [
+     {
+      "text": "Moon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered, so the following words are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little",
+      "gives": "LITTLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LITTLESEA",
+       "gives": "SATELLITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Moon's pull has influenced a small sea's tides.",
+     "definitionFit": "A moon is a natural body orbiting a planet, which is exactly what a satellite is in astronomy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 17,
@@ -310,7 +1254,60 @@
     "text": "Sound contented – it's revolutionary support for a jockey",
     "enumeration": "7"
    },
-   "solution": "STIRRUP"
+   "solution": "STIRRUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STIRRUP",
+    "definitions": [
+     {
+      "text": "support for a jockey",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the joined pieces are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound contented",
+      "gives": "PURR",
+      "note": "a cat purrs when contented"
+     },
+     {
+      "clueFragment": "it's",
+      "gives": "ITS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STI",
+      "RRUP"
+     ],
+     "reversals": [
+      {
+       "from": "PURRITS",
+       "to": "STIRRUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy noise accompanies an innovative piece of riding equipment.",
+     "definitionFit": "A stirrup is the loop hanging from a saddle in which a rider rests a foot, so it holds up the horseman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1321,49 @@
     "text": "Writer told story, omitting every fourth character",
     "enumeration": "7"
    },
-   "solution": "TOLSTOY"
+   "solution": "TOLSTOY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOLSTOY",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitting every fourth character",
+      "for": "deletion",
+      "note": "omitting means leaving out, and every fourth character picks which letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told story",
+      "gives": "TOLDSTORY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOLSTOY"
+     ]
+    },
+    "explanation": {
+     "surface": "An author narrated a tale but skipped some of the characters in it.",
+     "walkthrough": "The fourth and eighth letters, D and R, go from TOLDSTORY to leave TOLSTOY; 'character' teases a person in a story.",
+     "definitionFit": "Leo Tolstoy was the Russian novelist who wrote War and Peace and Anna Karenina."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1377,66 @@
     "text": "Calls former England goalkeeper back, ignoring the first answer",
     "enumeration": "5"
    },
-   "solution": "NAMES"
+   "solution": "NAMES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NAMES",
+    "definitions": [
+     {
+      "text": "Calls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring the first",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, and the first says only the earliest instance goes"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back runs the word in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former England goalkeeper",
+      "gives": "SEAMAN",
+      "note": "David Seaman kept goal for England in the 1990s and early 2000s"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAMES"
+     ],
+     "reversals": [
+      {
+       "from": "SEMAN",
+       "to": "NAMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone phones an ex-England goalkeeper back without taking the first reply.",
+     "walkthrough": "Remove the first A from SEAMAN to leave SEMAN, then read it backwards for NAMES.",
+     "definitionFit": "To call someone something is to name them, so calls and names are matching third-person verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Calls"
+    }
+   }
   },
   {
    "number": 20,
@@ -352,7 +1450,59 @@
     "text": "American subject receiving award for play",
     "enumeration": "7"
    },
-   "solution": "MACBETH"
+   "solution": "MACBETH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACBETH",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American subject",
+      "gives": "MATH",
+      "note": "math is the American name for the school subject"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "CBE",
+      "note": "CBE, Commander of the Order of the British Empire, is a British honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CBE",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A US citizen accepts an honour for a theatre production.",
+     "walkthrough": "Subject looks like a citizen of a country, but it is a school subject; British English says maths.",
+     "definitionFit": "Macbeth is Shakespeare's tragedy about a Scottish nobleman who murders his king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1516,55 @@
     "text": "Diagnoses ultimately encourage doctor",
     "enumeration": "7"
    },
-   "solution": "SURGEON"
+   "solution": "SURGEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SURGEON",
+    "definitions": [
+     {
+      "text": "doctor",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diagnoses",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of diagnoses"
+     },
+     {
+      "clueFragment": "encourage",
+      "gives": "URGEON",
+      "note": "to urge on is to encourage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "Medical findings finally prompt a GP to act.",
+     "definitionFit": "A surgeon is a medical practitioner who operates, so is one kind of physician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1578,57 @@
     "text": "High floor with no walls in White House?",
     "enumeration": "5"
    },
-   "solution": "IGLOO"
+   "solution": "IGLOO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IGLOO",
+    "definitions": [
+     {
+      "text": "White House?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no walls",
+      "for": "letter_selection",
+      "note": "walls are the outer edges, so without them only the inner letters of each word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High",
+      "gives": "IG",
+      "select": "middle",
+      "note": "the word high with its first and last letters stripped"
+     },
+     {
+      "clueFragment": "floor",
+      "gives": "LOO",
+      "select": "middle",
+      "note": "the word floor with its first and last letters stripped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IG",
+      "LOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A lofty storey without any walls in the US President's residence.",
+     "walkthrough": "'White House' wants to be the President's home; the question mark flags a whimsical sense, a house made of white snow.",
+     "definitionFit": "An igloo is an Inuit shelter built from blocks of snow, so it is literally a home that is white."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1648,58 @@
      }
     ]
    },
-   "solution": "TAPDANCER"
+   "solution": "TAPDANCER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAP DANCER",
+    "definitions": [
+     {
+      "text": "Performer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting changed",
+      "for": "anagram",
+      "note": "something getting changed is being altered, so the words before it are reworked"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "depart",
+      "gives": "DEPART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANDEPART",
+       "gives": "TAPDANCER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor may leave the theatre once they have changed out of costume.",
+     "definitionFit": "A dancer who taps out rhythms with metal-plated shoes is one kind of stage entertainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changed"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1713,42 @@
     "text": "Stealing something sold by a newsagent",
     "enumeration": "5"
    },
-   "solution": "THEFT"
+   "solution": "THEFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEFT",
+    "definitions": [
+     {
+      "text": "Stealing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something sold by a newsagent",
+      "gives": "THEFT",
+      "note": "a newspaper bought at a shop, here the Financial Times with the definite article in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoplifting goods from a corner news shop.",
+     "walkthrough": "The FT is the Financial Times, a British daily paper; split the answer as THE FT.",
+     "definitionFit": "Theft is the crime of taking another person's property, so it is the noun form of stealing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "something"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1762,63 @@
     "text": "Ace before second part of tennis match is strong point",
     "enumeration": "5"
    },
-   "solution": "ASSET"
+   "solution": "ASSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSET",
+    "definitions": [
+     {
+      "text": "strong point",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the first piece in front of the rest in reading order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace in cards"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "part of tennis match",
+      "gives": "SET",
+      "note": "a tennis match is divided into sets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Serving an ace before the second set of a tennis match is a real strength.",
+     "walkthrough": "'Second part of tennis match' reads as one phrase, but second and part of tennis match are separate pieces.",
+     "definitionFit": "An asset is a useful quality or advantage, which is what a strength or forte is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1832,46 @@
     "text": "One who's no longer working on Scottish island",
     "enumeration": "7"
    },
-   "solution": "RETIREE"
+   "solution": "RETIREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETIREE",
+    "definitions": [
+     {
+      "text": "One who's no longer working",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about, as in a letter heading"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "TIREE",
+      "note": "Tiree is an island in the Inner Hebrides off western Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TIREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has stopped work and lives on an island off Scotland.",
+     "definitionFit": "A retiree is a person who has left employment for good, typically because of age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1885,58 @@
     "text": "No love for gold hi-fi, which is harsh",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "harsh",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No love",
+      "for": "deletion",
+      "note": "no love says a zero, which tennis calls love, has to be removed"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "hi-fi",
+      "gives": "STEREO",
+      "note": "a hi-fi is a stereo sound system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "STERE"
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping a golden sound system for none at all would be a grim deprivation.",
+     "walkthrough": "Love means zero, so the O is dropped from STEREO; 'for' just places gold ahead of the hi-fi.",
+     "definitionFit": "Austere describes something severe and stern, a close synonym of harsh in manner or conditions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1950,53 @@
     "text": "Recycling an empty for a fee",
     "enumeration": "7"
    },
-   "solution": "PAYMENT"
+   "solution": "PAYMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PAYMENT",
+    "definitions": [
+     {
+      "text": "fee",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recycling",
+      "for": "anagram",
+      "note": "recycling remakes material into something new, so the letters are reprocessed into another order"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an empty",
+      "gives": "ANEMPTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANEMPTY",
+       "gives": "PAYMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Returning an empty bottle earns a small deposit refund.",
+     "definitionFit": "A fee is a sum charged for a service, so it is a kind of money handed over in settlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 28,
@@ -484,7 +2010,55 @@
     "text": "Barbie's boyfriend crossing long room",
     "enumeration": "7"
    },
-   "solution": "KITCHEN"
+   "solution": "KITCHEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KITCHEN",
+    "definitions": [
+     {
+      "text": "room",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing a thing means spanning it, so one word stretches across and around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barbie's boyfriend",
+      "gives": "KEN",
+      "note": "Ken is the boyfriend doll of Barbie"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ITCH",
+      "note": "to long for something is to itch for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ITCH",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Barbie's partner stomps across a lengthy chamber.",
+     "walkthrough": "'Long room' looks like a single description, but long is a verb here and room alone is the definition.",
+     "definitionFit": "A kitchen is the room of a house in which meals are cooked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   }
  ]
 }

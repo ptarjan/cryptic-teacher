@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Small, pale bird",
     "enumeration": "4"
    },
-   "solution": "SWAN"
+   "solution": "SWAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWAN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale and sickly-looking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher notes a little bird with washed-out plumage.",
+     "definitionFit": "The answer is a large white water bird, a specific example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,78 @@
     "text": "Queen wearing blue right next to group of soldiers",
     "enumeration": "8"
    },
-   "solution": "SQUADRON"
+   "solution": "SQUADRON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SQUADRON",
+    "definitions": [
+     {
+      "text": "group of soldiers",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "wearing means the colour is put on like clothing, wrapping around the queen"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to says the following pieces are simply placed alongside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "S",
+      "note": "start of sad, meaning blue or downhearted"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "Qu is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "AD",
+      "note": "end of sad"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "next to",
+      "gives": "ON",
+      "note": "on can mean beside, as in a house on the river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QU",
+      "AD",
+      "R",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen dressed in blue stands beside a military unit.",
+     "walkthrough": "Blue here is the mood, sad, rather than the colour.",
+     "definitionFit": "A unit of cavalry or an air force formation, a body of military personnel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +174,54 @@
     "text": "Confuse movement of a duck with taking off",
     "enumeration": "5"
    },
-   "solution": "ADDLE"
+   "solution": "ADDLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADDLE",
+    "definitions": [
+     {
+      "text": "Confuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking off",
+      "for": "deletion",
+      "note": "taking off means removing, so that letter comes away from the duck's gait"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "movement of a duck",
+      "gives": "WADDLE",
+      "note": "a duck's rolling walk"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling description of how a duck moves before it takes flight.",
+     "walkthrough": "Taking off looks like a duck getting airborne, but it means removing W.",
+     "definitionFit": "To muddle someone's mind or befuddle them, as in addled brains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +235,73 @@
     "text": "Axeman might use this initially entering copse, trying resolutely to cut tree",
     "enumeration": "8"
    },
-   "solution": "PLECTRUM"
+   "solution": "PLECTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLECTRUM",
+    "definitions": [
+     {
+      "text": "Axeman might use this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the following words"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so these letters are placed within the tree"
+     },
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "the tree is cut into two parts so other letters can sit in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "PL",
+      "note": "first part of the fruit tree, split open"
+     },
+     {
+      "clueFragment": "entering copse, trying resolutely",
+      "gives": "ECTR",
+      "select": "first",
+      "note": "first letters of these four words"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "UM",
+      "note": "rest of the fruit tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "ECTR",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A lumberjack hacks determinedly through a thicket to fell a tree.",
+     "walkthrough": "Axeman is slang for a guitarist, not a woodcutter; the first letters ECTR go inside PLUM to give PLECTRUM.",
+     "definitionFit": "A guitarist, nicknamed an axeman, strums the strings with this small flat pick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Axeman"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +315,76 @@
     "text": "Unruly large women getting in beer on ship",
     "enumeration": "7"
    },
-   "solution": "LAWLESS"
+   "solution": "LAWLESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAWLESS",
+    "definitions": [
+     {
+      "text": "Unruly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting in",
+      "for": "container",
+      "note": "getting in means entering, so this letter goes inside the drink"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "A",
+      "note": "start of ale, a kind of beer"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "LE",
+      "note": "rest of ale"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "W",
+      "LE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Rowdy, hefty women drinking beer on board ship.",
+     "walkthrough": "On is a link here: the wordplay is on (placed after) the ship abbreviation in the down light.",
+     "definitionFit": "Ungoverned and disregarding rules, a disorderly crowd is not under the control of any law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +404,63 @@
      }
     ]
    },
-   "solution": "CLASSCONSCIOUS"
+   "solution": "CLASSCONSCIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLASS-CONSCIOUS",
+    "definitions": [
+     {
+      "text": "Aware of standing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrific",
+      "gives": "C",
+      "select": "last",
+      "note": "last letter of terrific"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "awake",
+      "gives": "CONSCIOUS",
+      "note": "awake and alert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LASS",
+      "CONSCIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone senses they are standing close to a wonderful girl and is wide awake to it.",
+     "walkthrough": "Standing looks like being on one's feet, but in the definition it means social status.",
+     "definitionFit": "Being sharply alert to social rank and status distinctions between groups of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +474,70 @@
     "text": "Concerned about heat and dry? Frantically do this",
     "enumeration": "9"
    },
-   "solution": "REHYDRATE"
+   "solution": "REHYDRATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REHYDRATE",
+    "definitions": [
+     {
+      "text": "do this",
+      "at": 42,
+      "note": "refers back to being dry: the thing a dry person should do"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Frantically",
+      "for": "anagram",
+      "note": "acting frantically is wild and disordered, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "heat",
+      "gives": "HEAT",
+      "note": "letters to be rearranged with the next word"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "DRY",
+      "note": "letters to be rearranged with heat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HYDRATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEATDRY",
+       "gives": "HYDRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Worried about the heat and feeling parched? Then hurry and take on water.",
+     "walkthrough": "The whole clue reads as advice to someone who is dry, which is why 'do this' can define the answer.",
+     "definitionFit": "Someone dried out by heat should restore lost water to the body by drinking fluids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Concerned"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +551,41 @@
     "text": "Basic in some respects",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters are found inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some respects",
+      "gives": "MERE",
+      "note": "letters spanning the end of some and start of respects"
+     }
+    ],
+    "explanation": {
+     "surface": "A qualified statement that something is elementary in certain ways.",
+     "definitionFit": "As in 'the mere facts', meaning nothing more than the simple, bare essentials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +605,68 @@
      }
     ]
    },
-   "solution": "DRESSREHEARSAL"
+   "solution": "DRESSREHEARSAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DRESS REHEARSAL",
+    "definitions": [
+     {
+      "text": "drill",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "to break something is to split it open, so these letters go into the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don",
+      "gives": "DRESS",
+      "note": "to don clothes is to put them on"
+     },
+     {
+      "clueFragment": "actual",
+      "gives": "RE",
+      "note": "start of real, meaning actual"
+     },
+     {
+      "clueFragment": "tries",
+      "gives": "HEARS",
+      "note": "a judge hears or tries a case in court"
+     },
+     {
+      "clueFragment": "actual",
+      "gives": "AL",
+      "note": "end of real"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESS",
+      "RE",
+      "HEARS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A university don attempts to disrupt a genuine training exercise.",
+     "walkthrough": "Don looks like an Oxbridge academic but is the verb meaning put on; tries is the legal sense.",
+     "definitionFit": "A final full run-through of a play in costume is a practice, a kind of rehearsal routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +680,58 @@
     "text": "Conservative welcoming the man's idea",
     "enumeration": "6"
    },
-   "solution": "THEORY"
+   "solution": "THEORY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEORY",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them in, so the party word holds the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "T",
+      "note": "start of Tory, a member of the UK Conservative Party"
+     },
+     {
+      "clueFragment": "the man's",
+      "gives": "HE",
+      "note": "he is the man; the 's is read as 'is'"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "ORY",
+      "note": "rest of Tory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "ORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician embraces another man's proposal.",
+     "definitionFit": "A proposed explanation or hypothesis is a notion or concept someone has formed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +755,75 @@
      }
     ]
    },
-   "solution": "UNDERTHEWEATHER"
+   "solution": "UNDERTHEWEATHER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UNDER THE WEATHER",
+    "definitions": [
+     {
+      "text": "Below par",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "a shot that goes off is wayward, so the letters are scattered into a new order"
+     },
+     {
+      "text": "end to",
+      "for": "letter_selection",
+      "note": "end to means only the final letter of the next word is used"
+     },
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "gripping means holding something inside, so one letter is placed within the rearranged ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when Arthur teed",
+      "gives": "WHENARTHURTEED",
+      "note": "fourteen letters to be rearranged"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERTH",
+      "E",
+      "WEATHER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHENARTHURTEED",
+       "gives": "UNDERTHWEATHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer called Arthur plays a poor round after a bad tee shot near the end of the game.",
+     "walkthrough": "Below par sounds like golf scoring, which is the misdirection; here it means feeling unwell. The rearranged letters grip E to give UNDER THE WEATHER.",
+     "definitionFit": "Feeling slightly ill or off-colour is an idiomatic sense of being not up to normal standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "par"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +843,53 @@
      }
     ]
    },
-   "solution": "DRESSCODE"
+   "solution": "DRESSCODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRESS CODE",
+    "definitions": [
+     {
+      "text": "posh restaurant might insist on this",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Add seasoning to",
+      "gives": "DRESS",
+      "note": "to dress a salad is to add seasoning or sauce to it"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "COD",
+      "note": "a common sea fish"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESS",
+      "COD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef seasons a European fish dish at a smart restaurant.",
+     "walkthrough": "The cookery words look like part of the dining scene but build the answer.",
+     "definitionFit": "Upmarket restaurants often require diners to meet rules about smart attire, such as jackets and ties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seasoning"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +903,62 @@
     "text": "Son - stir flipping drink!",
     "enumeration": "4"
    },
-   "solution": "SODA"
+   "solution": "SODA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SODA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the word for stir is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "stir",
+      "gives": "ADO",
+      "note": "a stir is a fuss or commotion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ODA"
+     ],
+     "reversals": [
+      {
+       "from": "ADO",
+       "to": "ODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated parent tells their son to stir a drink, with a mild oath.",
+     "walkthrough": "Flipping is also a mild British expletive, which hides its job.",
+     "definitionFit": "Carbonated water, or a fizzy soft beverage in American usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +972,41 @@
     "text": "Well-behaved soldier",
     "enumeration": "7"
    },
-   "solution": "ORDERLY"
+   "solution": "ORDERLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORDERLY",
+    "definitions": [
+     {
+      "text": "Well-behaved",
+      "at": 0
+     },
+     {
+      "text": "soldier",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Well-behaved",
+      "note": "first meaning: neat, tidy and disciplined"
+     },
+     {
+      "clueFragment": "soldier",
+      "note": "second meaning: a soldier who attends an officer or carries orders"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like a description of a good soldier, but each is a separate meaning.",
+     "definitionFit": "As an adjective it means tidy and disciplined; as a noun it is an attendant, especially a military one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1020,51 @@
     "text": "Treacherous rogues and rebels",
     "enumeration": "9"
    },
-   "solution": "DANGEROUS"
+   "solution": "DANGEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DANGEROUS",
+    "definitions": [
+     {
+      "text": "Treacherous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebels",
+      "for": "anagram",
+      "note": "to rebel is to refuse to stay in line, so the letters break their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogues and",
+      "gives": "ROGUESAND",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROGUESAND",
+       "gives": "DANGEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about a band of villains and insurgents.",
+     "walkthrough": "Rebels reads as a noun alongside rogues, but it is a verb signalling the rearrangement.",
+     "definitionFit": "Treacherous ground or conditions are hazardous, full of risk and potential harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rebels"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1078,54 @@
     "text": "\"Labour with vigour\" - a new catchphrase",
     "enumeration": "6"
    },
-   "solution": "SLOGAN"
+   "solution": "SLOGAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOGAN",
+    "definitions": [
+     {
+      "text": "catchphrase",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour with vigour",
+      "gives": "SLOG",
+      "note": "to slog is to work hard and doggedly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOG",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party unveils a fresh campaign line urging hard work.",
+     "walkthrough": "Labour looks like the British political party, but here it is plain hard work.",
+     "definitionFit": "A memorable motto or phrase used in advertising or politics is a synonym for a catchphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1139,68 @@
     "text": "Rescue from deep river, swimming out of depth",
     "enumeration": "8"
    },
-   "solution": "REPRIEVE"
+   "solution": "REPRIEVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "REPRIEVE",
+    "definitions": [
+     {
+      "text": "Rescue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming letters move about freely and settle in a new order"
+     },
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of says one letter is taken away from the phrase"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deep river",
+      "gives": "DEEPRIVER",
+      "note": "letters taken as written"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPRIEVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EEPRIVER",
+       "gives": "REPRIEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lifeguard pulls a swimmer out of a deep river where they were out of their depth.",
+     "walkthrough": "Remove D from DEEP RIVER, then rearrange what remains.",
+     "definitionFit": "To cancel or postpone a punishment, especially an execution, is to save someone from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1214,71 @@
     "text": "Adult who's lost east of American city, carelessly",
     "enumeration": "6"
    },
-   "solution": "ANYHOW"
+   "solution": "ANYHOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ANYHOW",
+    "definitions": [
+     {
+      "text": "carelessly",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so the letters wander into a new order"
+     },
+     {
+      "text": "east of",
+      "for": "charade",
+      "note": "in an across clue east means to the right, so this part follows the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film ratings"
+     },
+     {
+      "clueFragment": "American city",
+      "gives": "NY",
+      "note": "NY is New York"
+     },
+     {
+      "clueFragment": "who",
+      "gives": "HOW",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NY",
+      "HOW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHO",
+       "gives": "HOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up who has lost their way somewhere in a US city.",
+     "definitionFit": "Doing something in a haphazard, slapdash way is one sense of this adverb, as in 'thrown down anyhow'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1298,43 @@
      }
     ]
    },
-   "solution": "WORKOUT"
+   "solution": "WORKOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WORK OUT",
+    "definitions": [
+     {
+      "text": "Come off",
+      "at": 0
+     },
+     {
+      "text": "train",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Come off",
+      "note": "first meaning: turn out successfully"
+     },
+     {
+      "clueFragment": "train",
+      "note": "second meaning: exercise to get fit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests getting off a railway train; both parts are verbs with different senses.",
+     "definitionFit": "The phrasal verb means both to succeed or turn out well and to do physical exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1348,61 @@
     "text": "Gold record-player with no ordinary remote",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "remote",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means lacking, so that letter is removed from the record-player"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "record-player",
+      "gives": "STEREO",
+      "note": "a stereo plays records"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary, as in O level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "STERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gold-coloured turntable sold without a standard remote control.",
+     "walkthrough": "Remote looks like a TV gadget, but it is the definition, an adjective meaning aloof.",
+     "definitionFit": "A person who is stern, cold and distant in manner can be described as aloof or detached."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "remote"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1416,61 @@
     "text": "Group of military vessels are made at docks - every stern",
     "enumeration": "6"
    },
-   "solution": "ARMADA"
+   "solution": "ARMADA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARMADA",
+    "definitions": [
+     {
+      "text": "Group of military vessels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docks - every stern",
+      "for": "deletion",
+      "note": "to dock is to cut short, and every stern means the back end of each word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "MAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Warships are built in the docks, from bow to stern.",
+     "walkthrough": "Docks and stern both sound nautical, but they tell you to cut the last letter of each word.",
+     "definitionFit": "A fleet of warships, famously the Spanish one that sailed against England in 1588."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "docks"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1484,47 @@
     "text": "Food sent back - some chocolate fudge",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is used"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sent back means the found letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chocolate fudge",
+      "gives": "ETAF",
+      "note": "letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A diner returns a dish of chocolate fudge.",
+     "definitionFit": "A crumbly Greek cheese made from sheep's or goat's milk is a kind of edible foodstuff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1538,56 @@
     "text": "Cue, holding a rest",
     "enumeration": "9"
    },
-   "solution": "REMAINDER"
+   "solution": "REMAINDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMAINDER",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so the cue wraps around the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cue",
+      "gives": "REMINDER",
+      "note": "a cue is a prompt or reminder"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "A",
+      "INDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player picks up the cue and the rest, the stick-shaped support for long shots.",
+     "walkthrough": "Cue and rest are both snooker equipment, the misdirection; here a cue is a prompt and rest means what is left over. REMINDER holds A.",
+     "definitionFit": "What is left over after part has been taken away is the balance or leftover part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cue"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1601,61 @@
     "text": "Father adopting type of Buddhism, almost bewildered",
     "enumeration": "5"
    },
-   "solution": "DAZED"
+   "solution": "DAZED",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "DAZED",
+    "definitions": [
+     {
+      "text": "bewildered",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting takes someone in, so the father word holds the other letters"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "DAD",
+      "note": "an informal word for father"
+     },
+     {
+      "clueFragment": "type of Buddhism",
+      "gives": "ZEN",
+      "note": "Zen is a school of Buddhism"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "ZE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dad takes up a Buddhist practice and is left almost baffled.",
+     "walkthrough": "Almost applies only to the Buddhism word, trimmed before it goes inside; father is the informal word, not the abbreviation.",
+     "definitionFit": "Stunned and confused, unable to think clearly, is a close synonym of perplexed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adopting"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1669,47 @@
     "text": "Ill-natured American police department",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACID",
+    "definitions": [
+     {
+      "text": "Ill-natured",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "police department",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department of British police forces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy US police department.",
+     "walkthrough": "The CID is the plain-clothes detective branch of a British police force, not an American one.",
+     "definitionFit": "An acid remark is sharp and bitter, showing a sour, unkind temper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1729,54 @@
      }
     ]
    },
-   "solution": "CROSSWORDPUZZLE"
+   "solution": "CROSSWORDPUZZLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSWORD PUZZLE",
+    "definitions": [
+     {
+      "text": "what you're doing?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "CROSS",
+      "note": "to be cross is to be annoyed"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "WORD",
+      "note": "to have a word is to talk"
+     },
+     {
+      "clueFragment": "to confuse",
+      "gives": "PUZZLE",
+      "note": "to puzzle someone is to baffle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WORD",
+      "PUZZLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks, after an angry outburst meant to bewilder, what exactly you think you are doing.",
+     "walkthrough": "The definition points at the solver: the thing in front of you right now.",
+     "definitionFit": "The solver is at this moment working on a grid of clued words, so the question describes the activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "doing"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1790,62 @@
     "text": "Bare bottoms in England are very overdue",
     "enumeration": "8"
    },
-   "solution": "DESOLATE"
+   "solution": "DESOLATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DESOLATE",
+    "definitions": [
+     {
+      "text": "Bare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottoms in",
+      "for": "letter_selection",
+      "note": "bottoms are the lowest parts, so in a word the final letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "England are",
+      "gives": "DE",
+      "select": "last",
+      "note": "last letters of these two words"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "overdue",
+      "gives": "LATE",
+      "note": "overdue means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SO",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A headline about England's backsides being long overdue an outing, or a cricket side's tail failing.",
+     "definitionFit": "A bleak, empty landscape with nothing growing is barren, stark and deserted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bottoms"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1859,60 @@
     "text": "Unimportant fish in loch? On the contrary",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Unimportant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside another, here the fish and the loch"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "on the contrary swaps the roles, so the loch goes inside the fish instead"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide is a freshwater fish, a crossword favourite"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "L is the abbreviation for loch, as on maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor fish swims in a Scottish lake.",
+     "walkthrough": "On the contrary reverses the instruction: not the fish in the loch, but L inside IDE.",
+     "definitionFit": "Idle talk or threats are empty and without real significance or consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   }
  ]
 }

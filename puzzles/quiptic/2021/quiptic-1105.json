@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Aromatic vein of ore turning up in fissure",
     "enumeration": "8"
    },
-   "solution": "REDOLENT"
+   "solution": "REDOLENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REDOLENT",
+    "definitions": [
+     {
+      "text": "Aromatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means the word is written from the bottom upwards, so it reads backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside another, so these words place the vein within the crack"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vein of ore",
+      "gives": "LODE",
+      "note": "a lode is a vein of metal ore in rock"
+     },
+     {
+      "clueFragment": "fissure",
+      "gives": "RENT",
+      "note": "a rent is a split or tear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EDOL",
+      "ENT"
+     ],
+     "reversals": [
+      {
+       "from": "LODE",
+       "to": "EDOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A miner smells something fragrant drifting from a vein of ore in a crack in the rock.",
+     "definitionFit": "Redolent describes something giving off a strong pleasant smell, a straightforward synonym for fragrant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aromatic"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +109,52 @@
     "text": "Assembly dismissing University document",
     "enumeration": "4"
    },
-   "solution": "FORM"
+   "solution": "FORM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FORM",
+    "definitions": [
+     {
+      "text": "document",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "to dismiss is to send away, so one letter is sent out of the assembly word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assembly",
+      "gives": "FORUM",
+      "note": "a forum is a public meeting or assembly"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM"
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering sends a university's paperwork packing.",
+     "definitionFit": "A form is a printed sheet with spaces to fill in, which is a kind of official paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Assembly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,67 @@
     "text": "Bank upset about court orders",
     "enumeration": "6"
    },
-   "solution": "EDICTS"
+   "solution": "EDICTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EDICTS",
+    "definitions": [
+     {
+      "text": "orders",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, something upset is turned upside down, so the word reads from the bottom"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the turned word wraps round the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bank",
+      "gives": "SIDE",
+      "note": "a river's side is its bank"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the usual abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "CT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SIDE",
+       "to": "EDIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank in turmoil faces rulings from a judge.",
+     "walkthrough": "'Court orders' reads as one phrase, but court supplies only its abbreviation and orders alone is the definition.",
+     "definitionFit": "Edicts are official decrees or commands issued by an authority, so they are orders in that formal sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +242,56 @@
     "text": "Fellow on farm given a scarf",
     "enumeration": "8"
    },
-   "solution": "MANTILLA"
+   "solution": "MANTILLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANTILLA",
+    "definitions": [
+     {
+      "text": "scarf",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "farm",
+      "gives": "TILL",
+      "note": "to till is to plough and work the land"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "TILL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmhand is handed a scarf.",
+     "walkthrough": "'On' is the charade signal that one piece comes after another; farm here is a verb, not a place.",
+     "definitionFit": "A mantilla is a lace or silk scarf worn over the head and shoulders, especially by Spanish women."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "farm"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +305,56 @@
     "text": "Monitor about to resort to drink",
     "enumeration": "10"
    },
-   "solution": "CHARTREUSE"
+   "solution": "CHARTREUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARTREUSE",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monitor",
+      "gives": "CHART",
+      "note": "to chart is to record and track, i.e. to monitor"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "resort",
+      "gives": "USE",
+      "note": "to resort to something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHART",
+      "RE",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeping watch is about to turn to drink.",
+     "walkthrough": "'About to' reads as 'on the verge of', but about gives its own letters and to only joins.",
+     "definitionFit": "Chartreuse is a French herbal liqueur made by Carthusian monks, so it is one particular alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +368,42 @@
     "text": "Intense part of standard entertainment",
     "enumeration": "6"
    },
-   "solution": "ARDENT"
+   "solution": "ARDENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARDENT",
+    "definitions": [
+     {
+      "text": "Intense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of tells you the letters form only a portion of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard entertainment",
+      "gives": "ARDENT",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Something intense forms part of ordinary entertainment.",
+     "definitionFit": "Ardent means passionate and fervent, feeling something with great strength, so it matches intense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +417,46 @@
     "text": "Stenographer's instrument",
     "enumeration": "8"
    },
-   "solution": "RECORDER"
+   "solution": "RECORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORDER",
+    "definitions": [
+     {
+      "text": "Stenographer",
+      "at": 0
+     },
+     {
+      "text": "instrument",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stenographer",
+      "note": "first meaning: a person who takes down a spoken record"
+     },
+     {
+      "clueFragment": "instrument",
+      "note": "second meaning: a simple woodwind pipe played in schools"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive makes it look like the shorthand writer owns one tool; the two words are separate meanings of the same word.",
+     "definitionFit": "One who writes down proceedings keeps a record, and the same word names the wooden end-blown flute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +470,76 @@
     "text": "Retired queen has surprising tale to tell",
     "enumeration": "6"
    },
-   "solution": "RELATE"
+   "solution": "RELATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "RELATE",
+    "definitions": [
+     {
+      "text": "tell",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the royal abbreviation goes backwards"
+     },
+     {
+      "text": "surprising",
+      "for": "anagram",
+      "note": "surprising suggests something unexpected, so the letters turn up in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual abbreviation for the queen"
+     },
+     {
+      "clueFragment": "tale",
+      "gives": "TALE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALE",
+       "gives": "LATE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former monarch has an astonishing story to share.",
+     "definitionFit": "To relate a story is to narrate or recount it, which is to tell it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +553,63 @@
     "text": "A runaway horse is on the beach",
     "enumeration": "6"
    },
-   "solution": "ASHORE"
+   "solution": "ASHORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASHORE",
+    "definitions": [
+     {
+      "text": "on the beach",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runaway",
+      "for": "anagram",
+      "note": "a runaway is out of control, so the letters break loose from their order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "HORSE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHORE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HORSE",
+       "gives": "SHORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An escaped horse is galloping along the sands.",
+     "definitionFit": "Ashore means on land beside the sea, so it describes being on the coast rather than in the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runaway"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +623,50 @@
     "text": "John has master's weaving equipment",
     "enumeration": "4"
    },
-   "solution": "LOOM"
+   "solution": "LOOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOM",
+    "definitions": [
+     {
+      "text": "weaving equipment",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john and loo are both slang for a toilet"
+     },
+     {
+      "clueFragment": "master's",
+      "gives": "M",
+      "note": "M is an abbreviation for master, as in an MA degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called John owns his master's weaving gear.",
+     "walkthrough": "John looks like a name but is American slang for a toilet; loo is the British equivalent.",
+     "definitionFit": "A loom is the frame on which threads are interlaced to make cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +686,49 @@
      }
     ]
    },
-   "solution": "COLDTURKEY"
+   "solution": "COLDTURKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLD TURKEY",
+    "definitions": [
+     {
+      "text": "unpleasant cure for addiction",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unsympathetic",
+      "gives": "COLD",
+      "note": "cold means unfeeling or unsympathetic"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TURKEY",
+      "note": "Turkey is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLD",
+      "TURKEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh nation provides a grim treatment for drug addicts.",
+     "definitionFit": "Going cold turkey means stopping an addictive drug abruptly, an idiom for a harsh withdrawal treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +742,60 @@
     "text": "Mediterranean island the French cry about",
     "enumeration": "6"
    },
-   "solution": "LESBOS"
+   "solution": "LESBOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LESBOS",
+    "definitions": [
+     {
+      "text": "Mediterranean island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word for a cry is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for the (plural)"
+     },
+     {
+      "clueFragment": "cry",
+      "gives": "SOB",
+      "note": "to sob is to cry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LES",
+      "BOS"
+     ],
+     "reversals": [
+      {
+       "from": "SOB",
+       "to": "BOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The French complain about a Mediterranean island.",
+     "definitionFit": "Lesbos is a large Greek island in the northeastern Aegean, part of the Mediterranean Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +815,52 @@
      }
     ]
    },
-   "solution": "BINGOWINGS"
+   "solution": "BINGOWINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BINGO WINGS",
+    "definitions": [
+     {
+      "text": "Flaps of skin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbling",
+      "for": "anagram",
+      "note": "wobbling means shaking unsteadily, so the letters shift about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in big gowns",
+      "gives": "INBIGGOWNS",
+      "note": "every letter of these three words is used, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INBIGGOWNS",
+       "gives": "BINGOWINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loose flesh jiggles inside large dresses.",
+     "walkthrough": "Bingo wings is British slang for the loose skin under the upper arms that wobbles when waving, as at a bingo hall; the whole clue also describes them.",
+     "definitionFit": "Bingo wings are the sagging folds hanging from the upper arm, a colloquial name for flabby underarm flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gowns"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +874,68 @@
     "text": "Large kind of bag containing real dancing bear",
     "enumeration": "8"
    },
-   "solution": "TOLERATE"
+   "solution": "TOLERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOLERATE",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about, so the next word is rearranged"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the bag wraps around the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large kind of bag",
+      "gives": "TOTE",
+      "note": "a tote is a large carrier bag"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "LERA",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "LERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big bag holds a genuine dancing bear.",
+     "walkthrough": "'Dancing bear' is a stock phrase, but bear here is a verb and the definition.",
+     "definitionFit": "To bear something is to put up with or endure it, the verb sense matching tolerate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +949,61 @@
     "text": "One renting basic accommodation outside centre of Monaco",
     "enumeration": "6"
    },
-   "solution": "TENANT"
+   "solution": "TENANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TENANT",
+    "definitions": [
+     {
+      "text": "One renting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the middle letters are taken"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so the shelter goes round the selected letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basic accommodation",
+      "gives": "TENT",
+      "note": "a tent is the simplest kind of shelter"
+     },
+     {
+      "clueFragment": "Monaco",
+      "gives": "NA",
+      "select": "middle",
+      "note": "the two middle letters of the six-letter name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "NA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A renter makes do with a simple pad on the edge of Monaco.",
+     "definitionFit": "A tenant is a person who occupies property in return for paying rent to its owner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1017,62 @@
     "text": "Letter by grand American conservative is worthless",
     "enumeration": "8"
    },
-   "solution": "NUGATORY"
+   "solution": "NUGATORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUGATORY",
+    "definitions": [
+     {
+      "text": "worthless",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter",
+      "gives": "NU",
+      "note": "nu is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is short for grand, slang for a thousand pounds or dollars"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "G",
+      "A",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A note from a wealthy American right-winger is of no value.",
+     "definitionFit": "Nugatory means of no value or importance, or having no force, a formal synonym for worthless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1086,62 @@
     "text": "Bad painting taking in north European river",
     "enumeration": "6"
    },
-   "solution": "DANUBE"
+   "solution": "DANUBE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DANUBE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking in means absorbing within, so the painting word holds the compass letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad painting",
+      "gives": "DAUB",
+      "note": "a daub is a crude, badly executed painting"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "N",
+      "UB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor picture depicts a river in northern Europe.",
+     "walkthrough": "'North European river' reads as one phrase; north and European each give a single letter and river alone defines.",
+     "definitionFit": "The Danube is a major river flowing from Germany through central Europe to the Black Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1155,50 @@
     "text": "Unconventional nineties genius",
     "enumeration": "8"
    },
-   "solution": "EINSTEIN"
+   "solution": "EINSTEIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EINSTEIN",
+    "definitions": [
+     {
+      "text": "genius",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unconventional",
+      "for": "anagram",
+      "note": "unconventional means not in the usual order or form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nineties",
+      "gives": "NINETIES",
+      "note": "every letter is used, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINETIES",
+       "gives": "EINSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An offbeat thinker from the 1990s.",
+     "definitionFit": "Albert Einstein, the physicist of relativity, is so famous for brilliance that his name stands for any genius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nineties"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1212,62 @@
     "text": "English fighting over Germany to get daughter to an old king",
     "enumeration": "6"
    },
-   "solution": "EDWARD"
+   "solution": "EDWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDWARD",
+    "definitions": [
+     {
+      "text": "an old king",
+      "at": 49
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "war is armed fighting, here placed after the code for Germany"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "D",
+      "WAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "England goes to war against Germany for the sake of a princess.",
+     "walkthrough": "The letters run English, Germany, fighting, daughter, so 'over' cannot mean placed on top here; read it loosely as war being waged beyond Germany. Edward was the name of eight English kings.",
+     "definitionFit": "Several English monarchs bore this name, from Edward the Confessor onward, so it identifies a former ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1281,68 @@
     "text": "Swollen bananas go green — close to bad",
     "enumeration": "8"
    },
-   "solution": "ENGORGED"
+   "solution": "ENGORGED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENGORGED",
+    "definitions": [
+     {
+      "text": "Swollen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas means going crazy, so the letters go wild into a new order"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go green",
+      "gives": "GOGREEN",
+      "note": "every letter is used, then rearranged"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENGORGE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOGREEN",
+       "gives": "ENGORGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bloated bananas turn green and are nearly rotten.",
+     "walkthrough": "Bananas looks like the fruit being described, but it is the anagram signal.",
+     "definitionFit": "Engorged means swollen or filled to excess, typically with blood or fluid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1356,63 @@
     "text": "Enthusiast served up perfect example of spice",
     "enumeration": "6"
    },
-   "solution": "NUTMEG"
+   "solution": "NUTMEG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NUTMEG",
+    "definitions": [
+     {
+      "text": "spice",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, served up means sent upwards, so the word reads from the bottom"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthusiast",
+      "gives": "NUT",
+      "note": "a nut is a keen fan, as in a fitness nut"
+     },
+     {
+      "clueFragment": "perfect example",
+      "gives": "GEM",
+      "note": "a gem is a perfect or outstanding example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "MEG"
+     ],
+     "reversals": [
+      {
+       "from": "GEM",
+       "to": "MEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen cook offers up a fine example of a spice.",
+     "definitionFit": "Nutmeg is the aromatic seed of a tropical tree, grated as a common kitchen spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1426,59 @@
     "text": "Sponges found by climber heading to slopes",
     "enumeration": "6"
    },
-   "solution": "CLEANS"
+   "solution": "CLEANS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEANS",
+    "definitions": [
+     {
+      "text": "Sponges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "a heading is at the top, so only the first letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climber",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "to slopes",
+      "gives": "LEANS",
+      "note": "to lean is to slope or tilt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Sea sponges are discovered by a mountaineer on the way to the slopes.",
+     "walkthrough": "Sponges looks like a noun for sea creatures, but it is a verb meaning wipes clean; 'to' hitches onto slopes rather than heading.",
+     "definitionFit": "To sponge something is to wipe or wash it with a damp sponge, so sponges is a synonym for washes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sponges"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1492,61 @@
     "text": "Tuck sides of robe into luggage",
     "enumeration": "6"
    },
-   "solution": "CREASE"
+   "solution": "CREASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CREASE",
+    "definitions": [
+     {
+      "text": "Tuck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sides of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its two outer edges, so its first and last letters are kept"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so the kept letters go within the luggage word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luggage",
+      "gives": "CASE",
+      "note": "a case is a suitcase"
+     },
+     {
+      "clueFragment": "robe",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RE",
+      "ASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fold the edges of a dressing gown into a suitcase.",
+     "definitionFit": "A tuck is a flattened fold sewn or pressed into fabric, which is a crease in cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tuck"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1560,71 @@
     "text": "Entertainment offered by naughty priest carrying drinks?",
     "enumeration": "10"
    },
-   "solution": "STRIPTEASE"
+   "solution": "STRIPTEASE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STRIPTEASE",
+    "definitions": [
+     {
+      "text": "Entertainment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughty",
+      "for": "anagram",
+      "note": "naughty means misbehaving, so the letters fail to stay in order"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding, so the rearranged word holds the drinks"
+     }
+    ],
+    "linkWords": [
+     "offered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PRIEST",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "TEAS",
+      "note": "cups of tea are drinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIP",
+      "TEAS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "STRIPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wayward clergyman puts on a show while serving refreshments.",
+     "walkthrough": "The question mark flags the cheeky idea of a naughty priest providing this sort of show.",
+     "definitionFit": "A striptease is a performance in which someone undresses slowly to music, a form of adult show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1638,54 @@
     "text": "Try to back clubs",
     "enumeration": "4"
    },
-   "solution": "BATS"
+   "solution": "BATS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "BATS",
+    "definitions": [
+     {
+      "text": "clubs",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to back",
+      "for": "reversal",
+      "note": "to back means to go backwards, so the word for an attempt is written in the other direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "STAB",
+      "note": "to have a stab is to have a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATS"
+     ],
+     "reversals": [
+      {
+       "from": "STAB",
+       "to": "BATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attempt to support a set of golf clubs.",
+     "walkthrough": "'Back' looks like support, as in backing a team, but here it means reverse.",
+     "definitionFit": "Bats used in cricket or baseball are wooden striking implements, just like clubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1699,45 @@
     "text": "Raised money for speakers",
     "enumeration": "4"
    },
-   "solution": "BRED"
+   "solution": "BRED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRED",
+    "definitions": [
+     {
+      "text": "Raised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for speakers",
+      "for": "homophone",
+      "note": "for speakers means as heard by those talking, so the word counts by sound not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "BRED",
+      "soundsLike": "BREAD",
+      "note": "bread is slang for money"
+     }
+    ],
+    "explanation": {
+     "surface": "Funds were collected to pay for loudspeakers.",
+     "walkthrough": "Raised money looks like fundraising, but raised alone is the definition.",
+     "definitionFit": "Bred is the past tense of breed, meaning brought up or reared, as children or livestock are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "speakers"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1751,50 @@
     "text": "Account book found by shelf on right",
     "enumeration": "6"
    },
-   "solution": "LEDGER"
+   "solution": "LEDGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEDGER",
+    "definitions": [
+     {
+      "text": "Account book",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelf",
+      "gives": "LEDGE",
+      "note": "a ledge is a narrow shelf"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEDGE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A book of accounts is discovered on a shelf to the right.",
+     "walkthrough": "'On' is the charade signal that one piece follows another.",
+     "definitionFit": "A ledger is the principal book in which a business records its financial transactions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelf"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1808,51 @@
     "text": "Daily sex sorted out learning difficulty",
     "enumeration": "8"
    },
-   "solution": "DYSLEXIA"
+   "solution": "DYSLEXIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DYSLEXIA",
+    "definitions": [
+     {
+      "text": "learning difficulty",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sorted out",
+      "for": "anagram",
+      "note": "sorted out means rearranged or put in a new order, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daily sex",
+      "gives": "DAILYSEX",
+      "note": "every letter of both words is used, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DAILYSEX",
+       "gives": "DYSLEXIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having sex every day has fixed someone's problem with reading.",
+     "definitionFit": "Dyslexia is a condition affecting reading and spelling despite normal intelligence, a recognised specific learning disability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sorted"
+    }
+   }
   }
  ]
 }

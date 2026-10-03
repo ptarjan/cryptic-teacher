@@ -38,6 +38,9 @@
   "date": "2025-02-02",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,73 @@
     "text": "Dropping lead to investigate sea doing … possibly this?",
     "enumeration": "7"
    },
-   "solution": "SONDAGE"
+   "solution": "SONDAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "SONDAGE",
+    "definitions": [
+     {
+      "text": "Dropping lead to investigate sea doing … possibly this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dropping",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so a letter leaves the fodder"
+     },
+     {
+      "text": "lead to",
+      "for": "deletion",
+      "note": "the lead of a word is its first letter, which here is the one dropped"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several possible arrangements of the remaining letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "investigate",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of investigate"
+     },
+     {
+      "clueFragment": "sea doing",
+      "gives": "SEADOING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONDAGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEADONG",
+       "gives": "SONDAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders what a sea creature is doing as it sinks out of sight.",
+     "walkthrough": "Take the I from SEA DOING and rearrange the rest to get SONDAGE. The whole clue doubles as the definition: a sondage is a sounding, and sounding the sea is investigating it.",
+     "definitionFit": "A sondage is a trial trench or sounding, the kind of probe made when investigating what lies below the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +134,65 @@
     "text": "Moustache’s trimmed, not so much hairy bristle?",
     "enumeration": "4"
    },
-   "solution": "SETA"
+   "solution": "SETA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SETA",
+    "definitions": [
+     {
+      "text": "bristle",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimming cuts parts away, and the word not tells us exactly which letters go"
+     },
+     {
+      "text": "hairy",
+      "for": "anagram",
+      "note": "hairy in its slang sense of wild or alarming suggests letters thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moustache’s",
+      "gives": "MOUSTACHES",
+      "note": "read as one word, with the apostrophe ignored"
+     },
+     {
+      "clueFragment": "so much",
+      "gives": "SOMUCH",
+      "note": "taken as written; these are the letters that come out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAES",
+       "gives": "SETA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man wonders if trimming his moustache will leave it less hairy and more bristly.",
+     "walkthrough": "Remove S, O, M, U, C and H from MOUSTACHES and the letters T, A, E, S are left to rearrange.",
+     "definitionFit": "Seta is the biological term for a stiff hair on an insect, worm or plant, which is a bristle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hairy"
+    }
+   }
   },
   {
    "number": 2,
@@ -88,7 +215,69 @@
      }
     ]
    },
-   "solution": "ONEMANBAND"
+   "solution": "ONEMANBAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ONE-MAN BAND",
+    "definitions": [
+     {
+      "text": "such a versatile entertainer",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every second letter is kept"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests letters gone wrong and out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "That’s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Madonna",
+      "gives": "MADONNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "snubbed",
+      "gives": "NBE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of snubbed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONEMANBAND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MADONNANBE",
+       "gives": "ONEMANBAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pop star is snubbed, and someone grumbles that this is bad news for a versatile performer.",
+     "definitionFit": "A one-man band plays several instruments at once single-handed, the very model of a versatile street performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 3,
@@ -102,7 +291,64 @@
     "text": "Shellfish lands almost on bottom of ocean",
     "enumeration": "5"
    },
-   "solution": "NACRE"
+   "solution": "NACRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NACRE",
+    "definitions": [
+     {
+      "text": "Shellfish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is left off"
+     },
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ocean",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of ocean"
+     },
+     {
+      "clueFragment": "lands",
+      "gives": "ACRES",
+      "note": "acres are areas of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ACRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Seafood ends up beached on the land after drifting from the ocean floor.",
+     "definitionFit": "Chambers gives nacre as mother-of-pearl and also as the shellfish that yields it, a rare sense found mainly in barred puzzles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lands"
+    }
+   }
   },
   {
    "number": 4,
@@ -116,7 +362,61 @@
     "text": "Rocky edge eroded round banks of Rhône",
     "enumeration": "5"
    },
-   "solution": "ARETE"
+   "solution": "ARETE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARETE",
+    "definitions": [
+     {
+      "text": "Rocky edge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so one piece wraps the other"
+     },
+     {
+      "text": "banks of",
+      "for": "letter_selection",
+      "note": "a river's banks are its two sides, so the outside letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eroded",
+      "gives": "ATE",
+      "note": "something eroded has been eaten away"
+     },
+     {
+      "clueFragment": "Rhône",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of Rhône"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RE",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rocky ridge has been worn away beside the River Rhône in the Alps.",
+     "definitionFit": "An arête is a sharp, narrow mountain ridge between glacial valleys, the knife-edge of rock climbers cross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eroded"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +430,50 @@
     "text": "Cavorting idly I get cold",
     "enumeration": "8"
    },
-   "solution": "GELIDITY"
+   "solution": "GELIDITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GELIDITY",
+    "definitions": [
+     {
+      "text": "cold",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cavorting",
+      "for": "anagram",
+      "note": "cavorting is prancing about, so the letters jump into new places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idly I get",
+      "gives": "IDLYIGET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDLYIGET",
+       "gives": "GELIDITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lazing about outdoors complains that they are catching a chill.",
+     "definitionFit": "Gelidity is the noun from gelid, meaning icy or frozen, so it names extreme coldness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cavorting"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +487,48 @@
     "text": "1000 pounds a year cover for head",
     "enumeration": "5"
    },
-   "solution": "KIPPA"
+   "solution": "KIPPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KIPPA",
+    "definitions": [
+     {
+      "text": "cover for head",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000 pounds",
+      "gives": "KIP",
+      "note": "a kip is an engineering unit of weight equal to 1000 pounds"
+     },
+     {
+      "clueFragment": "a year",
+      "gives": "PA",
+      "note": "per annum, Latin for a year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIP",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays a thousand pounds a year for insurance cover for their head.",
+     "walkthrough": "The surface reads 1000 pounds as money; it is a weight, the kip.",
+     "definitionFit": "A kippa is the skullcap worn by Jewish men, a small covering for the crown of the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 6,
@@ -158,7 +542,63 @@
     "text": "Exercise sequences were in session hinging on spirit",
     "enumeration": "5"
    },
-   "solution": "KATAS"
+   "solution": "KATAS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KATAS",
+    "definitions": [
+     {
+      "text": "Exercise sequences",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hinging",
+      "for": "reversal",
+      "note": "something hinging swings back on itself, so the word flips direction"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "KA",
+      "note": "the ka is the spirit or soul in ancient Egyptian belief"
+     },
+     {
+      "clueFragment": "were in session",
+      "gives": "SAT",
+      "note": "a court or committee sat when it was in session"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KA",
+      "TAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAT",
+       "to": "TAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting was held whose outcome depended on the team's spirit.",
+     "definitionFit": "Katas are set routines of movements practised in karate and other martial arts, choreographed drills for training."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hinging"
+    }
+   }
   },
   {
    "number": 7,
@@ -172,7 +612,61 @@
     "text": "Russian channel is carrying bitter articles",
     "enumeration": "8"
    },
-   "solution": "ITARTASS"
+   "solution": "ITARTASS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ITAR-TASS",
+    "definitions": [
+     {
+      "text": "Russian channel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is carrying",
+      "for": "container",
+      "note": "carrying means holding within, so the word is wraps around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bitter",
+      "gives": "TART",
+      "note": "tart means sharp or sour in taste"
+     },
+     {
+      "clueFragment": "articles",
+      "gives": "AS",
+      "note": "the plural of the article A"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TART",
+      "AS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian broadcaster runs sharply critical pieces.",
+     "definitionFit": "ITAR-TASS was the Russian state news agency, a major official channel for information out of Moscow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 8,
@@ -186,7 +680,67 @@
     "text": "A sauce going round with rice dish",
     "enumeration": "5"
    },
-   "solution": "PILAW"
+   "solution": "PILAW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PILAW",
+    "definitions": [
+     {
+      "text": "rice dish",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round means turning about, so these letters face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sauce",
+      "gives": "LIP",
+      "note": "sauce and lip both mean cheeky talk"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PILA",
+      "W"
+     ],
+     "reversals": [
+      {
+       "from": "ALIP",
+       "to": "PILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sauce is passed round the table to go with a rice dish.",
+     "walkthrough": "Sauce looks like a culinary word, matching the rice dish, but it means impudence.",
+     "definitionFit": "Pilaw is a variant spelling of pilaf, the Middle Eastern dish of rice cooked in stock with spices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +754,65 @@
     "text": "Guardian’s joke rebuffed LA citizen",
     "enumeration": "8"
    },
-   "solution": "ANGELENO"
+   "solution": "ANGELENO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANGELENO",
+    "definitions": [
+     {
+      "text": "LA citizen",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuffed",
+      "for": "reversal",
+      "note": "rebuffed means sent back, so the word is turned around"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardian",
+      "gives": "ANGEL",
+      "note": "a guardian angel"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "ONE",
+      "note": "as in 'have you heard the one about…'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGEL",
+      "ENO"
+     ],
+     "reversals": [
+      {
+       "from": "ONE",
+       "to": "ENO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's attempt at humour falls flat with a reader from Los Angeles.",
+     "walkthrough": "Guardian invites the British newspaper; here it is a protective spirit.",
+     "definitionFit": "An Angeleno is a native or resident of Los Angeles, the local demonym for its people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +826,64 @@
     "text": "Revised grade (not D) got in a competitive exam",
     "enumeration": "10"
    },
-   "solution": "AGREGATION"
+   "solution": "AGREGATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AGREGATION",
+    "definitions": [
+     {
+      "text": "competitive exam",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not D",
+      "for": "deletion",
+      "note": "not tells us to leave out the letter named"
+     },
+     {
+      "text": "Revised",
+      "for": "anagram",
+      "note": "revised means reworked, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grade",
+      "gives": "GRADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "got in a",
+      "gives": "GOTINA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGREGATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAEGOTINA",
+       "gives": "AGREGATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's revised mark, no longer a D, got them through a tough exam.",
+     "definitionFit": "The agrégation is the highly selective French state examination for recruiting senior teachers and professors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revised"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +897,63 @@
     "text": "Dachshund, bloodhound and kelpie ignoring confusion",
     "enumeration": "6"
    },
-   "solution": "TECKEL"
+   "solution": "TECKEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TECKEL",
+    "definitions": [
+     {
+      "text": "Dachshund",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something means leaving it out of the reckoning"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloodhound",
+      "gives": "TEC",
+      "note": "a bloodhound is slang for a detective, shortened to tec"
+     },
+     {
+      "clueFragment": "kelpie",
+      "gives": "KELPIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "confusion",
+      "gives": "PIE",
+      "note": "pie is a printer's word for jumbled type, hence confusion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEC",
+      "KEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of dog breeds that seems to have muddled itself together.",
+     "walkthrough": "The breeds all look like definitions; bloodhound is a detective, and kelpie only supplies letters.",
+     "definitionFit": "Teckel is the German name, also used in English, for the long-bodied short-legged sausage dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bloodhound"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +967,61 @@
     "text": "Block isolating Yankee prisoner?",
     "enumeration": "6"
    },
-   "solution": "STALAG"
+   "solution": "STALAG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "STALAG",
+    "definitions": [
+     {
+      "text": "Block isolating Yankee prisoner?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "isolating",
+      "for": "deletion",
+      "note": "isolating something sets it apart, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Block",
+      "gives": "STAY",
+      "note": "to stay is to check or stop"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Y is Yankee in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "an old lag is a long-term convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "LAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison block keeps an American captive apart from the others.",
+     "walkthrough": "Read whole, the clue describes the thing itself: a camp in which American prisoners of war were held apart.",
+     "definitionFit": "A stalag was a German prisoner-of-war camp for enlisted men in the Second World War, such as the famous Stalag 17."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Block"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +1035,65 @@
     "text": "Academy’s imaginative accepting insensitive person’s “sorry”",
     "enumeration": "10"
    },
-   "solution": "APOLOGETIC"
+   "solution": "APOLOGETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APOLOGETIC",
+    "definitions": [
+     {
+      "text": "sorry",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "person’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academy",
+      "gives": "A",
+      "note": "A is the abbreviation for academy"
+     },
+     {
+      "clueFragment": "imaginative",
+      "gives": "POETIC",
+      "note": "imaginative in the way verse is"
+     },
+     {
+      "clueFragment": "insensitive",
+      "gives": "LOG",
+      "note": "a log is a person as unfeeling as a lump of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "LOG",
+      "ETIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An arts college's creative staff take in a tactless person who then apologises.",
+     "definitionFit": "Apologetic means expressing regret, the adjective for someone who says they are contrite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "insensitive"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1107,42 @@
     "text": "Stream ritual showing baptismal ceremony",
     "enumeration": "5"
    },
-   "solution": "AMRIT"
+   "solution": "AMRIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMRIT",
+    "definitions": [
+     {
+      "text": "baptismal ceremony",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "hidden_word",
+      "note": "showing means putting on display, here letters visible inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stream ritual",
+      "gives": "AMRIT",
+      "note": "the tail of the first word joined to the head of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A ritual by a river shows a baptism taking place.",
+     "definitionFit": "Amrit is the sweetened holy water used in the Sikh initiation rite, and by extension that ceremony itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stream"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1156,68 @@
     "text": "I start to get about part of Sussex waterway",
     "enumeration": "7"
    },
-   "solution": "IGARAPE"
+   "solution": "IGARAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IGARAPE",
+    "definitions": [
+     {
+      "text": "waterway",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of get"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "A",
+      "note": "A is an abbreviation for about"
+     },
+     {
+      "clueFragment": "part of Sussex",
+      "gives": "RAPE",
+      "note": "the rapes were the six old administrative divisions of Sussex, an English county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "G",
+      "A",
+      "RAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets off to explore a stretch of Sussex by its waterways.",
+     "walkthrough": "Part of Sussex looks like an instruction to take some letters from the word; it is the old county division called a rape.",
+     "definitionFit": "An igarapé is a narrow channel or creek in the Amazon basin, navigable by canoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1231,66 @@
     "text": "Question variable ten to one ratio",
     "enumeration": "8"
    },
-   "solution": "QUOTIENT"
+   "solution": "QUOTIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "QUOTIENT",
+    "definitions": [
+     {
+      "text": "ratio",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variable",
+      "for": "anagram",
+      "note": "something variable can change, so the letters take another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "QU",
+      "note": "QU is an abbreviation for question"
+     },
+     {
+      "clueFragment": "ten to",
+      "gives": "TENTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "OTIENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TENTOI",
+       "gives": "OTIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks about changeable odds of ten to one.",
+     "walkthrough": "Ten to one sounds like betting odds, which fits the ratio, but the words are only letters to rearrange.",
+     "definitionFit": "A quotient is the result of dividing one number by another, so it expresses a ratio between them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "variable"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1304,48 @@
     "text": "Film covering port gathering to turn round ship",
     "enumeration": "8"
    },
-   "solution": "BEESWING"
+   "solution": "BEESWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEESWING",
+    "definitions": [
+     {
+      "text": "Film covering port",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gathering",
+      "gives": "BEE",
+      "note": "a bee is a social gathering, as in a sewing bee"
+     },
+     {
+      "clueFragment": "to turn round ship",
+      "gives": "SWING",
+      "note": "a ship at anchor swings when it turns with the tide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "SWING"
+     ]
+    },
+    "explanation": {
+     "surface": "A camera crew films around the harbour as a ship turns.",
+     "walkthrough": "Film and port suggest movies and harbours; they are a skin forming on the fortified wine.",
+     "definitionFit": "Beeswing is the filmy crust of tartar that forms in old port and other long-kept wines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1359,77 @@
     "text": "Bottled lime drunk with a spot of effervescent mineral",
     "enumeration": "8"
    },
-   "solution": "MELILITE"
+   "solution": "MELILITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MELILITE",
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "drunk means reeling and unsteady, so the letters stagger into a new order"
+     },
+     {
+      "text": "a spot of",
+      "for": "letter_selection",
+      "note": "a spot is a tiny amount, so just the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lime",
+      "gives": "MELI",
+      "note": "the four letters of lime, rearranged"
+     },
+     {
+      "clueFragment": "Bottled",
+      "gives": "LIT",
+      "note": "bottled and lit are both slang for drunk"
+     },
+     {
+      "clueFragment": "effervescent",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of effervescent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MELI",
+      "LIT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIME",
+       "gives": "MELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fizzy lime drink served in a bottle gets drunk.",
+     "walkthrough": "Bottled and drunk both seem to describe the lime drink; one means intoxicated, the other mixes letters.",
+     "definitionFit": "Melilite is a group of silicate minerals found in volcanic rocks, typically yellowish crystals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottled"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1443,59 @@
     "text": "Preposterous Beeb broadcast with nil value",
     "enumeration": "12"
    },
-   "solution": "UNBELIEVABLE"
+   "solution": "UNBELIEVABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNBELIEVABLE",
+    "definitions": [
+     {
+      "text": "Preposterous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, as seed is sown, so the letters are spread about"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beeb",
+      "gives": "BEEB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nil value",
+      "gives": "NILVALUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEEB NILVALUE",
+       "gives": "UNBELIEVABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer fumes that a BBC programme was worthless.",
+     "walkthrough": "The Beeb is a nickname for the BBC, Britain's public broadcaster, which makes broadcast look like part of the scene.",
+     "definitionFit": "Unbelievable means too absurd to be credited, just as something preposterous defies reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1515,80 @@
      }
     ]
    },
-   "solution": "OBJECTLESSON"
+   "solution": "OBJECTLESSON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "OBJECT LESSON",
+    "definitions": [
+     {
+      "text": "Be hit with Noel’s cost around beginning of January — giving this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "something hit is knocked about, so its letters are scattered"
+     },
+     {
+      "text": "beginning of",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the shuffled letters enclose the single one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be",
+      "gives": "BE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Noel’s cost",
+      "gives": "NOELSCOST",
+      "note": "taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "January",
+      "gives": "J",
+      "select": "first",
+      "note": "the first letter of January"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "J",
+      "ECTLESSON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BENOELSCOST",
+       "gives": "OBECTLESSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The bills for Christmas arrive in early January, teaching someone a hard lesson.",
+     "walkthrough": "Noel is Christmas, so the whole clue pictures the January shock of festive spending as a practical warning.",
+     "definitionFit": "An object lesson is a vivid practical example that teaches something, here the pain of overspending."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Noel’s"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1602,48 @@
     "text": "Bill fellow extra charge",
     "enumeration": "5"
    },
-   "solution": "ADDON"
+   "solution": "ADDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADD-ON",
+    "definitions": [
+     {
+      "text": "extra charge",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AD",
+      "note": "a bill is a poster or advertisement"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Bill is charged extra.",
+     "walkthrough": "Bill looks like a man's name, or an invoice to match the charge; it is an advertisement.",
+     "definitionFit": "An add-on is something supplementary tacked onto a basic price, such as an optional surcharge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1657,74 @@
     "text": "Sad Elon Musk oddly rocks around Tesla",
     "enumeration": "5"
    },
-   "solution": "MESTO"
+   "solution": "MESTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MESTO",
+    "definitions": [
+     {
+      "text": "Sad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd-numbered positions"
+     },
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "rocks means shakes back and forth, so the letters are jumbled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the jumbled letters enclose another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elon Musk",
+      "gives": "EOMS",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MES",
+      "T",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EOMS",
+       "gives": "MESO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tech billionaire is gloomy as his car company is rocked by trouble.",
+     "walkthrough": "Tesla looks like the car maker; it is the scientific unit, abbreviated T.",
+     "definitionFit": "Mesto is an Italian musical direction meaning mournful, telling the player to perform in a melancholy way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1738,61 @@
     "text": "Kind hereditary factor embodying mother’s or father’s side?",
     "enumeration": "5"
    },
-   "solution": "GENRE"
+   "solution": "GENRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GENRE",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embodying",
+      "for": "container",
+      "note": "embodying means holding within, so one piece sits inside the other"
+     },
+     {
+      "text": "side",
+      "for": "letter_selection",
+      "note": "a word's side is one of its edges, here the end letter shared by both words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hereditary factor",
+      "gives": "GENE",
+      "note": "a gene is the unit of heredity"
+     },
+     {
+      "clueFragment": "mother’s or father’s",
+      "gives": "R",
+      "select": "last",
+      "note": "both words end in the same letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A trait might be inherited from either the maternal or the paternal line.",
+     "definitionFit": "Genre means a sort or category, especially of artistic work, which is what kind means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1806,60 @@
     "text": "When entering nobleman denied opening decree",
     "enumeration": "5"
    },
-   "solution": "UKASE"
+   "solution": "UKASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "UKASE",
+    "definitions": [
+     {
+      "text": "decree",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied opening",
+      "for": "deletion",
+      "note": "denied its opening means the first letter is taken away"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so this word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobleman",
+      "gives": "DUKE",
+      "note": "a duke is a high-ranking nobleman"
+     },
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as in 'as the day ended'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UK",
+      "AS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman refused entry when he arrived issues a decree.",
+     "definitionFit": "A ukase was an edict of the Russian tsar, and by extension any arbitrary official order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1873,60 @@
     "text": "Day sharing cool spring sojourn",
     "enumeration": "7"
    },
-   "solution": "INDWELL"
+   "solution": "INDWELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INDWELL",
+    "definitions": [
+     {
+      "text": "sojourn",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sharing",
+      "for": "container",
+      "note": "sharing a space means sitting between the others, so this letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "Day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a well is a spring of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "D",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spends a day at a cool spa on holiday.",
+     "definitionFit": "To indwell is to live or abide within a place, the same as staying there for a while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1940,66 @@
     "text": "European slalomer maybe avoiding top of icy ridge",
     "enumeration": "5"
    },
-   "solution": "ESKER"
+   "solution": "ESKER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ESKER",
+    "definitions": [
+     {
+      "text": "ridge",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding something means keeping it out, so that letter goes"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "slalomer maybe",
+      "gives": "SKIER",
+      "note": "a slalomer is one kind of skier, hence maybe"
+     },
+     {
+      "clueFragment": "icy",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of icy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Continental skier swerves around the top of a frozen ridge.",
+     "definitionFit": "An esker is a long winding ridge of gravel left by a stream under a melting glacier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "icy"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +2013,59 @@
     "text": "Robbed once match official’s heading for tunnel",
     "enumeration": "4"
    },
-   "solution": "REFT"
+   "solution": "REFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REFT",
+    "definitions": [
+     {
+      "text": "Robbed once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match official",
+      "gives": "REF",
+      "note": "short for referee"
+     },
+     {
+      "clueFragment": "tunnel",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tunnel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan complains of being robbed as the referee heads for the players' tunnel.",
+     "walkthrough": "Once marks an archaic word: reft is an old past tense of reave.",
+     "definitionFit": "Reft is the archaic past participle of reave, to plunder or deprive, so it meant bereft or robbed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Robbed"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +2079,50 @@
     "text": "Dished out grass for feed",
     "enumeration": "6"
    },
-   "solution": "EDDISH"
+   "solution": "EDDISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDDISH",
+    "definitions": [
+     {
+      "text": "grass for feed",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of order, so the letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dished",
+      "gives": "DISHED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISHED",
+       "gives": "EDDISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grass was served up as fodder for the animals.",
+     "definitionFit": "Eddish is a dialect word for aftermath, the second growth of grass after mowing, used for grazing livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dished"
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +2136,69 @@
     "text": "Batman delivering one-two, ie in action, POW!?",
     "enumeration": "6"
    },
-   "solution": "INMATE"
+   "solution": "INMATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INMATE",
+    "definitions": [
+     {
+      "text": "POW",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivering one-two",
+      "for": "deletion",
+      "note": "delivering means letting go, and the one-two means the first two letters"
+     },
+     {
+      "text": "in action",
+      "for": "anagram",
+      "note": "in action means moving about, so the letters change positions"
+     }
+    ],
+    "linkWords": [
+     "!?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batman",
+      "gives": "BATMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ie",
+      "gives": "IE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INMATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TMANIE",
+       "gives": "INMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic-book fight scene: the superhero lands a one-two punch, and the caption reads POW!",
+     "walkthrough": "POW looks like the sound effect from the Batman comics; it is the abbreviation for prisoner of war.",
+     "definitionFit": "A prisoner of war is held in a camp, and an inmate is anyone confined in such an institution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "POW"
+    }
+   }
   },
   {
    "number": 30,
@@ -506,7 +2218,81 @@
      }
     ]
    },
-   "solution": "NEONTETRAS"
+   "solution": "NEONTETRAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NEON TETRAS",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 43,
+      "note": "the clue word is read as a plural, matching the plural answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "the first off means taken away, so that letter is removed"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "the second off means out of order or gone wrong, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to catch fish",
+      "gives": "NET",
+      "note": "to net is to catch fish"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Start",
+      "gives": "START",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "ONTETRAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STARTONE",
+       "gives": "ONTETRAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler takes a fishing holiday and starts by landing a single fish.",
+     "walkthrough": "Time off reads as a holiday; it is an instruction to remove the time letter. The word off then does a second job as the signal to rearrange.",
+     "definitionFit": "Neon tetras are small bright blue-and-red South American freshwater fish, very popular in home aquariums."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 31,
@@ -520,7 +2306,55 @@
     "text": "Edge back from disco dance …",
     "enumeration": "5"
    },
-   "solution": "TANGO"
+   "solution": "TANGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TANGO",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back from",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edge",
+      "gives": "TANG",
+      "note": "a tang is a projecting point or prong, such as the tongue of a blade"
+     },
+     {
+      "clueFragment": "disco",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of disco"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone edges back away from the disco floor as the dancing starts.",
+     "definitionFit": "The tango is a ballroom dance from Argentina, performed by couples with sharp, dramatic movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edge"
+    }
+   }
   },
   {
    "number": 32,
@@ -534,7 +2368,46 @@
     "text": "… again choose dance therapy of a sort",
     "enumeration": "7"
    },
-   "solution": "REELECT"
+   "solution": "REELECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RE-ELECT",
+    "definitions": [
+     {
+      "text": "again choose",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "REEL",
+      "note": "a reel is a lively Scottish folk dance"
+     },
+     {
+      "clueFragment": "therapy of a sort",
+      "gives": "ECT",
+      "note": "ECT is electroconvulsive therapy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEL",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Following on from the previous clue, dancing is prescribed as a kind of therapy.",
+     "definitionFit": "To re-elect is to vote someone into the same office a second time, picking them once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   }
  ]
 }

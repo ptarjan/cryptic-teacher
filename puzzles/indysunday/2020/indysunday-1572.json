@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Even numbers tossing cabers",
     "enumeration": "6"
    },
-   "solution": "BRACES"
+   "solution": "BRACES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRACES",
+    "definitions": [
+     {
+      "text": "Even numbers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossing",
+      "for": "anagram",
+      "note": "tossing throws things about, so the letters of the following word land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cabers",
+      "gives": "CABERS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CABERS",
+       "gives": "BRACES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a Highland games, competitors throw cabers in matching numbers.",
+     "walkthrough": "Tossing the caber is a Scottish Highland games event in which a long wooden pole is thrown end over end.",
+     "definitionFit": "A brace is a pair, so braces are twos, things that come in even quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tossing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,50 @@
     "text": "British banks maybe make kitchen appliances",
     "enumeration": "8"
    },
-   "solution": "BLENDERS"
+   "solution": "BLENDERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLENDERS",
+    "definitions": [
+     {
+      "text": "kitchen appliances",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard abbreviation for British"
+     },
+     {
+      "clueFragment": "banks maybe",
+      "gives": "LENDERS",
+      "note": "banks are an example of institutions that lend money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LENDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "British banks diversifying into making household goods.",
+     "walkthrough": "'banks' suggests rivers or money; 'maybe' marks it as an example, of lenders.",
+     "definitionFit": "Blenders are electric machines used for mixing or liquidising food when cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,65 @@
     "text": "Activity of oddly crude rural git?",
     "enumeration": "11"
    },
-   "solution": "AGRICULTURE"
+   "solution": "AGRICULTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "AGRICULTURE",
+    "definitions": [
+     {
+      "text": "Activity of oddly crude rural git?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly here means taking the odd-numbered letters, the first, third and fifth, of the following word"
+     },
+     {
+      "text": "Activity",
+      "for": "anagram",
+      "note": "activity implies movement and bustle, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crude",
+      "gives": "CUE",
+      "select": "alternate",
+      "note": "first, third and fifth letters of crude"
+     },
+     {
+      "clueFragment": "rural git",
+      "gives": "RURALGIT",
+      "note": "taken as written for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUERURALGIT",
+       "gives": "AGRICULTURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at what a coarse country bumpkin does for a living.",
+     "walkthrough": "The whole clue is both definition and wordplay: farming is what a crude rural git, a rustic oaf, stereotypically does.",
+     "definitionFit": "Farming the land is the typical work done by rustic country people, including the crude caricature here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Activity"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,64 @@
     "text": "Impressive list of ingredients not about to rise",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Impressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us that the word for about is to be left out of the longer word"
+     },
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading the letters from the bottom upwards, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list of ingredients",
+      "gives": "RECIPE",
+      "note": "a recipe lists what goes into a dish"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin-derived for about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIPE",
+       "to": "EPIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impressive recipe whose ingredients fail to make the cake rise.",
+     "definitionFit": "Epic describes something grand and heroic in scale, so very striking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +300,61 @@
      }
     ]
    },
-   "solution": "BASSDRUM"
+   "solution": "BASSDRUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BASS DRUM",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "BUM",
+      "note": "bum is British slang for the behind or bottom"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "ASS",
+      "note": "an ass is a donkey"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ASS",
+      "DR",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A vet hiding in the back part of the orchestra.",
+     "walkthrough": "'animal doctor' reads as a vet but splits into two pieces, which sit inside a slang word for the bottom.",
+     "definitionFit": "A bass drum is a large low-pitched percussion piece played in bands and orchestras."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "animal"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +368,54 @@
     "text": "Secured in place with unpleasant work to do inside",
     "enumeration": "8"
    },
-   "solution": "ANCHORED"
+   "solution": "ANCHORED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANCHORED",
+    "definitions": [
+     {
+      "text": "Secured in place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means the job word is placed within the word for with"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and joins things, like with"
+     },
+     {
+      "clueFragment": "unpleasant work to do",
+      "gives": "CHORE",
+      "note": "a chore is a tedious task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "CHORE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stuck indoors with an unpleasant job to finish.",
+     "definitionFit": "A ship held fast by its heavy hook to the seabed is fixed, so firmly fastened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +429,57 @@
     "text": "New pine trees around London lake",
     "enumeration": "10"
    },
-   "solution": "SERPENTINE"
+   "solution": "SERPENTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SERPENTINE",
+    "definitions": [
+     {
+      "text": "London lake",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters are moved about into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "pine trees",
+      "gives": "PINETREES",
+      "note": "taken as written for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NPINETREES",
+       "gives": "SERPENTINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh conifers planted round a lake in the capital.",
+     "walkthrough": "The Serpentine is the curving lake in Hyde Park, London.",
+     "definitionFit": "The well-known winding body of water in Hyde Park bears this name, from its snakelike shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +493,49 @@
     "text": "Fighting former PM naked",
     "enumeration": "3"
    },
-   "solution": "ROW"
+   "solution": "ROW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROW",
+    "definitions": [
+     {
+      "text": "Fighting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "naked means stripped of its covering, so the outside letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former PM",
+      "gives": "BROWN",
+      "note": "Gordon Brown was UK Prime Minister 2007-2010"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister brawling without clothes.",
+     "walkthrough": "Gordon Brown was Britain's Prime Minister from 2007 to 2010; strip off his first and last letters.",
+     "definitionFit": "A row is a noisy quarrel or argument, so it means fighting as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +549,48 @@
     "text": "Horses said to be dignitaries",
     "enumeration": "6"
    },
-   "solution": "MAYORS"
+   "solution": "MAYORS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAYORS",
+    "definitions": [
+     {
+      "text": "dignitaries",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so we want a word that is pronounced like the one for horses"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horses",
+      "gives": "MAYORS",
+      "soundsLike": "MARES",
+      "note": "mares are female horses"
+     }
+    ],
+    "explanation": {
+     "surface": "Horses claimed to be important officials.",
+     "walkthrough": "In a non-rhotic British accent, mares and mayors sound the same.",
+     "definitionFit": "Mayors are civic leaders of towns and cities, holders of a ceremonial office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Horses"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +604,49 @@
     "text": "Whale food makes a couple of kings sick",
     "enumeration": "5"
    },
-   "solution": "KRILL"
+   "solution": "KRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KRILL",
+    "definitions": [
+     {
+      "text": "Whale food",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple of kings",
+      "gives": "KR",
+      "note": "K and R are both abbreviations for king (R from Latin rex)"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Something whales eat that disagrees with two monarchs.",
+     "definitionFit": "Tiny shrimplike crustaceans are the main diet of baleen giants like the blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kings"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +660,43 @@
     "text": "Before being more noble?",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "Before",
+      "at": 0
+     },
+     {
+      "text": "being more noble?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Before",
+      "note": "first meaning: at a previous time"
+     },
+     {
+      "clueFragment": "being more noble?",
+      "note": "second meaning, whimsical: more like an earl, a nobleman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading invents a comparative of earl, as if one could be more earl-like; the question mark flags the invention.",
+     "definitionFit": "The word means at a previous time, and jokingly reads as the comparative of a peer's title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "noble"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +710,44 @@
     "text": "Flavouring what to tow?",
     "enumeration": "7"
    },
-   "solution": "CARAWAY"
+   "solution": "CARAWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARAWAY",
+    "definitions": [
+     {
+      "text": "Flavouring",
+      "at": 0
+     },
+     {
+      "text": "what to tow?",
+      "at": 11,
+      "note": "a whimsical phrase, read as the instruction car away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flavouring",
+      "note": "first meaning: a seed used to season bread and cakes"
+     },
+     {
+      "clueFragment": "what to tow?",
+      "note": "second meaning, split in two: a vehicle being taken off by a truck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer into two words: a vehicle that is removed is what a tow truck takes.",
+     "definitionFit": "Caraway is an aromatic seed used as a spice in rye bread and seed cake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tow"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +761,44 @@
     "text": "Avoided broadcast channel",
     "enumeration": "4"
    },
-   "solution": "DUCT"
+   "solution": "DUCT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DUCT",
+    "definitions": [
+     {
+      "text": "channel",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "broadcast means sent out over the air, so we want a word spoken like the one for avoided"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoided",
+      "gives": "DUCT",
+      "soundsLike": "DUCKED",
+      "note": "to duck something is to dodge it"
+     }
+    ],
+    "explanation": {
+     "surface": "A television channel that dodged showing something.",
+     "walkthrough": "'broadcast channel' looks like television, but channel is the definition.",
+     "definitionFit": "A duct is a tube or conduit through which air or liquid flows, a kind of passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "channel"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +812,62 @@
     "text": "Article in German on singer in chorus",
     "enumeration": "10"
    },
-   "solution": "ALTOGETHER"
+   "solution": "ALTOGETHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALTOGETHER",
+    "definitions": [
+     {
+      "text": "in chorus",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the article within the abbreviation for German"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "ALTO",
+      "note": "an alto is a singer with a low female or high male voice"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "Ger is an abbreviation for German"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the is the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTO",
+      "GE",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar point about a German article sung by a choir member.",
+     "walkthrough": "'on' means the singer comes first, with the article-in-German piece after it.",
+     "definitionFit": "Doing something in chorus means everyone doing it at once, all together in unison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +887,63 @@
      }
     ]
    },
-   "solution": "HANGGLIDING"
+   "solution": "HANGGLIDING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HANG GLIDING",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us to place the German and helmet pieces inside the word for execution"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "execution",
+      "gives": "HANGING",
+      "note": "hanging is execution by the rope"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is an abbreviation for German"
+     },
+     {
+      "clueFragment": "helmet",
+      "gives": "LID",
+      "note": "lid is slang for a hat or helmet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANG",
+      "G",
+      "LID",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A German in a helmet facing the gallows, as a sport.",
+     "walkthrough": "The German and helmet pieces go inside the execution word, after its first four letters.",
+     "definitionFit": "Hang gliding is the pastime of flying from hills on a light unpowered kite-like wing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "execution"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +957,74 @@
     "text": "Physicist badly hurt internally very cross",
     "enumeration": "10"
    },
-   "solution": "RUTHERFORD"
+   "solution": "RUTHERFORD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RUTHERFORD",
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly suggests something done wrong, so the letters come out in the wrong order"
+     },
+     {
+      "text": "internally",
+      "for": "letter_selection",
+      "note": "internally means only the inner letters of the next word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "RUTH",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the middle two letters of very"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "FORD",
+      "note": "to ford a river is to cross it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUTH",
+      "ER",
+      "FORD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HURT",
+       "gives": "RUTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist injured on the inside and extremely angry.",
+     "walkthrough": "'very cross' reads as furious, but splits: the inside of very, then a verb for crossing water.",
+     "definitionFit": "Ernest Rutherford was the New Zealand-born scientist who discovered the atomic nucleus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1044,61 @@
      }
     ]
    },
-   "solution": "ROLLUP"
+   "solution": "ROLLUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROLL-UP",
+    "definitions": [
+     {
+      "text": "cigarette",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means the letters are turned round to read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drag",
+      "gives": "PULL",
+      "note": "to drag is to haul"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "LLUP"
+     ],
+     "reversals": [
+      {
+       "from": "PULLOR",
+       "to": "ROLLUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Take a drag on a cigarette, or stub it out again.",
+     "walkthrough": "'Drag' looks like a puff on the cigarette but is a verb for hauling.",
+     "definitionFit": "A roll-up is a cigarette made by hand from loose tobacco and a paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drag"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1112,42 @@
     "text": "Satisfying conference",
     "enumeration": "7"
    },
-   "solution": "MEETING"
+   "solution": "MEETING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEETING",
+    "definitions": [
+     {
+      "text": "Satisfying",
+      "at": 0
+     },
+     {
+      "text": "conference",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Satisfying",
+      "note": "first meaning: fulfilling, as in matching a demand or standard"
+     },
+     {
+      "clueFragment": "conference",
+      "note": "second meaning: a gathering of people to discuss things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Satisfying' reads as an adjective praising the conference, but it is a verb form: fulfilling requirements.",
+     "definitionFit": "To meet a need is to fulfil it, and a gathering for discussion is also called by this noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Satisfying"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1161,61 @@
     "text": "Blows up home even less evenly",
     "enumeration": "8"
    },
-   "solution": "INFLATES"
+   "solution": "INFLATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INFLATES",
+    "definitions": [
+     {
+      "text": "Blows up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "evenly means taking only the even-numbered letters, the second and fourth, of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "FLAT",
+      "note": "flat means level or even"
+     },
+     {
+      "clueFragment": "less",
+      "gives": "ES",
+      "select": "alternate",
+      "note": "second and fourth letters of less"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FLAT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home making things smaller and less level.",
+     "definitionFit": "To inflate a balloon or tyre is to fill it with air until it swells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1229,43 @@
     "text": "Just ran gleefully, holding throttle",
     "enumeration": "8"
    },
-   "solution": "STRANGLE"
+   "solution": "STRANGLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STRANGLE",
+    "definitions": [
+     {
+      "text": "throttle",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "holding means the phrase before it contains the answer within its run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just ran gleefully",
+      "gives": "STRANGLE",
+      "note": "the letters run across the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone running happily with the accelerator held open.",
+     "walkthrough": "'throttle' looks like the engine control, but it is a verb meaning choke.",
+     "definitionFit": "To throttle someone is to choke them by the neck, which is to strangle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "throttle"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1279,46 @@
     "text": "It's pleasant to listen to European impostor",
     "enumeration": "7"
    },
-   "solution": "EUPHONY"
+   "solution": "EUPHONY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EUPHONY",
+    "definitions": [
+     {
+      "text": "It's pleasant to listen to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "EU",
+      "note": "EU is the European Union"
+     },
+     {
+      "clueFragment": "impostor",
+      "gives": "PHONY",
+      "note": "a phony is a fake person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "PHONY"
+     ]
+    },
+    "explanation": {
+     "surface": "A European fraud whose voice is nice to hear.",
+     "definitionFit": "Euphony is a harmonious, agreeable quality of sound, especially of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "impostor"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1332,74 @@
     "text": "Sir Lancelot possibly to consider returning without giant's head",
     "enumeration": "6"
    },
-   "solution": "KNIGHT"
+   "solution": "KNIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "KNIGHT",
+    "definitions": [
+     {
+      "text": "Sir Lancelot possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word for consider is read from right to left"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so the reversed word goes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to consider",
+      "gives": "THINK",
+      "note": "to think is to consider"
+     },
+     {
+      "clueFragment": "giant's",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of giant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNI",
+      "G",
+      "HT"
+     ],
+     "reversals": [
+      {
+       "from": "THINK",
+       "to": "KNIHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lancelot reconsidering a fight, minus a giant's head he has cut off.",
+     "walkthrough": "'without' looks like it means minus, but here it means outside, wrapping around.",
+     "definitionFit": "Lancelot was one of King Arthur's Round Table, so an example of an armoured nobleman of chivalry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1413,58 @@
     "text": "Starts to see colourful birds giving dirty looks",
     "enumeration": "6"
    },
-   "solution": "SCOWLS"
+   "solution": "SCOWLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOWLS",
+    "definitions": [
+     {
+      "text": "dirty looks",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "starts means the first letter of each of the next words is taken"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see colourful",
+      "gives": "SC",
+      "select": "first",
+      "note": "first letters of see and colourful"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "OWLS",
+      "note": "owls are birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "OWLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Birdwatchers glaring at brightly coloured birds.",
+     "definitionFit": "Scowls are angry, disapproving frowns, the facial expressions known as glares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colourful"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1478,56 @@
     "text": "Delay unbelievable after standing start",
     "enumeration": "5"
    },
-   "solution": "STALL"
+   "solution": "STALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STALL",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "start means only the opening letter of the word before it is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standing",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of standing"
+     },
+     {
+      "clueFragment": "unbelievable",
+      "gives": "TALL",
+      "note": "a tall story is an unbelievable one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TALL"
+     ]
+    },
+    "explanation": {
+     "surface": "An incredible hold-up following a standing start in a race.",
+     "walkthrough": "'after' places the unbelievable word behind the single letter.",
+     "definitionFit": "To stall is to play for time, to hold things up or stop progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unbelievable"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1541,50 @@
     "text": "Clever host can make cars",
     "enumeration": "10"
    },
-   "solution": "CHEVROLETS"
+   "solution": "CHEVROLETS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEVROLETS",
+    "definitions": [
+     {
+      "text": "cars",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can make",
+      "for": "anagram",
+      "note": "can make means the letters are able to be formed into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clever host",
+      "gives": "CLEVERHOST",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEVERHOST",
+       "gives": "CHEVROLETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A talented host who can build motor cars.",
+     "definitionFit": "Chevrolet is an American brand of motor car made by General Motors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "host"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1598,54 @@
     "text": "Reportedly goes with American city",
     "enumeration": "4"
    },
-   "solution": "PISA"
+   "solution": "PISA",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PISA",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken, so we want letters pronounced like the word for goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes",
+      "gives": "PIS",
+      "soundsLike": "PEES",
+      "note": "goes, in the sense of uses the toilet"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is an abbreviation for American"
+     }
+    ],
+    "explanation": {
+     "surface": "Reports of someone going off with an American.",
+     "walkthrough": "To 'go' is a British euphemism for using the toilet; Pisa is pronounced roughly PEEZ-uh.",
+     "definitionFit": "Pisa is an Italian town in Tuscany, famous for its leaning tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1659,70 @@
     "text": "Japanese initially a very abstruse language",
     "enumeration": "4"
    },
-   "solution": "JAVA"
+   "solution": "JAVA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "JAVA",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means the first letter of each word in the run is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese",
+      "gives": "J",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "abstruse",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "A",
+      "V",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Japanese is, at first, a very obscure tongue.",
+     "walkthrough": "'initially' seems to apply only to Japanese, but it covers all four words.",
+     "definitionFit": "Java is a widely used computer programming tongue, as well as an Indonesian island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Japanese"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1736,52 @@
     "text": "Cancelled event with a yell",
     "enumeration": "7"
    },
-   "solution": "WASHOUT"
+   "solution": "WASHOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WASHOUT",
+    "definitions": [
+     {
+      "text": "Cancelled event",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "yell",
+      "gives": "SHOUT",
+      "note": "a shout is a yell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "SHOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouting about a called-off event.",
+     "definitionFit": "A washout is a match or event abandoned because of rain, so a total failure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1795,48 @@
     "text": "Salt water spring perhaps half gone",
     "enumeration": "3"
    },
-   "solution": "SEA"
+   "solution": "SEA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEA",
+    "definitions": [
+     {
+      "text": "Salt water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half gone",
+      "for": "deletion",
+      "note": "half gone means the back half of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring perhaps",
+      "gives": "SEASON",
+      "note": "spring is an example of a time of year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A salty spring that has half dried up.",
+     "walkthrough": "'spring' suggests a water source, but 'perhaps' marks it as an example of a quarter of the year.",
+     "definitionFit": "The ocean is a large body of saline water, which is what this word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1850,53 @@
     "text": "In front but poorly aligned",
     "enumeration": "7"
    },
-   "solution": "LEADING"
+   "solution": "LEADING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEADING",
+    "definitions": [
+     {
+      "text": "In front",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "poorly means not in good order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aligned",
+      "gives": "ALIGNED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALIGNED",
+       "gives": "LEADING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racer ahead of the field but with wheels out of true.",
+     "definitionFit": "To be ahead in a race is to have the lead, to be first among competitors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 30,
@@ -471,7 +1910,50 @@
     "text": "Careless hit-and-run",
     "enumeration": "8"
    },
-   "solution": "SLAPDASH"
+   "solution": "SLAPDASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLAPDASH",
+    "definitions": [
+     {
+      "text": "Careless",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "SLAP",
+      "note": "a slap is a blow"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "DASH",
+      "note": "to dash is to run quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAP",
+      "DASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sloppy driver in a hit-and-run accident.",
+     "walkthrough": "'hit-and-run' reads as one crime, but splits into two verbs joined by a plain 'and'.",
+     "definitionFit": "Slapdash work is done hastily and sloppily, without proper attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit-and-run"
+    }
+   }
   },
   {
    "number": 31,
@@ -485,7 +1967,50 @@
     "text": "Try tempting with dead fish",
     "enumeration": "6"
    },
-   "solution": "DANGLE"
+   "solution": "DANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANGLE",
+    "definitions": [
+     {
+      "text": "Try tempting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "d is an abbreviation for dead"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish with rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Luring someone with a dead fish as bait.",
+     "walkthrough": "'fish' looks like a noun beside 'dead', but it is a verb.",
+     "definitionFit": "To dangle an offer is to hold it out as bait, trying to lure someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   }
  ]
 }

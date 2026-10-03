@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Dropped off where sleepers are grabbing a rest at last",
     "enumeration": "6"
    },
-   "solution": "ABATED"
+   "solution": "ABATED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ABATED",
+    "definitions": [
+     {
+      "text": "Dropped off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab something is to take hold of it, so the outer word wraps around what follows"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where sleepers are",
+      "gives": "ABED",
+      "note": "sleepers lie abed, that is, in bed"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "A",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nodded off on a train where sleeping passengers were snatching a final rest.",
+     "walkthrough": "'Dropped off' looks like falling asleep, which the sleepers encourage; here it means lessened, as a storm does.",
+     "definitionFit": "When a storm or pain has abated it has subsided or lessened, a standard sense of dropping off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dropped"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +111,56 @@
     "text": "Very cold, not cold, or hot food",
     "enumeration": "5"
    },
-   "solution": "BALTI"
+   "solution": "BALTI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BALTI",
+    "definitions": [
+     {
+      "text": "hot food",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not cold tells us to take the abbreviation for cold out of the word before"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very cold",
+      "gives": "BALTIC",
+      "note": "baltic is informal British for freezing"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALTI"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu-like contrast between something icy and something hot to eat.",
+     "walkthrough": "In British slang 'baltic' means bitterly cold, after the chilly Baltic Sea; dropping its C leaves the curry.",
+     "definitionFit": "A balti is a spicy curry dish cooked and served in a metal bowl, popularised in Birmingham."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +174,47 @@
     "text": "Child, rather cutesy, to swim across the Channel",
     "enumeration": "9"
    },
-   "solution": "TWEENAGER"
+   "solution": "TWEENAGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWEENAGER",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather cutesy",
+      "gives": "TWEE",
+      "note": "twee means excessively cute or quaint"
+     },
+     {
+      "clueFragment": "to swim across the Channel",
+      "gives": "NAGER",
+      "note": "across the Channel, in French, the verb to swim is nager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWEE",
+      "NAGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet little child plans to swim the English Channel.",
+     "walkthrough": "'Across the Channel' is not a swimming route but a pointer to France, so the French infinitive is wanted.",
+     "definitionFit": "A tweenager is a youngster between childhood and the teens, roughly aged ten to twelve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +228,54 @@
     "text": "Spades seized by warehouse chief who’s disliked",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESPOT",
+    "definitions": [
+     {
+      "text": "chief who’s disliked",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seized by",
+      "for": "container",
+      "note": "something seized by another is held within its grasp, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spades",
+      "gives": "S",
+      "note": "S is the card-suit abbreviation for spades"
+     },
+     {
+      "clueFragment": "warehouse",
+      "gives": "DEPOT",
+      "note": "a depot is a storage warehouse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hated warehouse boss has spades confiscated from the stock.",
+     "definitionFit": "A despot is a tyrannical ruler, a leader who wields absolute power and is resented for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spades"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +289,70 @@
     "text": "Player‘s reluctant air, running with ball",
     "enumeration": "8"
    },
-   "solution": "LOTHARIO"
+   "solution": "LOTHARIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LOTHARIO",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "running suggests movement and mixing, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reluctant",
+      "gives": "LOTH",
+      "note": "loth means unwilling"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "O is round like a ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOTH",
+      "ARIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIRO",
+       "gives": "ARIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports player looks hesitant while running with the ball.",
+     "walkthrough": "'Player' suggests sport, but here it means a womaniser; the ball letter joins the mix.",
+     "definitionFit": "A player in slang is a seducer of women, and a Lothario is the classic name for such a rake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +380,43 @@
      }
     ]
    },
-   "solution": "LOOKTHEOTHERWAY"
+   "solution": "LOOKTHEOTHERWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOK THE OTHER WAY",
+    "definitions": [
+     {
+      "text": "Ignore",
+      "at": 0
+     },
+     {
+      "text": "cryptic clue for ‘keep’",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ignore",
+      "note": "first meaning: deliberately disregard something"
+     },
+     {
+      "clueFragment": "cryptic clue for ‘keep’",
+      "note": "second meaning: a peek is a look, and keep written backwards spells peek"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer read literally is itself a clue: a word for look, turned the other way round, gives keep.",
+     "definitionFit": "To turn a blind eye is the idiom's sense: pretending not to notice wrongdoing by facing elsewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +436,43 @@
      }
     ]
    },
-   "solution": "TAKETHAT"
+   "solution": "TAKETHAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE THAT",
+    "definitions": [
+     {
+      "text": "Comment accompanying hit",
+      "at": 0
+     },
+     {
+      "text": "band",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comment accompanying hit",
+      "note": "first meaning: what you exclaim while landing a blow"
+     },
+     {
+      "clueFragment": "band",
+      "note": "second meaning: a hugely popular British boy band of the 1990s"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hit band' reads as a chart-topping group, but hit belongs to the first meaning as a punch.",
+     "definitionFit": "The exclamation is shouted when striking someone, and the same phrase is the name of Gary Barlow's pop group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +492,67 @@
      }
     ]
    },
-   "solution": "AGOGO"
+   "solution": "AGOGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "A GOGO",
+    "definitions": [
+     {
+      "text": "galore",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Face of",
+      "for": "letter_selection",
+      "note": "the face of a word is its front, its first letter"
+     },
+     {
+      "text": "decked in",
+      "for": "container",
+      "note": "something decked in finery is wrapped in it, so it goes inside the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gucci",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Gucci"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "rings",
+      "gives": "OO",
+      "note": "each O is shaped like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "O",
+      "G",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A Gucci model is dressed in silver with rings in abundance.",
+     "definitionFit": "A gogo, from French à gogo, means in plenty or without limit, an equivalent of in abundance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +566,59 @@
     "text": "Part of shoe, regularly knocked, shows freshness",
     "enumeration": "9"
    },
-   "solution": "INSOLENCE"
+   "solution": "INSOLENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSOLENCE",
+    "definitions": [
+     {
+      "text": "freshness",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every second letter is kept"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of shoe",
+      "gives": "INSOLE",
+      "note": "the inner sole of a shoe"
+     },
+     {
+      "clueFragment": "knocked",
+      "gives": "NCE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of knocked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSOLE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A battered piece of footwear reveals a new freshness.",
+     "walkthrough": "'Freshness' looks like newness, but in the British sense it is cheekiness.",
+     "definitionFit": "Being fresh with someone is being cheeky or impudent, so freshness is rude disrespect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "freshness"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +632,75 @@
     "text": "A record store engaging even heartless staff",
     "enumeration": "10"
    },
-   "solution": "ALPENSTOCK"
+   "solution": "ALPENSTOCK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ALPENSTOCK",
+    "definitions": [
+     {
+      "text": "staff",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "to engage is to take in or hold, so these letters enclose others"
+     },
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "without its heart a word keeps only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "LP is a long-playing record"
+     },
+     {
+      "clueFragment": "store",
+      "gives": "STOCK",
+      "note": "a stock is a store of goods"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EN",
+      "select": "outer",
+      "note": "even with its two middle letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LP",
+      "EN",
+      "STOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A record shop takes on staff, though not very warm-hearted ones.",
+     "walkthrough": "'Staff' sounds like employees taken on by the store; it is the definition, a walking pole.",
+     "definitionFit": "An alpenstock is a long iron-tipped pole used by mountain walkers, so a kind of staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +714,57 @@
     "text": "Cases coming from Odessa, short hops here",
     "enumeration": "4"
    },
-   "solution": "OAST"
+   "solution": "OAST",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OAST",
+    "definitions": [
+     {
+      "text": "hops here",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cases coming from",
+      "for": "letter_selection",
+      "note": "the case of a word is its outside, so only the first and last letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odessa",
+      "gives": "OA",
+      "select": "outer",
+      "note": "the first and last letters of Odessa"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters of short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OA",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Luggage arrives off short flights from Odessa.",
+     "walkthrough": "'Short hops' looks like brief flights; short is fodder and hops are the plant.",
+     "definitionFit": "An oast is a kiln for drying hops, typically in a Kent oast house with a cowled roof."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hops"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +778,52 @@
     "text": "Reporter’s function and job, one giving direction",
     "enumeration": "8"
    },
-   "solution": "SIGNPOST"
+   "solution": "SIGNPOST",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SIGNPOST",
+    "definitions": [
+     {
+      "text": "one giving direction",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reporter’s",
+      "for": "homophone",
+      "note": "a reporter speaks the news, so the word is to be heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "SIGN",
+      "soundsLike": "SINE",
+      "note": "sine is a trigonometric function"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a job"
+     }
+    ],
+    "explanation": {
+     "surface": "A journalist describes their role and position as giving a lead to others.",
+     "definitionFit": "A signpost points the way at a road junction, so it literally indicates the route to travellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +837,54 @@
     "text": "Online provocateurs run into charges",
     "enumeration": "6"
    },
-   "solution": "TROLLS"
+   "solution": "TROLLS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROLLS",
+    "definitions": [
+     {
+      "text": "Online provocateurs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing put into another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "charges",
+      "gives": "TOLLS",
+      "note": "tolls are charges, as on a road or bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OLLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Internet troublemakers find themselves facing criminal charges.",
+     "definitionFit": "Internet users who post inflammatory messages to provoke others are called trolls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +898,60 @@
     "text": "Try writing about industrial problem",
     "enumeration": "4"
    },
-   "solution": "SMOG"
+   "solution": "SMOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SMOG",
+    "definitions": [
+     {
+      "text": "industrial problem",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "MS",
+      "note": "MS is short for manuscript, a piece of writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "OG"
+     ],
+     "reversals": [
+      {
+       "from": "GOMS",
+       "to": "SMOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to try writing about a problem in industry.",
+     "definitionFit": "Smog is the polluted fog caused by factory smoke and exhaust fumes over cities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "writing"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +965,73 @@
     "text": "White animal in frame from Magritte or Munch",
     "enumeration": "9"
    },
-   "solution": "MASTICATE"
+   "solution": "MASTICATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MASTICATE",
+    "definitions": [
+     {
+      "text": "Munch",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frame from",
+      "for": "letter_selection",
+      "note": "the frame of a word is its border, its first and last letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "White",
+      "gives": "ASTI",
+      "note": "Asti is a white Italian wine"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "Magritte",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of Magritte"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASTI",
+      "CAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A white creature appears in a painting by either of two famous artists.",
+     "walkthrough": "'Munch' looks like the Norwegian painter beside Magritte; it is the verb, to chew.",
+     "definitionFit": "To masticate is to chew food thoroughly, the same action as munching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Munch"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1051,60 @@
      }
     ]
    },
-   "solution": "ETAILING"
+   "solution": "ETAILING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "E-TAILING",
+    "definitions": [
+     {
+      "text": "sector of Amazon?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders of",
+      "for": "letter_selection",
+      "note": "the borders of a word are its edges, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "ET",
+      "select": "outer",
+      "note": "the first and last letters of east"
+     },
+     {
+      "clueFragment": "Indisposed",
+      "gives": "AILING",
+      "note": "ailing means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "AILING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls ill at the edges of an eastern part of the Amazon rainforest.",
+     "walkthrough": "'Amazon' suggests the river and jungle; the question mark flags the online retailer.",
+     "definitionFit": "E-tailing is electronic retailing, selling over the internet, which is the online shop's core business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1118,61 @@
     "text": "Boy touring south of Spain cleaned up",
     "enumeration": "9"
    },
-   "solution": "LAUNDERED"
+   "solution": "LAUNDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAUNDERED",
+    "definitions": [
+     {
+      "text": "cleaned up",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour is to go around, so the first word surrounds the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "south of",
+      "gives": "UNDER",
+      "note": "south of means below, under"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UNDER",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy travelling through southern Spain tidies himself up.",
+     "definitionFit": "Laundered means washed, and also figuratively made illicit money appear legitimate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1192,67 @@
      }
     ]
    },
-   "solution": "SETPIECE"
+   "solution": "SETPIECE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SET PIECE",
+    "definitions": [
+     {
+      "text": "E.g. corner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "discarded means thrown away, so those two letters are removed from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hardened",
+      "gives": "SET",
+      "note": "set means hardened, like concrete"
+     },
+     {
+      "clueFragment": "pastry",
+      "gives": "PIE",
+      "note": "a pie is a pastry"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "PIE",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe-like note about the corner of a pie crust gone hard.",
+     "walkthrough": "'Corner' looks like the edge of the pastry case; it is the football corner kick.",
+     "definitionFit": "In football a set piece is a rehearsed move from a dead ball, such as a corner kick or free kick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corner"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1266,66 @@
     "text": "Keen to eat mashed suet, eating nothing French",
     "enumeration": "8"
    },
-   "solution": "ESURIENT"
+   "solution": "ESURIENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESURIENT",
+    "definitions": [
+     {
+      "text": "Keen to eat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mashed",
+      "for": "anagram",
+      "note": "mashed food is crushed and mixed, so these letters are scrambled"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so the scrambled letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suet",
+      "gives": "SUET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing French",
+      "gives": "RIEN",
+      "note": "rien is French for nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESU",
+      "RIEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUET",
+       "gives": "ESUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hungry for a suet pudding, although eating nothing at all in France.",
+     "definitionFit": "Esurient is a literary word for greedy or hungry, describing an appetite eager for food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mashed"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1339,54 @@
     "text": "E.g. King Edward hasn’t time for company for a ride",
     "enumeration": "4"
    },
-   "solution": "UBER"
+   "solution": "UBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UBER",
+    "definitions": [
+     {
+      "text": "company for a ride",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t",
+      "for": "deletion",
+      "note": "hasn't means lacks, so the letter for time is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. King Edward",
+      "gives": "TUBER",
+      "note": "King Edward is a British potato variety, and a potato is a tuber"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is too busy to accompany someone on a journey.",
+     "walkthrough": "'King Edward' suggests royalty, but it is a popular British potato.",
+     "definitionFit": "Uber is the ride-hailing firm whose app summons a car to drive you somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1400,71 @@
     "text": "Daughter leaves meal after end of Christmas Eve?",
     "enumeration": "6"
    },
-   "solution": "SINNER"
+   "solution": "SINNER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SINNER",
+    "definitions": [
+     {
+      "text": "Eve?",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves means departs, so that letter goes out of the word for meal"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of Christmas"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "DINNER",
+      "note": "a dinner is a meal"
+     },
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter walks out of a Christmas Eve dinner.",
+     "walkthrough": "'Christmas Eve' reads as one phrase, but Eve is split off as the definition, the woman of Genesis.",
+     "definitionFit": "In Genesis Eve ate the forbidden fruit, making her the first person to transgress against God."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eve"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1478,62 @@
     "text": "Blow is hard, punching face",
     "enumeration": "6"
    },
-   "solution": "MISHAP"
+   "solution": "MISHAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISHAP",
+    "definitions": [
+     {
+      "text": "Blow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punching",
+      "for": "container",
+      "note": "a punch goes into something, so these letters drive inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     },
+     {
+      "clueFragment": "face",
+      "gives": "MAP",
+      "note": "map is slang for face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "H",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer's punch to the face lands as a heavy blow.",
+     "walkthrough": "'Blow' looks like the punch itself; it means a setback.",
+     "definitionFit": "A blow is a misfortune or setback, and a mishap is an unlucky accident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punching"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1547,58 @@
     "text": "Whence we get guru in hotel, and what’s next mostly",
     "enumeration": "5"
    },
-   "solution": "HINDI"
+   "solution": "HINDI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HINDI",
+    "definitions": [
+     {
+      "text": "Whence we get guru",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "Hotel is the NATO alphabet code word for H"
+     },
+     {
+      "clueFragment": "what’s next",
+      "gives": "INDIA",
+      "note": "India follows Hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "INDI"
+     ]
+    },
+    "explanation": {
+     "surface": "A guru turns up in a hotel, with some idea of what is coming.",
+     "walkthrough": "In the radio alphabet Hotel is followed by India, which is what 'what's next' points to.",
+     "definitionFit": "The word guru, a spiritual teacher, entered English from the language spoken across northern India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "next"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1612,60 @@
     "text": "Base devil or rogue?",
     "enumeration": "8"
    },
-   "solution": "EVILDOER"
+   "solution": "EVILDOER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "EVILDOER",
+    "definitions": [
+     {
+      "text": "Base devil or rogue?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "something gone rogue is out of control, so these letters run wild"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     },
+     {
+      "clueFragment": "devil or",
+      "gives": "DEVILOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVILDOER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EDEVILOR",
+       "gives": "EVILDOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a lowly demon is just a scoundrel.",
+     "walkthrough": "'Base' looks like an adjective meaning wicked, but it supplies the mathematical constant; read whole, the clue also describes the answer.",
+     "definitionFit": "A wicked devil or a scoundrel is someone who commits sins, a perpetrator of wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Base"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1679,61 @@
     "text": "Flipping English, as I see it, ham it up",
     "enumeration": "5"
    },
-   "solution": "EMOTE"
+   "solution": "EMOTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMOTE",
+    "definitions": [
+     {
+      "text": "ham it up",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "to flip something is to turn it over, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "as I see it",
+      "gives": "TOME",
+      "note": "to me means in my opinion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMOT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ETOME",
+       "to": "EMOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated aside that, in my view, English actors overact.",
+     "walkthrough": "'Flipping' could pass as a mild British curse; it governs the whole phrase.",
+     "definitionFit": "To emote is to show exaggerated emotion when acting, the same as overacting theatrically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1747,44 @@
     "text": "Rake in pot picked up",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Rake in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "EARN",
+      "soundsLike": "URN",
+      "note": "an urn is a pot or vase"
+     }
+    ],
+    "explanation": {
+     "surface": "A gambler scoops up the winnings in the pot.",
+     "walkthrough": "'Pot' and 'rake in' suggest poker; in British speech the two words are pronounced alike.",
+     "definitionFit": "To rake in money is to collect a lot of it, so to gain income or profit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1804,61 @@
      }
     ]
    },
-   "solution": "EDWINDROOD"
+   "solution": "EDWINDROOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EDWIN DROOD",
+    "definitions": [
+     {
+      "text": "work left unfinished",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first words wrap around the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "ROOD",
+      "note": "a rood is a crucifix"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "WIND",
+      "note": "a wind is a current of air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "WIND",
+      "ROOD"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry reporter writes about the latest trends, leaving the piece incomplete.",
+     "walkthrough": "'Cross' looks like angry; it is the old word for the crucifix.",
+     "definitionFit": "The Mystery of Edwin Drood is the novel Dickens was writing when he died, so it was never finished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1872,51 @@
     "text": "Place to process crude soldiers with quality kit",
     "enumeration": "8"
    },
-   "solution": "REFINERY"
+   "solution": "REFINERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFINERY",
+    "definitions": [
+     {
+      "text": "Place to process crude",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, British Army soldiers"
+     },
+     {
+      "clueFragment": "quality kit",
+      "gives": "FINERY",
+      "note": "finery is fine clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops with top-notch equipment at a rough-and-ready camp.",
+     "walkthrough": "'Crude' looks like an adjective meaning rough; it is the noun, crude oil.",
+     "definitionFit": "Crude oil is purified into petrol and other products at an industrial plant built for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crude"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1930,49 @@
     "text": "Deliver note facing judge",
     "enumeration": "6"
    },
-   "solution": "REDEEM"
+   "solution": "REDEEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDEEM",
+    "definitions": [
+     {
+      "text": "Deliver",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "DEEM",
+      "note": "to deem is to judge or consider"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DEEM"
+     ]
+    },
+    "explanation": {
+     "surface": "A note is handed over to a judge.",
+     "definitionFit": "To deliver someone from sin or evil is to save or rescue them, as religious usage has it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliver"
+    }
+   }
   }
  ]
 }

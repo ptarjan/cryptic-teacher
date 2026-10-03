@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Navy general appearing in the paper?",
     "enumeration": "5"
    },
-   "solution": "FLEET"
+   "solution": "FLEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLEET",
+    "definitions": [
+     {
+      "text": "Navy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "something appearing in a newspaper sits inside its pages, so the general goes inside the paper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the paper",
+      "gives": "FT",
+      "note": "FT is the Financial Times, a British newspaper"
+     },
+     {
+      "clueFragment": "general",
+      "gives": "LEE",
+      "note": "Robert E. Lee, the Confederate general"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval commander gets his name in the newspapers.",
+     "walkthrough": "'Navy general' reads as one person, but the definition stops after the first word.",
+     "definitionFit": "A navy is a country's whole body of warships, which is also called its fleet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,76 @@
     "text": "Meteorological phenomenon of rising gas originally seen over part of London",
     "enumeration": "6"
    },
-   "solution": "FOGBOW"
+   "solution": "FOGBOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FOGBOW",
+    "definitions": [
+     {
+      "text": "Meteorological phenomenon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the word of is written bottom to top"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the first letter, where the word begins"
+     }
+    ],
+    "linkWords": [
+     "seen over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gas",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of gas"
+     },
+     {
+      "clueFragment": "part of London",
+      "gives": "BOW",
+      "note": "Bow is a district in the East End of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "G",
+      "BOW"
+     ],
+     "reversals": [
+      {
+       "from": "OF",
+       "to": "FO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather effect appears as gas drifts up over a corner of London.",
+     "definitionFit": "A fogbow is a pale white rainbow formed by sunlight on fog droplets, a weather phenomenon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +181,48 @@
     "text": "Precise old knife thrower?",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Precise",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex- means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "knife thrower?",
+      "gives": "ACT",
+      "note": "a knife thrower is a circus or variety act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls a retired knife thrower who was admirably accurate.",
+     "walkthrough": "The question mark flags that a knife thrower is an example of a stage turn, not a person here.",
+     "definitionFit": "Both words describe something accurate and correct in every detail, so they are adjectival synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thrower"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,73 @@
     "text": "Fruit drink containing twisted lime peel",
     "enumeration": "7"
    },
-   "solution": "TANGELO"
+   "solution": "TANGELO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "TANGELO",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the drink holds the other letters inside it"
+     },
+     {
+      "text": "twisted",
+      "for": "reversal",
+      "note": "twisted round means turned to face the other way"
+     },
+     {
+      "text": "peel",
+      "for": "letter_selection",
+      "note": "peel is the outer skin, so only the outside letters of lime are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "TANGO",
+      "note": "Tango is a British fizzy orange soft drink"
+     },
+     {
+      "clueFragment": "lime",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the outside letters of lime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "EL",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "LE",
+       "to": "EL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit cocktail garnished with a twist of lime peel.",
+     "definitionFit": "A tangelo is a citrus fruit, a hybrid of the tangerine and the pomelo or grapefruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +316,50 @@
     "text": "Midlands locality of more than one witch trial",
     "enumeration": "8"
    },
-   "solution": "COVENTRY"
+   "solution": "COVENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVENTRY",
+    "definitions": [
+     {
+      "text": "Midlands locality",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more than one witch",
+      "gives": "COVEN",
+      "note": "a coven is a gathering of witches"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TRY",
+      "note": "a try is an attempt or trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVEN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Midlands town that once staged witch trials.",
+     "walkthrough": "'Witch trial' looks like one historical phrase, but the witches and the trial clue separate pieces.",
+     "definitionFit": "Coventry is a city in the West Midlands of England, so it is a place in that region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +373,63 @@
     "text": "This man's filling empty cricket box",
     "enumeration": "5"
    },
-   "solution": "CHEST"
+   "solution": "CHEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHEST",
+    "definitions": [
+     {
+      "text": "box",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling goes inside something, so these words sit within the other letters"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides and leaves only the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket",
+      "gives": "CT",
+      "select": "outer",
+      "note": "the first and last letters of cricket"
+     },
+     {
+      "clueFragment": "This man's",
+      "gives": "HES",
+      "note": "this man's is read as he's, he is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man packs an empty cricket kit box.",
+     "walkthrough": "'Box' in cricket is the protective groin guard, a sporting decoy; here it is just a storage container.",
+     "definitionFit": "A chest is a large sturdy box with a lid, used for storing or carrying belongings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +443,60 @@
     "text": "By way of London-Edinburgh road, Victor heads north",
     "enumeration": "3"
    },
-   "solution": "VIA"
+   "solution": "VIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "VIA",
+    "definitions": [
+     {
+      "text": "By way of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads north",
+      "for": "reversal",
+      "note": "in a down entry, heading north means the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London-Edinburgh road",
+      "gives": "AI",
+      "note": "the A1 is the main road from London to Edinburgh, with the 1 read as I"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIV",
+       "to": "VIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver called Victor takes the A1 north towards Scotland.",
+     "definitionFit": "Via is a preposition meaning travelling through a place or by means of something on the way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +510,60 @@
     "text": "Chinese food in the bottom of bin bags",
     "enumeration": "7"
    },
-   "solution": "NOODLES"
+   "solution": "NOODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOODLES",
+    "definitions": [
+     {
+      "text": "Chinese food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the bottom of",
+      "for": "letter_selection",
+      "note": "in a down entry the bottom of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bin",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of bin"
+     },
+     {
+      "clueFragment": "bags",
+      "gives": "OODLES",
+      "note": "bags and oodles both mean lots, as in bags of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Leftover takeaway lies at the bottom of the rubbish bags.",
+     "walkthrough": "'Bags' looks like bin liners, but it is the informal word for a large amount.",
+     "definitionFit": "Noodles are long strips of dough, a staple of Chinese cooking served in stir-fries and soups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +577,67 @@
     "text": "With millions spent, team trains vigorously and wins again",
     "enumeration": "9"
    },
-   "solution": "REATTAINS"
+   "solution": "REATTAINS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REATTAINS",
+    "definitions": [
+     {
+      "text": "wins again",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "deletion",
+      "note": "money spent is gone, so the millions leave the letters"
+     },
+     {
+      "text": "vigorously",
+      "for": "anagram",
+      "note": "a vigorous workout throws things about, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "team trains",
+      "gives": "TEAMTRAINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REATTAINS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEATRAINS",
+       "gives": "REATTAINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club spends millions, trains hard and is rewarded with another title.",
+     "definitionFit": "To reattain something is to gain or achieve it once more, the same sense as winning it again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spent"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +651,62 @@
     "text": "Silver's stored in spy base, where someone's bound to have it",
     "enumeration": "7"
    },
-   "solution": "BONDAGE"
+   "solution": "BONDAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BONDAGE",
+    "definitions": [
+     {
+      "text": "where someone's bound to have it",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "something stored in a place is kept inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "BOND",
+      "note": "James Bond, the fictional British spy"
+     },
+     {
+      "clueFragment": "Silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms in mathematics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOND",
+      "AG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Silver bullion is hidden in a secret agent's lair, where captives are kept.",
+     "walkthrough": "The definition is cryptic: being bound to have it means literally being tied up.",
+     "definitionFit": "Bondage is the state of being tied or held captive, so a person in it is literally bound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +720,49 @@
     "text": "Ancestor of King George who was raised in an orphanage?",
     "enumeration": "7"
    },
-   "solution": "GRANNIE"
+   "solution": "GRANNIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANNIE",
+    "definitions": [
+     {
+      "text": "Ancestor",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "GR is Georgius Rex, King George's royal cipher"
+     },
+     {
+      "clueFragment": "who was raised in an orphanage?",
+      "gives": "ANNIE",
+      "note": "Little Orphan Annie, heroine of the comic strip and musical, grew up in an orphanage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "ANNIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A genealogical question about a royal forebear brought up in a children's home.",
+     "definitionFit": "A grandmother is a forebear from two generations back, so the informal word fits a family ancestor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +776,82 @@
     "text": "Green plastic Cava bottles one's opening before party",
     "enumeration": "7"
    },
-   "solution": "AVOCADO"
+   "solution": "AVOCADO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AVOCADO",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so these letters are reshaped"
+     },
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to hold it inside, so the wine name encloses a letter"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cava",
+      "gives": "CAVA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of one"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVOCA",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAVOA",
+       "gives": "AVOCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plastic bottles of Spanish sparkling wine are opened before a party.",
+     "walkthrough": "Cava is a Spanish sparkling wine. 'Green' looks like an eco complaint about plastic, but it names a colour.",
+     "definitionFit": "Avocado is the name of a dull yellowish-green colour, after the skin and flesh of the fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +865,55 @@
     "text": "Unusual route to Split",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Split",
+      "for": "anagram",
+      "note": "splitting breaks the word up so its letters can be put back together differently"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "route",
+      "gives": "ROUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUTE",
+       "gives": "OUTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd way to travel to Split, the Croatian coastal city.",
+     "walkthrough": "Split looks like the Croatian city, capitalised in the surface; it is the instruction to break up the word before it.",
+     "definitionFit": "Outré is borrowed from French and means eccentric or beyond normal convention, much like strange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +927,55 @@
     "text": "Something forbidden by old duke is displayed within columns",
     "enumeration": "9"
    },
-   "solution": "TABULATED"
+   "solution": "TABULATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABULATED",
+    "definitions": [
+     {
+      "text": "displayed within columns",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something forbidden",
+      "gives": "TABU",
+      "note": "tabu is a variant spelling of taboo"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "LATE",
+      "note": "late means former or deceased"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABU",
+      "LATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A late duke issues a ban that gets posted in newspaper columns.",
+     "definitionFit": "Tabulated data is set out in a table, arranged in rows and columns for easy reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "columns"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +995,48 @@
      }
     ]
    },
-   "solution": "BUYER"
+   "solution": "BUYER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BUYER",
+    "definitions": [
+     {
+      "text": "subscriber",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read aloud",
+      "for": "homophone",
+      "note": "reading aloud means we hear these words spoken, not seen written"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times article",
+      "gives": "BUYER",
+      "soundsLike": "BY A",
+      "note": "times is by, as in three by four, and a is the indefinite article"
+     }
+    ],
+    "explanation": {
+     "surface": "A piece from The Times newspaper is read out to someone who pays for it.",
+     "walkthrough": "'Times' looks like the newspaper, but it is the multiplication sign. Said quickly, by a sounds like the answer.",
+     "definitionFit": "A subscriber pays for a regular supply of a publication or service, making them a purchaser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1050,82 @@
     "text": "Game of pool ruined by Frenchman on the 4th of July",
     "enumeration": "8"
    },
-   "solution": "MONOPOLY"
+   "solution": "MONOPOLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MONOPOLY",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked, so these letters are knocked out of order"
+     },
+     {
+      "text": "the 4th of",
+      "for": "letter_selection",
+      "note": "the 4th of a word picks out its fourth letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pool",
+      "gives": "POOL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is the abbreviation for monsieur"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "July",
+      "gives": "Y",
+      "select": 4,
+      "note": "the fourth letter of July"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONOPOL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POOLMON",
+       "gives": "MONOPOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman spoils a game of pool on American Independence Day.",
+     "walkthrough": "'The 4th of July' looks like the American holiday, but it asks for one letter of the month.",
+     "definitionFit": "Monopoly is the property-trading board game in which players buy streets and collect rent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "4th"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1145,65 @@
      }
     ]
    },
-   "solution": "OVEREATEN"
+   "solution": "OVEREATEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVEREATEN",
+    "definitions": [
+     {
+      "text": "Binged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts 4, 6",
+      "for": "letter_selection",
+      "note": "parts with numbers point to the letters standing in those positions of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "OVER",
+      "note": "over means on top of"
+     },
+     {
+      "clueFragment": "Homeland",
+      "gives": "EA",
+      "select": "regular",
+      "note": "the fourth and sixth letters of Homeland"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "TEN",
+      "note": "the number written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "EA",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gorged on a box set of the TV spy drama Homeland, watching episodes 4, 6 and 10.",
+     "walkthrough": "The numbers look like episodes; the first two are letter positions in Homeland and the last is simply a number to spell out.",
+     "definitionFit": "Someone who has binged has had far too much food at one go, so they have eaten to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1217,75 @@
     "text": "One eradicating squeaks by skinning voles and putting one in river",
     "enumeration": "5"
    },
-   "solution": "OILER"
+   "solution": "OILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OILER",
+    "definitions": [
+     {
+      "text": "One eradicating squeaks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skinning",
+      "for": "letter_selection",
+      "note": "skinning strips off the outside, so the outer letters of voles go"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the preceding piece goes inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "and",
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voles",
+      "gives": "OLE",
+      "select": "middle",
+      "note": "voles without its first and last letters"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "I",
+      "LE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim recipe: skin some voles and drop them in the river.",
+     "walkthrough": "The voles suggest animal squeaks, but the squeaks are from hinges and machinery.",
+     "definitionFit": "An oiler lubricates machinery, and lubricating a hinge is what silences it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "squeaks"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1299,44 @@
     "text": "Smart bassist in gabardine trousers",
     "enumeration": "5"
    },
-   "solution": "STING"
+   "solution": "STING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STING",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trousers",
+      "for": "hidden_word",
+      "note": "as a verb, to trouser is to pocket, so these words hold the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bassist in gabardine",
+      "gives": "STING",
+      "note": "spans the end of bassist, the word in, and the start of gabardine"
+     }
+    ],
+    "explanation": {
+     "surface": "A well-dressed bass player in gabardine trousers.",
+     "walkthrough": "Sting, bassist of the Police, is a red herring that also happens to be the answer; 'Smart' looks like describing his trousers.",
+     "definitionFit": "To smart is to feel a sharp stinging pain, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1350,56 @@
     "text": "Purest smack smuggled into Europe and America?",
     "enumeration": "7"
    },
-   "solution": "WHITEST"
+   "solution": "WHITEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHITEST",
+    "definitions": [
+     {
+      "text": "Purest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggled into",
+      "for": "container",
+      "note": "smuggled goods are slipped inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe and America?",
+      "gives": "WEST",
+      "note": "the West is the collective name for Europe and North America"
+     },
+     {
+      "clueFragment": "smack",
+      "gives": "HIT",
+      "note": "to smack is to hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Top-grade heroin is smuggled into the Western world.",
+     "walkthrough": "Smack is slang for heroin, which the surface leans on; here it is a blow.",
+     "definitionFit": "Whitest means the most spotless or untainted, the same as most pure in moral or physical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smack"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1413,63 @@
     "text": "One spotted in Hiroshima, on vacation, eating Japanese bread",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HYENA",
+    "definitions": [
+     {
+      "text": "One spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "vacating a place empties it, so the city loses its inner letters"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating food takes it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hiroshima",
+      "gives": "HA",
+      "select": "outer",
+      "note": "the first and last letters of Hiroshima"
+     },
+     {
+      "clueFragment": "Japanese bread",
+      "gives": "YEN",
+      "note": "bread is slang for money, and the yen is Japan's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist on holiday in Hiroshima is seen eating local bread.",
+     "walkthrough": "'Bread' wants to be food, but it is slang for money.",
+     "definitionFit": "The spotted hyena is the best-known species, so the animal is a creature with spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1483,72 @@
     "text": "Stark naked faun next to trees, frolicking",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Stark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of covering, so the outer letters of faun come off"
+     },
+     {
+      "text": "frolicking",
+      "for": "anagram",
+      "note": "frolicking is playful leaping about, so these letters jump into new places"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "faun",
+      "gives": "AU",
+      "select": "middle",
+      "note": "faun without its first and last letters"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "TREES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "STERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREES",
+       "gives": "STERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naked faun romps among the trees, a scene from classical myth.",
+     "walkthrough": "'Stark naked' reads as one phrase, but the definition is the first word alone.",
+     "definitionFit": "Stark and austere both describe something bare, plain and severe, with no ornament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1562,71 @@
     "text": "Expression from Sicily - \"the hearts of girls and women stray\"",
     "enumeration": "8"
    },
-   "solution": "LYRICISM"
+   "solution": "LYRICISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LYRICISM",
+    "definitions": [
+     {
+      "text": "Expression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the hearts of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle letter"
+     },
+     {
+      "text": "stray",
+      "for": "anagram",
+      "note": "things that stray wander from their place, so the letters move around"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sicily",
+      "gives": "SICILY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girls",
+      "gives": "R",
+      "select": "middle",
+      "note": "the central letter of girls"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "M",
+      "select": "middle",
+      "note": "the central letter of women"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SICILY R M",
+       "gives": "LYRICISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quoted Sicilian saying about wandering romantic affections.",
+     "definitionFit": "Lyricism is expressive, emotional quality in writing or music, an outpouring of feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1640,81 @@
     "text": "Odds and ends from cash auction collapse on top of salesman",
     "enumeration": "7"
    },
-   "solution": "CHANCES"
+   "solution": "CHANCES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHANCES",
+    "definitions": [
+     {
+      "text": "Odds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends from",
+      "for": "letter_selection",
+      "note": "the ends of each word are its first and last letters"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down entry the top of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash",
+      "gives": "CH",
+      "select": "outer",
+      "note": "the first and last letters of cash"
+     },
+     {
+      "clueFragment": "auction",
+      "gives": "AN",
+      "select": "outer",
+      "note": "the first and last letters of auction"
+     },
+     {
+      "clueFragment": "collapse",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters of collapse"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of salesman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AN",
+      "CE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits and pieces are left over when a cash sale falls through on a dealer.",
+     "walkthrough": "'Odds and ends' looks like one phrase meaning bits and pieces; it splits after the first word.",
+     "definitionFit": "Odds and chances both measure the likelihood of something happening, as in betting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1728,52 @@
     "text": "Balls beyond football pitch getting left",
     "enumeration": "6"
    },
-   "solution": "PARKED"
+   "solution": "PARKED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARKED",
+    "definitions": [
+     {
+      "text": "left",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "beyond",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "football pitch",
+      "gives": "PARK",
+      "note": "a park is a football ground, as in Celtic Park"
+     },
+     {
+      "clueFragment": "Balls",
+      "gives": "ED",
+      "note": "Ed Balls is a former British Labour politician and TV presenter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARK",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Footballs fly off the pitch and are lost.",
+     "walkthrough": "'Balls' looks like footballs, but it is the surname of Ed Balls, a former UK cabinet minister.",
+     "definitionFit": "A car that has been left standing somewhere has been parked there, so the past participles match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balls"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1787,65 @@
     "text": "Riches, with time, comfort one son moving to the Far East",
     "enumeration": "9"
    },
-   "solution": "TREASURES"
+   "solution": "TREASURES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TREASURES",
+    "definitions": [
+     {
+      "text": "Riches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving to the Far East",
+      "for": "deletion",
+      "note": "moving to the far east of a word takes a letter from its place and puts it at the very end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "comfort",
+      "gives": "REASSURE",
+      "note": "to comfort someone is to reassure them"
+     },
+     {
+      "clueFragment": "one son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REASURE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Wealth, given time, consoles a son who emigrates to Asia.",
+     "walkthrough": "'Far East' looks like a destination in Asia; here it is the far end of the word.",
+     "definitionFit": "Treasures are valuable possessions or hoards of wealth, the same as a person's riches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1859,63 @@
     "text": "Small gold and navy adult sweaters are in here",
     "enumeration": "5"
    },
-   "solution": "SAUNA"
+   "solution": "SAUNA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAUNA",
+    "definitions": [
+     {
+      "text": "sweaters are in here",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "N",
+      "note": "N is the abbreviation for navy"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film classification for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AU",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop rail of jumpers in small sizes, gold and navy colours, for adults.",
+     "walkthrough": "The sizes and colours suggest knitted jumpers, but the sweaters are people perspiring.",
+     "definitionFit": "A sauna is a hot steam room where people sit to perspire freely, so sweating people are inside it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweaters"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1929,61 @@
     "text": "An Italian capitalist perhaps releasing new perfume",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AROMA",
+    "definitions": [
+     {
+      "text": "perfume",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releasing",
+      "for": "deletion",
+      "note": "releasing something lets it go, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "Italian capitalist perhaps",
+      "gives": "ROMAN",
+      "note": "a person from Rome lives in the Italian capital"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ROMA"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian tycoon launches a new fragrance.",
+     "walkthrough": "'Capitalist' looks like a businessman, but it is someone from a capital city.",
+     "definitionFit": "A perfume is a pleasant smell, and an aroma is a distinctive, usually agreeable scent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capitalist"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1997,66 @@
     "text": "Moulding love verse on logs - just the top halves",
     "enumeration": "5"
    },
-   "solution": "OVOLO"
+   "solution": "OVOLO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OVOLO",
+    "definitions": [
+     {
+      "text": "Moulding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "just the top halves",
+      "for": "deletion",
+      "note": "keeping only the top halves cuts away the lower half of each word, which in a down entry is its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "logs",
+      "gives": "LOGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "V",
+      "O",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter carves a decorative trim from the top sections of logs.",
+     "definitionFit": "An ovolo is a convex architectural moulding with a quarter-round profile, used on cornices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +2070,62 @@
     "text": "Dogs start to sprint after me",
     "enumeration": "7"
    },
-   "solution": "SETTERS"
+   "solution": "SETTERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SETTERS",
+    "definitions": [
+     {
+      "text": "Dogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the sprinter's letter behind the word for me, so it goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "SETTER",
+      "note": "me, from the compiler's point of view, is the crossword setter"
+     },
+     {
+      "clueFragment": "sprint",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sprint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETTER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A pack of dogs starts sprinting after the speaker.",
+     "walkthrough": "'Me' is the compiler speaking, a common crossword trick.",
+     "definitionFit": "Setters are breeds of gun dog, such as the Irish and English setter, trained to point at game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "me"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +2139,41 @@
     "text": "In sleighs, kids travel through the snow",
     "enumeration": "3"
    },
-   "solution": "SKI"
+   "solution": "SKI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SKI",
+    "definitions": [
+     {
+      "text": "travel through the snow",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in tells us the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleighs, kids",
+      "gives": "SKI",
+      "note": "spans the last letter of sleighs and the first two of kids"
+     }
+    ],
+    "explanation": {
+     "surface": "Children ride sleighs across a snowy landscape.",
+     "definitionFit": "To ski is to glide over snow on long runners, a way of moving across a snowfield."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +2187,69 @@
     "text": "Expose one in the Tuileries left snorting coke beside tree",
     "enumeration": "7"
    },
-   "solution": "UNCLOAK"
+   "solution": "UNCLOAK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "UNCLOAK",
+    "definitions": [
+     {
+      "text": "Expose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snorting",
+      "for": "container",
+      "note": "snorting a drug draws it in, so one letter goes inside the others"
+     }
+    ],
+    "linkWords": [
+     "beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one in the Tuileries",
+      "gives": "UN",
+      "note": "un is French for one, and the Tuileries is a Paris garden"
+     },
+     {
+      "clueFragment": "coke",
+      "gives": "C",
+      "note": "C is short for cocaine, of which coke is slang"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "OAK",
+      "note": "the oak is a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "C",
+      "L",
+      "OAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A scandal: someone in a Paris park is caught taking cocaine by a tree.",
+     "definitionFit": "To uncloak is to remove a disguise or covering, revealing what was hidden, the sense of laying bare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tuileries"
+    }
+   }
   },
   {
    "number": 31,
@@ -493,7 +2263,55 @@
     "text": "I see one woman cuddling another",
     "enumeration": "8"
    },
-   "solution": "ANGELICA"
+   "solution": "ANGELICA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANGELICA",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddling",
+      "for": "container",
+      "note": "a cuddle wraps arms around someone, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one woman",
+      "gives": "ANGELA",
+      "note": "Angela is a woman's name"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "the letters I and C said aloud make the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGEL",
+      "IC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices one woman hugging another.",
+     "walkthrough": "The definition is the last word: the answer is another woman's name.",
+     "definitionFit": "Angelica is a girl's given name, so it names a second woman besides the first."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 32,
@@ -507,7 +2325,60 @@
     "text": "Tick off the third item in list - that which is indicated by C",
     "enumeration": "5"
    },
-   "solution": "SCOLD"
+   "solution": "SCOLD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOLD",
+    "definitions": [
+     {
+      "text": "Tick off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the third item in",
+      "for": "letter_selection",
+      "note": "the third item in a word picks out its third letter"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list",
+      "gives": "S",
+      "select": 3,
+      "note": "the third letter of list"
+     },
+     {
+      "clueFragment": "that which is indicated by C",
+      "gives": "COLD",
+      "note": "C on a tap stands for cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COLD"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking off the third entry on a list marked with a C.",
+     "walkthrough": "'Tick off' looks like ticking items on the list; it means to reprimand.",
+     "definitionFit": "To tick someone off is British slang for rebuking them, which is to reprimand angrily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tick"
+    }
+   }
   }
  ]
 }

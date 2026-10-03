@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Dairy product person in society fed to pet",
     "enumeration": "9"
    },
-   "solution": "CAMEMBERT"
+   "solution": "CAMEMBERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAMEMBERT",
+    "definitions": [
+     {
+      "text": "Dairy product",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to an animal goes inside it, so one word ends up within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a cat is a typical household pet"
+     },
+     {
+      "clueFragment": "person in society",
+      "gives": "MEMBER",
+      "note": "someone belonging to a society is one of its members"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "MEMBER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a society function is slipping cheese to the family pet.",
+     "walkthrough": "'Dairy product' sits up front as the definition; 'fed to pet' reads as feeding the cat, but it is the instruction to put one word inside another.",
+     "definitionFit": "Camembert is a soft French cheese, one example of produce from a dairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,60 @@
     "text": "Nursery care avoided by a revolutionary",
     "enumeration": "6"
    },
-   "solution": "CRECHE"
+   "solution": "CRECHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRECHE",
+    "definitions": [
+     {
+      "text": "Nursery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoided by",
+      "for": "deletion",
+      "note": "the word that is avoided keeps clear of the letter that follows, so that letter is dropped from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be removed from the word before it"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine-born revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A childcare report: the nursery's care was shunned by a radical.",
+     "walkthrough": "CARE without its A leaves CRE; Che Guevara is the stock crossword revolutionary.",
+     "definitionFit": "A crèche is a day nursery where young children are looked after while parents work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "care"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,53 @@
     "text": "No time for human message from story",
     "enumeration": "5"
    },
-   "solution": "MORAL"
+   "solution": "MORAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MORAL",
+    "definitions": [
+     {
+      "text": "message from story",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "saying no to something refuses it entry, so that letter is struck out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "human",
+      "gives": "MORTAL",
+      "note": "a human being is a mortal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a complaint that busy people have no time to absorb a story's lesson.",
+     "walkthrough": "MORTAL with its T taken away leaves MORAL.",
+     "definitionFit": "The moral of a fable is the lesson or teaching that the tale is meant to convey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "human"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +225,67 @@
     "text": "Turned tail when collared by new activist",
     "enumeration": "8"
    },
-   "solution": "MILITANT"
+   "solution": "MILITANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MILITANT",
+    "definitions": [
+     {
+      "text": "activist",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "anagram",
+      "note": "turned suggests something rearranged or twisted round into a new order"
+     },
+     {
+      "text": "when collared by",
+      "for": "container",
+      "note": "a collar wraps round a neck, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "MINT",
+      "note": "something brand new is in mint condition"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "TAIL",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "LITA",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAIL",
+       "gives": "LITA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protester who fled was arrested by the police, pictured as a tail-turning radical being collared.",
+     "walkthrough": "'Turned tail' wants to mean ran away; here turned only signals rearranging the word tail.",
+     "definitionFit": "A militant is a campaigner who takes forceful or aggressive action for a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +305,52 @@
      }
     ]
    },
-   "solution": "EXPERTWITNESS"
+   "solution": "EXPERTWITNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXPERT WITNESS",
+    "definitions": [
+     {
+      "text": "One specialist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disposing of",
+      "for": "anagram",
+      "note": "disposing can mean arranging or setting out, so these letters are laid out afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixteen twerps",
+      "gives": "SIXTEENTWERPS",
+      "note": "all thirteen letters of these two words are the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIXTEENTWERPS",
+       "gives": "EXPERTWITNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One expert dismissing sixteen idiots, as if clearing a room of fools.",
+     "walkthrough": "The question mark flags the pun: an expert witness gives a deposition, and 'disposing' plays on that.",
+     "definitionFit": "An expert witness is a single professional called to court to give specialist opinion evidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "disposing"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +364,61 @@
     "text": "Warmer weather that cut short start of winter",
     "enumeration": "4"
    },
-   "solution": "THAW"
+   "solution": "THAW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THAW",
+    "definitions": [
+     {
+      "text": "Warmer weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting a word short trims its final letter"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "THA",
+      "note": "the word that without its last letter"
+     },
+     {
+      "clueFragment": "winter",
+      "gives": "W",
+      "select": "first",
+      "note": "opening letter of winter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THA",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Milder weather that brought an early end to the winter.",
+     "definitionFit": "A thaw is a spell of warmer weather in which ice and snow melt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "that"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +432,53 @@
     "text": "Best score at snooker recalled",
     "enumeration": "3"
    },
-   "solution": "TOP"
+   "solution": "TOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TOP",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "calling something back sends it the other way, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score at snooker",
+      "gives": "POT",
+      "note": "a snooker player scores by potting a ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP"
+     ],
+     "reversals": [
+      {
+       "from": "POT",
+       "to": "TOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commentator remembering the finest break at a snooker match.",
+     "definitionFit": "Top as an adjective means highest or finest, the same as best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +492,69 @@
     "text": "Source of hurricane in printing error about storm",
     "enumeration": "7"
    },
-   "solution": "TYPHOON"
+   "solution": "TYPHOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TYPHOON",
+    "definitions": [
+     {
+      "text": "storm",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Source of",
+      "for": "letter_selection",
+      "note": "the source of something is where it begins, its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "printing error",
+      "gives": "TYPO",
+      "note": "a typo is a typing or printing mistake"
+     },
+     {
+      "clueFragment": "hurricane",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of hurricane"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a talk on a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYP",
+      "H",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper misprint in a story about a hurricane's origins.",
+     "walkthrough": "'about' looks like part of the containment instruction, but it supplies its own letters, the sense of on as in a talk on a subject.",
+     "definitionFit": "A typhoon is a tropical cyclone, a violent storm of the western Pacific."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +568,52 @@
     "text": "Fruit basket appearing in online joke community?",
     "enumeration": "6"
    },
-   "solution": "PUNNET"
+   "solution": "PUNNET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNNET",
+    "definitions": [
+     {
+      "text": "Fruit basket",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "appearing in",
+     "online"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "community",
+      "gives": "NET",
+      "note": "a net, short for network, is a connected community; online points to the internet sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "NET"
+     ]
+    },
+    "explanation": {
+     "surface": "A fruit basket that has become a running gag in some internet forum.",
+     "walkthrough": "'online joke community' reads as one phrase, but online and community together give NET while joke sits between them.",
+     "definitionFit": "A punnet is a small light container in which soft fruit such as strawberries is sold in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "community"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +627,67 @@
     "text": "Recalled learning about new record",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "record",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one piece wraps the other"
+     },
+     {
+      "text": "Recalled",
+      "for": "reversal",
+      "note": "something recalled is called back, so the whole is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learning",
+      "gives": "LORE",
+      "note": "lore is accumulated knowledge or learning"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "ROL"
+     ],
+     "reversals": [
+      {
+       "from": "LORNE",
+       "to": "ENROL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remembering their studies about a fresh record.",
+     "walkthrough": "N inside LORE gives LORNE, which reversed reads ENROL. 'Recalled learning' looks like remembered study; recalled is the reversal signal.",
+     "definitionFit": "To enrol is to register or enter a name on an official list, as record means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Recalled"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +701,51 @@
     "text": "Entertainment for kids by drama writer",
     "enumeration": "7"
    },
-   "solution": "PLAYPEN"
+   "solution": "PLAYPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAYPEN",
+    "definitions": [
+     {
+      "text": "Entertainment for kids",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAY",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A children's show by a playwright.",
+     "walkthrough": "The definition is playful: a playpen is where small children are left to amuse themselves.",
+     "definitionFit": "A playpen is an enclosure where toddlers safely play, so it keeps young children amused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +765,67 @@
      }
     ]
    },
-   "solution": "HALFTERM"
+   "solution": "HALFTERM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HALF TERM",
+    "definitions": [
+     {
+      "text": "Time not at school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsettled",
+      "for": "anagram",
+      "note": "unsettled means disturbed and out of order"
+     },
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst places one piece in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damage",
+      "gives": "HARM",
+      "note": "harm is damage"
+     },
+     {
+      "clueFragment": "felt",
+      "gives": "FELT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "LFTE",
+      "RM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FELT",
+       "gives": "LFTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil feeling anxious about the destruction around them during a holiday.",
+     "walkthrough": "Half term is a short British school holiday midway through a term; 'felt' looks like a verb about feelings but is just letters to rearrange.",
+     "definitionFit": "Half term is a brief holiday in the middle of a British school term, when pupils stay home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +839,47 @@
     "text": "Single copy not initiated",
     "enumeration": "4"
    },
-   "solution": "LONE"
+   "solution": "LONE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LONE",
+    "definitions": [
+     {
+      "text": "Single",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initiated",
+      "for": "deletion",
+      "note": "something not initiated has not been begun, so its opening letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "CLONE",
+      "note": "a clone is an exact copy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone duplicate that was never started.",
+     "definitionFit": "Lone means solitary or only one, as in a lone survivor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initiated"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +893,65 @@
     "text": "I concede accepting negative comment will be foolish",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IGNORANT",
+    "definitions": [
+     {
+      "text": "foolish",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "a word accepting another takes it in, holding it within"
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "concede",
+      "gives": "GRANT",
+      "note": "to grant a point is to concede it"
+     },
+     {
+      "clueFragment": "negative comment",
+      "gives": "NO",
+      "note": "no is a negative reply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "G",
+      "NO",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits that taking criticism on board would be unwise.",
+     "walkthrough": "'I concede' reads as an admission, but I stands alone and concede is a separate synonym.",
+     "definitionFit": "Ignorant describes someone lacking knowledge, close enough to senseless or unwise to stand in for foolish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concede"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +965,56 @@
     "text": "Group continue to swing in popular trend",
     "enumeration": "9"
    },
-   "solution": "BANDWAGON"
+   "solution": "BANDWAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDWAGON",
+    "definitions": [
+     {
+      "text": "popular trend",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "BAND",
+      "note": "a band is a group, such as of musicians"
+     },
+     {
+      "clueFragment": "swing",
+      "gives": "WAG",
+      "note": "to wag is to swing to and fro, like a tail"
+     },
+     {
+      "clueFragment": "continue",
+      "gives": "ON",
+      "note": "to carry on is to continue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "WAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical group keeps on swinging, following the fashion.",
+     "walkthrough": "'continue to swing' is read with the verb first in the answer and the carrying-on word after it.",
+     "definitionFit": "A bandwagon is a fashionable movement that many people join to share its success."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swing"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +1028,55 @@
     "text": "Composer plagued by mosquitoes crossing river",
     "enumeration": "7"
    },
-   "solution": "BRITTEN"
+   "solution": "BRITTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRITTEN",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing here means straddling, with one piece spread around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plagued by mosquitoes",
+      "gives": "BITTEN",
+      "note": "someone plagued by mosquitoes has been bitten"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ITTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer is pestered by insects while fording a river.",
+     "walkthrough": "Benjamin Britten was a 20th-century English composer; 'crossing' suggests fording but means spanning one letter.",
+     "definitionFit": "Benjamin Britten was an English composer of operas such as Peter Grimes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1090,43 @@
     "text": "Leap year’s subdivision?",
     "enumeration": "6"
    },
-   "solution": "SPRING"
+   "solution": "SPRING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRING",
+    "definitions": [
+     {
+      "text": "Leap",
+      "at": 0
+     },
+     {
+      "text": "year’s subdivision",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leap",
+      "note": "first meaning: a jump"
+     },
+     {
+      "clueFragment": "year’s subdivision",
+      "note": "second meaning: one of the four seasons"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Leap year' reads as one phrase about February 29th; split it, and each part is a separate meaning.",
+     "definitionFit": "Spring is both a bounding jump and the season between winter and summer that forms part of a year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leap"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1140,60 @@
     "text": "Industry finally supporting shop floor",
     "enumeration": "6"
    },
-   "solution": "STOREY"
+   "solution": "STOREY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STOREY",
+    "definitions": [
+     {
+      "text": "floor",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word before it"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, a piece supporting another sits beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shop",
+      "gives": "STORE",
+      "note": "a store is a shop"
+     },
+     {
+      "clueFragment": "Industry",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of industry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STORE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A business propping up the trading floor of a shop.",
+     "definitionFit": "Storey is the British spelling for one level of a building, a synonym of floor in that sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1207,49 @@
     "text": "Piano melody or two",
     "enumeration": "4"
    },
-   "solution": "PAIR"
+   "solution": "PAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAIR",
+    "definitions": [
+     {
+      "text": "two",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     },
+     {
+      "clueFragment": "melody",
+      "gives": "AIR",
+      "note": "an air is a tune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A piano tune, or perhaps a duet.",
+     "definitionFit": "A pair is a set of two matching things or people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piano"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1269,44 @@
      }
     ]
    },
-   "solution": "STOODOUT"
+   "solution": "STOODOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOOD OUT",
+    "definitions": [
+     {
+      "text": "Refused to participate",
+      "at": 0
+     },
+     {
+      "text": "became prominent",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refused to participate",
+      "note": "first meaning: kept out of something, abstained"
+     },
+     {
+      "clueFragment": "became prominent",
+      "note": "second meaning: was conspicuous or noticeable"
+     }
+    ],
+    "explanation": {
+     "surface": "A refusenik whose refusal made them famous.",
+     "definitionFit": "The phrasal verb means both declined to join in and was clearly noticeable among others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1320,49 @@
     "text": "Musical instrument helping to sustain a group, on reflection",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Musical instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helping to sustain",
+      "for": "hidden_word",
+      "note": "helping to sustain means forming a part of these words, held within them"
+     },
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things mirrored, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sustain a group",
+      "gives": "NAGRO",
+      "note": "the run of letters across the end of sustain, a and the start of group"
+     }
+    ],
+    "explanation": {
+     "surface": "Music keeps a band going, one realises after thinking it over.",
+     "walkthrough": "The letters are found across sustaiN A GROup and read backwards to give ORGAN.",
+     "definitionFit": "The organ is a keyboard instrument sounded by air through pipes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1376,46 @@
     "text": "Move slowly in church",
     "enumeration": "4"
    },
-   "solution": "INCH"
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "Move slowly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; that the two words also spell the answer outright is a coincidence of the charade"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Shuffling down a church aisle at a wedding pace.",
+     "definitionFit": "To inch is to edge forward by tiny amounts, a little at a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1429,56 @@
     "text": "I note past, present or future could be deeply emotional",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "deeply emotional",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the abbreviation for note"
+     },
+     {
+      "clueFragment": "past, present or future",
+      "gives": "TENSE",
+      "note": "each is a grammatical tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "TENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reflects that every stage of life stirs strong feelings.",
+     "walkthrough": "'past, present or future' looks like a span of time but is a grammar term naming each one.",
+     "definitionFit": "Intense feelings are strong and passionate, so an intense person is deeply emotional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1492,55 @@
     "text": "Daughter escaping peril shows passion",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANGER",
+    "definitions": [
+     {
+      "text": "passion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping",
+      "for": "deletion",
+      "note": "something escaping gets out, so that letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "peril",
+      "gives": "DANGER",
+      "note": "peril is danger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl fleeing danger reveals her strong feelings.",
+     "definitionFit": "Passion can mean a fit of rage or fury, which is strong anger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passion"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1554,54 @@
     "text": "Send back negative information",
     "enumeration": "3"
    },
-   "solution": "GEN"
+   "solution": "GEN",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GEN",
+    "definitions": [
+     {
+      "text": "information",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Send back",
+      "for": "reversal",
+      "note": "sending something back returns it the way it came, so the word runs the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "negative",
+      "gives": "NEG",
+      "note": "neg is the short form of negative; that these are its opening letters is a coincidence of the abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEG",
+       "to": "GEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returning unwanted bad news.",
+     "walkthrough": "Gen is British slang for information, as in the full gen.",
+     "definitionFit": "Gen is informal British slang for facts or details on a subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Send"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1615,53 @@
     "text": "Doubtful behaviour is wrong in any ethics",
     "enumeration": "9"
    },
-   "solution": "HESITANCY"
+   "solution": "HESITANCY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HESITANCY",
+    "definitions": [
+     {
+      "text": "Doubtful behaviour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong in",
+      "for": "anagram",
+      "note": "something gone wrong is out of order, so the letters it covers are jumbled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any ethics",
+      "gives": "ANYETHICS",
+      "note": "all nine letters of these words are the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYETHICS",
+       "gives": "HESITANCY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moral pronouncement that wavering conduct is an error in any ethical system.",
+     "definitionFit": "Hesitancy is indecision or reluctance, conduct showing uncertainty about acting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ethics"
+    }
+   }
   }
  ]
 }

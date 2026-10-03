@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Gasping about first piece of incredible work of art",
     "enumeration": "8"
    },
-   "solution": "PAINTING"
+   "solution": "PAINTING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAINTING",
+    "definitions": [
+     {
+      "text": "work of art",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first piece of",
+      "for": "letter_selection",
+      "note": "the first piece of a word is its opening letter alone"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gasping",
+      "gives": "PANTING",
+      "note": "gasping for breath is panting"
+     },
+     {
+      "clueFragment": "incredible",
+      "gives": "I",
+      "select": "first",
+      "note": "the first piece of incredible is its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "I",
+      "NTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gasps in awe at an astonishing artwork.",
+     "definitionFit": "A painting is a picture made with pigments, one of the most familiar kinds of artistic creation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gasping"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +110,60 @@
      }
     ]
    },
-   "solution": "PARISGREEN"
+   "solution": "PARISGREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARIS GREEN",
+    "definitions": [
+     {
+      "text": "Old insecticide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in another thing sits inside it, here between two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two targets for golfer",
+      "gives": "PAR",
+      "note": "par is the score a golfer aims at on a hole"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two targets for golfer",
+      "gives": "GREEN",
+      "note": "the green is the area a golfer aims the approach shot at"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "IS",
+      "GREEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's twin aims are oddly linked to a vintage pest killer.",
+     "walkthrough": "The two golfing targets are par and the green; IS slips between them.",
+     "definitionFit": "Paris green is a toxic copper arsenite compound formerly sprayed on crops to kill pests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "targets"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +177,52 @@
     "text": "Fish's brainwave cut short",
     "enumeration": "3"
    },
-   "solution": "IDE"
+   "solution": "IDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims off its final letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brainwave",
+      "gives": "IDEA",
+      "note": "a brainwave is a sudden bright idea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish's flash of inspiration gets interrupted.",
+     "walkthrough": "The 's stands for is, joining the definition to the wordplay.",
+     "definitionFit": "The ide is a European freshwater species of the carp family, also called the orfe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fish's"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +236,64 @@
     "text": "Vacancy retracted by play's writer",
     "enumeration": "7"
    },
-   "solution": "TOLSTOY"
+   "solution": "TOLSTOY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOLSTOY",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retracted",
+      "for": "reversal",
+      "note": "something retracted is pulled back, so the word runs in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vacancy",
+      "gives": "SLOT",
+      "note": "a slot is an opening or vacancy, as in a free slot in a schedule"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "TOY",
+      "note": "to toy with something is to play with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOLS",
+      "TOY"
+     ],
+     "reversals": [
+      {
+       "from": "SLOT",
+       "to": "TOLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre job vacancy is withdrawn by the playwright.",
+     "definitionFit": "Leo Tolstoy was the Russian novelist who wrote War and Peace and Anna Karenina."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play's"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +307,61 @@
     "text": "Surprisingly rational men stealing a substance with tiny particles",
     "enumeration": "12"
    },
-   "solution": "NANOMATERIAL"
+   "solution": "NANOMATERIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NANOMATERIAL",
+    "definitions": [
+     {
+      "text": "substance with tiny particles",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "stealing means taking something and keeping it inside, so the letters are held within"
+     },
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "a surprising outcome is unexpected, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rational men",
+      "gives": "RATIONALMEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATIONALMENA",
+       "gives": "NANOMATERIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sensible scientists unexpectedly pilfer a microscopic substance.",
+     "definitionFit": "Nanomaterials are engineered substances whose structure is measured in billionths of a metre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rational"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +375,55 @@
     "text": "Like to take grandma fruit",
     "enumeration": "6"
    },
-   "solution": "ANANAS"
+   "solution": "ANANAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANANAS",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as in the sense of like, similar to"
+     },
+     {
+      "clueFragment": "grandma",
+      "gives": "NANA",
+      "note": "nana is a familiar name for a grandmother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NANA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone would like to bring their grandmother some fruit.",
+     "walkthrough": "Like looks like a verb of wanting, but it means similar to; to take is the wrapping signal.",
+     "definitionFit": "Ananas is the French and botanical name for the pineapple, the tropical plant and its fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +437,48 @@
     "text": "Drink gin or generic drinks from the south",
     "enumeration": "7"
    },
-   "solution": "NEGRONI"
+   "solution": "NEGRONI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NEGRONI",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinks",
+      "for": "hidden_word",
+      "note": "drinks means swallows up, so the phrase has the word absorbed inside it"
+     },
+     {
+      "text": "from the south",
+      "for": "reversal",
+      "note": "in a down clue, reading from the south means reading upwards, against the normal direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin or generic",
+      "gives": "INORGEN",
+      "note": "the letters straddle the words from gin to generic"
+     }
+    ],
+    "explanation": {
+     "surface": "A cocktail fan sips gin or a cheaper own-brand version from somewhere southern.",
+     "definitionFit": "A Negroni is an Italian cocktail of gin, Campari and sweet vermouth in equal parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +498,57 @@
      }
     ]
    },
-   "solution": "NEARSIGHTED"
+   "solution": "NEARSIGHTED",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "NEAR-SIGHTED",
+    "definitions": [
+     {
+      "text": "Myopic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Oxford don known for swapping the opening sounds of neighbouring words, so his version trades them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune teller",
+      "gives": "NEAR",
+      "soundsLike": "SEER",
+      "note": "a seer foretells the future; taking the N noise from the next word, it is spelt this way"
+     },
+     {
+      "clueFragment": "given honour",
+      "gives": "SIGHTED",
+      "soundsLike": "KNIGHTED",
+      "note": "someone knighted has been honoured by the monarch; taking the S noise, it is spelt this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEAR",
+      "SIGHTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Spooner describes a clairvoyant who has received a royal honour.",
+     "walkthrough": "Say seer knighted aloud and trade the opening sounds: the silent K in knighted leaves an N noise.",
+     "definitionFit": "Myopia is the eye condition where distant things blur while close objects stay clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "honour"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +562,48 @@
     "text": "What I do, reportedly, in burrow",
     "enumeration": "4"
    },
-   "solution": "SETT"
+   "solution": "SETT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SETT",
+    "definitions": [
+     {
+      "text": "burrow",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we go by how it is said"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What I do",
+      "gives": "SETT",
+      "soundsLike": "SET",
+      "note": "the speaker is the crossword's setter, whose job is to set puzzles"
+     }
+    ],
+    "explanation": {
+     "surface": "The setter describes their daily work from inside an animal's den.",
+     "walkthrough": "I is the setter speaking, so what I do is set.",
+     "definitionFit": "A sett is the underground tunnel system where a family of badgers lives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +617,64 @@
     "text": "Wine and fish with chips following shot",
     "enumeration": "8"
    },
-   "solution": "RIESLING"
+   "solution": "RIESLING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RIESLING",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "deletion",
+      "note": "to be shot of something is to be rid of it, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chips",
+      "gives": "FRIES",
+      "note": "fries is the American word for chips"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the standard abbreviation for following, and it is the letter removed"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "ling is a long-bodied sea fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIES",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub order: wine, then fish and chips after a quick shot.",
+     "walkthrough": "Fish and chips leads you to expect a menu; the chips are fries with F removed.",
+     "definitionFit": "Riesling is a white grape variety from the Rhine region and the aromatic white made from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +688,58 @@
     "text": "Shocked military commanders and leader in Turkey",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "Shocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military commanders",
+      "gives": "AGHAS",
+      "note": "an agha or aga was a commander in the Ottoman army"
+     },
+     {
+      "clueFragment": "Turkey",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of Turkey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGHAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Turkish generals and their country's ruler are horrified by events.",
+     "definitionFit": "Aghast describes someone filled with horror or amazement, a strong synonym for appalled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +753,69 @@
     "text": "Opening lesson about overdose's not succeeded",
     "enumeration": "12"
    },
-   "solution": "INTRODUCTION"
+   "solution": "INTRODUCTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "INTRODUCTION",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not succeeded",
+      "for": "deletion",
+      "note": "not means take away, and succeeded is a letter the word loses"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the lesson word goes around the other piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesson",
+      "gives": "INSTRUCTION",
+      "note": "instruction is teaching, as in a lesson"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded in family trees"
+     },
+     {
+      "clueFragment": "overdose",
+      "gives": "OD",
+      "note": "OD is the usual short form of overdose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTR",
+      "OD",
+      "UCTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A first class on drug overdoses has been a failure.",
+     "walkthrough": "The 's reads as has: the lesson has lost S, then wraps around OD.",
+     "definitionFit": "An introduction is the opening part of a book, speech or piece of music, preceding the main body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +829,61 @@
     "text": "Smug cosmonaut is in base",
     "enumeration": "13"
    },
-   "solution": "SANCTIMONIOUS"
+   "solution": "SANCTIMONIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANCTIMONIOUS",
+    "definitions": [
+     {
+      "text": "Smug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base",
+      "for": "anagram",
+      "note": "base means debased or corrupt, so the letters are spoilt into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cosmonaut",
+      "gives": "COSMONAUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COSMONAUT IS IN",
+       "gives": "SANCTIMONIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-satisfied Russian spaceman lounges at the launch base.",
+     "walkthrough": "In base looks like a location for the cosmonaut, but in is fodder and base is the signal.",
+     "definitionFit": "Sanctimonious describes a self-righteous person who parades moral superiority, matching a complacent, self-satisfied manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +907,54 @@
      }
     ]
    },
-   "solution": "NECKANDNECK"
+   "solution": "NECKANDNECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NECK AND NECK",
+    "definitions": [
+     {
+      "text": "Tied",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "NECK",
+      "note": "to neck a drink is to down it quickly"
+     },
+     {
+      "clueFragment": "Then",
+      "gives": "AND",
+      "note": "and can mean then, next in sequence"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "NECK",
+      "note": "to neck is to kiss and cuddle, British informal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NECK",
+      "AND",
+      "NECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic scene: someone is tied down, then kissed.",
+     "walkthrough": "Down is a verb meaning swallow, not the direction; necking is British slang for both gulping a drink and smooching.",
+     "definitionFit": "Racers running neck and neck are exactly level, with neither ahead, so the contest is a draw so far."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +968,55 @@
     "text": "Sign seen in grocers' apropos the bananas",
     "enumeration": "10"
    },
-   "solution": "APOSTROPHE"
+   "solution": "APOSTROPHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOSTROPHE",
+    "definitions": [
+     {
+      "text": "Sign seen in grocers'",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas means crazy, so the letters go wild and rearrange"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apropos the",
+      "gives": "APROPOSTHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APROPOSTHE",
+       "gives": "APOSTROPHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice in a greengrocer's shop about its bananas.",
+     "walkthrough": "The grocer's apostrophe is the famous misplaced mark on shop signs like banana's; the clue itself contains one in grocers'.",
+     "definitionFit": "The punctuation mark showing possession appears in grocers', and is notoriously misused on greengrocers' price cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1030,43 @@
     "text": "Precipitous shooting in Philadelphia that led to a spate of similar shootings",
     "enumeration": "5"
    },
-   "solution": "ROCKY"
+   "solution": "ROCKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCKY",
+    "definitions": [
+     {
+      "text": "Precipitous",
+      "at": 0
+     },
+     {
+      "text": "shooting in Philadelphia that led to a spate of similar shootings",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precipitous",
+      "note": "first meaning: steep and full of crags"
+     },
+     {
+      "clueFragment": "shooting in Philadelphia that led to a spate of similar shootings",
+      "note": "second meaning: the boxing film made in that city, followed by many sequels"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shooting sounds like gunfire, but it is filming: the 1976 Stallone boxing movie was shot in Philadelphia and spawned a string of sequels.",
+     "definitionFit": "Steep, craggy terrain is rugged and stony, and the film title names the boxer Rocky Balboa."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1086,68 @@
      }
     ]
    },
-   "solution": "TARTINGUP"
+   "solution": "TARTINGUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TARTING UP",
+    "definitions": [
+     {
+      "text": "Improving the appearance of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the mirror",
+      "for": "reversal",
+      "note": "a mirror image is flipped, so the string of words reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "PUG",
+      "note": "a pug is a small flat-faced dog"
+     },
+     {
+      "clueFragment": "ass",
+      "gives": "NIT",
+      "note": "an ass is a fool, and nit is British slang for a fool"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a rat is a rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "TIN",
+      "GUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUGNITRAT",
+       "to": "TARTINGUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animals preen in front of a mirror to look smarter.",
+     "walkthrough": "Tarting up is British informal for making something look showier.",
+     "definitionFit": "Tarting up means smartening or decorating something, often cheaply, to make it look more attractive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "ass"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1161,50 @@
     "text": "Demeanour changes in love",
     "enumeration": "9"
    },
-   "solution": "ENAMOURED"
+   "solution": "ENAMOURED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENAMOURED",
+    "definitions": [
+     {
+      "text": "in love",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "when something changes it takes a new form, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demeanour",
+      "gives": "DEMEANOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEMEANOUR",
+       "gives": "ENAMOURED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's whole manner alters when they fall for somebody.",
+     "definitionFit": "Enamoured means smitten with or charmed by another person, filled with romantic feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1218,55 @@
     "text": "Former pupil's treatment is not widely known",
     "enumeration": "7"
    },
-   "solution": "OBSCURE"
+   "solution": "OBSCURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSCURE",
+    "definitions": [
+     {
+      "text": "not widely known",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former pupil",
+      "gives": "OB",
+      "note": "OB is old boy, a former pupil of a British school"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "CURE",
+      "note": "a cure is a medical treatment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "S",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old school alumnus's remedy turns out to be little known.",
+     "definitionFit": "Something obscure is unfamiliar, recondite or little heard of by the general public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1280,49 @@
     "text": "Make disapproving noise at American skirts",
     "enumeration": "5"
    },
-   "solution": "TUTUS"
+   "solution": "TUTUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUTUS",
+    "definitions": [
+     {
+      "text": "skirts",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make disapproving noise",
+      "gives": "TUT",
+      "note": "to tut is to click the tongue in disapproval"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for the United States, hence American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clicks their tongue at an American's short skirts.",
+     "definitionFit": "A tutu is the short stiff frilly skirt worn by ballet dancers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1336,64 @@
     "text": "Barrage of suffering when Republican displaces millions",
     "enumeration": "7"
    },
-   "solution": "TORRENT"
+   "solution": "TORRENT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TORRENT",
+    "definitions": [
+     {
+      "text": "Barrage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displaces",
+      "for": "substitution",
+      "note": "to displace something is to push it out and take its place"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffering",
+      "gives": "TORMENT",
+      "note": "torment is great suffering"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the usual abbreviation for Republican"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "R",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Political anguish as a Republican ousts a billionaire class.",
+     "walkthrough": "R takes the place of M in the word for suffering.",
+     "definitionFit": "A torrent is an overwhelming outpouring, as in a torrent of abuse, like a barrage of insults."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Barrage"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1413,68 @@
      }
     ]
    },
-   "solution": "DISPATCHRIDER"
+   "solution": "DISPATCHRIDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DISPATCH RIDER",
+    "definitions": [
+     {
+      "text": "Courier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cap",
+      "for": "letter_selection",
+      "note": "a cap sits on top, so it is the opening letter of the word before it"
+     },
+     {
+      "text": "is broken",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces that can be put back in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "predicts",
+      "gives": "PREDICTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "HAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dryer's",
+      "gives": "D",
+      "select": "first",
+      "note": "the top letter of dryer"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PREDICTSHAIRD",
+       "gives": "DISPATCHRIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forecasts that the hood on their hair dryer is going to break.",
+     "walkthrough": "Hair dryer looks like one item, but hair is fodder and only the first letter of dryer joins it.",
+     "definitionFit": "A dispatch rider is a messenger on a motorcycle who delivers urgent documents and parcels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1488,58 @@
     "text": "Cheese fondue, primarily with Greek character",
     "enumeration": "4"
    },
-   "solution": "FETA"
+   "solution": "FETA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so just the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fondue",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of fondue"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is the seventh letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ETA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese fondue made mainly with Greek flavour.",
+     "definitionFit": "Feta is the crumbly white brined Greek variety made from sheep or goat milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1559,63 @@
      }
     ]
    },
-   "solution": "EVENUP"
+   "solution": "EVENUP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "EVEN UP",
+    "definitions": [
+     {
+      "text": "Settle",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small piece, here its first letter"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away from the whole"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fizzy drink",
+      "gives": "SEVENUP",
+      "note": "7 Up is a lemon-lime soft drink brand"
+     },
+     {
+      "clueFragment": "sparkle",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sparkle, which is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft drink goes flat in Settle, a town in North Yorkshire.",
+     "walkthrough": "The capital S makes Settle look like the Yorkshire town, but it is the verb defining the answer.",
+     "definitionFit": "To even up a score or debt is to make it equal, squaring or balancing accounts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Settle"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1629,49 @@
     "text": "Got rid of electronic device producing dangerous gas",
     "enumeration": "8"
    },
-   "solution": "FIREDAMP"
+   "solution": "FIREDAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIREDAMP",
+    "definitions": [
+     {
+      "text": "dangerous gas",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got rid of",
+      "gives": "FIRED",
+      "note": "to fire someone is to get rid of them from a job"
+     },
+     {
+      "clueFragment": "electronic device",
+      "gives": "AMP",
+      "note": "an amp is an amplifier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRED",
+      "AMP"
+     ]
+    },
+    "explanation": {
+     "surface": "Discarding an old gadget releases a hazardous gas.",
+     "definitionFit": "Firedamp is the explosive methane gas found in coal mines, a major historic danger to miners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Got"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1685,56 @@
     "text": "Bristle, as lake disappearing from grassy area",
     "enumeration": "3"
    },
-   "solution": "AWN"
+   "solution": "AWN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AWN",
+    "definitions": [
+     {
+      "text": "Bristle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disappearing from",
+      "for": "deletion",
+      "note": "something disappearing from a place is removed from it"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     },
+     {
+      "clueFragment": "grassy area",
+      "gives": "LAWN",
+      "note": "a lawn is an area of mown grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bristles as a lake dries up beside the grass.",
+     "walkthrough": "Bristle looks like a verb of annoyance, but it is the noun.",
+     "definitionFit": "An awn is the stiff hair-like projection on the seed head of barley, oats and other grasses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bristle"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1748,62 @@
     "text": "American taking year off allowed ornament",
     "enumeration": "6"
    },
-   "solution": "ANKLET"
+   "solution": "ANKLET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANKLET",
+    "definitions": [
+     {
+      "text": "ornament",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking a thing off means removing it from the word"
+     }
+    ],
+    "linkWords": [
+     "off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "YANK",
+      "note": "Yank is informal for an American"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANK",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "An American on a year's leave is permitted some jewellery.",
+     "definitionFit": "An anklet is a chain or bracelet worn around the lower leg as decorative jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1817,46 @@
     "text": "Ready to receive delivery, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "Ready to receive delivery",
+      "at": 0
+     },
+     {
+      "text": "example",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready to receive delivery",
+      "note": "first meaning, split in two: a cricket batter set in position, waiting for the ball"
+     },
+     {
+      "clueFragment": "example",
+      "note": "second meaning: a case or specimen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Delivery sounds like a parcel, but in cricket a delivery is a ball bowled; a batter waiting for it is in stance.",
+     "definitionFit": "An instance is a single case cited to illustrate a point, just like a specimen or illustration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   }
  ]
 }

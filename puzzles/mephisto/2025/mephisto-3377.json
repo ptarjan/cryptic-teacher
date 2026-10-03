@@ -38,6 +38,9 @@
   "date": "2025-05-25",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,55 @@
     "text": "Pilgrim friend, not entirely pure in the past",
     "enumeration": "6"
    },
-   "solution": "PALMER"
+   "solution": "PALMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PALMER",
+    "definitions": [
+     {
+      "text": "Pilgrim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "something not entirely there has lost a piece, here its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "pure in the past",
+      "gives": "MERE",
+      "note": "mere once meant pure or unmixed, a sense now archaic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "MER"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilgrim with an old friend who was not entirely innocent in years gone by.",
+     "walkthrough": "'in the past' marks the old sense of mere, not a tense.",
+     "definitionFit": "A palmer was a medieval pilgrim who brought back a palm leaf from the Holy Land as proof of the journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pure"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +116,55 @@
     "text": "Domestic fowl in picture of compound",
     "enumeration": "6"
    },
-   "solution": "PHENIC"
+   "solution": "PHENIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHENIC",
+    "definitions": [
+     {
+      "text": "of compound",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another is enclosed by it, so the fowl goes inside the picture"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Domestic fowl",
+      "gives": "HEN",
+      "note": "a hen is a domestic fowl"
+     },
+     {
+      "clueFragment": "picture",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HEN",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A chicken shown in a picture made up of several elements.",
+     "walkthrough": "The definition is an adjective phrase: phenic describes things relating to phenol or phenyl.",
+     "definitionFit": "Phenic means relating to the chemical phenyl or phenol, so it describes something belonging to that organic substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compound"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +178,59 @@
     "text": "Mad king acted in Shakespeare’s made grotesque",
     "enumeration": "8"
    },
-   "solution": "ANTICKED"
+   "solution": "ANTICKED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTICKED",
+    "definitions": [
+     {
+      "text": "made grotesque",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "mad letters behave wildly and lose their order, so the following words get rearranged"
+     }
+    ],
+    "linkWords": [
+     "in Shakespeare’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess and card abbreviation for king"
+     },
+     {
+      "clueFragment": "acted in",
+      "gives": "ACTEDIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KACTEDIN",
+       "gives": "ANTICKED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged monarch performed in a Shakespeare play, made to look ridiculous.",
+     "walkthrough": "The surface suggests King Lear, but 'Mad' only stirs up the letters. 'in Shakespeare's' flags a word found in his plays (Antony and Cleopatra).",
+     "definitionFit": "To antic someone was to make them look like a clown or buffoon, a verb Shakespeare used once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +244,43 @@
     "text": "In Hamlet he endured death, as the Bard had it",
     "enumeration": "6"
    },
-   "solution": "LETHEE"
+   "solution": "LETHEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LETHEE",
+    "definitions": [
+     {
+      "text": "death, as the Bard had it",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning their boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamlet he endured",
+      "gives": "LETHEE",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Hamlet suffered his death, just as Shakespeare wrote it.",
+     "walkthrough": "The Bard is Shakespeare; the answer is his spelling, from Julius Caesar.",
+     "definitionFit": "Lethe was the river of forgetfulness in the underworld, and Shakespeare used this form to mean oblivion or the end of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hamlet"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +294,54 @@
     "text": "Fodder crop, mass one of small value reportedly",
     "enumeration": "4"
    },
-   "solution": "MILO"
+   "solution": "MILO",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MILO",
+    "definitions": [
+     {
+      "text": "Fodder crop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the last piece is heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "of small value",
+      "gives": "LO",
+      "soundsLike": "LOW",
+      "note": "low means of little worth; the interjection lo sounds the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A crop grown for animal feed, a bulk item of little worth.",
+     "definitionFit": "Milo is a drought-resistant sorghum grown as grain and feed for livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +355,47 @@
     "text": "Managed what survivors do where junta is in power",
     "enumeration": "7"
    },
-   "solution": "RANGOON"
+   "solution": "RANGOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANGOON",
+    "definitions": [
+     {
+      "text": "where junta is in power",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "what survivors do",
+      "gives": "GOON",
+      "note": "survivors go on, carrying on living"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "GOON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ran things and carried on surviving under a military regime.",
+     "walkthrough": "The definition is a place: Rangoon (Yangon) is the chief city of Myanmar, ruled by a military junta.",
+     "definitionFit": "Rangoon is the largest city of Myanmar, a country governed by its armed forces since a coup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "survivors"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +409,50 @@
     "text": "One knowing hovel’s changed hands",
     "enumeration": "6"
    },
-   "solution": "KENNER"
+   "solution": "KENNER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "KENNER",
+    "definitions": [
+     {
+      "text": "One knowing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed hands",
+      "for": "substitution",
+      "note": "hands are left and right, so one hand is swapped for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hovel",
+      "gives": "KENNEL",
+      "note": "a kennel is a wretched hut or hovel as well as a dog house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KENNE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A wise person whose shack has been sold to a new owner.",
+     "walkthrough": "'changed hands' looks like a sale; it means L (left) becomes R (right).",
+     "definitionFit": "To ken is to know, so a kenner is a person who knows, a knower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +466,61 @@
     "text": "English stories out of place? Who cares? Could be",
     "enumeration": "8"
    },
-   "solution": "EROTESIS"
+   "solution": "EROTESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EROTESIS",
+    "definitions": [
+     {
+      "text": "Who cares? Could be",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of place",
+      "for": "anagram",
+      "note": "letters out of place are no longer in their proper positions, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "stories",
+      "gives": "ROTESIS",
+      "note": "the word stories, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ROTESIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STORIES",
+       "gives": "ROTESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "English tales that seem misplaced, met with an indifferent shrug.",
+     "walkthrough": "'Who cares?' is the sort of question that expects no reply, and 'Could be' says it is an example.",
+     "definitionFit": "Erotesis is the rhetorical question, a figure of speech asked for effect with no answer expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cares"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +534,60 @@
     "text": "New plaster coating put round hospital vestibule",
     "enumeration": "7"
    },
-   "solution": "NARTHEX"
+   "solution": "NARTHEX",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NARTHEX",
+    "definitions": [
+     {
+      "text": "vestibule",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put round",
+      "for": "container",
+      "note": "something put round another wraps it, so the coating encloses the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "plaster coating",
+      "gives": "ARTEX",
+      "note": "Artex is a British brand of textured plaster coating for ceilings"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ART",
+      "H",
+      "EX"
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh plaster has been applied around a hospital's entrance hall.",
+     "definitionFit": "A narthex is the porch or antechamber at the west end of a church, a vestibule before the nave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +601,50 @@
     "text": "Tree out in Goa",
     "enumeration": "5"
    },
-   "solution": "NGAIO"
+   "solution": "NGAIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NGAIO",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are disordered or wrong, so these get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Goa",
+      "gives": "INGOA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGOA",
+       "gives": "NGAIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree growing out in the Indian state of Goa.",
+     "definitionFit": "The ngaio is a small New Zealand evergreen tree with white flowers and edible fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +658,63 @@
     "text": "Bird about eating fish on river",
     "enumeration": "6"
    },
-   "solution": "REELER"
+   "solution": "REELER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REELER",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so the first word surrounds the fish"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a fish"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EEL",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird circling as it eats a fish on a river.",
+     "definitionFit": "Reeler is a dialect name for the grasshopper warbler, from its reeling, whirring song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +728,62 @@
     "text": "Savage conflict left in anger",
     "enumeration": "8"
    },
-   "solution": "WARRAGLE"
+   "solution": "WARRAGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WARRAGLE",
+    "definitions": [
+     {
+      "text": "Savage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing placed in another goes inside it, so the letter for left sits within the anger"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "war is armed conflict"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "rage is fierce anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "RAG",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A brutal battle has been abandoned in fury.",
+     "walkthrough": "'Savage' looks like an adjective describing the conflict; it is the definition, as a noun.",
+     "definitionFit": "Warragle is an Australian word for a wild dingo or an uncivilised person, a variant of warrigal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Savage"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +797,47 @@
     "text": "Scots intend land free of the south",
     "enumeration": "5"
    },
-   "solution": "ETTLE"
+   "solution": "ETTLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETTLE",
+    "definitions": [
+     {
+      "text": "Scots intend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free of the south",
+      "for": "deletion",
+      "note": "being free of something means losing it, here the compass letter for south"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land",
+      "gives": "SETTLE",
+      "note": "to settle is to come to land, as a bird does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Scottish people mean to take land away from southern rule.",
+     "definitionFit": "Ettle is a Scots and northern dialect verb meaning to aim, plan or purpose to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +851,61 @@
     "text": "Learned about old rook bird’s first year",
     "enumeration": "6"
    },
-   "solution": "SORAGE"
+   "solution": "SORAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SORAGE",
+    "definitions": [
+     {
+      "text": "bird’s first year",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for learned goes around the next two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learned",
+      "gives": "SAGE",
+      "note": "sage means wise or learned"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "O",
+      "R",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar writes about an old rook in its first year of life.",
+     "walkthrough": "The rook in the surface is a bird, but here it is the chess piece.",
+     "definitionFit": "In falconry, sorage is the first year of a hawk, before its first moult, when it is a sore hawk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +919,60 @@
     "text": "Style of art I exhibited once in North America",
     "enumeration": "7"
    },
-   "solution": "NIHONGA"
+   "solution": "NIHONGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NIHONGA",
+    "definitions": [
+     {
+      "text": "Style of art",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means set inside it, so the first pieces go inside the abbreviation for the continent"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exhibited once",
+      "gives": "HONG",
+      "note": "hong is an obsolete past form of hang, as pictures are hung in a show"
+     },
+     {
+      "clueFragment": "North America",
+      "gives": "NA",
+      "note": "NA is the abbreviation for North America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "HONG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An artistic style that I once showed in North America.",
+     "definitionFit": "Nihonga is Japanese-style painting using traditional materials and techniques, as opposed to Western-style art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +986,46 @@
     "text": "Scots turn to Ireland",
     "enumeration": "4"
    },
-   "solution": "TIRL"
+   "solution": "TIRL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIRL",
+    "definitions": [
+     {
+      "text": "Scots turn",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "T",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IRL",
+      "note": "IRL is the international vehicle code for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IRL"
+     ]
+    },
+    "explanation": {
+     "surface": "Scottish people look towards Ireland.",
+     "definitionFit": "Tirl is a Scots verb meaning to twirl, spin or rattle, as in tirling at the pin of a door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1039,51 @@
     "text": "Site once processed mineral",
     "enumeration": "8"
    },
-   "solution": "ICESTONE"
+   "solution": "ICESTONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ICESTONE",
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "processed",
+      "for": "anagram",
+      "note": "processed material is broken down and remade, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Site once",
+      "gives": "SITEONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SITEONCE",
+       "gives": "ICESTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former quarry where a mineral was worked.",
+     "walkthrough": "'once' looks like the archaic flag so common in this puzzle; here it is just fodder.",
+     "definitionFit": "Icestone is another name for cryolite, a pale glassy mineral used in smelting aluminium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1097,55 @@
     "text": "Eve put in route pin on board",
     "enumeration": "8"
    },
-   "solution": "TREENAIL"
+   "solution": "TREENAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREENAIL",
+    "definitions": [
+     {
+      "text": "pin on board",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in another goes inside it, so the evening word sits within the route"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eve",
+      "gives": "EEN",
+      "note": "e'en is a poetic contraction of even, the evening"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "TRAIL",
+      "note": "a trail is a route or path"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EEN",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Eve fixed a pin on a noticeboard along her way.",
+     "walkthrough": "Eve looks like a name; it is evening, in its old shortened form.",
+     "definitionFit": "A treenail is a wooden peg used to fasten timbers, especially planking on a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Eve"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1159,61 @@
     "text": "Poet’s set about finest verse book that’s turned up",
     "enumeration": "8"
    },
-   "solution": "BESTADDE"
+   "solution": "BESTADDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BESTADDE",
+    "definitions": [
+     {
+      "text": "Poet’s set about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finest",
+      "gives": "BEST",
+      "note": "best means finest"
+     },
+     {
+      "clueFragment": "verse book",
+      "gives": "EDDA",
+      "note": "the Edda is the Old Norse book of poems"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "ADDE"
+     ],
+     "reversals": [
+      {
+       "from": "EDDA",
+       "to": "ADDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's collection on the finest verse book that has been found.",
+     "walkthrough": "The Poet in crosswords is Spenser, whose word this is.",
+     "definitionFit": "Bestadde is Spenser's form of bestead, meaning beset, surrounded or placed in difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1227,47 @@
     "text": "What may be planted in garden private area",
     "enumeration": "7"
    },
-   "solution": "GUNNERA"
+   "solution": "GUNNERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUNNERA",
+    "definitions": [
+     {
+      "text": "What may be planted in garden",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private",
+      "gives": "GUNNER",
+      "note": "a gunner is the private-soldier rank in the artillery"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUNNER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Something to plant in a secluded part of the garden.",
+     "walkthrough": "'private area' reads as a secluded spot, but private is the soldier.",
+     "definitionFit": "Gunnera is a huge-leaved plant like giant rhubarb, grown ornamentally beside garden ponds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1281,66 @@
     "text": "Fish bone embedded turned concerning",
     "enumeration": "7"
    },
-   "solution": "OSSETER"
+   "solution": "OSSETER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OSSETER",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the word for concerning is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bone",
+      "gives": "OS",
+      "note": "os is Latin and anatomical for bone"
+     },
+     {
+      "clueFragment": "embedded",
+      "gives": "SET",
+      "note": "something set is fixed firmly in place"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "SET",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish with a bone lodged in it, which turned out to be a concern.",
+     "definitionFit": "The osseter is a sturgeon of the Caspian and Black Sea region, prized for its caviar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bone"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1354,51 @@
     "text": "Sadly does not put up in Scotland",
     "enumeration": "7"
    },
-   "solution": "STOODEN"
+   "solution": "STOODEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STOODEN",
+    "definitions": [
+     {
+      "text": "put up in Scotland",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sadly",
+      "for": "anagram",
+      "note": "something going sadly is going badly, so the letters fall into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does not",
+      "gives": "DOESNOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOESNOT",
+       "gives": "STOODEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regrettably someone refuses to tolerate a Scottish matter.",
+     "walkthrough": "'put up' is a past participle here, meaning stood (as in erected); the Scots form adds -en.",
+     "definitionFit": "Stooden is a Scots past participle of stand, so it means erected or set upright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1412,54 @@
     "text": "Following track once around Quebec",
     "enumeration": "7"
    },
-   "solution": "SEQUENT"
+   "solution": "SEQUENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEQUENT",
+    "definitions": [
+     {
+      "text": "Following",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "lying around something means surrounding it, so the old track encloses the province"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "track once",
+      "gives": "SENT",
+      "note": "sent is an old spelling of scent, the trail left for hounds"
+     },
+     {
+      "clueFragment": "Quebec",
+      "gives": "QUE",
+      "note": "Que is the abbreviation for the Canadian province of Quebec"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "QUE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Pursuing an old route that ran around Quebec.",
+     "definitionFit": "Sequent means coming after or in succession, the adjective behind sequence and consequent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1473,47 @@
     "text": "Part of Balmoral roof he sculpted recently",
     "enumeration": "6"
    },
-   "solution": "SCLATE"
+   "solution": "SCLATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCLATE",
+    "definitions": [
+     {
+      "text": "Part of Balmoral roof",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he sculpted",
+      "gives": "SC",
+      "note": "sc is short for sculpsit, Latin for he sculpted, seen on statues"
+     },
+     {
+      "clueFragment": "recently",
+      "gives": "LATE",
+      "note": "late means recently, as in 'of late'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of the roof at the royal Scottish castle was carved not long ago.",
+     "walkthrough": "Balmoral is the royal castle in Scotland, signalling the Scots spelling.",
+     "definitionFit": "Sclate is a Scots form of slate, the stone tile that covers a roof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sculpted"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1527,53 @@
     "text": "One writing entirely in Mayan language",
     "enumeration": "6"
    },
-   "solution": "MALLAM"
+   "solution": "MALLAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MALLAM",
+    "definitions": [
+     {
+      "text": "One writing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another is held within it, so the word for entirely sits inside the language"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entirely",
+      "gives": "ALL",
+      "note": "all means entirely, as in all alone"
+     },
+     {
+      "clueFragment": "Mayan language",
+      "gives": "MAM",
+      "note": "Mam is a Mayan language of Guatemala"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ALL",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A scribe working completely in a Mayan tongue.",
+     "definitionFit": "A mallam is a learned scholar or teacher in West Africa, someone literate who writes and teaches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1587,44 @@
     "text": "How to declare £10 banknote’s value once",
     "enumeration": "6"
    },
-   "solution": "TENOUR"
+   "solution": "TENOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TENOUR",
+    "definitions": [
+     {
+      "text": "banknote’s value once",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "How to declare",
+      "for": "homophone",
+      "note": "to declare something is to say it out, so this is about pronunciation, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "£10",
+      "gives": "TENOUR",
+      "soundsLike": "TENNER",
+      "note": "a tenner is British slang for a ten-pound note"
+     }
+    ],
+    "explanation": {
+     "surface": "Explaining how to state the worth of a ten-pound note in old money.",
+     "walkthrough": "'banknote' belongs to both halves: the £10 note is the sound, and the note's stated sum is the definition.",
+     "definitionFit": "Tenour is an old spelling of tenor, which for a bill or note means the sum and terms written on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "declare"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1638,54 @@
     "text": "Sweetener in US deep-fried cakes on the rise",
     "enumeration": "5"
    },
-   "solution": "SIRUP"
+   "solution": "SIRUP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SIRUP",
+    "definitions": [
+     {
+      "text": "Sweetener in US",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down entry, rising means read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deep-fried cakes",
+      "gives": "PURIS",
+      "note": "puris are small deep-fried Indian breads"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIRUP"
+     ],
+     "reversals": [
+      {
+       "from": "PURIS",
+       "to": "SIRUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweetener in American fried pastries is becoming more popular.",
+     "walkthrough": "'in US' belongs to the definition, giving the American spelling, not the cakes.",
+     "definitionFit": "Sirup is the American spelling of syrup, a thick sugary liquid used to sweeten food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1699,48 @@
     "text": "Green government lacking a certain bit of body?",
     "enumeration": "8"
    },
-   "solution": "ECOSTATE"
+   "solution": "ECOSTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECOSTATE",
+    "definitions": [
+     {
+      "text": "lacking a certain bit of body?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "ECO",
+      "note": "eco is short for ecological, environmentally green"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "STATE",
+      "note": "the state is the government of a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECO",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An environmentally minded administration short of something.",
+     "walkthrough": "The definition reads as e-costate: Latin costa is a rib, so the missing bit is a rib.",
+     "definitionFit": "Ecostate means ribless, from Latin e- (without) and costa (rib), used of leaves without a midrib."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1754,49 @@
     "text": "Joint way to access computer’s no good",
     "enumeration": "4"
    },
-   "solution": "LOIN"
+   "solution": "LOIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOIN",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no good",
+      "for": "deletion",
+      "note": "having no good means losing the letter that stands for good"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way to access computer",
+      "gives": "LOGIN",
+      "note": "a login is how a user gains access to a computer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A shared method of getting into a computer is useless.",
+     "walkthrough": "'Joint' looks like an adjective for a shared login; it is the cut of meat.",
+     "definitionFit": "A loin is a cut of meat from an animal's back, a joint for roasting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1810,62 @@
     "text": "Waterbird? Goburra regularly is included in related group",
     "enumeration": "7"
    },
-   "solution": "COURLAN"
+   "solution": "COURLAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COURLAN",
+    "definitions": [
+     {
+      "text": "Waterbird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "is included in",
+      "for": "container",
+      "note": "what is included in a group sits inside it, so the kept letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goburra",
+      "gives": "OUR",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "related group",
+      "gives": "CLAN",
+      "note": "a clan is a group of related families"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OUR",
+      "LAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A water bird, the goburra, belongs to a family group.",
+     "walkthrough": "Goburra is a name for the kookaburra; it is just a source of letters here.",
+     "definitionFit": "The courlan, or limpkin, is a long-billed American wading bird of marshes and swamps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Goburra"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +1879,54 @@
     "text": "Space travel at speed, ignoring velocity",
     "enumeration": "4"
    },
-   "solution": "ROOM"
+   "solution": "ROOM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROOM",
+    "definitions": [
+     {
+      "text": "Space",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, here the letter that stands for velocity"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travel at speed",
+      "gives": "VROOM",
+      "note": "to vroom is to move fast with a roaring engine"
+     },
+     {
+      "clueFragment": "velocity",
+      "gives": "V",
+      "note": "V is the symbol for velocity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Space travel at speed without regard to how fast.",
+     "walkthrough": "'Space travel' reads as one phrase; Space is the definition on its own.",
+     "definitionFit": "Room means space or capacity, as in 'no room to move'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Space"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +1940,53 @@
     "text": "Fear once learned after active duty",
     "enumeration": "6"
    },
-   "solution": "ADREAD"
+   "solution": "ADREAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADREAD",
+    "definitions": [
+     {
+      "text": "Fear once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for learned second, behind the military abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "active duty",
+      "gives": "AD",
+      "note": "AD is the US military abbreviation for active duty"
+     },
+     {
+      "clueFragment": "learned",
+      "gives": "READ",
+      "note": "a well-read person is learned, and read alone can mean the same"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "READ"
+     ]
+    },
+    "explanation": {
+     "surface": "Former dread felt by someone educated after military service.",
+     "definitionFit": "Adread is an archaic verb meaning to be afraid, related to dread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learned"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2000,60 @@
     "text": "Loos working with old penny coin that’s obsolete",
     "enumeration": "5"
    },
-   "solution": "SOLDO"
+   "solution": "SOLDO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLDO",
+    "definitions": [
+     {
+      "text": "coin that’s obsolete",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working letters are in motion and reshaped, so they come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loos",
+      "gives": "LOOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old penny",
+      "gives": "D",
+      "note": "d stood for penny in British pre-decimal money"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOOSD",
+       "gives": "SOLDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Public toilets that still run on old pennies, now an outdated coin.",
+     "walkthrough": "Loos are toilets, and old pay toilets took a penny.",
+     "definitionFit": "The soldo was a small Italian copper coin, one twentieth of a lira, no longer minted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Loos"
+    }
+   }
   },
   {
    "number": 32,
@@ -513,7 +2067,47 @@
     "text": "Church helper more commonly seen on a weekday",
     "enumeration": "8"
    },
-   "solution": "THURIFER"
+   "solution": "THURIFER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THURIFER",
+    "definitions": [
+     {
+      "text": "Church helper",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a weekday",
+      "gives": "THU",
+      "note": "Thu is the short form of Thursday"
+     },
+     {
+      "clueFragment": "more commonly seen",
+      "gives": "RIFER",
+      "note": "rife means widespread, so rifer is more widespread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THU",
+      "RIFER"
+     ]
+    },
+    "explanation": {
+     "surface": "A church volunteer appears more often on one particular day.",
+     "walkthrough": "'on' places the day piece first.",
+     "definitionFit": "A thurifer is the server who carries the censer of incense during a church service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 33,
@@ -527,7 +2121,65 @@
     "text": "American in his synagogue losing time shut in",
     "enumeration": "6"
    },
-   "solution": "EMPALE"
+   "solution": "EMPALE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EMPALE",
+    "definitions": [
+     {
+      "text": "shut in",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means doing without it, here the letter for time"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the American goes inside, held within the place of worship"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "his synagogue",
+      "gives": "TEMPLE",
+      "note": "a temple is a synagogue, especially a Reform one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the symbol for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMP",
+      "A",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American trapped in his synagogue, running out of time.",
+     "definitionFit": "Empale is an old spelling of impale in its sense of enclosing with stakes, so fencing in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 34,
@@ -541,7 +2193,51 @@
     "text": "Thief once held back by harem minder?",
     "enumeration": "6"
    },
-   "solution": "NIMMER"
+   "solution": "NIMMER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NIMMER",
+    "definitions": [
+     {
+      "text": "Thief once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "hidden_word",
+      "note": "held means contained, so the answer is inside the following words"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the wrong way, so the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harem minder",
+      "gives": "REMMIN",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A historical thief was detained by a guard of the harem.",
+     "definitionFit": "A nimmer was an old word for a petty thief, from nim, meaning to steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   }
  ]
 }

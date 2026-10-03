@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Bypass – is speed limit finally reduced?",
     "enumeration": "8"
    },
-   "solution": "SIDESTEP"
+   "solution": "SIDESTEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SIDESTEP",
+    "definitions": [
+     {
+      "text": "Bypass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word limit only"
+     },
+     {
+      "text": "reduced",
+      "for": "anagram",
+      "note": "reduced in the sense of broken down into pieces, so the gathered letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "SPEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "limit",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of limit"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IS SPEED T",
+       "gives": "SIDESTEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver on a bypass wonders whether the speed limit has at last been lowered.",
+     "definitionFit": "To sidestep something is to avoid or go round it, just as a road bypasses a town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduced"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,59 @@
     "text": "Pharmacist stocking drug gets stars",
     "enumeration": "6"
    },
-   "solution": "BOOTES"
+   "solution": "BOOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOOTES",
+    "definitions": [
+     {
+      "text": "stars",
+      "at": 30,
+      "note": "Bootes is the name of one constellation, a group of stars"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocking",
+      "for": "container",
+      "note": "stocking means keeping goods on the shelves, so the pharmacist holds the drug inside"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pharmacist",
+      "gives": "BOOTS",
+      "note": "Boots is the big British high-street chemist chain"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOT",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist who keeps drugs in stock is rewarded with gold stars.",
+     "walkthrough": "Pharmacist suggests a person, but it stands for the British high-street chemist chain.",
+     "definitionFit": "Bootes, the Herdsman, is a northern constellation whose brightest member is Arcturus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stocking"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +176,67 @@
     "text": "Rascal observed penning pages about gangster",
     "enumeration": "8"
    },
-   "solution": "SPALPEEN"
+   "solution": "SPALPEEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPALPEEN",
+    "definitions": [
+     {
+      "text": "Rascal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penning",
+      "for": "container",
+      "note": "penning means shutting something in a pen, so one word encloses the other"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pages go round the gangster"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observed",
+      "gives": "SEEN",
+      "note": "observed means seen"
+     },
+     {
+      "clueFragment": "pages",
+      "gives": "PP",
+      "note": "PP is the abbreviation for pages"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "AL",
+      "note": "Al Capone, the archetypal gangster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "AL",
+      "P",
+      "EEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted writing up a gangster's story in their notebook.",
+     "walkthrough": "There are two enclosures here: the pages wrap the gangster, and that pair then sits inside observed.",
+     "definitionFit": "Spalpeen is an Irish word for a scamp or good-for-nothing, a rascal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penning"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +250,62 @@
     "text": "Element of hospital meal, mostly very dry, eaten by tramp?",
     "enumeration": "6"
    },
-   "solution": "BARIUM"
+   "solution": "BARIUM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BARIUM",
+    "definitions": [
+     {
+      "text": "Element of hospital meal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "something eaten ends up inside the eater, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tramp",
+      "gives": "BUM",
+      "note": "bum is slang for a tramp or vagrant"
+     },
+     {
+      "clueFragment": "very dry",
+      "gives": "ARID",
+      "note": "arid means very dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A tramp eating a dry, unappetising hospital dinner.",
+     "walkthrough": "A barium meal is a chalky liquid drunk before an X-ray so the gut shows up; the definition takes in the whole phrase.",
+     "definitionFit": "Barium is the chemical element in the chalky drink patients swallow before certain X-rays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +325,54 @@
      }
     ]
    },
-   "solution": "CLIPON"
+   "solution": "CLIPON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLIP-ON",
+    "definitions": [
+     {
+      "text": "Maybe like a microphone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to smother",
+      "for": "container",
+      "note": "to smother is to cover completely, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "CON",
+      "note": "a con is a trick or swindle"
+     },
+     {
+      "clueFragment": "insolence",
+      "gives": "LIP",
+      "note": "lip is cheeky talk, insolence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIP",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A trick for silencing a cheeky speaker by muffling the microphone.",
+     "definitionFit": "Small lapel microphones attach by a clip, so they are described as clip-on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smother"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +386,56 @@
     "text": "Brainboxes managed to penetrate spy agency",
     "enumeration": "6"
    },
-   "solution": "CRANIA"
+   "solution": "CRANIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRANIA",
+    "definitions": [
+     {
+      "text": "Brainboxes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to penetrate",
+      "for": "container",
+      "note": "to penetrate is to get inside, so one word goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy agency",
+      "gives": "CIA",
+      "note": "the American intelligence agency"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran means managed, as in ran a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAN",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "Clever people have infiltrated an intelligence agency.",
+     "walkthrough": "Brainboxes reads as clever people, but here it means the bony boxes that hold brains.",
+     "definitionFit": "Crania are skulls, literally the boxes in which brains are kept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brainboxes"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +449,54 @@
     "text": "Cut around soft spot",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLASH",
+    "definitions": [
+     {
+      "text": "spot",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the cut goes on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "SLASH",
+      "note": "to slash is to cut"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, soft in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Cutting around a tender spot, as a surgeon might.",
+     "definitionFit": "A splash is a small patch or dab of colour, as in a splash of paint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +510,49 @@
     "text": "Troubles in hotel with relatives",
     "enumeration": "6"
    },
-   "solution": "HAUNTS"
+   "solution": "HAUNTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAUNTS",
+    "definitions": [
+     {
+      "text": "Troubles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "relatives",
+      "gives": "AUNTS",
+      "note": "aunts are relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AUNTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Family rows breaking out while staying in a hotel with relations.",
+     "definitionFit": "To haunt someone is to trouble or disturb them persistently, as a memory or ghost does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Troubles"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +566,58 @@
     "text": "Silence poet conjured up in a time long ago",
     "enumeration": "11"
    },
-   "solution": "PLEISTOCENE"
+   "solution": "PLEISTOCENE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLEISTOCENE",
+    "definitions": [
+     {
+      "text": "a time long ago",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conjured up",
+      "for": "anagram",
+      "note": "something conjured up is made by magic, so the letters are produced in a new form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silence",
+      "gives": "SILENCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "POET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SILENCE POET",
+       "gives": "PLEISTOCENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet poet summoned up from the distant past.",
+     "definitionFit": "The Pleistocene is the geological epoch of the Ice Ages, ending about twelve thousand years back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Silence"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +631,62 @@
     "text": "Keen officer hugging ace soldiers",
     "enumeration": "6"
    },
-   "solution": "LAMENT"
+   "solution": "LAMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAMENT",
+    "definitions": [
+     {
+      "text": "Keen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "hugging means wrapping arms round, so one piece encloses the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the ace in cards"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men in the ranks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer embracing his finest troops.",
+     "walkthrough": "Keen looks like an adjective meaning eager, but it is the verb meaning to wail for the dead.",
+     "definitionFit": "To keen is to wail in grief, so as a noun a keen is a mournful cry or lament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +700,66 @@
     "text": "Place where you’ll find people who are little and large – bad place for one to be in",
     "enumeration": "8"
    },
-   "solution": "LILLIPUT"
+   "solution": "LILLIPUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LILLIPUT",
+    "definitions": [
+     {
+      "text": "Place where you’ll find people who are little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "to be in means placed inside, so one goes between the other pieces"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large, as on clothing"
+     },
+     {
+      "clueFragment": "bad place",
+      "gives": "ILLPUT",
+      "note": "ill means bad, and to put is to place"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ILL",
+      "I",
+      "PUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Little and Large were a British comedy double act; the clue seems to joke about a poor venue for one of them.",
+     "walkthrough": "The definition stops at little; large reads as half of the comedy duo but only supplies its abbreviation. One sits between bad and place.",
+     "definitionFit": "Lilliput is the island in Gulliver's Travels whose inhabitants are only a few inches tall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +773,43 @@
     "text": "‘Moneymaker’ that may grow in the garden",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINT",
+    "definitions": [
+     {
+      "text": "Moneymaker",
+      "at": 1
+     },
+     {
+      "text": "that may grow in the garden",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moneymaker",
+      "note": "first meaning: the place where coins are struck"
+     },
+     {
+      "clueFragment": "that may grow in the garden",
+      "note": "second meaning: an aromatic herb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The quotation marks hint that moneymaker is to be taken literally, a maker of money.",
+     "definitionFit": "The word names both the official coin factory and a common culinary herb grown in gardens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Moneymaker"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +829,52 @@
      }
     ]
    },
-   "solution": "SPIDERMITE"
+   "solution": "SPIDERMITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SPIDER MITE",
+    "definitions": [
+     {
+      "text": "I’m dire pest to be given spray?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be given spray",
+      "for": "anagram",
+      "note": "something given a spray is scattered about, so the letters are dispersed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m dire pest",
+      "gives": "IMDIREPEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMDIREPEST",
+       "gives": "SPIDERMITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden pest confesses it is awful and deserves to be sprayed with insecticide.",
+     "walkthrough": "The whole clue is both wordplay and definition: the creature speaking is a pest that gardeners spray.",
+     "definitionFit": "Spider mites are tiny sap-sucking arachnids that infest plants and are controlled with insecticidal sprays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spray"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +888,79 @@
     "text": "Fitting a number into sheltered accommodation to the east of a very quiet old city",
     "enumeration": "11"
    },
-   "solution": "APPURTENANT"
+   "solution": "APPURTENANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPURTENANT",
+    "definitions": [
+     {
+      "text": "Fitting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so one piece is placed within the other"
+     },
+     {
+      "text": "to the east of",
+      "for": "charade",
+      "note": "in an across clue east is to the right, so this part follows the earlier pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very quiet",
+      "gives": "PP",
+      "note": "pp is pianissimo, very quiet in music"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Mesopotamian city"
+     },
+     {
+      "clueFragment": "sheltered accommodation",
+      "gives": "TENT",
+      "note": "a tent is a shelter you sleep in"
+     },
+     {
+      "clueFragment": "a number",
+      "gives": "AN",
+      "note": "a as written, plus N for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "UR",
+      "TEN",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Fitting another resident into a care home somewhere in an ancient, hushed city.",
+     "walkthrough": "Sheltered accommodation suggests housing for the elderly, but it is simply a canvas shelter on a campsite.",
+     "definitionFit": "Appurtenant means belonging or pertaining to something, hence fitting or appropriate to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheltered"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +974,62 @@
     "text": "Act of sports official – superior male with holy anger",
     "enumeration": "8"
    },
-   "solution": "UMPIRAGE"
+   "solution": "UMPIRAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UMPIRAGE",
+    "definitions": [
+     {
+      "text": "Act of sports official",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superior",
+      "gives": "U",
+      "note": "U means upper class, superior"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "holy",
+      "gives": "PI",
+      "note": "pi is informal for pious, holy"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "rage is anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "M",
+      "PI",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty man berating the referee with righteous fury.",
+     "walkthrough": "Holy anger looks like a single phrase, righteous wrath, but its two words are clued separately.",
+     "definitionFit": "Umpirage is the action or decision of an umpire, the official who adjudicates a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "holy"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1043,75 @@
     "text": "Religious type with extreme characters in an uplifting ceremony",
     "enumeration": "8"
    },
-   "solution": "NAZARITE"
+   "solution": "NAZARITE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAZARITE",
+    "definitions": [
+     {
+      "text": "Religious type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so these characters go within the next word"
+     },
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down clue lifting up means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "extreme characters",
+      "gives": "ZA",
+      "note": "Z and A are the letters at either end of the alphabet"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAZA",
+      "RITE"
+     ],
+     "reversals": [
+      {
+       "from": "AZAN",
+       "to": "NAZA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devout person attending an inspiring religious service with some eccentric folk.",
+     "walkthrough": "Extreme characters sounds like odd people; it means the letters at either end of the alphabet. The reversal applies to everything before ceremony.",
+     "definitionFit": "A Nazarite was an ancient Israelite who took a vow of abstinence, so a religious devotee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1125,44 @@
     "text": "Old coins found in grain",
     "enumeration": "6"
    },
-   "solution": "GROATS"
+   "solution": "GROATS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROATS",
+    "definitions": [
+     {
+      "text": "Old coins",
+      "at": 0
+     },
+     {
+      "text": "grain",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old coins",
+      "note": "first meaning: old English silver fourpenny pieces"
+     },
+     {
+      "clueFragment": "grain",
+      "note": "second meaning: hulled cereal kernels such as oats"
+     }
+    ],
+    "explanation": {
+     "surface": "Ancient coins unearthed in a sack of cereal.",
+     "definitionFit": "The word names a fourpenny coin of old England and also hulled, crushed cereal kernels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1176,63 @@
     "text": "Snobbish as pig away from home apparently!",
     "enumeration": "6"
    },
-   "solution": "SNOTTY"
+   "solution": "SNOTTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNOTTY",
+    "definitions": [
+     {
+      "text": "Snobbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apparently",
+      "for": "container",
+      "note": "apparently tells the solver to take the picture literally, a pig not in its home"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "note": "the pig only says whose home is meant; it gives no letters"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "STY",
+      "note": "a pig's home is a sty"
+     },
+     {
+      "clueFragment": "away from",
+      "gives": "NOT",
+      "note": "away from home means not at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty person is compared to a pig that has strayed from its pen.",
+     "walkthrough": "A pig away from home is NOT in its STY, so NOT goes into STY: S(NOT)TY.",
+     "definitionFit": "Snotty is an informal word for arrogant or condescending, looking down on others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pig"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1246,68 @@
     "text": "Creep is dodgy when capturing photo? Don’t step too close to these!",
     "enumeration": "10"
    },
-   "solution": "PRECIPICES"
+   "solution": "PRECIPICES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PRECIPICES",
+    "definitions": [
+     {
+      "text": "Don’t step too close to these!",
+      "at": 37,
+      "note": "the definition is a warning sentence rather than a plain noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or crooked, so the letters are not in their proper order"
+     },
+     {
+      "text": "when capturing",
+      "for": "container",
+      "note": "capturing means taking hold of, so the jumbled letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creep is",
+      "gives": "CREEPIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "photo",
+      "gives": "PIC",
+      "note": "pic is short for picture, a photo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRECI",
+      "PIC",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREEPIS",
+       "gives": "PRECIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneaky photographer leaning out over a cliff edge for a shot.",
+     "walkthrough": "CREEP IS is jumbled to PRECIES, which then holds PIC: PRECI(PIC)ES.",
+     "definitionFit": "Precipices are sheer cliff faces, places where stepping near the edge risks a fall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Creep"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1321,58 @@
     "text": "Club characters regularly coming in could get on well together",
     "enumeration": "6"
    },
-   "solution": "CUDGEL"
+   "solution": "CUDGEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUDGEL",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "coming in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "could",
+      "gives": "CUD",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of could"
+     },
+     {
+      "clueFragment": "get on well together",
+      "gives": "GEL",
+      "note": "people who gel get on well together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUD",
+      "GEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a club who drift in regularly might find they get along.",
+     "definitionFit": "A cudgel is a short heavy stick used as a weapon, in other words a club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1386,61 @@
     "text": "The old man’s upset, a soldier",
     "enumeration": "6"
    },
-   "solution": "SAPPER"
+   "solution": "SAPPER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAPPER",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, and in a down clue that reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The old man’s",
+      "gives": "PAS",
+      "note": "pa is the old man, father, plus the possessive s"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a, as in five pounds a head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAP",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "PAS",
+       "to": "SAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father is distressed because he is a soldier.",
+     "walkthrough": "A sapper is a military engineer, a soldier who digs trenches and tunnels.",
+     "definitionFit": "Sapper is the term for a combat engineer, a private soldier of the Royal Engineers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1454,53 @@
     "text": "Sound asleep, having abandoned party",
     "enumeration": "4"
    },
-   "solution": "ZING"
+   "solution": "ZING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ZING",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having abandoned",
+      "for": "deletion",
+      "note": "having abandoned means having left behind, so the named part is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "asleep",
+      "gives": "DOZING",
+      "note": "dozing means lightly asleep"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZING"
+     ]
+    },
+    "explanation": {
+     "surface": "Fast asleep after leaving the party early.",
+     "walkthrough": "Sound asleep reads as one phrase meaning deeply asleep, but sound is the definition.",
+     "definitionFit": "A zing is a sharp high-pitched whine, the sound of something speeding past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1514,56 @@
     "text": "Fellow introducing singer Bobby is a bigwig",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "bigwig",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "charade",
+      "note": "introducing means going before, so this piece leads the next"
+     }
+    ],
+    "linkWords": [
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "singer Bobby",
+      "gives": "DARIN",
+      "note": "Bobby Darin, the American singer of Mack the Knife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DARIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A compere introducing Bobby Darin on stage is someone important.",
+     "definitionFit": "A mandarin is a powerful official, especially a senior civil servant, a bigwig."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1577,59 @@
     "text": "Correspondence from one in political organisation",
     "enumeration": "6"
    },
-   "solution": "PARITY"
+   "solution": "PARITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARITY",
+    "definitions": [
+     {
+      "text": "Correspondence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means inside, so one goes within the organisation"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political organisation",
+      "gives": "PARTY",
+      "note": "a political party"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter from a member of a political party.",
+     "walkthrough": "Correspondence suggests letters, but here it means a matching or equivalence.",
+     "definitionFit": "Parity is equality or close correspondence between things, as between two currencies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Correspondence"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1643,45 @@
     "text": "Reportedly top vehicle for winter conditions",
     "enumeration": "6"
    },
-   "solution": "SLEIGH"
+   "solution": "SLEIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SLEIGH",
+    "definitions": [
+     {
+      "text": "vehicle for winter conditions",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken or heard, so the word is judged by its pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "SLEIGH",
+      "soundsLike": "SLAY",
+      "note": "to top someone is slang for killing them, to slay"
+     }
+    ],
+    "explanation": {
+     "surface": "News of the best car to drive in snowy weather.",
+     "walkthrough": "Top looks like an adjective meaning best, but it is the slang verb to kill.",
+     "definitionFit": "A sleigh is a sledge drawn over snow by horses or reindeer, a winter vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1695,48 @@
     "text": "Uncultivated, like a Ted of yesteryear?",
     "enumeration": "6"
    },
-   "solution": "HEATHY"
+   "solution": "HEATHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEATHY",
+    "definitions": [
+     {
+      "text": "Uncultivated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Ted of yesteryear",
+      "gives": "HEATH",
+      "note": "Ted Heath, British Prime Minister in the early 1970s"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "Y",
+      "note": "the suffix -y turns a noun into an adjective meaning like it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEATH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether something resembles a figure from the past called Ted.",
+     "walkthrough": "Edward Heath, known as Ted, was the British Conservative Prime Minister from 1970 to 1974.",
+     "definitionFit": "Heathy describes land covered in heath, wild open ground left uncultivated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ted"
+    }
+   }
   }
  ]
 }

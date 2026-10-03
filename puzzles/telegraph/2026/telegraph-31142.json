@@ -23,6 +23,9 @@
   "date": "2026-01-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,50 @@
     "text": "Townie and I will travel across the country",
     "enumeration": "10"
    },
-   "solution": "NATIONWIDE"
+   "solution": "NATIONWIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATIONWIDE",
+    "definitions": [
+     {
+      "text": "across the country",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will travel",
+      "for": "anagram",
+      "note": "letters that travel move about and end up in different places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Townie and I",
+      "gives": "TOWNIEANDI",
+      "note": "the three words taken letter for letter as the material to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOWNIEANDI",
+       "gives": "NATIONWIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town dweller and the speaker plan a trip around the whole country.",
+     "definitionFit": "Something done nationwide happens in every part of the nation, the full breadth of the land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travel"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +96,66 @@
     "text": "Anorak 50 per cent of flipping children discarded",
     "enumeration": "4"
    },
-   "solution": "NERD"
+   "solution": "NERD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NERD",
+    "definitions": [
+     {
+      "text": "Anorak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50 per cent of",
+      "for": "deletion",
+      "note": "only half of the following word is wanted, so the other half goes"
+     },
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "something discarded is thrown away, confirming that half of the word is lost"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way round, so the kept letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children",
+      "gives": "CHILDREN",
+      "note": "the word itself, whose first half is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NERD"
+     ],
+     "reversals": [
+      {
+       "from": "DREN",
+       "to": "NERD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half of a group of somersaulting kids have been dropped from something.",
+     "walkthrough": "Removing CHIL leaves DREN, which reads NERD backwards. An anorak is British slang for an obsessive enthusiast, not only a coat.",
+     "definitionFit": "In British slang an anorak is a socially awkward obsessive, the same kind of person called a nerd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Anorak"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +175,62 @@
      }
     ]
    },
-   "solution": "TIGHTKNIT"
+   "solution": "TIGHTKNIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIGHT-KNIT",
+    "definitions": [
+     {
+      "text": "Closely integrated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "a passenger on board is inside the vessel, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "TIGHT",
+      "note": "firm, as a tight knot or grip"
+     },
+     {
+      "clueFragment": "outfit",
+      "gives": "KIT",
+      "note": "kit is a set of clothes, as in football kit"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIGHT",
+      "K",
+      "N",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A company's uniform has a knight emblem sewn on it, making a close-knit firm.",
+     "walkthrough": "The knight goes inside KIT to give KNIT; 'on board' hints at the chess board too.",
+     "definitionFit": "A tight-knit community is one whose members are closely bound together, strongly united."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +254,39 @@
      }
     ]
    },
-   "solution": "OLDBOYNETWORK"
+   "solution": "OLDBOYNETWORK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OLD BOY NETWORK",
+    "definitions": [
+     {
+      "text": "School ties securing a post?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School ties",
+      "note": "surface reading: the striped neckwear of a school, or ropes tying a post in place"
+     },
+     {
+      "clueFragment": "securing a post",
+      "note": "setter's reading: connections from schooldays used to land a job"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A post sounds like a fence post being tied, but it is a job, and the ties are friendships formed at school.",
+     "definitionFit": "The phrase names the informal web of former pupils of elite schools who help each other into jobs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +300,69 @@
     "text": "The compilers will turn up, putting away litres in reception",
     "enumeration": "7"
    },
-   "solution": "WELCOME"
+   "solution": "WELCOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WELCOME",
+    "definitions": [
+     {
+      "text": "reception",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting away",
+      "for": "deletion",
+      "note": "putting something away removes it from view, so a letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The compilers",
+      "gives": "WE",
+      "note": "the setters speaking of themselves in the plural"
+     },
+     {
+      "clueFragment": "will",
+      "gives": "LL",
+      "note": "the contracted form, as in we'll"
+     },
+     {
+      "clueFragment": "turn up",
+      "gives": "COME",
+      "note": "to turn up is to arrive"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "L is the abbreviation for litres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "L",
+      "COME"
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword setters announce they will drop by, after tidying away bottles at a party.",
+     "walkthrough": "WE'LL COME loses one L to give the answer.",
+     "definitionFit": "A welcome is the greeting or reception given to someone on arrival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "litres"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +382,49 @@
      }
     ]
    },
-   "solution": "DONEFOR"
+   "solution": "DONEFOR",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "DONE FOR",
+    "definitions": [
+     {
+      "text": "Ruined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusing entrance",
+      "gives": "DONEFOR",
+      "soundsLike": "DUN FOR",
+      "note": "amusing is FUN and an entrance is a DOOR; swapping their opening sounds gives the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONEFOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A funny way in has been wrecked, as the famously muddled Oxford don might say.",
+     "definitionFit": "To be done for is to be finished, beyond saving, utterly ruined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +438,62 @@
     "text": "Animal occasionally calm in pound",
     "enumeration": "4"
    },
-   "solution": "LAMB"
+   "solution": "LAMB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LAMB",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means only now and then, so every other letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pound",
+      "gives": "LB",
+      "note": "lb is the abbreviation for a pound in weight"
+     },
+     {
+      "clueFragment": "calm",
+      "gives": "AM",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature is sometimes placid while kept in an enclosure.",
+     "walkthrough": "The pound looks like an animal pen, but it is the weight abbreviation LB, which holds AM.",
+     "definitionFit": "A lamb is a young sheep, a farm animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +507,56 @@
     "text": "Sound of ball stuck under car",
     "enumeration": "5"
    },
-   "solution": "AUDIO"
+   "solution": "AUDIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDIO",
+    "definitions": [
+     {
+      "text": "Sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck under",
+      "for": "charade",
+      "note": "in a down entry, one piece placed beneath another comes after it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUDI",
+      "note": "a German make of car"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "the letter's round shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A noise comes from a ball wedged beneath a vehicle.",
+     "definitionFit": "Audio is recorded or transmitted sound, as opposed to video pictures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +576,72 @@
      }
     ]
    },
-   "solution": "BEEFTOMATO"
+   "solution": "BEEFTOMATO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BEEF TOMATO",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoils",
+      "for": "anagram",
+      "note": "to spoil something is to mess it up, so these letters are jumbled"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of the next word means only its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fete a mob",
+      "gives": "FETEAMOB",
+      "note": "the words as written"
+     },
+     {
+      "clueFragment": "throw",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEEFTOMAT",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FETEAMOBT",
+       "gives": "BEEFTOMAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd ruins a village fete by starting to lob rotten fruit.",
+     "definitionFit": "A beef tomato is a very large, fleshy variety of tomato, botanically a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +655,54 @@
     "text": "Fixed name tag on doctor",
     "enumeration": "5"
    },
-   "solution": "RIGID"
+   "solution": "RIGID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGID",
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, placing one piece on another puts it after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "RIG",
+      "note": "to doctor results is to rig them"
+     },
+     {
+      "clueFragment": "name tag",
+      "gives": "ID",
+      "note": "identification, such as a badge with a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIG",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A name badge is pinned on a physician.",
+     "walkthrough": "'Doctor' looks like a medic, but here it is a verb meaning to tamper with.",
+     "definitionFit": "Something rigid is fixed firmly in place and cannot bend or move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +722,50 @@
      }
     ]
    },
-   "solution": "LINEJUDGE"
+   "solution": "LINEJUDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINE JUDGE",
+    "definitions": [
+     {
+      "text": "Match official",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dash",
+      "gives": "LINE",
+      "note": "a dash is a short line in writing"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "JUDGE",
+      "note": "to try a case in court is to judge it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINE",
+      "JUDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player sprints before scoring a try.",
+     "walkthrough": "'Try' sounds like rugby scoring, but it is the courtroom verb.",
+     "definitionFit": "In tennis and football an official on the touchline rules whether the ball is in or out of play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +789,66 @@
      }
     ]
    },
-   "solution": "JUSTSOSTORIES"
+   "solution": "JUSTSOSTORIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUST SO STORIES",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down entry, what supports something sits underneath and so comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair",
+      "gives": "JUST",
+      "note": "fair and just are synonyms"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "thus means so, in that way"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded in genealogies"
+     },
+     {
+      "clueFragment": "politicians",
+      "gives": "TORIES",
+      "note": "Tories are members of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUST",
+      "SO",
+      "S",
+      "TORIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary fair went well, with backing from politicians.",
+     "walkthrough": "Tories are members of Britain's Conservative Party.",
+     "definitionFit": "Kipling's collection of children's stories explaining how animals got their features is a famous book."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 12,
@@ -254,7 +868,45 @@
      }
     ]
    },
-   "solution": "TOOKOFF"
+   "solution": "TOOKOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOOK OFF",
+    "definitions": [
+     {
+      "text": "rose",
+      "at": 2
+     },
+     {
+      "text": "left",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rose",
+      "note": "first meaning: climbed into the air, as an aircraft does"
+     },
+     {
+      "clueFragment": "left",
+      "note": "second meaning: departed suddenly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ellipses chain 10, 12 and 13 Across into one tennis-flavoured sentence; each clue still stands alone.",
+     "definitionFit": "An aircraft that takes off rises from the ground, and a person who takes off goes away quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 13,
@@ -268,7 +920,49 @@
     "text": "… game, seconds left",
     "enumeration": "5"
    },
-   "solution": "SPORT"
+   "solution": "SPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPORT",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 2
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A match ends with the players gone within seconds.",
+     "definitionFit": "A sport is a competitive game or athletic pastime played to rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 14,
@@ -282,7 +976,65 @@
     "text": "Transported piano bagged by auction before spring",
     "enumeration": "10"
    },
-   "solution": "SPELLBOUND"
+   "solution": "SPELLBOUND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPELLBOUND",
+    "definitions": [
+     {
+      "text": "Transported",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagged by",
+      "for": "container",
+      "note": "something bagged is put inside a bag, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "auction",
+      "gives": "SELL",
+      "note": "to auction goods is to sell them"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "BOUND",
+      "note": "a spring is a leap or bound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ELL",
+      "BOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A piano is carted off after being sold at an auction in springtime.",
+     "walkthrough": "'Transported' looks like moved, but here it means carried away emotionally.",
+     "definitionFit": "To be transported is to be enraptured, held entranced as if by a magic charm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Transported"
+    }
+   }
   },
   {
    "number": 15,
@@ -296,7 +1048,67 @@
     "text": "I must dodge pine cane deployed as punishment",
     "enumeration": "7"
    },
-   "solution": "PENANCE"
+   "solution": "PENANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PENANCE",
+    "definitions": [
+     {
+      "text": "punishment",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must dodge",
+      "for": "deletion",
+      "note": "to dodge is to slip away, so the named letter leaves"
+     },
+     {
+      "text": "deployed",
+      "for": "anagram",
+      "note": "deployed troops are moved into new positions, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to remove"
+     },
+     {
+      "clueFragment": "pine cane",
+      "gives": "PINECANE",
+      "note": "the words as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PNECANE",
+       "gives": "PENANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone must avoid being beaten with a pine cane used as discipline.",
+     "definitionFit": "A penance is a self-imposed or assigned penalty done to atone for wrongdoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deployed"
+    }
+   }
   },
   {
    "number": 16,
@@ -310,7 +1122,65 @@
     "text": "Play guitar following men around stage",
     "enumeration": "7"
    },
-   "solution": "ROSTRUM"
+   "solution": "ROSTRUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROSTRUM",
+    "definitions": [
+     {
+      "text": "stage",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the opposite way, so the letters run backwards"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "what follows comes after, setting the order of the two parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR, other ranks, is the military term for ordinary soldiers"
+     },
+     {
+      "clueFragment": "Play guitar",
+      "gives": "STRUM",
+      "note": "to strum is to play a guitar by sweeping the strings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "STRUM"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician plays guitar while trailing a group of men on a stage.",
+     "definitionFit": "A rostrum is a raised platform for a speaker or conductor, a small stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 17,
@@ -330,7 +1200,78 @@
      }
     ]
    },
-   "solution": "RAINDANCE"
+   "solution": "RAINDANCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "RAIN DANCE",
+    "definitions": [
+     {
+      "text": "religious ceremony",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "seed broadcast is scattered widely, so these letters are thrown into a new order"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing back the other way"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "to include something is to hold it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cannier",
+      "gives": "CANNIER",
+      "note": "the word as written"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, publicity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIN",
+      "DA",
+      "NCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANNIER",
+       "gives": "RAINNCE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AD",
+       "to": "DA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewder radio programme carries promotion for a religious ritual.",
+     "definitionFit": "A rain dance is a ritual performed to call for rain, a ceremony with religious meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 18,
@@ -354,7 +1295,54 @@
      }
     ]
    },
-   "solution": "LETITGO"
+   "solution": "LETITGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LET IT GO",
+    "definitions": [
+     {
+      "text": "Free this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small bricks",
+      "gives": "LEGO",
+      "note": "the children's toy building bricks"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TIT",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges releasing a bird caught in a toy-brick construction.",
+     "definitionFit": "To let it go is to release this thing, setting it free from one's grip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bricks"
+    }
+   }
   },
   {
    "number": 19,
@@ -368,7 +1356,67 @@
     "text": "Bet crook, mostly corrupt, will get time in autumn",
     "enumeration": "7"
    },
-   "solution": "OCTOBER"
+   "solution": "OCTOBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OCTOBER",
+    "definitions": [
+     {
+      "text": "time in autumn",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is cut"
+     },
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "something corrupt is twisted out of its proper form, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "will get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet",
+      "gives": "BET",
+      "note": "the word as written"
+     },
+     {
+      "clueFragment": "crook",
+      "gives": "CROOK",
+      "note": "the word as written, losing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTOBER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BETCROO",
+       "gives": "OCTOBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest gambler's wager will see him do jail time.",
+     "definitionFit": "October is a month falling in the autumn season in the northern hemisphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 20,
@@ -382,7 +1430,56 @@
     "text": "McCartney perhaps needing help with book",
     "enumeration": "7"
    },
-   "solution": "BASSIST"
+   "solution": "BASSIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASSIST",
+    "definitions": [
+     {
+      "text": "McCartney perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with simply sets the two parts side by side"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "ASSIST",
+      "note": "to help is to assist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ASSIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A Beatle needs assistance with writing a book.",
+     "walkthrough": "'Perhaps' signals that Paul McCartney is one example of the answer.",
+     "definitionFit": "Paul McCartney played bass guitar in the Beatles, so he is an example of that kind of player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -396,7 +1493,54 @@
     "text": "Getting on in first class, most impudent",
     "enumeration": "7"
    },
-   "solution": "BOLDEST"
+   "solution": "BOLDEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOLDEST",
+    "definitions": [
+     {
+      "text": "most impudent",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first class",
+      "gives": "BEST",
+      "note": "first-class things are the best"
+     },
+     {
+      "clueFragment": "Getting on",
+      "gives": "OLD",
+      "note": "someone getting on is ageing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OLD",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly passenger in first class is being remarkably cheeky.",
+     "definitionFit": "Bold can mean forward or cheeky, so the superlative describes the cheekiest, most brazen person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 21,
@@ -410,7 +1554,60 @@
     "text": "Party entertained by Cantona, ebulliently making a comeback",
     "enumeration": "5"
    },
-   "solution": "BEANO"
+   "solution": "BEANO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BEANO",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "hidden_word",
+      "note": "a guest entertained by hosts is held within their house, so the letters lie inside these words"
+     },
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means travelling the opposite way, so the letters read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cantona, ebulliently",
+      "gives": "ONAEB",
+      "note": "letters spanning the end of the footballer's name and the start of the next word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEANO"
+     ],
+     "reversals": [
+      {
+       "from": "ONAEB",
+       "to": "BEANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Footballer Eric Cantona throws a lively party to celebrate his return.",
+     "walkthrough": "A beano is British slang for a lively party or celebration.",
+     "definitionFit": "Beano is informal British slang for a festive gathering or spree, the same thing as a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 22,
@@ -424,7 +1621,61 @@
     "text": "Maybe singer Lily means now and then to go after everybody!",
     "enumeration": "5"
    },
-   "solution": "ALLEN"
+   "solution": "ALLEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALLEN",
+    "definitions": [
+     {
+      "text": "Maybe singer Lily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "now and then",
+      "for": "letter_selection",
+      "note": "now and then means at intervals, so only alternate letters are used"
+     },
+     {
+      "text": "to go after",
+      "for": "charade",
+      "note": "going after something means coming next, which sets the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everybody",
+      "gives": "ALL",
+      "note": "everybody means all"
+     },
+     {
+      "clueFragment": "means",
+      "gives": "EN",
+      "select": "alternate",
+      "note": "the second and fourth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer called Lily intends to chase after everyone, now and again.",
+     "walkthrough": "Lily Allen is an English pop singer; 'Maybe' flags her as one example of someone with that surname.",
+     "definitionFit": "Lily Allen is a British pop singer, so the singer Lily is one person bearing this surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 23,
@@ -438,7 +1689,65 @@
     "text": "Extremely tense learner driver cross in Shropshire town",
     "enumeration": "7"
    },
-   "solution": "TELFORD"
+   "solution": "TELFORD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TELFORD",
+    "definitions": [
+     {
+      "text": "Shropshire town",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "TE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L for the learner plates on a driver's car"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "FORD",
+      "note": "to ford a river is to cross it on foot or by car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "L",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A very nervous trainee motorist gets angry in a Midlands town.",
+     "walkthrough": "Shropshire is an English county on the Welsh border; L-plates mark a learner driver's car in Britain.",
+     "definitionFit": "Telford is a new town in the English county of Shropshire, named after the engineer Thomas Telford."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 24,
@@ -452,7 +1761,42 @@
     "text": "Ordnance farmstead stocks",
     "enumeration": "4"
    },
-   "solution": "ARMS"
+   "solution": "ARMS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARMS",
+    "definitions": [
+     {
+      "text": "Ordnance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "hidden_word",
+      "note": "a shop that stocks goods holds them inside, so the letters are within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farmstead",
+      "gives": "ARMS",
+      "note": "letters two to five of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A farm keeps a store of weapons.",
+     "definitionFit": "Ordnance is military weaponry and ammunition, which are collectively called weapons in the plural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stocks"
+    }
+   }
   },
   {
    "number": 25,
@@ -466,7 +1810,53 @@
     "text": "Drunk in bulk, ale is not nice",
     "enumeration": "9"
    },
-   "solution": "UNLIKABLE"
+   "solution": "UNLIKABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNLIKABLE",
+    "definitions": [
+     {
+      "text": "not nice",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters lurch into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in bulk, ale",
+      "gives": "INBULKALE",
+      "note": "the words as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INBULKALE",
+       "gives": "UNLIKABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beer consumed in large quantities is unpleasant.",
+     "definitionFit": "Someone who is hard to like is disagreeable, the opposite of pleasant or agreeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 26,
@@ -480,7 +1870,52 @@
     "text": "Middle son escaping from offender",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INNER",
+    "definitions": [
+     {
+      "text": "Middle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping from",
+      "for": "deletion",
+      "note": "something escaping from a place gets out of it, so a letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "offender",
+      "gives": "SINNER",
+      "note": "a sinner is a wrongdoer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "The middle child runs away from a criminal.",
+     "definitionFit": "Inner and middle both describe what lies at the centre, away from the outside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Middle"
+    }
+   }
   },
   {
    "number": 27,
@@ -494,7 +1929,58 @@
     "text": "Noisy commotion before end of college feast",
     "enumeration": "4"
    },
-   "solution": "DINE"
+   "solution": "DINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DINE",
+    "definitions": [
+     {
+      "text": "feast",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noisy commotion",
+      "gives": "DIN",
+      "note": "a din is a loud racket"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy disturbance breaks out before a college banquet ends.",
+     "definitionFit": "To feast is to eat a lavish meal, and to dine is to eat dinner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feast"
+    }
+   }
   },
   {
    "number": 28,
@@ -508,7 +1994,56 @@
     "text": "13 Across trees chopped up? These people object",
     "enumeration": "10"
    },
-   "solution": "PROTESTERS"
+   "solution": "PROTESTERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROTESTERS",
+    "definitions": [
+     {
+      "text": "These people object",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped up",
+      "for": "anagram",
+      "note": "chopped-up wood is broken into pieces, so the letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "13 Across",
+      "gives": "SPORT",
+      "note": "the answer to 13 Across"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "TREES",
+      "note": "the word as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPORT TREES",
+       "gives": "PROTESTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tree-felling sparks objections from people.",
+     "walkthrough": "The surface suggests environmental campaigners against felling, who are the very answer.",
+     "definitionFit": "Protesters are people who publicly object to something, voicing disapproval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chopped"
+    }
+   }
   }
  ]
 }

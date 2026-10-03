@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Taking first step, carrying a copper vessel",
     "enumeration": "6"
    },
-   "solution": "TEACUP"
+   "solution": "TEACUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEACUP",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking first",
+      "for": "deletion",
+      "note": "taking away the first means the opening letter of the following word is removed"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "something carrying a load holds it inside, so the shortened word wraps round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step",
+      "gives": "STEP",
+      "note": "taken as written, before losing its first letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "A",
+      "CU",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A cautious first step, carefully carrying a copper pot.",
+     "walkthrough": "'Taking first' looks like part of the surface's first step, but it tells you to drop the opening letter of the next word.",
+     "definitionFit": "A cup for drinking tea is a small container, which a vessel broadly is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Taking"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,46 @@
     "text": "Bailiwick that includes bridge",
     "enumeration": "10"
    },
-   "solution": "WHEELHOUSE"
+   "solution": "WHEELHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHEELHOUSE",
+    "definitions": [
+     {
+      "text": "Bailiwick",
+      "at": 0
+     },
+     {
+      "text": "bridge",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "that includes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bailiwick",
+      "note": "first meaning: one's area of expertise or special interest"
+     },
+     {
+      "clueFragment": "bridge",
+      "note": "second meaning: the enclosed steering cabin on a ship's bridge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same word is idiomatic for a field of competence ('right in my ...') and literal for a ship's steering cabin.",
+     "definitionFit": "A bailiwick is a person's own domain, the idiomatic sense; on a ship the steering cabin forms the bridge itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,67 @@
     "text": "Clogs loused-up, quantity of engine suppressed",
     "enumeration": "8"
    },
-   "solution": "OCCLUDES"
+   "solution": "OCCLUDES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OCCLUDES",
+    "definitions": [
+     {
+      "text": "Clogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "something messed up is thrown into disorder, so the preceding word is rearranged"
+     },
+     {
+      "text": "suppressed",
+      "for": "container",
+      "note": "something suppressed is held down within, so the engine quantity sits inside the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loused",
+      "gives": "LOUSED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "quantity of engine",
+      "gives": "CC",
+      "note": "cc, cubic capacity, measures an engine's size"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CC",
+      "LUDES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOUSED",
+       "gives": "OLUDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrecked engine whose clogged parts have choked its power.",
+     "walkthrough": "'Loused-up' reads as one slang adjective but splits into fodder and indicator.",
+     "definitionFit": "To occlude is to block or obstruct a passage, the same as clogging it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loused"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +237,47 @@
     "text": "Arch conservative woman",
     "enumeration": "6"
    },
-   "solution": "CAMBER"
+   "solution": "CAMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMBER",
+    "definitions": [
+     {
+      "text": "Arch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "AMBER",
+      "note": "Amber is a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly, knowing woman of conservative views.",
+     "walkthrough": "'Arch' poses as an adjective meaning sly, but it is the noun for a curve.",
+     "definitionFit": "A camber is a slight convex curve, as across a road surface, so it forms a gentle arch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arch"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +291,78 @@
     "text": "Part of engine hits back, thousands missing, hot on tail",
     "enumeration": "8"
    },
-   "solution": "CAMSHAFT"
+   "solution": "CAMSHAFT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAMSHAFT",
+    "definitions": [
+     {
+      "text": "Part of engine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the word from right to left"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "with something missing, those letters are left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hits",
+      "gives": "SMACKS",
+      "note": "to smack is to hit"
+     },
+     {
+      "clueFragment": "thousands",
+      "gives": "KS",
+      "note": "K is a thousand, so thousands are Ks; these letters are removed"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the usual abbreviation for hot, as on taps"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "AFT",
+      "note": "aft is the rear or tail of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMS",
+      "H",
+      "AFT"
+     ],
+     "reversals": [
+      {
+       "from": "SMACKS",
+       "to": "SKCAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing car's engine part fails: it strikes back, loses thousands, and the heat sits at the rear.",
+     "walkthrough": "The plural 'thousands' removes two letters, both K and the S that makes it plural.",
+     "definitionFit": "A camshaft is the rotating rod carrying cams that opens and closes valves inside a motor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +376,69 @@
     "text": "Mother fusses around Schumacher’s final two controllers",
     "enumeration": "8"
    },
-   "solution": "MANAGERS"
+   "solution": "MANAGERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MANAGERS",
+    "definitions": [
+     {
+      "text": "controllers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final two",
+      "for": "letter_selection",
+      "note": "the final two means only the last pair of letters of the name is kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something means enclosing it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "fusses",
+      "gives": "NAGS",
+      "note": "to nag is to fuss at someone persistently"
+     },
+     {
+      "clueFragment": "Schumacher’s",
+      "gives": "ER",
+      "select": "last",
+      "note": "the last two letters of the racing driver's surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NAG",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing driver's mother frets over Michael Schumacher's last couple of team bosses.",
+     "walkthrough": "Michael Schumacher is the seven-times Formula One champion; only the tail of his name is used.",
+     "definitionFit": "Managers are people who run and direct a business or team, so they are its controllers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +452,44 @@
     "text": "Turns of speech I can eschew",
     "enumeration": "8"
    },
-   "solution": "CHICANES"
+   "solution": "CHICANES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHICANES",
+    "definitions": [
+     {
+      "text": "Turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "'of' here means consisting of part of the words that follow, so the answer is found inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speech I can eschew",
+      "gives": "CHICANES",
+      "note": "spanning the end of the first word, the next two whole words and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone vows to avoid certain figures of speech.",
+     "walkthrough": "'Turns of speech' looks like a set phrase, but 'Turns' alone is the definition.",
+     "definitionFit": "Chicanes are tight sequences of bends on a racing circuit, deliberately added to slow cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turns"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +503,61 @@
     "text": "Nabs points on way back",
     "enumeration": "4"
    },
-   "solution": "NETS"
+   "solution": "NETS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NETS",
+    "definitions": [
+     {
+      "text": "Nabs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the combined letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "EN",
+      "note": "E and N are compass points, east and north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "STEN",
+       "to": "NETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks up points on the journey home.",
+     "walkthrough": "In a down clue 'on' puts the points after the way: STEN, which read backwards gives NETS.",
+     "definitionFit": "To net someone is to catch them as if in a net, which is to nab or capture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +571,71 @@
     "text": "Lando finally attached to significant other, taking husband somewhere in the West End",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "somewhere in the West End",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means just the last letter of the name is used"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "significant other",
+      "gives": "SO",
+      "note": "SO is the common abbreviation for significant other, a partner"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "Lando",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of Lando Norris's first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "H",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "The F1 driver Lando Norris and his partner, husband in tow, head out to central London.",
+     "walkthrough": "SO and O join, with H slipped between them. The West End is London's theatre and entertainment district.",
+     "definitionFit": "Soho is a district of central London lying within the area known for theatres, restaurants and nightlife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lando"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +649,70 @@
     "text": "Doctor is able to retire and love country",
     "enumeration": "6"
    },
-   "solution": "MONACO"
+   "solution": "MONACO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MONACO",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retire",
+      "for": "reversal",
+      "note": "to retire is to draw back, so the word goes in the backward direction"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, a doctor"
+     },
+     {
+      "clueFragment": "is able to",
+      "gives": "CAN",
+      "note": "can means is able to"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NAC",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "CAN",
+       "to": "NAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who can finally retire and enjoy a country he loves.",
+     "walkthrough": "Monaco suits the Formula One theme: its Grand Prix runs through the streets.",
+     "definitionFit": "Monaco is a tiny sovereign principality on the Riviera, so it is a nation-state in its own right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +726,47 @@
     "text": "Reconnect the power of French grip",
     "enumeration": "8"
    },
-   "solution": "DECLUTCH"
+   "solution": "DECLUTCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECLUTCH",
+    "definitions": [
+     {
+      "text": "Reconnect the power",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "grip",
+      "gives": "CLUTCH",
+      "note": "to clutch is to grip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CLUTCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone restores the power behind a firm French handshake.",
+     "walkthrough": "'of' could be a link word, but it belongs with 'French'.",
+     "definitionFit": "To declutch is to release and then re-engage a vehicle's clutch, cutting and restoring drive from engine to wheels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grip"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +786,56 @@
      }
     ]
    },
-   "solution": "HIGHPITCHED"
+   "solution": "HIGHPITCHED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HIGH-PITCHED",
+    "definitions": [
+     {
+      "text": "with shrill voice",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Firstly",
+      "for": "letter_selection",
+      "note": "firstly means only the opening letters of the next few words are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamilton is going home",
+      "gives": "HIGH",
+      "select": "first",
+      "note": "the initials of these four words"
+     },
+     {
+      "clueFragment": "having proposed",
+      "gives": "PITCHED",
+      "note": "to pitch an idea is to propose it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "PITCHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Lewis Hamilton heads home after popping the question, squealing with excitement.",
+     "walkthrough": "'Having proposed' suggests marriage but means put forward an idea.",
+     "definitionFit": "A high-pitched sound is one at the top of the audible range, describing a thin shrill tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "proposed"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +855,62 @@
      }
     ]
    },
-   "solution": "TAILLIGHTS"
+   "solution": "TAILLIGHTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TAIL LIGHTS",
+    "definitions": [
+     {
+      "text": "Rear illuminations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something wearing clothes is inside them, so these letters go within the garment word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sicken",
+      "gives": "AIL",
+      "note": "to ail is to be or make unwell"
+     },
+     {
+      "clueFragment": "novice",
+      "gives": "L",
+      "note": "L for learner, as on L-plates"
+     },
+     {
+      "clueFragment": "hosiery",
+      "gives": "TIGHTS",
+      "note": "tights are a form of hosiery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AIL",
+      "L",
+      "IGHTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing a learner in tights makes you queasy.",
+     "walkthrough": "'Novice' as L comes from the L-plates British learner drivers must display.",
+     "definitionFit": "Tail lights are the red lamps at the back of a vehicle, lighting it up from behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sicken"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +924,56 @@
     "text": "Privileged pet name taken by our little Edward",
     "enumeration": "8"
    },
-   "solution": "HONOURED"
+   "solution": "HONOURED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HONOURED",
+    "definitions": [
+     {
+      "text": "Privileged",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taken by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet name",
+      "gives": "HON",
+      "note": "hon, short for honey, is a term of endearment"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little Edward",
+      "gives": "ED",
+      "note": "Ed is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HON",
+      "OUR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A family's little boy Edward has a sweet nickname.",
+     "walkthrough": "'Pet' suggests an animal's name but here means an endearment.",
+     "definitionFit": "To be honoured to do something is to feel privileged, granted a special favour or distinction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +987,47 @@
     "text": "One who backtracks about a poet?",
     "enumeration": "8"
    },
-   "solution": "REVERSER"
+   "solution": "REVERSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVERSER",
+    "definitions": [
+     {
+      "text": "One who backtracks",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "a poet",
+      "gives": "VERSER",
+      "note": "a verser is one who writes verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VERSER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders if a poet is a person who goes back on his word.",
+     "walkthrough": "The question mark flags the rare word for a versifier.",
+     "definitionFit": "Someone who goes into reverse moves or turns backwards, retracing their path or retreating from a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backtracks"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1041,65 @@
     "text": "Make cockup, assuming miles to reach Italy",
     "enumeration": "7"
    },
-   "solution": "FERRARI"
+   "solution": "FERRARI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FERRARI",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assuming",
+      "for": "container",
+      "note": "one word assuming another takes it on and wraps around it"
+     }
+    ],
+    "linkWords": [
+     "to reach"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miles",
+      "gives": "FAR",
+      "note": "far, as in miles away"
+     },
+     {
+      "clueFragment": "cockup",
+      "gives": "ERR",
+      "note": "to err is to make a mistake, a cockup"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ERR",
+      "AR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blunders while driving the long miles to Italy.",
+     "walkthrough": "'Make' poses as a verb but is the noun for a car brand. A cockup is a British slang word for a blunder.",
+     "definitionFit": "Ferrari is an Italian brand of car, and a make is a manufacturer's brand of vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1113,73 @@
     "text": "Powers with electric current replaced by dirty air from European country",
     "enumeration": "8"
    },
-   "solution": "AUSTRIAN"
+   "solution": "AUSTRIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "substitution"
+    ],
+    "answer": "AUSTRIAN",
+    "definitions": [
+     {
+      "text": "from European country",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dirty",
+      "for": "anagram",
+      "note": "something dirty is disordered or messed up, so the letters are rearranged"
+     },
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "replaced by means one letter is swapped out for others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powers",
+      "gives": "AUSTIN",
+      "note": "Austin Powers is the spoof spy of the film series"
+     },
+     {
+      "clueFragment": "electric current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUST",
+      "RIA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electrical power lines whose current is swapped for polluted air.",
+     "walkthrough": "'Powers' reads as electrical energy but is the surname of the comic film spy. AUSTIN's I gives way to RIA.",
+     "definitionFit": "Austrian is the adjective for something belonging to or coming out of Austria, a nation in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Powers"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1193,71 @@
     "text": "Inclination to be ahead, converting pole after pole",
     "enumeration": "7"
    },
-   "solution": "UPSLOPE"
+   "solution": "UPSLOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UPSLOPE",
+    "definitions": [
+     {
+      "text": "Inclination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converting",
+      "for": "anagram",
+      "note": "converting something changes its form, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ahead",
+      "gives": "UP",
+      "note": "up means ahead, as in one up"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "S",
+      "note": "S is the south pole"
+     },
+     {
+      "clueFragment": "pole",
+      "gives": "POLE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "S",
+      "LOPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLE",
+       "gives": "LOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver eager to lead turns pole position after pole position into wins.",
+     "walkthrough": "'Pole after pole' evokes qualifying in pole position; the first pole is S, the second is rearranged.",
+     "definitionFit": "An upslope is a rising gradient, and an inclination can mean a slope or incline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inclination"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1271,64 @@
     "text": "Track resolvent liquid after Spanish approval",
     "enumeration": "11"
    },
-   "solution": "SILVERSTONE"
+   "solution": "SILVERSTONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SILVERSTONE",
+    "definitions": [
+     {
+      "text": "Track",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liquid",
+      "for": "anagram",
+      "note": "liquid flows and has no fixed shape, so these letters can be poured into a new order"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish approval",
+      "gives": "SI",
+      "note": "sí is Spanish for yes"
+     },
+     {
+      "clueFragment": "resolvent",
+      "gives": "RESOLVENT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "LVERSTONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESOLVENT",
+       "gives": "LVERSTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist adds a dissolving liquid once the Spanish say yes.",
+     "walkthrough": "'Resolvent liquid' reads as a chemical solvent, but 'liquid' is the anagram signal.",
+     "definitionFit": "Silverstone is the motor-racing circuit in Northamptonshire that hosts the British Grand Prix."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liquid"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1342,77 @@
     "text": "Barmaid endlessly showing up with nothing on",
     "enumeration": "6"
    },
-   "solution": "SALOON"
+   "solution": "SALOON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SALOON",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means the word loses its last letter"
+     },
+     {
+      "text": "showing up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barmaid",
+      "gives": "LASS",
+      "note": "only the second half of this word, maid, is wordplay: a lass is a girl or maid"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAL",
+      "O",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "LAS",
+       "to": "SAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barmaid turns up for work wearing nothing at all.",
+     "walkthrough": "'Barmaid' must be split: 'Bar' is the definition and 'maid' the wordplay.",
+     "definitionFit": "A saloon is a public bar, especially the plusher lounge room of a pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Barmaid"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1426,51 @@
     "text": "Initially, braking and traction system is not all there",
     "enumeration": "4"
    },
-   "solution": "BATS"
+   "solution": "BATS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BATS",
+    "definitions": [
+     {
+      "text": "not all there",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means only the first letters of the following words are used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "braking and traction system",
+      "gives": "BATS",
+      "select": "first",
+      "note": "the initials of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATS"
+     ]
+    },
+    "explanation": {
+     "surface": "A car's braking and traction control is only partly working.",
+     "definitionFit": "Bats is informal for crazy or eccentric, and not all there is an idiom for mentally unsound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "system"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1484,59 @@
     "text": "Senna’s first to discredit the lead",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "the lead",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means just the opening letter of the name is taken"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senna’s",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Ayrton Senna's surname"
+     },
+     {
+      "clueFragment": "discredit",
+      "gives": "TAR",
+      "note": "to tar someone is to smear their reputation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Ayrton Senna was first to undermine the race leader.",
+     "walkthrough": "'The lead' suggests the front of a race, but it is the principal performer.",
+     "definitionFit": "The star of a film or play is its principal performer, the person playing the leading role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1556,56 @@
      }
     ]
    },
-   "solution": "ALTEREGO"
+   "solution": "ALTEREGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALTER EGO",
+    "definitions": [
+     {
+      "text": "Best friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fractured",
+      "for": "anagram",
+      "note": "something fractured is broken apart, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large toe",
+      "gives": "LARGETOE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTEREGO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LARGETOE",
+       "gives": "ALTEREGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A close friend has broken their big toe.",
+     "definitionFit": "An alter ego can mean an intimate and trusted companion, a second self, besides a person's other persona."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fractured"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1619,45 @@
     "text": "Distresses using some radial arm saws",
     "enumeration": "6"
    },
-   "solution": "ALARMS"
+   "solution": "ALARMS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALARMS",
+    "definitions": [
+     {
+      "text": "Distresses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means just a portion of the following words is used"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "radial arm saws",
+      "gives": "ALARMS",
+      "note": "running from the end of the first word into the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Powerful workshop saws are upsetting to operate.",
+     "definitionFit": "To alarm someone is to frighten or worry them, causing distress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Distresses"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1671,68 @@
     "text": "Removing protective gear, see Verstappen’s dubious lackeys",
     "enumeration": "8"
    },
-   "solution": "SERVANTS"
+   "solution": "SERVANTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SERVANTS",
+    "definitions": [
+     {
+      "text": "lackeys",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Removing",
+      "for": "deletion",
+      "note": "removing means taking those letters out of the name that follows"
+     },
+     {
+      "text": "dubious",
+      "for": "anagram",
+      "note": "something dubious is unreliable or suspect, so the letters are put in a different order"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protective gear",
+      "gives": "PPE",
+      "note": "PPE is personal protective equipment"
+     },
+     {
+      "clueFragment": "Verstappen’s",
+      "gives": "VERSTAPPENS",
+      "note": "the driver's surname with its possessive S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERVANTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VERSTANS",
+       "gives": "SERVANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Max Verstappen strips off his racing gear in front of his questionable entourage.",
+     "walkthrough": "VERSTAPPENS without P, P and E leaves VERSTANS to rearrange.",
+     "definitionFit": "Lackeys are servile attendants or footmen, people employed to wait on others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protective"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1746,45 @@
     "text": "Viennese driver’s spoken with more colour",
     "enumeration": "6"
    },
-   "solution": "LOUDER"
+   "solution": "LOUDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LOUDER",
+    "definitions": [
+     {
+      "text": "with more colour",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoken",
+      "for": "homophone",
+      "note": "spoken means the name is said out loud and heard as another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Viennese driver’s",
+      "gives": "LOUDER",
+      "soundsLike": "LAUDA",
+      "note": "Niki Lauda was the Austrian racing champion born in Vienna"
+     }
+    ],
+    "explanation": {
+     "surface": "An Austrian racing driver speaks more vividly.",
+     "walkthrough": "In a non-rhotic British accent the surname and the answer sound the same.",
+     "definitionFit": "Loud can describe garish, vivid clothing, so louder means showier and more brightly coloured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colour"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,80 @@
      }
     ]
    },
-   "solution": "LONDONZOO"
+   "solution": "LONDONZOO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LONDON ZOO",
+    "definitions": [
+     {
+      "text": "animals here",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not one",
+      "for": "deletion",
+      "note": "'not one' tells us to drop the Roman numeral for one from the predator word"
+     },
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half asks for only part of each animal name, here the front portion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Predator",
+      "gives": "LION",
+      "note": "a lion is a big-cat predator"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one, removed"
+     },
+     {
+      "clueFragment": "donkey",
+      "gives": "DON",
+      "select": "first",
+      "note": "the first half of donkey"
+     },
+     {
+      "clueFragment": "yak, half cow",
+      "gives": "ZO",
+      "note": "a zo (or dzo) is a cross between a yak and a cow, so half yak, half cow"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "O is nought, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DON",
+      "ZO",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A bizarre hybrid beast is described, followed by the odd remark that no animals live here.",
+     "walkthrough": "A zo (or dzo) is a Himalayan cross between a yak and a cow. The closing 'no animals' looks like a denial, but 'no' is a letter and 'animals here' the definition.",
+     "definitionFit": "The famous Regent's Park zoo is a place where creatures of many species are kept and shown to visitors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +129,70 @@
     "text": "One supporting erection of commercial housing for animal",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erection",
+      "for": "reversal",
+      "note": "an erection is something put up, so in a down answer the word reads upward"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer, what supports sits below, so this piece comes last"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial housing",
+      "gives": "MALL",
+      "note": "a mall houses shops"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one; supporting puts it underneath in a down answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LLAM",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "MALL",
+       "to": "LLAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backing the construction of a retail complex that will house an animal.",
+     "walkthrough": "'Supporting' is positional: in a down answer, the supporter sits below.",
+     "definitionFit": "The llama is a South American domesticated camelid, a woolly pack beast found in zoos."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "erection"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +206,53 @@
     "text": "Sweets? Give mixed nuts a go",
     "enumeration": "7"
    },
-   "solution": "NOUGATS"
+   "solution": "NOUGATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOUGATS",
+    "definitions": [
+     {
+      "text": "Sweets?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means the following letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "Give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuts a go",
+      "gives": "NUTSAGO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUTSAGO",
+       "gives": "NOUGATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion to try a bag of mixed nuts instead of candy.",
+     "definitionFit": "Nougat is a chewy confection of sugar or honey with nuts, so these are a type of confectionery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +266,45 @@
     "text": "All are dead and drab",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "drab",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All are dead",
+      "gives": "OLIVE",
+      "note": "if everyone is dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy observation that everyone has died and things are dull.",
+     "walkthrough": "Read 'All are dead' as 'zero live': O plus LIVE.",
+     "definitionFit": "Olive drab is a dull greenish-brown shade, so drab names this colour as used for military uniforms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drab"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +318,79 @@
     "text": "Last above the grave, headless, risen even on Sunday: they’re undead",
     "enumeration": "7"
    },
-   "solution": "ZOMBIES"
+   "solution": "ZOMBIES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ZOMBIES",
+    "definitions": [
+     {
+      "text": "they’re undead",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headless",
+      "for": "deletion",
+      "note": "headless tells us to cut off the first letter of the burial word"
+     },
+     {
+      "text": "even",
+      "for": "letter_selection",
+      "note": "even asks for the even-numbered letters of the word next to it"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down answer, above means the first piece is written on top of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "gives": "Z",
+      "note": "Z is the last letter of the alphabet"
+     },
+     {
+      "clueFragment": "the grave",
+      "gives": "TOMB",
+      "note": "a tomb is a grave"
+     },
+     {
+      "clueFragment": "risen",
+      "gives": "IE",
+      "select": "alternate",
+      "note": "the second and fourth letters of risen"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "OMB",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A horror scene: corpses climb headless from the grave, even on the Sabbath.",
+     "walkthrough": "'Above' places Z on top in this down answer; 'risen' looks like part of the resurrection picture but supplies letters.",
+     "definitionFit": "Zombies are reanimated corpses in folklore and horror films, creatures neither living nor properly dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "risen"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +404,65 @@
     "text": "Storm in Beaufort scale, lacking components of real cloud",
     "enumeration": "9"
    },
-   "solution": "OBFUSCATE"
+   "solution": "OBFUSCATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OBFUSCATE",
+    "definitions": [
+     {
+      "text": "cloud",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking components of",
+      "for": "deletion",
+      "note": "lacking the components means each of those letters is taken away"
+     },
+     {
+      "text": "Storm",
+      "for": "anagram",
+      "note": "a storm throws things about violently, scattering the letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beaufort scale",
+      "gives": "BEAUFORTSCALE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUFOTSCAE",
+       "gives": "OBFUSCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storm registers on the wind-force scale, though the cloud is not real.",
+     "walkthrough": "'Storm' and 'cloud' both seem to belong to the weather picture; one is the anagram signal and the other a verb.",
+     "definitionFit": "To obfuscate is to make something unclear or confused, which is the verb sense of clouding an issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cloud"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +476,49 @@
     "text": "Fill full of food, fried, filleted",
     "enumeration": "4"
    },
-   "solution": "SATE"
+   "solution": "SATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SATE",
+    "definitions": [
+     {
+      "text": "Fill full of food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filleted",
+      "for": "deletion",
+      "note": "filleting removes the inner part of a fish, so the middle letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fried",
+      "gives": "SAUTE",
+      "note": "sauté means fried quickly in a little fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's instructions: stuff it with food, fry it, fillet it.",
+     "walkthrough": "SAUTE has five letters; filleting removes its central U.",
+     "definitionFit": "To satisfy an appetite completely means stuffing someone until they can eat no more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filleted"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +532,65 @@
     "text": "Architect of ultimate in homes currently on London’s east side",
     "enumeration": "7"
    },
-   "solution": "SNOWDON"
+   "solution": "SNOWDON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNOWDON",
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "ultimate means the very last letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "homes",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of homes"
+     },
+     {
+      "clueFragment": "currently",
+      "gives": "NOW",
+      "note": "now means at present"
+     },
+     {
+      "clueFragment": "London’s east side",
+      "gives": "DON",
+      "note": "on a map east is the right, so the right-hand end of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NOW",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "An architect who builds the finest houses and is now based on the East End.",
+     "walkthrough": "Lord Snowdon designed the aviary at London Zoo; 'on' just places one piece before the next.",
+     "definitionFit": "Lord Snowdon, better known as a photographer, co-designed the zoo's walk-through bird cage, so qualifies as its designer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +610,52 @@
      }
     ]
    },
-   "solution": "THEARCTIC"
+   "solution": "THEARCTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE ARCTIC",
+    "definitions": [
+     {
+      "text": "home for polar bears",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed suggests the letters have been laid out afresh to a new plan"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Architect",
+      "gives": "ARCHITECT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARCHITECT",
+       "gives": "THEARCTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A purpose-built enclosure for polar bears drawn up by an architect.",
+     "walkthrough": "The hyphen joins fodder and indicator into one adjective to hide the split.",
+     "definitionFit": "The region around the North Pole is where these white bears live in the wild, their natural habitat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Architect"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +669,61 @@
     "text": "Inappropriate sightseeing, missing nothing, revealing everything",
     "enumeration": "8"
    },
-   "solution": "NATURISM"
+   "solution": "NATURISM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NATURISM",
+    "definitions": [
+     {
+      "text": "revealing everything",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing says the following item is absent from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inappropriate",
+      "gives": "NA",
+      "note": "N/A, not applicable, describes something inappropriate to the case"
+     },
+     {
+      "clueFragment": "sightseeing",
+      "gives": "TOURISM",
+      "note": "sightseeing is the activity of tourism"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is nought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "TURISM"
+     ]
+    },
+    "explanation": {
+     "surface": "Some unsuitable sightseeing where nothing is left out and everything is on show, a nudist holiday perhaps.",
+     "walkthrough": "'Inappropriate' reads as a judgement on the surface but is N/A, 'not applicable'.",
+     "definitionFit": "Nudism is the practice of going without clothes, so the body is wholly on show; the definition is a playful description of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inappropriate"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +737,62 @@
     "text": "Having regard to predator, turned back stock?",
     "enumeration": "6"
    },
-   "solution": "FLOWER"
+   "solution": "FLOWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FLOWER",
+    "definitions": [
+     {
+      "text": "stock?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "turned back means the joined words are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having regard to",
+      "gives": "RE",
+      "note": "re means regarding, with regard to"
+     },
+     {
+      "clueFragment": "predator",
+      "gives": "WOLF",
+      "note": "a wolf is a predator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOW",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REWOLF",
+       "to": "FLOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thinking about a predator, the farmer turned his livestock back.",
+     "walkthrough": "'Stock' suggests farm animals; the question mark flags that it is a garden plant instead.",
+     "definitionFit": "Stock is a sweet-scented garden plant grown for its blooms, so it is an example of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +806,45 @@
     "text": "In some parts of the UK, they say they can’t afford a bite to eat",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "a bite to eat",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In some parts of the UK, they say",
+      "for": "homophone",
+      "note": "they say points to a spoken form, and some parts of the UK to a regional accent such as Scots"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they can’t afford",
+      "gives": "CANAPE",
+      "soundsLike": "CANNA PAY",
+      "note": "in Scots, canna means cannot, so they canna pay"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about regions of Britain where people supposedly cannot afford even a snack.",
+     "walkthrough": "In Scottish speech 'canna' is 'cannot', so 'canna pay' sounds like the French-derived word for a party snack.",
+     "definitionFit": "A canapé is a small savoury morsel on bread or pastry served with drinks, a dainty mouthful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "afford"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +858,64 @@
     "text": "They’re privileged to be locked up next to ravens’ cage",
     "enumeration": "8"
    },
-   "solution": "INSIDERS"
+   "solution": "INSIDERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSIDERS",
+    "definitions": [
+     {
+      "text": "They’re privileged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cage",
+      "for": "letter_selection",
+      "note": "a cage surrounds its contents, so only the outside letters of the word are kept"
+     },
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to places the second piece straight after the first"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "locked up",
+      "gives": "INSIDE",
+      "note": "someone locked up is inside, in prison"
+     },
+     {
+      "clueFragment": "ravens’",
+      "gives": "RS",
+      "select": "outer",
+      "note": "the first and last letters of ravens'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSIDE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Privileged people are imprisoned beside the ravens' cage, as at the Tower of London.",
+     "walkthrough": "'Cage' looks like part of the Tower scene but tells us to keep just the outside of the bird word.",
+     "definitionFit": "Insiders are members of a group with special access to information others lack, hence a privileged position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cage"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +929,58 @@
     "text": "Architect of housing for big beasts and a smaller one covered in fleece",
     "enumeration": "6"
    },
-   "solution": "CASSON"
+   "solution": "CASSON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASSON",
+    "definitions": [
+     {
+      "text": "Architect of housing for big beasts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "covered in means the first item sits wrapped inside the second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fleece",
+      "gives": "CON",
+      "note": "to fleece someone is to con or swindle them"
+     },
+     {
+      "clueFragment": "a smaller one",
+      "gives": "ASS",
+      "note": "a donkey is a beast smaller than an elephant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A designer of a large animal house, plus a little creature wrapped in a woolly coat.",
+     "walkthrough": "Sir Hugh Casson designed London Zoo's Elephant and Rhino Pavilion; the 'smaller one' is a smaller beast than those, a donkey.",
+     "definitionFit": "Hugh Casson was the British architect behind the zoo's elephant house, which shelters very large animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fleece"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +994,52 @@
     "text": "Argonauts’ wrecked bark",
     "enumeration": "9"
    },
-   "solution": "ANGOSTURA"
+   "solution": "ANGOSTURA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANGOSTURA",
+    "definitions": [
+     {
+      "text": "bark",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "a wrecked thing is broken apart, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argonauts’",
+      "gives": "ARGONAUTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARGONAUTS",
+       "gives": "ANGOSTURA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The ship of Jason's Argonauts has been wrecked.",
+     "walkthrough": "'Bark' looks like a ship, fitting the Argonauts, but it is tree bark.",
+     "definitionFit": "Angostura is an aromatic tree bark from South America used for bitters and tonics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bark"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1053,66 @@
     "text": "Carbohydrates, fats etc not normally inert in vegan protein sources",
     "enumeration": "9"
    },
-   "solution": "NUTRIENTS"
+   "solution": "NUTRIENTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NUTRIENTS",
+    "definitions": [
+     {
+      "text": "Carbohydrates, fats etc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not normally",
+      "for": "anagram",
+      "note": "not normally means not in the usual arrangement, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the rearranged letters inside the food word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vegan protein sources",
+      "gives": "NUTS",
+      "note": "nuts are a plant source of protein for vegans"
+     },
+     {
+      "clueFragment": "inert",
+      "gives": "INERT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "TRIEN",
+      "TS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INERT",
+       "gives": "TRIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dietary note: macronutrients are rarely inactive in plant-based protein foods.",
+     "definitionFit": "Carbohydrates and fats are examples of substances that nourish the body, listed in the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inert"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1126,56 @@
     "text": "Idle beast unearthed, defying odds",
     "enumeration": "8"
    },
-   "solution": "STAGNATE"
+   "solution": "STAGNATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAGNATE",
+    "definitions": [
+     {
+      "text": "Idle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defying odds",
+      "for": "letter_selection",
+      "note": "defying the odds means refusing the odd-numbered letters, so only the even ones remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast",
+      "gives": "STAG",
+      "note": "a stag is a male deer"
+     },
+     {
+      "clueFragment": "unearthed",
+      "gives": "NATE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters of unearthed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG",
+      "NATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy animal is dug up, beating the odds.",
+     "walkthrough": "'Idle' is a verb here: to sit inactive.",
+     "definitionFit": "To stagnate is to remain inactive and make no progress, which matches the verb sense of idling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1189,43 @@
     "text": "‘You can see the solution: bag it!’ – a Tory activist",
     "enumeration": "8"
    },
-   "solution": "AGITATOR"
+   "solution": "AGITATOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGITATOR",
+    "definitions": [
+     {
+      "text": "activist",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "You can see the solution",
+      "for": "hidden_word",
+      "note": "the setter says the solution is visible right there in the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bag it!’ – a Tory",
+      "gives": "AGITATOR",
+      "note": "runs across bag it a Tory, ignoring punctuation"
+     }
+    ],
+    "explanation": {
+     "surface": "A campaigner urges people to vote, quoting a Conservative.",
+     "definitionFit": "An agitator stirs up public feeling for a political cause, so is a kind of campaigner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "solution"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1239,68 @@
     "text": "Tesla man’s let off: a prickly type",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "a prickly type",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of order, so those letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     },
+     {
+      "clueFragment": "man’s",
+      "gives": "HIS",
+      "note": "his is the possessive belonging to a man"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HIS",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man in a Tesla car is let off by the court: what a spiky character.",
+     "walkthrough": "'Tesla' suggests the car maker but is the physics unit symbol.",
+     "definitionFit": "The thistle is a plant with sharp spines on its leaves, so it is a kind of prickly plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1314,54 @@
     "text": "They might be seen on leader of Algeria after revolution",
     "enumeration": "7"
    },
-   "solution": "REGALIA"
+   "solution": "REGALIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGALIA",
+    "definitions": [
+     {
+      "text": "They might be seen on leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after revolution",
+      "for": "anagram",
+      "note": "a revolution turns things over, so the country's letters come out reordered"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Algeria",
+      "gives": "ALGERIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALGERIA",
+       "gives": "REGALIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trappings that a post-revolutionary Algerian head of state might wear.",
+     "walkthrough": "'Leader of Algeria' tempts us to take A; 'of' is only the link.",
+     "definitionFit": "Regalia are the robes, crowns and insignia worn by a monarch or dignitary on ceremonial occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1375,63 @@
     "text": "Bank on not counting pence and cents to be interchangeable",
     "enumeration": "6"
    },
-   "solution": "EXPECT"
+   "solution": "EXPECT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EXPECT",
+    "definitions": [
+     {
+      "text": "Bank on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be interchangeable",
+      "for": "substitution",
+      "note": "interchangeable means the two named letters swap places with each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not counting",
+      "gives": "EXCEPT",
+      "note": "except means not counting, excluding"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the abbreviation for pence"
+     },
+     {
+      "clueFragment": "cents",
+      "gives": "C",
+      "note": "c is the abbreviation for cents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "E",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A banker trusts that pence and cents are equal currencies, without counting them.",
+     "walkthrough": "In EXCEPT the C and P swap positions.",
+     "definitionFit": "To bank on something is to rely on it happening, which is to anticipate it confidently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1445,55 @@
     "text": "Enclosure curtailing boundaries of aquatic mammal’s range",
     "enumeration": "7"
    },
-   "solution": "PALETTE"
+   "solution": "PALETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PALETTE",
+    "definitions": [
+     {
+      "text": "range",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailing boundaries of",
+      "for": "deletion",
+      "note": "cutting off the boundaries removes the first and last letters of the creature word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enclosure",
+      "gives": "PALE",
+      "note": "a pale is a fence or the area it encloses"
+     },
+     {
+      "clueFragment": "aquatic mammal’s",
+      "gives": "OTTER",
+      "note": "an otter is a river-dwelling mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALE",
+      "TTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fenced pen restricts the territory of an aquatic mammal.",
+     "walkthrough": "'Range' looks like an animal's territory, but here it is a range of colours.",
+     "definitionFit": "A painter's palette means the selection of colours an artist uses, a range of hues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1507,65 @@
     "text": "Boatman in time of growth after answer is hopeful",
     "enumeration": "8"
    },
-   "solution": "ASPIRING"
+   "solution": "ASPIRING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASPIRING",
+    "definitions": [
+     {
+      "text": "hopeful",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the setter's self-reference inside the season word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "time of growth",
+      "gives": "SPRING",
+      "note": "spring is the season of growth"
+     },
+     {
+      "clueFragment": "Boatman",
+      "gives": "I",
+      "note": "Boatman is the setter, who refers to himself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SP",
+      "I",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, in springtime, finding the answer, feels optimistic.",
+     "walkthrough": "'After answer' puts A in front. The setter's name stands for 'I'.",
+     "definitionFit": "An aspiring person has ambitions and desires to achieve them, so is full of hope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boatman"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1579,60 @@
     "text": "Eagle, one escaping from captivity, to depart",
     "enumeration": "6"
    },
-   "solution": "GOLDIE"
+   "solution": "GOLDIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GOLDIE",
+    "definitions": [
+     {
+      "text": "Eagle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping from",
+      "for": "deletion",
+      "note": "escaping from says one item gets out of the word that held it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captivity",
+      "gives": "GAOL",
+      "note": "gaol is the British spelling of jail"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "to depart",
+      "gives": "DIE",
+      "note": "to depart this life is to die"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOL",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An eagle breaks out of captivity and flies off.",
+     "walkthrough": "Goldie was a golden eagle that famously escaped from London Zoo in 1965. Gaol is the British spelling of jail.",
+     "definitionFit": "Goldie was the name of a golden eagle at London Zoo whose escape made headlines, fitting the theme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1646,73 @@
     "text": "Boatman under back of big empty llama-house where roof ends",
     "enumeration": "5"
    },
-   "solution": "GABLE"
+   "solution": "GABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GABLE",
+    "definitions": [
+     {
+      "text": "where roof ends",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside is removed, so only the outer letters remain"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down answer, under puts the sailor below the preceding letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of big"
+     },
+     {
+      "clueFragment": "Boatman",
+      "gives": "AB",
+      "note": "an AB, able-bodied seaman, is a sailor; under places it below in this down answer"
+     },
+     {
+      "clueFragment": "llama-house",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of llama-house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter sits beneath a huge, vacant llama shelter where its roof finishes.",
+     "walkthrough": "'Boatman' looks like the setter's I again, but here it is a sailor.",
+     "definitionFit": "A gable is the triangular end wall of a building formed where the two sloping sides of a pitched roof stop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Boatman"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1726,71 @@
     "text": "In a manner of speaking, expending money on, say, tea in a mug",
     "enumeration": "5"
    },
-   "solution": "IDIOT"
+   "solution": "IDIOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "homophone"
+    ],
+    "answer": "IDIOT",
+    "definitions": [
+     {
+      "text": "a mug",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expending",
+      "for": "deletion",
+      "note": "expending means using up, so that thing is gone from the word"
+     },
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means we use the sound of the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In a manner of speaking",
+      "gives": "IDIOM",
+      "note": "the phrase is itself an idiom, a manner of speaking"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the abbreviation for money"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "soundsLike": "TEA",
+      "note": "the letter's name is pronounced like tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDIO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loosely speaking of spending money on tea in a cup.",
+     "walkthrough": "'Mug' suggests a cup for tea; it is a gullible person. 'On' adds the next piece.",
+     "definitionFit": "A mug is British slang for a gullible fool who is easily tricked, a stupid person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1804,49 @@
     "text": "Architect starts to build urban retreat to observe nature",
     "enumeration": "6"
    },
-   "solution": "BURTON"
+   "solution": "BURTON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BURTON",
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "build urban retreat to observe nature",
+      "gives": "BURTON",
+      "select": "first",
+      "note": "the first letters of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURTON"
+     ]
+    },
+    "explanation": {
+     "surface": "A designer begins work on a city refuge for watching wildlife.",
+     "walkthrough": "Decimus Burton was the architect who laid out London Zoo in the 1820s.",
+     "definitionFit": "Decimus Burton was a nineteenth-century English designer of buildings, including the original zoo layout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1860,78 @@
     "text": "Architect, revolutionary, built new enclosure for king and (previously) emperor initially",
     "enumeration": "8"
    },
-   "solution": "LUBETKIN"
+   "solution": "LUBETKIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "LUBETKIN",
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "something revolutionary overturns the existing order of things"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word just before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "built",
+      "gives": "BUILT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "enclosure",
+      "note": "surface padding for the zoo picture; the letters are all mixed together"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "emperor",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of emperor"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUILTNKE",
+       "gives": "LUBETKIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A radical architect built a new enclosure fit for a king and, earlier, an emperor.",
+     "walkthrough": "Berthold Lubetkin designed London Zoo's Penguin Pool and Gorilla House; he was Russian-born, hence revolutionary in two senses.",
+     "definitionFit": "Berthold Lubetkin was the modernist building designer behind famous zoo structures such as the Penguin Pool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1945,59 @@
     "text": "Stare at head of Guy the Gorilla?",
     "enumeration": "4"
    },
-   "solution": "GAPE"
+   "solution": "GAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GAPE",
+    "definitions": [
+     {
+      "text": "Stare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "head of means the first letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Guy"
+     },
+     {
+      "clueFragment": "the Gorilla",
+      "gives": "APE",
+      "note": "a gorilla is a great ape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gazing at the head of Guy the Gorilla, London Zoo's famous resident.",
+     "walkthrough": "Guy the Gorilla was a much-loved gorilla at London Zoo from 1947 to 1978.",
+     "definitionFit": "To gape is to look with an open mouth in wonder, a kind of staring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guy"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +2011,52 @@
     "text": "Country intended to be heard in report",
     "enumeration": "9"
    },
-   "solution": "STATEMENT"
+   "solution": "STATEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "STATEMENT",
+    "definitions": [
+     {
+      "text": "report",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be heard",
+      "for": "homophone",
+      "note": "to be heard means the next word is taken by its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "STATE",
+      "note": "a state is a country"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "MENT",
+      "soundsLike": "MEANT",
+      "note": "meant means intended"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation planned to be mentioned in an official document.",
+     "definitionFit": "A statement is a formal account of facts, such as one given to police or published officially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   }
  ]
 }

@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Yell 'Get away!' with first sight of enemy entering",
     "enumeration": "6"
    },
-   "solution": "SCREAM"
+   "solution": "SCREAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCREAM",
+    "definitions": [
+     {
+      "text": "Yell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first sight of",
+      "for": "letter_selection",
+      "note": "the first sight of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Get away!'",
+      "gives": "SCRAM",
+      "note": "scram is a curt order to go away"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of enemy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouts at an intruder to clear off as soon as a foe comes into view.",
+     "definitionFit": "To scream is to give a loud piercing cry, the same as a yell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entering"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +107,71 @@
     "text": "Beacon lit, newly set on fire, finally becomes this?",
     "enumeration": "10"
    },
-   "solution": "NOTICEABLE"
+   "solution": "NOTICEABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "NOTICEABLE",
+    "definitions": [
+     {
+      "text": "Beacon lit, newly set on fire, finally becomes this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly",
+      "for": "anagram",
+      "note": "newly suggests made over afresh, so the letters are rearranged into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word beside it, keeping only its closing letter"
+     }
+    ],
+    "linkWords": [
+     "set on",
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beacon lit",
+      "gives": "BEACONLIT",
+      "note": "the nine letters taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of fire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTICEABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEACONLITE",
+       "gives": "NOTICEABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A signal fire on a hill, once ablaze, catches everyone's eye.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: a lit beacon is precisely something you cannot miss.",
+     "definitionFit": "A blazing signal fire is meant to be easily seen, which is what being conspicuous or observable means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "newly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +185,50 @@
     "text": "Big car pulling up short in French region",
     "enumeration": "8"
    },
-   "solution": "LIMOUSIN"
+   "solution": "LIMOUSIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIMOUSIN",
+    "definitions": [
+     {
+      "text": "French region",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulling up short",
+      "for": "deletion",
+      "note": "a car pulling up short stops before the end, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big car",
+      "gives": "LIMOUSINE",
+      "note": "a limousine is a large luxurious car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMOUSIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A large car brakes suddenly somewhere in the French countryside.",
+     "definitionFit": "Limousin is an historic region of central France, known for its cattle and porcelain from Limoges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pulling"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +242,56 @@
     "text": "Fellow one met at church in tight garment",
     "enumeration": "6"
    },
-   "solution": "BODICE"
+   "solution": "BODICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BODICE",
+    "definitions": [
+     {
+      "text": "tight garment",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "met at",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "BOD",
+      "note": "bod is informal British slang for a person or chap"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOD",
+      "I",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man meets someone at church who is wearing a close-fitting outfit.",
+     "definitionFit": "A bodice is the close-fitting upper part of a woman's dress, often laced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "met"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +311,39 @@
      }
     ]
    },
-   "solution": "BABYBOOM"
+   "solution": "BABYBOOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BABY BOOM",
+    "definitions": [
+     {
+      "text": "Time for a lot of deliveries?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time for a lot of deliveries?",
+      "note": "surface reading: a busy season for couriers and the post office, such as Christmas"
+     },
+     {
+      "clueFragment": "deliveries",
+      "note": "setter's reading: deliveries are births, so this is a period when many babies are born"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Deliveries suggests parcels; in a maternity ward it means childbirth.",
+     "definitionFit": "The term names a period of sharply raised birth rate, as after the Second World War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +357,47 @@
     "text": "Female priest who takes charge of things?",
     "enumeration": "8"
    },
-   "solution": "DIRECTOR"
+   "solution": "DIRECTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIRECTOR",
+    "definitions": [
+     {
+      "text": "who takes charge of things",
+      "at": 14,
+      "note": "the clue describes the person; the answer is a noun for that person"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "DI",
+      "note": "Di is a short woman's name, as for Diana"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "RECTOR",
+      "note": "a rector is a parish priest in the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "RECTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman cleric is asked who runs the parish affairs.",
+     "definitionFit": "A director is the person in charge who manages and oversees an organisation or production."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Female"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +411,52 @@
     "text": "Good Parisian, one brave saint",
     "enumeration": "8"
    },
-   "solution": "BONIFACE"
+   "solution": "BONIFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BONIFACE",
+    "definitions": [
+     {
+      "text": "saint",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good Parisian",
+      "gives": "BON",
+      "note": "bon is French for good, as a Parisian would say"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "brave",
+      "gives": "FACE",
+      "note": "to brave something is to face it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "I",
+      "FACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A virtuous, courageous Parisian is described as a saint.",
+     "definitionFit": "Saint Boniface was the eighth-century English missionary who became the apostle of the Germans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brave"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +470,60 @@
     "text": "Ban a revolutionary fellow in Bahrain, maybe",
     "enumeration": "4"
    },
-   "solution": "ARAB"
+   "solution": "ARAB",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARAB",
+    "definitions": [
+     {
+      "text": "fellow in Bahrain, maybe",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the words before it are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban",
+      "gives": "BAR",
+      "note": "to bar is to ban"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RAB"
+     ],
+     "reversals": [
+      {
+       "from": "BARA",
+       "to": "ARAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel in the Gulf state faces a ban.",
+     "definitionFit": "Bahrain is an Arab country, so a man there is likely an Arab; maybe marks it as an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +537,52 @@
     "text": "Animal heading off in a particular direction",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "a particular direction",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading taken off, the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "gives": "BEAST",
+      "note": "a beast is an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature sets off in one specific direction.",
+     "walkthrough": "Heading off looks like setting out on a journey; here it removes the first letter.",
+     "definitionFit": "East is one of the four cardinal compass points, a specific direction of travel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +596,46 @@
     "text": "Ronnie maybe is a 23?",
     "enumeration": "6"
    },
-   "solution": "BARKER"
+   "solution": "BARKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARKER",
+    "definitions": [
+     {
+      "text": "Ronnie maybe",
+      "at": 0
+     },
+     {
+      "text": "a 23?",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ronnie maybe",
+      "note": "first meaning: Ronnie ..., the British comedian of The Two Ronnies TV show"
+     },
+     {
+      "clueFragment": "a 23?",
+      "note": "second meaning: 23 is the sheepdog answer, and a dog is something that barks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The cross-reference sends you to 23-across, the sheepdog; the question mark signals that a dog as a barker is playful.",
+     "definitionFit": "The surname of the comedian is also a jocular word for an animal that barks loudly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ronnie"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +649,39 @@
     "text": "They offer more than one way of looking at things",
     "enumeration": "8"
    },
-   "solution": "BIFOCALS"
+   "solution": "BIFOCALS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIFOCALS",
+    "definitions": [
+     {
+      "text": "They offer more than one way of looking at things",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They offer more than one way of looking at things",
+      "note": "surface reading: open-minded thinkers who give several perspectives on an issue"
+     },
+     {
+      "clueFragment": "looking at things",
+      "note": "setter's reading: literal eyesight, with lenses for near and far vision"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface sounds like a debate about viewpoints; it is about spectacles.",
+     "definitionFit": "Bifocal spectacles have lenses split into two parts for distant and close sight, giving two ways to see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looking"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +701,46 @@
      }
     ]
    },
-   "solution": "BACKMARKERS"
+   "solution": "BACKMARKERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACK MARKERS",
+    "definitions": [
+     {
+      "text": "They finish after everyone else",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "teachers assessing work?",
+      "gives": "MARKERS",
+      "note": "teachers who grade work are markers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "MARKERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to stand behind exam graders, who are always last to be done.",
+     "definitionFit": "Backmarkers are competitors at the rear of a race field, trailing and crossing the line last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +754,55 @@
     "text": "Once again find left-winger is getting protection",
     "enumeration": "10"
    },
-   "solution": "REDISCOVER"
+   "solution": "REDISCOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDISCOVER",
+    "definitions": [
+     {
+      "text": "Once again find",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left-winger",
+      "gives": "RED",
+      "note": "a red is a socialist or communist"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "protection",
+      "gives": "COVER",
+      "note": "cover is shelter or protection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "IS",
+      "COVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A socialist is found again, this time under protective guard.",
+     "definitionFit": "To rediscover is to come upon something a second time after losing or forgetting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left-winger"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +816,57 @@
     "text": "Sang going round hotel, becoming animated",
     "enumeration": "8"
    },
-   "solution": "THRILLED"
+   "solution": "THRILLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRILLED",
+    "definitions": [
+     {
+      "text": "animated",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sang",
+      "gives": "TRILLED",
+      "note": "to trill is to sing with a warbling quaver"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "RILLED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sings as they wander around a hotel, growing more lively.",
+     "definitionFit": "Being delighted and excited is a lively, animated state of mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "animated"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +880,54 @@
     "text": "Girl with not so much on the outside — requirement for many a model?",
     "enumeration": "8"
    },
-   "solution": "LEANNESS"
+   "solution": "LEANNESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEANNESS",
+    "definitions": [
+     {
+      "text": "requirement for many a model?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outside",
+      "for": "container",
+      "note": "a piece on the outside wraps around the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so much",
+      "gives": "LESS",
+      "note": "less means not so much"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "ANNE",
+      "note": "Anne is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ANNE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl wearing very little, as fashion models are said to need to.",
+     "definitionFit": "Catwalk models are often expected to be very thin, so slimness is a job requirement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +941,56 @@
     "text": "Pompous and dour, not funny",
     "enumeration": "7"
    },
-   "solution": "OROTUND"
+   "solution": "OROTUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OROTUND",
+    "definitions": [
+     {
+      "text": "Pompous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means odd or peculiar, so the letters come out in a peculiar order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dour, not",
+      "gives": "DOURNOT",
+      "note": "the seven letters taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OROTUND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOURNOT",
+       "gives": "OROTUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a stuffy, humourless person who takes themselves too seriously.",
+     "definitionFit": "Orotund speech is pretentious and inflated, a style of bombastic self-importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1004,64 @@
     "text": "Immature nude naughtily joining rave",
     "enumeration": "8"
    },
-   "solution": "UNDERAGE"
+   "solution": "UNDERAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDERAGE",
+    "definitions": [
+     {
+      "text": "Immature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughtily",
+      "for": "anagram",
+      "note": "behaving naughtily means misbehaving, so the letters will not stay in line"
+     }
+    ],
+    "linkWords": [
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nude",
+      "gives": "NUDE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "rave",
+      "gives": "RAGE",
+      "note": "to rave is to rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDE",
+      "RAGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUDE",
+       "gives": "UNDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A childish streaker turns up at an all-night dance party.",
+     "definitionFit": "Being too young for something legally permitted describes someone not yet grown up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rave"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1075,54 @@
     "text": "Something distressing about the female, the one who warns of death",
     "enumeration": "7"
    },
-   "solution": "BANSHEE"
+   "solution": "BANSHEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANSHEE",
+    "definitions": [
+     {
+      "text": "the one who warns of death",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece wraps the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something distressing",
+      "gives": "BANE",
+      "note": "a bane is a cause of misery"
+     },
+     {
+      "clueFragment": "the female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "SHE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Something upsetting concerning a woman who foretells a death.",
+     "definitionFit": "In Irish folklore this female spirit wails to announce that someone in a family will soon die."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1136,56 @@
     "text": "One traipsed around in torment",
     "enumeration": "11"
    },
-   "solution": "DESPERATION"
+   "solution": "DESPERATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPERATION",
+    "definitions": [
+     {
+      "text": "torment",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around here means all over the place, so the letters are scattered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One traipsed",
+      "gives": "ONETRAIPSED",
+      "note": "the eleven letters taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESPERATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONETRAIPSED",
+       "gives": "DESPERATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trudges about, wandering in anguish.",
+     "definitionFit": "Desperation is a state of hopeless anguish, close in meaning to mental agony or suffering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "traipsed"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1199,48 @@
     "text": "Reportedly ’ated being on a train?",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on a train",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so we go by how a word is spoken"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "’ated",
+      "gives": "ABOARD",
+      "soundsLike": "ABORRED",
+      "note": "hated is abhorred; the apostrophe shows the H dropped, as in a Cockney accent, giving a'orred"
+     }
+    ],
+    "explanation": {
+     "surface": "A passenger is hated, perhaps for being on the train.",
+     "walkthrough": "The apostrophe in 'ated shows a dropped H, so the synonym abhorred is also said without its H; in British speech, without the R sounds, it matches the answer.",
+     "definitionFit": "Aboard means on or in a vehicle such as a ship, plane or railway carriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1254,58 @@
     "text": "Like something citrus maybe, giving help when cold is caught",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACID",
+    "definitions": [
+     {
+      "text": "Like something citrus maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is caught",
+      "for": "container",
+      "note": "something caught is held inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Lemons are offered as a remedy when you catch a cold.",
+     "walkthrough": "The surface suggests vitamin C for a cold; cold supplies just C.",
+     "definitionFit": "Lemons and limes taste sour, which is the adjective sense of the answer applied to fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1319,46 @@
     "text": "Extras, perhaps, in theatrical sequences",
     "enumeration": "4"
    },
-   "solution": "RUNS"
+   "solution": "RUNS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNS",
+    "definitions": [
+     {
+      "text": "Extras, perhaps",
+      "at": 0
+     },
+     {
+      "text": "theatrical sequences",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extras, perhaps",
+      "note": "first meaning: in cricket, extras are ... credited to a side without coming off the bat"
+     },
+     {
+      "clueFragment": "theatrical sequences",
+      "note": "second meaning: a play's continuous series of performances"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Extras in a theatrical setting suggests non-speaking actors, but the first meaning is from cricket.",
+     "definitionFit": "Byes and wides in cricket count as scores, and a show plays for a continuous season of performances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Extras"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1372,57 @@
     "text": "Not half clumsy cleaner in place where members gather",
     "enumeration": "8"
    },
-   "solution": "CLUBROOM"
+   "solution": "CLUBROOM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CLUBROOM",
+    "definitions": [
+     {
+      "text": "place where members gather",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "not half means half the word is missing, so its back half is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clumsy",
+      "gives": "CLUMSY",
+      "note": "taken as written, then cut in half"
+     },
+     {
+      "clueFragment": "cleaner",
+      "gives": "BROOM",
+      "note": "a broom is a cleaning tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLU",
+      "BROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward cleaner works in the members' lounge.",
+     "definitionFit": "A clubroom is a room used by members of a club or society for meetings and socialising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1436,49 @@
     "text": "Sheepdog that is found on Scottish island",
     "enumeration": "6"
    },
-   "solution": "COLLIE"
+   "solution": "COLLIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLIE",
+    "definitions": [
+     {
+      "text": "Sheepdog",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island",
+      "gives": "COLL",
+      "note": "Coll is an island in the Inner Hebrides"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLL",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sheepdog working on a remote Scottish isle.",
+     "walkthrough": "The pieces appear in the clue in reverse order: the island comes first in the answer.",
+     "definitionFit": "The collie is a breed of herding dog from Scotland, used for working sheep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1492,67 @@
     "text": "Daughter is a tree-hugger, endlessly in dispute",
     "enumeration": "8"
    },
-   "solution": "DISAGREE"
+   "solution": "DISAGREE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DISAGREE",
+    "definitions": [
+     {
+      "text": "in dispute",
+      "at": 37,
+      "note": "the definition is a phrase meaning arguing; the answer is the verb to argue"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tree-hugger",
+      "gives": "GREEN",
+      "note": "a tree-hugger is an environmentalist, a Green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "A",
+      "GREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter turned eco-activist is forever arguing with her family.",
+     "definitionFit": "To disagree is to hold opposing views and quarrel, the state of parties in conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1566,54 @@
     "text": "Note about inconsiderate people who behave priggishly",
     "enumeration": "6"
    },
-   "solution": "PRUDES"
+   "solution": "PRUDES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRUDES",
+    "definitions": [
+     {
+      "text": "people who behave priggishly",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece encloses the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "PS",
+      "note": "PS is a postscript, a note added to a letter"
+     },
+     {
+      "clueFragment": "inconsiderate",
+      "gives": "RUDE",
+      "note": "rude means impolite or inconsiderate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUDE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A written note complains about thoughtless, prissy people.",
+     "definitionFit": "Prudes are excessively proper people easily shocked by matters of sex or impropriety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   }
  ]
 }

@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,56 @@
     "text": "Railway staff in station, closer?",
     "enumeration": "8"
    },
-   "solution": "SCREWTOP"
+   "solution": "SCREWTOP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCREWTOP",
+    "definitions": [
+     {
+      "text": "closer?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it, so the staff go within the station word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "station",
+      "gives": "STOP",
+      "note": "a stop is a station on a railway line"
+     },
+     {
+      "clueFragment": "Railway staff",
+      "gives": "CREW",
+      "note": "the people who work a train are its crew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREW",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway worker standing in a station is asked whether they will be closing up.",
+     "walkthrough": "The question mark flags a definition by function: a bottle's screw cap is literally something that closes it.",
+     "definitionFit": "A screw cap seals a jar or bottle, so it is playfully described as something that shuts things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closer"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +98,44 @@
     "text": "Bet it’s a flat-bottomed boat!",
     "enumeration": "4"
    },
-   "solution": "PUNT"
+   "solution": "PUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUNT",
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     },
+     {
+      "text": "flat-bottomed boat",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "it’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet",
+      "note": "first meaning: a wager, especially a small speculative one"
+     },
+     {
+      "clueFragment": "flat-bottomed boat",
+      "note": "second meaning: a square-ended river craft pushed along with a pole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain a punt is both a gamble and the pole-propelled boat used on the rivers at Oxford and Cambridge.",
+     "definitionFit": "The word is informal British slang for a wager and also names the shallow pole-driven river craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +149,42 @@
     "text": "Delicate area, place of worship",
     "enumeration": "6"
    },
-   "solution": "TEMPLE"
+   "solution": "TEMPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEMPLE",
+    "definitions": [
+     {
+      "text": "Delicate area",
+      "at": 0
+     },
+     {
+      "text": "place of worship",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delicate area",
+      "note": "first meaning: the soft, vulnerable side of the head beside the eye"
+     },
+     {
+      "clueFragment": "place of worship",
+      "note": "second meaning: a building dedicated to a god"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The side of the skull there is thin, which is why it counts as a delicate spot.",
+     "definitionFit": "Anatomically it is the flat sensitive region at each side of the forehead; religiously it is a sacred building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Delicate"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +198,54 @@
     "text": "Fish: fifty caught by father",
     "enumeration": "8"
    },
-   "solution": "FLOUNDER"
+   "solution": "FLOUNDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLOUNDER",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught is held inside its captor, so the number sits within the parent word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "FOUNDER",
+      "note": "the father of an institution or movement is its founder"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OUNDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A father lands a fish, fifty of them perhaps, on a day out angling.",
+     "definitionFit": "A flounder is a flatfish, a common edible species found in coastal waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "father"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +259,39 @@
     "text": "Sweet gag?",
     "enumeration": "10"
    },
-   "solution": "GOBSTOPPER"
+   "solution": "GOBSTOPPER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOBSTOPPER",
+    "definitions": [
+     {
+      "text": "Sweet gag?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweet gag?",
+      "note": "surface reading: a pleasant joke"
+     },
+     {
+      "clueFragment": "Sweet gag?",
+      "note": "setter's reading: a hard candy so big that it plugs the mouth, a gag that is also a confection"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Gag looks like a joke but means something that stops speech; gob is British slang for mouth.",
+     "definitionFit": "A large hard round sugary ball that fills the mouth, so the confection literally silences whoever is sucking it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gag"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +305,70 @@
     "text": "Indicate economy originally in good health going the other way",
     "enumeration": "6"
    },
-   "solution": "DENOTE"
+   "solution": "DENOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DENOTE",
+    "definitions": [
+     {
+      "text": "Indicate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start, so only the opening letter of that word is used"
+     },
+     {
+      "text": "going the other way",
+      "for": "reversal",
+      "note": "travelling the opposite direction, so the whole string is read from the end back to the start"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "economy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of economy"
+     },
+     {
+      "clueFragment": "good health",
+      "gives": "TONED",
+      "note": "someone toned is fit and in good condition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENOT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ETONED",
+       "to": "DENOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report says the economy, at first in good health, then went into reverse.",
+     "definitionFit": "To denote something is to signify or point it out, a straightforward synonym for showing or meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "economy"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +382,67 @@
     "text": "Maestro adding last of paint to drunken cherubs",
     "enumeration": "8"
    },
-   "solution": "SCHUBERT"
+   "solution": "SCHUBERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SCHUBERT",
+    "definitions": [
+     {
+      "text": "Maestro",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of means only the final letter of the following word is taken"
+     },
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "a drunken group staggers about out of order, so these letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "adding",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paint",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of paint"
+     },
+     {
+      "clueFragment": "cherubs",
+      "gives": "CHERUBS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TCHERUBS",
+       "gives": "SCHUBERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A master painter adds a final dab to a canvas of tipsy cherubs.",
+     "walkthrough": "Maestro suggests an old master painter, given the paint, but here it is a composer.",
+     "definitionFit": "Franz Schubert, the Austrian composer of lieder and symphonies, is a great musician and so a maestro."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paint"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +456,43 @@
     "text": "From the audience, seat chucked out",
     "enumeration": "6"
    },
-   "solution": "THROWN"
+   "solution": "THROWN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THROWN",
+    "definitions": [
+     {
+      "text": "chucked out",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "From the audience",
+      "for": "homophone",
+      "note": "an audience hears rather than reads, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "THROWN",
+      "soundsLike": "THRONE",
+      "note": "a throne is a royal seat"
+     }
+    ],
+    "explanation": {
+     "surface": "A spectator's seat in the audience gets thrown out of the theatre.",
+     "definitionFit": "Something chucked out has been tossed or hurled, past participle of the verb meaning to fling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +506,42 @@
     "text": "Eye someone gorgeous",
     "enumeration": "6"
    },
-   "solution": "LOOKER"
+   "solution": "LOOKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOKER",
+    "definitions": [
+     {
+      "text": "Eye",
+      "at": 0
+     },
+     {
+      "text": "someone gorgeous",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eye",
+      "note": "first meaning: one who looks, an observer or watcher"
+     },
+     {
+      "clueFragment": "someone gorgeous",
+      "note": "second meaning: informal word for a very attractive person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Eye reads as a verb, to ogle a beauty, but it is a noun for the person doing the watching.",
+     "definitionFit": "Literally one who watches, and colloquially a strikingly good-looking person, especially a beautiful woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eye"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +555,43 @@
     "text": "Direction taken into Lowestoft",
     "enumeration": "4"
    },
-   "solution": "WEST"
+   "solution": "WEST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "WEST",
+    "definitions": [
+     {
+      "text": "Direction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken into",
+      "for": "hidden_word",
+      "note": "the letters are swallowed up inside the town name, sitting within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lowestoft",
+      "gives": "WEST",
+      "note": "letters three to six of the town name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is given directions into Lowestoft, a fishing town on the Suffolk coast.",
+     "walkthrough": "Lowestoft is the most easterly town in Britain, which makes the other compass point a sly choice.",
+     "definitionFit": "It is one of the four cardinal compass points, the way the sun sets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +605,52 @@
     "text": "Super coins forged, items struck",
     "enumeration": "10"
    },
-   "solution": "PERCUSSION"
+   "solution": "PERCUSSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERCUSSION",
+    "definitions": [
+     {
+      "text": "items struck",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forged",
+      "for": "anagram",
+      "note": "forged metal is beaten into new shape, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Super coins",
+      "gives": "SUPERCOINS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUPERCOINS",
+       "gives": "PERCUSSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Splendid counterfeit coins are forged, then struck at the mint.",
+     "walkthrough": "Struck suggests minting coins; here it means instruments that are hit, like drums and cymbals.",
+     "definitionFit": "The orchestral section of drums, cymbals and similar instruments played by hitting them is collectively named that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +664,43 @@
     "text": "Basic article in magazine, say",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Basic",
+      "at": 0
+     },
+     {
+      "text": "article in magazine, say",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Basic",
+      "note": "first meaning: main, fundamental, as in a dietary mainstay"
+     },
+     {
+      "clueFragment": "article in magazine, say",
+      "note": "second meaning: the small wire fastener binding the pages of a periodical"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Article in magazine looks like a feature story; it is a physical item found in the spine.",
+     "definitionFit": "As an adjective it means chief or principal; as a noun it is a bent wire clip holding sheets together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +714,50 @@
     "text": "Novel aprons I use for cooking",
     "enumeration": "10"
    },
-   "solution": "PERSUASION"
+   "solution": "PERSUASION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUASION",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients up, so the letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aprons I use",
+      "gives": "APRONSIUSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APRONSIUSE",
+       "gives": "PERSUASION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains the aprons they put on to cook.",
+     "definitionFit": "Persuasion is Jane Austen's final completed book, published in 1817, so it is a work of fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +777,67 @@
      }
     ]
    },
-   "solution": "WIDEOPEN"
+   "solution": "WIDEOPEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WIDE OPEN",
+    "definitions": [
+     {
+      "text": "Vulnerable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so only the opening letter of the preceding word counts"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the writer to follow the other pieces, so it comes last rather than first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "WIDE",
+      "note": "in cricket a wide is a ball bowled out of the batter's reach, scoring an extra run"
+     },
+     {
+      "clueFragment": "opportunities",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of opportunities"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIDE",
+      "O",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer is seeking more chances to get started.",
+     "walkthrough": "In cricket, extras are runs not scored off the bat, and a wide is one kind; after places the writer at the end.",
+     "definitionFit": "Someone left wide open is exposed to attack or criticism, an idiom for being defenceless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +851,48 @@
     "text": "Stealing some company car, I promptly retired",
     "enumeration": "6"
    },
-   "solution": "PIRACY"
+   "solution": "PIRACY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PIRACY",
+    "definitions": [
+     {
+      "text": "Stealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the phrase is used, a run of letters inside it"
+     },
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the run of letters is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company car, I promptly",
+      "gives": "YCARIP",
+      "note": "a run of letters spanning the end of company to the start of promptly"
+     }
+    ],
+    "explanation": {
+     "surface": "An employee pinches a firm's car, then quickly retires from the job.",
+     "definitionFit": "Piracy is robbery at sea, or the illegal copying of creative work; either way it means theft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +906,62 @@
     "text": "Decorative work bagging point, finally — mark on score",
     "enumeration": "8"
    },
-   "solution": "CROTCHET"
+   "solution": "CROTCHET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CROTCHET",
+    "definitions": [
+     {
+      "text": "mark on score",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means only the closing letter of the preceding word is used"
+     },
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging something means capturing it and holding it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decorative work",
+      "gives": "CROCHET",
+      "note": "crochet is lacework made with a hooked needle"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "T",
+      "CHET"
+     ]
+    },
+    "explanation": {
+     "surface": "A needlework piece wins a point at a craft show and is marked on the judges' score.",
+     "walkthrough": "Score means a written piece of music here, not a tally.",
+     "definitionFit": "A crotchet is the quarter note in musical notation, a symbol written on sheet music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 17,
@@ -262,7 +975,67 @@
     "text": "Hollow weapon, it getting loaded with first of pellets",
     "enumeration": "6"
    },
-   "solution": "ARMPIT"
+   "solution": "ARMPIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARMPIT",
+    "definitions": [
+     {
+      "text": "Hollow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of means only the opening letter of the next word is taken"
+     },
+     {
+      "text": "getting loaded with",
+      "for": "container",
+      "note": "a weapon loaded with ammunition holds it inside, so one piece goes into the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon, as in firearms"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pellets",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pellets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "P",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "An air gun is being loaded with pellets.",
+     "walkthrough": "Hollow reads as an adjective describing the gun; it is a noun for a cavity of the body.",
+     "definitionFit": "The armpit is the hollow under the shoulder where the arm joins the body, so it is an anatomical cavity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hollow"
+    }
+   }
   },
   {
    "number": 18,
@@ -276,7 +1049,56 @@
     "text": "Short jacket on Welsh girl from North Africa",
     "enumeration": "8"
    },
-   "solution": "TUNISIAN"
+   "solution": "TUNISIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TUNISIAN",
+    "definitions": [
+     {
+      "text": "from North Africa",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "something short lacks its end, so the final letter of the garment is cut off"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jacket",
+      "gives": "TUNIC",
+      "note": "a tunic is a close-fitting jacket, especially in a uniform"
+     },
+     {
+      "clueFragment": "Welsh girl",
+      "gives": "SIAN",
+      "note": "Siân is a common Welsh girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUNI",
+      "SIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh girl wears a short jacket brought back from North Africa.",
+     "definitionFit": "Tunisia is a country on the North African coast, and the adjective describes something from there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -290,7 +1112,45 @@
     "text": "Backbone in apparition?",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Backbone",
+      "at": 0
+     },
+     {
+      "text": "apparition",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Backbone",
+      "note": "first meaning: courage, determination, strength of character"
+     },
+     {
+      "clueFragment": "apparition",
+      "note": "second meaning: a ghost or phantom"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Backbone suggests the spine, but here it is grit, as in showing some mettle.",
+     "definitionFit": "The word means both courage or mettle and a disembodied ghost that might haunt a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Backbone"
+    }
+   }
   },
   {
    "number": 20,
@@ -304,7 +1164,54 @@
     "text": "Physician, American senior in TV programme",
     "enumeration": "8"
    },
-   "solution": "DOCUSOAP"
+   "solution": "DOCUSOAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOCUSOAP",
+    "definitions": [
+     {
+      "text": "TV programme",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Physician",
+      "gives": "DOC",
+      "note": "doc is short for doctor"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for the United States"
+     },
+     {
+      "clueFragment": "senior",
+      "gives": "OAP",
+      "note": "OAP is the British abbreviation for old-age pensioner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOC",
+      "US",
+      "OAP"
+     ]
+    },
+    "explanation": {
+     "surface": "An American doctor and an elderly patient appear on a television show.",
+     "definitionFit": "A docusoap is a fly-on-the-wall documentary series following real people, a kind of television show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -324,7 +1231,72 @@
      }
     ]
    },
-   "solution": "ORELSE"
+   "solution": "ORELSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OR ELSE",
+    "definitions": [
+     {
+      "text": "Threatening words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked into disorder, so these letters are rearranged"
+     },
+     {
+      "text": "conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loser",
+      "gives": "LOSER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "referee",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of referee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORELS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOSER",
+       "gives": "ORELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sore loser angrily threatens the referee after the final whistle.",
+     "walkthrough": "In a down clue, over means placed above, so the shuffled letters sit on top of the last letter.",
+     "definitionFit": "The phrase is tacked onto a demand as a warning of consequences, as in pay up, or else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loser"
+    }
+   }
   },
   {
    "number": 22,
@@ -338,7 +1310,41 @@
     "text": "Leave single thread",
     "enumeration": "6"
    },
-   "solution": "STRAND"
+   "solution": "STRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAND",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "single thread",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: to abandon someone, leaving them stuck"
+     },
+     {
+      "clueFragment": "single thread",
+      "note": "second meaning: one fibre or filament"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As a verb it means to maroon, like a ship on a shore; as a noun, one length of fibre.",
+     "definitionFit": "To leave someone stuck without means of moving on, or one filament twisted with others into rope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1358,50 @@
     "text": "Sweetheart wanting gold after diamonds, say",
     "enumeration": "6"
    },
-   "solution": "SUITOR"
+   "solution": "SUITOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUITOR",
+    "definitions": [
+     {
+      "text": "Sweetheart",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diamonds, say",
+      "gives": "SUIT",
+      "note": "diamonds is an example of a suit in a pack of cards"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is the heraldic term for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUIT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover wants gold to go with the diamonds he has bought.",
+     "walkthrough": "After puts the gold at the end; say marks diamonds as an example of a class.",
+     "definitionFit": "A suitor is a man courting a woman, so he is her admirer or beau."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1421,50 @@
      }
     ]
    },
-   "solution": "WELSHCORGI"
+   "solution": "WELSHCORGI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WELSH CORGI",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trained",
+      "for": "anagram",
+      "note": "training reshapes and reorders, so these letters are drilled into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cowgirl: she",
+      "gives": "COWGIRLSHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COWGIRLSHE",
+       "gives": "WELSHCORGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cowgirl has trained her dog to herd cattle.",
+     "walkthrough": "Fittingly, corgis were bred as cattle-herding dogs in Wales.",
+     "definitionFit": "The Welsh corgi is a short-legged herding breed, famously kept by Queen Elizabeth II."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1478,42 @@
     "text": "Chest in smithereens",
     "enumeration": "4"
    },
-   "solution": "BUST"
+   "solution": "BUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUST",
+    "definitions": [
+     {
+      "text": "Chest",
+      "at": 0
+     },
+     {
+      "text": "in smithereens",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chest",
+      "note": "first meaning: the bosom, or a sculpture of head and shoulders"
+     },
+     {
+      "clueFragment": "in smithereens",
+      "note": "second meaning: broken, shattered"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chest reads as a box that might be smashed; it is the torso.",
+     "definitionFit": "The word names a woman's chest measurement and is also informal for broken or wrecked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chest"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1527,52 @@
     "text": "Lure, a bit fishy!",
     "enumeration": "4"
    },
-   "solution": "BAIT"
+   "solution": "BAIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BAIT",
+    "definitions": [
+     {
+      "text": "Lure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fishy",
+      "for": "anagram",
+      "note": "fishy means suspect or not right, so the letters are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit",
+      "gives": "ABIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABIT",
+       "gives": "BAIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler admits the fly used to tempt the fish is slightly suspect.",
+     "walkthrough": "Fishy doubles as the anagram signal and a nod to angling.",
+     "definitionFit": "Bait is food on a hook used to tempt fish, and more generally any enticement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1586,49 @@
     "text": "Dust and rock on the beach?",
     "enumeration": "6"
    },
-   "solution": "ASHORE"
+   "solution": "ASHORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHORE",
+    "definitions": [
+     {
+      "text": "on the beach?",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dust",
+      "gives": "ASH",
+      "note": "ash is the powdery residue left after burning"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "ORE",
+      "note": "ore is rock from which metal is extracted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sand and pebbles are what you find on the beach.",
+     "definitionFit": "Ashore means on land rather than at sea, so on the coast or sand by the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dust"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1642,62 @@
     "text": "Hot current circling capital of Rwanda",
     "enumeration": "8"
    },
-   "solution": "TROPICAL"
+   "solution": "TROPICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROPICAL",
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling something means surrounding it, so one piece wraps around the other"
+     },
+     {
+      "text": "capital of",
+      "for": "letter_selection",
+      "note": "the capital of a word is its opening letter, the only one used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "TOPICAL",
+      "note": "current affairs are topical ones"
+     },
+     {
+      "clueFragment": "Rwanda",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rwanda"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OPICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A hot ocean current flows around the capital of Rwanda.",
+     "walkthrough": "Current looks like a flow of water or electricity, but it means up to date; capital is not Kigali but a first letter.",
+     "definitionFit": "Tropical climates near the equator are sweltering, so the adjective describes heat and humidity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   }
  ]
 }

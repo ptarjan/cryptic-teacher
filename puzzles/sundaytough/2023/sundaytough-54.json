@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Men-of-war charged with men-of-war",
     "enumeration": "10"
    },
-   "solution": "TROOPSHIPS"
+   "solution": "TROOPSHIPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TROOPSHIPS",
+    "definitions": [
+     {
+      "text": "Men-of-war",
+      "at": 0
+     },
+     {
+      "text": "charged with men-of-war",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men-of-war",
+      "note": "first meaning: vessels of war, ships serving the armed forces"
+     },
+     {
+      "clueFragment": "charged with men-of-war",
+      "note": "second meaning: vessels loaded with fighting men, reading men-of-war as soldiers"
+     }
+    ],
+    "explanation": {
+     "surface": "Warships armed or crewed with yet more warships, a naval image folding in on itself.",
+     "walkthrough": "The repeated phrase switches meaning: first ships of war, then men who go to war, the soldiers such ships carry.",
+     "definitionFit": "These vessels transport soldiers for military campaigns, so they belong to a fleet's fighting ships and are also loaded with fighting men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +87,50 @@
     "text": "One’s taken hostage over in east Elba, Tuscany",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "One’s taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hostage",
+      "for": "hidden_word",
+      "note": "a hostage is held captive, so the answer is held inside the words that follow"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the captured letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east Elba, Tuscany",
+      "gives": "TELBAT",
+      "note": "the letters straddling the end of east, all of Elba and the start of Tuscany"
+     }
+    ],
+    "explanation": {
+     "surface": "A captive held on the eastern side of Elba, the Tuscan island where Napoleon was exiled.",
+     "walkthrough": "TELBAT, read upwards, gives TABLET. 'One's taken' reads as a hostage taken prisoner, but it means something a patient swallows.",
+     "definitionFit": "A pill is something a patient swallows as medicine, so it is literally a thing one takes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +144,68 @@
     "text": "Choir rearranged opening of ‘Dominum’ — it’s a grower",
     "enumeration": "6"
    },
-   "solution": "ORCHID"
+   "solution": "ORCHID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ORCHID",
+    "definitions": [
+     {
+      "text": "grower",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rearranged",
+      "for": "anagram",
+      "note": "things rearranged are put in a new order, so the letters of the choir word plus its partner get reshuffled"
+     },
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its very start, so only the initial letter is taken"
+     }
+    ],
+    "linkWords": [
+     "it’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choir",
+      "gives": "CHOIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "‘Dominum’",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of the Latin word for Lord"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOIRD",
+       "gives": "ORCHID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A choir rearranges the opening of a Latin hymn, which proves a crowd-pleaser that grows on you.",
+     "definitionFit": "This flower is a plant cultivated by gardeners, and any plant is something that grows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grower"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,65 @@
      }
     ]
    },
-   "solution": "PASSIONFRUIT"
+   "solution": "PASSIONFRUIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PASSION FRUIT",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means entering it, so the rugby letters go inside the healthy word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obsession",
+      "gives": "PASSION",
+      "note": "a passion is a consuming obsession"
+     },
+     {
+      "clueFragment": "healthy",
+      "gives": "FIT",
+      "note": "fit means in good health"
+     },
+     {
+      "clueFragment": "rugby",
+      "gives": "RU",
+      "note": "RU is the abbreviation for rugby union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASSION",
+      "F",
+      "RU",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness fanatic obsessed with rugby takes up a healthy diet.",
+     "walkthrough": "'Healthy food' reads as one phrase, but only 'food' defines; 'healthy' is wordplay.",
+     "definitionFit": "This tropical fruit is edible produce, the purple-skinned seedy kind eaten fresh or in desserts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "healthy"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +297,47 @@
     "text": "Reporter’s caught in crowd",
     "enumeration": "4"
    },
-   "solution": "HERD"
+   "solution": "HERD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HERD",
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reporter’s",
+      "for": "homophone",
+      "note": "a reporter speaks the news, so the word is taken by how it sounds when said"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "HERD",
+      "soundsLike": "HEARD",
+      "note": "caught in the sense of picked up by ear"
+     }
+    ],
+    "explanation": {
+     "surface": "A journalist gets trapped in a throng of people.",
+     "walkthrough": "Caught means heard, as in catching what someone said.",
+     "definitionFit": "A herd is a large group of animals, extended to a mass of people moving together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +361,55 @@
      }
     ]
    },
-   "solution": "PIEDATERRE"
+   "solution": "PIEDATERRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIED-A-TERRE",
+    "definitions": [
+     {
+      "text": "second home",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped inside it, so the meeting word sits within the French name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter in French",
+      "gives": "PIERRE",
+      "note": "the French form of the name Peter"
+     },
+     {
+      "clueFragment": "Meeting",
+      "gives": "DATE",
+      "note": "a date is an arranged meeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "DATE",
+      "RRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Peter keeps a rendezvous at his second home in France.",
+     "walkthrough": "PIE(DATE)RRE.",
+     "definitionFit": "A pied-à-terre is a small secondary residence kept in a city for occasional stays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Meeting"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +423,45 @@
     "text": "As announced, I shall land in water",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "land in water",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "As announced",
+      "for": "homophone",
+      "note": "an announcement is spoken out, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I shall",
+      "gives": "ISLE",
+      "soundsLike": "I'LL",
+      "note": "I shall contracts to the spoken form I'll"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone declares they will splash down in the sea.",
+     "walkthrough": "'Land in water' reads as a verb phrase, landing a plane on the sea, but it is a noun phrase.",
+     "definitionFit": "An island is a piece of ground surrounded by sea or lake on every side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +481,43 @@
      }
     ]
    },
-   "solution": "SEAGOING"
+   "solution": "SEAGOING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEA-GOING",
+    "definitions": [
+     {
+      "text": "Suitable to sail",
+      "at": 0
+     },
+     {
+      "text": "ebb-tide?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suitable to sail",
+      "note": "first meaning: fit for voyages on the open ocean"
+     },
+     {
+      "clueFragment": "ebb-tide?",
+      "note": "second meaning, split in two: at an ebb tide the ocean is going out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: SEA GOING describes the water going away at ebb tide.",
+     "definitionFit": "A seagoing vessel is built for ocean voyages rather than rivers or coastal waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ebb-tide"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +531,62 @@
     "text": "Decorated captain crossing eastern sea off Israel",
     "enumeration": "8"
    },
-   "solution": "EMBOSSED"
+   "solution": "EMBOSSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EMBOSSED",
+    "definitions": [
+     {
+      "text": "Decorated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing here means going across into the middle of, so the captain word lies inside the sea word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "sea off Israel",
+      "gives": "MED",
+      "note": "the Med is short for the Mediterranean, which borders Israel"
+     },
+     {
+      "clueFragment": "captain",
+      "gives": "BOSS",
+      "note": "the captain of a team is its boss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "BOSS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A medal-winning skipper sails across the eastern Mediterranean off the Israeli coast.",
+     "walkthrough": "E then M(BOSS)ED. 'Decorated captain' suggests an officer with medals, but decorated is the definition alone.",
+     "definitionFit": "Embossed means ornamented with a raised design, which is one way of adorning a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decorated"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +600,58 @@
     "text": "Sponsors going by plane — maybe time for alternative route?",
     "enumeration": "10"
    },
-   "solution": "BACKSTREET"
+   "solution": "BACKSTREET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSTREET",
+    "definitions": [
+     {
+      "text": "alternative route",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "going by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sponsors",
+      "gives": "BACKS",
+      "note": "sponsors back a venture financially"
+     },
+     {
+      "clueFragment": "plane — maybe",
+      "gives": "TREE",
+      "note": "the plane is a kind of tree, the maybe marking it as an example"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKS",
+      "TREE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Backers flying somewhere wonder whether it is time to take another way.",
+     "walkthrough": "'Plane' looks like an aircraft beside 'going by'; it is the plane tree, common in London streets.",
+     "definitionFit": "A side street is a minor road that drivers use to avoid main roads, an alternative way through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +665,63 @@
     "text": "Boozer anticipates first sip of beer — it’s spiked",
     "enumeration": "4"
    },
-   "solution": "BARB"
+   "solution": "BARB",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BARB",
+    "definitions": [
+     {
+      "text": "it’s spiked",
+      "at": 39,
+      "note": "describes the thing, a sharp point, so stands for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "anticipates",
+      "for": "charade",
+      "note": "to anticipate is to come before, so the boozer word is placed ahead"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the following word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boozer",
+      "gives": "BAR",
+      "note": "a boozer is British slang for a pub, a bar"
+     },
+     {
+      "clueFragment": "sip of beer",
+      "gives": "B",
+      "select": "first",
+      "note": "the initial letter of the second word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker looks forward to the first taste of beer, suspecting the drink has been laced.",
+     "walkthrough": "'Spiked' suggests a doctored drink, but here it means sharp-pointed.",
+     "definitionFit": "A barb is the sharp backward-pointing tip on a hook or arrow, a pointed projection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spiked"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +741,40 @@
      }
     ]
    },
-   "solution": "MUDDLEHEADED"
+   "solution": "MUDDLEHEADED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MUDDLE-HEADED",
+    "definitions": [
+     {
+      "text": "confused",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead, he could conceivably appear thus",
+      "note": "surface reading: a remark on how a dead man might look"
+     },
+     {
+      "clueFragment": "Dead, he could conceivably appear thus",
+      "note": "setter's reading: the letters of the first two words are a muddled version of the second half of the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A mock-serious comment on the dazed look of a dead man.",
+     "walkthrough": "DEAD HE is HEADED muddled, so a MUDDLE-HEADED word is how those letters appear.",
+     "definitionFit": "Someone muddle-headed thinks unclearly and is easily bewildered, which is being mixed up in mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dead"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +788,69 @@
     "text": "Anger about team getting turned over — remedy needed",
     "enumeration": "6"
    },
-   "solution": "ELIXIR"
+   "solution": "ELIXIR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ELIXIR",
+    "definitions": [
+     {
+      "text": "remedy",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the anger word wraps the team word"
+     },
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "something turned over is flipped, so the whole combination is read backwards"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anger",
+      "gives": "RILE",
+      "note": "to rile is to anger"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "XI",
+      "note": "a cricket or football team has eleven players, XI in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIXIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIXILE",
+       "to": "ELIXIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manager furious at the side's defeat wants something to fix it.",
+     "walkthrough": "RI(XI)LE, reversed.",
+     "definitionFit": "An elixir is a magical or medicinal potion supposed to cure all ills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Anger"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +864,57 @@
     "text": "Great produces a foul — sub sent off",
     "enumeration": "8"
    },
-   "solution": "FABULOUS"
+   "solution": "FABULOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FABULOUS",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent off",
+      "for": "anagram",
+      "note": "sent off suggests scattered and dispatched, so the letters before it are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a foul — sub",
+      "gives": "AFOULSUB",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FABULOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFOULSUB",
+       "gives": "FABULOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer commits a foul and the substitute gets a red card.",
+     "walkthrough": "'Sent off' is football language for a red card, but it signals the letter shuffle.",
+     "definitionFit": "Both are informal words of high praise, meaning wonderful or terrific."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +928,57 @@
     "text": "Daughter maybe finding insect under sink",
     "enumeration": "10"
    },
-   "solution": "DESCENDANT"
+   "solution": "DESCENDANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESCENDANT",
+    "definitions": [
+     {
+      "text": "Daughter maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so the insect follows the sinking word"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "DESCEND",
+      "note": "to sink is to go down"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESCEND",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl discovers a bug lurking beneath the kitchen basin.",
+     "walkthrough": "'Sink' looks like a kitchen basin; it is the verb.",
+     "definitionFit": "A daughter is one example of offspring, someone in a later generation of a family line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +992,79 @@
     "text": "Being self-sufficient, dine out with little money, which limits ambition",
     "enumeration": "12"
    },
-   "solution": "INDEPENDENCE"
+   "solution": "INDEPENDENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "INDEPENDENCE",
+    "definitions": [
+     {
+      "text": "Being self-sufficient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disordered or wrong, so the dining word has its letters jumbled"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with signals that the next part is added alongside"
+     },
+     {
+      "text": "which limits",
+      "for": "container",
+      "note": "to limit is to bound on each side, so the money word encloses the ambition word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dine",
+      "gives": "DINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little money",
+      "gives": "PENCE",
+      "note": "pence are small units of British money"
+     },
+     {
+      "clueFragment": "ambition",
+      "gives": "END",
+      "note": "an end is a goal or aim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDE",
+      "P",
+      "END",
+      "ENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DINE",
+       "gives": "INDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who eats out on a tight budget finds that being self-reliant curbs their aspirations.",
+     "walkthrough": "INDE then P(END)ENCE.",
+     "definitionFit": "Independence is the condition of relying on nobody else for support, the state of self-reliance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1084,44 @@
      }
     ]
    },
-   "solution": "STARSIGN"
+   "solution": "STARSIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STAR SIGN",
+    "definitions": [
+     {
+      "text": "one’s house",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Chunk of",
+      "for": "hidden_word",
+      "note": "a chunk is a piece cut from something larger, so the answer is a run of letters inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bituminous tar’s ignited",
+      "gives": "STARSIGN",
+      "note": "the letters spanning the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A lump of tarry pitch catches fire and burns someone's home.",
+     "walkthrough": "'House' is astrological here, not a building.",
+     "definitionFit": "In astrology each zodiac sign is called a house, and your birth sign is the one ruling your fate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1135,65 @@
     "text": "Dad’s put up with mum — perhaps it’s obvious",
     "enumeration": "8"
    },
-   "solution": "APPARENT"
+   "solution": "APPARENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APPARENT",
+    "definitions": [
+     {
+      "text": "obvious",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, put up means raised so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad’s",
+      "gives": "PA",
+      "note": "pa is a familiar word for a father"
+     },
+     {
+      "clueFragment": "mum — perhaps",
+      "gives": "PARENT",
+      "note": "a mother is one example of a mother or father, the perhaps marking an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PARENT"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father has tolerated mother, which is plain for all to see.",
+     "walkthrough": "'Put up with' reads as one phrase meaning tolerate, but it splits: 'put up' reverses and 'with' just joins.",
+     "definitionFit": "Apparent means clearly visible or evident, easily seen by everybody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1213,69 @@
      }
     ]
    },
-   "solution": "TAPERECORDER"
+   "solution": "TAPERECORDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPE RECORDER",
+    "definitions": [
+     {
+      "text": "Equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with signals that the Queen part is simply added at the end"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rap",
+      "gives": "TAP",
+      "note": "a rap is a knock"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "disc",
+      "gives": "RECORD",
+      "note": "a vinyl disc is a record"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "E",
+      "RECORD",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician lists the kit needed to make an electronic rap record featuring Queen.",
+     "walkthrough": "'Rap', 'disc' and 'Queen' all suggest music, but each is wordplay.",
+     "definitionFit": "A tape recorder is a machine for recording sound on magnetic tape, an item of audio gear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rap"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1289,63 @@
     "text": "Neighbour appears as little woman in following commercial",
     "enumeration": "6"
    },
-   "solution": "ADJOIN"
+   "solution": "ADJOIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADJOIN",
+    "definitions": [
+     {
+      "text": "Neighbour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so these parts are placed after the advert word"
+     }
+    ],
+    "linkWords": [
+     "appears as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "little woman",
+      "gives": "JO",
+      "note": "Jo March is one of the sisters in the novel Little Women"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "JO",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "The girl next door turns up as a small woman starring in a TV advert.",
+     "walkthrough": "'Neighbour' is a verb here, and 'in' is a piece, not a container signal.",
+     "definitionFit": "To adjoin is to lie next to and share a border with, which is what neighbouring land does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Neighbour"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1359,55 @@
     "text": "Drastic energy cut — you should switch",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Drastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you should switch",
+      "for": "charade",
+      "note": "switch tells the solver to swap the order in which the two parts are read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SEVER",
+      "note": "to sever is to cut"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An energy-saving notice urges households to change supplier after a sharp cut.",
+     "walkthrough": "'Energy cut' gives E SEVER; switching the two parts gives SEVER E.",
+     "definitionFit": "Both words describe measures that are harsh, extreme and serious in their effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "switch"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1421,65 @@
     "text": "Redirects physical gesture when cycling",
     "enumeration": "8"
    },
-   "solution": "REALIGNS"
+   "solution": "REALIGNS",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "REALIGNS",
+    "definitions": [
+     {
+      "text": "Redirects",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so the first letter of the gesture word is moved to its end"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "physical",
+      "gives": "REAL",
+      "note": "physical things are real and tangible"
+     },
+     {
+      "clueFragment": "gesture",
+      "gives": "SIGN",
+      "note": "a sign is a gesture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "IGNS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIGN",
+       "gives": "IGNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist steers in a new direction with a hand signal.",
+     "walkthrough": "'Cycling' sounds like riding a bike, the gesture being an arm signal; it means SIGN rotates to IGNS.",
+     "definitionFit": "To realign is to set something on a new course or line, pointing it a different way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1493,65 @@
     "text": "Little point in demand the Spanish rejected",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Little point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the Spanish word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demand",
+      "gives": "NEED",
+      "note": "a need is a demand"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "EL",
+       "to": "LE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees no purpose in an order the Spaniards turned down.",
+     "walkthrough": "'Little point' sounds like no purpose; it means a tiny sharp tip.",
+     "definitionFit": "A needle has a fine sharp tip, a slender object ending in a tiny point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1565,65 @@
     "text": "Instrument — piano, that is — which Papa’s broken",
     "enumeration": "4"
    },
-   "solution": "PIPE"
+   "solution": "PIPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIPE",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "container",
+      "note": "Papa has broken into the phrase, so its letter sits inside the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for id est, that is"
+     },
+     {
+      "clueFragment": "Papa’s",
+      "gives": "P",
+      "note": "Papa is the NATO alphabet word for P"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A piano that Dad has wrecked, an instrument now out of action.",
+     "walkthrough": "P then I(P)E. 'Piano' looks like the instrument, but the instrument is the answer.",
+     "definitionFit": "A pipe is a simple wind instrument, a tube played by blowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1637,61 @@
     "text": "Article one got together retrospectively",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Article",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospectively",
+      "for": "reversal",
+      "note": "retrospectively means looking backwards, so the meeting word is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "got together",
+      "gives": "MET",
+      "note": "people who met got together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine piece about someone who became a couple, looking back.",
+     "walkthrough": "A couple who got together are also an item, which suits the surface.",
+     "definitionFit": "An item is one thing in a list or one piece in a newspaper, so it can mean an object or a report."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1705,40 @@
     "text": "One’s nurses run back and forth, it’s all the same",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PALINDROME",
+    "definitions": [
+     {
+      "text": "back and forth, it’s all the same",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s nurses run back and forth",
+      "note": "surface reading: hospital staff hurrying to and fro, with no let-up"
+     },
+     {
+      "clueFragment": "nurses run",
+      "note": "setter's reading: these two words spell the same backwards as forwards, an example of the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "On a busy ward the nurses dash back and forth, and to the patient it's all the same.",
+     "walkthrough": "Read 'nurses run' letter by letter in reverse and it is unchanged.",
+     "definitionFit": "A palindrome is a word or phrase reading identically left to right and right to left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1752,44 @@
     "text": "Bolt’s run through these fans",
     "enumeration": "4"
    },
-   "solution": "NUTS"
+   "solution": "NUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUTS",
+    "definitions": [
+     {
+      "text": "Bolt’s run through these",
+      "at": 0
+     },
+     {
+      "text": "fans",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bolt’s run through these",
+      "note": "first meaning: a bolt is threaded through these metal fasteners"
+     },
+     {
+      "clueFragment": "fans",
+      "note": "second meaning: enthusiasts, as in being mad about something"
+     }
+    ],
+    "explanation": {
+     "surface": "Usain Bolt's sprint electrifies his supporters.",
+     "walkthrough": "Bolt suggests the Jamaican sprinter, but it is a threaded metal rod.",
+     "definitionFit": "These hexagonal fasteners screw onto a bolt, and informally the word means devotees, as in football nuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bolt’s"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1803,48 @@
     "text": "Showing what often follows ‘news’ — ‘reel’?",
     "enumeration": "10"
    },
-   "solution": "ATTENDANCE"
+   "solution": "ATTENDANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDANCE",
+    "definitions": [
+     {
+      "text": "Showing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what often follows ‘news’",
+      "gives": "ATTEN",
+      "note": "News at Ten is a long-running British ITV evening news programme"
+     },
+     {
+      "clueFragment": "‘reel’",
+      "gives": "DANCE",
+      "note": "a reel is a lively Scottish dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTEN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema showing: the newsreel, a short film that once preceded the main feature.",
+     "walkthrough": "'News' and 'reel' together suggest newsreel, but they are separate pieces.",
+     "definitionFit": "Attendance is the turnout at an event, the number who show up, so a good showing is a good attendance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reel"
+    }
+   }
   }
  ]
 }

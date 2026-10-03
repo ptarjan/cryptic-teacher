@@ -24,6 +24,9 @@
   "date": "2024-09-18",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,70 @@
     "text": "After end of break, youngster returned for grilled food",
     "enumeration": "5"
    },
-   "solution": "KEBAB"
+   "solution": "KEBAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "KEBAB",
+    "definitions": [
+     {
+      "text": "grilled food",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last letter of break is kept"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word for youngster is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of break"
+     },
+     {
+      "clueFragment": "youngster",
+      "gives": "BABE",
+      "note": "a babe is a baby or young child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EBAB"
+     ],
+     "reversals": [
+      {
+       "from": "BABE",
+       "to": "EBAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a school break, a youngster comes back home for some barbecued food.",
+     "definitionFit": "A kebab is meat on a skewer cooked over a grill, a common takeaway dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +117,43 @@
     "text": "Abandon punt!",
     "enumeration": "4"
    },
-   "solution": "KICK"
+   "solution": "KICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KICK",
+    "definitions": [
+     {
+      "text": "Abandon",
+      "at": 0
+     },
+     {
+      "text": "punt",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abandon",
+      "note": "first meaning: give up a habit, as in to stop smoking"
+     },
+     {
+      "clueFragment": "punt",
+      "note": "second meaning: strike a ball with the foot, as a punter does in football"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation reads like an order to give up on a boat; punt here is a kick of a ball, not a flat-bottomed boat or a bet.",
+     "definitionFit": "To kick a habit means giving it up, and a punt is a type of kick dropped from the hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "punt"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +167,55 @@
     "text": "Nocturnal type beginning to have soak",
     "enumeration": "4"
    },
-   "solution": "BATH"
+   "solution": "BATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BATH",
+    "definitions": [
+     {
+      "text": "soak",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only the first letter of have is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nocturnal type",
+      "gives": "BAT",
+      "note": "a bat is an animal active at night"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A night owl starting the evening with a long relaxing soak.",
+     "definitionFit": "A soak is a long lie in a tub of water, which is the very thing one runs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +235,47 @@
      }
     ]
    },
-   "solution": "BELLYFLOP"
+   "solution": "BELLYFLOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELLY-FLOP",
+    "definitions": [
+     {
+      "text": "Big splash",
+      "at": 0
+     },
+     {
+      "text": "terrible campanologist",
+      "at": 16,
+      "note": "a jokey second sense: a bell-ringer (BELL-Y) who is a failure (FLOP)"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big splash",
+      "note": "first meaning: a dive in which the front of the body slaps flat on the water"
+     },
+     {
+      "clueFragment": "terrible campanologist",
+      "note": "second, punning meaning: a campanologist rings bells, and one who is terrible at it is a flop with bells"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A campanologist is a bell-ringer; the question mark flags the invented sense of someone who flops at the bells.",
+     "definitionFit": "An ungainly dive landing stomach-first on the water makes a large, loud splash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "splash"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +295,46 @@
      }
     ]
    },
-   "solution": "PRESSUP"
+   "solution": "PRESSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS-UP",
+    "definitions": [
+     {
+      "text": "exercise",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Media",
+      "gives": "PRESS",
+      "note": "the press is newspapers and journalists collectively"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "as in time is up, meaning over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists have completed their workout.",
+     "definitionFit": "A press-up is a gym exercise pushing the body up from the floor with the arms, called a push-up in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 4,
@@ -119,7 +348,49 @@
     "text": "Criticise attempt to produce food store",
     "enumeration": "6"
    },
-   "solution": "PANTRY"
+   "solution": "PANTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTRY",
+    "definitions": [
+     {
+      "text": "food store",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "critics pan a show they dislike"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic slams someone's try at making a place to keep groceries.",
+     "definitionFit": "A pantry is a small room or cupboard where provisions and groceries are kept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Criticise"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +404,42 @@
     "text": "Magical creature featured in selfie",
     "enumeration": "3"
    },
-   "solution": "ELF"
+   "solution": "ELF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELF",
+    "definitions": [
+     {
+      "text": "Magical creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "hidden_word",
+      "note": "something featured in a photo appears within it, so the answer sits inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "selfie",
+      "gives": "ELF",
+      "note": "letters two to four of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A fairy-tale being appears in someone's phone self-portrait.",
+     "definitionFit": "An elf is a small sprite of folklore with supernatural powers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "featured"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +453,50 @@
     "text": "Infrequent cop raids disrupted",
     "enumeration": "8"
    },
-   "solution": "SPORADIC"
+   "solution": "SPORADIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPORADIC",
+    "definitions": [
+     {
+      "text": "Infrequent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "disrupted means thrown into disorder, so the letters before it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cop raids",
+      "gives": "COPRAIDS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPRAIDS",
+       "gives": "SPORADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police raids that happen only now and then are being interrupted.",
+     "definitionFit": "Sporadic describes something occurring at irregular, scattered intervals rather than often."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disrupted"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +510,50 @@
     "text": "A bit of poetry is depraved",
     "enumeration": "8"
    },
-   "solution": "PERVERSE"
+   "solution": "PERVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERVERSE",
+    "definitions": [
+     {
+      "text": "depraved",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "PER",
+      "note": "a, as in five pounds a head, means per"
+     },
+     {
+      "clueFragment": "bit of poetry",
+      "gives": "VERSE",
+      "note": "a verse is a stanza or line of a poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a poem is judged morally corrupt.",
+     "walkthrough": "The opening A is not taken as written: in prices like ten pounds a day it means per.",
+     "definitionFit": "Perverse can mean wicked or corrupt, deliberately departing from what is right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +567,60 @@
     "text": "Family grabbing at a tongue in Barcelona?",
     "enumeration": "7"
    },
-   "solution": "CATALAN"
+   "solution": "CATALAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CATALAN",
+    "definitions": [
+     {
+      "text": "tongue in Barcelona?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "something grabbing holds on to what it seizes, so one word wraps around the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "CLAN",
+      "note": "a clan is an extended family"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ATA",
+      "LAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family snatching at someone's tongue, as if a squabble on a Spanish street.",
+     "walkthrough": "Tongue means language, and the question mark admits the definition is by example: Barcelona's language is not the only one spoken there.",
+     "definitionFit": "Catalan is the regional language of Catalonia, whose capital is Barcelona."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +634,44 @@
     "text": "Ingredient for baking part of plant, reportedly",
     "enumeration": "5"
    },
-   "solution": "FLOUR"
+   "solution": "FLOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLOUR",
+    "definitions": [
+     {
+      "text": "Ingredient for baking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so the sound of the words matters, not their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of plant",
+      "gives": "FLOUR",
+      "soundsLike": "FLOWER",
+      "note": "the bloom of a plant, which is pronounced identically"
+     }
+    ],
+    "explanation": {
+     "surface": "Some recipe component is said to be part of a plant, which is true of wheat.",
+     "definitionFit": "Flour is the milled grain powder that forms the base of bread and cakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +685,64 @@
     "text": "Aircraft, extremely heavy, to fall by road",
     "enumeration": "10"
    },
-   "solution": "HYDROPLANE"
+   "solution": "HYDROPLANE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HYDROPLANE",
+    "definitions": [
+     {
+      "text": "Aircraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outside letters of heavy are kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heavy",
+      "gives": "HY",
+      "select": "outer",
+      "note": "the first and last letters of heavy"
+     },
+     {
+      "clueFragment": "to fall",
+      "gives": "DROP",
+      "note": "to drop is to fall"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "LANE",
+      "note": "a lane is a narrow road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HY",
+      "DROP",
+      "LANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A very heavy aeroplane is about to crash down beside a road.",
+     "definitionFit": "A hydroplane is a seaplane, an aircraft designed to take off and land on water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +756,56 @@
     "text": "Move the camera towards silent performer in play",
     "enumeration": "9"
    },
-   "solution": "PANTOMIME"
+   "solution": "PANTOMIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTOMIME",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move the camera",
+      "gives": "PAN",
+      "note": "to pan is to swing a camera horizontally"
+     },
+     {
+      "clueFragment": "towards",
+      "gives": "TO",
+      "note": "to means towards"
+     },
+     {
+      "clueFragment": "silent performer",
+      "gives": "MIME",
+      "note": "a mime acts without speaking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "TO",
+      "MIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director instructs the camera operator to swing over to the silent actor on stage.",
+     "walkthrough": "A pantomime is a British Christmas theatre show for families, full of slapstick, songs and audience participation.",
+     "definitionFit": "A pantomime is a kind of comic stage show, so it is an example of a play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performer"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +825,50 @@
      }
     ]
    },
-   "solution": "GREENTEA"
+   "solution": "GREENTEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREEN TEA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "weird means strange or odd, so the letters are put into an odd new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generate",
+      "gives": "GENERATE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENERATE",
+       "gives": "GREENTEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to produce a strange beverage.",
+     "definitionFit": "Green tea is an unfermented tea infusion, a common hot beverage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Generate"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +882,43 @@
     "text": "Insane accompaniment for cheese",
     "enumeration": "8"
    },
-   "solution": "CRACKERS"
+   "solution": "CRACKERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKERS",
+    "definitions": [
+     {
+      "text": "Insane",
+      "at": 0
+     },
+     {
+      "text": "accompaniment for cheese",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insane",
+      "note": "first meaning: informal for mad"
+     },
+     {
+      "clueFragment": "accompaniment for cheese",
+      "note": "second meaning: plain dry biscuits served with cheese"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests someone wild about a cheeseboard; the plural noun also serves as the adjective for mad.",
+     "definitionFit": "Colloquially someone who has gone mad is said to be crackers, and dry savoury biscuits eaten with cheese share the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Insane"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +932,60 @@
     "text": "Hardly ever runs relay badly",
     "enumeration": "6"
    },
-   "solution": "RARELY"
+   "solution": "RARELY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RARELY",
+    "definitions": [
+     {
+      "text": "Hardly ever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so the letters of the word before it are out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "relay",
+      "gives": "RELAY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ARELY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RELAY",
+       "gives": "ARELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sprinter who seldom runs the relay race poorly.",
+     "definitionFit": "Rarely and hardly ever are synonymous adverbs meaning on very few occasions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +999,47 @@
     "text": "International organisation gives out pants",
     "enumeration": "6"
    },
-   "solution": "UNDIES"
+   "solution": "UNDIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDIES",
+    "definitions": [
+     {
+      "text": "pants",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "International organisation",
+      "gives": "UN",
+      "note": "the United Nations"
+     },
+     {
+      "clueFragment": "gives out",
+      "gives": "DIES",
+      "note": "an engine that gives out stops working, or dies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A global body hands out trousers, perhaps as aid.",
+     "walkthrough": "In British English pants are underpants, not trousers, which is the sense needed here.",
+     "definitionFit": "Undies is an informal word for underwear, which British speakers call pants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1053,43 @@
     "text": "Writer seen in superior wellies",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible inside it, so the answer runs across these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superior wellies",
+      "gives": "ORWELL",
+      "note": "runs from the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An author spotted wearing top-quality rubber boots.",
+     "walkthrough": "Wellies are wellington boots, the rubber boots worn in mud and rain.",
+     "definitionFit": "George Orwell was the English novelist who wrote Nineteen Eighty-Four and Animal Farm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1109,53 @@
      }
     ]
    },
-   "solution": "ESCAPEROOM"
+   "solution": "ESCAPEROOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESCAPE ROOM",
+    "definitions": [
+     {
+      "text": "it",
+      "at": 32,
+      "note": "a pronoun standing for a noun: the place you must get out of"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rewrite",
+      "for": "anagram",
+      "note": "rewriting text puts its words in new form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coarse poem",
+      "gives": "COARSEPOEM",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COARSEPOEM",
+       "gives": "ESCAPEROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor asks for a vulgar verse to be redone, and then tells the poet to clear off.",
+     "walkthrough": "Get out of it! sounds like a brush-off, but it is the definition: the thing the setter tells you to get out of.",
+     "definitionFit": "An escape room is a game venue where players solve puzzles to free themselves from a locked chamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rewrite"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1169,48 @@
     "text": "Vegetarian option toasted over fire uneaten at first",
     "enumeration": "4"
    },
-   "solution": "TOFU"
+   "solution": "TOFU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TOFU",
+    "definitions": [
+     {
+      "text": "Vegetarian option",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the start of each word, so only initial letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toasted over fire uneaten",
+      "gives": "TOFU",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOFU"
+     ]
+    },
+    "explanation": {
+     "surface": "A meat-free dish grilled over a campfire was left on the plate.",
+     "definitionFit": "Tofu is bean curd made from soya, a popular protein choice for people who avoid meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toasted"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1224,46 @@
     "text": "Sneakily look up and down?",
     "enumeration": "4"
    },
-   "solution": "PEEP"
+   "solution": "PEEP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PEEP",
+    "definitions": [
+     {
+      "text": "Sneakily look up and down?",
+      "at": 0,
+      "note": "the whole clue: a furtive glance, by a word that reads the same up and down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sneakily look up and down?",
+      "note": "surface reading: someone furtively eyes a person from head to toe"
+     },
+     {
+      "clueFragment": "up and down?",
+      "note": "setter's reading: in a down entry, a word for a furtive glance that reads identically upwards and downwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEEP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glances furtively, eyeing a person from head to toe.",
+     "walkthrough": "Up and down looks like how one eyes someone; it really says the four-letter word for a sly look is the same read upwards or downwards in the grid.",
+     "definitionFit": "To peep is to take a quick, secret glance through a small opening, and the word is a palindrome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1277,61 @@
     "text": "Adjust wood around front of window",
     "enumeration": "5"
    },
-   "solution": "TWEAK"
+   "solution": "TWEAK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TWEAK",
+    "definitions": [
+     {
+      "text": "Adjust",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the word for wood is wrapped about a letter"
+     },
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only the opening letter of window is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "TEAK",
+      "note": "teak is a hardwood"
+     },
+     {
+      "clueFragment": "window",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of window"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "W",
+      "EAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter fine-tunes the wooden frame around a window.",
+     "definitionFit": "To tweak something is to make a small fine adjustment to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1345,47 @@
     "text": "Mostly tender-hearted relatives",
     "enumeration": "3"
    },
-   "solution": "KIN"
+   "solution": "KIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KIN",
+    "definitions": [
+     {
+      "text": "relatives",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tender-hearted",
+      "gives": "KIND",
+      "note": "kind means gentle and caring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Family members who are generally soft-hearted.",
+     "definitionFit": "Kin is a collective word for one's family members and blood relations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mostly"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1399,55 @@
     "text": "Piece of soap in pie does badly?",
     "enumeration": "7"
    },
-   "solution": "EPISODE"
+   "solution": "EPISODE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPISODE",
+    "definitions": [
+     {
+      "text": "Piece of soap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is done in a muddled way, so these letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pie does",
+      "gives": "PIEDOES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIEDOES",
+       "gives": "EPISODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sliver of washing soap has ended up in a pie, spoiling it.",
+     "walkthrough": "Soap means soap opera, a long-running television drama, not the stuff in the bathroom.",
+     "definitionFit": "A soap opera is broadcast in instalments, and each instalment is one part of the serial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soap"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1461,69 @@
     "text": "Football team, last in Bundesliga, learns dancing",
     "enumeration": "7"
    },
-   "solution": "ARSENAL"
+   "solution": "ARSENAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ARSENAL",
+    "definitions": [
+     {
+      "text": "Football team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "last in a word is its final letter, so only the closing letter of Bundesliga is kept"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about, so the word before it is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bundesliga",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of Bundesliga"
+     },
+     {
+      "clueFragment": "learns",
+      "gives": "LEARNS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RSENAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNS",
+       "gives": "RSENAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football club bottom of the German league takes up dancing lessons.",
+     "walkthrough": "The Bundesliga is Germany's top football league; Arsenal is a north London club in England's Premier League.",
+     "definitionFit": "Arsenal is a professional football club based in north London, one of England's best known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1537,49 @@
     "text": "Supply European with joke",
     "enumeration": "5"
    },
-   "solution": "EQUIP"
+   "solution": "EQUIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EQUIP",
+    "definitions": [
+     {
+      "text": "Supply",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "QUIP",
+      "note": "a quip is a witty remark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "QUIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone provides a continental visitor with a gag.",
+     "definitionFit": "To equip is to furnish or provide someone with what they need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supply"
+    }
+   }
   }
  ]
 }

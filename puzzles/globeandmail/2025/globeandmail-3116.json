@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Prisoner cracking jaw",
     "enumeration": "6"
    },
-   "solution": "CONFAB"
+   "solution": "CONFAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFAB",
+    "definitions": [
+     {
+      "text": "jaw",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "a con is a convict, someone serving time"
+     },
+     {
+      "clueFragment": "cracking",
+      "gives": "FAB",
+      "note": "cracking and fab both mean excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FAB"
+     ]
+    },
+    "explanation": {
+     "surface": "An inmate breaks someone's jaw in a prison fight.",
+     "walkthrough": "'Cracking' looks like violence against the jaw, but it is an adjective meaning first-rate; 'jaw' is a verb meaning chatter.",
+     "definitionFit": "To jaw is informal for talking at length, and a confab is a chatty conversation or discussion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,54 @@
     "text": "Morbidly fat old boy feasted regularly",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "Morbidly fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the standard abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "feasted",
+      "gives": "ESE",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of feasted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "ESE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil who has eaten heavily has become very overweight.",
+     "definitionFit": "Someone obese is so heavily overweight that their health is at serious risk, which is morbid fatness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,55 @@
     "text": "Wild about editor describing US governance?",
     "enumeration": "7"
    },
-   "solution": "FEDERAL"
+   "solution": "FEDERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEDERAL",
+    "definitions": [
+     {
+      "text": "describing US governance?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for wild wraps round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild",
+      "gives": "FERAL",
+      "note": "feral animals are wild, having escaped domestication"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ED",
+      "ERAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor rants furiously about how America is run.",
+     "walkthrough": "The definition is descriptive, hence the question mark: the answer is an adjective that describes the American system of government.",
+     "definitionFit": "The United States has a federal system, with power shared between national and state governments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +213,48 @@
     "text": "Voice criticism of short novel?",
     "enumeration": "3"
    },
-   "solution": "BOO"
+   "solution": "BOO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BOO",
+    "definitions": [
+     {
+      "text": "Voice criticism of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut off, so the final letter of the word for novel goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel",
+      "gives": "BOOK",
+      "note": "a novel is a book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader complains loudly about a novella.",
+     "walkthrough": "'Short novel' reads as a novella; instead, the word for novel loses its last letter K.",
+     "definitionFit": "To boo someone is to jeer at them, loudly expressing disapproval or criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +268,68 @@
     "text": "Streetcar crossing close to you a shock",
     "enumeration": "6"
    },
-   "solution": "TRAUMA"
+   "solution": "TRAUMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TRAUMA",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is taken"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means straddling, so the streetcar word spans the extra letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Streetcar",
+      "gives": "TRAM",
+      "note": "a streetcar is the North American name for a tram"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "select": "last",
+      "note": "the final letter of you"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "U",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A streetcar passing near you gives you a fright.",
+     "definitionFit": "Trauma is a severe emotional or physical shock, often with lasting effects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +349,50 @@
      }
     ]
    },
-   "solution": "TOMSAWYER"
+   "solution": "TOMSAWYER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOM SAWYER",
+    "definitions": [
+     {
+      "text": "Huck’s friend",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "troubled means disturbed and stirred up, so the letters are put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steamy row",
+      "gives": "STEAMYROW",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STEAMYROW",
+       "gives": "TOMSAWYER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heated quarrel upset Huck's companion.",
+     "definitionFit": "Mark Twain's Tom Sawyer is the best pal of Huckleberry Finn in his novels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Steamy"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +406,44 @@
     "text": "Perspective of Germanic invader",
     "enumeration": "5"
    },
-   "solution": "ANGLE"
+   "solution": "ANGLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGLE",
+    "definitions": [
+     {
+      "text": "Perspective",
+      "at": 0
+     },
+     {
+      "text": "Germanic invader",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perspective",
+      "note": "first meaning: a point of view or approach"
+     },
+     {
+      "clueFragment": "Germanic invader",
+      "note": "second meaning: one of the tribe that settled in England in the fifth century"
+     }
+    ],
+    "explanation": {
+     "surface": "A historian considers the viewpoint of an early Germanic raider.",
+     "definitionFit": "An angle is a viewpoint, and the Angles were a Germanic people who invaded Britain and named England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +457,53 @@
     "text": "Most are dancing for great musician",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "great musician",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move around, so they land in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most are",
+      "gives": "MOSTARE",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOSTARE",
+       "gives": "MAESTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most people are dancing in tribute to a brilliant performer.",
+     "definitionFit": "A maestro is a distinguished musician, especially a renowned conductor or virtuoso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +517,39 @@
     "text": "Top-level clearance?",
     "enumeration": "8"
    },
-   "solution": "HEADROOM"
+   "solution": "HEADROOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEADROOM",
+    "definitions": [
+     {
+      "text": "Top-level clearance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top-level clearance?",
+      "note": "surface reading: security clearance at the highest grade"
+     },
+     {
+      "clueFragment": "Top-level clearance?",
+      "note": "setter's reading: the space left above your head, the top of you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Clearance sounds like secret access; read literally it is the gap above something, here the head.",
+     "definitionFit": "Headroom is the vertical space above a person or vehicle, as under a bridge or ceiling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clearance"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +563,55 @@
     "text": "Dope touring large Scots valley",
     "enumeration": "4"
    },
-   "solution": "GLEN"
+   "solution": "GLEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLEN",
+    "definitions": [
+     {
+      "text": "Scots valley",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring means travelling around, so the word for dope goes round the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dope",
+      "gives": "GEN",
+      "note": "dope and gen both mean inside information"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dope addict travels around a big Scottish valley.",
+     "walkthrough": "Dope here is information, not drugs; gen is British slang for the facts.",
+     "definitionFit": "A glen is a narrow valley in Scotland or Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dope"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +625,53 @@
     "text": "Put up with English filling pub",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEAR",
+    "definitions": [
+     {
+      "text": "Put up with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "filling means going inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tolerates the English crowd packing out the pub.",
+     "definitionFit": "To bear something is to endure or tolerate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +685,65 @@
     "text": "Attempt to secure an undergarment for burlesque",
     "enumeration": "8"
    },
-   "solution": "TRAVESTY"
+   "solution": "TRAVESTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAVESTY",
+    "definitions": [
+     {
+      "text": "burlesque",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the attempt word encloses the rest"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "undergarment",
+      "gives": "VEST",
+      "note": "a vest is a sleeveless undershirt in British English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "VEST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer tries to get hold of underwear for a burlesque act.",
+     "walkthrough": "Burlesque suggests a striptease show, but here it means a grotesque parody.",
+     "definitionFit": "A travesty is an absurd or distorted imitation, which is what a burlesque in the sense of mockery is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "burlesque"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +757,55 @@
     "text": "Take-down spoiled old Olympic event",
     "enumeration": "9"
    },
-   "solution": "TAEKWONDO"
+   "solution": "TAEKWONDO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAEKWONDO",
+    "definitions": [
+     {
+      "text": "Olympic event",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "spoiled means ruined and messed up, so the letters are thrown into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take-down",
+      "gives": "TAKEDOWN",
+      "note": "the hyphenated word's letters, all used"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAKEDOWNO",
+       "gives": "TAEKWONDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wrestler's takedown is ruined at some ancient Olympic contest.",
+     "definitionFit": "Taekwondo, the Korean martial art, has been a medal sport at the Olympic Games since 2000."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take-down"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +825,64 @@
      }
     ]
    },
-   "solution": "ORELSE"
+   "solution": "ORELSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OR ELSE",
+    "definitions": [
+     {
+      "text": "menacing words",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to disregard very",
+      "for": "deletion",
+      "note": "to disregard is to leave out, so the letter standing for very is dropped"
+     },
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the letters are arranged differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resolve",
+      "gives": "RESOLVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORELSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESOLE",
+       "gives": "ORELSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to ignore the threats made against them.",
+     "definitionFit": "Or else is tacked onto a demand as a threat of unspecified consequences."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolve"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +896,44 @@
     "text": "Meeting of old friends in French island",
     "enumeration": "7"
    },
-   "solution": "REUNION"
+   "solution": "REUNION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REUNION",
+    "definitions": [
+     {
+      "text": "Meeting of old friends",
+      "at": 0
+     },
+     {
+      "text": "French island",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meeting of old friends",
+      "note": "first meaning: a gathering of people who have been apart"
+     },
+     {
+      "clueFragment": "French island",
+      "note": "second meaning: the French overseas department in the Indian Ocean"
+     }
+    ],
+    "explanation": {
+     "surface": "Former pals get together on a French island holiday.",
+     "definitionFit": "A reunion brings old companions back together, and Réunion is an island department of France near Madagascar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +947,44 @@
     "text": "Colour likely to run?",
     "enumeration": "6"
    },
-   "solution": "YELLOW"
+   "solution": "YELLOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YELLOW",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     },
+     {
+      "text": "likely to run?",
+      "at": 7,
+      "note": "adjective phrase; the answer as cowardly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colour",
+      "note": "first meaning: the hue of a lemon or a canary"
+     },
+     {
+      "clueFragment": "likely to run?",
+      "note": "second meaning: cowardly, apt to flee from danger"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a dye that bleeds in the wash; the other meaning is running away from a fight.",
+     "definitionFit": "Yellow is a primary hue, and as slang it means cowardly, the sort of person who flees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1004,43 @@
      }
     ]
    },
-   "solution": "LABCOAT"
+   "solution": "LABCOAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAB COAT",
+    "definitions": [
+     {
+      "text": "Hair of the dog?",
+      "at": 0
+     },
+     {
+      "text": "Scientist may need it",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hair of the dog?",
+      "note": "first meaning, punning: the fur of a Labrador retriever"
+     },
+     {
+      "clueFragment": "Scientist may need it",
+      "note": "second meaning: the white protective overall worn in a laboratory"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hair of the dog' is the hangover cure of another drink; here it is literally a dog's fur, and the dog is a Labrador, a Lab for short.",
+     "definitionFit": "A Labrador's fur is its coat, and researchers wear a white protective coat in the laboratory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hair"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1064,39 @@
      }
     ]
    },
-   "solution": "TUGOFWAR"
+   "solution": "TUGOFWAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TUG OF WAR",
+    "definitions": [
+     {
+      "text": "Game with belligerent Yanks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game with belligerent Yanks?",
+      "note": "surface reading: a match against aggressive Americans"
+     },
+     {
+      "clueFragment": "Game with belligerent Yanks?",
+      "note": "setter's reading: a contest of hostile heaves, where yanks are sharp pulls on a rope"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Yanks looks like a nickname for Americans; it is the plural of yank, a hard pull.",
+     "definitionFit": "In this rope-pulling contest two teams heave in opposite directions, a warlike struggle of tugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yanks"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1110,50 @@
     "text": "Expose cheat — that’s best",
     "enumeration": "5"
    },
-   "solution": "OUTDO"
+   "solution": "OUTDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDO",
+    "definitions": [
+     {
+      "text": "best",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expose",
+      "gives": "OUT",
+      "note": "to out someone is to expose them publicly"
+     },
+     {
+      "clueFragment": "cheat",
+      "gives": "DO",
+      "note": "to do someone is informal for swindling them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Unmasking a fraud is the finest outcome.",
+     "walkthrough": "'Best' looks like an adjective, but it is the verb meaning beat.",
+     "definitionFit": "To best a rival is to defeat or surpass them, exactly what outdoing them means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1167,54 @@
     "text": "Magistrate miserable releasing 50",
     "enumeration": "4"
    },
-   "solution": "BEAK"
+   "solution": "BEAK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BEAK",
+    "definitions": [
+     {
+      "text": "Magistrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releasing",
+      "for": "deletion",
+      "note": "releasing means letting go, so the Roman numeral for fifty is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miserable",
+      "gives": "BLEAK",
+      "note": "bleak means dreary and miserable"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy judge lets fifty prisoners go free.",
+     "walkthrough": "Beak is old British slang for a magistrate or judge.",
+     "definitionFit": "In British slang a beak is a magistrate presiding over a court, or a schoolmaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "releasing"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1228,59 @@
     "text": "A long time taken over stadium",
     "enumeration": "5"
    },
-   "solution": "ARENA"
+   "solution": "ARENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARENA",
+    "definitions": [
+     {
+      "text": "stadium",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken over",
+      "for": "reversal",
+      "note": "taken over means turned over, so the phrase is read from right to left in a down clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "AN",
+      "note": "a and an are both the indefinite article"
+     },
+     {
+      "clueFragment": "long time",
+      "gives": "ERA",
+      "note": "an era is a long period of history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARE",
+      "NA"
+     ],
+     "reversals": [
+      {
+       "from": "ANERA",
+       "to": "ARENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stadium takes ages to be taken over by new owners.",
+     "definitionFit": "An arena is an enclosed venue for sports or shows, the same as a stadium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1294,41 @@
     "text": "Clue wraith in Tolkien hides",
     "enumeration": "4"
    },
-   "solution": "HINT"
+   "solution": "HINT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINT",
+    "definitions": [
+     {
+      "text": "Clue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hides",
+      "for": "hidden_word",
+      "note": "hides means conceals within, so the letters are tucked inside the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wraith in Tolkien",
+      "gives": "HINT",
+      "note": "found across the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A ghostly figure in Tolkien conceals a clue.",
+     "definitionFit": "A hint is a clue, a small piece of guidance toward an answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1342,52 @@
     "text": "Element in strange ringtone",
     "enumeration": "8"
    },
-   "solution": "NITROGEN"
+   "solution": "NITROGEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NITROGEN",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd and unusual, so the letters are put in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ringtone",
+      "gives": "RINGTONE",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RINGTONE",
+       "gives": "NITROGEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone's weird ringtone has some odd component.",
+     "definitionFit": "Nitrogen is a chemical element, the gas making up most of the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1401,43 @@
     "text": "End of sunbathing in Punta Negra",
     "enumeration": "3"
    },
-   "solution": "TAN"
+   "solution": "TAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TAN",
+    "definitions": [
+     {
+      "text": "End of sunbathing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means contained within, so the letters lie inside the place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punta Negra",
+      "gives": "TAN",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Sunbathing ends at the beach resort of Punta Negra.",
+     "walkthrough": "End means result here, not the final letter of sunbathing.",
+     "definitionFit": "A suntan is the outcome or goal of lying in the sun, so it is its end in the sense of purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1457,48 @@
      }
     ]
    },
-   "solution": "INTOTO"
+   "solution": "INTOTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN TOTO",
+    "definitions": [
+     {
+      "text": "entirely",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "IN",
+      "note": "hot and in both mean fashionable"
+     },
+     {
+      "clueFragment": "dog Dorothy loved",
+      "gives": "TOTO",
+      "note": "Toto is Dorothy's dog in The Wizard of Oz"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TOTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Dorothy loved her hot dog completely.",
+     "walkthrough": "'Hot dog' looks like the snack; Hot and dog work separately.",
+     "definitionFit": "In toto is Latin for as a whole, meaning completely or wholly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Hot"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1518,55 @@
      }
     ]
    },
-   "solution": "NOTBAD"
+   "solution": "NOTBAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT BAD",
+    "definitions": [
+     {
+      "text": "Decent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to split",
+      "for": "anagram",
+      "note": "to split is to break apart, so the letters separate and regroup in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "BAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANDTO",
+       "gives": "NOTBAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A respectable group of musicians is about to break up.",
+     "definitionFit": "Not bad is understated praise meaning reasonably good or acceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   }
  ]
 }

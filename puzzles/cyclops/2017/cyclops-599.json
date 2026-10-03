@@ -24,6 +24,9 @@
   "date": "2017-05-29",
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,70 @@
     "text": "Strangely non-American POTUS, Net star of religion",
     "enumeration": "10"
    },
-   "solution": "PROTESTANT"
+   "solution": "PROTESTANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PROTESTANT",
+    "definitions": [
+     {
+      "text": "of religion",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "non-American",
+      "for": "deletion",
+      "note": "non-American asks for the US abbreviation to be taken away from the word beside it"
+     },
+     {
+      "text": "Strangely",
+      "for": "anagram",
+      "note": "something done strangely is done in an odd order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "POTUS",
+      "gives": "POTUS",
+      "note": "President of the United States, taken as written before US is removed"
+     },
+     {
+      "clueFragment": "Net",
+      "gives": "NET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "STAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROTESTANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POTNETSTAR",
+       "gives": "PROTESTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports star rises oddly to become President, without being American.",
+     "walkthrough": "POTUS loses US to leave POT; POT, NET and STAR are then rearranged into PROTESTANT.",
+     "definitionFit": "A Protestant church or believer belongs to the Reformed branch of Christian faith, so the word describes a religious affiliation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Net"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +117,62 @@
     "text": "Own up about \"heartless Piccadilly\", being an agent?",
     "enumeration": "6"
    },
-   "solution": "SPYING"
+   "solution": "SPYING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPYING",
+    "definitions": [
+     {
+      "text": "being an agent?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the confession word wraps around the other letters"
+     },
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "removing the heart leaves only the outside letters of the place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Own up",
+      "gives": "SING",
+      "note": "to sing is slang for confessing to the police"
+     },
+     {
+      "clueFragment": "Piccadilly",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the first and last letters of the London street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PY",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to confess to an incident in central London, as if they were a secret agent.",
+     "walkthrough": "Piccadilly is a famous street in central London; to sing is underworld slang for confessing to the police.",
+     "definitionFit": "Spying is the activity of a secret operative gathering intelligence, which is what working as an agent means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +186,66 @@
     "text": "A bastard overturned schedule – troublemaker",
     "enumeration": "8"
    },
-   "solution": "AGITATOR"
+   "solution": "AGITATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AGITATOR",
+    "definitions": [
+     {
+      "text": "troublemaker",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, so in a down clue the word for schedule is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bastard",
+      "gives": "GIT",
+      "note": "git is British slang for a contemptible person"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "ROTA",
+      "note": "a rota is a roster or timetable of duties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIT",
+      "ATOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTA",
+       "to": "ATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some unpleasant person has upended the work timetable, causing trouble.",
+     "walkthrough": "A + GIT + ROTA reversed (ATOR) gives AGITATOR.",
+     "definitionFit": "An agitator stirs up public unrest or protest, making them someone who deliberately causes disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +259,70 @@
     "text": "Trump, dismissing politician: \"hunt out fake news!\"",
     "enumeration": "7"
    },
-   "solution": "UNTRUTH"
+   "solution": "UNTRUTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UNTRUTH",
+    "definitions": [
+     {
+      "text": "fake news",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing sends something away, so the politician's letters are removed from the name"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of place or disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "TRUMP",
+      "note": "the President's surname, taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "hunt",
+      "gives": "HUNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTRUTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRUHUNT",
+       "gives": "UNTRUTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trump, firing an official, rails against fake news and urges a hunt for it.",
+     "walkthrough": "TRUMP without MP leaves TRU; TRU and HUNT are mixed up to give UNTRUTH.",
+     "definitionFit": "Fake news is false information presented as fact, which is a lie or falsehood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +336,73 @@
     "text": "Stuff bra out, stuck into French chip",
     "enumeration": "6"
    },
-   "solution": "FABRIC"
+   "solution": "FABRIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FABRIC",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means disordered here, so the underwear letters are mixed up"
+     },
+     {
+      "text": "stuck into",
+      "for": "container",
+      "note": "stuck into means pushed inside, so the jumbled letters are placed within others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French",
+      "gives": "F",
+      "note": "F is the abbreviation for French"
+     },
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "chip",
+      "gives": "IC",
+      "note": "IC is an integrated circuit, a silicon chip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ABR",
+      "IC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRA",
+       "gives": "ABR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Underwear is thrown out and lands on a French fry.",
+     "walkthrough": "'Stuff' looks like a verb but is a noun here, and the chip is electronic rather than a French fry.",
+     "definitionFit": "Stuff in the sense of material or cloth is a synonym for textile or woven material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +416,70 @@
     "text": "Boris ultimately left in clutches of assailant – mule!",
     "enumeration": "8"
    },
-   "solution": "SMUGGLER"
+   "solution": "SMUGGLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SMUGGLER",
+    "definitions": [
+     {
+      "text": "mule",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the name is kept"
+     },
+     {
+      "text": "in clutches of",
+      "for": "container",
+      "note": "being in someone's clutches means being held by them, so one letter sits inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boris",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of Boris"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "assailant",
+      "gives": "MUGGER",
+      "note": "a mugger is someone who attacks to rob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MUGG",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Boris ends up in the grip of an attacker who turns out to be a mule.",
+     "walkthrough": "Only the left-hand abbreviation goes inside the attacker; the letter from Boris sits in front of it.",
+     "definitionFit": "A mule is slang for someone who carries drugs across a border, an illegal courier of contraband goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mule"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +493,45 @@
     "text": "Broadcast 'right look' for Kim Jong-un's idea of news?",
     "enumeration": "10"
    },
-   "solution": "PROPAGANDA"
+   "solution": "PROPAGANDA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PROPAGANDA",
+    "definitions": [
+     {
+      "text": "Kim Jong-un's idea of news?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "broadcast means spoken over the airwaves, so the phrase is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right look",
+      "gives": "PROPAGANDA",
+      "soundsLike": "PROPER GANDER",
+      "note": "proper means right and a gander is a look"
+     }
+    ],
+    "explanation": {
+     "surface": "A dictator's news broadcasts are only the right way of seeing things.",
+     "walkthrough": "To have a gander is British slang for taking a look; PROPER GANDER said aloud is PROPAGANDA.",
+     "definitionFit": "North Korean state media issues only regime-approved messaging, so its so-called news is political indoctrination material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +545,77 @@
     "text": "Not very clever, getting upset over Labour leader's slight",
     "enumeration": "4"
    },
-   "solution": "MILD"
+   "solution": "MILD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MILD",
+    "definitions": [
+     {
+      "text": "slight",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, so the word for not very clever is turned round"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of Labour is used"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering all around, so the reversed word encloses the single letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not very clever",
+      "gives": "DIM",
+      "note": "dim means unintelligent"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "L",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DIM",
+       "to": "MID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dim figure takes offence at a slight from the Labour leader.",
+     "walkthrough": "'Slight' looks like a noun meaning an insult, but it is the adjective meaning faint.",
+     "definitionFit": "Slight and mild both describe something gentle, faint or of little intensity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slight"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +647,62 @@
    "group": [
     "10-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TWITTER ACCOUNT",
+    "definitions": [
+     {
+      "text": "put to great use by Trump",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sources of",
+      "for": "letter_selection",
+      "note": "sources are where things start, so only the opening letters of the following words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dope",
+      "gives": "TWIT",
+      "note": "a twit is a fool, as is a dope"
+     },
+     {
+      "clueFragment": "the Economic Reform",
+      "gives": "TER",
+      "select": "first",
+      "note": "first letters of these three words"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "ACCOUNT",
+      "note": "a bill is an account of money owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWIT",
+      "TER",
+      "ACCOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool backs a reform bill on the economy that Trump makes much of.",
+     "walkthrough": "TWIT + TER + ACCOUNT gives TWITTER ACCOUNT.",
+     "definitionFit": "Trump's social media profile on that platform was famously his main channel for posting announcements and attacks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +716,60 @@
     "text": "Proper clever, ignoring Boris's lead",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Proper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "a lead is what goes in front, so the opening letter of Boris is meant"
+     },
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring leaves something out, so that letter is dropped from the word for clever"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clever",
+      "gives": "BRIGHT",
+      "note": "bright means intelligent"
+     },
+     {
+      "clueFragment": "Boris",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of Boris"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone properly clever pays no attention to Boris's lead.",
+     "walkthrough": "BRIGHT without its B leaves RIGHT.",
+     "definitionFit": "Proper and right are synonyms meaning correct, fitting or as it should be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 12,
@@ -195,7 +783,52 @@
     "text": "Pissed after change of leader – frightful mess",
     "enumeration": "5"
    },
-   "solution": "SIGHT"
+   "solution": "SIGHT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SIGHT",
+    "definitions": [
+     {
+      "text": "frightful mess",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of leader",
+      "for": "substitution",
+      "note": "a change of leader swaps out the first letter for a different one"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pissed",
+      "gives": "TIGHT",
+      "note": "tight is British slang for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drunk after a leadership change makes a frightful mess.",
+     "walkthrough": "Pissed is British slang for drunk, not angry. TIGHT gets a new first letter, S, to make SIGHT; the crossing letters confirm which.",
+     "definitionFit": "Looking a sight is an idiom for appearing a ridiculous, unkempt spectacle, a dreadful state of disarray."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pissed"
+    }
+   }
   },
   {
    "number": 13,
@@ -209,7 +842,54 @@
     "text": "Rude – time to cut down on Streep-like stuff",
     "enumeration": "8"
    },
-   "solution": "TACTLESS"
+   "solution": "TACTLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TACTLESS",
+    "definitions": [
+     {
+      "text": "Rude",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Streep-like stuff",
+      "gives": "ACT",
+      "note": "Meryl Streep is a film actor, so what she does is act"
+     },
+     {
+      "clueFragment": "to cut down on",
+      "gives": "LESS",
+      "note": "to cut down on something is to do it less"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ACT",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude Hollywood star is told it is time to tone down the acting.",
+     "walkthrough": "The clue says it is time to ACT LESS: T + ACT + LESS.",
+     "definitionFit": "Tactless means lacking diplomacy or sensitivity, so a tactless remark is impolite and offensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Streep-like"
+    }
+   }
   },
   {
    "number": 14,
@@ -223,7 +903,77 @@
     "text": "\"Welcoming transformed USA with a lot less love\" – politician",
     "enumeration": "10"
    },
-   "solution": "SALUTATORY"
+   "solution": "SALUTATORY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SALUTATORY",
+    "definitions": [
+     {
+      "text": "Welcoming",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed has changed its form, so these letters are rearranged"
+     },
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so the letter for love is subtracted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USA",
+      "gives": "USA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "ALOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a Conservative politician in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALUTA",
+      "TORY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USAALT",
+       "gives": "SALUTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician hails a changed America with much less affection.",
+     "walkthrough": "USA and A LOT, without O, are rearranged to SALUTA, then TORY is added.",
+     "definitionFit": "Salutatory is a formal adjective describing a greeting or opening address, so it means expressing a salute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 15,
@@ -237,7 +987,57 @@
     "text": "State gets Mark ace Eye application",
     "enumeration": "7"
    },
-   "solution": "MASCARA"
+   "solution": "MASCARA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASCARA",
+    "definitions": [
+     {
+      "text": "Eye application",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State",
+      "gives": "MA",
+      "note": "MA is the postal abbreviation for Massachusetts"
+     },
+     {
+      "clueFragment": "Mark",
+      "gives": "SCAR",
+      "note": "a scar is a mark on the skin"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "SCAR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Mark, a top performer for Private Eye, gets attention from the state.",
+     "walkthrough": "Mark and Eye are capitalised to look like a name and a magazine; they are a scar and the organ of sight.",
+     "definitionFit": "Mascara is cosmetic colouring brushed onto the lashes, so it is something applied to the eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eye"
+    }
+   }
   },
   {
    "number": 16,
@@ -251,7 +1051,55 @@
     "text": "Takes Tebbit's advice, seizing commercial holiday islands",
     "enumeration": "8"
    },
-   "solution": "CYCLADES"
+   "solution": "CYCLADES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CYCLADES",
+    "definitions": [
+     {
+      "text": "holiday islands",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "seizing means grabbing hold of, so the bike word holds the advertising letters inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Takes Tebbit's advice",
+      "gives": "CYCLES",
+      "note": "Norman Tebbit, a Thatcher-era minister, said his jobless father got on his bike to look for work"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial is an advertisement, an ad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYCL",
+      "AD",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone follows a Tory grandee's advice while grabbing an advert for a beach holiday.",
+     "walkthrough": "Tebbit's 1981 'get on your bike' speech is a famous British political phrase, so his advice is to ride a bike.",
+     "definitionFit": "The Cyclades are a group of Greek islands in the Aegean, popular resort destinations such as Mykonos and Santorini."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 17,
@@ -265,7 +1113,75 @@
     "text": "Snort cocaine right inside sleazy hotel",
     "enumeration": "7"
    },
-   "solution": "CHORTLE"
+   "solution": "CHORTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "CHORTLE",
+    "definitions": [
+     {
+      "text": "Snort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sleazy",
+      "for": "anagram",
+      "note": "something sleazy is disreputable and out of order, so the letters are rearranged"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means placed within, so one letter goes into the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang shorthand for cocaine"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "HOTEL",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HO",
+      "R",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOTEL",
+       "gives": "HOTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffs coke in a seedy hotel room.",
+     "walkthrough": "'Snort' suggests drugs in the surface, but it is the definition, meaning a laugh.",
+     "definitionFit": "A chortle is a gleeful chuckle, and a snort can be a burst of laughter through the nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Snort"
+    }
+   }
   },
   {
    "number": 18,
@@ -279,7 +1195,66 @@
     "text": "\"One force in the House – topping!\"",
     "enumeration": "8"
    },
-   "solution": "HOMICIDE"
+   "solution": "HOMICIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HOMICIDE",
+    "definitions": [
+     {
+      "text": "topping",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pair of pieces inside the word for house"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, the British police detective branch"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "HOME",
+      "note": "a house is a home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOM",
+      "I",
+      "CID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheer for a lone police officer in the House of Commons.",
+     "walkthrough": "Topping is British slang for killing, especially by execution; the exclamation mark makes it look like praise.",
+     "definitionFit": "Topping someone in British slang means killing them, so a topping is an unlawful killing or murder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 19,
@@ -293,7 +1268,63 @@
     "text": "Uranium poo container takes hospital down",
     "enumeration": "7"
    },
-   "solution": "UNHAPPY"
+   "solution": "UNHAPPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNHAPPY",
+    "definitions": [
+     {
+      "text": "down",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes means admits or holds, so the hospital letter is placed within the container word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     },
+     {
+      "clueFragment": "poo container",
+      "gives": "NAPPY",
+      "note": "a nappy is the British word for a diaper"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "H",
+      "APPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A radioactive nappy gets carted off down to the hospital.",
+     "walkthrough": "'Down' looks like a direction to the hospital but is the definition, meaning sad.",
+     "definitionFit": "Feeling down is an idiom for being sad or dejected, which is to be miserable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 20,
@@ -307,7 +1338,58 @@
     "text": "Northern town has goods on Blair? Almost",
     "enumeration": "8"
    },
-   "solution": "STOCKTON"
+   "solution": "STOCKTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STOCKTON",
+    "definitions": [
+     {
+      "text": "Northern town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the name is dropped"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goods",
+      "gives": "STOCK",
+      "note": "stock is goods held for sale"
+     },
+     {
+      "clueFragment": "Blair",
+      "gives": "TONY",
+      "note": "Tony Blair, the former Labour Prime Minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A northern town has dirt on Tony Blair, nearly.",
+     "walkthrough": "STOCK + TONY without its last letter gives STOCKTON.",
+     "definitionFit": "Stockton-on-Tees is a market town in north-east England, in County Durham historically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "goods"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1417,59 @@
     "text": "Blemish on Theresa's no. 1, as heard in church?",
     "enumeration": "5"
    },
-   "solution": "MOTET"
+   "solution": "MOTET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOTET",
+    "definitions": [
+     {
+      "text": "as heard in church?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no. 1",
+      "for": "letter_selection",
+      "note": "number one means the first, so only the initial letter of Theresa is used"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blemish",
+      "gives": "MOTE",
+      "note": "a mote is a speck or particle"
+     },
+     {
+      "clueFragment": "Theresa's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Theresa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A stain on Theresa May's record is whispered about in church.",
+     "walkthrough": "MOTE + T. 'As heard' suggests a sound-alike, but it belongs to the definition: a piece one hears sung in church.",
+     "definitionFit": "A motet is a short sacred choral composition, the sort of music a congregation listens to in a service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 23,
@@ -349,7 +1483,69 @@
     "text": "There's no denying that much of Donald is malice primarily",
     "enumeration": "6"
    },
-   "solution": "TRUISM"
+   "solution": "TRUISM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRUISM",
+    "definitions": [
+     {
+      "text": "There's no denying that",
+      "at": 0,
+      "note": "a phrase standing for a noun: a statement nobody denies"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "much of",
+      "for": "deletion",
+      "note": "much of means most but not all, so the surname loses its last two letters"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of malice is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Donald",
+      "gives": "TRUMP",
+      "note": "Donald Trump"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "malice",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of malice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Undeniably, much of what Donald Trump does is driven by malice.",
+     "walkthrough": "TRUMP cut to TRU, then IS and M: TRUISM.",
+     "definitionFit": "A truism is a self-evident statement so obvious that no one could reasonably dispute it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Donald"
+    }
+   }
   },
   {
    "number": 24,
@@ -363,7 +1559,50 @@
     "text": "Would-be elder statesman's second-rate retreat",
     "enumeration": "5"
    },
-   "solution": "BLAIR"
+   "solution": "BLAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLAIR",
+    "definitions": [
+     {
+      "text": "Would-be elder statesman",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second-rate",
+      "gives": "B",
+      "note": "B grade means second-rate"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "LAIR",
+      "note": "a lair is a hidden refuge or den"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior politician hoping for respect has a shabby hideaway.",
+     "walkthrough": "The 's stands for 'is'. B + LAIR gives BLAIR.",
+     "definitionFit": "Tony Blair, the former Prime Minister, has long sought a role as a respected senior figure on world affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1620,77 @@
    "group": [
     "24-down",
     "9-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "BAD LOT",
+    "definitions": [
+     {
+      "text": "Unsavoury bunch",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so the first letters of banker and types are taken"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or crooked, so the letters are scrambled"
+     },
+     {
+      "text": "importing",
+      "for": "container",
+      "note": "importing means bringing in, so the pair of initials takes the scrambled letters inside"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banker types",
+      "gives": "BT",
+      "select": "first",
+      "note": "the first letters of banker and types"
+     },
+     {
+      "clueFragment": "load",
+      "gives": "LOAD",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ADLO",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOAD",
+       "gives": "ADLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shady bankers start bringing in a suspicious cargo.",
+     "walkthrough": "The two-word answer spans both linked lights, with 'of banker types' running on from the definition into the wordplay.",
+     "definitionFit": "A bad lot is an idiom for a disreputable person or group, people of dishonest or unpleasant character."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bunch"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1722,69 @@
    "group": [
     "26-across",
     "21-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IDLE THREAT",
+    "definitions": [
+     {
+      "text": "Boris-style warning?",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snapped",
+      "for": "anagram",
+      "note": "snapped means broken, so the letters of the preceding words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "rattled",
+      "gives": "RATTLED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DLETHREAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATTLEDHE",
+       "gives": "DLETHREAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boris Johnson snaps back that someone is getting rattled.",
+     "walkthrough": "'Rattled' looks like the anagram signal, but it is the fodder; 'snapped' is the signal.",
+     "definitionFit": "An idle threat is a warning with no intention of being carried out, mocking Johnson's habit of bluster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rattled"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1798,60 @@
     "text": "Piss? Drat, I suspect a plant!",
     "enumeration": "10"
    },
-   "solution": "ASPIDISTRA"
+   "solution": "ASPIDISTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPIDISTRA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect means dubious or untrustworthy, so the letters are not in their true order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piss? Drat, I",
+      "gives": "PISSDRATI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPIDISTRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PISSDRATIA",
+       "gives": "ASPIDISTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smells urine, swears, and suspects a planted bug.",
+     "walkthrough": "'Suspect a plant' reads like spy talk; the plant is a houseplant.",
+     "definitionFit": "The aspidistra is a hardy leafy houseplant, a famously common fixture in Victorian British parlours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   }
  ]
 }

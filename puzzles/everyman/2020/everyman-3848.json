@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,51 @@
      }
     ]
    },
-   "solution": "FAILSAFE"
+   "solution": "FAILSAFE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FAIL-SAFE",
+    "definitions": [
+     {
+      "text": "Sure",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fluttering",
+      "for": "anagram",
+      "note": "something fluttering flaps about restlessly, so the letters that follow are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaf? As if",
+      "gives": "LEAFASIF",
+      "note": "the letters of these words, ignoring punctuation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAFASIF",
+       "gives": "FAILSAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scoffs at the idea of a falling leaf, sarcastically exclaiming 'As if! Sure!'",
+     "walkthrough": "The exclamations read as sarcasm, but 'Sure' is a straight definition.",
+     "definitionFit": "A failsafe system is designed so it cannot go wrong, making it certain and reliable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sure"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +100,43 @@
     "text": "Geological evidence from UFOs? Silly",
     "enumeration": "6"
    },
-   "solution": "FOSSIL"
+   "solution": "FOSSIL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FOSSIL",
+    "definitions": [
+     {
+      "text": "Geological evidence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the letters are taken out of the run of words that follows, straddling the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UFOs? Silly",
+      "gives": "FOSSIL",
+      "note": "found inside the two words once the punctuation is ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A sceptic mocks the idea that flying saucers have left any evidence in the rocks.",
+     "definitionFit": "Preserved remains of ancient life in rock strata are the evidence geologists use to date layers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "UFOs"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +150,48 @@
     "text": "Regularly seen in mist, tall birch tilting",
     "enumeration": "6"
    },
-   "solution": "ITALIC"
+   "solution": "ITALIC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ITALIC",
+    "definitions": [
+     {
+      "text": "tilting",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly seen in",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the following words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mist, tall birch",
+      "gives": "ITALIC",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITALIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall birch tree leans over, glimpsed through the mist.",
+     "definitionFit": "Italic type slopes to the right, so sloping or slanted lettering is what the word describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tilting"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +205,66 @@
     "text": "University rejected movement of 'phony music' like Beethoven's 5th",
     "enumeration": "9"
    },
-   "solution": "SYMPHONIC"
+   "solution": "SYMPHONIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SYMPHONIC",
+    "definitions": [
+     {
+      "text": "like Beethoven's 5th",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "deletion",
+      "note": "what is rejected is thrown out, so that letter is removed from the fodder"
+     },
+     {
+      "text": "movement of",
+      "for": "anagram",
+      "note": "a movement shifts things about, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "'phony music'",
+      "gives": "PHONYMUSIC",
+      "note": "the letters of the quoted phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYMPHONIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PHONYMSIC",
+       "gives": "SYMPHONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university rejects a modern composition as fake music, unlike a Beethoven classic.",
+     "walkthrough": "'Movement' looks like a musical term in this surface, but it signals the letters moving.",
+     "definitionFit": "Beethoven's Fifth is a symphony, so anything resembling it is of that orchestral form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +292,52 @@
      }
     ]
    },
-   "solution": "FORLOVEORMONEY"
+   "solution": "FORLOVEORMONEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOR LOVE OR MONEY",
+    "definitions": [
+     {
+      "text": "at any cost",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas means going crazy, so the letters run wild into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move one lorry of",
+      "gives": "MOVEONELORRYOF",
+      "note": "the letters of these four words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOVEONELORRYOF",
+       "gives": "FORLOVEORMONEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haulier is told to shift a lorry full of bananas whatever it takes.",
+     "walkthrough": "'Of bananas' reads as the lorry's cargo, but 'of' is fodder and 'bananas' means mad.",
+     "definitionFit": "The idiom means a thing will not happen under any circumstances, whatever price or inducement is offered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +351,54 @@
     "text": "Subject is suppressing resistance ring",
     "enumeration": "6"
    },
-   "solution": "TROPIC"
+   "solution": "TROPIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TROPIC",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is suppressing",
+      "for": "container",
+      "note": "to suppress something is to hold it down within, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Subject",
+      "gives": "TOPIC",
+      "note": "a subject of discussion"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OPIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A subject in some trial or experiment is holding back a group's resistance.",
+     "definitionFit": "Each tropic is a circle of latitude drawn round the globe, so a ring around the Earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +412,50 @@
     "text": "Auntie's known for this: some flipping rheumatoid arthritis",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "Auntie's known for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following phrase are used, a run sitting inside it"
+     },
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something turns it over, so the run of letters is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rheumatoid arthritis",
+      "gives": "OIDAR",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An elderly aunt is famous for her flare-ups of rheumatoid arthritis.",
+     "walkthrough": "Auntie, or Auntie Beeb, is a British nickname for the BBC, which began as a broadcaster on the wireless.",
+     "definitionFit": "The BBC made its name with wireless broadcasting before television, so the nickname is tied to that medium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Auntie's"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +469,67 @@
     "text": "Quiet about struggles to include Western trailers",
     "enumeration": "8"
    },
-   "solution": "PREVIEWS"
+   "solution": "PREVIEWS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PREVIEWS",
+    "definitions": [
+     {
+      "text": "trailers",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quiet"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "struggles",
+      "gives": "VIES",
+      "note": "competes or struggles"
+     },
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for Western"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RE",
+      "VIE",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A film-maker quietly worries about the difficulty of cramming a Western into the coming attractions.",
+     "definitionFit": "Trailers are short advance showings of films, screened before release to advertise them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggles"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +543,66 @@
     "text": "Brief agreement written up, son's respectful gestures",
     "enumeration": "8"
    },
-   "solution": "CURTSEYS"
+   "solution": "CURTSEYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CURTSEYS",
+    "definitions": [
+     {
+      "text": "respectful gestures",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down entry, writing a word upwards means its letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brief",
+      "gives": "CURT",
+      "note": "curt means short or brief"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "YES",
+      "note": "a word of agreement"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURT",
+      "SEY",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "YES",
+       "to": "SEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short deal is recorded, and a son makes polite gestures of thanks.",
+     "definitionFit": "A curtsy is a bob made by bending the knees, a traditional sign of respect to royalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +630,39 @@
      }
     ]
    },
-   "solution": "NOTAHAPPYBUNNY"
+   "solution": "NOTAHAPPYBUNNY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOT A HAPPY BUNNY",
+    "definitions": [
+     {
+      "text": "Like Bugs when bugged?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Bugs when bugged?",
+      "note": "surface reading: how a creature behaves when insects or listening devices trouble it"
+     },
+     {
+      "clueFragment": "Like Bugs when bugged?",
+      "note": "setter's reading: the cartoon rabbit Bugs, when annoyed, would be described by a slang phrase for a disgruntled person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bugs is Bugs Bunny, and bugged means irritated; the phrase is slang for someone fed up.",
+     "definitionFit": "The idiom describes an annoyed or displeased person, and literally fits an irritated cartoon rabbit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bugged"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +676,68 @@
     "text": "Conman not about to get left in prison",
     "enumeration": "7"
    },
-   "solution": "SLAMMER"
+   "solution": "SLAMMER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SLAMMER",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "not marks a letter that must be taken out of the word before it"
+     },
+     {
+      "text": "to get",
+      "for": "substitution",
+      "note": "to get means to receive something in its place, so a new letter fills the gap"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conman",
+      "gives": "SCAMMER",
+      "note": "a swindler"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c, circa, means about"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "AMMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A conman, no longer around, has been abandoned in jail.",
+     "walkthrough": "The C of circa in the swindler's name is swapped for L.",
+     "definitionFit": "Slammer is slang for a jail, from the sound of cell doors banging shut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +757,67 @@
      }
     ]
    },
-   "solution": "OLDDEAR"
+   "solution": "OLDDEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "OLD DEAR",
+    "definitions": [
+     {
+      "text": "Pensioner disrespectfully",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not to start",
+      "for": "deletion",
+      "note": "not starting means the opening letter is dropped"
+     },
+     {
+      "text": "reckless",
+      "for": "anagram",
+      "note": "something reckless is wild and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told",
+      "gives": "TOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dare",
+      "gives": "DARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "DEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DARE",
+       "gives": "DEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly person is rudely warned against taking up a foolhardy challenge.",
+     "walkthrough": "'Told' looks like the verb of the sentence, but it is fodder that loses its first letter.",
+     "definitionFit": "The phrase is a patronising, mildly rude name for an elderly woman drawing a state pension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "told"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +831,51 @@
     "text": "Rishi's reconstruction – people allegedly lucky",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "people allegedly lucky",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconstruction",
+      "for": "anagram",
+      "note": "a reconstruction rebuilds something in a new form, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rishi",
+      "gives": "RISHI",
+      "note": "the letters of the name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISHI",
+       "gives": "IRISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rishi Sunak's rebuilding project relies on supposedly fortunate voters.",
+     "walkthrough": "Rishi Sunak was a UK prime minister.",
+     "definitionFit": "The saying 'the luck of the Irish' credits that nation with proverbial good fortune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reconstruction"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +889,50 @@
     "text": "We're told, alternatively, a conservative has debts or works",
     "enumeration": "9"
    },
-   "solution": "ORATORIOS"
+   "solution": "ORATORIOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ORATORIOS",
+    "definitions": [
+     {
+      "text": "works",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "We're told",
+      "for": "homophone",
+      "note": "being told something means hearing it spoken, so the result is judged by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alternatively",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     },
+     {
+      "clueFragment": "a conservative has debts",
+      "gives": "ATORIOS",
+      "soundsLike": "A TORY IOUS",
+      "note": "a, plus Tory for a Conservative, plus IOUs for debts"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour goes round that a Tory politician has either debts or a job.",
+     "walkthrough": "IOUs are written promises to pay, so debts; said quickly, the string sounds like the musical works.",
+     "definitionFit": "Oratorios are large-scale musical compositions for voices and orchestra, typically on sacred themes, by Handel and others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +958,46 @@
      }
     ]
    },
-   "solution": "ANNEHATHAWAY"
+   "solution": "ANNEHATHAWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANNE HATHAWAY",
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     },
+     {
+      "text": "Shakespeare's Trouble and Strife",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor",
+      "note": "first meaning: a Hollywood film star"
+     },
+     {
+      "clueFragment": "Shakespeare's Trouble and Strife",
+      "note": "second meaning: the playwright's spouse, using rhyming slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Trouble and strife is Cockney rhyming slang for wife; the clue reads like an actor appearing in an unknown Shakespeare play.",
+     "definitionFit": "An American film star shares her name with the woman William Shakespeare married in 1582."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trouble"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1017,79 @@
      }
     ]
    },
-   "solution": "HOOFINGIT"
+   "solution": "HOOFINGIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "HOOFING IT",
+    "definitions": [
+     {
+      "text": "Walking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "being lost means wandering astray, so the letters go astray into a new order"
+     },
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "going after means following, so one piece is placed behind the other"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn goes around the wearer, so the outer piece encloses the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "in fog",
+      "gives": "INFOG",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "belt",
+      "gives": "HIT",
+      "note": "to belt is to strike or hit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "OFING",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INFOG",
+       "gives": "OFING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lost in the fog wanders after a sweetheart, wearing a belt.",
+     "walkthrough": "'Wearing belt' sounds like clothing, but the word for belt goes around the other pieces, split across both ends.",
+     "definitionFit": "Hoofing it is informal for travelling on foot, using one's hooves as it were."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1103,62 @@
     "text": "Excuses given by European missing in attacks",
     "enumeration": "8"
    },
-   "solution": "EVASIONS"
+   "solution": "EVASIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EVASIONS",
+    "definitions": [
+     {
+      "text": "Excuses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "attacks",
+      "gives": "INVASIONS",
+      "note": "military incursions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VASIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A European soldier absent from the assaults offers pretexts.",
+     "definitionFit": "Evasions are dodges or ways of avoiding the truth, much like excuses offered in place of answers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1172,52 @@
     "text": "Spies ill prepared ...",
     "enumeration": "8"
    },
-   "solution": "ELLIPSIS"
+   "solution": "ELLIPSIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELLIPSIS",
+    "definitions": [
+     {
+      "text": "...",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made ready or worked up, so the letters are worked into another form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spies ill",
+      "gives": "SPIESILL",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPIESILL",
+       "gives": "ELLIPSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Secret agents are badly prepared, and the sentence trails off ominously.",
+     "walkthrough": "The three dots look like mere punctuation for suspense, but they are the definition.",
+     "definitionFit": "The three dots marking an omission or trailing thought are called by this punctuation name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "..."
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1231,53 @@
     "text": "Unlikely apricot-lover?",
     "enumeration": "12"
    },
-   "solution": "VELOCIRAPTOR"
+   "solution": "VELOCIRAPTOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "VELOCIRAPTOR",
+    "definitions": [
+     {
+      "text": "Unlikely apricot-lover?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlikely",
+      "for": "anagram",
+      "note": "unlikely suggests something improbable or out of place, so the letters are set in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apricot-lover",
+      "gives": "APRICOTLOVER",
+      "note": "the letters of the compound, ignoring the hyphen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APRICOTLOVER",
+       "gives": "VELOCIRAPTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Who would hardly be a fan of soft fruit?",
+     "walkthrough": "The whole clue is also the definition: a meat-eating dinosaur is an improbable fruit lover.",
+     "definitionFit": "This carnivorous predatory dinosaur hunted prey, so it would be about the last creature to crave fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Unlikely"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1303,55 @@
      }
     ]
    },
-   "solution": "PAIRUP"
+   "solution": "PAIRUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAIR UP",
+    "definitions": [
+     {
+      "text": "Come Together",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it within one's grasp, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "PUP",
+      "note": "a young dog"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "AIR",
+      "note": "an air is a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AIR",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog clings to a Beatles tune, Come Together.",
+     "walkthrough": "Come Together is a Beatles song, which makes the capitals look like a title rather than a definition.",
+     "definitionFit": "To form a couple or team is to join up with a partner, uniting as two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Together"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1365,50 @@
     "text": "Vicar gets electronic kit to modernize",
     "enumeration": "6"
    },
-   "solution": "REVAMP"
+   "solution": "REVAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVAMP",
+    "definitions": [
+     {
+      "text": "modernize",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicar",
+      "gives": "REV",
+      "note": "Rev, Reverend, is a vicar's title"
+     },
+     {
+      "clueFragment": "electronic kit",
+      "gives": "AMP",
+      "note": "an amplifier, a piece of electronic equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "AMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar buys an amplifier to bring the church services up to date.",
+     "definitionFit": "To revamp something is to renovate it and give it a new, updated appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vicar"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1428,50 @@
      }
     ]
    },
-   "solution": "STINKBOMB"
+   "solution": "STINKBOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STINK BOMB",
+    "definitions": [
+     {
+      "text": "practical joke",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Furore",
+      "gives": "STINK",
+      "note": "kicking up a stink is causing an uproar"
+     },
+     {
+      "clueFragment": "turkey",
+      "gives": "BOMB",
+      "note": "a turkey is a flop, and a flop bombs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STINK",
+      "BOMB"
+     ]
+    },
+    "explanation": {
+     "surface": "There is uproar over a turkey that turned out to be a prank.",
+     "definitionFit": "A small device releasing a foul smell is a classic prankster's trick, so a jokey stunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turkey"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1485,44 @@
     "text": "Somewhere in church, reported villainous character",
     "enumeration": "5"
    },
-   "solution": "KNAVE"
+   "solution": "KNAVE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNAVE",
+    "definitions": [
+     {
+      "text": "villainous character",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is spoken aloud, so the word is judged by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhere in church",
+      "gives": "KNAVE",
+      "soundsLike": "NAVE",
+      "note": "the nave is the main body of a church"
+     }
+    ],
+    "explanation": {
+     "surface": "A wicked figure has been seen somewhere inside a church.",
+     "walkthrough": "The silent K means the place in church and the rogue sound identical.",
+     "definitionFit": "A knave is an old word for a dishonest rogue or scoundrel, also the jack in cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "church"
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1536,50 @@
     "text": "Everyman, rank and fuming",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "fuming",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter refers to himself as I"
+     },
+     {
+      "clueFragment": "rank",
+      "gives": "RATE",
+      "note": "to rank is to rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is foul-smelling and furious.",
+     "walkthrough": "'Rank' wants to mean smelly, and fuming seems to agree; it is the verb meaning to grade.",
+     "definitionFit": "Someone fuming is seething with anger, which is to be very angry indeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rank"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1599,54 @@
      }
     ]
    },
-   "solution": "ONSTAGE"
+   "solution": "ONSTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ON-STAGE",
+    "definitions": [
+     {
+      "text": "Performing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "something accepted is taken in, so it sits within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman formally",
+      "gives": "ONE",
+      "note": "one is the formal impersonal pronoun for anybody, every man"
+     },
+     {
+      "clueFragment": "male's",
+      "gives": "STAG",
+      "note": "a stag is an adult male deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "STAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's acting is formally approved by the setter.",
+     "definitionFit": "Being on the stage means appearing before an audience, in the middle of a show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Everyman"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1660,61 @@
     "text": "Frightful migraine, head splitting somewhere in Africa",
     "enumeration": "7"
    },
-   "solution": "NIGERIA"
+   "solution": "NIGERIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NIGERIA",
+    "definitions": [
+     {
+      "text": "somewhere in Africa",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head splitting",
+      "for": "deletion",
+      "note": "the head splitting off means the first letter breaks away and is dropped"
+     },
+     {
+      "text": "Frightful",
+      "for": "anagram",
+      "note": "frightful suggests a dreadful mess, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "migraine",
+      "gives": "MIGRAINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGERIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IGRAINE",
+       "gives": "NIGERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers a dreadful migraine with a splitting head while travelling in Africa.",
+     "walkthrough": "'Head splitting' looks like the headache's symptom, but it removes the first letter.",
+     "definitionFit": "Nigeria is a West African country, so it is one particular place on that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "splitting"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1728,57 @@
     "text": "South American congress assembled ancient kingdom",
     "enumeration": "6"
    },
-   "solution": "SUSSEX"
+   "solution": "SUSSEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUSSEX",
+    "definitions": [
+     {
+      "text": "ancient kingdom",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "assembled"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US, the United States, stands for American"
+     },
+     {
+      "clueFragment": "congress",
+      "gives": "SEX",
+      "note": "congress in its sense of sexual intercourse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "SEX"
+     ]
+    },
+    "explanation": {
+     "surface": "A South American legislature has gathered in an old realm.",
+     "walkthrough": "'Congress' looks like a parliament beside 'American'; it is the old word for intercourse. SUSSEX is an English county that was once an Anglo-Saxon kingdom.",
+     "definitionFit": "The South Saxons formed a kingdom in early medieval England before it was absorbed into Wessex."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "congress"
+    }
+   }
   },
   {
    "number": 27,
@@ -499,7 +1798,50 @@
      }
     ]
    },
-   "solution": "SYNTHPOP"
+   "solution": "SYNTHPOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SYNTH-POP",
+    "definitions": [
+     {
+      "text": "style Yazoo notably tried, having plenty of pep",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "style Yazoo notably tried, having plenty of pep",
+      "gives": "SYNTHPOP",
+      "select": "first",
+      "note": "the initial of each of these eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNTHPOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A music writer describes a lively genre the band Yazoo famously experimented with.",
+     "walkthrough": "Yazoo was an English 1980s electronic duo of Vince Clarke and Alison Moyet, so the whole clue also defines the genre.",
+     "definitionFit": "Synth-pop is upbeat 1980s pop music built on synthesizers, the very style that Yazoo played."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Primarily"
+    }
+   }
   }
  ]
 }

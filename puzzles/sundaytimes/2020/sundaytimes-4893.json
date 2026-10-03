@@ -24,6 +24,9 @@
   "date": "2020-03-14",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,54 @@
     "text": "Chippy’s board left off fish",
     "enumeration": "4"
    },
-   "solution": "CARP"
+   "solution": "CARP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CARP",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left off",
+      "for": "deletion",
+      "note": "something left off is omitted, so one word's letters are taken away from the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chippy’s",
+      "gives": "CARPENTER",
+      "note": "chippy is British slang for a carpenter, a worker in wood chips"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "ENTER",
+      "note": "to board a ship or train is to enter it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A woodworker's plank has been left out of the fish order at the chip shop.",
+     "walkthrough": "Removing ENTER from CARPENTER leaves CARP; 'Chippy' tempts you towards a fish-and-chip shop, which suits the fish.",
+     "definitionFit": "The carp is a common freshwater species of the minnow family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chippy’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +101,57 @@
     "text": "One being short of training is a firing offence",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "a firing offence",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so those letters are missing"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One being",
+      "gives": "APERSON",
+      "note": "one being is a person, with one as the article A"
+     },
+     {
+      "clueFragment": "training",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without proper training commits a sackable offence at work.",
+     "walkthrough": "A PERSON without PE leaves ARSON. 'Firing offence' sounds like grounds for dismissal, but here firing means setting fire.",
+     "definitionFit": "Arson is the crime of deliberately setting fire to property, literally an offence involving fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "firing"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +165,64 @@
     "text": "Feel aggrieved that map ultimately leads here",
     "enumeration": "7"
    },
-   "solution": "PRESENT"
+   "solution": "PRESENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRESENT",
+    "definitions": [
+     {
+      "text": "here",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so only the last letter of the word is kept"
+     },
+     {
+      "text": "leads",
+      "for": "charade",
+      "note": "to lead is to go in front, so this piece is placed before the other in a down answer"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "map",
+      "gives": "P",
+      "select": "last",
+      "note": "the final letter of map"
+     },
+     {
+      "clueFragment": "Feel aggrieved",
+      "gives": "RESENT",
+      "note": "to resent something is to feel aggrieved by it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is annoyed that the map keeps directing them to this spot.",
+     "walkthrough": "The definition 'here' is hiding at the very end, looking like part of the map's directions.",
+     "definitionFit": "Present means in this place, attending, as when a teacher calls the register and pupils answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +242,74 @@
      }
     ]
    },
-   "solution": "EASTAFRICA"
+   "solution": "EASTAFRICA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EAST AFRICA",
+    "definitions": [
+     {
+      "text": "Where, finally, to join wild cat safari",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the preceding word, so only its closing letter is used"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the following letters are scrambled"
+     },
+     {
+      "text": "to join",
+      "for": "charade",
+      "note": "joining means attaching, so one piece is placed alongside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of where"
+     },
+     {
+      "clueFragment": "cat safari",
+      "gives": "CATSAFARI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTAFRICA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CATSAFARI",
+       "gives": "ASTAFRICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks where to sign up for a safari to see big wild cats.",
+     "walkthrough": "The whole clue is both wordplay and definition: the region of Kenya and Tanzania is where you go on a big-cat safari.",
+     "definitionFit": "Kenya and Tanzania, in the eastern part of the continent, are the classic destinations for watching lions and leopards in the wild."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +323,68 @@
     "text": "One charging setter in criminal complaint",
     "enumeration": "9"
    },
-   "solution": "ENTERITIS"
+   "solution": "ENTERITIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENTERITIS",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked or bent, so the letters are twisted out of order"
+     },
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "charging means rushing into, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "setter in",
+      "gives": "SETTERIN",
+      "note": "taken as written to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "I",
+      "TIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETTERIN",
+       "gives": "ENTERTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter faces criminal charges in court, accused of some wrongdoing.",
+     "walkthrough": "'Complaint' looks like a legal grievance, but it is the medical sense: an illness.",
+     "definitionFit": "Enteritis is an inflammation of the intestine, and a complaint is an everyday word for an ailment or illness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +398,56 @@
     "text": "Cakes filled with a hundred wicked things seen here",
     "enumeration": "7"
    },
-   "solution": "SCONCES"
+   "solution": "SCONCES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCONCES",
+    "definitions": [
+     {
+      "text": "wicked things seen here",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with an item holds it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cakes",
+      "gives": "SCONES",
+      "note": "scones are small baked cakes"
+     },
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCON",
+      "C",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Pastries are stuffed with a hundred naughty treats.",
+     "walkthrough": "'Wicked' suggests sinful, but it means having a wick: candles are held in these wall brackets.",
+     "definitionFit": "A sconce is a wall-mounted bracket holding candles, which are literally objects with wicks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +461,54 @@
     "text": "Pale nut found under tree",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "Pale",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down answer, being under means coming after, so this piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "EN",
+      "note": "in printing an en, or nut, is a unit of width"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A colourless nut is picked up beneath a tree.",
+     "walkthrough": "Printers called the en space a nut, a convention that crosswords borrow.",
+     "definitionFit": "Ashen describes a face drained of colour, grey like ashes, a synonym for pale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +522,68 @@
     "text": "Rifle fire by a parting force",
     "enumeration": "7"
    },
-   "solution": "RANSACK"
+   "solution": "RANSACK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RANSACK",
+    "definitions": [
+     {
+      "text": "Rifle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parting",
+      "for": "container",
+      "note": "parting something means splitting it, so a piece sits in the gap it opens"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the two pieces are placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "RN",
+      "note": "RN is the Royal Navy, a fighting force"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "SACK",
+      "note": "to fire someone is to sack them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "N",
+      "SACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Rifle fire tears through a body of troops, splitting it apart.",
+     "walkthrough": "Rifle reads as a gun, but it is the verb meaning to search and steal.",
+     "definitionFit": "To rifle a place is to go through it hurriedly, stealing things, which is to plunder or loot it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rifle"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +597,39 @@
     "text": "Pairs sometimes used to click while dancing",
     "enumeration": "9"
    },
-   "solution": "CASTANETS"
+   "solution": "CASTANETS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CASTANETS",
+    "definitions": [
+     {
+      "text": "Pairs sometimes used to click while dancing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pairs sometimes used to click while dancing",
+      "note": "surface reading: dancing couples who get on well together, who click"
+     },
+     {
+      "clueFragment": "Pairs sometimes used to click while dancing",
+      "note": "setter's reading: a pair of shell-shaped instruments held in the hand and clicked in time by a flamenco dancer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pairs' suggests couples and 'click' suggests getting on; really these are percussion instruments that come in pairs and make a clicking sound.",
+     "definitionFit": "Spanish dancers hold these wooden percussion shells in each hand and snap them together rhythmically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "click"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +649,57 @@
      }
     ]
    },
-   "solution": "SWEETNOTHINGS"
+   "solution": "SWEETNOTHINGS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container"
+    ],
+    "answer": "SWEET NOTHINGS",
+    "definitions": [
+     {
+      "text": "Trifles, possibly about love?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is wrapped around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trifles, possibly",
+      "gives": "SWEETS",
+      "note": "trifles are an example of puddings, which are called sweets in Britain"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "NOTHING",
+      "note": "love is a score of zero in tennis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "NOTHING",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert, perhaps one made for a romantic occasion.",
+     "walkthrough": "The whole clue doubles as the definition: these are trifles, small unimportant remarks, and they are all about love.",
+     "definitionFit": "The phrase names affectionate words murmured between lovers, pleasing in tone yet trivial in content."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trifles"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +713,65 @@
     "text": "Make attractive finish to a queen’s clothing",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "Make attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing something wraps it up, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "the finish is the end"
+     },
+     {
+      "clueFragment": "queen’s",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the standard abbreviation for the queen"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "E",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen's outfit is given an alluring final touch.",
+     "walkthrough": "ER, for Elizabeth Regina, is the usual crossword queen; 'clothing' here is a verb, dressing the letter A.",
+     "definitionFit": "To endear someone is to make them liked or loved, to render them appealing to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +785,65 @@
     "text": "Clubs and pubs adopting a bright red colour",
     "enumeration": "8"
    },
-   "solution": "CINNABAR"
+   "solution": "CINNABAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CINNABAR",
+    "definitions": [
+     {
+      "text": "bright red colour",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting means taking in, so the drinking places take a letter between them"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card games"
+     },
+     {
+      "clueFragment": "pubs",
+      "gives": "INNBAR",
+      "note": "two kinds of pub, an inn and a bar"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "INN",
+      "A",
+      "BAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Nightclubs and bars are taking on a vivid scarlet decor.",
+     "walkthrough": "'a' looks like the article of the definition, but it is the letter taken in by the two pubs.",
+     "definitionFit": "Cinnabar is mercury sulphide ore, whose vivid scarlet shade gives its name to a pigment, vermilion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +857,55 @@
     "text": "Cards holding an art patron’s old records",
     "enumeration": "8"
    },
-   "solution": "ACETATES"
+   "solution": "ACETATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACETATES",
+    "definitions": [
+     {
+      "text": "old records",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cards",
+      "gives": "ACES",
+      "note": "aces are playing cards"
+     },
+     {
+      "clueFragment": "an art patron’s",
+      "gives": "TATE",
+      "note": "Henry Tate, the sugar merchant, founded London's Tate gallery; the 's is read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Greetings cards carry the details of a gallery benefactor's vintage recordings.",
+     "walkthrough": "Henry Tate, a sugar merchant, gave his art collection to found the Tate gallery in London, so he is the art patron.",
+     "definitionFit": "Before tape, studio recordings were cut on discs coated with cellulose acetate, so these discs are early records."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cards"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +919,60 @@
     "text": "He painted lines without a permit",
     "enumeration": "9"
    },
-   "solution": "CANALETTO"
+   "solution": "CANALETTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANALETTO",
+    "definitions": [
+     {
+      "text": "He painted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "CANTO",
+      "note": "a canto is a section of a long poem, made up of lines"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to permit is to let"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "ALET",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone painted road markings without getting official permission.",
+     "walkthrough": "'Without' reads as lacking, but here it is the old sense of outside; and a canto, a division of a long poem, is a set of lines.",
+     "definitionFit": "Canaletto was the eighteenth-century Venetian artist famed for his detailed views of Venice and London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +986,68 @@
     "text": "Chain, one that’s six feet, keeping large mammals back",
     "enumeration": "6"
    },
-   "solution": "ANKLET"
+   "solution": "ANKLET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ANKLET",
+    "definitions": [
+     {
+      "text": "Chain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, so the letters are read from right to left"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one that’s six feet",
+      "gives": "ANT",
+      "note": "an insect has six legs, and an ant is one"
+     },
+     {
+      "clueFragment": "large mammals",
+      "gives": "ELK",
+      "note": "elk are large deer, and the plural is the same as the singular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "KLE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "ELK",
+       "to": "KLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chained creature six feet tall restrains large beasts that are backing away.",
+     "walkthrough": "'Six feet' sounds like a height, but it means six legs: the ant.",
+     "definitionFit": "An anklet is a chain or band worn around the lower leg as jewellery, so a chain fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1067,68 @@
      }
     ]
    },
-   "solution": "AIRGUITAR"
+   "solution": "AIRGUITAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "AIR GUITAR",
+    "definitions": [
+     {
+      "text": "Mimed playing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the word is dropped"
+     },
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     },
+     {
+      "clueFragment": "screen",
+      "gives": "GUARD",
+      "note": "a guard, such as a fireguard, is a protective screen"
+     },
+     {
+      "clueFragment": "It’s",
+      "gives": "IT",
+      "note": "it, with the 's read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "GU",
+      "IT",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mimes along to a song, and it is captured briefly on the big screen.",
+     "walkthrough": "GUARD loses its D to give GUAR, which then holds IT.",
+     "definitionFit": "Air guitar is the pretend strumming of an imaginary instrument while miming along to rock music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "screen"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1142,75 @@
     "text": "Couples decided wearing uniform is retrograde",
     "enumeration": "6"
    },
-   "solution": "UNITES"
+   "solution": "UNITES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UNITES",
+    "definitions": [
+     {
+      "text": "Couples",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "charade",
+      "note": "wearing means having on, which gives the short word for being inside clothes"
+     },
+     {
+      "text": "retrograde",
+      "for": "reversal",
+      "note": "retrograde means moving backwards, so the string is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decided",
+      "gives": "SET",
+      "note": "something decided is set, fixed"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "dressed in something means wearing it"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is U in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NI",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SETINU",
+       "to": "UNITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs who have chosen to dress in uniform find it a backward step.",
+     "walkthrough": "'Couples' looks like a noun, but it is the verb: joins together.",
+     "definitionFit": "To couple things is to join or link them, so couples and unites are both verbs of bringing together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couples"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1224,68 @@
     "text": "Fool left before the end of Satie’s slow movement",
     "enumeration": "7"
    },
-   "solution": "TRICKLE"
+   "solution": "TRICKLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRICKLE",
+    "definitions": [
+     {
+      "text": "slow movement",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is all that is kept"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means in front of, so the pieces come in this order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "TRICK",
+      "note": "to fool someone is to trick them"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Satie’s",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of Satie, the French composer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRICK",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A joke on the slow movement of a piece by the composer Erik Satie.",
+     "walkthrough": "With Satie in the picture, 'slow movement' reads as part of a symphony; it means liquid flowing slowly.",
+     "definitionFit": "A trickle is a thin, slow flow of liquid, literally a sluggish movement of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1299,60 @@
     "text": "Noble site bombed first",
     "enumeration": "8"
    },
-   "solution": "EARLIEST"
+   "solution": "EARLIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EARLIEST",
+    "definitions": [
+     {
+      "text": "first",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bombed",
+      "for": "anagram",
+      "note": "something bombed is blown apart, so its letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noble",
+      "gives": "EARL",
+      "note": "an earl is a nobleman"
+     },
+     {
+      "clueFragment": "site",
+      "gives": "SITE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "IEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SITE",
+       "gives": "IEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An aristocrat's estate was the first to be attacked from the air.",
+     "definitionFit": "The earliest is the one coming before all others in time, so it ranks as the initial one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bombed"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1366,43 @@
     "text": "Serious art making money?",
     "enumeration": "7"
    },
-   "solution": "EARNEST"
+   "solution": "EARNEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARNEST",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     },
+     {
+      "text": "art making money",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "note": "first meaning: sincere and solemn in intent"
+     },
+     {
+      "clueFragment": "art making money",
+      "note": "second meaning: in old English, thou art paid becomes thou ..., so art is the archaic second-person 'are', and making money is earning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Art' looks like painting, but it is the old verb form in 'thou art'; the matching old form of earn, said to thou, is spelt the same as the adjective.",
+     "definitionFit": "Earnest describes someone sincere and intense in purpose, a close synonym for serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "art"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1416,69 @@
     "text": "One Regan typifies, primarily, in play",
     "enumeration": "7"
    },
-   "solution": "INGRATE"
+   "solution": "INGRATE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INGRATE",
+    "definitions": [
+     {
+      "text": "One Regan typifies, primarily, in play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is taken"
+     },
+     {
+      "text": "in play",
+      "for": "anagram",
+      "note": "letters in play are moved around freely, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Regan",
+      "gives": "REGAN",
+      "note": "taken as written to be rearranged"
+     },
+     {
+      "clueFragment": "typifies",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of typifies"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IREGANT",
+       "gives": "INGRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regan in a Shakespeare play is the very model of a certain sort of person.",
+     "walkthrough": "The whole clue is the definition too: Regan, the faithless daughter in King Lear, is the play's great example of ingratitude.",
+     "definitionFit": "An ingrate is an ungrateful person, which describes Regan, who turns her father out after he gives her his kingdom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1492,50 @@
     "text": "Part of a cathedral made over to relics",
     "enumeration": "8"
    },
-   "solution": "CLOISTER"
+   "solution": "CLOISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLOISTER",
+    "definitions": [
+     {
+      "text": "Part of a cathedral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made over",
+      "for": "anagram",
+      "note": "something made over is remade into a new form, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to relics",
+      "gives": "TORELICS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORELICS",
+       "gives": "CLOISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a cathedral has been handed over to house holy remains.",
+     "definitionFit": "A cloister is the covered walkway around a courtyard that forms part of many cathedrals and monasteries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1549,57 @@
     "text": "Course support needed by tense university student",
     "enumeration": "5"
    },
-   "solution": "TUTEE"
+   "solution": "TUTEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUTEE",
+    "definitions": [
+     {
+      "text": "student",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "needed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "Course support",
+      "gives": "TEE",
+      "note": "on a golf course, a tee is the peg that supports the ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "U",
+      "TEE"
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious undergraduate needs extra help with their course.",
+     "walkthrough": "'Course' looks like a study course, but it is a golf course.",
+     "definitionFit": "A tutee is a person who is being taught by a tutor, a learner under individual instruction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1613,58 @@
     "text": "Desperate rebel in southern desert",
     "enumeration": "6"
    },
-   "solution": "URGENT"
+   "solution": "URGENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URGENT",
+    "definitions": [
+     {
+      "text": "Desperate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desert",
+      "for": "deletion",
+      "note": "to desert is to abandon, so these letters walk out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rebel",
+      "gives": "INSURGENT",
+      "note": "an insurgent is a rebel"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URGENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel on the run in the far-south desert is in a desperate plight.",
+     "walkthrough": "'Desert' looks like sand dunes, but it is the verb: IN and S abandon INSURGENT.",
+     "definitionFit": "A desperate need is a pressing one, so desperate and urgent both mean requiring immediate action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1678,43 @@
     "text": "Killer allergen in jam sandwiches",
     "enumeration": "5"
    },
-   "solution": "NINJA"
+   "solution": "NINJA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NINJA",
+    "definitions": [
+     {
+      "text": "Killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sandwiches",
+      "for": "hidden_word",
+      "note": "the phrase sandwiches the answer, holding it between other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allergen in jam",
+      "gives": "NINJA",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A deadly allergen is lurking inside jam sandwiches.",
+     "walkthrough": "'Jam sandwiches' looks like food, but 'sandwiches' is a verb holding the answer.",
+     "definitionFit": "A ninja was a Japanese mercenary trained in stealth and assassination, so a professional killer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1738,54 @@
      }
     ]
    },
-   "solution": "TAKETHESTRAIN"
+   "solution": "TAKETHESTRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TAKE THE STRAIN",
+    "definitions": [
+     {
+      "text": "Counteract pressure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saving",
+      "for": "container",
+      "note": "saving something means keeping it safe inside, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go by rail",
+      "gives": "TAKETHETRAIN",
+      "note": "to travel by rail is to take the train"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKETHE",
+      "S",
+      "TRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "To beat the stress of commuting, travel by train and save time.",
+     "definitionFit": "To take the strain is an idiom for bearing a load or supporting weight, resisting a force on something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saving"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1799,67 @@
     "text": "Broken nose bandaged by top medic",
     "enumeration": "10"
    },
-   "solution": "BONESETTER"
+   "solution": "BONESETTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BONESETTER",
+    "definitions": [
+     {
+      "text": "medic",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so its letters are rearranged"
+     },
+     {
+      "text": "bandaged by",
+      "for": "container",
+      "note": "something bandaged by another is wrapped in it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "BETTER",
+      "note": "to top something is to better it"
+     },
+     {
+      "clueFragment": "nose",
+      "gives": "NOSE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONES",
+      "ETTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOSE",
+       "gives": "ONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken nose is strapped up by the leading doctor.",
+     "walkthrough": "'Top' looks like an adjective for the medic, but it is the verb, to outdo.",
+     "definitionFit": "A bonesetter sets fractured or dislocated bones; the medic sense fits a traditional healer who treats injuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1873,55 @@
     "text": "Cheese turned out on the counter",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDAM",
+    "definitions": [
+     {
+      "text": "Cheese",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means in the opposite direction, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turned out",
+      "gives": "MADE",
+      "note": "something that turned out was produced, made"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDAM"
+     ],
+     "reversals": [
+      {
+       "from": "MADE",
+       "to": "EDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cheese was put out on the shop counter.",
+     "walkthrough": "'Turned out' looks like the reversal signal, but it gives the letters; the reversing is done by 'on the counter'.",
+     "definitionFit": "Edam is the round Dutch cheese with a red wax coat, named after its town of origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "counter"
+    }
+   }
   }
  ]
 }

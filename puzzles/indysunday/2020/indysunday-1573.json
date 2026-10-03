@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Something tasty one's fed to doctor",
     "enumeration": "4"
    },
-   "solution": "MISO"
+   "solution": "MISO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISO",
+    "definitions": [
+     {
+      "text": "Something tasty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to someone goes inside them, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is short for medical officer, a doctor"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and the 's stands for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A treat is being spoon-fed to a doctor.",
+     "definitionFit": "Miso is a savoury Japanese fermented soybean paste, a flavoursome food used in soups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,59 @@
     "text": "Frenchman Lehár trained as composer",
     "enumeration": "6"
    },
-   "solution": "MAHLER"
+   "solution": "MAHLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAHLER",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trained",
+      "for": "anagram",
+      "note": "something trained is reshaped and directed into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is Monsieur, the French title for a man"
+     },
+     {
+      "clueFragment": "Lehár",
+      "gives": "LEHAR",
+      "note": "the name taken as written, without its accent"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MLEHAR",
+       "gives": "MAHLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman and the operetta writer Franz Lehár both study to become composers.",
+     "walkthrough": "Lehár, the composer of The Merry Widow, is fodder here, not the definition.",
+     "definitionFit": "Gustav Mahler was an Austrian late-Romantic composer, famous for his large symphonies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,55 @@
     "text": "Top criminal seizing power",
     "enumeration": "7"
    },
-   "solution": "SPINNER"
+   "solution": "SPINNER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPINNER",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "seizing something means grabbing hold of it, so the criminal word wraps around the letter for power"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "SINNER",
+      "note": "a sinner is a wrongdoer"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "INNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading crook takes control.",
+     "walkthrough": "'Top' reads as an adjective for the boss criminal, but it is the toy.",
+     "definitionFit": "A top is a toy that spins on its point, so it can be called a spinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +225,40 @@
     "text": "How Buñuel may have interpreted White House film?",
     "enumeration": "10"
    },
-   "solution": "CASABLANCA"
+   "solution": "CASABLANCA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CASABLANCA",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 44
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How Buñuel may have interpreted White House",
+      "note": "Luis Buñuel was a Spanish film director, and the clue asks how a Spanish speaker would put 'white house' into his own language"
+     },
+     {
+      "clueFragment": "film",
+      "note": "the result is the title of the 1942 Bogart and Bergman wartime classic"
+     }
+    ],
+    "explanation": {
+     "surface": "A famous director reimagines the US presidential residence as cinema.",
+     "walkthrough": "Spanish casa means house and blanca means white; the Moroccan city named this way gave its name to the film.",
+     "definitionFit": "Casablanca is the celebrated 1942 Hollywood movie starring Humphrey Bogart and Ingrid Bergman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "White"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +272,56 @@
     "text": "Hunter in exploit over enormously long period",
     "enumeration": "7"
    },
-   "solution": "ACTAEON"
+   "solution": "ACTAEON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACTAEON",
+    "definitions": [
+     {
+      "text": "Hunter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means placed above, so the first piece comes before the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exploit",
+      "gives": "ACT",
+      "note": "an act is a deed or exploit"
+     },
+     {
+      "clueFragment": "enormously long period",
+      "gives": "AEON",
+      "note": "an aeon is an immeasurably long age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT",
+      "AEON"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter performs a feat lasting an extremely long time.",
+     "definitionFit": "In Greek myth Actaeon was a huntsman turned into a stag by Artemis and killed by his own hounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exploit"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +335,55 @@
     "text": "High-flyers must have raw rice boiled",
     "enumeration": "7"
    },
-   "solution": "AIRCREW"
+   "solution": "AIRCREW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIRCREW",
+    "definitions": [
+     {
+      "text": "High-flyers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boiled",
+      "for": "anagram",
+      "note": "boiling churns things about in the pot, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "must have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raw rice",
+      "gives": "RAWRICE",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAWRICE",
+       "gives": "AIRCREW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ambitious achievers insist their uncooked rice be boiled.",
+     "walkthrough": "'High-flyers' suggests ambitious people, but literally means those who fly an aircraft.",
+     "definitionFit": "An aircrew is the team who operate a plane, people who literally fly high."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "High-flyers"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +407,43 @@
      }
     ]
    },
-   "solution": "LEAVEWELLALONE"
+   "solution": "LEAVEWELLALONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAVE WELL ALONE",
+    "definitions": [
+     {
+      "text": "Keep away from bore",
+      "at": 0
+     },
+     {
+      "text": "don't get involved",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep away from bore",
+      "note": "first meaning, read literally: do not go near a bore, a drilled shaft for water"
+     },
+     {
+      "clueFragment": "don't get involved",
+      "note": "second meaning: the idiom for not meddling in a situation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bore' seems to be a tedious person, but it is a borehole, so the phrase can be read word for word.",
+     "definitionFit": "The idiom means refrain from interfering with something that is fine as it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +457,53 @@
     "text": "Darkness is terrible thing",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHT",
+    "definitions": [
+     {
+      "text": "Darkness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a dreadful state, so the following word's letters are mangled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "the five letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy pronouncement that darkness is something awful.",
+     "definitionFit": "Night is the period between dusk and dawn when there is no daylight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +517,57 @@
     "text": "Aussie river rising in impressive display",
     "enumeration": "5"
    },
-   "solution": "ARRAY"
+   "solution": "ARRAY",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ARRAY",
+    "definitions": [
+     {
+      "text": "impressive display",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means going upwards, so the river's name is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aussie river",
+      "gives": "YARRA",
+      "note": "the Yarra flows through Melbourne, Australia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRAY"
+     ],
+     "reversals": [
+      {
+       "from": "YARRA",
+       "to": "ARRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian river in flood makes a spectacular sight.",
+     "walkthrough": "'Rising' sounds like a river in spate, but it turns the name upside down.",
+     "definitionFit": "An array is an impressive range or arrangement of things laid out for show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +587,38 @@
      }
     ]
    },
-   "solution": "ACTIONSTATIONS"
+   "solution": "ACTIONSTATIONS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ACTION STATIONS",
+    "definitions": [
+     {
+      "text": "Conflicting positions?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conflicting positions?",
+      "note": "surface reading: opinions or stances that contradict each other"
+     },
+     {
+      "clueFragment": "Conflicting",
+      "note": "setter's reading: the places crew members take up for conflict, when a ship prepares for battle"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase is the command for troops or sailors to take their posts ready for combat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Conflicting"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +632,39 @@
     "text": "Means to reduce capital growth?",
     "enumeration": "7"
    },
-   "solution": "HAIRCUT"
+   "solution": "HAIRCUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HAIRCUT",
+    "definitions": [
+     {
+      "text": "Means to reduce capital growth?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Means to reduce capital growth?",
+      "note": "surface reading: a financial measure that shrinks the growth of invested capital, and in finance this word names a cut in an asset's value"
+     },
+     {
+      "clueFragment": "capital growth",
+      "note": "setter's reading: capital is the head, and its growth is what sprouts on it"
+     }
+    ],
+    "explanation": {
+     "surface": "An economist proposes a measure to rein in investment returns.",
+     "definitionFit": "A trim removes what grows on top of the head; bankers also use the word for a reduction in asset value."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +678,59 @@
     "text": "Substantial domestic plot — study extracted mineral",
     "enumeration": "7"
    },
-   "solution": "REALGAR"
+   "solution": "REALGAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REALGAR",
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracted",
+      "for": "deletion",
+      "note": "something extracted is pulled out, so the word for study is taken away from the plot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Substantial",
+      "gives": "REAL",
+      "note": "substantial things are real, actually existing"
+     },
+     {
+      "clueFragment": "domestic plot",
+      "gives": "GARDEN",
+      "note": "the plot of land beside a house"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private room for study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "GAR"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent describes a large garden from which the study has been removed, leaving a mineral.",
+     "definitionFit": "Realgar is an orange-red arsenic sulphide ore, used historically as a pigment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +744,48 @@
     "text": "Weariness seen in pupil regularly",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Weariness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen in pupil",
+      "gives": "ENNUI",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENNUI"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher notices a pupil keeps looking tired.",
+     "definitionFit": "Ennui is a listless boredom and lack of interest, a mental tiredness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seen"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +799,55 @@
     "text": "Seriously old walls in home",
     "enumeration": "9"
    },
-   "solution": "EARNESTLY"
+   "solution": "EARNESTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EARNESTLY",
+    "definitions": [
+     {
+      "text": "Seriously",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "walls in",
+      "for": "container",
+      "note": "to wall something in is to surround it, so the first word encloses the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EARLY",
+      "note": "early in the sense of from a former time"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a bird's home, or any cosy dwelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "NEST",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Seriously, the old house is surrounded by walls.",
+     "walkthrough": "EARLY surrounds NEST: EAR-NEST-LY.",
+     "definitionFit": "Both adverbs describe acting with sincere, grave intent rather than lightly or in jest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "walls"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +861,46 @@
     "text": "Tree line to extend over",
     "enumeration": "5"
    },
-   "solution": "LARCH"
+   "solution": "LARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LARCH",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "to extend over",
+      "gives": "ARCH",
+      "note": "to arch is to curve or span over something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A row of trees stretches over a path.",
+     "definitionFit": "The larch is a deciduous conifer that sheds its needles each autumn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +920,62 @@
      }
     ]
    },
-   "solution": "BRANDNEW"
+   "solution": "BRANDNEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BRAND-NEW",
+    "definitions": [
+     {
+      "text": "Virgin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drowned in",
+      "for": "container",
+      "note": "something drowned in liquid is fully submerged inside it, so these pieces go within the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Pole",
+      "gives": "N",
+      "note": "N is the North Pole"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "BREW",
+      "note": "a brew is a beer, or any brewed drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "AND",
+      "N",
+      "EW"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotal visitor and a Polish friend end up sozzled in beer.",
+     "walkthrough": "'Virgin' and 'Pole' both look like people in the surface.",
+     "definitionFit": "Virgin can mean untouched or unused, as in virgin snow, so something entirely new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +989,38 @@
     "text": "Star appearing in many westerns",
     "enumeration": "5"
    },
-   "solution": "BADGE"
+   "solution": "BADGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BADGE",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star appearing in many westerns",
+      "note": "surface reading: a lead actor who features in many cowboy films"
+     },
+     {
+      "clueFragment": "Star",
+      "note": "setter's reading: the star-shaped emblem pinned to a sheriff's chest"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A sheriff's tin star is the insignia of office worn on the shirt, a symbol of authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1034,61 @@
     "text": "Erstwhile partner works to return bonus",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "bonus",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the word for works is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Erstwhile partner",
+      "gives": "EX",
+      "note": "a former spouse or lover is an ex"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "ART",
+      "note": "works of art, collectively art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former spouse comes back to work for a bonus.",
+     "walkthrough": "EX then ART backwards (TRA).",
+     "definitionFit": "An extra is something additional on top of what is expected, like a perk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1102,43 @@
     "text": "Mature blue",
     "enumeration": "5"
    },
-   "solution": "ADULT"
+   "solution": "ADULT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADULT",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     },
+     {
+      "text": "blue",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mature",
+      "note": "first meaning: fully grown up"
+     },
+     {
+      "clueFragment": "blue",
+      "note": "second meaning: sexually explicit, as in a blue film"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Blue' looks like a colour or a mood; here it is the sense of risqué content.",
+     "definitionFit": "The word means grown-up, and is also the euphemism for explicit material meant for over-eighteens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1152,73 @@
     "text": "Tomb, cold, seen by Pound coming into Italian city church",
     "enumeration": "8"
    },
-   "solution": "CROMLECH"
+   "solution": "CROMLECH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CROMLECH",
+    "definitions": [
+     {
+      "text": "Tomb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming into",
+      "for": "container",
+      "note": "coming into a place means entering it, so this piece goes inside the city"
+     },
+     {
+      "text": "seen by",
+      "for": "charade",
+      "note": "seen by means set beside, so the pieces simply sit next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "Pound",
+      "gives": "L",
+      "note": "L is the pound sign, from Latin libra"
+     },
+     {
+      "clueFragment": "Italian city",
+      "gives": "ROME",
+      "note": "Italy's capital"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROM",
+      "L",
+      "E",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller notes a chilly tomb, a church, and the poet Ezra Pound visiting an Italian city.",
+     "walkthrough": "Pound looks like the American poet who lived in Italy, but it is the currency sign.",
+     "definitionFit": "A cromlech is a prehistoric megalithic burial chamber, a dolmen of standing stones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1238,47 @@
      }
     ]
    },
-   "solution": "CRACKUP"
+   "solution": "CRACKUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRACK UP",
+    "definitions": [
+     {
+      "text": "Go to pieces",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent",
+      "gives": "CRACK",
+      "note": "a rent is a tear or split, a crack"
+     },
+     {
+      "clueFragment": "increased",
+      "gives": "UP",
+      "note": "a price that has increased has gone up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant faced with a rent rise falls apart.",
+     "walkthrough": "'Rent' looks like money paid to a landlord; it is a split.",
+     "definitionFit": "To crack up is to break down mentally or emotionally, collapsing under strain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1292,39 @@
     "text": "Red, green, blue or black card?",
     "enumeration": "7"
    },
-   "solution": "ODDBALL"
+   "solution": "ODDBALL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ODDBALL",
+    "definitions": [
+     {
+      "text": "card?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red, green, blue or black card?",
+      "note": "surface reading: a coloured playing card or penalty card"
+     },
+     {
+      "clueFragment": "Red, green, blue or black",
+      "note": "setter's reading: these are colours of snooker balls, but a 'card' is an eccentric person, and only a strange kind of ball would be one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British slang a card is a comic, eccentric character; red, green, blue and black are ball colours in snooker.",
+     "definitionFit": "An eccentric or peculiar person, a real character, is called a card in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1338,55 @@
     "text": "Watertight chamber is thus enclosed in metal",
     "enumeration": "7"
    },
-   "solution": "CAISSON"
+   "solution": "CAISSON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAISSON",
+    "definitions": [
+     {
+      "text": "Watertight chamber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enclosed in",
+      "for": "container",
+      "note": "something enclosed in a casing sits inside it, so the phrase goes within the metal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "CAN",
+      "note": "a can is a metal tin"
+     },
+     {
+      "clueFragment": "is thus",
+      "gives": "ISSO",
+      "note": "is, plus so meaning thus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "ISSO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer notes a sealed chamber is encased in metal.",
+     "walkthrough": "CA + IS SO + N.",
+     "definitionFit": "A caisson is a sealed underwater chamber in which construction work is done below water level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "metal"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1400,69 @@
     "text": "Guard against black sheep eating a rook",
     "enumeration": "6"
    },
-   "solution": "BEWARE"
+   "solution": "BEWARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEWARE",
+    "definitions": [
+     {
+      "text": "Guard against",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes food inside, so the sheep surrounds the two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B for black, as on pencils"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "EWE",
+      "note": "a ewe is a female sheep"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EW",
+      "A",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer protects against the black sheep of the flock eating a crow.",
+     "walkthrough": "B + EW(AR)E. 'Black sheep' reads as a phrase but splits in two.",
+     "definitionFit": "To beware of something is to be cautious and on the lookout to protect oneself from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1476,71 @@
     "text": "Catch tense boy round north in important region",
     "enumeration": "9"
    },
-   "solution": "HEARTLAND"
+   "solution": "HEARTLAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEARTLAND",
+    "definitions": [
+     {
+      "text": "important region",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the boy goes around the compass point"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "HEAR",
+      "note": "to catch what someone says is to hear it"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "T",
+      "LA",
+      "N",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous boy is caught heading north in an important area.",
+     "walkthrough": "HEAR + T + LA(N)D.",
+     "definitionFit": "A heartland is the central, most vital area of a country or of support for a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1554,63 @@
     "text": "Bird initially near atomic plant",
     "enumeration": "5"
    },
-   "solution": "HENNA"
+   "solution": "HENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HENNA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letters of the next two words are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "atomic",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEN",
+      "N",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird starts out close to a nuclear power station.",
+     "walkthrough": "'Atomic plant' reads as a power station, but plant is the definition on its own.",
+     "definitionFit": "Henna is a shrub whose leaves yield a reddish dye used on hair and skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1624,64 @@
     "text": "Vessel and wine, unopened, brought into sober meeting",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "unopened means without its opening, so the wine loses its first letter"
+     },
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "brought into a gathering means placed inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sober meeting",
+      "gives": "AA",
+      "note": "AA is Alcoholics Anonymous, whose meetings are for staying sober"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ORT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An unopened bottle of wine is carried into a temperance meeting.",
+     "walkthrough": "'Vessel' suggests a bottle; it is a blood vessel.",
+     "definitionFit": "The aorta is the main artery carrying blood out of the heart, the body's largest blood vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1695,59 @@
     "text": "Get wisdom about current in French river",
     "enumeration": "5"
    },
-   "solution": "LOIRE"
+   "solution": "LOIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOIRE",
+    "definitions": [
+     {
+      "text": "French river",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for wisdom surrounds the electrical symbol"
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wisdom",
+      "gives": "LORE",
+      "note": "lore is traditional knowledge and wisdom"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "I",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seeks wisdom about the current in a French river.",
+     "walkthrough": "LORE surrounds I: LO(I)RE. 'Current' suits a river in the surface, but it is the symbol I.",
+     "definitionFit": "The Loire is the longest river in France, flowing west to the Atlantic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1761,56 @@
     "text": "King visiting apparently empty county?",
     "enumeration": "7"
    },
-   "solution": "NORFOLK"
+   "solution": "NORFOLK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NORFOLK",
+    "definitions": [
+     {
+      "text": "county?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "someone visiting is staying inside a place for a while, so the king goes within the next phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is rex, Latin for king"
+     },
+     {
+      "clueFragment": "apparently empty",
+      "gives": "NOFOLK",
+      "note": "a place that seems empty has no folk, no people in it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "R",
+      "FOLK"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch tours a county that seems deserted.",
+     "walkthrough": "R goes into NO FOLK: NO(R)FOLK. Norfolk is a rural county in eastern England, often joked about as sparsely populated, hence the question mark.",
+     "definitionFit": "Norfolk is an English county on the East Anglian coast, here defined by an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "apparently"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1824,53 @@
     "text": "Is a name recollected? Not with this!",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "AMNESIA",
+    "definitions": [
+     {
+      "text": "Is a name recollected? Not with this!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recollected",
+      "for": "anagram",
+      "note": "re-collected means gathered up again in a new arrangement, so the letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is a name",
+      "gives": "ISANAME",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISANAME",
+       "gives": "AMNESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rhetorical question: can you remember a name with this condition? Certainly not.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: 'recollected' means remembered on the surface and re-collected for the anagram.",
+     "definitionFit": "Amnesia is loss of memory, so with it a person cannot recall names or anything else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "recollected"
+    }
+   }
   },
   {
    "number": 27,
@@ -487,7 +1890,58 @@
      }
     ]
    },
-   "solution": "ADAMSAPPLE"
+   "solution": "ADAMSAPPLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADAMS APPLE",
+    "definitions": [
+     {
+      "text": "throat part",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to swallow",
+      "for": "container",
+      "note": "swallowing takes something inside, so the water phrase surrounds the music marking"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water",
+      "gives": "ADAMSALE",
+      "note": "Adam's ale is a jokey old British term for water, the only drink Adam had"
+     },
+     {
+      "clueFragment": "very quietly",
+      "gives": "PP",
+      "note": "pianissimo, the musical marking for very quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADAMSA",
+      "PP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gulps water very softly down their throat.",
+     "walkthrough": "Adam's ale is an old joking name for water, since Adam had nothing else to drink.",
+     "definitionFit": "The Adam's apple is the visible bulge of the larynx cartilage at the front of the neck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Water"
+    }
+   }
   },
   {
    "number": 28,
@@ -501,7 +1955,45 @@
     "text": "Some work needed in joint",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a portion of them is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work needed",
+      "gives": "KNEE",
+      "note": "the end of work and the start of needed"
+     }
+    ],
+    "explanation": {
+     "surface": "A surgeon says a joint requires some repair.",
+     "definitionFit": "The knee is the hinge between thigh and shin, a major leg articulation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   }
  ]
 }

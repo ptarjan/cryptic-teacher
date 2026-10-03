@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Stay with boy to include day in France",
     "enumeration": "7"
    },
-   "solution": "SOJOURN"
+   "solution": "SOJOURN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOJOURN",
+    "definitions": [
+     {
+      "text": "Stay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to hold it inside, so the boy's word wraps around the French day"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a boy as someone's child"
+     },
+     {
+      "clueFragment": "day in France",
+      "gives": "JOUR",
+      "note": "the French word for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "JOUR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone books a stay with their son, making sure to include a day trip to France.",
+     "walkthrough": "'Day in France' asks for the French word, not a place or date.",
+     "definitionFit": "A sojourn is a temporary visit somewhere, so it is a noun synonym for a stay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,43 @@
     "text": "Fibre for rope mats is a leaf extract",
     "enumeration": "5"
    },
-   "solution": "SISAL"
+   "solution": "SISAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SISAL",
+    "definitions": [
+     {
+      "text": "Fibre for rope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extract",
+      "for": "hidden_word",
+      "note": "an extract is a piece taken out of something larger, so the letters are drawn from inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mats is a leaf",
+      "gives": "SISAL",
+      "note": "the letters run across mats, is, a and leaf"
+     }
+    ],
+    "explanation": {
+     "surface": "A rope fibre used for mats is said to be extracted from a plant leaf.",
+     "walkthrough": "Fittingly, sisal really is drawn from the leaves of an agave and used for matting.",
+     "definitionFit": "Sisal is the stiff fibre from an agave plant, widely used for making rope and twine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extract"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,72 @@
     "text": "Chum regularly improvised music outside with me in hot tub",
     "enumeration": "7"
    },
-   "solution": "JACUZZI"
+   "solution": "JACUZZI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "JACUZZI",
+    "definitions": [
+     {
+      "text": "hot tub",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of chum is used"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the music word goes around the chum letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "improvised music",
+      "gives": "JAZZ",
+      "note": "jazz is music built on improvisation"
+     },
+     {
+      "clueFragment": "Chum",
+      "gives": "CU",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "with me",
+      "gives": "I",
+      "note": "me as the speaker is I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "CU",
+      "ZZ",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend regularly plays improvised music outside while the speaker relaxes in a hot tub.",
+     "walkthrough": "'Regularly' here keeps alternate letters starting from the first.",
+     "definitionFit": "A Jacuzzi is a brand of whirlpool bath, now the general word for a bubbling hot tub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,46 @@
     "text": "Second-hand American edition",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Second-hand",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ed is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface reads as a description of a pre-owned American book.",
+     "definitionFit": "Used goods have had a previous owner, so the adjective means pre-owned or not new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edition"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +301,88 @@
      }
     ]
    },
-   "solution": "NOSKINOFFMYNOSE"
+   "solution": "NOSKINOFFMYNOSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NO SKIN OFF MY NOSE",
+    "definitions": [
+     {
+      "text": "not a problem for me",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue over means turned upside down, so the issue word is read backwards"
+     },
+     {
+      "text": "disposed",
+      "for": "anagram",
+      "note": "disposed means arranged or set out, so the letters of money's are laid out afresh"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Issue",
+      "gives": "SON",
+      "note": "a person's issue is their offspring"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are one's family"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "OFF",
+      "note": "feeling off means feeling unwell"
+     },
+     {
+      "clueFragment": "money's",
+      "gives": "MONEYS",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "KIN",
+      "OFF",
+      "MYNOSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MONEYS",
+       "gives": "MYNOSE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SON",
+       "to": "NOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family dispute over a sick relative leaves someone unbothered because their own money is sorted.",
+     "walkthrough": "'Issue' looks like a matter in dispute, but it means offspring.",
+     "definitionFit": "The idiom is said when something does not bother or affect the speaker at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +396,61 @@
     "text": "Cheer try before catch is reviewed",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "Cheer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is reviewed",
+      "for": "reversal",
+      "note": "something reviewed is looked back over, so the word for catch is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "HEAR",
+      "note": "a judge will try, or hear, a case in court"
+     },
+     {
+      "clueFragment": "catch",
+      "gives": "NET",
+      "note": "to net a fish is to catch it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TEN"
+     ],
+     "reversals": [
+      {
+       "from": "NET",
+       "to": "TEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby fan cheers a try scored just before a dropped catch is checked on video replay.",
+     "walkthrough": "'Try' looks like a rugby score, but it is the legal sense of judging a case in court.",
+     "definitionFit": "To hearten someone is to encourage them and lift their spirits, a verb synonym for cheer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 5,
@@ -145,7 +474,63 @@
      }
     ]
    },
-   "solution": "HARDLUCKSTORIES"
+   "solution": "HARDLUCKSTORIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARD-LUCK STORIES",
+    "definitions": [
+     {
+      "text": "Tales of woe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "dividing means splitting something apart, so fortune's word sits between the two halves"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solid",
+      "gives": "HARD",
+      "note": "solid means hard"
+     },
+     {
+      "clueFragment": "fortune's",
+      "gives": "LUCKS",
+      "note": "luck is fortune, with the 's supplying the S"
+     },
+     {
+      "clueFragment": "Conservatives",
+      "gives": "TORIES",
+      "note": "Tories are members of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "LUCKS",
+      "TORIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Diehard Tories split by a reversal of fortune swap stories of their misery.",
+     "walkthrough": "Hard Tories are the right wing of Britain's Conservative Party; the possessive on fortune's supplies an extra letter.",
+     "definitionFit": "Hard-luck stories are accounts of misfortune told to win sympathy, so they are tales of woe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solid"
+    }
+   }
   },
   {
    "number": 6,
@@ -169,7 +554,68 @@
      }
     ]
    },
-   "solution": "ASPERUSUAL"
+   "solution": "ASPERUSUAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AS PER USUAL",
+    "definitions": [
+     {
+      "text": "Normally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the inspection word wraps around the uranium"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "inspection",
+      "gives": "PERUSAL",
+      "note": "a perusal is a careful reading or inspection"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "PERUS",
+      "U",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "As is routine, a follow-up inspection locks away the uranium at a nuclear site.",
+     "walkthrough": "'Second' is the time unit, abbreviated as a single letter, not an ordinal.",
+     "definitionFit": "As per usual is an informal idiom meaning as always happens, so routinely or normally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 7,
@@ -183,7 +629,60 @@
     "text": "Thrash lightweight after first of two rounds",
     "enumeration": "7"
    },
-   "solution": "TROUNCE"
+   "solution": "TROUNCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUNCE",
+    "definitions": [
+     {
+      "text": "Thrash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of picks the opening letter of each of the next two words"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two rounds",
+      "gives": "TR",
+      "select": "first",
+      "note": "the opening letters of two and rounds"
+     },
+     {
+      "clueFragment": "lightweight",
+      "gives": "OUNCE",
+      "note": "an ounce is a very small weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer gives a lightweight opponent a beating after the first two rounds.",
+     "walkthrough": "'First of two rounds' looks like a boxing count, but it takes the initials of both two and rounds.",
+     "definitionFit": "To trounce is to defeat heavily or beat soundly, a verb synonym for thrash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lightweight"
+    }
+   }
   },
   {
    "number": 8,
@@ -197,7 +696,66 @@
     "text": "Choose to adopt girl after partner's lack of care",
     "enumeration": "7"
    },
-   "solution": "NEGLECT"
+   "solution": "NEGLECT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NEGLECT",
+    "definitions": [
+     {
+      "text": "lack of care",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to adopt",
+      "for": "container",
+      "note": "to adopt is to take in, so the choose word takes the girl letter inside it"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partner",
+      "gives": "N",
+      "note": "in bridge North is South's partner, abbreviated N"
+     },
+     {
+      "clueFragment": "Choose",
+      "gives": "ELECT",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "G",
+      "note": "G is an abbreviation for girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "G",
+      "LECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple choose to adopt a girl after the partner's neglect of her came to light.",
+     "walkthrough": "In bridge the four players are North, South, East and West, so a partner can be N, S, E or W; G goes after the first E of ELECT.",
+     "definitionFit": "Neglect is the failure to look after someone or something properly, a noun meaning lack of care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 9,
@@ -211,7 +769,57 @@
     "text": "Next in line for gold on back of victory",
     "enumeration": "9"
    },
-   "solution": "SUCCESSOR"
+   "solution": "SUCCESSOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUCCESSOR",
+    "definitions": [
+     {
+      "text": "Next in line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on back of",
+      "for": "charade",
+      "note": "placed on the back of something means attached after it, so the gold follows the victory word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "SUCCESS",
+      "note": "a victory is a success"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUCCESS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete earns a gold medal on the back of a victory, putting them next in line for glory.",
+     "walkthrough": "OR is the heraldic word for gold, a crossword staple.",
+     "definitionFit": "A successor is the person who follows on in a role or title, the heir waiting to take over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 10,
@@ -225,7 +833,63 @@
     "text": "Papa's in error ignoring wife's point",
     "enumeration": "5"
    },
-   "solution": "PRONG"
+   "solution": "PRONG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PRONG",
+    "definitions": [
+     {
+      "text": "point",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so the wife's letter is dropped from the error word"
+     }
+    ],
+    "linkWords": [
+     "'s in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Papa",
+      "gives": "P",
+      "note": "P is Papa in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "WRONG",
+      "note": "an error is a wrong"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RONG"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad has got it wrong, ignoring his wife's point in an argument.",
+     "walkthrough": "'Point' looks like the wife's argument, but it is the definition: a sharp tip.",
+     "definitionFit": "A prong is a sharp spike, such as one tine of a fork, so it is a pointed tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 11,
@@ -239,7 +903,65 @@
     "text": "Slow to get moving having left street map back in city",
     "enumeration": "4"
    },
-   "solution": "LAZY"
+   "solution": "LAZY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LAZY",
+    "definitions": [
+     {
+      "text": "Slow to get moving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the closing letter of city is kept"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "street map",
+      "gives": "AZ",
+      "note": "an A-Z is a British street atlas of a city"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AZ",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist is slow to set off, having left the street map back at the hotel in the city.",
+     "walkthrough": "An A-Z is the standard British book of street maps for a town, named for its index running from A to Z.",
+     "definitionFit": "Someone lazy is idle and reluctant to make an effort, so slow to get going."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 12,
@@ -259,7 +981,49 @@
      }
     ]
    },
-   "solution": "RIFLERANGE"
+   "solution": "RIFLERANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIFLE RANGE",
+    "definitions": [
+     {
+      "text": "somewhere to practise shooting",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Search",
+      "gives": "RIFLE",
+      "note": "to rifle through drawers is to search them"
+     },
+     {
+      "clueFragment": "mountains",
+      "gives": "RANGE",
+      "note": "a range is a chain of mountains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIFLE",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Hunters search the mountains for a good place to practise their shooting.",
+     "definitionFit": "A rifle range is a designated ground with targets where people practise firing guns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Search"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +1037,71 @@
     "text": "Met friends having liaised to come out after football's first half",
     "enumeration": "10"
    },
-   "solution": "SOCIALISED"
+   "solution": "SOCIALISED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOCIALISED",
+    "definitions": [
+     {
+      "text": "Met friends",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first half",
+      "for": "deletion",
+      "note": "the first half of a word keeps its opening portion and drops the remainder"
+     },
+     {
+      "text": "to come out",
+      "for": "anagram",
+      "note": "to come out differently suggests the letters of liaised emerge in a new order"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "football",
+      "gives": "SOCCER",
+      "note": "soccer is association football"
+     },
+     {
+      "clueFragment": "liaised",
+      "gives": "LIAISED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOC",
+      "IALISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIAISED",
+       "gives": "IALISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Players met up with friends after liaising to go out once the first half of a football match was over.",
+     "walkthrough": "'First half' looks like part of a match, but it trims SOCCER to SOC.",
+     "definitionFit": "To socialise is to mix with other people for pleasure, so socialised means spent time with friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +1115,74 @@
     "text": "Way of working in ink transformed old robe",
     "enumeration": "6"
    },
-   "solution": "KIMONO"
+   "solution": "KIMONO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "KIMONO",
+    "definitions": [
+     {
+      "text": "robe",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "transformed means changed in form, so the letters of ink are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the way of working inside the reshuffled ink letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ink",
+      "gives": "INK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Way of working",
+      "gives": "MO",
+      "note": "MO is modus operandi, Latin for a way of working"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "MO",
+      "N",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INK",
+       "gives": "KIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's method of working ink is used to transform an old robe with new designs.",
+     "walkthrough": "Modus operandi is Latin for method of working, usually shortened to its initials.",
+     "definitionFit": "A kimono is the long, wide-sleeved traditional Japanese garment, an example of a robe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transformed"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1196,59 @@
     "text": "Commanding officer taking short nap after lunch is most comfortable",
     "enumeration": "7"
    },
-   "solution": "COSIEST"
+   "solution": "COSIEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COSIEST",
+    "definitions": [
+     {
+      "text": "most comfortable",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its end, so the nap word drops its final letter"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commanding officer",
+      "gives": "CO",
+      "note": "CO is the standard abbreviation for commanding officer"
+     },
+     {
+      "clueFragment": "nap after lunch",
+      "gives": "SIESTA",
+      "note": "a siesta is an afternoon nap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "SIEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The commanding officer finds a brief doze after lunch the most comfortable part of his day.",
+     "walkthrough": "'After lunch' belongs to the nap, describing the Spanish afternoon rest.",
+     "definitionFit": "Cosiest is the superlative of cosy, meaning snuggest and warmest, so the most comfortable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1268,50 @@
      }
     ]
    },
-   "solution": "INBRIEF"
+   "solution": "INBRIEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN BRIEF",
+    "definitions": [
+     {
+      "text": "to sum up",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "something in is fashionable"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "BRIEF",
+      "note": "a brief is British slang for a barrister or solicitor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "BRIEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable lawyer is about to give the jury a closing summary.",
+     "walkthrough": "In Britain a lawyer is informally called a brief, after the document of instructions they receive.",
+     "definitionFit": "In brief is an idiom meaning in short, briefly stated, which is what a summary does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lawyer"
+    }
+   }
   },
   {
    "number": 16,
@@ -341,7 +1331,50 @@
      }
     ]
    },
-   "solution": "INPOWER"
+   "solution": "INPOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN POWER",
+    "definitions": [
+     {
+      "text": "running things",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "might",
+      "gives": "POWER",
+      "note": "might is power or strength"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "POWER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at home wonders whether they might soon be in charge.",
+     "walkthrough": "'Might' looks like a verb of possibility, but it is the noun meaning strength.",
+     "definitionFit": "A party in power holds office and governs, so it is the one in charge of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "might"
+    }
+   }
   },
   {
    "number": 17,
@@ -355,7 +1388,54 @@
     "text": "Crazy colourful scarves daughter's chucked out",
     "enumeration": "7"
    },
-   "solution": "BANANAS"
+   "solution": "BANANAS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BANANAS",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chucked out",
+      "for": "deletion",
+      "note": "something chucked out is thrown away, so the daughter letter is removed from the scarves word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colourful scarves",
+      "gives": "BANDANAS",
+      "note": "bandanas are brightly patterned neckerchiefs"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "d is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "NANAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother goes mad because her daughter has thrown out some bright scarves.",
+     "walkthrough": "BANDANAS loses its D to leave the answer.",
+     "definitionFit": "Going bananas is slang for going mad, so the word is an informal adjective for crazy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "daughter"
+    }
+   }
   },
   {
    "number": 18,
@@ -369,7 +1449,49 @@
     "text": "Quiet religious house reportedly in poor condition",
     "enumeration": "6"
    },
-   "solution": "SHABBY"
+   "solution": "SHABBY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SHABBY",
+    "definitions": [
+     {
+      "text": "in poor condition",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard said, so the religious house is taken for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "religious house",
+      "gives": "ABBY",
+      "soundsLike": "ABBEY",
+      "note": "an abbey is a monastery or convent"
+     }
+    ],
+    "explanation": {
+     "surface": "A silent monastery is said to be falling into disrepair.",
+     "definitionFit": "Shabby describes something worn, faded and run-down through long use or neglect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiet"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1505,78 @@
     "text": "Criminal in trouble, run in by US city's Republican leader",
     "enumeration": "7"
    },
-   "solution": "BURGLAR"
+   "solution": "BURGLAR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BURGLAR",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in by",
+      "for": "container",
+      "note": "run in by is read as run taken inside, so the trouble word holds the running letter"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only the first letter of Republican is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "BUG",
+      "note": "to bug someone is to trouble them"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "US city's",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "R",
+      "G",
+      "LA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal in trouble is arrested by a Republican leader of an American city.",
+     "walkthrough": "'Run in' looks like slang for arrest, but here R is put inside BUG to make BURG.",
+     "definitionFit": "A burglar is a criminal who breaks into buildings to steal, a specific kind of offender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 20,
@@ -403,7 +1596,64 @@
      }
     ]
    },
-   "solution": "PENALTYBOX"
+   "solution": "PENALTYBOX",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PENALTY BOX",
+    "definitions": [
+     {
+      "text": "sin bin",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fouls",
+      "for": "anagram",
+      "note": "to foul up is to make a mess of things, so the letters of aplenty are jumbled"
+     }
+    ],
+    "linkWords": [
+     "lead to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aplenty",
+      "gives": "APLENTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOX",
+      "note": "to box is to fight with fists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENALTY",
+      "BOX"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APLENTY",
+       "gives": "PENALTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of fouls and a brawl land a hockey player in the sin bin.",
+     "walkthrough": "'Fouls' looks like the sporting noun, but it is a verb meaning messes up the following word.",
+     "definitionFit": "In ice hockey the penalty box is the enclosure where an offending player serves time, nicknamed the sin bin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fouls"
+    }
+   }
   },
   {
    "number": 21,
@@ -417,7 +1667,59 @@
     "text": "Nudge sheep's behind with stick",
     "enumeration": "4"
    },
-   "solution": "PROD"
+   "solution": "PROD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROD",
+    "definitions": [
+     {
+      "text": "Nudge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "letter_selection",
+      "note": "a behind is the rear end, so only the final letter of sheep is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep's",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of sheep"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "ROD",
+      "note": "a rod is a stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A shepherd pokes a sheep's rear with a stick to move it along.",
+     "definitionFit": "To prod is to poke or push someone gently, a verb synonym for nudge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1733,55 @@
     "text": "Fear old man's about to be imprisoned",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be imprisoned",
+      "for": "container",
+      "note": "something imprisoned is locked inside, so the about word goes within the old man word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man's",
+      "gives": "DAD",
+      "note": "one's old man is one's father"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fears that their father is about to be sent to prison.",
+     "walkthrough": "'About' is not a time word here but the Latin-derived abbreviation meaning concerning.",
+     "definitionFit": "Dread is great fear or apprehension, and works as a noun or verb synonym for fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1795,52 @@
     "text": "Some of Veronese's paintings mounted in east end of church",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "APSE",
+    "definitions": [
+     {
+      "text": "east end of church",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "some of means just part, so the letters are lifted from inside the words"
+     },
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down clue mounted means going upwards, so the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Veronese's paintings",
+      "gives": "ESPA",
+      "note": "the letters run across the end of Veronese's and the start of paintings"
+     }
+    ],
+    "explanation": {
+     "surface": "Some of the Renaissance painter Veronese's works are hung at the east end of a church.",
+     "walkthrough": "Veronese was a Venetian painter of large religious canvases, which fits the church setting.",
+     "definitionFit": "An apse is the semicircular recess, usually vaulted, at the eastern end of a church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1854,67 @@
     "text": "Article in news strangely peters out",
     "enumeration": "5"
    },
-   "solution": "WANES"
+   "solution": "WANES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WANES",
+    "definitions": [
+     {
+      "text": "peters out",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters of news are put in an odd order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the article inside the jumbled news letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "NEWS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "A",
+      "NES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWS",
+       "gives": "WNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A story in the news gradually fizzles out, strangely enough.",
+     "walkthrough": "NEWS is rearranged to WNES and A goes after the W.",
+     "definitionFit": "To wane is to dwindle or decrease gradually, like the moon, so wanes means peters out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 25,
@@ -479,7 +1934,80 @@
      }
     ]
    },
-   "solution": "ONIMPULSE"
+   "solution": "ONIMPULSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "ON IMPULSE",
+    "definitions": [
+     {
+      "text": "Instinctively",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about suggests turning round, so the home word is read backwards"
+     },
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letter of spasmodic is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "spasmodic",
+      "gives": "M",
+      "select": "middle",
+      "note": "the fifth of the nine letters is central"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "PULSE",
+      "note": "a pulse is a regular beat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NI",
+      "M",
+      "PULSE"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried patient instinctively rings home about an irregular heartbeat.",
+     "walkthrough": "'Heart beat' reads as one thing, but heart picks the middle letter of spasmodic and beat alone is the pulse.",
+     "definitionFit": "Doing something on impulse means acting suddenly without forethought, which is acting by instinct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 26,
@@ -493,7 +2021,65 @@
     "text": "Rest of soldiers given uniform in camp",
     "enumeration": "7"
    },
-   "solution": "RESIDUE"
+   "solution": "RESIDUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RESIDUE",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the uniform letter is put inside the camp word"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "camp",
+      "gives": "SIDE",
+      "note": "a camp is a side in a dispute"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SID",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers in camp are issued their uniforms and given some rest.",
+     "walkthrough": "'Camp' looks like a military base, but it is a faction in a dispute, as in the opposing camp.",
+     "definitionFit": "A residue is what remains after the main part is gone, the remainder or rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "camp"
+    }
+   }
   },
   {
    "number": 27,
@@ -513,7 +2099,77 @@
      }
     ]
    },
-   "solution": "SEESRED"
+   "solution": "SEESRED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "SEES RED",
+    "definitions": [
+     {
+      "text": "is furious",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the doctor abbreviation is read backwards"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the doctor letters sit around the drug"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notices",
+      "gives": "SEES",
+      "note": "to notice is to see"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEES",
+      "R",
+      "E",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DR",
+       "to": "RD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient spots the doctor coming back with no medicine and loses their temper.",
+     "walkthrough": "'Without' looks like lacking, but it is the old sense of outside: RD goes around E.",
+     "definitionFit": "To see red is an idiom for becoming suddenly angry, like a bull charging a red cape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   }
  ]
 }

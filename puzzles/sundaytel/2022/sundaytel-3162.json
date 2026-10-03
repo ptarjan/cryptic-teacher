@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,60 @@
     "text": "Change behind counter emptied out, money in the bank",
     "enumeration": "6"
    },
-   "solution": "CREDIT"
+   "solution": "CREDIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CREDIT",
+    "definitions": [
+     {
+      "text": "money in the bank",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied out",
+      "for": "letter_selection",
+      "note": "a word emptied out has lost its insides, so only its first and last letters stay"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the word for change after the other piece, so it is read second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter",
+      "gives": "CR",
+      "select": "outer",
+      "note": "the outside letters of counter"
+     },
+     {
+      "clueFragment": "Change",
+      "gives": "EDIT",
+      "note": "to edit something is to change it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "EDIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cashier swaps notes behind an empty counter while savings sit safely in the bank.",
+     "definitionFit": "Credit is a positive balance held in an account, funds a customer has available to draw on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +102,45 @@
     "text": "Background, where tracks heard?",
     "enumeration": "5"
    },
-   "solution": "ROOTS"
+   "solution": "ROOTS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROOTS",
+    "definitions": [
+     {
+      "text": "Background",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard tells us to go by how the phrase is spoken rather than how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where tracks",
+      "gives": "ROOTS",
+      "soundsLike": "ROUTES",
+      "note": "routes are the ways tracks run, said the British way to rhyme with boots"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks about a person's background and where the paths they took can be traced.",
+     "walkthrough": "In British English ROUTES is pronounced exactly like ROOTS.",
+     "definitionFit": "Your roots are your origins, family and upbringing, the history that forms your personal background."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tracks"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +164,53 @@
      }
     ]
    },
-   "solution": "DOONESBIT"
+   "solution": "DOONESBIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DO ONE'S BIT",
+    "definitions": [
+     {
+      "text": "Help out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tricky",
+      "for": "anagram",
+      "note": "something tricky is awkward and twisted, so the words beside it come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bend is too",
+      "gives": "BENDISTOO",
+      "note": "the letters of these three words are the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BENDISTOO",
+       "gives": "DOONESBIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver needs a helping hand because a corner on the road is too difficult to manage.",
+     "definitionFit": "To do one's bit is an idiom for making one's own contribution to a shared effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +224,62 @@
     "text": "Pack first of oranges inside pastry case",
     "enumeration": "5"
    },
-   "solution": "TAROT"
+   "solution": "TAROT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TAROT",
+    "definitions": [
+     {
+      "text": "Pack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of asks for only the opening letter of the following word"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside puts that letter within the walls of the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pastry case",
+      "gives": "TART",
+      "note": "a tart is a pastry case with a filling"
+     },
+     {
+      "clueFragment": "oranges",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of oranges"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "O",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker slips a slice of orange into a pastry shell before baking.",
+     "walkthrough": "Pack here is a pack of cards, not a verb about packing.",
+     "definitionFit": "A tarot is a deck of special cards used for fortune telling, so it is a kind of card pack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pack"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +293,50 @@
     "text": "Fairly generous plate of food from women’s group?",
     "enumeration": "6"
    },
-   "solution": "WIDISH"
+   "solution": "WIDISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIDISH",
+    "definitions": [
+     {
+      "text": "Fairly generous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women’s group",
+      "gives": "WI",
+      "note": "the WI, Women's Institute, is a British community organisation for women"
+     },
+     {
+      "clueFragment": "plate of food",
+      "gives": "DISH",
+      "note": "a dish is a plate of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A women's club serves up a reasonably generous helping of food.",
+     "walkthrough": "The definition is placed first and the wordplay reads in reverse order of the clue.",
+     "definitionFit": "Widish means somewhat wide, and wide margins or allowances are generous ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "generous"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +350,55 @@
     "text": "Electrical work interrupted by the scornful",
     "enumeration": "9"
    },
-   "solution": "WITHERING"
+   "solution": "WITHERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WITHERING",
+    "definitions": [
+     {
+      "text": "scornful",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "something interrupted is broken into, so another word goes in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electrical work",
+      "gives": "WIRING",
+      "note": "wiring is the job of an electrician"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "THE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician's job keeps getting disrupted by sneering onlookers.",
+     "walkthrough": "The scornful looks like a noun, a group of people, but the definition is the adjective alone.",
+     "definitionFit": "A withering look or remark is contemptuous, intended to make someone feel small."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "the"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +412,50 @@
     "text": "Flag duly rising on our pole, first of all",
     "enumeration": "5"
    },
-   "solution": "DROOP"
+   "solution": "DROOP",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DROOP",
+    "definitions": [
+     {
+      "text": "Flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of all",
+      "for": "letter_selection",
+      "note": "first of all asks for the opening letter of every word in the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duly rising on our pole",
+      "gives": "DROOP",
+      "select": "first",
+      "note": "the initial letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A flag is duly hoisted up the pole before anything else happens.",
+     "walkthrough": "Flag is a verb meaning to tire or sag, not the banner the surface pictures.",
+     "definitionFit": "To flag is to lose energy and sag, which is exactly what drooping means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +475,63 @@
      }
     ]
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny suggests something odd or out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Propose",
+      "gives": "PROPOSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROPOSEAA",
+       "gives": "SOAPOPERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pitches a humorous piece to fill a slot in a broadcast schedule.",
+     "definitionFit": "A soap opera is a long-running serial drama shown on television or radio as a regular show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +545,43 @@
     "text": "Jump well",
     "enumeration": "6"
    },
-   "solution": "SPRING"
+   "solution": "SPRING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPRING",
+    "definitions": [
+     {
+      "text": "Jump",
+      "at": 0
+     },
+     {
+      "text": "well",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jump",
+      "note": "first meaning: to leap suddenly"
+     },
+     {
+      "clueFragment": "well",
+      "note": "second meaning: a natural source of water rising from the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Well looks like an adverb praising the jump, but it is a noun, a source of water.",
+     "definitionFit": "Spring is a verb for leaping upward and a noun for water emerging naturally from underground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +595,43 @@
     "text": "Great big toe?",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEGEND",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     },
+     {
+      "text": "big toe",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "note": "first meaning: a great, a famous figure in some field"
+     },
+     {
+      "clueFragment": "big toe",
+      "note": "second meaning, read cryptically: the big toe is at the end of the leg"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Great and big look like a pair of adjectives describing a toe; the question mark warns that the second meaning is playful.",
+     "definitionFit": "A legend is a celebrated figure, a great of sport or music, and LEG END humorously describes a toe's position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +645,62 @@
     "text": "Picture stolen in Picasso, only frame remaining?",
     "enumeration": "5"
    },
-   "solution": "PHOTO"
+   "solution": "PHOTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PHOTO",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only frame remaining",
+      "for": "letter_selection",
+      "note": "with only the frame left, the painter's name keeps just its outside letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for stolen within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Picasso",
+      "gives": "PO",
+      "select": "outer",
+      "note": "the outer letters of Picasso"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "hot is slang for stolen goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HOT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Thieves have cut a Picasso out of its frame, leaving only the empty frame on the wall.",
+     "definitionFit": "A photo is a photograph, an image captured by a camera, so it is a kind of picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +714,53 @@
     "text": "A relation’s skewed thinking",
     "enumeration": "9"
    },
-   "solution": "RATIONALE"
+   "solution": "RATIONALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RATIONALE",
+    "definitions": [
+     {
+      "text": "thinking",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skewed",
+      "for": "anagram",
+      "note": "skewed means twisted out of true, so the letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A relation",
+      "gives": "ARELATION",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARELATION",
+       "gives": "RATIONALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member has a distorted way of seeing things.",
+     "definitionFit": "A rationale is the reasoning behind a decision, the thinking that justifies it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relation"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +774,66 @@
     "text": "Check fly, say, with pants originally buttoned up",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very start of the word before it"
+     },
+     {
+      "text": "buttoned up",
+      "for": "container",
+      "note": "buttoned up means fastened inside, so one piece is enclosed by the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fly, say",
+      "gives": "INSECT",
+      "note": "a fly is an example of an insect"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks their trouser fly is done up properly.",
+     "walkthrough": "The fly, trouser fastening in the surface, is the insect in the wordplay; pants are underpants in British usage.",
+     "definitionFit": "To inspect is to examine something closely for faults, which is to check it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +847,66 @@
     "text": "Investigate kiss stolen by crafty eloper",
     "enumeration": "7"
    },
-   "solution": "EXPLORE"
+   "solution": "EXPLORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXPLORE",
+    "definitions": [
+     {
+      "text": "Investigate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crafty",
+      "for": "anagram",
+      "note": "crafty suggests cunning reworking, so the word after it is rearranged"
+     },
+     {
+      "text": "stolen by",
+      "for": "container",
+      "note": "something stolen by another is taken into it, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eloper",
+      "gives": "ELOPER",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X is the written symbol for a kiss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "PLORE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELOPER",
+       "gives": "EPLORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sly runaway lover snatches a kiss.",
+     "definitionFit": "To explore is to travel through or examine something in order to learn about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stolen"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +920,73 @@
     "text": "Biscuit, a blue one behind green, initially",
     "enumeration": "9"
    },
-   "solution": "GARIBALDI"
+   "solution": "GARIBALDI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GARIBALDI",
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for just the opening letter of the word before it"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind puts the earlier pieces after the green letter in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of green"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "RIBALD",
+      "note": "blue jokes are ribald ones, rude and risqué"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "RIBALD",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes the colours of a biscuit, blue and green.",
+     "walkthrough": "Blue means smutty here, not a colour. A Garibaldi is a British biscuit with a layer of currants.",
+     "definitionFit": "The Garibaldi is a flat British currant biscuit named after the Italian general."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1000,55 @@
     "text": "Journalist entering fray, cut",
     "enumeration": "9"
    },
-   "solution": "REDUCTION"
+   "solution": "REDUCTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REDUCTION",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going into, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fray",
+      "gives": "RUCTION",
+      "note": "a ruction is a noisy disturbance or row"
+     },
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ED",
+      "UCTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter dives into a brawl and gets hurt.",
+     "walkthrough": "Cut is a noun here, as in a pay cut.",
+     "definitionFit": "A reduction is a decrease in size or amount, the same as a cut in prices or staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1062,64 @@
     "text": "Get fifty in team for easy victory",
     "enumeration": "9"
    },
-   "solution": "LANDSLIDE"
+   "solution": "LANDSLIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LANDSLIDE",
+    "definitions": [
+     {
+      "text": "easy victory",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the number letter within the word for team"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "LAND",
+      "note": "to land a job is to get it"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAND",
+      "S",
+      "L",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A batter scores fifty runs and the team wins comfortably.",
+     "definitionFit": "A landslide is an overwhelming win, especially in an election, by a huge margin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1133,61 @@
     "text": "Fear gone, leader of revolution embraced",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "embraced",
+      "for": "container",
+      "note": "embraced means held within arms, so one piece is hugged by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gone",
+      "gives": "DEAD",
+      "note": "dead means gone, passed away"
+     },
+     {
+      "clueFragment": "revolution",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of revolution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Fear has evaporated now that the rebel chief has been welcomed.",
+     "definitionFit": "Dread is a strong sense of apprehension about something to come, which is fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gone"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1201,66 @@
     "text": "Result of impact around adjustment of remit, disadvantage",
     "enumeration": "9"
    },
-   "solution": "DETRIMENT"
+   "solution": "DETRIMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DETRIMENT",
+    "definitions": [
+     {
+      "text": "disadvantage",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjustment of",
+      "for": "anagram",
+      "note": "an adjustment changes the arrangement, so the word that follows is reordered"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around puts the first piece outside the reordered letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result of impact",
+      "gives": "DENT",
+      "note": "a dent is what an impact leaves behind"
+     },
+     {
+      "clueFragment": "remit",
+      "gives": "REMIT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TRIME",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMIT",
+       "gives": "TRIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official reports the effect of changing a body's remit as a drawback.",
+     "definitionFit": "Detriment means harm or damage, a state of being worse off, so it is a disadvantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impact"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1274,56 @@
     "text": "I’d put in stake behind washer!",
     "enumeration": "5"
    },
-   "solution": "BIDET"
+   "solution": "BIDET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIDET",
+    "definitions": [
+     {
+      "text": "behind washer",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "put in means placed inside, so the first piece goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stake",
+      "gives": "BET",
+      "note": "a stake is a bet"
+     },
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "taken as written without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ID",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has placed a bet tucks the betting slip behind a washing machine.",
+     "walkthrough": "Behind is the noun, the backside, so a behind washer is a cleaner for the bottom.",
+     "definitionFit": "A bidet is a low basin used for washing one's bottom, humorously called a washer of behinds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1337,55 @@
     "text": "Castigate scoundrel punching worker, for example",
     "enumeration": "6"
    },
-   "solution": "BERATE"
+   "solution": "BERATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BERATE",
+    "definitions": [
+     {
+      "text": "Castigate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "punching",
+      "for": "container",
+      "note": "punching means driving into, so one piece breaks into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker, for example",
+      "gives": "BEE",
+      "note": "a worker is one example of a bee"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "RAT",
+      "note": "a rat is a despicable person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue hits an employee and gets a severe telling-off.",
+     "walkthrough": "Worker refers to the worker bee, not an employee.",
+     "definitionFit": "To berate someone is to scold them angrily, and castigating is severe reprimand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1399,48 @@
     "text": "Dark horse, frightful prospect",
     "enumeration": "9"
    },
-   "solution": "NIGHTMARE"
+   "solution": "NIGHTMARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIGHTMARE",
+    "definitions": [
+     {
+      "text": "frightful prospect",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark",
+      "gives": "NIGHT",
+      "note": "the dark is the night"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "MARE",
+      "note": "a mare is a female horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT",
+      "MARE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown competitor in a race could be a scary prospect for the favourites.",
+     "walkthrough": "Dark horse looks like the idiom for an unexpected contender, but the two words split.",
+     "definitionFit": "A nightmare is a terrifying experience or situation, something dreadful to face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1454,60 @@
     "text": "What gets left in bottom of bottle, say",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "What gets left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "the bottom of a word, in a down entry, is its final letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of bottle"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes the dregs left at the bottom of a bottle.",
+     "walkthrough": "Left means bequeathed in a will, not remaining as dregs.",
+     "definitionFit": "An estate is everything a person owns at death, the property they leave to heirs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1521,52 @@
     "text": "More than one of those followed when crepe is cooked?",
     "enumeration": "7"
    },
-   "solution": "RECIPES"
+   "solution": "RECIPES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "RECIPES",
+    "definitions": [
+     {
+      "text": "More than one of those followed when crepe is cooked?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means doctored or falsified, so the words beside it are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crepe is",
+      "gives": "CREPEIS",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREPEIS",
+       "gives": "RECIPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook follows several sets of instructions when making a pancake.",
+     "walkthrough": "The whole clue defines the answer while the last words also supply the anagram.",
+     "definitionFit": "Recipes are the instructions a cook follows, so plural ones are what someone making crepes uses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1580,43 @@
     "text": "In which one might have a straight index finger, perhaps?",
     "enumeration": "5"
    },
-   "solution": "POKER"
+   "solution": "POKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POKER",
+    "definitions": [
+     {
+      "text": "In which one might have a straight",
+      "at": 0
+     },
+     {
+      "text": "index finger, perhaps",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In which one might have a straight",
+      "note": "first meaning: a card game in which a straight is a winning hand"
+     },
+     {
+      "clueFragment": "index finger, perhaps",
+      "note": "second meaning, read playfully: something you prod people with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A straight is a run of five consecutive cards; the second meaning is a whimsical reading of a thing that pokes.",
+     "definitionFit": "Poker is the card game featuring straights and flushes, and an index finger is a tool for jabbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "straight"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1630,46 @@
     "text": "Canine hurt, darling",
     "enumeration": "7"
    },
-   "solution": "WHIPPET"
+   "solution": "WHIPPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHIPPET",
+    "definitions": [
+     {
+      "text": "Canine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "WHIP",
+      "note": "to whip someone is to hurt them"
+     },
+     {
+      "clueFragment": "darling",
+      "gives": "PET",
+      "note": "pet is a term of endearment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIP",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone comforts a beloved dog that has been injured.",
+     "definitionFit": "A whippet is a slender racing breed of dog, so it is a canine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 23,
@@ -412,7 +1683,46 @@
     "text": "Footballer’s partner riding horse-drawn vehicle",
     "enumeration": "5"
    },
-   "solution": "WAGON"
+   "solution": "WAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAGON",
+    "definitions": [
+     {
+      "text": "horse-drawn vehicle",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Footballer’s partner",
+      "gives": "WAG",
+      "note": "a WAG is one of the wives and girlfriends of British footballers"
+     },
+     {
+      "clueFragment": "riding",
+      "gives": "ON",
+      "note": "riding on a horse is being on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's girlfriend takes a ride in a horse-drawn cart.",
+     "definitionFit": "A wagon is a four-wheeled cart pulled by horses for carrying loads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riding"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1736,43 @@
     "text": "Flier unremarkable, by the sound of it?",
     "enumeration": "5"
    },
-   "solution": "PLANE"
+   "solution": "PLANE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PLANE",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "this asks us to go by what we hear, not by how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unremarkable",
+      "gives": "PLANE",
+      "soundsLike": "PLAIN",
+      "note": "plain means ordinary and unremarkable"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes a pilot or aircraft as rather ordinary.",
+     "definitionFit": "A plane is an aircraft, something that flies through the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flier"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1786,64 @@
     "text": "Moment where learner cuts identical card",
     "enumeration": "9"
    },
-   "solution": "TWINKLING"
+   "solution": "TWINKLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TWINKLING",
+    "definitions": [
+     {
+      "text": "Moment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "cuts means slicing into, so the learner letter goes inside the card"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "identical",
+      "gives": "TWIN",
+      "note": "twins are identical"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "KING",
+      "note": "a king is a playing card"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, from British L-plates on learner drivers' cars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWIN",
+      "K",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver cuts up an identical card at a decisive moment.",
+     "definitionFit": "In the twinkling of an eye means in an instant, so a twinkling is a very brief moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1857,57 @@
     "text": "Effect in fact can echo back",
     "enumeration": "5"
    },
-   "solution": "ENACT"
+   "solution": "ENACT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ENACT",
+    "definitions": [
+     {
+      "text": "Effect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the letters are sitting within the words that follow"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the hidden letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fact can echo",
+      "gives": "TCANE",
+      "note": "the run of letters spanning fact, can and the start of echo"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TCANE",
+       "to": "ENACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that a fact can be repeated back with impact.",
+     "walkthrough": "Effect is a verb here, meaning to bring about.",
+     "definitionFit": "To enact a law or plan is to bring it into effect, so it means to effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Effect"
+    }
+   }
   },
   {
    "number": 27,
@@ -468,7 +1921,67 @@
     "text": "Ten confused about English course",
     "enumeration": "6"
    },
-   "solution": "ENTREE"
+   "solution": "ENTREE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENTREE",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused means mixed up, so the number's letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ten",
+      "gives": "TEN",
+      "note": "taken as written for the anagram"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "RE",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ten people are unsure about an English class.",
+     "walkthrough": "Course means part of a meal, not a programme of study.",
+     "definitionFit": "An entree is a dish served as part of a meal, the main course in some usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 28,
@@ -482,7 +1995,65 @@
     "text": "Bottom three frantic by end of season",
     "enumeration": "6"
    },
-   "solution": "NETHER"
+   "solution": "NETHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NETHER",
+    "definitions": [
+     {
+      "text": "Bottom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of asks for only the last letter of the word that follows"
+     },
+     {
+      "text": "frantic",
+      "for": "anagram",
+      "note": "frantic means wild and disordered, so the letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three",
+      "gives": "THREE",
+      "note": "taken as written for the anagram"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of season"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THREEN",
+       "gives": "NETHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team sits in the bottom three, desperate as the season ends.",
+     "definitionFit": "Nether means lower or underneath, as in nether regions, so it is an adjective for bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottom"
+    }
+   }
   }
  ]
 }

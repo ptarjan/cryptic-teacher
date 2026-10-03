@@ -24,6 +24,9 @@
   "date": "2024-09-26",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,53 @@
     "text": "Rue passion running wild in Jane Austen’s work",
     "enumeration": "10"
    },
-   "solution": "PERSUASION"
+   "solution": "PERSUASION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSUASION",
+    "definitions": [
+     {
+      "text": "Jane Austen’s work",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running wild",
+      "for": "anagram",
+      "note": "something running wild is out of control, so the letters before it lose their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rue passion",
+      "gives": "RUEPASSION",
+      "note": "the ten letters of the two words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUEPASSION",
+       "gives": "PERSUASION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reader regrets the passions that run riot in one of Austen's novels.",
+     "definitionFit": "Persuasion is the title of Jane Austen's last completed novel, published in 1817."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rue"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +100,70 @@
     "text": "A lot of old bread brought up for Picasso, say",
     "enumeration": "5"
    },
-   "solution": "PABLO"
+   "solution": "PABLO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "PABLO",
+    "definitions": [
+     {
+      "text": "Picasso, say",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the next word loses its final letter"
+     },
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue, bringing something up means reading it from the bottom, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written, before its last letter goes"
+     },
+     {
+      "clueFragment": "bread",
+      "gives": "BAP",
+      "note": "a bap is a soft British bread roll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAB",
+      "LO"
+     ],
+     "reversals": [
+      {
+       "from": "OLBAP",
+       "to": "PABLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hauls up a stale loaf, apparently for the painter.",
+     "walkthrough": "Most of OLD is OL; add BAP to get OLBAP, then turn it upside down.",
+     "definitionFit": "Pablo is the first name of Picasso, and 'say' marks him as one example of anyone so called."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +183,44 @@
      }
     ]
    },
-   "solution": "RIGHTWINGERS"
+   "solution": "RIGHTWINGERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIGHT-WINGERS",
+    "definitions": [
+     {
+      "text": "Footballers",
+      "at": 0
+     },
+     {
+      "text": "those on the blue side hoping to defeat the Reds",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Footballers",
+      "note": "first meaning: wide attacking players on the right flank of a team"
+     },
+     {
+      "clueFragment": "those on the blue side hoping to defeat the Reds",
+      "note": "second meaning: political conservatives, whose British colour is blue, opposing the red of Labour and socialists"
+     }
+    ],
+    "explanation": {
+     "surface": "Football fans in blue shirts hope to beat a red-shirted rival side.",
+     "walkthrough": "The surface is a match between blues and reds; in British politics blue is the Conservative colour and red the Labour one.",
+     "definitionFit": "The phrase names both wide forwards on a pitch and people holding conservative political views."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reds"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +234,46 @@
     "text": "Cancel a Parisian party",
     "enumeration": "4"
    },
-   "solution": "UNDO"
+   "solution": "UNDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDO",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is the French word for a"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls off a French friend's party.",
+     "definitionFit": "To reverse or reverse out an action is to nullify it, a direct verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +287,50 @@
     "text": "Wet turf above animal’s lair",
     "enumeration": "6"
    },
-   "solution": "SODDEN"
+   "solution": "SODDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SODDEN",
+    "definitions": [
+     {
+      "text": "Wet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turf",
+      "gives": "SOD",
+      "note": "a sod is a piece of turf"
+     },
+     {
+      "clueFragment": "animal’s lair",
+      "gives": "DEN",
+      "note": "a den is a wild animal's lair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Damp grass covers the roof of a creature's burrow.",
+     "walkthrough": "In a down entry 'above' just places the first piece over the second.",
+     "definitionFit": "Sodden means soaked through, a stronger adjective for thoroughly damp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wet"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +344,54 @@
     "text": "More vino ordered for unfussy consumer",
     "enumeration": "8"
    },
-   "solution": "OMNIVORE"
+   "solution": "OMNIVORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OMNIVORE",
+    "definitions": [
+     {
+      "text": "unfussy consumer",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so the letters are put into a new sequence"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More vino",
+      "gives": "MOREVINO",
+      "note": "the eight letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOREVINO",
+       "gives": "OMNIVORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner who will eat anything orders another glass of wine.",
+     "walkthrough": "'ordered' reads as asking a waiter for more wine, but it is the rearranging signal.",
+     "definitionFit": "An omnivore eats both plants and meat, so it is a creature that is not picky about food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +405,69 @@
     "text": "Suggestions of corrupt politicians pocketing millions",
     "enumeration": "12"
    },
-   "solution": "IMPLICATIONS"
+   "solution": "IMPLICATIONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMPLICATIONS",
+    "definitions": [
+     {
+      "text": "Suggestions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or perverted, so the following word is jumbled"
+     },
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to take it inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politicians",
+      "gives": "POLITICIANS",
+      "note": "the eleven letters to be rearranged"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PLICATIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLITICIANS",
+       "gives": "IPLICATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There are hints that crooked politicians are pocketing millions.",
+     "definitionFit": "Implications are things hinted at or implied rather than stated outright, the same plural noun sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +481,58 @@
     "text": "Stick of jade uncovered in this place",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "uncovered means stripped of its outer layer, so the word loses its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jade",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the inner letters of the word"
+     },
+     {
+      "clueFragment": "in this place",
+      "gives": "HERE",
+      "note": "here means in this place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rod made of jade has been dug up at this site.",
+     "definitionFit": "To adhere is to cling or remain attached, the verb sense of stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +546,45 @@
     "text": "Reportedly get hold of father’s capital",
     "enumeration": "7"
    },
-   "solution": "BAGHDAD"
+   "solution": "BAGHDAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BAGHDAD",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said by others, so the words are judged by how they are spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get hold of father",
+      "gives": "BAGHDAD",
+      "soundsLike": "BAG DAD",
+      "note": "bag is to get hold of, and dad is father"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour says someone has seized their father's money.",
+     "walkthrough": "'capital' looks like money in the surface, but here it means a capital city.",
+     "definitionFit": "Baghdad is the capital city of Iraq, an example of a national seat of government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +598,42 @@
     "text": "Wanderer, sane in Glasgow?",
     "enumeration": "5"
    },
-   "solution": "NOMAD"
+   "solution": "NOMAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOMAD",
+    "definitions": [
+     {
+      "text": "Wanderer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sane in Glasgow",
+      "gives": "NOMAD",
+      "note": "in Scottish speech no is used for not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in Glasgow turns out to be perfectly level-headed.",
+     "walkthrough": "Glasgow is in Scotland, where 'no' commonly replaces 'not', so 'not mad' becomes NO MAD.",
+     "definitionFit": "A nomad roams from place to place with no fixed home, so is a wanderer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Glasgow"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +647,65 @@
     "text": "Swear word from husband on go-kart at regular intervals",
     "enumeration": "4"
    },
-   "solution": "OATH"
+   "solution": "OATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OATH",
+    "definitions": [
+     {
+      "text": "Swear word",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals means using every second one of the word"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one thing on another sits after it, so the husband goes second"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go-kart",
+      "gives": "OAT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A man at a go-kart track lets slip a curse.",
+     "walkthrough": "'Swear word' suggests a rude word, but it means a solemn promise; 'on' puts the husband after the other letters in an across answer.",
+     "definitionFit": "An oath is a formal sworn promise, literally a word given when one swears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swear"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +719,64 @@
     "text": "US novelist from outskirts of Maine left French town",
     "enumeration": "8"
    },
-   "solution": "MELVILLE"
+   "solution": "MELVILLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MELVILLE",
+    "definitions": [
+     {
+      "text": "US novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts are the edges, so only the first and last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maine",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the edge letters of the state's name"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "French town",
+      "gives": "VILLE",
+      "note": "ville is the French word for town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "L",
+      "VILLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American writer moved from Maine and left for a town in France.",
+     "definitionFit": "Herman Melville was the nineteenth-century American author of Moby-Dick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +790,42 @@
     "text": "Some splendid act I cited teaching a lesson",
     "enumeration": "8"
    },
-   "solution": "DIDACTIC"
+   "solution": "DIDACTIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DIDACTIC",
+    "definitions": [
+     {
+      "text": "teaching a lesson",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only part of their run of letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "splendid act I cited",
+      "gives": "DIDACTIC",
+      "note": "spans the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone praised a performance they quoted as being instructive.",
+     "definitionFit": "Didactic describes something intended to instruct, often with a moral or moralising aim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "act"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +839,66 @@
     "text": "The setter in Panama, say, and one Caribbean country",
     "enumeration": "5"
    },
-   "solution": "HAITI"
+   "solution": "HAITI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAITI",
+    "definitions": [
+     {
+      "text": "Caribbean country",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the setter's word inside the hat word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Panama, say",
+      "gives": "HAT",
+      "note": "a Panama is a kind of straw hat"
+     },
+     {
+      "clueFragment": "The setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "I",
+      "T",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter visits Panama and another Caribbean nation.",
+     "walkthrough": "Panama looks like the country, but here it is the straw hat.",
+     "definitionFit": "Haiti is the nation occupying the western part of the island of Hispaniola in the Caribbean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Panama"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +912,48 @@
     "text": "Stopped Henry meeting Theodore",
     "enumeration": "6"
    },
-   "solution": "HALTED"
+   "solution": "HALTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALTED",
+    "definitions": [
+     {
+      "text": "Stopped",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry",
+      "gives": "HAL",
+      "note": "Hal is a pet form of Henry, as with Shakespeare's Prince Hal"
+     },
+     {
+      "clueFragment": "Theodore",
+      "gives": "TED",
+      "note": "Ted is a short form of Theodore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Henry's progress was halted when he ran into Theodore.",
+     "definitionFit": "Halted means brought to a stop, the same past-tense verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +967,43 @@
     "text": "Soldier eccentrically accepting scouting mission",
     "enumeration": "5"
    },
-   "solution": "RECCE"
+   "solution": "RECCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECCE",
+    "definitions": [
+     {
+      "text": "scouting mission",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "hidden_word",
+      "note": "the phrase accepts the letters inside it, holding them across the gap between words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier eccentrically",
+      "gives": "RECCE",
+      "note": "spans the end of the first word to the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An odd soldier agrees to go on a reconnaissance trip.",
+     "walkthrough": "'eccentrically' looks like an anagram signal, but its letters are part of the hidden run.",
+     "definitionFit": "Recce is British military slang, short for reconnaissance, an exploratory survey of ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eccentrically"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1017,56 @@
     "text": "Steal heartless earl’s cash abroad",
     "enumeration": "6"
    },
-   "solution": "NICKEL"
+   "solution": "NICKEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NICKEL",
+    "definitions": [
+     {
+      "text": "cash abroad",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "heartless means with the centre taken out, so only the ends of the word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal",
+      "gives": "NICK",
+      "note": "to nick is British slang for to steal"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "EL",
+      "select": "outer",
+      "note": "the word without its middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICK",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pinches money from a nobleman travelling overseas.",
+     "walkthrough": "'abroad' tells you the money is foreign: in the US and Canada a nickel is a five-cent coin.",
+     "definitionFit": "A nickel is a coin worth five cents in America, so it is foreign money to a British solver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1086,55 @@
      }
     ]
    },
-   "solution": "LOGCABIN"
+   "solution": "LOGCABIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOG CABIN",
+    "definitions": [
+     {
+      "text": "a wooden hut",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enter",
+      "gives": "LOG",
+      "note": "to log is to enter in a record"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "CAB",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller climbs into a taxi beside a house, heading for a wooden shelter.",
+     "definitionFit": "A log cabin is a small dwelling built from tree trunks, a rustic timber shelter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enter"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1148,55 @@
     "text": "Stick a knife in bananas from the east",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "Stick a knife in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across answer, starting from the east means reading right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bananas",
+      "gives": "BATS",
+      "note": "bananas and bats are both slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAB"
+     ],
+     "reversals": [
+      {
+       "from": "BATS",
+       "to": "STAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plunges a blade into fruit shipped from the East.",
+     "walkthrough": "'bananas' looks like fruit, but it means mad.",
+     "definitionFit": "To stab is to thrust a pointed blade into something, the same verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1210,48 @@
     "text": "Give priestly approval to the grade below A minus",
     "enumeration": "5"
    },
-   "solution": "BLESS"
+   "solution": "BLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLESS",
+    "definitions": [
+     {
+      "text": "Give priestly approval to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the grade below A",
+      "gives": "B",
+      "note": "in letter grades, B comes just after A"
+     },
+     {
+      "clueFragment": "minus",
+      "gives": "LESS",
+      "note": "less means minus, as in ten less two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest signs off a mark of B minus.",
+     "walkthrough": "The surface reads as the school grade B-minus, but 'minus' is a separate word to translate.",
+     "definitionFit": "To bless is to invoke divine favour, as a priest does when consecrating someone or something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minus"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1265,74 @@
     "text": "Black tails of woodpecker, skua, lapwing and crow",
     "enumeration": "4"
    },
-   "solution": "BRAG"
+   "solution": "BRAG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BRAG",
+    "definitions": [
+     {
+      "text": "crow",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails of",
+      "for": "letter_selection",
+      "note": "a tail is the end, so each bird name gives up its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "woodpecker",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "skua",
+      "gives": "A",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "lapwing",
+      "gives": "G",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "A",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of birds, ending with the crow, all seen from behind.",
+     "walkthrough": "Crow sits among a list of birds, but it is the verb meaning boast.",
+     "definitionFit": "To crow is to boast triumphantly, as a cockerel does, so the two verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crow"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1346,66 @@
     "text": "Kind of heron, for example, by river banks in Egypt",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EGRET",
+    "definitions": [
+     {
+      "text": "Kind of heron",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banks",
+      "for": "letter_selection",
+      "note": "banks are the edges of a river, so only the outer letters of the next word stay"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "Egypt",
+      "gives": "ET",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "R",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A heron wades by the banks of a river in Egypt.",
+     "walkthrough": "'river banks' reads as one phrase about the Nile, but river gives one letter and banks acts on Egypt.",
+     "definitionFit": "An egret is a white wading bird belonging to the heron family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1419,73 @@
     "text": "Dissolute rake receiving a fine, singing in bars?",
     "enumeration": "7"
    },
-   "solution": "KARAOKE"
+   "solution": "KARAOKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KARAOKE",
+    "definitions": [
+     {
+      "text": "singing in bars?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dissolute",
+      "for": "anagram",
+      "note": "dissolute means loose and disorderly, so the next word is rearranged"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so further letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rake",
+      "gives": "RAKE",
+      "note": "the four letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KAR",
+      "AOK",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAKE",
+       "gives": "KARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A debauched man about town gets fined while crooning in pubs.",
+     "walkthrough": "The question mark flags that bars are pubs, not musical bars.",
+     "definitionFit": "Karaoke is amateur singing along to recorded backing tracks, typically in pubs and clubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1499,51 @@
     "text": "People who study biology GCSE toil so terribly",
     "enumeration": "10"
    },
-   "solution": "ECOLOGISTS"
+   "solution": "ECOLOGISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ECOLOGISTS",
+    "definitions": [
+     {
+      "text": "People who study biology",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly means badly done, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "GCSE toil so",
+      "gives": "GCSETOILSO",
+      "note": "the ten letters of the three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GCSETOILSO",
+       "gives": "ECOLOGISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pupils sweat over their biology exam, working dreadfully hard.",
+     "walkthrough": "A GCSE is the British exam taken at about sixteen; 'biology' seems to belong with it but ends the definition.",
+     "definitionFit": "Ecologists are scientists studying how living organisms relate to their environment, a branch of the life sciences."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "GCSE"
+    }
+   }
   }
  ]
 }
