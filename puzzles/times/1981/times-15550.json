@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 60 crossings, 0 conflicts"
+  "check": "32 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "25-across",
+    "was": "AMBITIOUS",
+    "now": "ALBATROSS",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,56 @@
     "text": "Face section D — it's a commando force",
     "enumeration": "8"
    },
-   "solution": "CHINDITS"
+   "solution": "CHINDITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINDITS",
+    "definitions": [
+     {
+      "text": "commando force",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "it's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Face section",
+      "gives": "CHIN",
+      "note": "the chin is one section of the face"
+     },
+     {
+      "clueFragment": "D",
+      "gives": "D",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it's",
+      "gives": "ITS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "D",
+      "ITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A briefing names a stretch of front, Section D, and says which elite unit holds it.",
+     "walkthrough": "The apparent link phrase it's is itself part of the wordplay; only the a joins it to the definition.",
+     "definitionFit": "The Chindits were the British long-range jungle troops Orde Wingate led behind Japanese lines in Burma during the Second World War."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Face"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +109,66 @@
     "text": "Best man's bloomer if he omits end of speech.",
     "enumeration": "8"
    },
-   "solution": "CHAMPION"
+   "solution": "CHAMPION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHAMPION",
+    "definitions": [
+     {
+      "text": "Best man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter of the next word is used"
+     },
+     {
+      "text": "if he omits",
+      "for": "container",
+      "note": "the clue says the winner becomes a flower once he leaves a letter out, so that letter sits inside the flower's name"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloomer",
+      "gives": "CAMPION",
+      "note": "campion is a pink or white wild flower, and a bloomer is something that blooms"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "H",
+      "select": "last",
+      "note": "the last letter of speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "AMPION"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding best man makes a blunder by leaving off the end of his speech.",
+     "walkthrough": "Bloomer looks like a gaffe, matching the wedding speech; here it is a flower. The clue runs backwards: take H out of the answer and you are left with CAMPION.",
+     "definitionFit": "A champion is the winner, the top person in a contest, so he is literally the best man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +182,63 @@
     "text": "On the rocks near Iow? Vessel's front caught",
     "enumeration": "9"
    },
-   "solution": "INSOLVENT"
+   "solution": "INSOLVENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSOLVENT",
+    "definitions": [
+     {
+      "text": "On the rocks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that letter is kept"
+     },
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "something caught is held inside, so this letter is trapped within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near Iow",
+      "gives": "INSOLENT",
+      "note": "IoW is the Isle of Wight, and the strait beside it is the Solent, so near it is IN SOLENT"
+     },
+     {
+      "clueFragment": "Vessel's",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSOL",
+      "V",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship has run aground off the Isle of Wight, its bow stuck fast.",
+     "walkthrough": "On the rocks suggests a shipwreck, which the rest of the surface supports, but it is the slang for being broke. The Solent is the channel between the Isle of Wight and mainland Hampshire.",
+     "definitionFit": "A business on the rocks is financially ruined, unable to pay its debts, which is exactly what insolvent means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,10 +249,42 @@
    },
    "length": 5,
    "clue": {
-    "text": "Coach providing 'courses for those training",
+    "text": "Coach providing courses for those training",
     "enumeration": "5"
    },
-   "solution": "DINER"
+   "solution": "DINER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DINER",
+    "definitions": [
+     {
+      "text": "Coach providing courses for those training",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach providing courses for those training",
+      "note": "surface reading: a sports coach running classes for people in training"
+     },
+     {
+      "clueFragment": "courses for those training",
+      "note": "setter's reading: a railway coach serving meal courses to people travelling by train"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Coach and courses both point to teaching; read coach as a railway carriage, courses as parts of a meal, and training as going by train.",
+     "definitionFit": "A restaurant car on a train, where passengers sit down to a meal, is called a dining car or diner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,10 +295,42 @@
    },
    "length": 7,
    "clue": {
-    "text": "Three bank holidays -for the rest of its crew?",
+    "text": "Three bank holidays for the rest of its crew?",
     "enumeration": "7"
    },
-   "solution": "TRIREME"
+   "solution": "TRIREME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRIREME",
+    "definitions": [
+     {
+      "text": "Three bank holidays for the rest of its crew?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three bank holidays",
+      "note": "surface reading: three public holidays when the banks close"
+     },
+     {
+      "clueFragment": "Three bank holidays for the rest of its crew?",
+      "note": "setter's reading: an ancient warship rowed from three banks of oars, where one bank resting gives its oarsmen a break"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bank holiday is a British public holiday; here each bank is a tier of oars on a galley, and a bank on holiday lets those rowers rest.",
+     "definitionFit": "A trireme was a Greek or Roman galley with oarsmen seated in three tiers, one above another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,10 +341,42 @@
    },
    "length": 6,
    "clue": {
-    "text": "Such a 'word usually is",
+    "text": "Such a word usually is",
     "enumeration": "6"
    },
-   "solution": "ADVERB"
+   "solution": "ADVERB",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADVERB",
+    "definitions": [
+     {
+      "text": "Such a word usually is",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such a word usually is",
+      "note": "surface reading: a vague remark that some kind of word is commonly so"
+     },
+     {
+      "clueFragment": "usually",
+      "note": "setter's reading: the word usually is itself an example of the part of speech wanted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Usually reads as part of the sentence, but it is the specimen: the clue says such a word as this one is a certain kind.",
+     "definitionFit": "Words like usually, which modify verbs or whole sentences and often end in -ly, belong to this grammatical class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "usually"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +396,39 @@
      }
     ]
    },
-   "solution": "DECKCHAIR"
+   "solution": "DECKCHAIR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DECK-CHAIR",
+    "definitions": [
+     {
+      "text": "Found at card-table on board?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Found at card-table",
+      "note": "surface reading: a seat drawn up to a table for playing cards"
+     },
+     {
+      "clueFragment": "card-table on board",
+      "note": "setter's reading: a pack of cards followed by a seat at a table, and the thing is found on board ship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A pack of cards is a deck, and what you find at a table is a chair; together they make the folding seat found on a ship's deck.",
+     "definitionFit": "The folding canvas seat used for lounging on a ship's deck or a beach takes its name from the deck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +442,61 @@
     "text": "Take sweetheart and run",
     "enumeration": "5"
    },
-   "solution": "ELOPE"
+   "solution": "ELOPE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELOPE",
+    "definitions": [
+     {
+      "text": "Take sweetheart and run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only the central letter is kept"
+     }
+    ],
+    "linkWords": [
+     "Take",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of sweet"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "LOPE",
+      "note": "to lope is to run with long easy strides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover snatches their beloved and the pair dash off together.",
+     "walkthrough": "Sweetheart is one word on the surface; split it, and its heart is the middle letter.",
+     "definitionFit": "To elope is to run away secretly with a lover, usually in order to marry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +510,42 @@
     "text": "Next to King or Queen,- one .- 14",
     "enumeration": "6"
    },
-   "solution": "BISHOP"
+   "solution": "BISHOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BISHOP",
+    "definitions": [
+     {
+      "text": "Next to King or Queen",
+      "at": 0
+     },
+     {
+      "text": "one .- 14",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Next to King or Queen",
+      "note": "first meaning: the chess piece that starts beside the king and the queen"
+     },
+     {
+      "clueFragment": "one .- 14",
+      "note": "second meaning: a senior cleric, whose title comes from the Greek for one who oversees, the answer to 14"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The printed clue is garbled after one; 14 is OVERSEE, and the word comes from Greek episkopos, overseer.",
+     "definitionFit": "In chess this piece stands beside the royal pair at the start; in the church it names a cleric who supervises a diocese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +559,39 @@
     "text": "Nine-a-side dance? .",
     "enumeration": "6"
    },
-   "solution": "MORRIS"
+   "solution": "MORRIS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MORRIS",
+    "definitions": [
+     {
+      "text": "Nine-a-side dance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nine-a-side",
+      "note": "surface reading: a team sport with nine players per team"
+     },
+     {
+      "clueFragment": "Nine-a-side dance?",
+      "note": "setter's reading: an old board game in which each player has nine pieces shares its name with an English folk dance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nine men's morris is a board game in which each side has nine counters; the word also names the English folk dance with bells and sticks.",
+     "definitionFit": "Morris dancing is traditional English folk dancing by teams called sides, so the name fits both game and dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nine-a-side"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,10 +602,42 @@
    },
    "length": 5,
    "clue": {
-    "text": "Would the .Mikado have fired its perpetrator?",
+    "text": "Would the Mikado have fired its perpetrator?",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "Would the Mikado have fired its perpetrator?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Would the Mikado have fired its perpetrator?",
+      "note": "surface reading: whether the emperor would sack the offender for some crime"
+     },
+     {
+      "clueFragment": "fired its perpetrator",
+      "note": "setter's reading: the Mikado sings of making the punishment fit the crime, so the culprit of this crime would be set on fire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Gilbert and Sullivan's The Mikado the emperor's aim is to let the punishment fit the crime; fired means burned, not dismissed.",
+     "definitionFit": "Arson is the crime of deliberately setting fire to property, so a fitting penalty would be burning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +657,51 @@
      }
     ]
    },
-   "solution": "IRONCROSS"
+   "solution": "IRONCROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRON CROSS",
+    "definitions": [
+     {
+      "text": "Decoration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brand",
+      "gives": "IRON",
+      "note": "a branding iron marks cattle, so brand can mean iron"
+     },
+     {
+      "clueFragment": "x",
+      "gives": "CROSS",
+      "note": "the letter x is a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "An award is named after a product, Brand X, as in an advert.",
+     "walkthrough": "Brand X is the stock advertising name for a rival product; split it into an iron and a cross.",
+     "definitionFit": "The Iron Cross is a Prussian and German military medal for bravery, a decoration worn by soldiers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brand"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +715,62 @@
     "text": "Quiet sort of arboreal animal-",
     "enumeration": "9"
    },
-   "solution": "POLARBEAR"
+   "solution": "POLARBEAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "POLARBEAR",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "a sort of something is a variant of it, so these letters come in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p is piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "arboreal",
+      "gives": "OLARBEAR",
+      "note": "the eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OLARBEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARBOREAL",
+       "gives": "OLARBEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some tree-dwelling creature is described as quiet.",
+     "walkthrough": "Arboreal looks like a description of the animal, but it is the fodder; the beast is the least tree-dwelling of all.",
+     "definitionFit": "The white bear of the Arctic is a large carnivorous mammal, so it is an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "arboreal"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +784,42 @@
     "text": "Part of sacred orthodoxy",
     "enumeration": "5"
    },
-   "solution": "CREDO"
+   "solution": "CREDO",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "hidden_word"
+    ],
+    "answer": "CREDO",
+    "definitions": [
+     {
+      "text": "Part of sacred orthodoxy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of a phrase is a run of its letters, so the answer is spelt inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sacred orthodoxy",
+      "gives": "CREDO",
+      "note": "spelt out across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A statement of belief forms one element of established religious teaching.",
+     "definitionFit": "A credo is a creed, a formal statement of religious belief, and so is one element of orthodox faith."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +833,51 @@
     "text": "View from above across deep sound",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "View from above",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "a sound is what is heard, so the word is wanted for how it is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "across",
+      "gives": "OVER",
+      "note": "to go across something is to go over it"
+     },
+     {
+      "clueFragment": "deep",
+      "gives": "SEE",
+      "soundsLike": "SEA",
+      "note": "the deep is the sea"
+     }
+    ],
+    "explanation": {
+     "surface": "From a height one looks out across a deep stretch of water.",
+     "walkthrough": "Sound looks like a body of water to go with deep, but it signals a spoken likeness.",
+     "definitionFit": "To oversee is to supervise, literally to watch over a task from a position above it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,10 +888,42 @@
    },
    "length": 9,
    "clue": {
-    "text": "No such lack for Alice in . rabbit-hole.",
+    "text": "No such lack for Alice in rabbit-hole.",
     "enumeration": "9"
    },
-   "solution": "SHORTFALL"
+   "solution": "SHORTFALL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHORTFALL",
+    "definitions": [
+     {
+      "text": "No such lack for Alice in rabbit-hole.",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No such lack",
+      "note": "surface reading: Alice was not short of something"
+     },
+     {
+      "clueFragment": "No such lack for Alice in rabbit-hole",
+      "note": "setter's reading: Alice's tumble down the rabbit-hole was famously long, so it was anything but brief"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Alice's Adventures in Wonderland the drop down the rabbit-hole lasts so long she wonders if she will come out at the Antipodes; the answer splits as the opposite.",
+     "definitionFit": "A shortfall is a deficit, an amount by which something falls short, and read in two words it is a brief drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lack"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +937,51 @@
     "text": "Crustacean found in Southern rivers",
     "enumeration": "6"
    },
-   "solution": "SCAMPI"
+   "solution": "SCAMPI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAMPI",
+    "definitions": [
+     {
+      "text": "Crustacean",
+      "at": 0,
+      "note": "scampi is strictly plural, the Italian name for Dublin Bay prawns, but is used for one dish or creature"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the standard abbreviation for southern"
+     },
+     {
+      "clueFragment": "rivers",
+      "gives": "CAMPI",
+      "note": "the Cam is the river through Cambridge; the scanned clue shows nothing certain for the last two letters, so the second river here is unconfirmed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAMPI"
+     ]
+    },
+    "explanation": {
+     "surface": "Some shellfish is said to live in the rivers of the south.",
+     "walkthrough": "Only part of this parse is sure: S plus the river CAM gives SCAM, and the remaining PI is not accounted for by any river in the scanned text, which may have lost a word.",
+     "definitionFit": "Scampi are Norway lobsters, also called Dublin Bay prawns, small edible shellfish of the lobster family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rivers"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +995,64 @@
     "text": "Introducer of motion to support No. Ten perhaps",
     "enumeration": "9"
    },
-   "solution": "PROPONENT"
+   "solution": "PROPONENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PROPONENT",
+    "definitions": [
+     {
+      "text": "Introducer of motion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps marks the letters as only one possible arrangement, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PROP",
+      "note": "a prop supports"
+     },
+     {
+      "clueFragment": "No. Ten",
+      "gives": "ONENT",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROP",
+      "ONENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTEN",
+       "gives": "ONENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tables a motion backing Number Ten, the Prime Minister's office.",
+     "walkthrough": "No. Ten, Downing Street, suggests the Prime Minister, but its letters are fodder.",
+     "definitionFit": "In a debate the proponent is the person who proposes, putting the motion forward for discussion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1066,49 @@
     "text": "Chap showing momentary brilliance at Rugby?",
     "enumeration": "8"
    },
-   "solution": "FLASHMAN"
+   "solution": "FLASHMAN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "FLASHMAN",
+    "definitions": [
+     {
+      "text": "Chap showing momentary brilliance at Rugby?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "momentary brilliance",
+      "gives": "FLASH",
+      "note": "a flash is a moment of brilliant light"
+     },
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLASH",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A player shows a brief spark of genius on the rugby field.",
+     "walkthrough": "Rugby is the school, not the game: Flashman is the bully at Rugby School in Tom Brown's Schooldays.",
+     "definitionFit": "Flashman is the cowardly bully of Thomas Hughes's novel set at Rugby School, later revived as a hero by George MacDonald Fraser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rugby"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1128,42 @@
      }
     ]
    },
-   "solution": "ATHOME"
+   "solution": "ATHOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AT-HOME",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     },
+     {
+      "text": "in",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do",
+      "note": "first meaning: a party or reception held at one's house"
+     },
+     {
+      "clueFragment": "in",
+      "note": "second meaning: present in one's own house rather than out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Do is the informal word for a party, not the verb.",
+     "definitionFit": "An at-home is a social gathering held in a host's house, and to be at home is to be in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1177,60 @@
     "text": "Plays in new version of this for instance",
     "enumeration": "6"
    },
-   "solution": "ENACTS"
+   "solution": "ENACTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENACTS",
+    "definitions": [
+     {
+      "text": "Plays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new version of",
+      "for": "anagram",
+      "note": "a new version of a word reorders its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written: the letters added to this answer"
+     },
+     {
+      "clueFragment": "instance",
+      "gives": "INSTANCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENACTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STANCE",
+       "gives": "ENACTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drama is staged in a modern adaptation of some work, for example.",
+     "walkthrough": "The clue runs backwards: this is the answer, and a new version of the answer with in added is instance. So take in from instance and rearrange the rest.",
+     "definitionFit": "To enact a part is to perform it on stage, so enacts means acts out or performs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instance"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1244,50 @@
     "text": "Humorist calling for firmer suspension of driver",
     "enumeration": "7"
    },
-   "solution": "CARROLL"
+   "solution": "CARROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARROLL",
+    "definitions": [
+     {
+      "text": "Humorist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driver",
+      "gives": "CAR",
+      "note": "what a driver drives"
+     },
+     {
+      "clueFragment": "calling for firmer suspension",
+      "gives": "ROLL",
+      "note": "body roll, a car leaning on corners, is the thing that calls for stiffer suspension"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic writer campaigns for stiffer springs on motorists' cars.",
+     "walkthrough": "Read calling for firmer suspension as a description: the sway of a vehicle that needs stiffer springs, belonging to a driver.",
+     "definitionFit": "Lewis Carroll, author of the Alice books and nonsense verse, is one of the great English comic writers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calling"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1301,43 @@
     "text": "Seven keys greengrocer has",
     "enumeration": "7"
    },
-   "solution": "CABBAGE"
+   "solution": "CABBAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CABBAGE",
+    "definitions": [
+     {
+      "text": "greengrocer has",
+      "at": 11,
+      "note": "an item a greengrocer has: the clue gives a description, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seven keys",
+      "gives": "CABBAGE",
+      "note": "seven musical keys in a row, every letter one of A to G"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CABBAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper selling fruit and veg carries seven keys on a ring.",
+     "walkthrough": "Keys are musical, named by the letters A to G, and seven of them spell a vegetable.",
+     "definitionFit": "Cabbage is a leafy green vegetable, standard stock on the counter of any vegetable seller's shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "keys"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,10 +1348,63 @@
    },
    "length": 6,
    "clue": {
-    "text": "Cunning, we hear, but . means little disrespect",
+    "text": "Cunning, we hear, but means little disrespect",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "double_definition"
+    ],
+    "answer": "SLIGHT",
+    "definitions": [
+     {
+      "text": "little",
+      "at": 28
+     },
+     {
+      "text": "disrespect",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the spoken form, so the word is matched by its sound"
+     }
+    ],
+    "linkWords": [
+     "but",
+     "means"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "gives": "SLIGHT",
+      "soundsLike": "SLEIGHT",
+      "note": "sleight is cunning or dexterity, as in sleight of hand"
+     },
+     {
+      "clueFragment": "little",
+      "note": "meaning: small, slender"
+     },
+     {
+      "clueFragment": "disrespect",
+      "note": "meaning: a snub or insult"
+     }
+    ],
+    "explanation": {
+     "surface": "A sly trick is mentioned, but it amounts to only minor rudeness.",
+     "definitionFit": "Slight as an adjective means small or slender, and as a noun it means a snub or insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,10 +1415,48 @@
    },
    "length": 5,
    "clue": {
-    "text": "GGreat composer? Hear, hear",
+    "text": "Great composer? Hear, hear",
     "enumeration": "5"
    },
-   "solution": "LISZT"
+   "solution": "LISZT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LISZT",
+    "definitions": [
+     {
+      "text": "Great composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hear",
+      "for": "homophone",
+      "note": "the second hear asks for how a word is heard, a spoken likeness"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "LISZT",
+      "soundsLike": "LIST",
+      "note": "list is an old word for listen, so to hear"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone applauds a great composer with cries of approval.",
+     "walkthrough": "Hear, hear looks like parliamentary applause; list, an archaic verb meaning to listen, sounds like the Hungarian pianist and composer.",
+     "definitionFit": "Franz Liszt, the nineteenth-century Hungarian pianist and composer, is ranked among the great Romantic composers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1470,46 @@
     "text": "Place for landing or take-off",
     "enumeration": "5"
    },
-   "solution": "STRIP"
+   "solution": "STRIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIP",
+    "definitions": [
+     {
+      "text": "Place for landing",
+      "at": 0
+     },
+     {
+      "text": "take-off",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for landing",
+      "note": "first meaning: a narrow runway for aircraft, an airstrip"
+     },
+     {
+      "clueFragment": "take-off",
+      "note": "second meaning: to undress, removing one's clothes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Landing and take-off both sound like flying, but take-off here is a verb about clothes.",
+     "definitionFit": "A strip is a long narrow piece of ground for aircraft, and to strip is to remove clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "take-off"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1523,39 @@
     "text": "Shot with craft on course",
     "enumeration": "9"
    },
-   "solution": "AMBITIOUS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALBATROSS",
+    "definitions": [
+     {
+      "text": "Shot with craft on course",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "craft on course",
+      "note": "surface reading: a boat or aircraft holding its heading"
+     },
+     {
+      "clueFragment": "Shot with craft on course",
+      "note": "setter's reading: a golf stroke played with great skill on the links, scoring three under par on a hole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Craft suggests a vessel and course a heading; on a golf course the rarest skilful score is named after a seabird, three strokes under par.",
+     "definitionFit": "In golf an albatross means completing a hole in three strokes fewer than par, a feat of exceptional skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1569,64 @@
     "text": "Ban upset . cricketer getting a pair",
     "enumeration": "5"
    },
-   "solution": "TABOO"
+   "solution": "TABOO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TABOO",
+    "definitions": [
+     {
+      "text": "Ban",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricketer",
+      "gives": "BAT",
+      "note": "a bat is a batsman"
+     },
+     {
+      "clueFragment": "a pair",
+      "gives": "OO",
+      "note": "a pair in cricket is two ducks, scores of nought, in one match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB",
+      "OO"
+     ],
+     "reversals": [
+      {
+       "from": "BAT",
+       "to": "TAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman bags a pair, out for nought twice, and is banned in dismay.",
+     "walkthrough": "Upset looks like the cricketer's mood; it turns the word around. A pair in cricket is scoring zero in both innings.",
+     "definitionFit": "A taboo is a prohibition, a ban on something by custom or religion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 27,
@@ -444,7 +1639,42 @@
    "clue": {
     "text": "Giant hog"
    },
-   "solution": "GARGANTUA"
+   "solution": "GARGANTUA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GARGANTUA",
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     },
+     {
+      "text": "hog",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giant",
+      "note": "first meaning: the giant of Rabelais's sixteenth-century tales"
+     },
+     {
+      "clueFragment": "hog",
+      "note": "second meaning: a glutton, as that giant was famous for his appetite"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Giant hog reads as a big pig; each word separately names the answer.",
+     "definitionFit": "Gargantua is the huge, insatiably hungry giant in Rabelais, so the name suits both a giant and a greedy eater."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hog"
+    }
+   }
   },
   {
    "number": 28,
@@ -458,7 +1688,57 @@
     "text": "Variety of amber or yellowish fish",
     "enumeration": "5"
    },
-   "solution": "BREAM"
+   "solution": "BREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BREAM",
+    "definitions": [
+     {
+      "text": "yellowish fish",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Variety of",
+      "for": "anagram",
+      "note": "a variety of something is another form of it, so these letters take another order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amber",
+      "gives": "BREAM",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMBER",
+       "gives": "BREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish is described as either amber in colour or yellowish.",
+     "walkthrough": "Amber looks like a colour beside yellowish, but it is the fodder.",
+     "definitionFit": "The freshwater bream is a deep-bodied fish with bronze or yellowish flanks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amber"
+    }
+   }
   },
   {
    "number": 29,
@@ -472,7 +1752,50 @@
     "text": "Overthrow disheartens Times readers ?",
     "enumeration": "6"
    },
-   "solution": "TOPPLE"
+   "solution": "TOPPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOPPLE",
+    "definitions": [
+     {
+      "text": "Overthrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartens",
+      "for": "deletion",
+      "note": "to dishearten is literally to take out the heart, so the middle letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times readers",
+      "gives": "TOPPEOPLE",
+      "note": "Top People take The Times was the newspaper's famous advertising slogan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A coup dismays the readership of this very newspaper.",
+     "walkthrough": "The Times advertised itself with the slogan Top People take The Times; remove the three middle letters of that phrase.",
+     "definitionFit": "To topple a ruler is to bring them down from power, which is what overthrow means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "disheartens"
+    }
+   }
   },
   {
    "number": 30,
@@ -486,7 +1809,73 @@
     "text": "Produced note, for example, to change 50 per cent of score",
     "enumeration": "8"
    },
-   "solution": "BEGOTTEN"
+   "solution": "BEGOTTEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BEGOTTEN",
+    "definitions": [
+     {
+      "text": "Produced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change a word is to alter it, so its letters swap places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "B",
+      "note": "B is a musical note"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation of for example"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "OT",
+      "note": "the two letters swapped round"
+     },
+     {
+      "clueFragment": "50 per cent of score",
+      "gives": "TEN",
+      "note": "a score is twenty, and half of that is ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EG",
+      "OT",
+      "TEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TO",
+       "gives": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer writes a note as an example of how to alter half a musical score.",
+     "walkthrough": "Score suggests music, alongside note, but here it is the number twenty.",
+     "definitionFit": "Begotten is the past participle of beget, to father or bring into being, so it means produced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   }
  ]
 }

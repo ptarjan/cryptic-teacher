@@ -1917,6 +1917,34 @@ SOURCE_CLUE_WRONG = {
         "Constable so alternating with one 3as painter",
         "Constable so alternating with one as painter",
         "OCR misread: a stray 3 before as"),
+    ("times-15550", "23-across"): (
+        "GGreat composer? Hear, hear",
+        "Great composer? Hear, hear",
+        "OCR misread: a doubled G at the start of Great"),
+    ("times-15550", "3-down"): (
+        "Coach providing 'courses for those training",
+        "Coach providing courses for those training",
+        "OCR misread: a stray quote mark before courses"),
+    ("times-15550", "4-down"): (
+        "Three bank holidays -for the rest of its crew?",
+        "Three bank holidays for the rest of its crew?",
+        "OCR misread: a stray hyphen before for"),
+    ("times-15550", "5-across"): (
+        "Such a 'word usually is",
+        "Such a word usually is",
+        "OCR misread: a stray quote mark before word"),
+    ("times-15550", "10-across"): (
+        "Would the .Mikado have fired its perpetrator?",
+        "Would the Mikado have fired its perpetrator?",
+        "OCR misread: a stray full stop before Mikado"),
+    ("times-15550", "22-down"): (
+        "Cunning, we hear, but . means little disrespect",
+        "Cunning, we hear, but means little disrespect",
+        "OCR misread: a stray full stop after but"),
+    ("times-15550", "15-down"): (
+        "No such lack for Alice in . rabbit-hole.",
+        "No such lack for Alice in rabbit-hole.",
+        "OCR misread: a stray full stop before rabbit-hole"),
     ("times-14603", "12-across"): (
         "Paper surely not for lie head of the class?",
         "Paper surely not for the head of the class?",
