@@ -58,7 +58,7 @@ TRANSIENT = re.compile(
     r"usage limit|spend limit|limit reached|rate limit|five-hour window|Not logged in|"
     r"authenticate|OAuth|credit balance|overloaded|API Error: (?:5\d\d|429)|"
     r"Connection error|ECONNRESET|ETIMEDOUT|ENOTFOUND|EAI_AGAIN|fetch failed|"
-    r"Request timed out|network", re.IGNORECASE)
+    r"Request timed out|network|safeguards flagged", re.IGNORECASE)
 
 
 # Entry fields that are the puzzle and not our work on it, after the entry's id.
