@@ -11,10 +11,12 @@ Reads what tools/fetch_archive_org_editions.py leaves in
 positions, leaf_NNNN.jpg of each crossword page, pages.json) for the items
 NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
 
-  - The title is found in djvu.xml's words. The grid is the largest patch of
-    ink under it (tools/trove_grid.py reads its blocks); the clues are the
-    two columns under the grid, cut where the column's text stops being clues
-    ("Solution to Puzzle No", another heading, a gap).
+  - The title is found in djvu.xml's words; on a crossword page whose words
+    hold none, READERS read it over and under each grid-shaped patch of ink
+    (ocr_titles), the number most of them read standing. The grid is the
+    largest patch of ink under it (tools/trove_grid.py reads its blocks); the
+    clues are the two columns under the grid, cut where the column's text
+    stops being clues ("Solution to Puzzle No", another heading, a gap).
   - The columns are read four ways: archive.org's words, RapidOCR at twice
     the size with two recognisers (multilingual PP-OCRv4 and English
     PP-OCRv5), and Tesseract, whose errors are not RapidOCR's (READERS). Each is parsed as file_trove_puzzles.py parses
@@ -139,7 +141,7 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: OCR misreads its first word ("Hie"), puts a mark before "Crossword",
 #: splits the number ("1 8,862") and reads its comma as any mark ("21*065");
 #: read_puzzle checks the number against the date.
-TITLE = re.compile(r"^\W*(?:\w{1,3}\s+)?times\W{1,3}crossword\s+(?:puzzle\s+)?n[o0]\W{0,2}\s*"
+TITLE = re.compile(r"^\W*(?:\w{1,3}\s*)?times\W{1,3}crossword\s+(?:puzzle\s+)?n[o0]\W{0,2}\s*"
                    r"(\d\s?\d[^\w\s]?\s?\d{3})", re.I)
 #: The previous puzzle's solution, printed under the clues.
 SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
@@ -726,12 +728,117 @@ def scan(d):
     if not leaves or not (d / "djvu.xml.gz").exists():
         return found
     paper = paper_of(d)
-    for leaf, lines in leaf_lines(d / "djvu.xml.gz", leaves).items():
-        titles, sols = paper.headings(lines)
-        for n, box, setter in titles:
-            found["puzzles"].append({"number": n, "leaf": leaf, "box": box, **({"setterRead": setter} if setter else {})})
+    text = leaf_lines(d / "djvu.xml.gz", leaves)
+    for leaf in sorted(leaves):
+        titles, sols = paper.headings(text.get(leaf, []))
+        titles = [(n, box, setter, None) for n, box, setter in titles] or \
+            ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
+        for n, box, setter, readers in titles:
+            found["puzzles"].append({"number": n, "leaf": leaf, "box": box,
+                                     **({"setterRead": setter} if setter else {}),
+                                     **({"titleReadBy": readers} if readers else {})})
         for n, box in sols:
             found["solutions"].append({"number": n, "leaf": leaf, "box": box})
+    return found
+
+
+#: The least share of its box a grid's ink fills: a frame round a panel
+#: (3%) is not a grid; grids fill 35-45%.
+GRID_FILL = 0.2
+#: How far over and under a grid its title is looked for when archive.org's
+#: text has none: the 1995 Times prints it 250px over the grid.
+TITLE_REACH = 300
+
+
+def grids_on(img, step=2):
+    """[box] of each grid-shaped patch of ink on a page (grid_shaped, at
+    least GRID_FILL of its box inked), found on a 1/step subsample."""
+    import cv2
+    import numpy as np
+    gray = np.asarray(img.convert("L"), dtype=np.uint8)
+    ink = (gray < trove_grid.otsu(gray))[::step, ::step].astype(np.uint8)
+    _, _, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=4)
+    out = []
+    for x, y, w, h, area in stats[1:].tolist():
+        box = (x * step, y * step, (x + w) * step, (y + h) * step)
+        if grid_shaped(box) and area >= GRID_FILL * w * h:
+            out.append(box)
+    return out
+
+
+def title_bands(img, grid):
+    """The crops over and under a grid that its title is read in: TITLE_REACH
+    deep, half the grid's width wider each side (the Guardian's title runs
+    left of its grid)."""
+    x0, y0, x1, y1 = grid
+    xa, xb = max(0, x0 - (x1 - x0) // 2), min(img.width, x1 + (x1 - x0) // 2)
+    return ((xa, max(0, y0 - TITLE_REACH), xb, y0), (xa, y1, xb, min(img.height, y1 + TITLE_REACH)))
+
+
+def printed_lines(words):
+    """djvu-style lines of OCR words, (x0, y0, x1, y1, text) each: words
+    each of whose middles lies within the other's height share a row (a
+    column rule read as one tall word joins none), left to right, a row
+    split where a gap wider than three heights parts two columns."""
+    def mid(w):
+        return (w[1] + w[3]) / 2
+    rows = []
+    for w in sorted(words, key=mid):
+        row = next((r for r in rows if r[0][1] <= mid(w) <= r[0][3] and w[1] <= mid(r[0]) <= w[3]), None)
+        if row:
+            row.append(w)
+        else:
+            rows.append([w])
+    lines = []
+    for row in rows:
+        row.sort()
+        line = [row[0]]
+        for w in row[1:]:
+            if w[0] - line[-1][2] > 3 * (w[3] - w[1]):
+                lines.append(line)
+                line = []
+            line.append(w)
+        lines.append(line)
+    return lines
+
+
+def band_words(img, band, which, cache_path):
+    """Reader `which`'s words in a band of the page, in page coordinates;
+    cached as JSON with the band it read."""
+    if cache_path.exists():
+        cached = json.loads(cache_path.read_text())
+        if tuple(cached["box"]) == tuple(band):
+            return [tuple(w) for w in cached["words"]]
+    words = [(x0 + band[0], y0 + band[1], x1 + band[0], y1 + band[1], t)
+             for x0, y0, x1, y1, t in read_words(img.crop(band), which)]
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps({"box": list(band), "words": words}))
+    return words
+
+
+def ocr_titles(img, paper, day, key):
+    """[(number, box, setter, readers)] of the titles our own readers
+    (READERS) find over or under each grid on a page whose archive.org text
+    has none: per band, the number most readers read (a tie to the one
+    nearest the date's), with the box and setter of the first reader that
+    read it. read_puzzle still holds the number to the date."""
+    found = []
+    for g in grids_on(img):
+        for band in title_bands(img, g):
+            reads = {}
+            for which in READERS:
+                path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
+                titles = paper.headings(printed_lines(band_words(img, band, which, path)))[0]
+                if titles:
+                    reads[which] = titles[0]
+            if reads:
+                votes = {}
+                for which, (n, _, _) in reads.items():
+                    votes.setdefault(n, []).append(which)
+                n = min(votes, key=lambda n: (-len(votes[n]), abs(n - paper.expected(day))))
+                _, box, setter = reads[votes[n][0]]
+                found.append((n, box, setter, votes[n]))
+                break
     return found
 
 
@@ -1388,7 +1495,8 @@ SCAN_CODE = {"leaf_lines", "headings", "scan", "ft_headings", "guardian_headings
              "numbered_heading", "heading_of", "digits", "box_of", "centred", "number_of", "NUMBER", "TITLE",
              "SOLUTION", "FT_TITLE", "FT_NUMBER", "FT_SETTER", "FT_SOLUTION", "G_NUMBER", "GUARDIAN_TITLE",
              "GUARDIAN_SOLUTION", "TELEGRAPH_SOLUTION", "NUMBERED_HEADING", "FT_GRID_SPAN", "FT_SOLUTION_SPAN",
-             "TELEGRAPH_SOLUTION_SPAN", "OBJECT_TAG"}
+             "TELEGRAPH_SOLUTION_SPAN", "OBJECT_TAG", "GRID_FILL", "TITLE_REACH", "grids_on", "title_bands",
+             "printed_lines", "band_words", "ocr_titles", "grid_shaped"}
 _SCAN_KEY = []
 
 

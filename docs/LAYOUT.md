@@ -146,6 +146,11 @@ tools/fixtures/archive-org-grids/            three archive.org page crops whose 
                                              under, over and left of its title (cases.json:
                                              scan, title box, and the FT one's words), the
                                              grids test_file_archive_org_puzzles.sh locates
+tools/fixtures/archive-org-titles/           four archive.org page crops whose title
+                                             archive.org's own text lacks (cases.json: scan,
+                                             paper, date, and our readers' words in each title
+                                             band), the titles test_file_archive_org_puzzles.sh
+                                             reads
 tools/fixtures/trove-repair/                 the 14 July 1967 cryptic, whose OCR glued 6-down
                                              onto 5-down, with RapidOCR's reading of its clue
                                              columns and our three readers' text of them: the
