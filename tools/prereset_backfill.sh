@@ -741,7 +741,12 @@ commit_puzzle() {
     # end takes everything. -A, so a file that changed year folders goes in as
     # a rename rather than as a new copy beside the old one.
     git add -A -- "$(puzzle_spec "$num")"
-    git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")"
+    if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+      # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
+      # a refused commit has to stop here or the log says "committed".
+      alert "pre-reset backfill could not commit $what $num, so nothing it annotates reaches the site until this is fixed: $(printf '%s' "$out" | tail -5)"
+      return 1
+    fi
     # Straight to origin/master without touching the tree: siblings in the
     # pool are still writing here. The tree catches up in sync_wave.
     tools/push_puzzle_commit.sh ||
@@ -954,9 +959,8 @@ fi
 # pages and the ?v= stamps have to move together, and the smoke test is the last
 # word on whether the app still boots against what we just wrote.
 python3 tools/fetch_puzzle.py --reindex
-# The glossary is generated too, and annotating is what adds to it: leaving it
-# out meant a pool that learned a new abbreviation committed a tree whose
-# abbreviations.js no longer matched its own JSON.
+# The glossary is generated from the annotated corpus, so rebuild it before the
+# final commit.
 python3 tools/build_abbreviations.py
 # The README's corpus counts are generated too, and annotating is what moves
 # them. daily_update.sh rebuilds them before it commits so they are never more
