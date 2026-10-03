@@ -23,6 +23,9 @@
   "date": "2026-01-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Appropriate gossip about Queen",
     "enumeration": "4"
    },
-   "solution": "GRAB"
+   "solution": "GRAB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAB",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' places the gossip word around the Queen's letter, wrapping it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gossip",
+      "gives": "GAB",
+      "note": "gab is idle chatter"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina, the Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone helps themselves to juicy tittle-tattle about the monarch.",
+     "walkthrough": "GAB wraps R to give GRAB. 'Appropriate' reads as an adjective but here it is the verb.",
+     "definitionFit": "To appropriate something is to take it for yourself, which is to seize or snatch it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +101,43 @@
     "text": "Bedspread, in essence, covers eagerness",
     "enumeration": "9"
    },
-   "solution": "READINESS"
+   "solution": "READINESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "READINESS",
+    "definitions": [
+     {
+      "text": "eagerness",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "hidden_word",
+      "note": "the phrase before it covers, or hides inside itself, a run of consecutive letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bedspread, in essence",
+      "gives": "READINESS",
+      "note": "the letters run on across the three words, ignoring the comma"
+     }
+    ],
+    "explanation": {
+     "surface": "A bedspread somehow embodies keenness, as if a quilt could be eager.",
+     "walkthrough": "The run starts inside 'Bedspread' and ends inside 'essence'.",
+     "definitionFit": "Readiness to act is willingness or keenness, the same quality as being eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +151,47 @@
     "text": "Animal is perhaps hound",
     "enumeration": "6"
    },
-   "solution": "BADGER"
+   "solution": "BADGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BADGER",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     },
+     {
+      "text": "hound",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is perhaps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "note": "first meaning: a black-and-white burrowing mammal"
+     },
+     {
+      "clueFragment": "hound",
+      "note": "second meaning: a verb, to pester someone relentlessly"
+     }
+    ],
+    "explanation": {
+     "surface": "A guess that some creature is a hunting dog.",
+     "walkthrough": "'hound' looks like a noun naming a dog; it is the verb meaning to harass.",
+     "definitionFit": "A badger is a wild burrowing mammal, and to badger someone is to nag or pester them persistently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hound"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +205,52 @@
     "text": "Game bird is all dressed",
     "enumeration": "9"
    },
-   "solution": "BILLIARDS"
+   "solution": "BILLIARDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BILLIARDS",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "dressed means prepared or arranged, so these letters are put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird is all",
+      "gives": "BIRDISALL",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIRDISALL",
+       "gives": "BILLIARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game bird has been plucked and prepared for the table.",
+     "walkthrough": "'Game bird' runs together as a phrase for pheasant or grouse; 'Game' stands alone as the definition.",
+     "definitionFit": "Billiards is a cue sport played on a cloth-covered table with balls and pockets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +264,44 @@
     "text": "Rubbish place to retire",
     "enumeration": "4"
    },
-   "solution": "BUNK"
+   "solution": "BUNK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUNK",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     },
+     {
+      "text": "place to retire",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "note": "first meaning: nonsense, as in 'that's a load of ...'"
+     },
+     {
+      "clueFragment": "place to retire",
+      "note": "second meaning: a narrow bed, where you retire for the night"
+     }
+    ],
+    "explanation": {
+     "surface": "A poor spot in which to spend your retirement years.",
+     "walkthrough": "'retire' suggests leaving work, but here it means going to bed.",
+     "definitionFit": "Bunk is slang for nonsense, and a bunk is a narrow shelf-like bed for sleeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retire"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +315,40 @@
     "text": "Hide Bayern kit?",
     "enumeration": "10"
    },
-   "solution": "LEDERHOSEN"
+   "solution": "LEDERHOSEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEDERHOSEN",
+    "definitions": [
+     {
+      "text": "Hide Bayern kit?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hide Bayern kit?",
+      "note": "surface reading: an instruction to conceal the strip of the Munich football club"
+     },
+     {
+      "clueFragment": "Hide Bayern kit?",
+      "note": "setter's reading: 'Hide' is leather, and the kit is traditional Bavarian clothing made of it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to stash away Bayern Munich's football shirts.",
+     "walkthrough": "'Hide' reads as a verb but is the noun for animal skin; Bayern is the German name for Bavaria.",
+     "definitionFit": "These are leather shorts with braces, the traditional dress of Bavaria and the Alps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +362,50 @@
     "text": "Cold rain destroyed warship",
     "enumeration": "8"
    },
-   "solution": "IRONCLAD"
+   "solution": "IRONCLAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IRONCLAD",
+    "definitions": [
+     {
+      "text": "warship",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked and its parts scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold rain",
+      "gives": "COLDRAIN",
+      "note": "eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COLDRAIN",
+       "gives": "IRONCLAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bitter weather at sea sinks a fighting ship.",
+     "definitionFit": "An ironclad was a nineteenth-century steam warship protected by armour plating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +419,50 @@
     "text": "River fish possibly found in rocks",
     "enumeration": "5"
    },
-   "solution": "REELS"
+   "solution": "REELS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REELS",
+    "definitions": [
+     {
+      "text": "rocks",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     },
+     {
+      "clueFragment": "fish possibly",
+      "gives": "EELS",
+      "note": "eels are one example of fish, hence 'possibly'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EELS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some kind of fish from a river turns up hiding among rocks.",
+     "walkthrough": "'rocks' looks like a noun for stones; it is the verb meaning sways or staggers.",
+     "definitionFit": "To reel is to stagger or sway unsteadily, just as something that rocks moves to and fro."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +476,53 @@
     "text": "Upping sweetheart’s pace",
     "enumeration": "4"
    },
-   "solution": "STEP"
+   "solution": "STEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEP",
+    "definitions": [
+     {
+      "text": "pace",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upping",
+      "for": "reversal",
+      "note": "in a down clue, sending a word upwards means reading it from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweetheart’s",
+      "gives": "PETS",
+      "note": "pet is a term of endearment; with the 's it reads as pet's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEP"
+     ],
+     "reversals": [
+      {
+       "from": "PETS",
+       "to": "STEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover's walking speed is quickening.",
+     "definitionFit": "A step is a single stride, and a pace is likewise one stride in walking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upping"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +536,49 @@
     "text": "Terrible shower seek solutions losing head",
     "enumeration": "9"
    },
-   "solution": "RAINSTORM"
+   "solution": "RAINSTORM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAINSTORM",
+    "definitions": [
+     {
+      "text": "Terrible shower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the opening letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seek solutions",
+      "gives": "BRAINSTORM",
+      "note": "to brainstorm is to pool ideas in search of answers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAINSTORM"
+     ]
+    },
+    "explanation": {
+     "surface": "A useless team of people trying to find answers is dismissed as hopeless.",
+     "walkthrough": "'shower' looks like British slang for a useless bunch of people; here it is a downpour.",
+     "definitionFit": "A rainstorm is a heavy burst of rain, which is what a terrible or violent shower would be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +592,65 @@
     "text": "Left and right in a party",
     "enumeration": "9"
    },
-   "solution": "ABANDONED"
+   "solution": "ABANDONED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABANDONED",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' says one piece sits inside the other, enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BAND",
+      "note": "a band is a group of people acting together"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "DONE",
+      "note": "'the done thing' is the right or proper thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAN",
+      "DONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Both wings sit within the same political party.",
+     "walkthrough": "'Left and right' reads like politics, but only 'Left' is the definition. 'The done thing' means the right or proper thing to do.",
+     "definitionFit": "Something left behind and deserted has been abandoned, as with a car left at the roadside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +664,50 @@
     "text": "Overly big, excessively stout, even initially",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "Overly big, excessively stout, even initially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word in the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overly big, excessively stout, even",
+      "gives": "OBESE",
+      "select": "first",
+      "note": "the first letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBESE"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of someone who is far too large, even right from the start.",
+     "walkthrough": "The whole clue is both the wordplay and the description of the answer.",
+     "definitionFit": "Being obese means carrying far more body fat than is healthy, overly big and excessively stout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +721,59 @@
     "text": "Beak’s imprisoning one for rackets",
     "enumeration": "6"
    },
-   "solution": "NOISES"
+   "solution": "NOISES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISES",
+    "definitions": [
+     {
+      "text": "rackets",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoning",
+      "for": "container",
+      "note": "imprisoning means locking something inside, so one piece is shut within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beak’s",
+      "gives": "NOSES",
+      "note": "beak is slang for nose; with the 's it reads as nose's"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SES"
+     ]
+    },
+    "explanation": {
+     "surface": "A magistrate locks someone up for running criminal schemes.",
+     "walkthrough": "NOSES holds I to make NOISES. Beak is British slang for a magistrate, which powers the surface, but here it means a nose.",
+     "definitionFit": "A racket is a loud din, so rackets are loud sounds or clamour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Beak’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +787,68 @@
     "text": "Force to accept Church rejected faithful",
     "enumeration": "7"
    },
-   "solution": "PRECISE"
+   "solution": "PRECISE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PRECISE",
+    "definitions": [
+     {
+      "text": "faithful",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece goes inside the other"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected means turned back, so the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "PRISE",
+      "note": "to prise is to force open with leverage"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "EC",
+      "ISE"
+     ],
+     "reversals": [
+      {
+       "from": "CE",
+       "to": "EC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coercing someone to embrace a church that loyal believers spurned.",
+     "walkthrough": "'faithful' looks like a word for believers, which fits the church scene, but here it means accurate.",
+     "definitionFit": "A faithful copy or translation is exact and accurate, which is what precise means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "faithful"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +862,58 @@
     "text": "Commercial centre with mail shot",
     "enumeration": "10"
    },
-   "solution": "MERCANTILE"
+   "solution": "MERCANTILE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MERCANTILE",
+    "definitions": [
+     {
+      "text": "Commercial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "shot means ruined or worn out, so these letters are wrecked and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "CENTRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mail",
+      "gives": "MAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CENTRE MAIL",
+       "gives": "MERCANTILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business hub comes equipped with a postal delivery service.",
+     "definitionFit": "Mercantile describes trade and merchants, the world of buying and selling goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +927,58 @@
     "text": "Unhappy with newspapers in action",
     "enumeration": "9"
    },
-   "solution": "DEPRESSED"
+   "solution": "DEPRESSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPRESSED",
+    "definitions": [
+     {
+      "text": "Unhappy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' sets one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an act or action"
+     },
+     {
+      "clueFragment": "newspapers",
+      "gives": "PRESS",
+      "note": "the press is the newspaper industry collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "PRESS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable person gets the papers involved in some lawsuit.",
+     "walkthrough": "DEED holds PRESS: DE(PRESS)ED.",
+     "definitionFit": "Someone depressed is low in spirits, gloomy and dejected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +992,48 @@
     "text": "Post on X, endlessly affected",
     "enumeration": "4"
    },
-   "solution": "TWEE"
+   "solution": "TWEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TWEE",
+    "definitions": [
+     {
+      "text": "affected",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post on X",
+      "gives": "TWEET",
+      "note": "a message on X, formerly Twitter, is still called this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's endless social-media posting comes across as pretentious.",
+     "walkthrough": "TWEET loses its last letter. Twee is a British word for excessively quaint or sentimental.",
+     "definitionFit": "Twee means overly cute or dainty, a mannered quality much like being affected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1047,59 @@
     "text": "Said in passing to cause dismay",
     "enumeration": "10"
    },
-   "solution": "DEMORALISE"
+   "solution": "DEMORALISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMORALISE",
+    "definitions": [
+     {
+      "text": "cause dismay",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passing",
+      "gives": "DEMISE",
+      "note": "one's passing is one's death"
+     },
+     {
+      "clueFragment": "Said",
+      "gives": "ORAL",
+      "note": "oral means spoken rather than written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEM",
+      "ORAL",
+      "ISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark made casually is enough to upset someone.",
+     "walkthrough": "'in passing' looks like the idiom for casually, but it splits: 'in' is the signal and 'passing' means death.",
+     "definitionFit": "To demoralise people is to sap their confidence and spirit, leaving them disheartened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1113,64 @@
     "text": "One can rave about sweetheart wandering",
     "enumeration": "9"
    },
-   "solution": "ITINERANT"
+   "solution": "ITINERANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ITINERANT",
+    "definitions": [
+     {
+      "text": "wandering",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "select": "middle",
+      "note": "the heart of 'sweet' is its middle letter"
+     },
+     {
+      "clueFragment": "rave",
+      "gives": "RANT",
+      "note": "to rave is to rant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TIN",
+      "E",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A person can go on about a lover who keeps roaming.",
+     "walkthrough": "I, TIN, E and RANT join up. 'sweetheart' looks like a lover but means the middle of 'sweet'; 'about' just links the rant to it.",
+     "definitionFit": "An itinerant person travels from place to place without settling, constantly roving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1184,57 @@
     "text": "Cross Tory occasionally hostile",
     "enumeration": "8"
    },
-   "solution": "TRAVERSE"
+   "solution": "TRAVERSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAVERSE",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "TR",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "hostile",
+      "gives": "AVERSE",
+      "note": "averse means opposed to something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AVERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry Conservative is sometimes antagonistic.",
+     "walkthrough": "'Cross' reads as angry, but it is the verb meaning go across. A Tory is a member of Britain's Conservative Party.",
+     "definitionFit": "To traverse a place is to travel across it, as in crossing a mountain range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1248,59 @@
     "text": "Private secret with dirt spread",
     "enumeration": "10"
    },
-   "solution": "RESTRICTED"
+   "solution": "RESTRICTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESTRICTED",
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spread",
+      "for": "anagram",
+      "note": "spread means scattered about, so these letters are dispersed and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "SECRET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dirt",
+      "gives": "DIRT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECRET DIRT",
+       "gives": "RESTRICTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confidential secret, with scandalous gossip leaked about it.",
+     "walkthrough": "'Private' might be a soldier; it is the adjective.",
+     "definitionFit": "A restricted area or document is limited to certain people and closed to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1314,48 @@
     "text": "Mole or spy overheard",
     "enumeration": "4"
    },
-   "solution": "PIER"
+   "solution": "PIER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PIER",
+    "definitions": [
+     {
+      "text": "Mole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "overheard means caught by ear, so we want a word that sounds like the one clued"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "PIER",
+      "soundsLike": "PEER",
+      "note": "to peer is to look closely, to spy"
+     }
+    ],
+    "explanation": {
+     "surface": "A double agent or secret agent has been eavesdropped on.",
+     "walkthrough": "'Mole' and 'spy' look like synonyms; Mole is the harbour wall instead.",
+     "definitionFit": "A mole is a massive stone breakwater or jetty, a structure jutting into the sea like a pier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mole"
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1369,46 @@
     "text": "Part is testing part for performer",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTIST",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "hidden_word",
+      "note": "the second 'part' says we take only a portion of the preceding words"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part is testing",
+      "gives": "ARTIST",
+      "note": "the run starts after the opening P and stops after the T of the third word"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor's role is proving demanding.",
+     "walkthrough": "The opening 'Part' belongs to the fodder; only the second 'part' is the signal.",
+     "definitionFit": "An artist is a performer such as a singer or entertainer, as in a recording artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1422,62 @@
     "text": "Tonsure cut around top of head",
     "enumeration": "7"
    },
-   "solution": "SHAVING"
+   "solution": "SHAVING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SHAVING",
+    "definitions": [
+     {
+      "text": "Tonsure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means wrapped outside, so one piece encloses the other"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in an across clue is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SAVING",
+      "note": "a saving is a cut in spending"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "H",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "AVING"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk's tonsure is trimmed round the crown of his head.",
+     "walkthrough": "SAVING holds H: S(H)AVING.",
+     "definitionFit": "A tonsure is a shaved patch on a monk's scalp, and the act of making one is a shaving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1491,57 @@
     "text": "Start to hang above?",
     "enumeration": "5"
    },
-   "solution": "HOVER"
+   "solution": "HOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "HOVER",
+    "definitions": [
+     {
+      "text": "Start to hang above?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hang",
+      "gives": "H",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "above",
+      "gives": "OVER",
+      "note": "over means above"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to begin hanging something up high.",
+     "walkthrough": "The whole clue also describes the answer: to begin to hang in the air above something.",
+     "definitionFit": "To hover is to stay suspended in the air over one spot, like a hawk or helicopter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1555,47 @@
     "text": "Underpants maybe showing outlines",
     "enumeration": "6"
    },
-   "solution": "BRIEFS"
+   "solution": "BRIEFS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIEFS",
+    "definitions": [
+     {
+      "text": "Underpants",
+      "at": 0
+     },
+     {
+      "text": "outlines",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "maybe showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underpants",
+      "note": "first meaning: close-fitting short underwear"
+     },
+     {
+      "clueFragment": "outlines",
+      "note": "second meaning: short summaries or sets of instructions"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's underwear might be visible as a silhouette.",
+     "walkthrough": "'outlines' paints visible panty lines; it means summaries.",
+     "definitionFit": "Briefs are short close-fitting knickers, and briefs are also summaries of instructions or facts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outlines"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1609,45 @@
     "text": "Reportedly run away seeing insect",
     "enumeration": "4"
    },
-   "solution": "FLEA"
+   "solution": "FLEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLEA",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so we want a word that sounds like this one"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run away",
+      "gives": "FLEA",
+      "soundsLike": "FLEE",
+      "note": "to flee is to run away"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is said to have bolted on spotting a bug.",
+     "definitionFit": "A flea is a tiny wingless jumping insect that feeds on blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1661,56 @@
     "text": "Rapidly overweight eating seconds",
     "enumeration": "4"
    },
-   "solution": "FAST"
+   "solution": "FAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAST",
+    "definitions": [
+     {
+      "text": "Rapidly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overweight",
+      "gives": "FAT",
+      "note": "fat means overweight"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy person wolfing down second helpings at speed.",
+     "walkthrough": "FAT holds S: FA(S)T. 'seconds' suggests extra helpings, but it is the unit abbreviation.",
+     "definitionFit": "Fast as an adverb means quickly, as in 'run fast'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1724,55 @@
     "text": "Organ this person’s taken in hands",
     "enumeration": "5"
    },
-   "solution": "LIVER"
+   "solution": "LIVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIVER",
+    "definitions": [
+     {
+      "text": "Organ",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "taken in means held inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hands",
+      "gives": "LR",
+      "note": "L and R stand for left and right hands"
+     },
+     {
+      "clueFragment": "this person’s",
+      "gives": "IVE",
+      "note": "'this person has' from the setter's viewpoint is I've, written without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A transplant organ is carried in somebody's own hands.",
+     "walkthrough": "L and R enclose IVE: L(IVE)R. 'this person' means the setter, so 'this person's' is 'I have', shortened.",
+     "definitionFit": "The liver is a large internal organ that filters the blood and processes nutrients."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 29,
@@ -442,7 +1786,62 @@
     "text": "Unconscious patient welcomes auntie oddly",
     "enumeration": "9"
    },
-   "solution": "INANIMATE"
+   "solution": "INANIMATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INANIMATE",
+    "definitions": [
+     {
+      "text": "Unconscious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "to welcome someone is to let them in, so one piece goes inside the other"
+     },
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in the odd-numbered positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "patient",
+      "gives": "INMATE",
+      "note": "a hospital patient can be called an inmate, a resident of an institution"
+     },
+     {
+      "clueFragment": "auntie",
+      "gives": "ANI",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ANI",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comatose hospital patient receives a visit from their aunt.",
+     "walkthrough": "INMATE takes in ANI: IN(ANI)MATE.",
+     "definitionFit": "Inanimate means lifeless or showing no sign of life, like someone unconscious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 30,
@@ -456,7 +1855,55 @@
     "text": "Workers in a welcome consensus",
     "enumeration": "9"
    },
-   "solution": "AGREEMENT"
+   "solution": "AGREEMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGREEMENT",
+    "definitions": [
+     {
+      "text": "consensus",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' sets one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a welcome",
+      "gives": "AGREET",
+      "note": "a, taken as written, then greet for welcome"
+     },
+     {
+      "clueFragment": "Workers",
+      "gives": "MEN",
+      "note": "men is a standard word for workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGREE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff unanimously approve of a warm reception.",
+     "walkthrough": "A GREET holds MEN: A GREE(MEN)T.",
+     "definitionFit": "A consensus is general accord among a group, which is what an agreement represents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "welcome"
+    }
+   }
   },
   {
    "number": 31,
@@ -470,7 +1917,40 @@
     "text": "Designs on a person’s body?",
     "enumeration": "4"
    },
-   "solution": "TATS"
+   "solution": "TATS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TATS",
+    "definitions": [
+     {
+      "text": "Designs on a person’s body?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Designs on a person’s body?",
+      "note": "surface reading: someone has 'designs on' another, meaning they fancy them"
+     },
+     {
+      "clueFragment": "Designs on a person’s body?",
+      "note": "setter's reading: literal inked pictures on someone's skin, in a slang short form"
+     }
+    ],
+    "explanation": {
+     "surface": "Somebody harbours lustful intentions towards another.",
+     "walkthrough": "The answer is a short informal form of tattoos, listed in Chambers.",
+     "definitionFit": "Tattoos are permanent ink designs made on the skin, and the slang abbreviation is used informally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Designs"
+    }
+   }
   }
  ]
 }
