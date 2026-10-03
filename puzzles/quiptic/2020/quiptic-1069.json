@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Changed doctor provided, that is, daughters come round",
     "enumeration": "8"
    },
-   "solution": "MODIFIED"
+   "solution": "MODIFIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MODIFIED",
+    "definitions": [
+     {
+      "text": "Changed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "come round",
+      "for": "container",
+      "note": "to come round something is to surround it, so the daughters wrap themselves about the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, a standard crossword doctor"
+     },
+     {
+      "clueFragment": "daughters",
+      "gives": "DD",
+      "note": "D is daughter, so two daughters give two Ds"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "'provided' as in 'on condition that'"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "D",
+      "IFIE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's plans were altered because the daughters came round to visit.",
+     "walkthrough": "'Come round' looks like a visit, but it tells the two daughters to surround the middle pieces.",
+     "definitionFit": "To modify something is to alter it, so modified is a past-tense synonym for altered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,58 @@
     "text": "Notice jumpers are going up",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "Notice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters run from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumpers",
+      "gives": "TOPS",
+      "note": "jumpers (sweaters) are tops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOPS",
+       "to": "SPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper sees that the price of sweaters is rising.",
+     "walkthrough": "A jumper is the British word for a sweater.",
+     "definitionFit": "To spot something is to catch sight of it, the verb sense of notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jumpers"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +175,71 @@
     "text": "Leave unfinished line about king being eccentric",
     "enumeration": "6"
    },
-   "solution": "QUIRKY"
+   "solution": "QUIRKY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "QUIRKY",
+    "definitions": [
+     {
+      "text": "eccentric",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished is missing its end, so the final letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means placed around, so the line encircles the king"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "QUIT",
+      "note": "to quit is to leave"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a line"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUI",
+      "R",
+      "K",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons a half-written line about a monarch for being odd.",
+     "walkthrough": "'Line' is not verse here but a railway, abbreviated as it is on maps.",
+     "definitionFit": "Quirky behaviour is odd and unconventional, which is what eccentric describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +253,72 @@
     "text": "At your send-off, bishop and I included a short life history",
     "enumeration": "8"
    },
-   "solution": "OBITUARY"
+   "solution": "OBITUARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OBITUARY",
+    "definitions": [
+     {
+      "text": "a short life history",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "send-off",
+      "for": "anagram",
+      "note": "sending something off scatters it, so the preceding letters are dispatched into a new order"
+     },
+     {
+      "text": "included",
+      "for": "container",
+      "note": "included means placed inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At your",
+      "gives": "ATYOUR",
+      "note": "the letters to be rearranged, taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BI",
+      "TUARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATYOUR",
+       "gives": "OTUARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At your funeral, a bishop and I read out a brief account of your life.",
+     "walkthrough": "'Send-off' looks like part of the funeral picture, but it scrambles AT YOUR, into which B and I are placed.",
+     "definitionFit": "An obituary is a newspaper notice summarising the career and achievements of someone recently dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "send-off"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +338,55 @@
      }
     ]
    },
-   "solution": "FASTRUNNER"
+   "solution": "FASTRUNNER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAST RUNNER",
+    "definitions": [
+     {
+      "text": "Bolt maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells us the beans come later in the entry than the eating period"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a period without eating",
+      "gives": "FAST",
+      "note": "a fast is a time of going without food"
+     },
+     {
+      "clueFragment": "a variety of beans",
+      "gives": "RUNNER",
+      "note": "runner beans are a type of climbing bean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "RUNNER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bolts down a plate of beans after a long fast.",
+     "walkthrough": "Bolt is not gobbling food but Usain Bolt, the Jamaican sprinter; 'maybe' marks him as an example.",
+     "definitionFit": "Usain Bolt, the Olympic sprint champion, is a famous example of a speedy athlete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bolt"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +400,66 @@
     "text": "Physical training keeps pin-up flexible",
     "enumeration": "6"
    },
-   "solution": "PLIANT"
+   "solution": "PLIANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PLIANT",
+    "definitions": [
+     {
+      "text": "flexible",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is written bottom to top"
+     },
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Physical training",
+      "gives": "PT",
+      "note": "PT is the abbreviation for physical training"
+     },
+     {
+      "clueFragment": "pin",
+      "gives": "NAIL",
+      "note": "a nail is a kind of pin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIAN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "NAIL",
+       "to": "LIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gym workouts keep a pin-up model supple.",
+     "definitionFit": "Something pliant bends easily without breaking, the same quality as being flexible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pin-up"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +473,74 @@
     "text": "Blend egg in cake mixture initially, then beat",
     "enumeration": "8"
    },
-   "solution": "COMPOUND"
+   "solution": "COMPOUND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "COMPOUND",
+    "definitions": [
+     {
+      "text": "Blend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the egg inside the other letters"
+     },
+     {
+      "text": "then",
+      "for": "charade",
+      "note": "then says the next piece follows on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake mixture",
+      "gives": "CM",
+      "select": "first",
+      "note": "first letters of cake and mixture"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "O",
+      "note": "an egg is round, like the letter O"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "POUND",
+      "note": "to pound is to beat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "M",
+      "POUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A baking instruction: fold the egg into the cake mix, then beat it.",
+     "walkthrough": "C(O)M + POUND; 'Blend' is the noun, a mixture.",
+     "definitionFit": "A compound is a mixture of several elements, so a blend is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blend"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +554,69 @@
     "text": "Hesitate to free up article trapped inside",
     "enumeration": "6"
    },
-   "solution": "DITHER"
+   "solution": "DITHER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DITHER",
+    "definitions": [
+     {
+      "text": "Hesitate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is written bottom to top"
+     },
+     {
+      "text": "trapped inside",
+      "for": "container",
+      "note": "something trapped inside is enclosed by the outer letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "THE",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "RID",
+       "to": "DIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates to release a thing that has got stuck inside.",
+     "definitionFit": "To dither is to waver indecisively, unable to make up one's mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +630,65 @@
     "text": "Live long, occupying time with dog",
     "enumeration": "6"
    },
-   "solution": "BEAGLE"
+   "solution": "BEAGLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEAGLE",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy something is to sit inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to live, exist"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L is a standard abbreviation for long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "AG",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Wishing someone and their dog long life together.",
+     "walkthrough": "BE + AG(L)E: the abbreviation for long sits inside the word for a period of time.",
+     "definitionFit": "A beagle is a small hound breed used for hunting hares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +702,43 @@
     "text": "Brand-new moneymaker",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINT",
+    "definitions": [
+     {
+      "text": "Brand-new",
+      "at": 0
+     },
+     {
+      "text": "moneymaker",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brand-new",
+      "note": "first meaning: in perfect, unused condition"
+     },
+     {
+      "clueFragment": "moneymaker",
+      "note": "second meaning: the place where coins are produced"
+     }
+    ],
+    "explanation": {
+     "surface": "A fresh, profitable venture.",
+     "definitionFit": "Mint condition means pristine, and the Royal Mint is the official factory where coins are struck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "moneymaker"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +766,70 @@
      }
     ]
    },
-   "solution": "RATATATTAT"
+   "solution": "RATATATTAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RAT-A-TAT-TAT",
+    "definitions": [
+     {
+      "text": "Knock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "anagram",
+      "note": "something made has been fashioned, so these letters are reshaped into a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of bits of junk",
+      "gives": "TATTAT",
+      "note": "tat is cheap junk, and a couple means two lots of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "A",
+      "TATTAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ART",
+       "gives": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Artwork knocked together from a few scraps of rubbish.",
+     "walkthrough": "Tat is British slang for tasteless or worthless odds and ends.",
+     "definitionFit": "Rat-a-tat-tat imitates the repeated sound of rapping on a door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +843,61 @@
     "text": "Good-natured sort left legacy behind",
     "enumeration": "6"
    },
-   "solution": "KINDLY"
+   "solution": "KINDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KINDLY",
+    "definitions": [
+     {
+      "text": "Good-natured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "letter_selection",
+      "note": "behind points to the tail end of the word, its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort",
+      "gives": "KIND",
+      "note": "a kind is a sort or type"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "legacy",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of legacy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIND",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A generous relative who left a bequest behind them.",
+     "definitionFit": "A kindly person is warm, gentle and considerate, which is what good-natured means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +917,69 @@
      }
     ]
    },
-   "solution": "DIZZYSPELL"
+   "solution": "DIZZYSPELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIZZY SPELL",
+    "definitions": [
+     {
+      "text": "a funny turn",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the even split later than the exercises"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly",
+      "gives": "DIZZY",
+      "note": "dizzy can mean scatterbrained, silly"
+     },
+     {
+      "clueFragment": "son's",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "PE",
+      "note": "PE is physical education, school exercises"
+     },
+     {
+      "clueFragment": "50-50",
+      "gives": "LL",
+      "note": "L is the Roman numeral 50, so 50-50 is two Ls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIZZY",
+      "S",
+      "PE",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A daft boy's even chances, after a workout, of collapsing in a heap.",
+     "walkthrough": "A funny turn is a British phrase for a brief bout of feeling faint.",
+     "definitionFit": "A dizzy spell is a short episode of light-headedness, the sudden queasy fit the phrase describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "50-50"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +993,75 @@
     "text": "Reckon online price cut has affected tea",
     "enumeration": "8"
    },
-   "solution": "EVALUATE"
+   "solution": "EVALUATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EVALUATE",
+    "definitions": [
+     {
+      "text": "Reckon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut has been trimmed short, losing its end"
+     },
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered, so its letters are moved around"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "E as in e-commerce, electronic or online"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "VALUE",
+      "note": "a price is a value"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "the letters to be rearranged, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VALU",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEA",
+       "gives": "ATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper reckons an online discount has changed what they pay for tea.",
+     "definitionFit": "To evaluate is to assess or calculate, the same as reckoning up a figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1075,60 @@
     "text": "Impress daughter with cool music, starting off with the French",
     "enumeration": "6"
    },
-   "solution": "DAZZLE"
+   "solution": "DAZZLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DAZZLE",
+    "definitions": [
+     {
+      "text": "Impress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting off",
+      "for": "deletion",
+      "note": "with its start taken off, the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "cool music",
+      "gives": "JAZZ",
+      "note": "jazz is cool music"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AZZ",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl wows the crowd with cool tunes, opening with a French number.",
+     "definitionFit": "To dazzle someone is to amaze them with brilliance, so it means to impress greatly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1142,76 @@
     "text": "Songwriter's catalogue includes riches, half unknown before",
     "enumeration": "8"
    },
-   "solution": "LYRICIST"
+   "solution": "LYRICIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "LYRICIST",
+    "definitions": [
+     {
+      "text": "Songwriter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only part of the word survives, the rest dropped"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before puts the unknown ahead of the rich half"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "to include is to hold inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catalogue",
+      "gives": "LIST",
+      "note": "a list is a catalogue"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an algebraic unknown"
+     },
+     {
+      "clueFragment": "riches",
+      "gives": "RICHES",
+      "note": "taken as written, then halved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "Y",
+      "RIC",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer's back catalogue holds wealth from an anonymous early hit.",
+     "walkthrough": "'Half' keeps the first three of the six letters; the 's after Songwriter stands for 'is'.",
+     "definitionFit": "A lyricist writes the words of songs, so is a kind of songwriter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catalogue"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1225,75 @@
     "text": "Caught and gently treated missing large young bird",
     "enumeration": "6"
    },
-   "solution": "CYGNET"
+   "solution": "CYGNET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CYGNET",
+    "definitions": [
+     {
+      "text": "young bird",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means a letter is absent from the word"
+     },
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated has been processed, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is caught in cricket scoring"
+     },
+     {
+      "clueFragment": "gently",
+      "gives": "GENTLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "YGNET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENTY",
+       "gives": "YGNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rescued chick is caught and handled carefully.",
+     "walkthrough": "Take L out of GENTLY, rearrange GENTY and put C in front.",
+     "definitionFit": "A cygnet is a baby swan, a juvenile of one of the largest birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1307,49 @@
     "text": "Scrupulous but informal with thug",
     "enumeration": "8"
    },
-   "solution": "THOROUGH"
+   "solution": "THOROUGH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOROUGH",
+    "definitions": [
+     {
+      "text": "Scrupulous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but informal",
+      "gives": "THO",
+      "note": "tho is the casual spelling of though, meaning but"
+     },
+     {
+      "clueFragment": "thug",
+      "gives": "ROUGH",
+      "note": "a rough is a hooligan or thug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THO",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Careful, but casual in dealing with a heavy.",
+     "definitionFit": "A thorough person is meticulous and attends to every detail, the quality called scrupulous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "informal"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1363,55 @@
     "text": "Heartily enjoy mum's sisters' outings",
     "enumeration": "6"
    },
-   "solution": "JAUNTS"
+   "solution": "JAUNTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JAUNTS",
+    "definitions": [
+     {
+      "text": "outings",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartily",
+      "for": "letter_selection",
+      "note": "heartily points to the heart, the central letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enjoy",
+      "gives": "J",
+      "select": "middle",
+      "note": "middle letter of enjoy"
+     },
+     {
+      "clueFragment": "mum's sisters'",
+      "gives": "AUNTS",
+      "note": "your mother's sisters are your aunts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AUNTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum's sisters thoroughly love their days out.",
+     "definitionFit": "Jaunts are short pleasure trips or excursions, which is what outings are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartily"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1431,39 @@
      }
     ]
    },
-   "solution": "GREYAREA"
+   "solution": "GREYAREA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GREY AREA",
+    "definitions": [
+     {
+      "text": "Retirement home where things are unclear?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retirement home",
+      "note": "setter's reading: a place full of grey-haired pensioners"
+     },
+     {
+      "clueFragment": "where things are unclear?",
+      "note": "the real meaning: a situation with no clear-cut rules"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks for an old-folks' home where residents are muddled; read with grey as grey-haired, the phrase also names the territory between black and white.",
+     "definitionFit": "A grey area is a situation that is ambiguous and not clearly covered by existing rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Retirement"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1477,72 @@
     "text": "Gunners side taking international trophy borders on strangeness",
     "enumeration": "6"
    },
-   "solution": "RARITY"
+   "solution": "RARITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RARITY",
+    "definitions": [
+     {
+      "text": "strangeness",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "the borders of a word are its outermost letters"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gunners",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery, the gunners"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "R",
+      "note": "R is right, one side"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "trophy",
+      "gives": "TY",
+      "select": "outer",
+      "note": "first and last letters of trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "R",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal (the Gunners) winning an international cup would be a bizarre event.",
+     "walkthrough": "Arsenal football club is nicknamed the Gunners, but here the word means the Royal Artillery.",
+     "definitionFit": "Rarity is the quality of being uncommon or unusual, which overlaps with strangeness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1556,68 @@
     "text": "Abandon castle when king's left protected by another piece",
     "enumeration": "6"
    },
-   "solution": "MAROON"
+   "solution": "MAROON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MAROON",
+    "definitions": [
+     {
+      "text": "Abandon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "when the king has left, that letter is gone from the word"
+     },
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected is surrounded by its guard"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another piece",
+      "gives": "MAN",
+      "note": "a man is a piece in chess or draughts"
+     },
+     {
+      "clueFragment": "castle",
+      "gives": "ROOK",
+      "note": "the castle in chess is the rook"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "ROO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess move: give up the castle once the king has moved, guarded by another piece.",
+     "definitionFit": "To maroon someone is to leave them stranded somewhere, abandoned with no escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "castle"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1631,62 @@
     "text": "One's quiet about plan's unhappy outcome",
     "enumeration": "6"
    },
-   "solution": "MISHAP"
+   "solution": "MISHAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISHAP",
+    "definitions": [
+     {
+      "text": "unhappy outcome",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means surrounded, with the plan wrapped round the pieces before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     },
+     {
+      "clueFragment": "plan's",
+      "gives": "MAP",
+      "note": "a plan or diagram is a map"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "SH",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays silent about how their scheme went wrong.",
+     "walkthrough": "Both apostrophe-esses are padding for the surface and give no letters.",
+     "definitionFit": "A mishap is an unlucky accident, an unfortunate result of some action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1706,61 @@
      }
     ]
    },
-   "solution": "DROPSCONES"
+   "solution": "DROPSCONES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DROP SCONES",
+    "definitions": [
+     {
+      "text": "Scotch pancakes",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "include",
+      "for": "container",
+      "note": "to include is to hold within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bagpipe pieces",
+      "gives": "DRONES",
+      "note": "the drones are the pipes on a bagpipe that sound a constant note"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "OPS",
+      "note": "ops is short for opera, musical works"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OPSC",
+      "ONES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish breakfast scene with bagpipes playing.",
+     "walkthrough": "Drop scones are small thick pancakes, a British teatime treat.",
+     "definitionFit": "Drop scones are made by dropping batter on a griddle, and are known as Scotch pancakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1774,61 @@
     "text": "Swear love in a Volkswagen",
     "enumeration": "4"
    },
-   "solution": "AVOW"
+   "solution": "AVOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AVOW",
+    "definitions": [
+     {
+      "text": "Swear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Volkswagen",
+      "gives": "VW",
+      "note": "VW is the Volkswagen badge"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "O",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple pledge their devotion in a VW car.",
+     "definitionFit": "To avow is to declare or assert solemnly, the sense of swear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1842,56 @@
     "text": "Top copy with ten underneath",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "underneath",
+      "for": "charade",
+      "note": "in a down entry, underneath puts this piece lower, after the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copy",
+      "gives": "APE",
+      "note": "to ape is to copy"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A top-of-the-class copy with a score of ten below it.",
+     "definitionFit": "An apex is the highest point or peak of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copy"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1905,64 @@
     "text": "One plays records from America following brief trend",
     "enumeration": "6"
    },
-   "solution": "STYLUS"
+   "solution": "STYLUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STYLUS",
+    "definitions": [
+     {
+      "text": "One plays records",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief means cut short, losing the last letter"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts America after the trend"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trend",
+      "gives": "STYLE",
+      "note": "a style is a fashion or trend"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STYL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ spins American discs following a short-lived craze.",
+     "walkthrough": "'One plays records' sounds like a DJ, but it is the needle of a record player.",
+     "definitionFit": "A stylus is the gramophone needle that runs in the groove and reproduces the sound of vinyl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1976,64 @@
     "text": "Forage in underground chamber cutting tin and germanium",
     "enumeration": "8"
    },
-   "solution": "SCAVENGE"
+   "solution": "SCAVENGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCAVENGE",
+    "definitions": [
+     {
+      "text": "Forage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going between its letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "Sn is the chemical symbol for tin"
+     },
+     {
+      "clueFragment": "underground chamber",
+      "gives": "CAVE",
+      "note": "a cave is an underground chamber"
+     },
+     {
+      "clueFragment": "germanium",
+      "gives": "GE",
+      "note": "Ge is the chemical symbol for germanium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAVE",
+      "N",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Searching for food in a cave among deposits of metal.",
+     "definitionFit": "To scavenge is to search around for usable food or items, which is what foraging involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   }
  ]
 }
