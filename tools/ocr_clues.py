@@ -867,6 +867,42 @@ def merged(text):
     return "two clues run together" if RUN_TOGETHER.search(text or "") else None
 
 
+def trimmed(text, lid, voted=True):
+    """A filed clue's text without what the page put around it:
+      - other text run in ahead of the clue's own number, when that text
+        holds a number or a count ("... Puzzle No 18,178 will appear next
+        Saturday 26 The point is ..." in 26 across);
+      - its list's heading read onto 1 across or 1 down ("Down Poet's way");
+      - a lone small "i" between two words ("system i uniting"), a speck:
+        the pronoun is "I", and the newspaper i is quoted or ends a clue;
+      - a line end's hyphen with specks between the halves ("buy- 4 ing",
+        "like- .wise"), joined as clean() joins a bare one;
+      - a last token with no word in it and a bracket the clue never opened
+        ("0,6)", "S).") or a digit among symbols ("&%S4),").
+    The lone i goes only from a `voted` text: before the vote, the other
+    readings may have the word it is a remnant of ("raised i sharp" for
+    "raised in sharp")."""
+    if not text:
+        return text
+    own = lid.split("-")[0]
+    runs = [m for m in re.finditer(rf"\s{own}\.?\s+(?=[A-Z\"'])", text)]
+    if runs and re.search(r"\d", text[:runs[-1].start()]):
+        text = text[runs[-1].end():]
+    if voted:
+        text = re.sub(r"(?<=[A-Za-z,;:] )i (?=[A-Za-z])", "", text)
+    if own == "1":
+        word = lid.split("-")[1]
+        text = re.sub(rf"^(?:{word}|{word.capitalize()}|{word.upper()})\W+(?=[A-Z][a-z])", "", text)
+    text = re.sub(r"\b([A-Za-z]+)-\s+(?=[^\w\s]|\d)[^\w\s]*\d?[^\w\s]*\s*([a-z]+)\b", line_end_hyphen, text)
+    while "(" not in text:
+        head, _, last = text.rpartition(" ")
+        if not head or re.search(r"[A-Za-z]{2}", last) or not (
+                ")" in last or (re.search(r"\d", last) and re.search(r"[&#@]", last))):
+            break
+        text = head.rstrip()
+    return text
+
+
 def reconcile(laid, streams, lengths=None, keep_known=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
@@ -887,6 +923,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
             out[lid] = (text, enum, group)
             continue
         own = int(re.match(r"\d+", lid).group())
+        text = trimmed(text, lid, voted=False)
         # A list counts up, so only a number above this clue's own can be
         # the next clue run on, and with the grid known, only one naming a
         # light: "Map 10 E" in 24 across is the clue's text.
@@ -915,7 +952,12 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         if text:
             # "1 hear" opens "I hear"; were the opening lost, the vote finds it.
             text = re.sub(r"^1(?=\s+[a-z])", "I", text)
-        if re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
+        # A clue may open on another light's number ("19, we hear, in the
+        # crew", "25 in voice"): that is no lost opening.
+        ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
+        opens_on_light = bool(ref and lengths and int(ref.group(1)) != own
+                              and any(k.startswith(ref.group(1) + "-") for k in lengths))
+        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
             # Lower case first: the clue's opening ("23s about") was lost.
             blank[lid] = "starts mid-clue"
             out[lid] = ("", enum, group)
@@ -935,7 +977,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
             text = text[lead.end():]
         text = join_split(text, other)
         got, how = agree(text, other, keep_known)
-        got = cut_at_count(got, enum)
+        got = trimmed(cut_at_count(got, enum), lid)
         if got is not None and merged(got):
             got, how = None, merged(got)
         if got is None:
@@ -1145,7 +1187,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        got = held(clean(COUNT_END.sub("", pick(lid, cands) or "")), cands)
+        got = trimmed(held(clean(COUNT_END.sub("", pick(lid, cands) or "")), cands), lid)
         if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
