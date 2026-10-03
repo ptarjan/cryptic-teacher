@@ -1889,6 +1889,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-17646", "8-down"): (
+        "The church lacking . change, many will give such a coin",
+        "The church lacking change, many will give such a coin",
+        "OCR misread: the stray full stop after 'lacking' is a scan speck"),
+    ("times-17646", "29-across"): (
+        "Looks on exercise 2as a problem in 2 sense",
+        "Looks on exercise 2as a problem in a sense",
+        "OCR misread: the definition needs 'a problem in a sense', the 2 being a misread a"),
     ("times-17639", "2-down"): (
         "Someone admired joint of meat found on the .breakfast table",
         "Someone admired joint of meat found on the breakfast table",
