@@ -37,6 +37,9 @@
   "date": "2024-09-08",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,57 @@
     "text": "Somewhere on vacation away?",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "Somewhere on vacation away?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation has been emptied out, leaving only its outside letters standing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhere",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "ASIDE",
+      "note": "aside means away, to one side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ASIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle asking where you might be when you are away on holiday.",
+     "walkthrough": "The whole clue does double duty: read as a riddle it defines the answer, and every word also feeds the wordplay, which makes it an &lit.",
+     "definitionFit": "A coastal resort is the classic British holiday destination, the place people go when they are off work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +117,68 @@
     "text": "Time spent drinking nip of Scotch, what about second?",
     "enumeration": "4"
    },
-   "solution": "SESH"
+   "solution": "SESH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SESH",
+    "definitions": [
+     {
+      "text": "Time spent drinking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nip of",
+      "for": "letter_selection",
+      "note": "a nip is a small sip, so only a tiny first taste of the word is taken"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scotch",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh? is a way of saying what? when you have not heard"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "S",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a bar takes a nip of whisky and asks what happened to the second one.",
+     "definitionFit": "A sesh is informal slang for a session, especially a long stretch of heavy drinking with friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "what"
+    }
+   }
   },
   {
    "number": 2,
@@ -84,7 +198,51 @@
      }
     ]
    },
-   "solution": "ENCAVALIER"
+   "solution": "ENCAVALIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EN CAVALIER",
+    "definitions": [
+     {
+      "text": "Recklessly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk is all over the place, so these letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leave in car",
+      "gives": "LEAVEINCAR",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAVEINCAR",
+       "gives": "ENCAVALIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about someone who drunkenly abandons a car and its occupants.",
+     "walkthrough": "The answer is a French phrase found in Chambers, meaning in a cavalier, offhand manner.",
+     "definitionFit": "Acting in a cavalier way means behaving with haughty disregard for consequences, which is careless and rash conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 3,
@@ -98,7 +256,50 @@
     "text": "Bypass increases twofold after first curve",
     "enumeration": "5"
    },
-   "solution": "AXOID"
+   "solution": "AXOID",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "AXOID",
+    "definitions": [
+     {
+      "text": "curve",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "increases twofold after first",
+      "for": "substitution",
+      "note": "the letter following the opening one is swapped for a Roman numeral worth double its value"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bypass",
+      "gives": "AVOID",
+      "note": "to bypass something is to go round it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "X",
+      "OID"
+     ]
+    },
+    "explanation": {
+     "surface": "A road bypass carrying twice the traffic once the first bend is reached.",
+     "walkthrough": "V is the Roman numeral five and X is ten, so V doubled becomes X; the letter changed is the one right after the first.",
+     "definitionFit": "An axoid is a technical term for a ruled surface or curve traced out by a moving axis in kinematics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bypass"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +313,43 @@
     "text": "Perhaps whiskey from fair is hooch?",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "Perhaps whiskey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are drawn out of the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair is hooch",
+      "gives": "IRISH",
+      "note": "the letters run across the word boundaries"
+     }
+    ],
+    "explanation": {
+     "surface": "A drinker wonders whether whiskey from a fair is really bootleg liquor.",
+     "walkthrough": "The spelling whiskey with an E is the usual Irish and American one; Scotch is whisky.",
+     "definitionFit": "Whiskey from Ireland is one example of the nationality adjective, so 'perhaps' signals a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hooch"
+    }
+   }
   },
   {
    "number": 5,
@@ -136,7 +373,70 @@
      }
     ]
    },
-   "solution": "DOAMELBA"
+   "solution": "DOAMELBA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DO A MELBA",
+    "definitions": [
+     {
+      "text": "Come back to work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so this word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "AM marks hours before noon"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "fit as in capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "AM",
+      "ELBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABLE",
+       "to": "ELBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recovering after a party wonders if they are fit enough to go back to the office in the morning.",
+     "walkthrough": "The phrase recalls the soprano Nellie Melba, famous for her many farewell concerts followed by yet more comebacks.",
+     "definitionFit": "The idiom means to make repeated returns from retirement, like the singer who kept giving final performances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 6,
@@ -150,7 +450,68 @@
     "text": "Contributions to NI? Irishman’s about to invest money",
     "enumeration": "5"
    },
-   "solution": "STAMP"
+   "solution": "STAMP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STAMP",
+    "definitions": [
+     {
+      "text": "Contributions to NI?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the word is read from end to start"
+     },
+     {
+      "text": "to invest",
+      "for": "container",
+      "note": "investing something means wrapping it up inside, so one piece is put within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irishman’s",
+      "gives": "PATS",
+      "note": "Pat is a stock Irish name, with the possessive S"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is a standard abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "M",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "PATS",
+       "to": "STAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman puts money into Northern Ireland as his contribution.",
+     "walkthrough": "NI looks like Northern Ireland beside the Irishman, but it is National Insurance, the British social security payment once recorded by sticking stamps on a card.",
+     "definitionFit": "National Insurance contributions were once paid by buying stamps fixed to a weekly card, so the word stood for the payment itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "NI"
+    }
+   }
   },
   {
    "number": 6,
@@ -164,7 +525,58 @@
     "text": "Strong suggestion of stench by dunny?",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STOUT",
+    "definitions": [
+     {
+      "text": "Strong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suggestion of",
+      "for": "letter_selection",
+      "note": "a mere suggestion is only a hint, so just the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stench",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "dunny",
+      "gives": "TOUT",
+      "note": "an obscure dialect word for a privy or outhouse; dunny is Australian slang for a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A smell drifts from beside an outdoor toilet.",
+     "definitionFit": "Stout means sturdy, robust and powerful, the sense in stout walls or a stout defence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strong"
+    }
+   }
   },
   {
    "number": 7,
@@ -178,7 +590,70 @@
     "text": "Superb century after doubling into pocket set back champion",
     "enumeration": "8"
    },
-   "solution": "TOPNOTCH"
+   "solution": "TOPNOTCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TOPNOTCH",
+    "definitions": [
+     {
+      "text": "Superb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after doubling into",
+      "for": "charade",
+      "note": "doubling into suggests the pieces fold together side by side, one directly after the other"
+     },
+     {
+      "text": "set back",
+      "for": "reversal",
+      "note": "something set back is pushed the other way, so the pair is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "century",
+      "gives": "TON",
+      "note": "a ton is a hundred"
+     },
+     {
+      "clueFragment": "pocket",
+      "gives": "POT",
+      "note": "a pot is a pocket on a billiard table"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "CH",
+      "note": "CH is the abbreviation for champion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPNOT",
+      "CH"
+     ],
+     "reversals": [
+      {
+       "from": "TONPOT",
+       "to": "TOPNOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman's century and a ball into the pocket mark out a champion.",
+     "definitionFit": "Something first-rate is of the highest quality, as if marked at the uppermost notch on a scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pocket"
+    }
+   }
   },
   {
    "number": 8,
@@ -192,7 +667,52 @@
     "text": "Friendly relations a disaster lacking calibre",
     "enumeration": "5"
    },
-   "solution": "AMITY"
+   "solution": "AMITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMITY",
+    "definitions": [
+     {
+      "text": "Friendly relations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so these letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a disaster",
+      "gives": "CALAMITY",
+      "note": "a calamity is a disaster"
+     },
+     {
+      "clueFragment": "calibre",
+      "gives": "CAL",
+      "note": "CAL is the abbreviation for calibre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Diplomatic ties collapse when a nation lacks the calibre to keep them.",
+     "definitionFit": "Amity is peaceful goodwill between people or nations, the state of being on good terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "calibre"
+    }
+   }
   },
   {
    "number": 9,
@@ -206,7 +726,63 @@
     "text": "Religious festival eg, plugging God year after year",
     "enumeration": "8"
    },
-   "solution": "PANEGYRY"
+   "solution": "PANEGYRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANEGYRY",
+    "definitions": [
+     {
+      "text": "Religious festival",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "plugging",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "PAN",
+      "note": "Pan is the Greek god of the wild"
+     },
+     {
+      "clueFragment": "eg",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "YR",
+      "note": "YR is the abbreviation for year"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is another abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "EG",
+      "YR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy feast, for instance one promoting God, held year after year.",
+     "walkthrough": "Year is abbreviated two different ways here, once as YR and once as Y.",
+     "definitionFit": "A panegyry is a rare word for a solemn church celebration or public festal assembly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plugging"
+    }
+   }
   },
   {
    "number": 10,
@@ -220,7 +796,70 @@
     "text": "Dryness in mouth possibly moister on account of ensuing kiss",
     "enumeration": "10"
    },
-   "solution": "XEROSTOMIA"
+   "solution": "XEROSTOMIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "XEROSTOMIA",
+    "definitions": [
+     {
+      "text": "Dryness in mouth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints that the letters might be arranged some other way"
+     },
+     {
+      "text": "ensuing",
+      "for": "charade",
+      "note": "ensuing means following, so the rearranged letters come after the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X stands for a kiss at the end of a letter"
+     },
+     {
+      "clueFragment": "moister",
+      "gives": "MOISTER",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "on account",
+      "gives": "OA",
+      "note": "O/A is the abbreviation for on account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "EROSTOMIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOISTEROA",
+       "gives": "EROSTOMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mouth might feel moister after a kiss, curing its dryness.",
+     "definitionFit": "Xerostomia is the medical term for a lack of saliva, from Greek roots meaning dry and mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moister"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +873,50 @@
     "text": "Boisterous social drinking-songs",
     "enumeration": "6"
    },
-   "solution": "SCOLIA"
+   "solution": "SCOLIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCOLIA",
+    "definitions": [
+     {
+      "text": "drinking-songs",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Boisterous",
+      "for": "anagram",
+      "note": "boisterous suggests rowdy disorder, so the letters are tumbled about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social",
+      "gives": "SOCIAL",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOCIAL",
+       "gives": "SCOLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowdy party songs sung over drinks.",
+     "definitionFit": "A scolion was a song sung in turn by guests at an ancient Greek banquet; scolia is its plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 12,
@@ -248,7 +930,66 @@
     "text": "American chaps propose marriage alongside home of poet",
     "enumeration": "6"
    },
-   "solution": "POPIAN"
+   "solution": "POPIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POPIAN",
+    "definitions": [
+     {
+      "text": "of poet",
+      "at": 47,
+      "note": "adjective: relating to the poet Alexander Pope"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaps",
+      "for": "container",
+      "note": "used as a verb, to chap is to crack open, so one word splits the other apart"
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "propose marriage",
+      "gives": "POP",
+      "note": "from pop the question"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "American men pop the question near the house where a poet lived.",
+     "walkthrough": "Chaps looks like a noun meaning men, but it is a verb meaning cracks open.",
+     "definitionFit": "The adjective describes things belonging to or in the style of Alexander Pope, the eighteenth-century English satirical writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chaps"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +1003,54 @@
     "text": "Die with courage? Sadly that’s bitter-sweet",
     "enumeration": "10"
    },
-   "solution": "AIGREDOUCE"
+   "solution": "AIGREDOUCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIGREDOUCE",
+    "definitions": [
+     {
+      "text": "bitter-sweet",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters come out in a different order"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Die with courage",
+      "gives": "DIECOURAGE",
+      "note": "with is a link inside the fodder phrase; the ten letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIECOURAGE",
+       "gives": "AIGREDOUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dying bravely but sadly is a mixed experience.",
+     "walkthrough": "The answer is French for sour-sweet, used in English mainly of sauces.",
+     "definitionFit": "The French phrase describes a sweet and sour flavour, combining tartness and sugar in one dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Die"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +1064,54 @@
     "text": "Arab chief almost top to bottom in cloths",
     "enumeration": "5"
    },
-   "solution": "HAIKS"
+   "solution": "HAIKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "cycling"
+    ],
+    "answer": "HAIKS",
+    "definitions": [
+     {
+      "text": "cloths",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "top to bottom",
+      "for": "cycling",
+      "note": "in a down light the top is the first letter, and it is moved to the bottom end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arab chief",
+      "gives": "SHAIKH",
+      "note": "a variant spelling of sheikh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIKS"
+     ]
+    },
+    "explanation": {
+     "surface": "An Arab leader wears robes from head to foot.",
+     "walkthrough": "Drop the last letter of the chief to get SHAIK, then move its first letter to the end.",
+     "definitionFit": "A haik is a large piece of fabric worn wrapped round the head and body in North Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +1125,48 @@
     "text": "Second release, one from The Police in NA",
     "enumeration": "7"
    },
-   "solution": "MOUNTIE"
+   "solution": "MOUNTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOUNTIE",
+    "definitions": [
+     {
+      "text": "one from The Police in NA",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, as in half a mo"
+     },
+     {
+      "clueFragment": "release",
+      "gives": "UNTIE",
+      "note": "to untie is to set free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A record label issues a second single by The Police in North America.",
+     "walkthrough": "The Police looks like the rock band, but here it is a police force; NA is North America.",
+     "definitionFit": "Mounties are members of the Royal Canadian Mounted Police, the federal force of Canada in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1180,57 @@
     "text": "Native American having whim about historical part of Kent",
     "enumeration": "8"
    },
-   "solution": "FLATHEAD"
+   "solution": "FLATHEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLATHEAD",
+    "definitions": [
+     {
+      "text": "Native American",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having means holding, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whim",
+      "gives": "FAD",
+      "note": "a fad is a passing whim"
+     },
+     {
+      "clueFragment": "historical part of Kent",
+      "gives": "LATHE",
+      "note": "the lathes were ancient administrative divisions of the English county of Kent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LATHE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "An indigenous American takes a fancy to the history of an English county.",
+     "definitionFit": "Flathead is a name for certain North American peoples, such as the Salish of Montana, once said to shape infants' skulls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whim"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1244,79 @@
     "text": "US conduct I have reformed in nick repulsed",
     "enumeration": "8"
    },
-   "solution": "BEHAVIOR"
+   "solution": "BEHAVIOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "reversal"
+    ],
+    "answer": "BEHAVIOR",
+    "definitions": [
+     {
+      "text": "US conduct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reformed",
+      "for": "anagram",
+      "note": "reformed means made again in a new shape, so these letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the rearranged letters inside the other word"
+     },
+     {
+      "text": "repulsed",
+      "for": "reversal",
+      "note": "repulsed means driven back, so the whole is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I have",
+      "gives": "IHAVE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "nick",
+      "gives": "ROB",
+      "note": "to nick is to steal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EHAVI",
+      "OR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IHAVE",
+       "gives": "IVAHE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ROIVAHEB",
+       "to": "BEHAVIOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner swears he has reformed his conduct in jail, though his plea is rejected.",
+     "walkthrough": "US flags the American spelling without the U.",
+     "definitionFit": "Behavior is the American spelling of the word for how a person acts or comports themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1330,61 @@
     "text": "Bullion bagging lag a rich source of wealth",
     "enumeration": "8"
    },
-   "solution": "GOLCONDA"
+   "solution": "GOLCONDA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GOLCONDA",
+    "definitions": [
+     {
+      "text": "rich source of wealth",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging means capturing in a bag, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bullion",
+      "gives": "GOLD",
+      "note": "bullion is gold in bars"
+     },
+     {
+      "clueFragment": "lag",
+      "gives": "CON",
+      "note": "a lag and a con are both convicts"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOL",
+      "CON",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict pockets gold bars.",
+     "definitionFit": "Golconda, an Indian city famed for its diamond mines, became a byword for an inexhaustible mine of riches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lag"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1404,68 @@
      }
     ]
    },
-   "solution": "LAGERLOUTERY"
+   "solution": "LAGERLOUTERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "LAGER LOUTERY",
+    "definitions": [
+     {
+      "text": "What’s largely unruly drinking in part of sports ground?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unruly",
+      "for": "anagram",
+      "note": "unruly means disorderly, so the preceding word's letters are scattered"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking means taking in, so the shuffled letters swallow another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "largely",
+      "gives": "LARGELY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "part of sports ground",
+      "gives": "OUTER",
+      "note": "the outer is the part of a ground outside the enclosure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAGERL",
+      "OUTER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LARGELY",
+       "gives": "LAGERLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what describes mostly rowdy boozing in the stands at a match.",
+     "walkthrough": "The whole clue serves as definition and wordplay at once. A lager lout is British slang for a young man who drinks beer and turns rowdy.",
+     "definitionFit": "The word names drunken hooliganism by beer-swilling youths, a behaviour notorious at British football matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "largely"
+    }
+   }
   },
   {
    "number": 20,
@@ -366,7 +1479,61 @@
     "text": "Drug baron hiding in a cupboard?",
     "enumeration": "12"
    },
-   "solution": "ALPHABLOCKER"
+   "solution": "ALPHABLOCKER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALPHABLOCKER",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "container",
+      "note": "something hiding in a place is tucked inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "ALPHA",
+      "note": "Alpha is the radio code word for the letter A"
+     },
+     {
+      "clueFragment": "baron",
+      "gives": "B",
+      "note": "B is the abbreviation for baron"
+     },
+     {
+      "clueFragment": "cupboard",
+      "gives": "LOCKER",
+      "note": "a locker is a small cupboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALPHA",
+      "B",
+      "LOCKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug lord hides in a cupboard.",
+     "walkthrough": "Drug baron reads as one phrase, but drug is the definition and baron gives a single letter.",
+     "definitionFit": "This medicine blocks certain adrenaline receptors, relaxing blood vessels to treat high blood pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "baron"
+    }
+   }
   },
   {
    "number": 21,
@@ -380,7 +1547,62 @@
     "text": "Fashion victim’s first to be overwhelmed by charge",
     "enumeration": "5"
    },
-   "solution": "CARVE"
+   "solution": "CARVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARVE",
+    "definitions": [
+     {
+      "text": "Fashion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word before it"
+     },
+     {
+      "text": "to be overwhelmed by",
+      "for": "container",
+      "note": "being overwhelmed means being engulfed, so this letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victim’s",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "CARE",
+      "note": "something in your charge is in your care"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion victim is buried under the bill.",
+     "walkthrough": "Fashion victim sounds like one phrase; fashion is the verb definition.",
+     "definitionFit": "To fashion something can mean to shape it from wood or stone, which is to sculpt or cut it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "victim’s"
+    }
+   }
   },
   {
    "number": 22,
@@ -394,7 +1616,61 @@
     "text": "Hard engraving back of exquisite arrangement of stones?",
     "enumeration": "5"
    },
-   "solution": "HENGE"
+   "solution": "HENGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HENGE",
+    "definitions": [
+     {
+      "text": "arrangement of stones?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "engraving",
+      "gives": "ENG",
+      "note": "ENG is the abbreviation for engraving"
+     },
+     {
+      "clueFragment": "exquisite",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ENG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Engraving the reverse of a fine gem setting is difficult.",
+     "definitionFit": "A henge is a prehistoric circular monument, such as Stonehenge, often with standing megaliths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stones"
+    }
+   }
   },
   {
    "number": 23,
@@ -408,7 +1684,57 @@
     "text": "Largely hurry to government shelter in Scotland",
     "enumeration": "5"
    },
-   "solution": "SCOOG"
+   "solution": "SCOOG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SCOOG",
+    "definitions": [
+     {
+      "text": "shelter in Scotland",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurry",
+      "gives": "SCOOT",
+      "note": "to scoot is to dash off"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes to the government for refuge in Scotland.",
+     "definitionFit": "Scoog is a Scots dialect word for a place of cover or refuge from the weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "government"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1748,52 @@
     "text": "Regularly echo Lorelei to call for attention",
     "enumeration": "5"
    },
-   "solution": "COOEE"
+   "solution": "COOEE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "COOEE",
+    "definitions": [
+     {
+      "text": "call for attention",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "echo Lorelei",
+      "gives": "COOEE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COOEE"
+     ]
+    },
+    "explanation": {
+     "surface": "The siren of the Rhine's voice keeps echoing back, demanding to be heard.",
+     "walkthrough": "The Lorelei is the legendary siren of the Rhine, whose calls lured sailors.",
+     "definitionFit": "Cooee is a long shrill call first used in the Australian bush to attract someone at a distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "echo"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1813,61 @@
      }
     ]
    },
-   "solution": "HEAVETO"
+   "solution": "HEAVETO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HEAVE TO",
+    "definitions": [
+     {
+      "text": "come to a standstill",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its last letter is used"
+     },
+     {
+      "text": "drilling",
+      "for": "container",
+      "note": "drilling means boring into, so this letter goes inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "must",
+      "gives": "HAVETO",
+      "note": "must means have to"
+     },
+     {
+      "clueFragment": "pipeline",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "E",
+      "AVETO"
+     ]
+    },
+    "explanation": {
+     "surface": "Drilling near a pipeline must halt.",
+     "definitionFit": "To heave to is a nautical term for bringing a ship to a halt with its head to the wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drilling"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1881,70 @@
     "text": "What’s necessary on opening of claret — a little pop?",
     "enumeration": "5"
    },
-   "solution": "CLOOP"
+   "solution": "CLOOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "CLOOP",
+    "definitions": [
+     {
+      "text": "What’s necessary on opening of claret — a little pop?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of the word means just its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claret",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "necessary",
+      "gives": "LOO",
+      "note": "a necessary, or necessary house, is an old word for a privy; a loo is a toilet"
+     },
+     {
+      "clueFragment": "pop",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what is needed to open a bottle of red wine with a gentle pop.",
+     "walkthrough": "What's necessary looks like a requirement, but necessary is a noun for a privy. The whole clue also describes the answer.",
+     "definitionFit": "A cloop is the hollow sound a cork makes when it is drawn from a bottle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "necessary"
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1958,58 @@
     "text": "Soft saddle about right for horse",
     "enumeration": "4"
    },
-   "solution": "PRAD"
+   "solution": "PRAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRAD",
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soft saddle",
+      "gives": "PAD",
+      "note": "a pad is a soft saddle"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cushioned saddle for a horse, with a note on being correct.",
+     "walkthrough": "Soft wants to give P, as in music, but here the soft saddle is one piece.",
+     "definitionFit": "Prad is old slang for a horse, recorded in Chambers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Soft"
+    }
+   }
   },
   {
    "number": 28,
@@ -484,7 +2023,47 @@
     "text": "Offending cutting head off fish",
     "enumeration": "6"
    },
-   "solution": "ERRING"
+   "solution": "ERRING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERRING",
+    "definitions": [
+     {
+      "text": "Offending",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting head off",
+      "for": "deletion",
+      "note": "cutting the head off removes the opening letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "HERRING",
+      "note": "a herring is a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sinner chops the head off a fish.",
+     "definitionFit": "Erring means doing wrong, straying from what is right, so it fits sinning or transgressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 29,
@@ -498,7 +2077,47 @@
     "text": "Scotland’s well-known excursion cancelled?",
     "enumeration": "6"
    },
-   "solution": "NOTOUR"
+   "solution": "NOTOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTOUR",
+    "definitions": [
+     {
+      "text": "Scotland’s well-known",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cancelled",
+      "gives": "NO",
+      "note": "no as in none, nothing happening"
+     },
+     {
+      "clueFragment": "excursion",
+      "gives": "TOUR",
+      "note": "a tour is an excursion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Scottish trip is called off.",
+     "walkthrough": "The wordplay reads excursion cancelled as no tour.",
+     "definitionFit": "Notour is an old Scots legal term meaning notorious, widely known or publicly recognised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cancelled"
+    }
+   }
   },
   {
    "number": 30,
@@ -512,7 +2131,76 @@
     "text": "Italian official lived years around Vatican City with own goal to worship",
     "enumeration": "10"
    },
-   "solution": "AVVOGADORE"
+   "solution": "AVVOGADORE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AVVOGADORE",
+    "definitions": [
+     {
+      "text": "Italian official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "around here means turned about, so these letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lived years",
+      "gives": "VA",
+      "note": "VA abbreviates Latin vixit annos, he lived so many years, seen on tombstones"
+     },
+     {
+      "clueFragment": "Vatican City",
+      "gives": "V",
+      "note": "V is the international code for Vatican City"
+     },
+     {
+      "clueFragment": "own goal",
+      "gives": "OG",
+      "note": "OG is the abbreviation for own goal"
+     },
+     {
+      "clueFragment": "worship",
+      "gives": "ADORE",
+      "note": "to adore is to worship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "V",
+      "OG",
+      "ADORE"
+     ],
+     "reversals": [
+      {
+       "from": "VA",
+       "to": "AV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian official's career summed up by years near the Vatican and a footballing blunder.",
+     "definitionFit": "An avvogadore was a state prosecutor or public advocate in the Venetian republic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "own"
+    }
+   }
   },
   {
    "number": 31,
@@ -526,7 +2214,43 @@
     "text": "Poet’s dismal ballad reread in part",
     "enumeration": "5"
    },
-   "solution": "DRERE"
+   "solution": "DRERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DRERE",
+    "definitions": [
+     {
+      "text": "Poet’s dismal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "in part says only a portion of the words is used, a run of letters within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ballad reread",
+      "gives": "DRERE",
+      "note": "the letters run across the word boundary"
+     }
+    ],
+    "explanation": {
+     "surface": "A gloomy ballad is read again.",
+     "walkthrough": "Poet's flags a word used by Spenser rather than in everyday English.",
+     "definitionFit": "Drere is a Spenserian spelling of drear, the archaic form meaning gloomy and cheerless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reread"
+    }
+   }
   },
   {
    "number": 32,
@@ -540,7 +2264,75 @@
     "text": "Witch’s offspring brewing snake’s and dog’s tails with heads",
     "enumeration": "7"
    },
-   "solution": "HAGSEED"
+   "solution": "HAGSEED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HAGSEED",
+    "definitions": [
+     {
+      "text": "Witch’s offspring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails",
+      "for": "letter_selection",
+      "note": "the tail of a word is its last letter"
+     },
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "brewing means stewing together, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake’s",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word before the apostrophe"
+     },
+     {
+      "clueFragment": "dog’s",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of the word before the apostrophe"
+     },
+     {
+      "clueFragment": "heads",
+      "gives": "HEADS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAGSEED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGHEADS",
+       "gives": "HAGSEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witch stirring a potion of snake and dog parts in her cauldron.",
+     "walkthrough": "In The Tempest, Prospero calls Caliban, son of the witch Sycorax, by this insult.",
+     "definitionFit": "Hag-seed is Shakespeare's term for the child of a hag, meaning a witch's brood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brewing"
+    }
+   }
   }
  ]
 }
