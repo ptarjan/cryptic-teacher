@@ -108,12 +108,47 @@ def load_templates(source):
     return out
 
 
-def rule_name(line, templates):
-    """The check an ERROR line came from, or its first words if none matches."""
+# A message the validator no longer prints describes a check that has since
+# changed, so its lines are named SUPERSEDED + check and kept out of the
+# ranking: the fix for them has already landed.
+SUPERSEDED = "superseded: "
+
+
+def retired_templates(since, current):
+    """Templates of every validator version in use since `since` that the
+    current validator no longer has."""
+    revs = subprocess.run(
+        ["git", "log", "--format=%H", f"--since={since.isoformat()}", "--",
+         str(VALIDATOR.relative_to(REPO))],
+        cwd=REPO, capture_output=True, text=True, check=False).stdout.split()
+    out = {}
+    for rev in revs:
+        shown = subprocess.run(["git", "show", f"{rev}^:{VALIDATOR.relative_to(REPO).as_posix()}"],
+                               cwd=REPO, capture_output=True, text=True, check=False)
+        if shown.returncode:
+            continue
+        try:
+            old = load_templates(shown.stdout)
+        except SyntaxError:
+            continue
+        out.update((rx.pattern, t) for t in retire(old, current) for rx in [t[0]])
+    return list(out.values())
+
+
+def retire(old, current):
+    """The templates of `old` that `current` lacks, named SUPERSEDED + check."""
+    have = {rx.pattern for rx, _, _ in current}
+    return [(rx, SUPERSEDED + name, chars) for rx, name, chars in old if rx.pattern not in have]
+
+
+def rule_name(line, templates, retired=()):
+    """The check an ERROR line came from, or its first words if none matches.
+    A line only a retired template matches is named SUPERSEDED + its check."""
     body = re.sub(r"^\s*ERROR:\s*", "", line).strip()
-    best = max(((c, n) for rx, n, c in templates if rx.match(body)), default=None)
-    if best:
-        return best[1]
+    for pool in (templates, retired):
+        best = max(((c, n) for rx, n, c in pool if rx.match(body)), default=None)
+        if best:
+            return best[1]
     if body.startswith("schema:"):
         return "schema: " + re.sub(r"\$\.entries\[\d+\]\.?", "", body[7:]).strip()[:70]
     body = re.sub(r"^\S+:\s*", "", body)
@@ -196,7 +231,7 @@ def _cost(model, usage):
             + cc.get("ephemeral_1h_input_tokens", 0) * p[4]) / 1e6
 
 
-def read_session(path, templates):
+def read_session(path, templates, retired=()):
     """One annotate transcript's numbers, or None if it is not an annotate run."""
     first_user, t0, t1, model = None, None, None, None
     turns = collections.OrderedDict()       # message id -> (usage, after first check)
@@ -273,7 +308,7 @@ def read_session(path, templates):
         all_rule_lines=collections.Counter())
     for i, out in enumerate(check_outs):
         errs = [ln for ln in out.splitlines() if ln.lstrip().startswith("ERROR:")]
-        names = collections.Counter(rule_name(ln, templates) for ln in errs)
+        names = collections.Counter(rule_name(ln, templates, retired) for ln in errs)
         if "STOPPED" in out:
             names.update(stopped_names(out))
         s["all_rule_lines"].update(names)
@@ -283,7 +318,7 @@ def read_session(path, templates):
     return s
 
 
-def sessions(since, templates):
+def sessions(since, templates, retired=()):
     floor = since.timestamp() - 86400    # mtime is the LAST write; a run can start earlier
     for path in CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"):
         try:
@@ -291,7 +326,7 @@ def sessions(since, templates):
                 continue
         except OSError:
             continue
-        s = read_session(path, templates)
+        s = read_session(path, templates, retired)
         if s and s["start"] >= since:
             yield s
 
@@ -332,6 +367,8 @@ def findings(rows):
         by_sessions.update(set(r["first_rules"]))
         by_lines.update(r["first_rules"])
     for name, k in by_sessions.items():
+        if name.startswith(SUPERSEDED):
+            continue
         out.append({"key": f"rule:{name}", "title": f"first check fails on `{name}`", "share": k / n,
                         "detail": f"{k} of {n} sessions ({k / max(len(failed), 1):.0%} of first-check "
                                f"failures), {by_lines[name]} error lines"})
@@ -473,7 +510,8 @@ def main(argv=None):
     now = datetime.datetime.now(datetime.timezone.utc)
     templates = load_templates(VALIDATOR.read_text(encoding="utf-8"))
     window = datetime.timedelta(hours=args.hours)
-    rows = list(sessions(now - 2 * window, templates))
+    retired = retired_templates(now - 2 * window, templates)
+    rows = list(sessions(now - 2 * window, templates, retired))
     cur_rows = [r for r in rows if r["start"] >= now - window]
     prev_rows = [r for r in rows if r["start"] < now - window]
     cur, prev = summarise(cur_rows), summarise(prev_rows)
@@ -486,6 +524,11 @@ def main(argv=None):
                   sys.stdout, indent=1, default=str)
         return 0
     text = report(cur, prev, ranked, trends, args.hours, note)
+    gone = collections.Counter(n for r in cur_rows for n in set(r["first_rules"])
+                               if n.startswith(SUPERSEDED))
+    if gone:
+        text += "\n\nnot ranked, the validator has since reworded or dropped the message:\n" + "\n".join(
+            f"  {n[len(SUPERSEDED):]} — {k} of {cur['n']} sessions" for n, k in gone.most_common())
     print(text)
     if not args.wake:
         return 0
