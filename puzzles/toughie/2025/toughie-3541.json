@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Doctor welcoming start of lovely old musical",
     "enumeration": "7"
    },
-   "solution": "MELODIC"
+   "solution": "MELODIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "MELODIC",
+    "definitions": [
+     {
+      "text": "musical",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the doctor word holds the other pieces inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MEDIC",
+      "note": "a medic is a doctor"
+     },
+     {
+      "clueFragment": "lovely",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of lovely"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "LO",
+      "DIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor fond of a charming old stage musical.",
+     "walkthrough": "MEDIC opens to take in L and O: ME(LO)DIC. 'Musical' looks like a show but is the adjective.",
+     "definitionFit": "Something melodic has a pleasing tune, which is what makes a sound or piece musical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +111,67 @@
     "text": "Planners principally mark original papers",
     "enumeration": "7"
    },
-   "solution": "MAPPERS"
+   "solution": "MAPPERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAPPERS",
+    "definitions": [
+     {
+      "text": "Planners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means first and foremost, so the opening letter is kept"
+     },
+     {
+      "text": "original",
+      "for": "anagram",
+      "note": "something original is newly made, so the letters are formed into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of mark"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "PAPERS",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "APPERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAPERS",
+       "gives": "APPERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Planners marking up the original documents.",
+     "definitionFit": "Mappers draw up charts and layouts, so they plan out territory or routes in diagram form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +185,42 @@
     "text": "Immature insect – some particular variety",
     "enumeration": "5"
    },
-   "solution": "LARVA"
+   "solution": "LARVA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LARVA",
+    "definitions": [
+     {
+      "text": "Immature insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion only, so the answer is part of the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "particular variety",
+      "gives": "LARVA",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A young bug of one specific species.",
+     "walkthrough": "The answer is in particuLAR VAriety.",
+     "definitionFit": "A larva is the grub stage of an insect between hatching and pupation, before adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +240,44 @@
      }
     ]
    },
-   "solution": "DARKHORSE"
+   "solution": "DARKHORSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DARK HORSE",
+    "definitions": [
+     {
+      "text": "Black Beauty say",
+      "at": 0,
+      "note": "a definition by example: Black Beauty is a famous fictional black horse"
+     },
+     {
+      "text": "competitor about whom little is known",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Black Beauty say",
+      "note": "first meaning, read literally: a horse of black colour, as in Anna Sewell's novel"
+     },
+     {
+      "clueFragment": "competitor about whom little is known",
+      "note": "second meaning: an unfancied contestant of unknown ability"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Black Beauty is the black horse of Anna Sewell's classic children's novel; 'say' marks it as an example.",
+     "definitionFit": "The idiom names a contender whose ability is hidden, and taken literally it describes a black-coated horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Beauty"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +291,55 @@
     "text": "Bashful cat half consumed large rodent",
     "enumeration": "5"
    },
-   "solution": "COYPU"
+   "solution": "COYPU",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "COYPU",
+    "definitions": [
+     {
+      "text": "large rodent",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half consumed",
+      "for": "deletion",
+      "note": "with half eaten away, only half of that word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bashful",
+      "gives": "COY",
+      "note": "coy means shy"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "PUSS",
+      "note": "puss is a cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COY",
+      "PU"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy cat that has eaten half of a big rat.",
+     "walkthrough": "PUSS loses its second half to leave PU.",
+     "definitionFit": "The coypu is a big South American water rodent, also called nutria, farmed for fur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +353,51 @@
     "text": "Manured incorrectly without accessory apparatus",
     "enumeration": "7"
    },
-   "solution": "UNARMED"
+   "solution": "UNARMED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNARMED",
+    "definitions": [
+     {
+      "text": "without accessory apparatus",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorrectly",
+      "for": "anagram",
+      "note": "done incorrectly means put together wrongly, so the letters come out in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manured",
+      "gives": "MANURED",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANURED",
+       "gives": "UNARMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Muck spread badly on a field, done without the proper equipment.",
+     "walkthrough": "In botany and zoology an unarmed plant or animal lacks thorns, spines or claws, the 'accessory apparatus' of the definition.",
+     "definitionFit": "Unarmed means lacking weapons, and in biology lacking spines or claws, the extra defensive equipment some organisms carry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "apparatus"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +411,50 @@
     "text": "Is endured unhappily, not wanted",
     "enumeration": "9"
    },
-   "solution": "UNDESIRED"
+   "solution": "UNDESIRED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDESIRED",
+    "definitions": [
+     {
+      "text": "not wanted",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unhappily",
+      "for": "anagram",
+      "note": "things going unhappily are in a bad way, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is endured",
+      "gives": "ISENDURED",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISENDURED",
+       "gives": "UNDESIRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something put up with grudgingly because nobody wants it.",
+     "definitionFit": "Undesired describes something nobody wishes for, an unwelcome or unrequested thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endured"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +468,43 @@
     "text": "Appeal I binned contains self-justification",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALIBI",
+    "definitions": [
+     {
+      "text": "self-justification",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "the phrase holds the answer within it, so the letters are found inside those words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appeal I binned",
+      "gives": "ALIBI",
+      "note": "the letters running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A rejected appeal that still holds an excuse.",
+     "walkthrough": "The answer is in appeAL I BInned.",
+     "definitionFit": "An alibi is an excuse, strictly a claim to have been elsewhere, offered to clear oneself of blame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Appeal"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +518,62 @@
     "text": "Mother sings softly clasping American cookies",
     "enumeration": "9"
    },
-   "solution": "MACAROONS"
+   "solution": "MACAROONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MACAROONS",
+    "definitions": [
+     {
+      "text": "cookies",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clasping",
+      "for": "container",
+      "note": "to clasp something is to hold it tight, so the singing word grips the other letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "ma is mother"
+     },
+     {
+      "clueFragment": "sings softly",
+      "gives": "CROONS",
+      "note": "to croon is to sing in a soft, low voice"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "C",
+      "A",
+      "ROONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum humming while she holds American biscuits.",
+     "walkthrough": "'Cookies' is the American word for what Britons call biscuits, which ties in with the American in the surface.",
+     "definitionFit": "Macaroons are small almond-and-egg-white biscuits, cookie being the American word for a biscuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clasping"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +587,55 @@
     "text": "Speaks with contempt of empty daytime journeys",
     "enumeration": "7"
    },
-   "solution": "DERIDES"
+   "solution": "DERIDES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DERIDES",
+    "definitions": [
+     {
+      "text": "Speaks with contempt of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its inside removed, leaving just the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daytime",
+      "gives": "DE",
+      "select": "outer",
+      "note": "first and last letters of daytime"
+     },
+     {
+      "clueFragment": "journeys",
+      "gives": "RIDES",
+      "note": "rides are journeys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "RIDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sneering at pointless daytime trips.",
+     "definitionFit": "To deride is to mock or ridicule, treating someone with scorn in what one says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +649,55 @@
     "text": "Wine and fish journalist described in words",
     "enumeration": "9"
    },
-   "solution": "PORTRAYED"
+   "solution": "PORTRAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTRAYED",
+    "definitions": [
+     {
+      "text": "described in words",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "RAY",
+      "note": "a ray is a flat fish"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, short for editor, is the usual crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "RAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A food writer describing a meal of wine and fish.",
+     "definitionFit": "To portray something is to depict it, and portraying can be done verbally as well as in paint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +711,46 @@
     "text": "Suffer fashionable dog",
     "enumeration": "5"
    },
-   "solution": "INCUR"
+   "solution": "INCUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCUR",
+    "definitions": [
+     {
+      "text": "Suffer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "what is in is fashionable"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy pet dog that has to put up with things.",
+     "definitionFit": "To incur a loss or penalty is to bring it upon yourself and have to bear it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashionable"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +770,49 @@
      }
     ]
    },
-   "solution": "ECASH"
+   "solution": "ECASH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "E-CASH",
+    "definitions": [
+     {
+      "text": "electronic financial transactions",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "hidden_word",
+      "note": "something embracing holds it in its arms, so the answer sits inside the run of words"
+     },
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things right round, so the hidden letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maths aces",
+      "gives": "HSACE",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Brilliant mathematicians who are pioneers of digital money.",
+     "walkthrough": "Hiding in matHS ACEs, read right to left, is E-CASH.",
+     "definitionFit": "E-cash is money held and spent digitally, so it covers payments made over electronic networks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +826,52 @@
     "text": "Break stride and run for Bond's martini?",
     "enumeration": "9"
    },
-   "solution": "UNSTIRRED"
+   "solution": "UNSTIRRED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNSTIRRED",
+    "definitions": [
+     {
+      "text": "for Bond's martini?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Break",
+      "for": "anagram",
+      "note": "to break something is to smash it apart, so the letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stride and run",
+      "gives": "STRIDERUN",
+      "note": "the two words of fodder joined by 'and'"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRIDERUN",
+       "gives": "UNSTIRRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner breaking stride and dashing off for a James Bond cocktail.",
+     "walkthrough": "James Bond famously orders his martini 'shaken, not stirred'; the question mark flags the definition by example.",
+     "definitionFit": "Bond insists his martini be shaken rather than mixed with a spoon, so the drink must be left unmixed that way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +891,55 @@
      }
     ]
    },
-   "solution": "SOLARYEAR"
+   "solution": "SOLARYEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLAR YEAR",
+    "definitions": [
+     {
+      "text": "period of revolution",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of sorts",
+      "for": "anagram",
+      "note": "out of sorts means disordered and unwell, so the letters are thrown out of their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royals are",
+      "gives": "ROYALSARE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROYALSARE",
+       "gives": "SOLARYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The royal family is feeling grumpy during a time of political upheaval.",
+     "walkthrough": "'Revolution' suggests uprising, but it is the Earth's orbit.",
+     "definitionFit": "A solar year is the time the Earth takes to complete one orbit around the Sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +959,53 @@
      }
     ]
    },
-   "solution": "LATTERDAY"
+   "solution": "LATTERDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LATTER-DAY",
+    "definitions": [
+     {
+      "text": "Modern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "things going sadly have gone wrong, so the letters end up jumbled"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tardy and late",
+      "gives": "TARDYLATE",
+      "note": "the two words of fodder joined by 'and'"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TARDYLATE",
+       "gives": "LATTERDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Up to date, yet regrettably always running late.",
+     "definitionFit": "Latter-day means belonging to recent or present times, a current version of something older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1019,62 @@
     "text": "European questions about right royal attendants",
     "enumeration": "9"
    },
-   "solution": "EQUERRIES"
+   "solution": "EQUERRIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EQUERRIES",
+    "definitions": [
+     {
+      "text": "royal attendants",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the questions word goes round the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "questions",
+      "gives": "QUERIES",
+      "note": "queries are questions"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "QUER",
+      "R",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "A European asking pointed questions about some very grand servants.",
+     "walkthrough": "'Right royal' reads as the idiom meaning thorough, but 'right' is R. E then QUERIES around R.",
+     "definitionFit": "An equerry is an officer of the British royal household who personally assists a member of the royal family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1088,43 @@
     "text": "Kicks fellow doing menial hotel tasks",
     "enumeration": "5"
    },
-   "solution": "BOOTS"
+   "solution": "BOOTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOOTS",
+    "definitions": [
+     {
+      "text": "Kicks",
+      "at": 0
+     },
+     {
+      "text": "fellow doing menial hotel tasks",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kicks",
+      "note": "first meaning: strikes with the foot"
+     },
+     {
+      "clueFragment": "fellow doing menial hotel tasks",
+      "note": "second meaning: the old name for a hotel servant who cleaned shoes and carried bags"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel porter lashing out with his feet.",
+     "definitionFit": "The verb means delivers a blow with the foot; the noun is a traditional British term for a hotel's shoe-cleaning servant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kicks"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1138,45 @@
     "text": "Give detailed analysis of reason car won't go",
     "enumeration": "9"
    },
-   "solution": "BREAKDOWN"
+   "solution": "BREAKDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREAKDOWN",
+    "definitions": [
+     {
+      "text": "Give detailed analysis",
+      "at": 0
+     },
+     {
+      "text": "reason car won't go",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give detailed analysis",
+      "note": "first meaning: an itemised analysis"
+     },
+     {
+      "clueFragment": "reason car won't go",
+      "note": "second meaning: a mechanical failure"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first definition is a verb phrase standing for the noun as in 'give a breakdown'; the setter treats the answer as the thing given.",
+     "definitionFit": "The noun means an itemised analysis of figures and also a mechanical failure that stops a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "analysis"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1190,43 @@
     "text": "Dip discovered in combat helmet",
     "enumeration": "5"
    },
-   "solution": "BATHE"
+   "solution": "BATHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BATHE",
+    "definitions": [
+     {
+      "text": "Dip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered in",
+      "for": "hidden_word",
+      "note": "something discovered inside is found lying within, so the answer is found inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "combat helmet",
+      "gives": "BATHE",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A dent or hollow found in a soldier's helmet.",
+     "walkthrough": "The answer is in comBAT HElmet.",
+     "definitionFit": "A dip is a quick swim, and to bathe is to go swimming or immerse oneself in water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dip"
+    }
+   }
   },
   {
    "number": 17,
@@ -337,7 +1240,46 @@
     "text": "Of good pedigree and full of life?",
     "enumeration": "7"
    },
-   "solution": "BLOODED"
+   "solution": "BLOODED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOODED",
+    "definitions": [
+     {
+      "text": "Of good pedigree",
+      "at": 0
+     },
+     {
+      "text": "full of life?",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Of good pedigree",
+      "note": "first meaning: of pure breeding, as with livestock"
+     },
+     {
+      "clueFragment": "full of life?",
+      "note": "second meaning, playfully: filled with blood, the stuff of life"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the whimsical second sense: blood is the fluid of life.",
+     "definitionFit": "Blooded animals are of fine breeding, and the word literally suggests having blood, the vital fluid, in the veins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1293,43 @@
     "text": "Stripped like a plain salad",
     "enumeration": "9"
    },
-   "solution": "UNDRESSED"
+   "solution": "UNDRESSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDRESSED",
+    "definitions": [
+     {
+      "text": "Stripped",
+      "at": 0
+     },
+     {
+      "text": "like a plain salad",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stripped",
+      "note": "first meaning: with clothes taken off"
+     },
+     {
+      "clueFragment": "like a plain salad",
+      "note": "second meaning: served without any oil-and-vinegar topping"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone naked, as bare as a salad with nothing on it.",
+     "definitionFit": "The word means naked, and also describes salad leaves served with no vinaigrette poured over them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1343,77 @@
     "text": "Resentment of last of men becoming trapped ultimately in underground cell",
     "enumeration": "7"
    },
-   "solution": "DUDGEON"
+   "solution": "DUDGEON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "DUDGEON",
+    "definitions": [
+     {
+      "text": "Resentment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so the final letter of the word before it is taken"
+     },
+     {
+      "text": "becoming",
+      "for": "substitution",
+      "note": "one thing becoming another means it is swapped out, so one letter is exchanged for a different one"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underground cell",
+      "gives": "DUNGEON",
+      "note": "a dungeon is an underground prison cell"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "N",
+      "select": "last",
+      "note": "final letter of men"
+     },
+     {
+      "clueFragment": "trapped",
+      "gives": "D",
+      "select": "last",
+      "note": "final letter of trapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "D",
+      "GEON"
+     ]
+    },
+    "explanation": {
+     "surface": "The bitterness of men locked away in a dark cellar.",
+     "walkthrough": "In DUNGEON the N changes to D.",
+     "definitionFit": "Dudgeon is a feeling of offended indignation, usually met in the phrase 'in high dudgeon'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trapped"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1427,61 @@
     "text": "Series of six balls in cricket surprisingly worth upset",
     "enumeration": "9"
    },
-   "solution": "OVERTHROW"
+   "solution": "OVERTHROW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OVERTHROW",
+    "definitions": [
+     {
+      "text": "upset",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something that happens surprisingly comes out unexpectedly, so the letters emerge in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Series of six balls in cricket",
+      "gives": "OVER",
+      "note": "in cricket a bowler delivers six balls per over"
+     },
+     {
+      "clueFragment": "worth",
+      "gives": "WORTH",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "THROW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WORTH",
+       "gives": "THROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket over that unexpectedly proves its value.",
+     "walkthrough": "'Overthrow' is also a cricket term, which strengthens the misleading surface; here it is the verb meaning to topple.",
+     "definitionFit": "To overthrow a government or leader is to topple them, and upset can mean knock over or defeat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1495,47 @@
     "text": "Suitable moment, it's said, for plant used for seasoning",
     "enumeration": "5"
    },
-   "solution": "THYME"
+   "solution": "THYME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THYME",
+    "definitions": [
+     {
+      "text": "plant used for seasoning",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so the word is identified by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suitable moment",
+      "gives": "THYME",
+      "soundsLike": "TIME",
+      "note": "the right time is a suitable moment"
+     }
+    ],
+    "explanation": {
+     "surface": "The right moment to add herbs while cooking.",
+     "definitionFit": "Thyme is a low aromatic herb whose leaves are used to flavour food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moment"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1549,59 @@
     "text": "Swallow's tail, covering birds, flutters",
     "enumeration": "5"
    },
-   "solution": "WAVES"
+   "solution": "WAVES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WAVES",
+    "definitions": [
+     {
+      "text": "flutters",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "the tail of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "covering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swallow's",
+      "gives": "W",
+      "select": "last",
+      "note": "final letter of swallow"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "AVES",
+      "note": "Aves is the Latin name for the class of birds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AVES"
+     ]
+    },
+    "explanation": {
+     "surface": "A swallow's forked tail fluttering over a flock of birds.",
+     "walkthrough": "In a down answer the W sits on top of AVES, so it is 'covering' it.",
+     "definitionFit": "A flag waves when it moves to and fro in the breeze, much as something flutters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1615,47 @@
     "text": "Requirement we're told, to massage",
     "enumeration": "5"
    },
-   "solution": "KNEAD"
+   "solution": "KNEAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNEAD",
+    "definitions": [
+     {
+      "text": "massage",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "what we are told is heard rather than read, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Requirement",
+      "gives": "KNEAD",
+      "soundsLike": "NEED",
+      "note": "a need is a requirement"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone saying they really need a massage.",
+     "definitionFit": "Kneading is working dough or muscles by pressing and squeezing them with the hands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Requirement"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1669,43 @@
     "text": "Venerator embraces love-poetry muse",
     "enumeration": "5"
    },
-   "solution": "ERATO"
+   "solution": "ERATO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERATO",
+    "definitions": [
+     {
+      "text": "love-poetry muse",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "hidden_word",
+      "note": "a word that embraces something holds it within, so the answer lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venerator",
+      "gives": "ERATO",
+      "note": "the letters inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "An admirer hugging the goddess of romantic verse.",
+     "walkthrough": "The answer is in vENERATOr; a venerator is one who reveres.",
+     "definitionFit": "Erato is one of the nine Muses of Greek myth, the one who presides over lyric and amorous poetry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embraces"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1719,62 @@
     "text": "Parent to join with others between beginning and end of day",
     "enumeration": "5"
    },
-   "solution": "DADDY"
+   "solution": "DADDY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DADDY",
+    "definitions": [
+     {
+      "text": "Parent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning and end of",
+      "for": "letter_selection",
+      "note": "the beginning and end of a word are its first and last letters, so only those two are kept"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "placed between two things means set inside them, with one on either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "DY",
+      "select": "outer",
+      "note": "outside letters of day"
+     },
+     {
+      "clueFragment": "to join with others",
+      "gives": "ADD",
+      "note": "to add is to join something on with others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ADD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent spending the whole day with the family.",
+     "walkthrough": "ADD sits between D and Y.",
+     "definitionFit": "Daddy is a familiar, childish word for a father, who is one kind of parent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "join"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1788,61 @@
     "text": "Popular stringed instrument, item at heart safe from injury",
     "enumeration": "9"
    },
-   "solution": "INVIOLATE"
+   "solution": "INVIOLATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INVIOLATE",
+    "definitions": [
+     {
+      "text": "safe from injury",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of something is its centre, so only the middle letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is in is popular"
+     },
+     {
+      "clueFragment": "stringed instrument",
+      "gives": "VIOLA",
+      "note": "a viola is a stringed instrument"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "TE",
+      "select": "middle",
+      "note": "middle two letters of item"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VIOLA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular string instrument kept safe and undamaged at the centre of a collection.",
+     "definitionFit": "Inviolate means unharmed, untouched or not violated, so kept free of damage or breach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "item"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1856,67 @@
     "text": "Chide about Yankee essentially banal sobriety",
     "enumeration": "7"
    },
-   "solution": "DRYNESS"
+   "solution": "DRYNESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRYNESS",
+    "definitions": [
+     {
+      "text": "sobriety",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is at its core, so only the central letter is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the scolding word goes around the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chide",
+      "gives": "DRESS",
+      "note": "to dress, as in give a dressing-down, is to scold"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO alphabet"
+     },
+     {
+      "clueFragment": "banal",
+      "gives": "N",
+      "select": "middle",
+      "note": "centre letter of banal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "YN",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Scolding an American for being dull and teetotal.",
+     "walkthrough": "To dress someone down, or give them a dressing-down, is to tell them off, which is why the word can mean chide.",
+     "definitionFit": "Dryness can mean abstaining from alcohol, as in a dry state or dry January, which is sobriety."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Chide"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1930,49 @@
     "text": "Outspoken child sad when day is at an end",
     "enumeration": "7"
    },
-   "solution": "SUNDOWN"
+   "solution": "SUNDOWN",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SUNDOWN",
+    "definitions": [
+     {
+      "text": "when day is at an end",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outspoken",
+      "for": "homophone",
+      "note": "outspoken words are uttered out loud, so the next word is taken by how it is heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "SUN",
+      "soundsLike": "SON",
+      "note": "a son is a child"
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "DOWN",
+      "note": "feeling down is feeling sad"
+     }
+    ],
+    "explanation": {
+     "surface": "A blunt-talking child gloomy at the end of the day.",
+     "definitionFit": "Sundown is sunset, the evening time at which daylight finishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outspoken"
+    }
+   }
   }
  ]
 }
