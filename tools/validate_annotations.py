@@ -73,6 +73,7 @@ from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     blog_facts_for,
     clue_words,
+    corrected_clue,
     leaders_named,
     read_puzzle_file,
 )
@@ -2476,25 +2477,32 @@ def committed_entries(path):
 
 
 def check_clue_unchanged(puzzle, path, errors):
-    """An annotation explains the clue it was written against. An annotated
-    entry whose clue's words differ from the committed file's is either a run
-    that rewrote the clue to suit its parse, or a correction that kept notes on
-    the text it replaced. Either way the annotation goes: a corrected clue is
-    committed without one and the queue annotates it afresh. Typography
-    (quotes, dashes, accents, spacing) is not a different clue."""
+    """An annotation explains the clue it was written against, and the clue is
+    the source's. An annotated entry whose clue's words differ from the
+    committed file's is a run that rewrote the clue to suit its parse, unless
+    the new words are the ones fetch_puzzle.SOURCE_CLUE_WRONG prints for that
+    light: a correction filed there is what every re-fetch writes, so the
+    annotation written for it stands in the same run. Typography (quotes,
+    dashes, accents, spacing) is not a different clue."""
     committed = committed_entries(path)
     if committed is None:
         return                  # not committed yet: nothing to compare with
     was = {i: enumeration.printed(e["clue"]) for i, e in committed.items()}
     for e in puzzle["entries"]:
         now = enumeration.printed(e["clue"])
-        if (e.get("annotation") is not None and entry_id(e) in was
-                and clue_words(was[entry_id(e)]) != clue_words(now)):
-            errors.append(
-                f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "
-                f"under an annotation. The clue text is the source's, not the "
-                f"annotator's: put it back, or, correcting it, drop this entry's "
-                f"annotation so it is annotated afresh")
+        if (e.get("annotation") is None or entry_id(e) not in was
+                or clue_words(was[entry_id(e)]) == clue_words(now)):
+            continue
+        filed = corrected_clue(puzzle.get("id"), entry_id(e))
+        if filed is not None and clue_words(filed) == clue_words(e["clue"].get("text")):
+            continue
+        errors.append(
+            f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "
+            f"under an annotation. The clue text is the source's, not the "
+            f"annotator's: put it back, or, when the source serves it wrong, "
+            f"file the printed clue and its evidence in "
+            f"tools/fetch_puzzle.py SOURCE_CLUE_WRONG, which makes the change "
+            f"and this annotation pass together")
 
 
 # The indicators rung is a tier below the building blocks, and a note written as

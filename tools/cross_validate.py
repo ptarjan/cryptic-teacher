@@ -424,9 +424,9 @@ def independent_shape(xml_bytes, ymd):
     fetch_independent's converter: the grid's white cells and letters, each
     <word>'s runs, each clue's words and its format attribute as printed
     (a period, slash or space in it read as the comma it stands for, a
-    trailing comma dropped). A clue or count fetch_independent's CLUE_FIXES
-    or FORMAT_FIXES proves wrong is read as printed, as witness() does for a
-    known wrong answer."""
+    trailing comma dropped). A clue fetch_puzzle's SOURCE_CLUE_WRONG or a
+    count fetch_independent's FORMAT_FIXES proves wrong is read as printed,
+    as witness() does for a known wrong answer."""
     import xml.etree.ElementTree as ET
 
     import fetch_independent as fi
@@ -446,7 +446,11 @@ def independent_shape(xml_bytes, ymd):
             continue
         nums = [int(n.rstrip("ADad")) for n in (clue.get("number") or "").split("/") if n.strip()]
         text = " ".join(html.unescape("".join(clue.itertext())).split())
-        text = fi.fixed_clue(ymd, clue.get("word"), text) or text
+        first = runs[clue.get("word")][0] if nums else None
+        if first:
+            (x1, x2), (y1, y2) = first
+            lead = f"{nums[0]}-{'across' if x2 > x1 or y1 == y2 else 'down'}"
+            text = fi.source_clue(pid, lead, text)
         enum = re.sub(r",+", ",", re.sub(r"[./\s]", ",", (clue.get("format") or "").strip()))
         enum = fi.FORMAT_FIXES.get((ymd, clue.get("word"), enum), enum).strip(",") or None
         for i, (num, ((x1, x2), (y1, y2))) in enumerate(zip(nums, runs[clue.get("word")])):
@@ -1345,7 +1349,7 @@ def refile_independent(adapter, pid, path, ymd, found):
 
     A file already from the feed is never refiled. Its differences from the
     feed are edits made after the fetch, and the ones found so far are the
-    feed's own errors put right (CLUE_FIXES, SOURCE_ANSWER_WRONG); a refile
+    feed's own errors put right (SOURCE_CLUE_WRONG, SOURCE_ANSWER_WRONG); a refile
     would write the error back. They are reported, for the tables.
 
     The converter's output must match the feed as read here; where it does

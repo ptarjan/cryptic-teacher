@@ -155,19 +155,21 @@ same("a feed title with a comma after the number names its setter (independent-1
 same("a space in the feed's format is the comma it stands for (independent-12317)",
      cv.independent_shape(INDY.replace(b'format="3.3"', b'format="3 3"'), "260105")
      ["entries"][2]["clue"]["enumeration"], "3,3")
-fi.CLUE_FIXES[("260105", "2")] = ("Tax", "Cab")
+import fetch_puzzle as fp
+indy_pid = fi.parse(INDY, "260105")["id"]
+fp.SOURCE_CLUE_WRONG[(indy_pid, "1-down")] = ("Tax", "Cab", "test")
 same("a clue the feed garbles is read as printed, by the converter and the reader alike",
      [[e["clue"]["text"] for e in got["entries"] if (e["number"], e["direction"]) == (1, "down")]
       for got in (fi.parse(INDY, "260105"), cv.independent_shape(INDY, "260105"))],
      [["Cab"], ["Cab"]])
 same("and a feed that prints something else is taken as it is",
-     fi.fixed_clue("260105", "2", "Hackney carriage"), None)
-del fi.CLUE_FIXES[("260105", "2")]
+     fi.source_clue(indy_pid, "1-down", "Hackney carriage"), "Hackney carriage")
+del fp.SOURCE_CLUE_WRONG[(indy_pid, "1-down")]
 held = json.load(open("puzzles/independent/2026/independent-12407.json", encoding="utf-8"))
 same("independent-12407 4-down keeps its printed clue across a re-fetch (the feed garbles it)",
      ([e["clue"]["text"] for e in held["entries"] if (e["number"], e["direction"]) == (4, "down")],
-      fi.fixed_clue("260714", "17", "a well-mannered fellow, extremely ideal, being "
-                    "\u201cgood breeding\u201d as they once said -")),
+      fi.source_clue("independent-12407", "4-down", "a well-mannered fellow, extremely ideal, "
+                     "being \u201cgood breeding\u201d as they once said -")),
      (["developed there at noon to foreshadow"], "developed there at noon to foreshadow"))
 saved = cv.read_puzzle_file
 cv.read_puzzle_file = lambda path: {"source": {"acquiredBy": "tools/fetch_independent.py"}}

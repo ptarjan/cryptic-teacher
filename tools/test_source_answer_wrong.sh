@@ -239,6 +239,26 @@ same "a page that fixed itself is kept as published" "$(field FIXED "$out5")" "3
 same "and named as stale" "$(grep -c 'SOURCE_LIGHT_WRONG cryptic-21730 11-across is STALE' /tmp/slw_stale.err)" "1"
 rm -f /tmp/slw_stale.err
 
+echo "every SOURCE_CLUE_WRONG key holds its printed clue on disk"
+out6=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import fetch_puzzle as fetcher
+from groups import entry_id
+
+bad = []
+for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
+    path = fetcher.puzzle_paths.find(pid)
+    entry = path and {entry_id(e): e for e in fetcher.read_puzzle_file(path)["entries"]}.get(eid)
+    if not entry:
+        bad.append(f"{pid} {eid}: no such entry")
+    elif fetcher.clue_words(entry["clue"].get("text")) != fetcher.clue_words(printed):
+        bad.append(f"{pid} {eid}: stored {entry['clue'].get('text')!r}, table prints {printed!r}")
+    if fetcher.clue_words(served) == fetcher.clue_words(printed) or len(why) < 40:
+        bad.append(f"{pid} {eid}: corrects nothing, or the note is not evidence")
+print("BAD", "; ".join(bad) or "none")
+PY
+)
+same "every clue key holds on disk and corrects something" "$(field BAD "$out6")" "none"
+
 [ "$fails" = 0 ] && echo "source_answer_wrong: all checks passed" \
   || echo "source_answer_wrong: $fails FAILED"
 exit $((fails > 0))

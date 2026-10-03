@@ -106,10 +106,23 @@ next(e for e in reworded["entries"] if entry_id(e) == entry_id(lead))["clue"]["t
 next(e for e in retyped["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = lead["clue"]["text"].replace(" ", "  ") + "!"
 errs = []
 V.check_clue_unchanged(reworded, committed, errs)
-say("reworded_clue_fails", len(errs) == 1 and "drop this entry's annotation" in errs[0])
+say("reworded_clue_fails", len(errs) == 1 and "SOURCE_CLUE_WRONG" in errs[0])
 errs = []
 V.check_clue_unchanged(retyped, committed, errs)
 say("retyped_clue_passes", not errs)
+# A correction filed in SOURCE_CLUE_WRONG lands with its annotation in one run;
+# any other rewording of that light still fails.
+key = (held["id"], entry_id(lead))
+fetch_puzzle.SOURCE_CLUE_WRONG[key] = (lead["clue"]["text"], "Invented " + lead["clue"]["text"], "test")
+errs = []
+V.check_clue_unchanged(reworded, committed, errs)
+say("filed_correction_passes_annotated", not errs)
+other = copy.deepcopy(held)
+next(e for e in other["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = "Rewritten " + lead["clue"]["text"]
+errs = []
+V.check_clue_unchanged(other, committed, errs)
+say("unfiled_rewording_of_filed_light_fails", len(errs) == 1)
+del fetch_puzzle.SOURCE_CLUE_WRONG[key]
 
 # features: absent warns (and counts against the ratchet), present is quiet.
 w = []
