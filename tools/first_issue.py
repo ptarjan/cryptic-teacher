@@ -59,7 +59,9 @@ SOURCES = {
     "sundaytough": (None, _TELEGRAPH),
     "times": (None, _BLOG + "; archive.org's pub_times scans The Times of 1930 "
                       "(Nos 1-~270), which no filer reads yet"),
-    "timesquick": (None, _BLOG + "; its parse holds Quick Cryptic No 1 (2014-03-10)"),
+    "timesquick": (["python3", "tools/fetch_times_feed.py", "--first"],
+                   "feeds.thetimes.co.uk/puzzles/crossword/20140310/100/data.json, "
+                   "the Times's own player feed (the blog's post gives answers only)"),
     "timesjumbo": (None, _BLOG),
     "sundaytimes": (None, _BLOG),
     "timesclub": (None, _BLOG),
