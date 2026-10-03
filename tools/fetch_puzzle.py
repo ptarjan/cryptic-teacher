@@ -1889,6 +1889,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-16414", "20-down"): (
+        "Way (to scrape the ship's planking",
+        "Way to scrape the ship's planking",
+        "OCR misread: a stray '(' sits before 'to'; ST plus RAKE needs no bracket"),
     ("times-15813", "4-across"): (
         "Scarlet emblem of English admiral and French marshal in s time",
         "Scarlet emblem of English admiral and French marshal in his time",
