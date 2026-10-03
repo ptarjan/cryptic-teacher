@@ -259,6 +259,36 @@ def has_words(clue):
     return bool((clue or "").strip())
 
 
+# A clue line made only of a pointer at clues printed somewhere else: "See
+# special instructions", "See clues page", "Follow the link below to see today's
+# clues". The Guardian's 2000-02 alphabetical jigsaws carry one on every light,
+# because the clues went up on a separate page.
+ELSEWHERE = re.compile(
+    r"(?i)^\W*(?:please\W+)?(?:see|follow|click)\b"
+    r"(?:\W*\b(?:the|link|below|here|to|see|today['’]?s|for|special|"
+    r"instructions?|preamble|clues?|page)\b)+\W*$")
+
+
+def placeholder_clues(entries):
+    """{entry id} of the clues that are only pointers at clues printed elsewhere.
+
+    Per puzzle, not per clue: one "(See special instructions)" among real clues
+    is a light the preamble defines (cryptic-26741's 5-down), and is a clue.
+    When every clue with words is such a pointer, the puzzle has no clues here
+    at all, and each pointer counts as a missing clue."""
+    worded = [e for e in entries if has_words(e["clue"].get("text", ""))]
+    if worded and all(ELSEWHERE.match(e["clue"]["text"]) for e in worded):
+        return {entry_id(e) for e in worded}
+    return set()
+
+
+def clued(entries):
+    """The entries a solver can read a clue for: has_words, less placeholders."""
+    gone = placeholder_clues(entries)
+    return [e for e in entries
+            if has_words(e["clue"].get("text", "")) and entry_id(e) not in gone]
+
+
 # What a continuation leg's clue is made of once its enumeration is off: the
 # word "see", the numbers it points at, and the words that join them. Nothing
 # else — "See 5 across out to find another date" is wordplay that opens the
@@ -2254,6 +2284,11 @@ def convert(data):
     # Downstream a wordless clue is indistinguishable from a hard one: a cold
     # solve burns inference guessing it off the crossings, and the annotator
     # takes the blame for failing to solve nothing.
+    gone = placeholder_clues(entries)
+    for e in entries:
+        if entry_id(e) in gone:
+            e["clue"].pop("text")
+            e["clue"]["missing"] = True
     wordless = [entry_id(e) for e in entries if e["clue"].get("missing")]
     if wordless and len(wordless) == len(entries):
         # Every clue blank is a different animal from a blank clue: the page is
@@ -2411,10 +2446,10 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
     recovered clue's enumeration counts, and a clue that keeps its count while
     losing its group contradicts itself at the next length check.
     """
-    old = {entry_id(e): e for e in old_puzzle.get("entries", [])}
+    old = {entry_id(e): e for e in clued(old_puzzle.get("entries", []))}
     for e in new_puzzle["entries"]:
         was = old.get(entry_id(e))
-        if not was or has_words(e["clue"].get("text", "")) or not has_words(was["clue"].get("text", "")):
+        if not was or has_words(e["clue"].get("text", "")):
             continue
         clue = {**{k: v for k, v in e["clue"].items()
                    if k not in ("text", "enumeration", "italics", "missing")},
@@ -2513,9 +2548,8 @@ def puzzle_is_annotated(puzzle):
 def unannotated_clues(puzzle):
     """The clues puzzle_is_annotated is still waiting on."""
     continuations = groups.leader_of(puzzle["entries"])
-    return [e for e in puzzle["entries"]
-            if "annotation" not in e and has_words(e["clue"].get("text", ""))
-            and entry_id(e) not in continuations]
+    return [e for e in clued(puzzle["entries"])
+            if "annotation" not in e and entry_id(e) not in continuations]
 
 
 def clue_coverage(puzzle):
@@ -2526,7 +2560,7 @@ def clue_coverage(puzzle):
     missing all 28 is a picture of a lattice. Only the ratio separates them, so
     the ratio is what the index carries and each reader picks its own line.
 
-    Readable is has_words, the same test puzzle_is_annotated excuses.
+    Readable is clued(), the same test puzzle_is_annotated excuses.
 
     A one-character clue counts as present, because it is one: ")" is the whole
     of CLOSE BRACKETS and a line of morse the whole of MORSE. What stays
@@ -2535,8 +2569,7 @@ def clue_coverage(puzzle):
     at one missing entry — a setter who prints a blank clue on purpose leaves a
     grid that is still entirely solvable.
     """
-    return {"present": sum(1 for e in puzzle["entries"]
-                           if has_words(e["clue"].get("text", ""))),
+    return {"present": len(clued(puzzle["entries"])),
             "total": len(puzzle["entries"])}
 
 

@@ -153,10 +153,9 @@ from apply_solution import (check_fill, check_geometry, off_board,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
 from clue_index import ClueIndex  # noqa: E402
-from clue_index import ClueIndex  # noqa: E402
 import boilerplate  # noqa: E402
 import errata  # noqa: E402
-from fetch_puzzle import (PER_LIGHT_ENUMERATION, group_orders,  # noqa: E402
+from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, group_orders,  # noqa: E402
                           has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
 import puzzle_schema  # noqa: E402
@@ -587,7 +586,7 @@ def check_shape(puzzle, today, flags):
     # answers came off a prize puzzle's solution page and the clue text lives on
     # /crosswords/prize/<n>, not /crosswords/cryptic/<n>, and in the printable PDF
     # beside it. So this reports until someone goes and gets the clues.
-    if not any(has_words(e["clue"].get("text", "")) for e in entries):
+    if not clued(entries):
         flags.append(("SHAPE", pid, f"all {len(entries)} clues are blank"))
 
     from_blog = (puzzle.get("source") or {}).get("retrievedFrom") == "blog"
