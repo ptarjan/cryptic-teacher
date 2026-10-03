@@ -1096,6 +1096,45 @@ def candidates(texts, lid, parse):
     return out
 
 
+def held(text, cands):
+    """The VLM's pick `text` held to the readings `cands` (each one's text
+    for the clue) word by word, or "" when it cannot be: a word suspect()
+    flags takes the known word most readings have there ("linner" where
+    one reads "linnet"), and with none the pick fails; a word no reading
+    has, where every reading has one known word a letter from it, takes
+    that word ("gain" where all read "gait"). A pick most of whose words
+    no reading has within a letter is another clue's, and fails."""
+    words = list(re.finditer(r"[A-Za-z]+(?:'[A-Za-z]+)?", text or ""))
+    if not words:
+        return text or ""
+    low = [m.group().lower() for m in words]
+    there = [[] for _ in words]
+    theirs = [tokens(COUNT_END.sub("", c)) for c in cands]
+    for ws in theirs:
+        for i, j in align(low, [w.lower() for w in ws]):
+            if i is not None and j is not None:
+                there[i].append(ws[j].lower())
+    if theirs and 2 * sum(any(within_one(a, v) for v in there[i]) for i, a in enumerate(low)) < len(low):
+        return ""
+    out, k = "", 0
+    for i, m in enumerate(words):
+        a, w = low[i], m.group()
+        new = a
+        if suspect(w):
+            got = [v for v in there[i] if known(v)]
+            if not got:
+                return ""
+            new = max(got, key=lambda v: (got.count(v), similar(v, a)))
+        elif theirs and a not in there[i] and len(there[i]) == len(theirs) \
+                and len(set(there[i])) == 1 and known(there[i][0]) and within_one(a, there[i][0]):
+            new = there[i][0]
+        if new != a:
+            new = new.capitalize() if w[:1].isupper() else new
+            out += text[k:m.start()] + new
+            k = m.end()
+    return out + text[k:]
+
+
 def vlm_pick(texts, laid, blank, parse, pick):
     """(laid, blank) with each clue reconcile() filed blank read by the VLM
     (tools/vlm_reader.py): `pick(light, candidates)` is its text for the
@@ -1106,7 +1145,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        got = clean(COUNT_END.sub("", pick(lid, cands) or ""))
+        got = held(clean(COUNT_END.sub("", pick(lid, cands) or "")), cands)
         if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
