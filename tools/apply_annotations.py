@@ -60,7 +60,7 @@ import puzzle_integrity  # noqa: E402
 import groups  # noqa: E402 — linked answers
 from derive_assembly import complete  # noqa: E402
 from groups import entry_id  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
+from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file  # noqa: E402
 
 # The commands whose Bash call is the one running this file right now.
 LANDING_COMMANDS = ("apply_annotations", "annotate_check")
@@ -323,6 +323,14 @@ def apply(path, annotations, by=None):
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
+    # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
+    # prints it, the way a re-fetch reads every served clue.
+    if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
+        for entry in puzzle["entries"]:
+            text = entry["clue"].get("text")
+            printed = source_clue(puzzle["id"], entry_id(entry), text)
+            if printed != text:
+                entry["clue"]["text"] = printed
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue

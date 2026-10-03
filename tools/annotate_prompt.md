@@ -23,6 +23,15 @@ Write annotations only; do not write a script to produce them. Each entry's
 `"solution"` is ground truth: your parse must produce exactly those letters, and if it
 does not, the parse is wrong, so rethink it rather than stretch it.
 
+The clue text is the source's, with one exception. When the puzzle's
+`source.retrievedFrom` is `newspaper` or `book`, its clues are OCR of a scan, and a
+letter can be misread ("judge" for "fudge"). When the answer and wordplay need a word
+a letter or two from the one shown, add the printed clue to `SOURCE_CLUE_WRONG` in
+`tools/fetch_puzzle.py`:
+`("<ID>", "<entry id>"): ("<clue as shown>", "<clue as printed, no count>", "OCR misread: <what the wordplay or answer needs>")`.
+The check applies it, and refuses it if more than 3 letters change. A clue that is
+missing, or shown on two lights, is lost, not misread: make that entry `null`.
+
 ## Order of work
 
 - **Write early.** Put clues into the file a handful at a time and run the check (below)
