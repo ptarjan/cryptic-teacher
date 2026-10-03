@@ -1889,6 +1889,70 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-15494", "10-across"): (
+        "Men so correspond in t'. mind",
+        "Men so correspond in the mind",
+        "OCR misread: the wordplay needs MENTALLY, 'in the mind'"),
+    ("times-15494", "1-down"): (
+        "Tale about car running wild on the island",
+        "Tale about cart running wild on the island",
+        "OCR misread: the anagram needs CART to give CATR before IONA"),
+    ("times-15494", "2-down"): (
+        "Halo aptly for reform of orthodox 'medicine",
+        "Halo aptly for reform of orthodox medicine",
+        "OCR misread: stray mark before the definition"),
+    ("times-15494", "15-down"): (
+        "Consequences of 3 second crop",
+        "Consequences or a second crop",
+        "OCR misread: the double definition needs 'or a second crop'"),
+    ("times-15494", "29-across"): (
+        "Completes circuit of( burrows",
+        "Completes circuit of burrows",
+        "OCR misread: stray bracket"),
+    ("times-15498", "12-down"): (
+        "Mark of high degree for Mrs McPberson",
+        "Mark of high degree for Mrs McPherson",
+        "OCR misread: the definition needs Aimee Semple McPherson, the evangelist"),
+    ("times-15498", "19-down"): (
+        "Unlike Ophelia's *. sweet bells jangled ”",
+        "Unlike Ophelia's \"sweet bells jangled\"",
+        "OCR misread: stray marks for the quotation marks around Ophelia's words"),
+    ("times-15165", "2-down"): (
+        "What the profitable hen . did (likewise, we hear, the -'early bird)",
+        "What the profitable hen did (likewise, we hear, the early bird)",
+        "OCR misread: stray marks around hen and the early bird"),
+    ("times-15165", "20-down"): (
+        "To short nothing but gas",
+        "O, short, nothing but gas",
+        "OCR misread: the clue needs the letter O, the gas's chemical symbol, not To"),
+    ("times-15165", "24-across"): (
+        "'Calls from paddock for gin she's mixing",
+        "Calls from paddock for gin she's mixing",
+        "OCR misread: stray opening quote mark"),
+    ("times-15165", "26-across"): (
+        "Make us return gay, hating -eaten right sweet",
+        "Make us return gay, having eaten right sweet",
+        "OCR misread: the container needs having eaten, not hating"),
+    ("times-15165", "27-across"): (
+        "Flower in an endless series .—so be it",
+        "Flower in an endless series—so be it",
+        "OCR misread: stray full stop before the dash"),
+    ("times-15545", "5-down"): (
+        "Celebration where “ we . three” et al) would meet again",
+        "Celebration where “we three” (et al) would meet again",
+        "OCR misread: a stray full stop inside the quotation, and the opening bracket was lost"),
+    ("times-15545", "19-down"): (
+        "The silly old man's outs!",
+        "The silly old man's nuts!",
+        "OCR misread: the definition needs nuts, which almonds are"),
+    ("times-15545", "27-across"): (
+        "New craze is (to give some-pile a big send-off",
+        "New craze is to give someone a big send-off",
+        "OCR misread: the definition needs someone, and the bracket before to is stray"),
+    ("times-15545", "28-across"): (
+        "3 Sort of account for 13's customers?",
+        "Sort of account for 13's customers?",
+        "OCR misread: a stray 3 before the clue"),
     ("times-15118", "1-across"): (
         "\"Goodfellow with measure 'that provides material for the house",
         "Good fellow with measure that provides material for the house",
