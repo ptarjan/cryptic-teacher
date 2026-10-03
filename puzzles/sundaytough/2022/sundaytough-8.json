@@ -24,6 +24,9 @@
   "date": "2022-03-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,44 @@
      }
     ]
    },
-   "solution": "LITMUSTEST"
+   "solution": "LITMUSTEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITMUS TEST",
+    "definitions": [
+     {
+      "text": "Check on politician’s instinct",
+      "at": 0
+     },
+     {
+      "text": "is it red or blue?",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check on politician’s instinct",
+      "note": "first meaning: a question that reveals someone's true political leanings"
+     },
+     {
+      "clueFragment": "is it red or blue?",
+      "note": "second meaning: the chemistry test where paper turns red for acid or blue for alkali"
+     }
+    ],
+    "explanation": {
+     "surface": "A pundit wonders how to probe a politician's gut loyalty: left-wing red or Conservative blue?",
+     "walkthrough": "In Britain red is Labour's colour and blue the Conservatives', so the question fits both politics and the lab.",
+     "definitionFit": "The phrase names a decisive test of views, borrowed from the acid-alkali indicator paper used in school chemistry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +97,49 @@
     "text": "Sign diary: ‘With love’",
     "enumeration": "4"
    },
-   "solution": "LOGO"
+   "solution": "LOGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOGO",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diary",
+      "gives": "LOG",
+      "note": "a log is a daily record"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone signs off a diary entry with a loving flourish.",
+     "definitionFit": "A logo is an emblem or symbol that stands for a company or brand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +153,68 @@
     "text": "Account written up — nothing needs repeating, this officer swears!",
     "enumeration": "7"
    },
-   "solution": "TROOPER"
+   "solution": "TROOPER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TROOPER",
+    "definitions": [
+     {
+      "text": "this officer swears!",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down entry, writing upwards means the word is read from bottom to top"
+     },
+     {
+      "text": "needs repeating",
+      "for": "container",
+      "note": "a second copy of nothing must be slipped in beside the one already there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "REPORT",
+      "note": "a report is an account of events"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like O; the account word already holds one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "O",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "REPORT",
+       "to": "TROPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report is drafted, with a note that one officer's bad language needn't be quoted twice.",
+     "walkthrough": "REPORT upwards is TROPER; its O is doubled to give TROOPER. The definition plays on the idiom 'swear like a trooper'.",
+     "definitionFit": "A trooper is a cavalry soldier or mounted police officer, proverbially known for heavy cursing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "repeating"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +228,75 @@
     "text": "Funny tale unfolded around tour getting diverted, worse luck",
     "enumeration": "13"
    },
-   "solution": "UNFORTUNATELY"
+   "solution": "UNFORTUNATELY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UNFORTUNATELY",
+    "definitions": [
+     {
+      "text": "worse luck",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfolded",
+      "for": "anagram",
+      "note": "something unfolded is opened out and rearranged from its original shape"
+     },
+     {
+      "text": "getting diverted",
+      "for": "anagram",
+      "note": "a diverted route goes a different way, so these letters take a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the first jumble surrounds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Funny tale",
+      "gives": "FUNNYTALE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "tour",
+      "gives": "TOUR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNF",
+      "ORTU",
+      "NATELY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUNNYTALE",
+       "gives": "UNFNATELY"
+      },
+      {
+       "fodder": "TOUR",
+       "gives": "ORTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller's amusing story comes out about a trip that went off course — sadly.",
+     "definitionFit": "Both are interjections expressing regret that something has turned out badly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfolded"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +316,46 @@
      }
     ]
    },
-   "solution": "TICKOVER"
+   "solution": "TICKOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TICK OVER",
+    "definitions": [
+     {
+      "text": "Idle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moment",
+      "gives": "TICK",
+      "note": "a tick is an instant, as in 'just a tick'"
+     },
+     {
+      "clueFragment": "ended",
+      "gives": "OVER",
+      "note": "something over is finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TICK",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy spell comes to a close.",
+     "definitionFit": "An engine that is idling runs slowly without engaging gears; figuratively, to tick over is to keep going quietly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Idle"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +369,56 @@
     "text": "Food that makes South American welcome",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "welcome",
+      "gives": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "HI"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish so good it makes a South American visitor feel at home.",
+     "walkthrough": "'South American' looks like one phrase about a continent, but it splits into two abbreviations.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish, a specific example of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +432,47 @@
     "text": "Idiot’s on a cycle, very pleased with life?",
     "enumeration": "4"
    },
-   "solution": "SMUG"
+   "solution": "SMUG",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SMUG",
+    "definitions": [
+     {
+      "text": "very pleased with life?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a cycle",
+      "for": "cycling",
+      "note": "going round on a cycle moves the last letter round to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot’s",
+      "gives": "MUGS",
+      "note": "a mug is a fool, and the possessive adds S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMUG"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool pedalling along on a bike looks thoroughly content with himself.",
+     "definitionFit": "Smug describes complacent self-satisfaction, an excessive contentment with one's own situation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +486,67 @@
     "text": "Delivery slot one’s taken over — left package",
     "enumeration": "7"
    },
-   "solution": "MAILBOX"
+   "solution": "MAILBOX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MAILBOX",
+    "definitions": [
+     {
+      "text": "Delivery slot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken over",
+      "for": "reversal",
+      "note": "taken over means flipped, so the phrase reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one’s",
+      "gives": "IAM",
+      "note": "spoken by oneself, 'one is' becomes 'I am'"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "package",
+      "gives": "BOX",
+      "note": "a box is a package"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAI",
+      "L",
+      "BOX"
+     ],
+     "reversals": [
+      {
+       "from": "IAM",
+       "to": "MAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that their parcel was left behind and the delivery slot taken by another.",
+     "walkthrough": "'one's' is a contraction of 'one is'; said by the speaker, that is 'I am', which is the phrase taken over.",
+     "definitionFit": "A mailbox is the opening or box where the post is delivered, so it is literally a slot for deliveries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +560,51 @@
     "text": "Mix up rare gift, it could be wrapped in yellow and pink inside",
     "enumeration": "10"
    },
-   "solution": "GRAPEFRUIT"
+   "solution": "GRAPEFRUIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAPEFRUIT",
+    "definitions": [
+     {
+      "text": "it could be wrapped in yellow and pink inside",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mix",
+      "for": "anagram",
+      "note": "to mix things is to stir them together into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up rare gift",
+      "gives": "UPRAREGIFT",
+      "note": "taken as written, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPRAREGIFT",
+       "gives": "GRAPEFRUIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to jumble up a special present, which might come in yellow paper with pink tissue inside.",
+     "walkthrough": "'Mix up' looks like the anagram signal, but 'up' belongs to the letters being rearranged.",
+     "definitionFit": "The citrus fruit has yellow rind and, in many varieties, pink flesh, so the description paints it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +624,63 @@
      }
     ]
    },
-   "solution": "GOOFF"
+   "solution": "GOOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO OFF",
+    "definitions": [
+     {
+      "text": "Get fed up with",
+      "at": 0
+     },
+     {
+      "text": "decline",
+      "at": 16
+     },
+     {
+      "text": "quit",
+      "at": 26
+     },
+     {
+      "text": "be fired",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get fed up with",
+      "note": "first meaning: lose one's liking for someone"
+     },
+     {
+      "clueFragment": "decline",
+      "note": "second meaning: deteriorate, as food does when it spoils"
+     },
+     {
+      "clueFragment": "quit",
+      "note": "third meaning: leave, depart"
+     },
+     {
+      "clueFragment": "be fired",
+      "note": "fourth meaning: be discharged, as a gun or alarm"
+     }
+    ],
+    "explanation": {
+     "surface": "An unhappy employee weighs resigning against waiting to be sacked.",
+     "walkthrough": "'be fired' suggests being sacked, but here it means a weapon discharging.",
+     "definitionFit": "The phrasal verb covers losing interest, spoiling, departing and exploding, so each meaning fits one sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +700,44 @@
      }
     ]
    },
-   "solution": "COSTARICA"
+   "solution": "COSTARICA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "COSTA RICA",
+    "definitions": [
+     {
+      "text": "Reduction of tobacco’s tar I campaigned for here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reduction of",
+      "for": "hidden_word",
+      "note": "a reduction is a cut-down portion, so only a stretch of the following words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tobacco’s tar I campaigned",
+      "gives": "COSTARICA",
+      "note": "the letters run across the word boundaries in the middle of the phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A health campaigner speaks of fighting to cut tar from cigarettes in some country.",
+     "walkthrough": "The whole clue doubles as a description of the place: the Central American country has strict anti-smoking laws.",
+     "definitionFit": "The Central American republic introduced some of the region's toughest tobacco controls, so a campaigner might well have worked there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Reduction"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +751,69 @@
     "text": "Independent will support scribe over rubbish, the writer’s confident",
     "enumeration": "13"
    },
-   "solution": "AUTHORITATIVE"
+   "solution": "AUTHORITATIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUTHORITATIVE",
+    "definitions": [
+     {
+      "text": "confident",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will support",
+      "for": "charade",
+      "note": "in a down entry, supporting means sitting underneath, so this piece comes after the next one"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scribe",
+      "gives": "AUTHOR",
+      "note": "a scribe is a writer"
+     },
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is cheap junk"
+     },
+     {
+      "clueFragment": "the writer’s",
+      "gives": "IVE",
+      "note": "the writer refers to the setter, so 'the writer's' is I'VE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTHOR",
+      "I",
+      "TAT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An independent publisher backs an author despite junk content, and the writer feels sure of himself.",
+     "walkthrough": "'The writer' is the setter's way of saying I, so 'the writer's' becomes I'VE.",
+     "definitionFit": "Authoritative describes someone who speaks with assurance and command, as a self-assured person does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Independent"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +833,57 @@
      }
     ]
    },
-   "solution": "PERIODICTABLE"
+   "solution": "PERIODICTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERIODIC TABLE",
+    "definitions": [
+     {
+      "text": "that organises all matter of things",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spell",
+      "gives": "PERIOD",
+      "note": "a spell is a period of time"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a table is a board, as in 'board and lodging'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERIOD",
+      "IC",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell as head of a board that runs everything.",
+     "walkthrough": "'all manner of things' is twisted into 'all matter': the chart arranges every kind of matter.",
+     "definitionFit": "The chemistry chart arranges every element, the building blocks of all physical substance, by atomic number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "matter"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +897,68 @@
     "text": "Archduchy is corrupt — king’s grasped where the bodies are buried",
     "enumeration": "10"
    },
-   "solution": "CHURCHYARD"
+   "solution": "CHURCHYARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHURCHYARD",
+    "definitions": [
+     {
+      "text": "where the bodies are buried",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is corrupt",
+      "for": "anagram",
+      "note": "something corrupt has been tampered with, so its letters are scrambled"
+     },
+     {
+      "text": "grasped",
+      "for": "container",
+      "note": "to be grasped is to be held inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archduchy",
+      "gives": "ARCHDUCHY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHURCHYA",
+      "R",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARCHDUCHY",
+       "gives": "CHURCHYAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotten realm whose king is held captive, with hints of buried secrets.",
+     "walkthrough": "'where the bodies are buried' sounds like the idiom for hidden scandal, but here it is literal.",
+     "definitionFit": "A churchyard is the enclosed ground round a church used as a cemetery for burials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bodies"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +972,72 @@
     "text": "That woman’s about this twisted inside –what guy would be up for a challenge?",
     "enumeration": "8"
    },
-   "solution": "HERCULES"
+   "solution": "HERCULES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HERCULES",
+    "definitions": [
+     {
+      "text": "what guy would be up for a challenge?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "anagram",
+      "note": "twisted things are bent out of their original order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around something else"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside confirms the twisted piece sits within the woman's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman’s",
+      "gives": "HERS",
+      "note": "belonging to that woman"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "CLUE",
+      "note": "self-reference: 'this' is the clue being read"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "CULE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "CULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a woman's possessions tangled up inside, and asks which man would take her on.",
+     "walkthrough": "'this' points at the clue itself, a favourite trick. The mythological hero performed twelve labours set as challenges.",
+     "definitionFit": "The Greek hero accepted twelve impossible labours, so he is the archetypal man ready for any challenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "this"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1051,42 @@
     "text": "Psycho axe rampage uncovered — who thinks it’s a great joke?",
     "enumeration": "6"
    },
-   "solution": "HOAXER"
+   "solution": "HOAXER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HOAXER",
+    "definitions": [
+     {
+      "text": "who thinks it’s a great joke?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "hidden_word",
+      "note": "uncovered means the phrase loses its outer wrapping, leaving a run of letters from inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Psycho axe rampage",
+      "gives": "HOAXER",
+      "note": "the letters run across the boundaries between the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A horror-film massacre exposed, and someone asks who finds it funny.",
+     "definitionFit": "A hoaxer plays deceptive tricks on people, enjoying a prank that fools others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1106,50 @@
      }
     ]
    },
-   "solution": "HARDSELL"
+   "solution": "HARDSELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HARD SELL",
+    "definitions": [
+     {
+      "text": "promotion, being aggressive",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obdurate",
+      "gives": "HARD",
+      "note": "obdurate means unyielding"
+     },
+     {
+      "clueFragment": "hawk",
+      "gives": "SELL",
+      "note": "to hawk goods is to sell them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "SELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn political hawk wins promotion by being pushy.",
+     "walkthrough": "'hawk' suggests a warmongering politician, but here it is the verb for peddling wares.",
+     "definitionFit": "A hard sell is a forceful, high-pressure sales pitch, an aggressive way of marketing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hawk"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1163,73 @@
     "text": "Villain swapped sides, as about to get arrested",
     "enumeration": "6"
    },
-   "solution": "RASCAL"
+   "solution": "RASCAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "RASCAL",
+    "definitions": [
+     {
+      "text": "Villain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapped",
+      "for": "reversal",
+      "note": "swapping the two letters round puts them in the opposite order"
+     },
+     {
+      "text": "to get arrested",
+      "for": "container",
+      "note": "someone arrested is held, so these letters are held inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sides",
+      "gives": "LR",
+      "note": "the two sides, left and right, abbreviated"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AS",
+      "CA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LR",
+       "to": "RL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal turned informer, and so was about to be arrested.",
+     "definitionFit": "A rascal is a scoundrel or rogue, a dishonest, mischievous person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1243,61 @@
     "text": "Meat roll as habit",
     "enumeration": "7"
    },
-   "solution": "SAUSAGE"
+   "solution": "SAUSAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SAUSAGE",
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roll",
+      "for": "reversal",
+      "note": "rolling something turns it over, so the short word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "habit",
+      "gives": "USAGE",
+      "note": "usage is customary practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "USAGE"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats a meat roll out of habit.",
+     "walkthrough": "'Meat roll' suggests the sausage roll, a British pastry snack, but roll is the reversal signal.",
+     "definitionFit": "A sausage is minced meat in a skin, a specific kind of meat product."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1311,58 @@
     "text": "Strolling player serenaded senorita in film, endlessly elegant",
     "enumeration": "8"
    },
-   "solution": "MARIACHI"
+   "solution": "MARIACHI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MARIACHI",
+    "definitions": [
+     {
+      "text": "Strolling player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "serenaded"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senorita in film",
+      "gives": "MARIA",
+      "note": "the heroine of West Side Story, serenaded in the song bearing her name"
+     },
+     {
+      "clueFragment": "elegant",
+      "gives": "CHIC",
+      "note": "chic means stylish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARIA",
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering musician sang to a Spanish-speaking lady in a movie scene.",
+     "walkthrough": "Tony sings 'Maria' to the Puerto Rican heroine in West Side Story.",
+     "definitionFit": "A mariachi is a member of a Mexican band of street musicians who wander and play for diners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "serenaded"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1376,69 @@
     "text": "Rift within church about vicars being halfcut",
     "enumeration": "7"
    },
-   "solution": "CREVICE"
+   "solution": "CREVICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "CREVICE",
+    "definitions": [
+     {
+      "text": "Rift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being halfcut",
+      "for": "deletion",
+      "note": "cut in half means only the first half of the word survives"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within means the following letters go inside the church abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "vicars",
+      "gives": "VICARS",
+      "note": "taken as written, then halved"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RE",
+      "VIC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A split in the church over clergy getting drunk.",
+     "walkthrough": "'halfcut' is British slang for tipsy, which makes the surface about tipsy vicars.",
+     "definitionFit": "A crevice is a narrow crack or fissure in rock, a small opening or split."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "halfcut"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1458,43 @@
      }
     ]
    },
-   "solution": "HOUSEHOLDNAME"
+   "solution": "HOUSEHOLDNAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOUSEHOLD NAME",
+    "definitions": [
+     {
+      "text": "Celebrity",
+      "at": 0
+     },
+     {
+      "text": "Dunroamin?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrity",
+      "note": "first meaning: a famous person everyone has heard of"
+     },
+     {
+      "clueFragment": "Dunroamin?",
+      "note": "second meaning: a typical name painted on a home's gate"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dunroamin ('done roaming') is a jokey name British retirees gave their bungalows; the question mark flags that it is an example.",
+     "definitionFit": "The phrase means a famous figure known in every home, and literally the label given to a dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dunroamin"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1508,67 @@
     "text": "Arab, person known as Mr X, lifted boxes",
     "enumeration": "5"
    },
-   "solution": "OMANI"
+   "solution": "OMANI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OMANI",
+    "definitions": [
+     {
+      "text": "Arab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting means reading from the bottom up"
+     },
+     {
+      "text": "boxes",
+      "for": "container",
+      "note": "to box something is to enclose it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "X",
+      "gives": "IO",
+      "note": "X is Roman ten, written 10, which resembles the letters I and O"
+     },
+     {
+      "clueFragment": "person known as Mr",
+      "gives": "MAN",
+      "note": "Mr is the title given to a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MAN",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IO",
+       "to": "OI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Arab, an anonymous figure called Mr X, was hoisted up holding boxes.",
+     "walkthrough": "'Mr X' looks like one mystery name, but it splits: Mr gives the man, and X is ten.",
+     "definitionFit": "An Omani is a native of Oman, a country of the Arabian Peninsula, so an Arab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "X"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1582,43 @@
     "text": "Filmed try",
     "enumeration": "4"
    },
-   "solution": "SHOT"
+   "solution": "SHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOT",
+    "definitions": [
+     {
+      "text": "Filmed",
+      "at": 0
+     },
+     {
+      "text": "try",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Filmed",
+      "note": "first meaning: recorded on camera"
+     },
+     {
+      "clueFragment": "try",
+      "note": "second meaning: an attempt, as in 'have a go'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Filmed try' reads like a rugby try caught on camera; the words are separate meanings.",
+     "definitionFit": "The word is a past participle for recording a scene and a noun for an attempt at something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1642,66 @@
      }
     ]
    },
-   "solution": "ATANYRATE"
+   "solution": "ATANYRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT ANY RATE",
+    "definitions": [
+     {
+      "text": "regardless",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to succeed",
+      "for": "charade",
+      "note": "to succeed is to come after, so this piece follows the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "AT",
+      "note": "at means in, as in 'at home'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "NY is New York"
+     },
+     {
+      "clueFragment": "Required money",
+      "gives": "RATE",
+      "note": "a rate is a charge one must pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "A",
+      "NY",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "You need cash to make it in an American city, whatever happens.",
+     "walkthrough": "'to succeed' suggests making it big, but it means coming after.",
+     "definitionFit": "The phrase means in any case or anyway, so it signals that something holds whatever else happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1715,58 @@
     "text": "Limerick’s maybe using ‘flower’, to be followed by ‘hour’",
     "enumeration": "5"
    },
-   "solution": "IRISH"
+   "solution": "IRISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRISH",
+    "definitions": [
+     {
+      "text": "Limerick’s maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be followed by",
+      "for": "charade",
+      "note": "followed by means the next piece is placed after the first"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "IRIS",
+      "note": "an iris is a garden flower"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "H is the abbreviation for hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for writing a comic poem: use 'flower' and then rhyme it with 'hour'.",
+     "walkthrough": "A limerick looks like the five-line verse, but Limerick is also a county and city in Ireland.",
+     "definitionFit": "Limerick is a place in the Republic, so it is an example of something from that nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Limerick’s"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1780,54 @@
     "text": "What headlights might catch with no time to drive away",
     "enumeration": "4"
    },
-   "solution": "DEER"
+   "solution": "DEER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEER",
+    "definitions": [
+     {
+      "text": "What headlights might catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "with no means lacking, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive away",
+      "gives": "DETER",
+      "note": "to deter is to put off or repel"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist's headlights pick something out, leaving no time to drive off.",
+     "walkthrough": "'drive away' sounds like the car speeding off, but it means repel.",
+     "definitionFit": "Deer famously freeze when caught in a car's beam at night, as in 'like a rabbit in the headlights'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1847,69 @@
      }
     ]
    },
-   "solution": "FIELDEVENT"
+   "solution": "FIELDEVENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FIELD EVENT",
+    "definitions": [
+     {
+      "text": "sport",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "deletion",
+      "note": "about here means gone away, so those letters are taken out"
+     },
+     {
+      "text": "crooked",
+      "for": "anagram",
+      "note": "something crooked is bent out of line, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "being",
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Self-evidently",
+      "gives": "SELFEVIDENTLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sly",
+      "gives": "SLY",
+      "note": "taken as written, letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIELDEVENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EFEVIDENTL",
+       "gives": "FIELDEVENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Obviously, being cunning about this rigged sport.",
+     "walkthrough": "Remove S, L and Y from the long word, wherever they sit, and rearrange what is left.",
+     "definitionFit": "Throwing and jumping contests in athletics, such as javelin or long jump, are this category of sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crooked"
+    }
+   }
   }
  ]
 }
