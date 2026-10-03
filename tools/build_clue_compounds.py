@@ -4,10 +4,13 @@
     python3 tools/build_clue_compounds.py      # rewrites tools/data/clue_compounds.tsv
 
 A scan's line-end hyphen may break a word ("back-" / "street") or be a
-compound's own ("short-" / "lived"). tools/file_archive_org_puzzles.py's
-clean() asks this table when the lexicon lacks the closed form: each row is
+compound's own ("short-" / "lived"), and a reader that returns its text
+unbroken (the VLM) keeps that hyphen inside the line ("pre-decessor").
+tools/ocr_clues.py's clean() and unhyphen() ask this table: each row is
 "first-second<TAB>clues printing it hyphenated<TAB>clues printing it closed",
-for compounds of two lexicon words whose closed form the lexicon lacks.
+for compounds of two lexicon words whose closed form the lexicon lacks, and
+for every hyphenated form the clues print of a word the lexicon has closed
+("co-operate").
 """
 import collections
 import glob
@@ -19,7 +22,14 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
-from file_archive_org_puzzles import is_word
+from ocr_clues import rank
+
+
+def is_word(word):
+    """Whether the lexicon itself has the word: not ocr_clues.is_word, which
+    also takes this table's closed compounds, so a rebuild would drop them."""
+    return rank(word) is not None or word in ("a", "i")
+
 
 OUT = TOOLS / "data" / "clue_compounds.tsv"
 
@@ -43,7 +53,7 @@ def rows(seen):
         parts = token.split("-")
         if len(parts) == 2:
             a, b = parts
-            if len(a) > 1 and len(b) > 1 and is_word(a) and is_word(b) and not is_word(a + b):
+            if is_word(a + b) or (len(a) > 1 and len(b) > 1 and is_word(a) and is_word(b)):
                 out[token] = (n, seen.get(a + b, 0))
         elif len(parts) == 1 and n >= 2 and not is_word(token):
             for i in range(2, len(token) - 1):

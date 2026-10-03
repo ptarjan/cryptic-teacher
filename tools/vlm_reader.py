@@ -21,6 +21,8 @@ import os
 import urllib.request
 from pathlib import Path
 
+from ocr_clues import unhyphen
+
 TOOLS = Path(__file__).resolve().parent
 URL = os.environ.get("VLM_READER_URL", "http://100.68.145.15:8090")
 MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.0-vl-8b")
@@ -121,8 +123,10 @@ def column_text(img, wins, readings):
 
 def read(image):
     """The model's transcription of one clue column already cropped (and
-    enlarged) on its own: a page's column, or a Trove article's text zone."""
-    return ask(image, PROMPT.read_text()).strip()
+    enlarged) on its own: a page's column, or a Trove article's text zone.
+    The model runs a clue's printed lines together, keeping the hyphen of a
+    word broken over a line end: unhyphen() joins it."""
+    return unhyphen(ask(image, PROMPT.read_text()).strip())
 
 
 def pick(img, wins, readings, lid, candidates):
@@ -144,4 +148,4 @@ def pick_in(image, lid, candidates):
     text = ask(image, prompt, max_tokens=200).strip().strip('"').strip()
     if not text or text.upper().startswith("NONE"):
         return None
-    return text.splitlines()[0].strip()
+    return unhyphen(text.splitlines()[0].strip())
