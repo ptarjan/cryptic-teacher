@@ -1893,6 +1893,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-14603", "12-across"): (
+        "Paper surely not for lie head of the class?",
+        "Paper surely not for the head of the class?",
+        "OCR misread: the clue needs the head of the class, the top pupil"),
+    ("times-14603", "17-down"): (
+        "Back in .this sporting role",
+        "Back in this sporting role",
+        "OCR misread: a stray full stop before this"),
+    ("times-14603", "26-across"): (
+        "“ In a —— -mighted December ” (Keats)",
+        "“ In a —— -nighted December ” (Keats)",
+        "OCR misread: Keats wrote drear-nighted December"),
     ("times-17862", "6-down"): (
         "Working man gelling his knife into someone",
         "Working man getting his knife into someone",
