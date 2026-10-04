@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,41 @@
     "text": "19 carriage",
     "enumeration": "6"
    },
-   "solution": "BERLIN"
+   "solution": "BERLIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BERLIN",
+    "definitions": [
+     {
+      "text": "19",
+      "at": 0
+     },
+     {
+      "text": "carriage",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "19",
+      "note": "first meaning: the answer to 19 is a capital city, and this one is Germany's"
+     },
+     {
+      "clueFragment": "carriage",
+      "note": "second meaning: a four-wheeled covered carriage with a hooded seat behind"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue is just a cross-reference and a noun; 19 is CAPITAL, so the first meaning is a capital city.",
+     "definitionFit": "The German capital shares its name with a type of horse-drawn travelling coach first built in that city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +84,66 @@
     "text": "Uncivilised nonsense about Rio, perhaps?",
     "enumeration": "7"
    },
-   "solution": "BOORISH"
+   "solution": "BOORISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BOORISH",
+    "definitions": [
+     {
+      "text": "Uncivilised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the nonsense word wraps the other letters"
+     },
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the city name is only one possible arrangement of its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsense",
+      "gives": "BOSH",
+      "note": "bosh is an old word for nonsense"
+     },
+     {
+      "clueFragment": "Rio",
+      "gives": "RIO",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "ORI",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIO",
+       "gives": "ORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that Rio de Janeiro is a byword for uncivilised rubbish.",
+     "definitionFit": "Boorish behaviour is rude and coarse, the manners of a lout lacking any refinement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rio"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,59 @@
     "text": "Exasperating cubist's game, endless cycle",
     "enumeration": "5"
    },
-   "solution": "RUBIK"
+   "solution": "RUBIK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RUBIK",
+    "definitions": [
+     {
+      "text": "Exasperating cubist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means losing the last letter, so the word for cycle is cut short"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union, a game"
+     },
+     {
+      "clueFragment": "cycle",
+      "gives": "BIKE",
+      "note": "a bike is a cycle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "BIK"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a Cubist painter's game is maddening and goes round without end.",
+     "walkthrough": "'Cubist' looks like a Picasso-style painter; it is the man who invented the cube puzzle. The 's is read as 'has'.",
+     "definitionFit": "Ernő Rubik invented the famously frustrating twisting cube puzzle, so he is a maker of maddening cubes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cubist"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,58 @@
     "text": "Vet injects phosphorus into little beast",
     "enumeration": "7"
    },
-   "solution": "INSPECT"
+   "solution": "INSPECT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSPECT",
+    "definitions": [
+     {
+      "text": "Vet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injects",
+      "for": "container",
+      "note": "to inject is to put something inside, so one piece goes into the other"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phosphorus",
+      "gives": "P",
+      "note": "P is the chemical symbol for phosphorus"
+     },
+     {
+      "clueFragment": "little beast",
+      "gives": "INSECT",
+      "note": "an insect is a small creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A veterinary surgeon gives a small animal an injection of phosphorus.",
+     "walkthrough": "Vet reads as a noun, the animal doctor; it is the verb meaning to check.",
+     "definitionFit": "To vet something is to examine it carefully, the same as to inspect it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vet"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +302,68 @@
    "group": [
     "4-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIP VAN WINKLE",
+    "definitions": [
+     {
+      "text": "24 5",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast inside it, so the victory word sits within the joint"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Split",
+      "gives": "RIP",
+      "note": "to rip is to split or tear"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V is the standard abbreviation for victory, as in V-sign"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "ANKLE",
+      "note": "the ankle is the joint between leg and foot"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIP",
+      "V",
+      "AN",
+      "WIN",
+      "KLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report on a shared triumph, two teams splitting the honours.",
+     "walkthrough": "24 is WASHINGTON and 5 is IRVING, so the definition is a story by the American writer Washington Irving; 'victory' is used twice, once abbreviated and once in full.",
+     "definitionFit": "Washington Irving wrote the tale of the man who sleeps twenty years in the Catskills, so the title names his story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +377,49 @@
     "text": "Writer and composer on opposite sides of 24 and 1 across",
     "enumeration": "6"
    },
-   "solution": "IRVING"
+   "solution": "IRVING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IRVING",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     },
+     {
+      "text": "composer",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "note": "first meaning: the American author whose first name is the answer to 24"
+     },
+     {
+      "clueFragment": "composer",
+      "note": "second meaning: the American songwriter whose surname is the answer to 1 across"
+     },
+     {
+      "clueFragment": "on opposite sides of 24 and 1 across",
+      "note": "surface padding that confirms the answer: it follows one cross-reference and precedes the other in the two full names"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle about one creative figure who both writes and composes.",
+     "walkthrough": "'On opposite sides of 24 and 1 across' says where the shared name sits: after WASHINGTON in the author's name, before BERLIN in the songwriter's.",
+     "definitionFit": "Washington Irving wrote Rip Van Winkle and Irving Berlin wrote White Christmas, so the shared name serves both."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +433,81 @@
     "text": "Rubber can't lie around after light's turned up!",
     "enumeration": "9"
    },
-   "solution": "VULCANITE"
+   "solution": "VULCANITE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "VULCANITE",
+    "definitions": [
+     {
+      "text": "Rubber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters of the phrase are moved about"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the rearranged letters following the light"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "UV",
+      "note": "UV is ultraviolet light"
+     },
+     {
+      "clueFragment": "can't lie",
+      "gives": "CANTLIE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VU",
+      "LCANITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANTLIE",
+       "gives": "LCANITE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "UV",
+       "to": "VU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eraser that can't lie still once the lamp is turned up.",
+     "walkthrough": "'Rubber' looks like an eraser; it is the hardened material. The 's is read as 'is'.",
+     "definitionFit": "Vulcanite, or ebonite, is a hard black rubber made by heating rubber with a lot of sulphur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +521,39 @@
     "text": "They're sharp eyes too",
     "enumeration": "7"
    },
-   "solution": "NEEDLES"
+   "solution": "NEEDLES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEEDLES",
+    "definitions": [
+     {
+      "text": "They're sharp eyes too",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They're sharp eyes too",
+      "note": "surface reading: people with keen eyesight, who also notice things"
+     },
+     {
+      "clueFragment": "sharp eyes too",
+      "note": "setter's reading: sewing tools that are pointed and also each have an eye for the thread"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Sharp eyes' looks like keen vision; it is a pointed tip plus the hole the thread passes through.",
+     "definitionFit": "Sewing implements have a point at one end and a hole called an eye at the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eyes"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +577,46 @@
      }
     ]
    },
-   "solution": "NORTHANDSOUTH"
+   "solution": "NORTHANDSOUTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NORTH AND SOUTH",
+    "definitions": [
+     {
+      "text": "Dakotas",
+      "at": 0
+     },
+     {
+      "text": "East End trap",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dakotas",
+      "note": "first meaning: the two US states named Dakota, distinguished by compass points"
+     },
+     {
+      "clueFragment": "East End trap",
+      "note": "second meaning: Cockney rhyming slang for mouth, which trap also means"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The East End is the traditional Cockney part of London, where rhyming slang is spoken; trap is slang for mouth, and north and south rhymes with it.",
+     "definitionFit": "The two Dakota states carry these compass prefixes, and the phrase is Cockney rhyming slang for the mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +630,43 @@
     "text": "Blunder in the cup?",
     "enumeration": "4"
    },
-   "solution": "BOOB"
+   "solution": "BOOB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOOB",
+    "definitions": [
+     {
+      "text": "Blunder",
+      "at": 0
+     },
+     {
+      "text": "in the cup",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blunder",
+      "note": "first meaning: a silly mistake"
+     },
+     {
+      "clueFragment": "in the cup",
+      "note": "second meaning: slang for a breast, which sits in the cup of a bra"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cup' suggests a football tie or a drink; it is the cup of a bra.",
+     "definitionFit": "The word is informal both for a foolish mistake and for a woman's breast, the thing a bra cup holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cup"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +686,64 @@
      }
     ]
    },
-   "solution": "STOPVOLLEY"
+   "solution": "STOPVOLLEY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STOP VOLLEY",
+    "definitions": [
+     {
+      "text": "Tennis shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smash",
+      "for": "anagram",
+      "note": "to smash something is to break it into pieces, so these letters are broken up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to prevent",
+      "gives": "STOP",
+      "note": "to stop something is to prevent it"
+     },
+     {
+      "clueFragment": "lovely",
+      "gives": "LOVELY",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOP",
+      "VOLLEY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVELY",
+       "gives": "VOLLEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tennis advice: to stop a lovely smash you need a particular shot.",
+     "walkthrough": "'Smash' is itself a tennis shot, which makes it look like part of the definition; here it only signals the rearrangement.",
+     "definitionFit": "A stop volley is a soft, deadened volley played so the ball drops just over the net, a recognised stroke in tennis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smash"
+    }
+   }
   },
   {
    "number": 11,
@@ -230,7 +770,66 @@
     "text": "The Spanish burglar catcher retrieved arm",
     "enumeration": "8"
    },
-   "solution": "TENTACLE"
+   "solution": "TENTACLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENTACLE",
+    "definitions": [
+     {
+      "text": "arm",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrieved",
+      "for": "reversal",
+      "note": "retrieved is read here as brought back, so the whole string runs the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish for the"
+     },
+     {
+      "clueFragment": "burglar",
+      "gives": "CAT",
+      "note": "a cat burglar climbs into buildings, so cat stands for a burglar"
+     },
+     {
+      "clueFragment": "catcher",
+      "gives": "NET",
+      "note": "a net is something that catches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "TAC",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "ELCATNET",
+       "to": "TENTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish tale of the device that caught a burglar being reclaimed by its owner.",
+     "definitionFit": "An octopus's or squid's long flexible limbs are its tentacles, so arm is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +856,50 @@
     "text": "Charges for setter's fruit",
     "enumeration": "9"
    },
-   "solution": "IMPEACHES"
+   "solution": "IMPEACHES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEACHES",
+    "definitions": [
+     {
+      "text": "Charges",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter's",
+      "gives": "IM",
+      "note": "the setter refers to himself as I, and setter's is read as setter is, so I'M"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEACHES",
+      "note": "peaches are a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PEACHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A price list: what the setter charges for his fruit.",
+     "walkthrough": "'Charges' looks like a noun for prices; it is the verb meaning accuses formally.",
+     "definitionFit": "To impeach an official is to formally accuse them of misconduct, which is to bring charges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charges"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +936,71 @@
    "group": [
     "16-across",
     "15-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "POPE PIUS",
+    "definitions": [
+     {
+      "text": "a Vicar of Christ",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "something converted is changed into another form, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "POP",
+      "note": "pop is an informal word for father"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E for east, a compass point"
+     },
+     {
+      "clueFragment": "up is",
+      "gives": "UPIS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "E",
+      "PIUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UPIS",
+       "gives": "PIUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest, taking a point on board, converts and becomes pontiff.",
+     "walkthrough": "'Father' and 'converted' look like religious vocabulary for the surface, but father is just POP and converted is the anagram signal.",
+     "definitionFit": "Vicar of Christ is a title of the Bishop of Rome, and several popes took the name Pius."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1014,55 @@
     "text": "Legless bipedal quadruped ...",
     "enumeration": "7"
    },
-   "solution": "PIEBALD"
+   "solution": "PIEBALD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIEBALD",
+    "definitions": [
+     {
+      "text": "quadruped",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Legless",
+      "for": "anagram",
+      "note": "legless is British slang for very drunk, and drunken letters stagger into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bipedal",
+      "gives": "BIPEDAL",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIEBALD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIPEDAL",
+       "gives": "PIEBALD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A two-legged creature without legs, turned into a four-legged one: absurd anatomy.",
+     "walkthrough": "'Legless' seems to clash with bipedal and quadruped; it is slang for drunk. The ellipsis carries the horse into the next clue.",
+     "definitionFit": "A piebald is a horse with irregular black and white patches, and a horse is a four-legged animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Legless"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1076,56 @@
     "text": "Cheered an operative showing loyalty",
     "enumeration": "9"
    },
-   "solution": "ADHERENCE"
+   "solution": "ADHERENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADHERENCE",
+    "definitions": [
+     {
+      "text": "loyalty",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "operative",
+      "for": "anagram",
+      "note": "operative suggests something being worked on or operated, so the letters before it are reworked"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheered an",
+      "gives": "CHEEREDAN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADHERENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEEREDAN",
+       "gives": "ADHERENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd cheers a secret agent who has shown loyalty to the cause.",
+     "definitionFit": "Sticking faithfully to a cause, person or set of rules is adherence, which is close in sense to loyalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operative"
+    }
+   }
   },
   {
    "number": 18,
@@ -336,7 +1139,70 @@
     "text": "... for example, in Latin called Susan up about one of five babies",
     "enumeration": "7"
    },
-   "solution": "EQUINUS"
+   "solution": "EQUINUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EQUINUS",
+    "definitions": [
+     {
+      "text": "for example, in Latin",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the name is read from the bottom"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the name wraps the baby"
+     }
+    ],
+    "linkWords": [
+     "called"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Susan",
+      "gives": "SUE",
+      "note": "Sue is short for Susan"
+     },
+     {
+      "clueFragment": "one of five babies",
+      "gives": "QUIN",
+      "note": "a quin is one of quintuplets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "QUIN",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "SUE",
+       "to": "EUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Latin lesson in which a quin named Susan is mentioned.",
+     "walkthrough": "The ellipsis links back to 16: the piebald is the example, a horse, and the Latin word for horse-like is the answer.",
+     "definitionFit": "Equinus is a Latin adjective meaning of a horse, and the piebald in the previous clue is one such animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "babies"
+    }
+   }
   },
   {
    "number": 19,
@@ -350,7 +1216,43 @@
     "text": "Sterling funds",
     "enumeration": "7"
    },
-   "solution": "CAPITAL"
+   "solution": "CAPITAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPITAL",
+    "definitions": [
+     {
+      "text": "Sterling",
+      "at": 0
+     },
+     {
+      "text": "funds",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sterling",
+      "note": "first meaning: excellent, first-rate, as in an old-fashioned cry of approval"
+     },
+     {
+      "clueFragment": "funds",
+      "note": "second meaning: money available for investment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Sterling funds' reads as British pounds; sterling here means splendid.",
+     "definitionFit": "The word is a dated exclamation of approval meaning excellent, and also the money a business holds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sterling"
+    }
+   }
   },
   {
    "number": 20,
@@ -364,7 +1266,75 @@
     "text": "Russian compser makes connection between Glazunof's First and Third",
     "enumeration": "6"
    },
-   "solution": "GLINKA"
+   "solution": "GLINKA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GLINKA",
+    "definitions": [
+     {
+      "text": "Russian compser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First",
+      "for": "letter_selection",
+      "note": "First picks out the opening letter of the named composer"
+     },
+     {
+      "text": "Third",
+      "for": "letter_selection",
+      "note": "Third picks out the letter in position three of the same name"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between places the connection inside the two picked letters"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glazunof's",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the name"
+     },
+     {
+      "clueFragment": "connection",
+      "gives": "LINK",
+      "note": "a link is a connection"
+     },
+     {
+      "clueFragment": "Glazunof's",
+      "gives": "A",
+      "select": 3,
+      "note": "the letter in third place of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LINK",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian composer forms a bridge between the works of fellow composer Glazunov.",
+     "definitionFit": "Mikhail Glinka was a nineteenth-century Russian composer, often called the father of Russian classical music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "connection"
+    }
+   }
   },
   {
    "number": 21,
@@ -378,7 +1348,72 @@
     "text": "Harem lubricates back (English newspaper involved)",
     "enumeration": "8"
    },
-   "solution": "SERAGLIO"
+   "solution": "SERAGLIO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SERAGLIO",
+    "definitions": [
+     {
+      "text": "Harem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us to read the word for lubricates from right to left"
+     },
+     {
+      "text": "involved",
+      "for": "container",
+      "note": "involved means drawn inside something, so the bracketed letters go into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lubricates",
+      "gives": "OILS",
+      "note": "oils is a verb meaning lubricates"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual abbreviation for English"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "RAG",
+      "LIO"
+     ],
+     "reversals": [
+      {
+       "from": "OILS",
+       "to": "SLIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid exposé on a harem, with an English paper caught up in the scandal.",
+     "definitionFit": "A seraglio was the women's quarters of an Ottoman palace, the same thing as a harem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lubricates"
+    }
+   }
   },
   {
    "number": 22,
@@ -392,7 +1427,53 @@
     "text": "With no regrets, went up to be slaughtered",
     "enumeration": "6"
    },
-   "solution": "UNWEPT"
+   "solution": "UNWEPT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNWEPT",
+    "definitions": [
+     {
+      "text": "With no regrets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be slaughtered",
+      "for": "anagram",
+      "note": "something slaughtered is cut to pieces, so these letters are broken and remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went up",
+      "gives": "WENTUP",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNWEPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WENTUP",
+       "gives": "UNWEPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, or some beast, went up to the slaughter and nobody was sorry.",
+     "definitionFit": "Something unwept is not mourned or lamented by anyone, so it passes without any sorrow shed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regrets"
+    }
+   }
   },
   {
    "number": 23,
@@ -416,7 +1497,57 @@
    "group": [
     "23-down",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHITE CHRISTMAS",
+    "definitions": [
+     {
+      "text": "by 5 1 across",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so these letters are given a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scream with this",
+      "gives": "SCREAMWITHTHIS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITECHRISTMAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCREAMWITHTHIS",
+       "gives": "WHITECHRISTMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horror novel by a famous author, something to scream at.",
+     "walkthrough": "5 1 across is IRVING BERLIN, so the definition is a song he wrote. 'Novel' looks like a book; it is the anagram signal, and 'with' belongs to the fodder.",
+     "definitionFit": "Irving Berlin wrote the song made famous by Bing Crosby, one of the best-selling singles ever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1561,43 @@
     "text": "19, by George!",
     "enumeration": "10"
    },
-   "solution": "WASHINGTON"
+   "solution": "WASHINGTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WASHINGTON",
+    "definitions": [
+     {
+      "text": "19",
+      "at": 0
+     },
+     {
+      "text": "by George",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "19",
+      "note": "first meaning: 19 is CAPITAL, and this is the capital of the United States"
+     },
+     {
+      "clueFragment": "by George",
+      "note": "second meaning: the city is named after the first US president, whose first name was George"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'By George!' is an old exclamation of surprise; here it means the place is called after a man named George.",
+     "definitionFit": "The American capital city takes its name from George, the first president of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1611,53 @@
     "text": "Enthusiastic about cooking? Not I!",
     "enumeration": "4"
    },
-   "solution": "INTO"
+   "solution": "INTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTO",
+    "definitions": [
+     {
+      "text": "Enthusiastic about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients together, so the words after it are stirred and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not I",
+      "gives": "NOTI",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTI",
+       "gives": "INTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asked whether they love cooking, someone firmly says it isn't for them.",
+     "definitionFit": "To be into something, informally, is to be keen on it or a fan of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
+    }
+   }
   },
   {
    "number": 26,
@@ -458,7 +1671,47 @@
     "text": "Pluto might cause consternation",
     "enumeration": "6"
    },
-   "solution": "DISMAY"
+   "solution": "DISMAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISMAY",
+    "definitions": [
+     {
+      "text": "cause consternation",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pluto",
+      "gives": "DIS",
+      "note": "Dis is another Roman name for Pluto, god of the underworld"
+     },
+     {
+      "clueFragment": "might",
+      "gives": "MAY",
+      "note": "may and might both express possibility"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that the dwarf planet Pluto could be causing alarm.",
+     "walkthrough": "Pluto suggests the planet or the Disney dog; here it is the god of the dead, also called Dis.",
+     "definitionFit": "To dismay someone is to alarm or distress them, which is exactly to cause consternation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pluto"
+    }
+   }
   },
   {
    "number": 27,
@@ -472,7 +1725,49 @@
     "text": "Bony, with nothing to pinch",
     "enumeration": "6"
    },
-   "solution": "OSTEAL"
+   "solution": "OSTEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSTEAL",
+    "definitions": [
+     {
+      "text": "Bony",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, so it stands for nothing"
+     },
+     {
+      "clueFragment": "to pinch",
+      "gives": "STEAL",
+      "note": "to pinch is slang for to steal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "STEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone so thin they are bony, and with nothing they could pinch.",
+     "definitionFit": "Osteal is a technical adjective meaning of or relating to bone, from the Greek osteon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pinch"
+    }
+   }
   }
  ]
 }
