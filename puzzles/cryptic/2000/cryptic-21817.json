@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Merchant seaman reported sound ahead",
     "enumeration": "10"
    },
-   "solution": "WHOLESALER"
+   "solution": "WHOLESALER",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "WHOLESALER",
+    "definitions": [
+     {
+      "text": "Merchant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the seaman is to be heard rather than spelt"
+     },
+     {
+      "text": "ahead",
+      "for": "charade",
+      "note": "ahead says the piece before it is placed in front of the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound",
+      "gives": "WHOLE",
+      "note": "sound as in healthy and intact, as in 'safe and sound'"
+     },
+     {
+      "clueFragment": "seaman",
+      "gives": "SALER",
+      "soundsLike": "SAILOR",
+      "note": "a seaman is a sailor; said out loud it matches the ending needed"
+     }
+    ],
+    "explanation": {
+     "surface": "A seafaring merchant tells of a sound heard up ahead of the ship.",
+     "walkthrough": "'ahead' says the sound piece goes in front of the seaman piece.",
+     "definitionFit": "A wholesaler is a trader who sells goods in bulk to retailers, a kind of merchant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,53 @@
     "text": "Sow area in fruit",
     "enumeration": "8"
    },
-   "solution": "PLANTAIN"
+   "solution": "PLANTAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANTAIN",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sow",
+      "gives": "PLANT",
+      "note": "to sow seeds is to plant them"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANT",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener sows a patch of ground among the fruit trees.",
+     "walkthrough": "'Sow' reads as the female pig, but here it is the verb.",
+     "definitionFit": "A plantain is a starchy tropical banana-like fruit, usually cooked before eating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sow"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,66 @@
     "text": "Wood comes round to composer",
     "enumeration": "6"
    },
-   "solution": "BARTOK"
+   "solution": "BARTOK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BARTOK",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning round makes the short word 'to' face the other way"
+     },
+     {
+      "text": "comes round",
+      "for": "container",
+      "note": "the wood comes round, wrapping itself about the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wood",
+      "gives": "BARK",
+      "note": "bark is the woody outer layer of a tree"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "OT",
+      "note": "the word to, turned about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "TO",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "OT",
+       "to": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodworker gradually warms to a particular composer's music.",
+     "definitionFit": "Béla Bartók was a twentieth-century Hungarian composer, famous for string quartets and folk-based works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +231,51 @@
     "text": "Tacked, choosing directions in sequence",
     "enumeration": "4"
    },
-   "solution": "SEWN"
+   "solution": "SEWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEWN",
+    "definitions": [
+     {
+      "text": "Tacked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in sequence",
+      "for": "charade",
+      "note": "in sequence says to set the chosen pieces one after another"
+     }
+    ],
+    "linkWords": [
+     "choosing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "directions",
+      "gives": "SEWN",
+      "note": "four compass points, south, east, west and north, chosen from the available directions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor tacks, picking each change of course in turn.",
+     "walkthrough": "Tacked is from sewing, not sailing, despite the nautical feel of the directions.",
+     "definitionFit": "Tacking is loose temporary stitching, so tacked fabric has been sewn together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tacked"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +289,58 @@
     "text": "Newborn asleep, so appealing",
     "enumeration": "10"
    },
-   "solution": "PERSONABLE"
+   "solution": "PERSONABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSONABLE",
+    "definitions": [
+     {
+      "text": "appealing",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new suggests these letters are made over into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "born asleep",
+      "gives": "BORNASLEEP",
+      "note": "the letters of these two words, rearranged"
+     },
+     {
+      "clueFragment": "Newborn",
+      "note": "the printed word is split: its first half is the signal, its second half joins the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BORNASLEEP",
+       "gives": "PERSONABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleeping newborn baby is utterly charming.",
+     "walkthrough": "'Newborn' looks like one word, but the anagram signal is hiding as its first half.",
+     "definitionFit": "Someone personable is pleasant in manner and looks, and so attractive or likeable to others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newborn"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +354,55 @@
     "text": "Capital in Pie chart's wrong",
     "enumeration": "8"
    },
-   "solution": "CHAPITER"
+   "solution": "CHAPITER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAPITER",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so its letters need setting another way"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pie chart",
+      "gives": "PIECHART",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIECHART",
+       "gives": "CHAPITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The figure for the capital city on a pie chart has been miscalculated.",
+     "walkthrough": "Capital is the architectural sense, not a city or money.",
+     "definitionFit": "A chapiter is an old architectural term for the head or top part of a column, its capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +416,48 @@
     "text": "Bizarre Guardian's report",
     "enumeration": "6"
    },
-   "solution": "RUMOUR"
+   "solution": "RUMOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUMOUR",
+    "definitions": [
+     {
+      "text": "report",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bizarre",
+      "gives": "RUM",
+      "note": "rum is old British slang for odd or strange"
+     },
+     {
+      "clueFragment": "Guardian's",
+      "gives": "OUR",
+      "note": "the clue appeared in the Guardian, so the paper's things are 'our' things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange story appearing in the Guardian newspaper.",
+     "walkthrough": "The Guardian is the newspaper that printed this puzzle, so it speaks of itself as 'our'.",
+     "definitionFit": "A rumour is unverified talk passed from person to person, a hearsay report."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guardian's"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +471,51 @@
     "text": "Teatime conversation",
     "enumeration": "4"
    },
-   "solution": "CHAT"
+   "solution": "CHAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAT",
+    "definitions": [
+     {
+      "text": "conversation",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tea",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Teatime",
+      "note": "the printed word is read as its two halves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cosy chat over afternoon tea.",
+     "walkthrough": "'Teatime' must be split into its two halves.",
+     "definitionFit": "A chat is an informal friendly talk between people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Teatime"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +539,48 @@
      }
     ]
    },
-   "solution": "HALFANEYE"
+   "solution": "HALFANEYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HALF AN EYE",
+    "definitions": [
+     {
+      "text": "Glimmer of understanding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "sound tells us to go by how the phrase is spoken, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "semivowel",
+      "gives": "HALF AN EYE",
+      "soundsLike": "HALF AN I",
+      "note": "a semivowel taken literally is half of a vowel, and I is one of the vowels"
+     }
+    ],
+    "explanation": {
+     "surface": "A linguistics student begins to grasp what a semivowel sounds like.",
+     "walkthrough": "Semivowel is a real phonetic term for sounds like W and Y, which disguises the jokey literal reading.",
+     "definitionFit": "Having half an eye on something means giving it only slight attention, a faint inkling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "semivowel"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +594,55 @@
     "text": "Fellow drinks no hock",
     "enumeration": "5"
    },
-   "solution": "HOUGH"
+   "solution": "HOUGH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOUGH",
+    "definitions": [
+     {
+      "text": "hock",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinks",
+      "for": "container",
+      "note": "whoever drinks takes something inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "HUGH",
+      "note": "Hugh is a man's name, any fellow"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "no as nothing, the round letter like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "UGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotal man refuses the German white wine.",
+     "walkthrough": "Hock looks like the wine; it is the joint in an animal's leg.",
+     "definitionFit": "Hough is a Scottish word for the hock, the joint in the hind leg of a horse or cow, or meat from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hock"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +662,65 @@
      }
     ]
    },
-   "solution": "LONGTON"
+   "solution": "LONGTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LONG TON",
+    "definitions": [
+     {
+      "text": "weight",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over can mean turned over, so the word not flips end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tall and slender",
+      "gives": "LONG",
+      "note": "long describes something tall and thin in shape"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written, then turned over"
+     },
+     {
+      "clueFragment": "overweight",
+      "note": "the printed word is split into the turning signal and the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall, thin person insists they are not overweight.",
+     "walkthrough": "'overweight' must be split: 'over' turns the word before it and 'weight' is the definition.",
+     "definitionFit": "A long ton is the imperial unit of 2,240 pounds, a measure of weight used in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overweight"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +734,55 @@
     "text": "Second game in court to be slotted in",
     "enumeration": "7"
    },
-   "solution": "SUPPORT"
+   "solution": "SUPPORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPPORT",
+    "definitions": [
+     {
+      "text": "Second",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be slotted in",
+      "for": "container",
+      "note": "slotting in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "SPORT",
+      "note": "a sport is a game"
+     },
+     {
+      "clueFragment": "in court",
+      "gives": "UP",
+      "note": "up as in 'up before the magistrate', appearing in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UP",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A second match is to be fitted into the tennis court schedule.",
+     "walkthrough": "Second is the verb, as in seconding a motion, not a unit of time.",
+     "definitionFit": "To second a proposal is to back it, giving it formal support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +796,43 @@
     "text": "Blow a kiss",
     "enumeration": "5"
    },
-   "solution": "SMACK"
+   "solution": "SMACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMACK",
+    "definitions": [
+     {
+      "text": "Blow",
+      "at": 0
+     },
+     {
+      "text": "a kiss",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blow",
+      "note": "first meaning: a sharp slap"
+     },
+     {
+      "clueFragment": "a kiss",
+      "note": "second meaning: a loud kiss on the lips or cheek"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as the gesture of blowing a kiss, but blow and kiss are two separate meanings.",
+     "definitionFit": "The word means both a sharp hit with the open hand and a noisy, hearty kiss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blow"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +846,51 @@
     "text": "Doctors date nurse foolishly",
     "enumeration": "9"
    },
-   "solution": "DENATURES"
+   "solution": "DENATURES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DENATURES",
+    "definitions": [
+     {
+      "text": "Doctors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "acting foolishly means behaving without sense, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date nurse",
+      "gives": "DATENURSE",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATENURSE",
+       "gives": "DENATURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital doctors unwisely ask nurses out on dates.",
+     "walkthrough": "Doctors is a verb, not the medical staff.",
+     "definitionFit": "To doctor something is to tamper with it, and denaturing changes a substance's nature, often to make it unfit to drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctors"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +904,70 @@
     "text": "Deny turning, through time, into corrupt being",
     "enumeration": "10"
    },
-   "solution": "DEGENERATE"
+   "solution": "DEGENERATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEGENERATE",
+    "definitions": [
+     {
+      "text": "corrupt being",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning makes the word for deny face the opposite way"
+     },
+     {
+      "text": "through",
+      "for": "container",
+      "note": "going through something means running inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "DATE",
+      "note": "a date is a point in time"
+     },
+     {
+      "clueFragment": "Deny",
+      "gives": "RENEGE",
+      "note": "to renege is to go back on or deny a promise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGENER",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "RENEGE",
+       "to": "EGENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Constant denials over time turn someone into a corrupt person.",
+     "walkthrough": "The deny word sits between the D and the ATE of the time word.",
+     "definitionFit": "A degenerate is a person who has fallen to low moral standards, a depraved individual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +981,55 @@
     "text": "Quality of King and Queen recognised in very many quarters",
     "enumeration": "10"
    },
-   "solution": "SERENENESS"
+   "solution": "SERENENESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERENENESS",
+    "definitions": [
+     {
+      "text": "Quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recognised in",
+      "for": "container",
+      "note": "to be recognised in somewhere is to be found inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very many quarters",
+      "gives": "SEENENESS",
+      "note": "a string of compass points: south, east, east, north, east, north, east, south, south"
+     },
+     {
+      "clueFragment": "King and Queen",
+      "gives": "R",
+      "note": "R stands for both Rex (king) and Regina (queen)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "R",
+      "ENENESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal couple are well known in many parts of the land.",
+     "walkthrough": "A single R serves for both monarchs, since Rex and Regina share their initial; quarters are the points of the compass.",
+     "definitionFit": "Sereneness is the state of being calm and untroubled, a quality of character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarters"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1049,39 @@
      }
     ]
    },
-   "solution": "LANGUAGEBARRIER"
+   "solution": "LANGUAGEBARRIER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LANGUAGE BARRIER",
+    "definitions": [
+     {
+      "text": "Speech impediment?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speech impediment?",
+      "note": "surface reading: a stammer or lisp that hinders someone's talking"
+     },
+     {
+      "clueFragment": "Speech impediment?",
+      "note": "setter's reading: anything that blocks communication between speakers of different tongues"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the medical sense is the bluff.",
+     "definitionFit": "When two people share no tongue, the gap between them stops their talk, literally impeding speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impediment"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1095,57 @@
     "text": "Claims to have originally raised standards",
     "enumeration": "8"
    },
-   "solution": "UPRIGHTS"
+   "solution": "UPRIGHTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPRIGHTS",
+    "definitions": [
+     {
+      "text": "standards",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "charade",
+      "note": "originally means at the beginning, so this piece is put at the front"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "something raised is up"
+     },
+     {
+      "clueFragment": "Claims",
+      "gives": "RIGHTS",
+      "note": "rights are things one is entitled to claim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "RIGHTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Campaigners say they were the first to push for higher standards.",
+     "walkthrough": "Standards are posts or upright supports, not levels of quality.",
+     "definitionFit": "Uprights are vertical posts, and a standard can mean an upright pole or support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standards"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1159,42 @@
     "text": "Fancies butterflies, say",
     "enumeration": "8"
    },
-   "solution": "IMAGINES"
+   "solution": "IMAGINES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IMAGINES",
+    "definitions": [
+     {
+      "text": "Fancies",
+      "at": 0
+     },
+     {
+      "text": "butterflies, say",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancies",
+      "note": "first meaning: pictures in the mind, supposes"
+     },
+     {
+      "clueFragment": "butterflies, say",
+      "note": "second meaning: plural of imago, the adult winged stage of an insect"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'say' signals that butterflies are just one example of the insects meant.",
+     "definitionFit": "The verb means pictures in the mind, and as a noun it is the Latin plural of imago, a fully developed adult insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "butterflies"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1208,50 @@
     "text": "Restore order - that's the bottom line",
     "enumeration": "9"
    },
-   "solution": "REARRANGE"
+   "solution": "REARRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REARRANGE",
+    "definitions": [
+     {
+      "text": "Restore order",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom",
+      "gives": "REAR",
+      "note": "the rear is the bottom or backside"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RANGE",
+      "note": "a range is a line or row, as of mountains"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAR",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager tidies things up and declares that this is final.",
+     "walkthrough": "'the bottom line' looks like a phrase meaning the upshot, but it splits into two words.",
+     "definitionFit": "To rearrange things is to put them into a new arrangement, perhaps tidying them back into order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1265,61 @@
     "text": "Too protective of one new girl",
     "enumeration": "6"
    },
-   "solution": "ALISON"
+   "solution": "ALISON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALISON",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protective of",
+      "for": "container",
+      "note": "to be protective of something is to shelter it, wrapping round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Too",
+      "gives": "ALSO",
+      "note": "too in the sense of also, as well"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "I",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is overly protective of a single new girl.",
+     "definitionFit": "Alison is a common female first name, as needed for a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Too"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1333,70 @@
     "text": "Flat found in high-rise on returning home",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PLAIN",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "a high-rise points upwards, so the high thing is read going up, from its end"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the piece is read the other way"
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high",
+      "gives": "ALP",
+      "note": "an alp is a high mountain"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "ALP",
+       "to": "PLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apartment located in a tower block, reached on coming back home.",
+     "walkthrough": "'Flat' looks like an apartment, matching the high-rise, but means level ground.",
+     "definitionFit": "A plain is a broad area of flat, level land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1410,54 @@
     "text": "Rich, self-assertive, grasping Liberal",
     "enumeration": "6"
    },
-   "solution": "PLUSHY"
+   "solution": "PLUSHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLUSHY",
+    "definitions": [
+     {
+      "text": "Rich",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "something grasping holds on tight, so it closes around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "self-assertive",
+      "gives": "PUSHY",
+      "note": "pushy means forcefully self-assertive"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "USHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy, pushy person greedily courting a Liberal politician.",
+     "definitionFit": "Plushy means luxurious and opulent, like plush fabric, so rich in appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grasping"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1471,45 @@
     "text": "Clothes drier - horse under another name, say",
     "enumeration": "7"
    },
-   "solution": "WRINGER"
+   "solution": "WRINGER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRINGER",
+    "definitions": [
+     {
+      "text": "Clothes drier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for the word to be spoken, keeping its sound but not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse under another name",
+      "gives": "WRINGER",
+      "soundsLike": "RINGER",
+      "note": "a ringer is a horse raced under a false identity in place of another"
+     }
+    ],
+    "explanation": {
+     "surface": "A laundry gadget and a horse racing under a false name.",
+     "walkthrough": "A wringer is the old-fashioned mangle that squeezes water out of washing.",
+     "definitionFit": "A wringer presses water out of wet laundry, so it is an appliance that dries clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drier"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1523,42 @@
     "text": "River sport",
     "enumeration": "4"
    },
-   "solution": "WEAR"
+   "solution": "WEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEAR",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     },
+     {
+      "text": "sport",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "note": "first meaning: the River ... in north-east England, flowing through Durham"
+     },
+     {
+      "clueFragment": "sport",
+      "note": "second meaning: to sport clothes is to have them on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a water sport, but sport is a verb meaning to have on, as with a hat.",
+     "definitionFit": "The word names a river through Durham and also means to have clothing on the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sport"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1572,43 @@
     "text": "Scream a warning",
     "enumeration": "7"
    },
-   "solution": "CAUTION"
+   "solution": "CAUTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAUTION",
+    "definitions": [
+     {
+      "text": "Scream",
+      "at": 0
+     },
+     {
+      "text": "a warning",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scream",
+      "note": "first meaning: an extremely funny person, 'a real scream'"
+     },
+     {
+      "clueFragment": "a warning",
+      "note": "second meaning: an official reprimand or alert"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like shouting out an alert; the two parts are separate meanings.",
+     "definitionFit": "In British slang, an amusing or outrageous person is 'a caution', and the word also means a word of warning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scream"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1622,45 @@
     "text": "Produce for stock",
     "enumeration": "4"
    },
-   "solution": "CROP"
+   "solution": "CROP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROP",
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     },
+     {
+      "text": "stock",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce",
+      "note": "first meaning: a harvest of grain or vegetables"
+     },
+     {
+      "clueFragment": "stock",
+      "note": "second meaning: the handle or stock of a whip, especially a riding whip"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like farm goods kept in store, but the second sense is a part of a whip.",
+     "definitionFit": "A harvest of plants is a crop, and the word also names the stock of a whip or the short riding whip itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1674,64 @@
     "text": "Assume fusspot overlooking nothing",
     "enumeration": "5"
    },
-   "solution": "ADOPT"
+   "solution": "ADOPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ADOPT",
+    "definitions": [
+     {
+      "text": "Assume",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "deletion",
+      "note": "to overlook something is to leave it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuss",
+      "gives": "ADO",
+      "note": "ado is fuss or bother"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "POT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the round letter, to be removed"
+     },
+     {
+      "clueFragment": "fusspot",
+      "note": "the printed word is read as its two halves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes on the role of a fusspot who ignores nothing.",
+     "walkthrough": "'fusspot' must be split into its two halves, and the O removed from the second.",
+     "definitionFit": "To adopt a manner or attitude is to take it on, to assume it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fusspot"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1745,53 @@
     "text": "She lost to possible champ? Such couldn't!",
     "enumeration": "9"
    },
-   "solution": "TOOTHLESS"
+   "solution": "TOOTHLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TOOTHLESS",
+    "definitions": [
+     {
+      "text": "possible champ? Such couldn't!",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possible",
+      "for": "anagram",
+      "note": "possible hints at one of several outcomes, so the letters may be arranged differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She lost to",
+      "gives": "SHELOSTTO",
+      "note": "the letters of these three words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHELOSTTO",
+       "gives": "TOOTHLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is beaten by someone who may become a champion.",
+     "walkthrough": "Champ here is the verb, to chew noisily; the whole clue also describes why a creature without teeth could not do so.",
+     "definitionFit": "Champing means chewing hard, which a creature lacking teeth could not manage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "champ"
+    }
+   }
   }
  ]
 }
