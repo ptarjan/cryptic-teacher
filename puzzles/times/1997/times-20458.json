@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "Drug intervention suppresses cold",
     "enumeration": "10"
    },
-   "solution": "MEDICATION"
+   "solution": "MEDICATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEDICATION",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppresses",
+      "for": "container",
+      "note": "to suppress is to hold something down and keep it inside, so one word is enclosed by the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intervention",
+      "gives": "MEDIATION",
+      "note": "mediation is stepping in between two parties"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "C",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's drug treatment knocks out a patient's cold.",
+     "walkthrough": "C goes inside MEDIATION, after the D, to make MEDICATION.",
+     "definitionFit": "Medication is any medicine or remedy given to a patient, which is what a drug is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intervention"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +100,50 @@
     "text": "Coffee is second to tea",
     "enumeration": "5"
    },
-   "solution": "MOCHA"
+   "solution": "MOCHA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOCHA",
+    "definitions": [
+     {
+      "text": "Coffee",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, as in wait a mo"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha or char is slang for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "CHA"
+     ]
+    },
+    "explanation": {
+     "surface": "Coffee ranks behind tea as a drink.",
+     "walkthrough": "'Second to' looks like a ranking; second is a short time, placed before tea.",
+     "definitionFit": "Mocha is a fine coffee originally shipped from the Yemeni port of that name, or coffee mixed with chocolate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +157,77 @@
     "text": "Disadvantage of tired out people at end of project",
     "enumeration": "9"
    },
-   "solution": "DETRIMENT"
+   "solution": "DETRIMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DETRIMENT",
+    "definitions": [
+     {
+      "text": "Disadvantage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disorder or being knocked out of shape, so the preceding word's letters are rearranged"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that letter is used"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tired",
+      "gives": "DETRI",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "project",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of project"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETRI",
+      "MEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIRED",
+       "gives": "DETRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The drawback of exhausted staff at a project's close.",
+     "definitionFit": "Detriment is harm or damage, the state of being worse off, which is a disadvantage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +241,40 @@
     "text": "Penned in horror, a description of such irrational fear?",
     "enumeration": "14"
    },
-   "solution": "CLAUSTROPHOBIC"
+   "solution": "CLAUSTROPHOBIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CLAUSTROPHOBIC",
+    "definitions": [
+     {
+      "text": "Penned in horror, a description of such irrational fear?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penned in horror",
+      "note": "surface reading: something written in a state of terror"
+     },
+     {
+      "clueFragment": "a description of such irrational fear?",
+      "note": "setter's reading: penned means shut in, so the clue names the phobia of being confined and the word for someone suffering it"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer in a fright describes their unreasonable terror.",
+     "walkthrough": "'Penned' looks like written; it means enclosed in a pen, so the horror is of being shut in.",
+     "definitionFit": "The word describes a person with an irrational dread of confined spaces, from Latin for closed place and Greek for fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Penned"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +288,42 @@
     "text": "Demanding audition",
     "enumeration": "7"
    },
-   "solution": "TESTING"
+   "solution": "TESTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TESTING",
+    "definitions": [
+     {
+      "text": "Demanding",
+      "at": 0
+     },
+     {
+      "text": "audition",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demanding",
+      "note": "first meaning: difficult, putting someone under strain"
+     },
+     {
+      "clueFragment": "audition",
+      "note": "second meaning: trying out a performer, a noun from the verb to try"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Demanding audition' reads as one tough tryout; the words are separate meanings.",
+     "definitionFit": "The word means taxing or hard, and as a noun it is a trial or examination such as a performer's tryout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Demanding"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +337,47 @@
     "text": "For long journey, take twenty four books of verse",
     "enumeration": "7"
    },
-   "solution": "ODYSSEY"
+   "solution": "ODYSSEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ODYSSEY",
+    "definitions": [
+     {
+      "text": "long journey",
+      "at": 4
+     },
+     {
+      "text": "twenty four books of verse",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "For",
+     "take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long journey",
+      "note": "first meaning: an epic voyage full of adventure"
+     },
+     {
+      "clueFragment": "twenty four books of verse",
+      "note": "second meaning: Homer's epic poem, divided into twenty-four books"
+     }
+    ],
+    "explanation": {
+     "surface": "Pack two dozen poetry books for a long trip.",
+     "walkthrough": "Homer's poem of Odysseus's ten-year voyage home from Troy gave its name to any long wandering journey.",
+     "definitionFit": "The word names both Homer's epic in twenty-four books and, from it, any long eventful wandering voyage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +391,51 @@
     "text": "Compliment his exquisite fish starters?",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "CHEF",
+    "definitions": [
+     {
+      "text": "Compliment his exquisite fish starters?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starters",
+      "for": "letter_selection",
+      "note": "starters are the openings of things, so only the opening letter of each of the four preceding words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compliment his exquisite fish",
+      "gives": "CHEF",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner wants to praise the cook for some beautifully done fish courses.",
+     "walkthrough": "Read whole, the clue describes the person whose fish starters you would praise; read for wordplay, the starters are the first letters of the four words.",
+     "definitionFit": "The cook in charge of a restaurant kitchen is the person to whom diners send their praise for a dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +449,50 @@
     "text": "Cast in sky, finally dropped",
     "enumeration": "5"
    },
-   "solution": "HEAVE"
+   "solution": "HEAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEAVE",
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally dropped",
+      "for": "deletion",
+      "note": "the final letter is the one let go, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sky",
+      "gives": "HEAVEN",
+      "note": "the heavens are the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something thrown up into the sky eventually fell.",
+     "definitionFit": "To heave is to throw or hurl something heavy, just as to cast is to fling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +506,59 @@
     "text": "Privileged person thus accepted as a “lodger”",
     "enumeration": "9"
    },
-   "solution": "FREEMASON"
+   "solution": "FREEMASON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREEMASON",
+    "definitions": [
+     {
+      "text": "lodger",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted",
+      "for": "container",
+      "note": "something accepted is taken in, so the short word goes inside the person"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Privileged person",
+      "gives": "FREEMAN",
+      "note": "a freeman holds the freedom of a city, an honorary privilege"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus, in this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREEMA",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An honoured citizen is welcomed as a paying tenant.",
+     "walkthrough": "The quotation marks flag that 'lodger' is used in an odd sense: not a tenant but a member of a lodge. A freeman of a city holds honorary privileges there.",
+     "definitionFit": "A Freemason belongs to a Masonic lodge, so the coined word for a lodge member fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lodger"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +582,40 @@
      }
     ]
    },
-   "solution": "GRACEANDFAVOUR"
+   "solution": "GRACEANDFAVOUR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRACE-AND-FAVOUR",
+    "definitions": [
+     {
+      "text": "Coming from the Crown, a sort of free house",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Crown, a sort of free house",
+      "note": "surface reading: a pub called the Crown that is a free house, a British pub not tied to one brewery"
+     },
+     {
+      "clueFragment": "Coming from the Crown",
+      "note": "setter's reading: the Crown is the monarch, who grants rent-free homes to favoured people"
+     }
+    ],
+    "explanation": {
+     "surface": "A pub called the Crown is advertised as a free house.",
+     "walkthrough": "The Crown is a common pub name and a free house is a pub tied to no brewery; here they are the monarchy and a home lived in free.",
+     "definitionFit": "A grace-and-favour home is one owned by the sovereign and lent rent-free to someone as a royal mark of favour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crown"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +629,46 @@
     "text": "Weapon injured girl",
     "enumeration": "7"
    },
-   "solution": "CUTLASS"
+   "solution": "CUTLASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTLASS",
+    "definitions": [
+     {
+      "text": "Weapon",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "injured",
+      "gives": "CUT",
+      "note": "wounded with a blade"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl, especially in northern England and Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "LASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A weapon has hurt a young woman.",
+     "definitionFit": "A cutlass is a short curved sword with a broad blade, the kind once carried by sailors and pirates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "injured"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +682,70 @@
     "text": "Distance made, say, by a cart on the way back",
     "enumeration": "7"
    },
-   "solution": "YARDAGE"
+   "solution": "YARDAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YARDAGE",
+    "definitions": [
+     {
+      "text": "Distance made",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "something on its way back travels the opposite direction, so these words are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, which is what say means here"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cart",
+      "gives": "DRAY",
+      "note": "a dray is a low cart for heavy loads, such as beer barrels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARD",
+      "A",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGADRAY",
+       "to": "YARDAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "How far a cart has travelled on its return trip.",
+     "walkthrough": "EG, A and DRAY run together make EGADRAY, which reads backwards as the answer.",
+     "definitionFit": "Yardage is a distance measured in yards, as in the ground gained in American football."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +759,62 @@
     "text": "Maids initially switched fruit in centre for trader",
     "enumeration": "9"
    },
-   "solution": "AMIDSHIPS"
+   "solution": "AMIDSHIPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AMIDSHIPS",
+    "definitions": [
+     {
+      "text": "in centre for trader",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially switched",
+      "for": "anagram",
+      "note": "the letters at the very start are swapped round, a small rearrangement that changes the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maids",
+      "gives": "AMIDS",
+      "note": "the first two letters change places"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "HIPS",
+      "note": "rose hips are the red fruit of the wild rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMIDS",
+      "HIPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAIDS",
+       "gives": "AMIDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Housemaids swapped some fruit for something in the middle of a merchant's stall.",
+     "walkthrough": "A trader here is a merchant ship, so its centre is the middle of the vessel.",
+     "definitionFit": "Amidships means in the middle part of a vessel, and a trading vessel is a merchant ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trader"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +828,56 @@
     "text": "The best religious education received in academic stream",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "The best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "received in",
+      "for": "container",
+      "note": "something received is taken inside, so these letters go into the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic stream",
+      "gives": "CAM",
+      "note": "the Cam is the river that flows through Cambridge"
+     },
+     {
+      "clueFragment": "religious education",
+      "gives": "RE",
+      "note": "RE is the school subject Religious Education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RE",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Top pupils study religion in a university's academic stream.",
+     "walkthrough": "'Academic stream' sounds like a school set; it is the river of Cambridge, a university town.",
+     "definitionFit": "The cream of something is its finest part, like the richest layer that rises on milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stream"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +891,46 @@
     "text": "Free from net",
     "enumeration": "5"
    },
-   "solution": "CLEAR"
+   "solution": "CLEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEAR",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     },
+     {
+      "text": "net",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free",
+      "note": "first meaning: rid of, unobstructed"
+     },
+     {
+      "clueFragment": "net",
+      "note": "second meaning: remaining after deductions"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Free from net' looks like a fish escaping; the two words are separate meanings.",
+     "definitionFit": "The word means unobstructed or released, and also describes earnings after all deductions such as tax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +944,40 @@
     "text": "This artist could briefly be taken to be politically correct",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "This artist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This artist",
+      "note": "surface reading: a painter to be named"
+     },
+     {
+      "clueFragment": "could briefly be taken to be politically correct",
+      "note": "setter's reading: the painter's surname is a police rank, abbreviated PC, which is also the short form of politically correct"
+     }
+    ],
+    "explanation": {
+     "surface": "A painter whose work might be mistaken for being politically correct.",
+     "walkthrough": "John Constable was the English landscape painter; PC stands both for police constable and politically correct.",
+     "definitionFit": "The English landscape painter of The Hay Wain shares his surname with the police rank PC."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +997,40 @@
      }
     ]
    },
-   "solution": "GUYFAWKES"
+   "solution": "GUYFAWKES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GUY FAWKES",
+    "definitions": [
+     {
+      "text": "He tried to get Parliament to rise unexpectedly early",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He tried to get Parliament to rise unexpectedly early",
+      "note": "surface reading: a politician trying to have the House adjourn its session ahead of schedule"
+     },
+     {
+      "clueFragment": "rise",
+      "note": "setter's reading: rise as in go up into the air, blown sky-high by gunpowder in the 1605 plot"
+     }
+    ],
+    "explanation": {
+     "surface": "A member tries to get the House of Commons to adjourn ahead of time.",
+     "walkthrough": "Parliament rises when it adjourns; here it was to rise in an explosion. The Gunpowder Plot of 1605 aimed to blow up the House of Lords, commemorated every 5 November in Britain.",
+     "definitionFit": "The conspirator caught guarding the barrels of gunpowder under the Lords in 1605 tried to blow Parliament up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1050,40 @@
      }
     ]
    },
-   "solution": "KNOCKERUP"
+   "solution": "KNOCKERUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KNOCKER-UP",
+    "definitions": [
+     {
+      "text": "His job was raising the consciousness of the workers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raising the consciousness of the workers",
+      "note": "surface reading: a political activist making labourers aware of their position"
+     },
+     {
+      "clueFragment": "His job was raising",
+      "note": "setter's reading: raising means waking, done by tapping on windows before alarm clocks were common"
+     }
+    ],
+    "explanation": {
+     "surface": "A trade union agitator who stirred the labourers' political awareness.",
+     "walkthrough": "Before cheap alarm clocks, industrial Britain paid a man to tap on workers' bedroom windows with a long pole to wake them for their shift.",
+     "definitionFit": "The job title names the person who went round in the early morning rapping on windows so mill workers rose on time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "consciousness"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1097,62 @@
     "text": "School rejected exam questions and corresponding material",
     "enumeration": "9"
    },
-   "solution": "NOTEPAPER"
+   "solution": "NOTEPAPER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTEPAPER",
+    "definitions": [
+     {
+      "text": "corresponding material",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "a rejected thing is sent back, so the school's name is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "ETON",
+      "note": "Eton is the famous English public school"
+     },
+     {
+      "clueFragment": "exam questions",
+      "gives": "PAPER",
+      "note": "an exam paper is the set of questions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTE",
+      "PAPER"
+     ],
+     "reversals": [
+      {
+       "from": "ETON",
+       "to": "NOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school throws out the exam questions and related materials.",
+     "walkthrough": "'Corresponding' is used as in correspondence: letter-writing.",
+     "definitionFit": "Notepaper is stationery for writing letters, the material used when corresponding with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corresponding"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1166,53 @@
     "text": "Groupie travelling in primitive transport",
     "enumeration": "7"
    },
-   "solution": "PIROGUE"
+   "solution": "PIROGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIROGUE",
+    "definitions": [
+     {
+      "text": "primitive transport",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling means moving about, so the letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groupie",
+      "gives": "GROUPIE",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GROUPIE",
+       "gives": "PIROGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band's fan on tour in a basic vehicle.",
+     "definitionFit": "A pirogue is a dugout canoe hollowed from a single tree trunk, an early kind of boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1226,71 @@
     "text": "Go back and start to read up Onegin",
     "enumeration": "7"
    },
-   "solution": "RENEGUE"
+   "solution": "RENEGUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "RENEGUE",
+    "definitions": [
+     {
+      "text": "Go back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is taken"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up means reading from bottom to top, so the name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of read"
+     },
+     {
+      "clueFragment": "Onegin",
+      "gives": "EUGENE",
+      "note": "Eugene Onegin is Pushkin's verse novel and its hero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ENEGUE"
+     ],
+     "reversals": [
+      {
+       "from": "EUGENE",
+       "to": "ENEGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Return to a book and begin reading Pushkin's Onegin.",
+     "walkthrough": "Onegin's first name is needed: Eugene, written upwards as ENEGUE after R.",
+     "definitionFit": "To renegue, a variant spelling of renege, is to go back on a promise or break one's word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Onegin"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1304,56 @@
     "text": "Personal physician comes to the fore in flood",
     "enumeration": "5"
    },
-   "solution": "DROWN"
+   "solution": "DROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROWN",
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes to the fore",
+      "for": "charade",
+      "note": "coming to the fore means moving to the front, so the doctor is placed before the other piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "physician",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "Personal",
+      "gives": "OWN",
+      "note": "one's own means personal, belonging to oneself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family doctor takes a prominent role during a flood.",
+     "definitionFit": "To drown something is to submerge or swamp it with water, as a flood does to land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Personal"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1367,55 @@
     "text": "Forbidden to include some blood groups",
     "enumeration": "5"
    },
-   "solution": "TABOO"
+   "solution": "TABOO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABOO",
+    "definitions": [
+     {
+      "text": "Forbidden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to hold it within, so the short word wraps around the blood groups"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "some blood groups",
+      "gives": "ABO",
+      "note": "AB and O are two of the human blood groups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ABO",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Collecting certain blood types is not allowed.",
+     "walkthrough": "AB and O sit between the T and O of TO.",
+     "definitionFit": "Something taboo is prohibited by custom or social rule, banned from being done or said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,10 +1426,54 @@
    },
    "length": 5,
    "clue": {
-    "text": "Lapd pin reads \"Hector\" - that's not right",
+    "text": "Lapel pin reads \"Hector\" — that's not right",
     "enumeration": "5"
    },
-   "solution": "BADGE"
+   "solution": "BADGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BADGE",
+    "definitions": [
+     {
+      "text": "Lapel pin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's not right",
+      "for": "deletion",
+      "note": "not right means without R, the abbreviation for right, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "reads"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hector",
+      "gives": "BADGER",
+      "note": "to hector and to badger both mean to pester or bully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BADGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lapel pin bears the name Hector, which is wrong.",
+     "walkthrough": "Hector looks like a name on the pin; it is a verb, to bully.",
+     "definitionFit": "A badge is a small emblem worn pinned to clothing, such as on a jacket lapel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hector"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1487,58 @@
     "text": "Tortured, being without answer — thoroughly examined",
     "enumeration": "9"
    },
-   "solution": "RANSACKED"
+   "solution": "RANSACKED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANSACKED",
+    "definitions": [
+     {
+      "text": "thoroughly examined",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the first word stands around the second"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tortured",
+      "gives": "RACKED",
+      "note": "stretched on the rack, a medieval instrument of torture"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ANS is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANS",
+      "ACKED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tortured without giving an answer has been thoroughly interrogated.",
+     "walkthrough": "'Without' looks like lacking; here it has its old meaning of outside, as in the hymn line 'without a city wall'.",
+     "definitionFit": "To ransack is to search a place thoroughly, going through everything, often roughly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1552,44 @@
     "text": "Sucker who lays his cards on the table?",
     "enumeration": "5"
    },
-   "solution": "DUMMY"
+   "solution": "DUMMY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUMMY",
+    "definitions": [
+     {
+      "text": "Sucker",
+      "at": 0
+     },
+     {
+      "text": "who lays his cards on the table?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sucker",
+      "note": "first meaning: a rubber teat given to a baby to suck"
+     },
+     {
+      "clueFragment": "who lays his cards on the table?",
+      "note": "second meaning: in bridge, the declarer's partner, whose hand is laid face up"
+     }
+    ],
+    "explanation": {
+     "surface": "Is only a fool open about their intentions?",
+     "walkthrough": "'Sucker' suggests a gullible person; in Britain a baby's pacifier is called by this word. In bridge, one player's hand is spread face up for the partner to play.",
+     "definitionFit": "The word names a baby's pacifier, and the bridge hand exposed on the table and played by the declarer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sucker"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1603,62 @@
     "text": "Request end of wretched waiting around",
     "enumeration": "7"
    },
-   "solution": "BIDDING"
+   "solution": "BIDDING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BIDDING",
+    "definitions": [
+     {
+      "text": "Request",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the waiting word encloses the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waiting",
+      "gives": "BIDING",
+      "note": "biding one's time is waiting"
+     },
+     {
+      "clueFragment": "wretched",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of wretched"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "D",
+      "DING"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea about the end of a miserable wait.",
+     "walkthrough": "D goes into BIDING between the two Ds' places: BID-D-ING.",
+     "definitionFit": "A bidding is a command or request, as in doing someone's bidding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waiting"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1672,51 @@
     "text": "Material issue for sailors leads to strike",
     "enumeration": "7"
    },
-   "solution": "GROGRAM"
+   "solution": "GROGRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GROGRAM",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue for sailors",
+      "gives": "GROG",
+      "note": "grog, rum diluted with water, was the daily ration issued in the Royal Navy"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "RAM",
+      "note": "to ram is to hit forcefully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROG",
+      "RAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute over sailors' supplies ends in industrial action.",
+     "walkthrough": "'Issue' sounds like a dispute and 'strike' like a walkout; issue is a ration handed out.",
+     "definitionFit": "Grogram is a coarse fabric of silk mixed with mohair or wool, once used for cloaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1730,43 @@
     "text": "Just how did Wenceslas see the snow?",
     "enumeration": "4"
    },
-   "solution": "EVEN"
+   "solution": "EVEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVEN",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     },
+     {
+      "text": "how did Wenceslas see the snow?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "note": "first meaning: fair and impartial"
+     },
+     {
+      "clueFragment": "how did Wenceslas see the snow?",
+      "note": "second meaning: in the carol Good King Wenceslas, the snow lay round about, deep and crisp and this"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Good King Wenceslas is a Christmas carol in which the king looks out when the snow lay round about, deep and crisp and smooth in the sense of this word.",
+     "definitionFit": "The word means fair or balanced, and level or smooth, the last of the carol's three words for the snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1780,54 @@
     "text": "Get her play broadcast for wireless system",
     "enumeration": "10"
    },
-   "solution": "TELEGRAPHY"
+   "solution": "TELEGRAPHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEGRAPHY",
+    "definitions": [
+     {
+      "text": "wireless system",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast is to scatter widely, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get her play",
+      "gives": "GETHERPLAY",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETHERPLAY",
+       "gives": "TELEGRAPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging for a woman's drama to go out over the radio.",
+     "walkthrough": "'Broadcast' and 'wireless' both suggest radio; the first is the signal to rearrange.",
+     "definitionFit": "Wireless telegraphy was the early radio system for sending messages in Morse code without wires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   }
  ]
 }
