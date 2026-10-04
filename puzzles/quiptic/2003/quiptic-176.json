@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Help to grab American's purse",
     "enumeration": "7"
    },
-   "solution": "HANDBAG"
+   "solution": "HANDBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDBAG",
+    "definitions": [
+     {
+      "text": "American's purse",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "HAND",
+      "note": "to lend a hand is to help"
+     },
+     {
+      "clueFragment": "to grab",
+      "gives": "BAG",
+      "note": "to bag something is to grab it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief assisting in snatching a visitor's purse.",
+     "walkthrough": "In American English a purse is what Britons call a handbag, so the definition needs the nationality.",
+     "definitionFit": "Americans use purse for the bag a woman carries her belongings in, which British speakers call by another name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Help"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,65 @@
     "text": "Prisoner has got crack and Ecstasy",
     "enumeration": "7"
    },
-   "solution": "HOSTAGE"
+   "solution": "HOSTAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOSTAGE",
+    "definitions": [
+     {
+      "text": "Prisoner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crack",
+      "for": "anagram",
+      "note": "something cracked is broken apart, so these letters are reassembled in a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has got",
+      "gives": "HASGOT",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOSTAG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASGOT",
+       "gives": "HOSTAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inmate found in possession of crack cocaine and ecstasy.",
+     "walkthrough": "Crack and Ecstasy both read as drugs, but only Ecstasy is; crack is the anagram signal.",
+     "definitionFit": "A hostage is a person seized and held captive, often to force others to meet demands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,64 @@
     "text": "Tending to run about on grass",
     "enumeration": "7"
    },
-   "solution": "NURSING"
+   "solution": "NURSING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NURSING",
+    "definitions": [
+     {
+      "text": "Tending to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the preceding word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "RUN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "SING",
+      "note": "to grass is to inform on someone, as is to sing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "SING"
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A groundsman's habit of jogging around on the lawn.",
+     "walkthrough": "Grass and sing are both slang for informing to the police. 'Tending to' looks like 'inclined to', but here it means caring for.",
+     "definitionFit": "Nursing a patient means looking after them, so nursing and tending to are interchangeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,46 @@
     "text": "Bishop's final tirade",
     "enumeration": "5"
    },
-   "solution": "BLAST"
+   "solution": "BLAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLAST",
+    "definitions": [
+     {
+      "text": "tirade",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop's",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop; the 's means 'is' or 'has', joining it on"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "LAST",
+      "note": "the last is the final one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop's last angry sermon.",
+     "definitionFit": "A blast is a furious verbal attack, the same as a long angry speech of criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,51 @@
      }
     ]
    },
-   "solution": "GREATDANE"
+   "solution": "GREATDANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREAT DANE",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fouled",
+      "for": "anagram",
+      "note": "something fouled is messed up, so the letters that follow are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea garden",
+      "gives": "TEAGARDEN",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAGARDEN",
+       "gives": "GREATDANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog has made a mess in the café garden.",
+     "definitionFit": "The Great Dane is a giant breed of hound originally used in Germany for hunting boar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fouled"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,64 @@
     "text": "Dad tried dancing and had fun",
     "enumeration": "7"
    },
-   "solution": "PARTIED"
+   "solution": "PARTIED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PARTIED",
+    "definitions": [
+     {
+      "text": "had fun",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "letters that are dancing move about and swap places, so the word beside it is rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "Pa is an informal word for father"
+     },
+     {
+      "clueFragment": "tried",
+      "gives": "TRIED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RTIED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIED",
+       "gives": "RTIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father attempted some dancing and enjoyed himself.",
+     "walkthrough": "Dad is not part of the anagram: he stays as PA while only 'tried' dances, giving PARTIED.",
+     "definitionFit": "To party is to celebrate at a lively social gathering, so someone who did so enjoyed themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +427,54 @@
      }
     ]
    },
-   "solution": "PERSE"
+   "solution": "PERSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PER SE",
+    "definitions": [
+     {
+      "text": "Essentially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be reformed",
+      "for": "anagram",
+      "note": "reformed means formed again in a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peers",
+      "gives": "PEERS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEERS",
+       "gives": "PERSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political demand that the House of Lords be overhauled.",
+     "walkthrough": "Peers sit in the House of Lords, whose reform is a long-running British debate.",
+     "definitionFit": "Per se is Latin for 'by itself', used to mean intrinsically, in its own nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +488,47 @@
     "text": "People nag Sir Ivor, perhaps",
     "enumeration": "9"
    },
-   "solution": "RACEHORSE"
+   "solution": "RACEHORSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RACEHORSE",
+    "definitions": [
+     {
+      "text": "Sir Ivor, perhaps",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People",
+      "gives": "RACE",
+      "note": "a race is a people sharing descent"
+     },
+     {
+      "clueFragment": "nag",
+      "gives": "HORSE",
+      "note": "a nag is an old or poor horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACE",
+      "HORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Folk pester a knight called Sir Ivor.",
+     "walkthrough": "Sir Ivor sounds like a knight, but he was a champion thoroughbred who won the 1968 Derby; 'nag' is a horse, not a verb.",
+     "definitionFit": "Sir Ivor was a famous Derby-winning thoroughbred, and 'perhaps' marks him as one instance of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Sir"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +542,76 @@
     "text": "First in Information Technology, second in history, Latin and algebra",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INITIAL",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second means the letter in position two of each of the following words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Information Technology",
+      "gives": "IT",
+      "note": "the standard abbreviation for computing"
+     },
+     {
+      "clueFragment": "history",
+      "gives": "I",
+      "select": 2,
+      "note": "second letter of history"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "A",
+      "select": 2,
+      "note": "second letter of Latin"
+     },
+     {
+      "clueFragment": "algebra",
+      "gives": "L",
+      "select": 2,
+      "note": "second letter of algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "IT",
+      "I",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A school report: top marks in computing, runner-up in three other subjects.",
+     "walkthrough": "'First in' looks like a letter-picking instruction, but First is the definition and 'in' is a piece; 'second' applies to all three subjects.",
+     "definitionFit": "Initial means occurring at the beginning, as in the initial stage, the same as first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +625,59 @@
     "text": "Extremely dingy and unpleasant house",
     "enumeration": "7"
    },
-   "solution": "DYNASTY"
+   "solution": "DYNASTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DYNASTY",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dingy",
+      "gives": "DY",
+      "select": "outer",
+      "note": "first and last letters of dingy"
+     },
+     {
+      "clueFragment": "unpleasant",
+      "gives": "NASTY",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "NASTY"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent's frank verdict on a grim, dirty property.",
+     "walkthrough": "House here is a ruling family, as in the House of Windsor, not a building.",
+     "definitionFit": "A dynasty is a line of rulers from one family, which is also called a royal house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +691,51 @@
     "text": "Annoy Mrs Una E. Smith, say",
     "enumeration": "7"
    },
-   "solution": "SURNAME"
+   "solution": "SURNAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SURNAME",
+    "definitions": [
+     {
+      "text": "Smith, say",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Annoy",
+      "for": "anagram",
+      "note": "to annoy is to disturb, and disturbed letters are knocked out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Una E",
+      "gives": "MRSUNAE",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRSUNAE",
+       "gives": "SURNAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to irritate a woman called Mrs Una E. Smith.",
+     "walkthrough": "The odd initial E is the giveaway that 'Mrs Una E' is fodder rather than a name; Smith is then the definition by example.",
+     "definitionFit": "Smith is a very common family name, and 'say' marks it as one instance of a family name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Smith"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +749,68 @@
     "text": "Once police in Belfast start to tell one about disturbance",
     "enumeration": "7"
    },
-   "solution": "RUCTION"
+   "solution": "RUCTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RUCTION",
+    "definitions": [
+     {
+      "text": "disturbance",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once police in Belfast",
+      "gives": "RUC",
+      "note": "the Royal Ulster Constabulary policed Northern Ireland until 2001"
+     },
+     {
+      "clueFragment": "tell",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of tell"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, as in a talk on a subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUC",
+      "T",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Former Belfast police begin telling someone about a riot.",
+     "walkthrough": "'Once' signals a body that no longer exists: the RUC was replaced by the Police Service of Northern Ireland.",
+     "definitionFit": "A ruction is a noisy quarrel or uproar, which is a kind of commotion or upset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tell"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +824,71 @@
     "text": "Patrician, ultimately pessimist, and liberal European philosopher",
     "enumeration": "9"
    },
-   "solution": "ARISTOTLE"
+   "solution": "ARISTOTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARISTOTLE",
+    "definitions": [
+     {
+      "text": "philosopher",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the next word counts"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patrician",
+      "gives": "ARISTO",
+      "note": "aristo is short for aristocrat, a noble"
+     },
+     {
+      "clueFragment": "pessimist",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of pessimist"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARISTO",
+      "T",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A list describing an aristocratic, gloomy but broad-minded European thinker.",
+     "walkthrough": "The surface reads as adjectives all describing the philosopher, but each word supplies a piece of ARISTOTLE.",
+     "definitionFit": "Aristotle was the ancient Greek thinker, pupil of Plato, whose work founded much of Western logic and science."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +902,42 @@
     "text": "They will inherit from their sister",
     "enumeration": "5"
    },
-   "solution": "HEIRS"
+   "solution": "HEIRS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEIRS",
+    "definitions": [
+     {
+      "text": "They will inherit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the letters are taken from inside the words that follow, spanning a word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their sister",
+      "gives": "HEIRS",
+      "note": "found running across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Siblings expecting to come into money from their sister's estate.",
+     "definitionFit": "Heirs are the people entitled to receive property or titles when someone dies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +951,54 @@
     "text": "Nigel lost in Scottish town",
     "enumeration": "5"
    },
-   "solution": "ELGIN"
+   "solution": "ELGIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELGIN",
+    "definitions": [
+     {
+      "text": "Scottish town",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "someone lost has wandered off course, so the name's letters stray from their places"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nigel",
+      "gives": "NIGEL",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIGEL",
+       "gives": "ELGIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Nigel has lost his way in a Scottish town.",
+     "walkthrough": "Elgin is a town in Moray, in north-east Scotland.",
+     "definitionFit": "Elgin is a historic cathedral town in Moray, north-east Scotland, so it fits the description of a settlement there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1012,55 @@
     "text": "Fruit and nuts aren't nice",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the following letters go wild and are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aren't nice",
+      "gives": "ARENTNICE",
+      "note": "taken as written, apostrophe ignored, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARENTNICE",
+       "gives": "NECTARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy eater complaining that fruit and nuts taste bad.",
+     "walkthrough": "'Fruit and nuts' reads as a snack, but nuts is the anagram signal.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1074,51 @@
     "text": "Tardy mail worried section of the MOD",
     "enumeration": "9"
    },
-   "solution": "ADMIRALTY"
+   "solution": "ADMIRALTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRALTY",
+    "definitions": [
+     {
+      "text": "section of the MOD",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried in the sense of tugged and shaken about, as a dog worries a bone, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tardy mail",
+      "gives": "TARDYMAIL",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TARDYMAIL",
+       "gives": "ADMIRALTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Late post has caused anxiety within a part of the defence ministry.",
+     "walkthrough": "The MOD is Britain's Ministry of Defence; the Admiralty was the department running the Royal Navy and survives as a section of it.",
+     "definitionFit": "The Admiralty was the naval authority, absorbed into the British defence ministry in 1964 as its navy branch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1132,50 @@
     "text": "Old ship has permission to be on river",
     "enumeration": "9"
    },
-   "solution": "MAYFLOWER"
+   "solution": "MAYFLOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYFLOWER",
+    "definitions": [
+     {
+      "text": "Old ship",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has permission",
+      "gives": "MAY",
+      "note": "you may means you are allowed"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "FLOWER",
+      "note": "something that flows, a crossword sense of river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "FLOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "An old vessel is allowed to sail on the river.",
+     "walkthrough": "In a down clue 'on' means placed above. Reading a river as something that flows is a classic crossword trick.",
+     "definitionFit": "The Mayflower was the vessel that carried the Pilgrims from England to America in 1620."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1189,70 @@
     "text": "Tracey's upset about her betrayal",
     "enumeration": "9"
    },
-   "solution": "TREACHERY"
+   "solution": "TREACHERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREACHERY",
+    "definitions": [
+     {
+      "text": "betrayal",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the name's letters are reshuffled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged name surrounds the next word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tracey",
+      "gives": "TREACY",
+      "note": "the name rearranged, then split open"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAC",
+      "HER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRACEY",
+       "gives": "TREACY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tracey is distressed about how she was betrayed.",
+     "walkthrough": "The rearranged TRACEY wraps around HER to give TREAC-HER-Y.",
+     "definitionFit": "Treachery is disloyalty or deception towards someone who trusted you, which is what betrayal means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1266,43 @@
     "text": "Some thought it a nice ship",
     "enumeration": "7"
    },
-   "solution": "TITANIC"
+   "solution": "TITANIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TITANIC",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a part of, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thought it a nice",
+      "gives": "TITANIC",
+      "note": "found running across four words"
+     }
+    ],
+    "explanation": {
+     "surface": "Opinions on a vessel, some people finding it pleasant.",
+     "walkthrough": "Ironic understatement: the famous liner was thought unsinkable.",
+     "definitionFit": "The Titanic was the White Star liner that sank on its maiden voyage in 1912."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1316,47 @@
     "text": "Without sufficient warning",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Without",
+      "gives": "EX",
+      "note": "ex is Latin for out of, as in ex-dividend, meaning without"
+     },
+     {
+      "clueFragment": "sufficient",
+      "gives": "AMPLE",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happening with too little notice.",
+     "walkthrough": "'Without sufficient warning' reads as one phrase, but splits into wordplay and a separate definition.",
+     "definitionFit": "Someone punished to deter others is made an example of, so the case serves as a caution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Without"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1370,52 @@
     "text": "Not the first to faint and behave theatrically!",
     "enumeration": "5"
    },
-   "solution": "EMOTE"
+   "solution": "EMOTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMOTE",
+    "definitions": [
+     {
+      "text": "behave theatrically",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter is dropped from the word that follows"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "faint",
+      "gives": "REMOTE",
+      "note": "a faint chance is a remote one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMOTE"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor who is not the first to swoon and make a scene.",
+     "walkthrough": "Remove the R from REMOTE to leave EMOTE.",
+     "definitionFit": "To emote is to express feelings in an exaggerated, actorly way, as on a stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "faint"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1429,50 @@
     "text": "Atrocity causes visible anger",
     "enumeration": "7"
    },
-   "solution": "OUTRAGE"
+   "solution": "OUTRAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTRAGE",
+    "definitions": [
+     {
+      "text": "Atrocity",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visible",
+      "gives": "OUT",
+      "note": "out as in the stars are out, meaning able to be seen"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A terrible act provokes open fury.",
+     "walkthrough": "The answer means both the atrocity and the anger, which helps the surface read smoothly.",
+     "definitionFit": "An outrage is a shockingly cruel or wicked act, the same as an atrocity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visible"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1486,55 @@
     "text": "Mountain always initially engenders severe trepidation",
     "enumeration": "7"
    },
-   "solution": "EVEREST"
+   "solution": "EVEREST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVEREST",
+    "definitions": [
+     {
+      "text": "Mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each following word gives its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "a plain synonym, as in for ever"
+     },
+     {
+      "clueFragment": "engenders severe trepidation",
+      "gives": "EST",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVER",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A peak that always inspires dread in climbers.",
+     "definitionFit": "Everest is the world's highest peak, in the Himalayas on the Nepal-Tibet border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engenders"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1548,55 @@
     "text": "Girl without single item of headgear",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "item of headgear",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the name sits around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "TARA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "A",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl with no single hat to her name.",
+     "walkthrough": "'Without' looks like 'lacking' but means 'outside': TARA goes round I to give TI-A-RA.",
+     "definitionFit": "A tiara is a jewelled ornamental band worn on the head, so it is a piece of headwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1610,57 @@
     "text": "Potassium nitrate and sodium chloride prized by soldiers",
     "enumeration": "9"
    },
-   "solution": "SALTPETRE"
+   "solution": "SALTPETRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SALTPETRE",
+    "definitions": [
+     {
+      "text": "Potassium nitrate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sodium chloride",
+      "gives": "SALT",
+      "note": "the chemical name for common table salt"
+     },
+     {
+      "clueFragment": "prized",
+      "gives": "PET",
+      "note": "a pet project is a prized or favourite one"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a corps of the British Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALT",
+      "PET",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two chemicals valued by the army, apt since one goes into gunpowder.",
+     "walkthrough": "'Prized by soldiers' reads as one phrase but splits in two; the Royal Engineers are the soldiers.",
+     "definitionFit": "Saltpetre is the traditional name for the compound used in gunpowder, fertiliser and meat curing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prized"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1674,42 @@
     "text": "Divided town in Croatia",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Divided",
+      "at": 0
+     },
+     {
+      "text": "town in Croatia",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divided",
+      "note": "first meaning: separated into parts"
+     },
+     {
+      "clueFragment": "town in Croatia",
+      "note": "second meaning: a port city on the Dalmatian coast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a town split by conflict; the two halves are separate meanings.",
+     "definitionFit": "The past tense of the verb meaning to break apart is also the name of the Adriatic port in Croatia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Divided"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1723,46 @@
     "text": "Bars for central Europeans",
     "enumeration": "5"
    },
-   "solution": "POLES"
+   "solution": "POLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLES",
+    "definitions": [
+     {
+      "text": "Bars",
+      "at": 0
+     },
+     {
+      "text": "central Europeans",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bars",
+      "note": "first meaning: long rods or posts"
+     },
+     {
+      "clueFragment": "central Europeans",
+      "note": "second meaning: people from Poland"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like pubs aimed at visitors; with a capital, the word means people from Poland.",
+     "definitionFit": "Long rods are called by this word, and with a capital it names natives of Poland in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bars"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1776,50 @@
     "text": "Nervously put in a line for marriage",
     "enumeration": "7"
    },
-   "solution": "NUPTIAL"
+   "solution": "NUPTIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUPTIAL",
+    "definitions": [
+     {
+      "text": "for marriage",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nervously",
+      "for": "anagram",
+      "note": "done nervously means fidgety and unsteady, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put in a line",
+      "gives": "PUTINAL",
+      "note": "put, in and a taken as written, with line giving L, the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTINAL",
+       "gives": "NUPTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiously queueing up to get married.",
+     "definitionFit": "Nuptial is the adjective describing anything relating to a wedding, such as a nuptial mass or blessing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1833,62 @@
     "text": "We shall finally get on benefits",
     "enumeration": "7"
    },
-   "solution": "WELFARE"
+   "solution": "WELFARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WELFARE",
+    "definitions": [
+     {
+      "text": "benefits",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word it follows, keeping just that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shall",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of shall"
+     },
+     {
+      "clueFragment": "get on",
+      "gives": "FARE",
+      "note": "to fare is to get on, as in how did you fare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "L",
+      "FARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A defiant claim that we shall manage once we are living on state payments.",
+     "walkthrough": "'We shall' looks like it should become WE'LL, but only the last letter of shall is wanted.",
+     "definitionFit": "Welfare is state financial support for those in need, the same thing as social security payments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shall"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1902,42 @@
     "text": "Mild chap",
     "enumeration": "7"
    },
-   "solution": "CLEMENT"
+   "solution": "CLEMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEMENT",
+    "definitions": [
+     {
+      "text": "Mild",
+      "at": 0
+     },
+     {
+      "text": "chap",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mild",
+      "note": "first meaning: gentle, especially of weather"
+     },
+     {
+      "clueFragment": "chap",
+      "note": "second meaning: a man's given name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a description of a gentle man; the two words are separate meanings.",
+     "definitionFit": "Clement weather is pleasant and gentle, and Clement is also a man's first name, borne by several popes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1951,58 @@
     "text": "About half of spectators show appreciation",
     "enumeration": "7"
    },
-   "solution": "RESPECT"
+   "solution": "RESPECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RESPECT",
+    "definitions": [
+     {
+      "text": "appreciation",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word means only its first portion of letters is used"
+     }
+    ],
+    "linkWords": [
+     "show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "spectators",
+      "gives": "SPECT",
+      "select": "first",
+      "note": "the first five of its ten letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SPECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Roughly half the crowd at a game applauding.",
+     "definitionFit": "Respect is admiration or high regard for someone, close in sense to appreciation of their worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   }
  ]
 }
