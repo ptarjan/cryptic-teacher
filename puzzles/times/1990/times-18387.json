@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,56 @@
     "text": "Blue flower found around lake",
     "enumeration": "7"
    },
-   "solution": "SPLURGE"
+   "solution": "SPLURGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLURGE",
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found around",
+      "for": "container",
+      "note": "something found around another thing encloses it, so the plant is wrapped about the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "SPURGE",
+      "note": "spurge is a plant, read here as a flower"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad-looking flower is spotted growing beside a lake.",
+     "walkthrough": "'Blue' looks like the colour of the flower; it is the definition, as a verb: SP(L)URGE.",
+     "definitionFit": "To blow money is to spend it lavishly and wastefully, which is what a splurge means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +101,67 @@
     "text": "Fine salesman in vehicle that's overturned",
     "enumeration": "6"
    },
-   "solution": "SUPERB"
+   "solution": "SUPERB",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SUPERB",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another, here the seller inside the transport"
+     },
+     {
+      "text": "that's overturned",
+      "for": "reversal",
+      "note": "overturned in a down answer means turned upside down, so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "BUS",
+      "note": "a bus is a road vehicle"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep, short for representative, is a travelling salesman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "BREPUS",
+       "to": "SUPERB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent salesman is caught in a vehicle crash.",
+     "walkthrough": "B(REP)US, then turned over in the down grid.",
+     "definitionFit": "Superb means excellent or splendid, a stronger synonym for very good quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +175,52 @@
     "text": "Real ink possibly thinner",
     "enumeration": "7"
    },
-   "solution": "LANKIER"
+   "solution": "LANKIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANKIER",
+    "definitions": [
+     {
+      "text": "thinner",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several arrangements the letters might take"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real ink",
+      "gives": "REALINK",
+      "note": "both words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALINK",
+       "gives": "LANKIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Genuine ink might be more runny.",
+     "walkthrough": "'Thinner' looks like a comparison about runny ink, but it means skinnier.",
+     "definitionFit": "Lankier describes someone more tall and slim, so it is a comparative for being skinnier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,10 +231,67 @@
    },
    "length": 9,
    "clue": {
-    "text": "Soldiers claim endlessly and 'archly they covered the retreat",
+    "text": "Soldiers claim endlessly and 'arshly they covered the retreat",
     "enumeration": "9"
    },
-   "solution": "REARGUARD"
+   "solution": "REARGUARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REARGUARD",
+    "definitions": [
+     {
+      "text": "they covered the retreat",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a corps of the British Army"
+     },
+     {
+      "clueFragment": "claim",
+      "gives": "ARGUE",
+      "note": "to argue is to claim or maintain"
+     },
+     {
+      "clueFragment": "'arshly",
+      "gives": "ARD",
+      "note": "harshly said with a dropped aitch, as the apostrophe shows, is 'ard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ARGU",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers complain, and in a coarse accent, that they protected the withdrawal.",
+     "walkthrough": "'Arshly is harshly with the H dropped, so it gives HARD less its H, a Cockney 'ard. The rearguard protects an army's rear as it withdraws.",
+     "definitionFit": "The rearguard is the body of troops protecting the back of an army, especially during a withdrawal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "claim"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +305,53 @@
     "text": "Exult as poet is moved to protest",
     "enumeration": "11"
    },
-   "solution": "EXPOSTULATE"
+   "solution": "EXPOSTULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXPOSTULATE",
+    "definitions": [
+     {
+      "text": "protest",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is moved",
+      "for": "anagram",
+      "note": "moved means shifted out of place, so the letters change position"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exult as poet",
+      "gives": "EXULTASPOET",
+      "note": "all three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EXULTASPOET",
+       "gives": "EXPOSTULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rejoice, as a poet is stirred to raise objections.",
+     "definitionFit": "To expostulate is to argue or object earnestly, remonstrating with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +365,50 @@
     "text": "Goddess seems in distress",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEMESIS",
+    "definitions": [
+     {
+      "text": "Goddess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in distress",
+      "for": "anagram",
+      "note": "letters in distress are troubled and thrown into disorder, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seems in",
+      "gives": "SEEMSIN",
+      "note": "both words taken letter for letter as the material to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEMSIN",
+       "gives": "NEMESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goddess appears to be upset about something.",
+     "definitionFit": "Nemesis was the Greek deity of retribution, punishing human arrogance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +422,43 @@
     "text": "Bevan's pheasants",
     "enumeration": "3"
    },
-   "solution": "NYE"
+   "solution": "NYE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NYE",
+    "definitions": [
+     {
+      "text": "Bevan's",
+      "at": 0
+     },
+     {
+      "text": "pheasants",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bevan's",
+      "note": "first meaning: the first name of Aneurin Bevan, the Labour politician"
+     },
+     {
+      "clueFragment": "pheasants",
+      "note": "second meaning: a brood or flock of these birds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Aneurin 'Nye' Bevan founded Britain's National Health Service; the possessive reads as 'Bevan's first name'.",
+     "definitionFit": "Nye was Bevan's familiar name, and a nye is the collective noun for a group of pheasants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pheasants"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +472,46 @@
     "text": "Lawman in plain clothes",
     "enumeration": "5"
    },
-   "solution": "MUFTI"
+   "solution": "MUFTI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MUFTI",
+    "definitions": [
+     {
+      "text": "Lawman",
+      "at": 0
+     },
+     {
+      "text": "plain clothes",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawman",
+      "note": "first meaning: a Muslim scholar who rules on points of religious law"
+     },
+     {
+      "clueFragment": "plain clothes",
+      "note": "second meaning: civilian dress worn by someone usually in uniform"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a plain-clothes police officer; the lawman is an Islamic jurist instead.",
+     "definitionFit": "A mufti is a Muslim legal expert, and in mufti means wearing civilian rather than military dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lawman"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +525,63 @@
     "text": "Fruit is an essential when climbing",
     "enumeration": "7"
    },
-   "solution": "SATSUMA"
+   "solution": "SATSUMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SATSUMA",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down answer goes upward, so the letters read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an essential",
+      "gives": "AMUST",
+      "note": "a must is something essential"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TSUMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMUSTAS",
+       "to": "SATSUMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of fruit is a must-have for mountaineers.",
+     "definitionFit": "A satsuma is a small, loose-skinned variety of mandarin orange, originally from Japan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +595,53 @@
     "text": "Being lonely and upset, lied to us",
     "enumeration": "8"
    },
-   "solution": "SOLITUDE"
+   "solution": "SOLITUDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLITUDE",
+    "definitions": [
+     {
+      "text": "Being lonely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disturbed, so the letters fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lied to us",
+      "gives": "LIEDTOUS",
+      "note": "all three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIEDTOUS",
+       "gives": "SOLITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is isolated and distressed because they were deceived.",
+     "definitionFit": "Solitude is the state of living alone or apart from others, and the gerund phrase names that state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +655,50 @@
     "text": "Two trees supplying fruit",
     "enumeration": "9"
    },
-   "solution": "PINEAPPLE"
+   "solution": "PINEAPPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINEAPPLE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two trees",
+      "gives": "PINE",
+      "note": "the first of the two trees, a conifer"
+     },
+     {
+      "clueFragment": "Two trees",
+      "gives": "APPLE",
+      "note": "the second of the two trees, an orchard tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINE",
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of trees is providing a harvest of fruit.",
+     "walkthrough": "The two trees are named one after the other, and together make a fruit that grows on neither.",
+     "definitionFit": "The pineapple is a tropical fruit with spiky skin and sweet yellow flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +712,50 @@
     "text": "After 22, a gangster is deadly",
     "enumeration": "5"
    },
-   "solution": "FATAL"
+   "solution": "FATAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FATAL",
+    "definitions": [
+     {
+      "text": "deadly",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "22",
+      "gives": "FAT",
+      "note": "the answer to 22 down is defined there by this word"
+     },
+     {
+      "clueFragment": "a gangster",
+      "gives": "AL",
+      "note": "Al Capone, the Chicago gangster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Coming after the previous one, a mobster proves lethal.",
+     "walkthrough": "'After 22' means the gangster comes after a word for 22 down; that answer is OBESE, which is to say FAT. Here 'after' only orders the pieces.",
+     "definitionFit": "Something fatal causes death, so it is lethal in the same sense as deadly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "After"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +769,58 @@
     "text": "Regretting the collapse by Head of Government",
     "enumeration": "5"
    },
-   "solution": "RUING"
+   "solution": "RUING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RUING",
+    "definitions": [
+     {
+      "text": "Regretting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, at the front"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the collapse",
+      "gives": "RUIN",
+      "note": "ruin is a downfall or collapse"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sorry about a breakdown caused by the leader of the government.",
+     "definitionFit": "To rue something is to feel sorrow or remorse about it, so ruing means regretting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +834,48 @@
     "text": "Nickname thus given to fuel",
     "enumeration": "9"
    },
-   "solution": "SOBRIQUET"
+   "solution": "SOBRIQUET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOBRIQUET",
+    "definitions": [
+     {
+      "text": "Nickname",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means in this way, thus"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "BRIQUET",
+      "note": "a briquet, or briquette, is a block of compressed coal dust burnt as fuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "BRIQUET"
+     ]
+    },
+    "explanation": {
+     "surface": "A nickname is accordingly given to some kind of fuel.",
+     "definitionFit": "A sobriquet is an affectionate or humorous name used instead of a person's real one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +895,43 @@
      }
     ]
    },
-   "solution": "BREADBASKET"
+   "solution": "BREADBASKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREAD-BASKET",
+    "definitions": [
+     {
+      "text": "Little Mary",
+      "at": 0
+     },
+     {
+      "text": "rolls in it?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Mary",
+      "note": "first meaning: old slang for the stomach, from J. M. Barrie's play Little Mary"
+     },
+     {
+      "clueFragment": "rolls in it?",
+      "note": "second meaning: the basket that bread rolls are served in"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Little Mary is not a girl but an Edwardian euphemism for the stomach, taken from a J. M. Barrie play. The question mark flags the playful second meaning.",
+     "definitionFit": "Slang for the stomach is the place food goes, and literally a container for serving bread at table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mary"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +942,7 @@
    },
    "length": 14,
    "clue": {
-    "text": "Value one's country — thar's novel",
+    "text": "Value one's country — that's novel",
     "enumeration": "8,6",
     "separators": [
      {
@@ -257,7 +951,57 @@
      }
     ]
    },
-   "solution": "TREASUREISLAND"
+   "solution": "TREASUREISLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREASURE ISLAND",
+    "definitions": [
+     {
+      "text": "novel",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Value",
+      "gives": "TREASURE",
+      "note": "to treasure something is to value it"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and 's stands for is"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "LAND",
+      "note": "a land is a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREASURE",
+      "IS",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Cherish your homeland: there is a new idea for you.",
+     "walkthrough": "'Novel' looks like an adjective meaning new; it is the noun, a book. I'S reads one's as 'I is'.",
+     "definitionFit": "Treasure Island is Robert Louis Stevenson's pirate adventure story, a famous book of fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1015,58 @@
     "text": "Medical aid extremely short on top, and liable to break",
     "enumeration": "9"
    },
-   "solution": "SPLINTERY"
+   "solution": "SPLINTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPLINTERY",
+    "definitions": [
+     {
+      "text": "liable to break",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short on top",
+      "for": "deletion",
+      "note": "short on top in a down answer means losing its head, the first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medical aid",
+      "gives": "SPLINT",
+      "note": "a splint is a rigid support for a broken bone"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "VERY",
+      "note": "very means extremely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPLINT",
+      "ERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical support, too skimpy at the top, might well snap.",
+     "walkthrough": "'Extremely short' looks like one phrase; extremely gives the word and 'short on top' cuts its first letter.",
+     "definitionFit": "Something splintery tends to split into sharp fragments, so it is likely to break apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1080,62 @@
     "text": "Staff has redesigned factory",
     "enumeration": "8"
    },
-   "solution": "ASHPLANT"
+   "solution": "ASHPLANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASH-PLANT",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redesigned",
+      "for": "anagram",
+      "note": "redesigned means drawn up again in a new layout, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "ASH",
+      "note": "the three letters reordered"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "PLANT",
+      "note": "a plant is an industrial works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "PLANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "ASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The workforce has refitted the works.",
+     "walkthrough": "'Staff' looks like the employees; it is a walking stick.",
+     "definitionFit": "An ash-plant is a walking stick cut from an ash sapling, a kind of rod or cane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1149,53 @@
     "text": "A girl's rewarded for reforming a composer",
     "enumeration": "14"
    },
-   "solution": "SIREDWARDELGAR"
+   "solution": "SIREDWARDELGAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIR EDWARD ELGAR",
+    "definitions": [
+     {
+      "text": "a composer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforming",
+      "for": "anagram",
+      "note": "reforming means shaping again into a new form, so the letters are rebuilt in another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A girl's rewarded",
+      "gives": "AGIRLSREWARDED",
+      "note": "every letter of these words, the apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGIRLSREWARDED",
+       "gives": "SIREDWARDELGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman wins a prize for straightening out a musician.",
+     "definitionFit": "Elgar, knighted in 1904, was the English composer of the Enigma Variations and Pomp and Circumstance marches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforming"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1209,56 @@
     "text": "Swimming round, round - fish",
     "enumeration": "7"
    },
-   "solution": "REELING"
+   "solution": "REELING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REELING",
+    "definitions": [
+     {
+      "text": "Swimming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the first round means going about something, enclosing the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "RING",
+      "note": "the second round: a ring is a circle"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a long snake-like fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EEL",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swims round and round.",
+     "walkthrough": "The repeated word does two jobs: the first 'round' is the instruction to wrap, the second is the ring doing the wrapping. 'Swimming' is what a dizzy head does.",
+     "definitionFit": "When one's head is swimming one feels dizzy and unsteady, the same as staggering or whirling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swimming"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1272,58 @@
     "text": "Am I following monarch about the country?",
     "enumeration": "7"
    },
-   "solution": "AMERICA"
+   "solution": "AMERICA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMERICA",
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Am",
+      "gives": "AM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen"
+     },
+     {
+      "clueFragment": "I following",
+      "gives": "I",
+      "note": "I comes after the monarch"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca, circa, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "ER",
+      "I",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "Am I trailing after the king as he tours the land?",
+     "definitionFit": "America is commonly used as the name of one nation, the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1337,48 @@
     "text": "Boy and girl met in old part of India",
     "enumeration": "6"
    },
-   "solution": "BENGAL"
+   "solution": "BENGAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BENGAL",
+    "definitions": [
+     {
+      "text": "old part of India",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "met in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "BEN",
+      "note": "Ben is a boy's name"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal is an informal word for girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "GAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A young couple first got together in the old Indian subcontinent.",
+     "definitionFit": "Bengal was a province of British India, since divided between India and Bangladesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1392,61 @@
     "text": "Flower power brought about some strange happenings",
     "enumeration": "9"
    },
-   "solution": "PHENOMENA"
+   "solution": "PHENOMENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PHENOMENA",
+    "definitions": [
+     {
+      "text": "some strange happenings",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "reversal",
+      "note": "bringing something about turns it round, so the words before are read from the end back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "ANEMONE",
+      "note": "the anemone is a spring flower"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "HP",
+      "note": "HP is horsepower, a unit of power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PH",
+      "ENOMENA"
+     ],
+     "reversals": [
+      {
+       "from": "ANEMONEHP",
+       "to": "PHENOMENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Flower power, the hippy movement, caused some odd events.",
+     "walkthrough": "'Flower power' reads as the 1960s slogan, but the words are split: a flower, then power, and the pair is turned round.",
+     "definitionFit": "Phenomena are remarkable occurrences or facts that are observed, especially unusual or unexplained ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1460,45 @@
     "text": "Some microbes exist in fat",
     "enumeration": "5"
    },
-   "solution": "OBESE"
+   "solution": "OBESE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OBESE",
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the words that follow is wanted"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "microbes exist",
+      "gives": "OBESE",
+      "note": "a run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain bacteria live in body fat.",
+     "definitionFit": "Obese means very overweight, a medical word for being fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1512,38 @@
     "text": "A relative and I fetched all the others",
     "enumeration": "5"
    },
-   "solution": "NIECE"
+   "solution": "NIECE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NIECE",
+    "definitions": [
+     {
+      "text": "A relative",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A relative and I fetched all the others",
+      "note": "surface reading: a family member and the speaker went to collect everybody else"
+     },
+     {
+      "clueFragment": "A relative",
+      "note": "setter's reading: a family relation, the rest of the clue an obscure gloss on the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A family member and the speaker rounded up everyone else.",
+     "walkthrough": "The definition is plain; how the rest of the clue gives the word is not clear, and it may be a joke on the spelling rule 'I before E', since I leads the vowels here.",
+     "definitionFit": "A niece is the daughter of one's brother or sister, a family relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1557,47 @@
     "text": "A number of players in reserve",
     "enumeration": "5"
    },
-   "solution": "ASIDE"
+   "solution": "ASIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASIDE",
+    "definitions": [
+     {
+      "text": "in reserve",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number of players",
+      "gives": "SIDE",
+      "note": "a side is a team, a number of players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Several team members are kept on the bench as substitutes.",
+     "walkthrough": "'In reserve' looks like the players are substitutes; it is the definition, meaning kept apart.",
+     "definitionFit": "Something set aside is kept back for later use, which is what holding it in reserve means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reserve"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1617,45 @@
      }
     ]
    },
-   "solution": "INKEEPING"
+   "solution": "INKEEPING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IN KEEPING",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "judging by the sound means going on how the words are said, not how they are spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "job for mine host",
+      "gives": "INKEEPING",
+      "soundsLike": "INN KEEPING",
+      "note": "mine host is the jocular name for a landlord, whose job is running a pub or inn"
+     }
+    ],
+    "explanation": {
+     "surface": "A suitable occupation for a pub landlord, it seems.",
+     "walkthrough": "'Mine host' is an old-fashioned jokey name for an innkeeper or pub landlord.",
+     "definitionFit": "Something in keeping matches its surroundings or the occasion, so it is suitable or fitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1669,44 @@
     "text": "Conditions in what is now Eire",
     "enumeration": "3"
    },
-   "solution": "IFS"
+   "solution": "IFS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IFS",
+    "definitions": [
+     {
+      "text": "Conditions",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what is now Eire",
+      "gives": "IFS",
+      "note": "the Irish Free State, the name until 1937 of the state now called Eire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IFS"
+     ]
+    },
+    "explanation": {
+     "surface": "Circumstances in present-day Ireland.",
+     "walkthrough": "IFS abbreviates Irish Free State, the earlier name of Eire.",
+     "definitionFit": "Ifs are provisos or stipulations, as in 'no ifs or buts'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conditions"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1720,71 @@
     "text": "A cat is a boat — work it round",
     "enumeration": "7"
    },
-   "solution": "TIGRESS"
+   "solution": "TIGRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIGRESS",
+    "definitions": [
+     {
+      "text": "A cat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "round means turned to face the other way, so the words before are read from the end back"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a boat",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "ERG",
+      "note": "the erg is a unit of work in physics"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "GRE",
+      "SS"
+     ],
+     "reversals": [
+      {
+       "from": "SSERGIT",
+       "to": "TIGRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a cat is a boat and is told to argue their way round it.",
+     "walkthrough": "'Work it round' sounds like an instruction; work and it are pieces, and 'round' turns the whole chain.",
+     "definitionFit": "A tigress is a female tiger, one of the big cats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1798,54 @@
     "text": "Hear, hear — deal in canvas",
     "enumeration": "7"
    },
-   "solution": "TRYSAIL"
+   "solution": "TRYSAIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TRYSAIL",
+    "definitions": [
+     {
+      "text": "canvas",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hear",
+      "for": "homophone",
+      "note": "hear asks the solver to listen to the next word rather than read its spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "TRY",
+      "note": "a judge hears or tries a case"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "SAIL",
+      "soundsLike": "SALE",
+      "note": "a deal is a sale"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheer of approval for a bargain on fabric.",
+     "walkthrough": "'Hear, hear' looks like applause; the first is a verb for judging a case, the second tells you to listen.",
+     "definitionFit": "A trysail is a small strong sail of canvas set in heavy weather, so canvas stands for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hear"
+    }
+   }
   }
  ]
 }
