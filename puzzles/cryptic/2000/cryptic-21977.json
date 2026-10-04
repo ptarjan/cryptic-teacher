@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Conflict in publicity for Oscar, Tony, etc",
     "enumeration": "6"
    },
-   "solution": "AWARDS"
+   "solution": "AWARDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWARDS",
+    "definitions": [
+     {
+      "text": "Oscar, Tony, etc",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means the first word is placed inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conflict",
+      "gives": "WAR",
+      "note": "a conflict between nations is a war"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "ADS",
+      "note": "ads are publicity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A row breaks out over the publicity surrounding the big showbusiness prizes.",
+     "walkthrough": "A Tony is the Broadway theatre prize, as the Oscar is the film one.",
+     "definitionFit": "The Oscar and the Tony are both examples of prizes given in film and theatre ceremonies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conflict"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,51 @@
     "text": "Number used by mathe-maticians to align misalignment",
     "enumeration": "7"
    },
-   "solution": "ANTILOG"
+   "solution": "ANTILOG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTILOG",
+    "definitions": [
+     {
+      "text": "Number used by mathe-maticians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misalignment",
+      "for": "anagram",
+      "note": "a misalignment puts things out of their proper order, so the preceding words are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to align",
+      "gives": "TOALIGN",
+      "note": "the two words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOALIGN",
+       "gives": "ANTILOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A figure mathematicians use to put something back in line after it has slipped.",
+     "walkthrough": "The hyphen in the printed clue is a line-break remnant: read mathematicians. ANTILOG is short for antilogarithm.",
+     "definitionFit": "An antilogarithm is the value whose logarithm is a given figure, a quantity used in calculation by mathematicians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misalignment"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,63 @@
     "text": "Bikini, for example, completely covering both ends of torso",
     "enumeration": "5"
    },
-   "solution": "ATOLL"
+   "solution": "ATOLL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATOLL",
+    "definitions": [
+     {
+      "text": "Bikini, for example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both ends of",
+      "for": "letter_selection",
+      "note": "both ends means keeping only the first and last letters of the next word"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "something covering another goes around it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "at all, wholly, is all"
+     },
+     {
+      "clueFragment": "torso",
+      "gives": "TO",
+      "select": "outer",
+      "note": "the first and last letters of torso"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TO",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bikini that completely covers the top and bottom of the body would be a strange swimsuit.",
+     "walkthrough": "Bikini looks like a swimsuit, but it is the Pacific atoll used for nuclear tests in the 1940s and 50s.",
+     "definitionFit": "Bikini Atoll in the Marshall Islands is a ring-shaped coral reef island, an instance of this landform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bikini"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,46 @@
     "text": "Putting two and two together - that's subtraction",
     "enumeration": "9"
    },
-   "solution": "DEDUCTION"
+   "solution": "DEDUCTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEDUCTION",
+    "definitions": [
+     {
+      "text": "Putting two and two together",
+      "at": 0
+     },
+     {
+      "text": "subtraction",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Putting two and two together",
+      "note": "first meaning: reasoning to a conclusion from evidence"
+     },
+     {
+      "clueFragment": "subtraction",
+      "note": "second meaning: taking an amount away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Putting two and two together sounds like addition, so calling it subtraction looks contradictory; the word covers both inference and taking away.",
+     "definitionFit": "The word means both a conclusion reached by reasoning from clues and an amount taken off a total."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,54 @@
     "text": "Resolute detectives in action",
     "enumeration": "7"
    },
-   "solution": "DECIDED"
+   "solution": "DECIDED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DECIDED",
+    "definitions": [
+     {
+      "text": "Resolute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the detectives are placed in the following word, inside its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "CID",
+      "note": "CID is the Criminal Investigation Department, Britain's police detectives"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CID",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Determined detectives get on with the job.",
+     "definitionFit": "Someone decided is firm and unwavering, with their mind already made up about the matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Resolute"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +340,54 @@
     "text": "Short skirt confiscated by female teacher in Scotland",
     "enumeration": "7"
    },
-   "solution": "DOMINIE"
+   "solution": "DOMINIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOMINIE",
+    "definitions": [
+     {
+      "text": "teacher in Scotland",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confiscated by",
+      "for": "container",
+      "note": "something confiscated is taken and held, so the female keeps the skirt inside her"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short skirt",
+      "gives": "MINI",
+      "note": "a miniskirt is a mini"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "DOE",
+      "note": "a doe is a female deer or rabbit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MINI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolmistress takes a pupil's too-short skirt away from her.",
+     "definitionFit": "Dominie is the Scots word for a schoolmaster, used chiefly in Scotland for a teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confiscated"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +401,60 @@
     "text": "Coriolan overture with proficient conductor",
     "enumeration": "5"
    },
-   "solution": "CABLE"
+   "solution": "CABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CABLE",
+    "definitions": [
+     {
+      "text": "conductor",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overture",
+      "for": "letter_selection",
+      "note": "an overture opens a work, so only the opening letter of the name is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coriolan",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Coriolan"
+     },
+     {
+      "clueFragment": "proficient",
+      "gives": "ABLE",
+      "note": "able means proficient"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Beethoven's Coriolan Overture performed under a skilled conductor.",
+     "walkthrough": "Conductor seems to be a person with a baton, but here it is an electrical wire.",
+     "definitionFit": "A cable is an insulated wire that carries electric current, so it serves as an electrical conductor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "conductor"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +468,46 @@
     "text": "Portion of bird provided by beater",
     "enumeration": "9"
    },
-   "solution": "DRUMSTICK"
+   "solution": "DRUMSTICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRUMSTICK",
+    "definitions": [
+     {
+      "text": "Portion of bird",
+      "at": 0
+     },
+     {
+      "text": "beater",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portion of bird",
+      "note": "first meaning: the lower leg of a cooked chicken or turkey"
+     },
+     {
+      "clueFragment": "beater",
+      "note": "second meaning: the stick used to strike a drum"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Beater suggests someone flushing game birds on a shoot, which fits the bird, but it is the thing a drummer hits with.",
+     "definitionFit": "The word names both the leg joint of a cooked fowl and the percussionist's stick for striking skins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beater"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +521,51 @@
     "text": "American bread for one eating nothing",
     "enumeration": "6"
    },
-   "solution": "DINERO"
+   "solution": "DINERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DINERO",
+    "definitions": [
+     {
+      "text": "American bread",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one eating",
+      "gives": "DINER",
+      "note": "a diner is a person eating"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DINER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a restaurant table who orders nothing but American bread.",
+     "walkthrough": "Bread is slang for money; dinero is the Spanish word, used as slang in the US.",
+     "definitionFit": "Dinero is American slang for cash, and bread is another slang word for money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bread"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +579,43 @@
     "text": "Signal: \"Go to jail!\"",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEACON",
+    "definitions": [
+     {
+      "text": "Signal",
+      "at": 0
+     },
+     {
+      "text": "Go to jail!",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Signal",
+      "note": "first meaning: a fire or light used as a warning"
+     },
+     {
+      "clueFragment": "Go to jail!",
+      "note": "second meaning, split into three words: become a convict, con being short for convict"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface recalls the Monopoly card. Read the answer as BE A CON: going to jail makes you a con.",
+     "definitionFit": "A beacon is a fire or light set up as a signal or warning; going to jail makes someone a con."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +629,50 @@
     "text": "Dim throne set where Norwegian monarchs are proclaimed",
     "enumeration": "9"
    },
-   "solution": "TRONDHEIM"
+   "solution": "TRONDHEIM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRONDHEIM",
+    "definitions": [
+     {
+      "text": "where Norwegian monarchs are proclaimed",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set",
+      "for": "anagram",
+      "note": "set as in set in order, arranged, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dim throne",
+      "gives": "DIMTHRONE",
+      "note": "the two words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIMTHRONE",
+       "gives": "TRONDHEIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull throne stands in the place where Norway's kings are declared.",
+     "definitionFit": "Trondheim, with its Nidaros Cathedral, is the Norwegian city where kings are traditionally consecrated or blessed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +686,59 @@
     "text": "Bull's introduction to bankrupt bear",
     "enumeration": "5"
    },
-   "solution": "BRUIN"
+   "solution": "BRUIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRUIN",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction is the start, so only the opening letter of that word is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bull's",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of Bull"
+     },
+     {
+      "clueFragment": "bankrupt",
+      "gives": "RUIN",
+      "note": "to bankrupt someone is to ruin them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Stock-market talk: a bull introduced to a bear who has gone bust.",
+     "walkthrough": "Bull and bear suggest the stock market, but bear is simply the animal.",
+     "definitionFit": "Bruin is a traditional nickname for a bear, from the bear in the Reynard fable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bull's"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +752,46 @@
     "text": "Plant in the shade",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     },
+     {
+      "text": "shade",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant",
+      "note": "first meaning: a shrub with fragrant purple or white flowers"
+     },
+     {
+      "clueFragment": "shade",
+      "note": "second meaning: a pale purple colour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A plant in the shade sounds like gardening advice; shade is a colour here.",
+     "definitionFit": "Lilac is a flowering shrub, and the pale mauve colour of its blossom is named after it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +805,52 @@
     "text": "Order scones for King Edward?",
     "enumeration": "9"
    },
-   "solution": "CONFESSOR"
+   "solution": "CONFESSOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONFESSOR",
+    "definitions": [
+     {
+      "text": "King Edward?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Order",
+      "for": "anagram",
+      "note": "ordering means putting into sequence, so the following words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scones for",
+      "gives": "SCONESFOR",
+      "note": "the two words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCONESFOR",
+       "gives": "CONFESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to get scones in for a king, or perhaps for a King Edward potato.",
+     "walkthrough": "King Edward suggests the potato; it is Edward the Confessor, the English king before 1066.",
+     "definitionFit": "Edward the Confessor was an English king, so his epithet defines him by example, marked with a question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +864,62 @@
     "text": "Toff at home holding a flower",
     "enumeration": "7"
    },
-   "solution": "GENTIAN"
+   "solution": "GENTIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GENTIAN",
+    "definitions": [
+     {
+      "text": "flower",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another keeps it inside, so a letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toff",
+      "gives": "GENT",
+      "note": "a toff is a gent"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENT",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-off gentleman relaxing at home with a bloom in hand.",
+     "walkthrough": "A toff is a posh, upper-class man. IN holds A.",
+     "definitionFit": "The gentian is an alpine plant with deep blue trumpet-shaped blooms, an example of a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Toff"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +939,63 @@
      }
     ]
    },
-   "solution": "NAYSAYERS"
+   "solution": "NAYSAYERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NAY-SAYERS",
+    "definitions": [
+     {
+      "text": "People against",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "work",
+      "for": "anagram",
+      "note": "to work something is to manipulate or shape it, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any",
+      "gives": "ANY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a writer of detective stories",
+      "gives": "SAYERS",
+      "note": "Dorothy L. Sayers, creator of Lord Peter Wimsey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAY",
+      "SAYERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANY",
+       "gives": "NAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Critics who object to anything written by a crime novelist.",
+     "definitionFit": "Naysayers are those who habitually oppose or deny things, people against a proposal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1009,71 @@
     "text": "Cryptic clue (1 down) for old mathematician",
     "enumeration": "6"
    },
-   "solution": "EUCLID"
+   "solution": "EUCLID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EUCLID",
+    "definitions": [
+     {
+      "text": "old mathematician",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cryptic",
+      "for": "anagram",
+      "note": "cryptic means puzzling or obscured, so the word that follows is scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "D",
+      "note": "D is the standard abbreviation for down in crossword references"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUCL",
+      "I",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "EUCL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-reference that seems to point to the antilogarithm clue at 1 down, fitting a mathematician.",
+     "walkthrough": "The bracket looks like a reference to the 1 down clue, but 1 and down are read as I and D.",
+     "definitionFit": "Euclid was the ancient Greek geometer of Alexandria, author of the Elements, an early mathematician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1087,55 @@
     "text": "Opposed monarch included out",
     "enumeration": "9"
    },
-   "solution": "COUNTERED"
+   "solution": "COUNTERED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUNTERED",
+    "definitions": [
+     {
+      "text": "Opposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included",
+      "for": "container",
+      "note": "a thing included in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "COUNTED",
+      "note": "a boxer who is out has been counted out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNT",
+      "ER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An objection to a king being left out or brought in.",
+     "walkthrough": "A floored boxer who fails to rise in time is counted out, so out stands for COUNTED.",
+     "definitionFit": "To counter is to oppose or respond against, so countered matches the past tense opposed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1149,48 @@
     "text": "Young bird or seal, we hear",
     "enumeration": "6"
    },
-   "solution": "CYGNET"
+   "solution": "CYGNET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYGNET",
+    "definitions": [
+     {
+      "text": "Young bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the word is identified by how it is pronounced"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seal",
+      "gives": "CYGNET",
+      "soundsLike": "SIGNET",
+      "note": "a signet is a seal, as on a signet ring"
+     }
+    ],
+    "explanation": {
+     "surface": "A baby bird, or is it a seal pup, by the sound of it?",
+     "walkthrough": "Seal suggests the animal, but it is the stamp pressed into wax.",
+     "definitionFit": "A cygnet is a baby swan, the young of that particular bird species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1210,61 @@
      }
     ]
    },
-   "solution": "TOOMUCH"
+   "solution": "TOOMUCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOO MUCH",
+    "definitions": [
+     {
+      "text": "Excessive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only its middle letters are taken"
+     },
+     {
+      "text": "constrains",
+      "for": "container",
+      "note": "to constrain is to hold within limits, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeling",
+      "gives": "TOUCH",
+      "note": "touch is the sense of feeling"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "OM",
+      "select": "middle",
+      "note": "the middle two letters of some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "OM",
+      "UCH"
+     ]
+    },
+    "explanation": {
+     "surface": "An overwhelming emotion that grips the heart.",
+     "definitionFit": "Too much means more than is needed, so it is an idiomatic phrase for excessive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1278,55 @@
     "text": "Wasted duke to seek election with Livingstone",
     "enumeration": "7"
    },
-   "solution": "DRUNKEN"
+   "solution": "DRUNKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRUNKEN",
+    "definitions": [
+     {
+      "text": "Wasted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "to seek election",
+      "gives": "RUN",
+      "note": "to run for office is to seek election"
+     },
+     {
+      "clueFragment": "Livingstone",
+      "gives": "KEN",
+      "note": "Ken Livingstone, the London mayor and politician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUN",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk duke campaigning for office alongside Ken Livingstone, then London's mayor.",
+     "definitionFit": "Wasted is slang for very intoxicated, so it means the same as the adjective drunken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wasted"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1346,75 @@
      }
     ]
    },
-   "solution": "DESADE"
+   "solution": "DESADE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "DE SADE",
+    "definitions": [
+     {
+      "text": "Aristocrat originally involved in foul deeds?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the outset, so only the opening letter of that word is used"
+     },
+     {
+      "text": "foul",
+      "for": "anagram",
+      "note": "something fouled is messed up, so the letters of the next word are jumbled"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "being involved in something means being inside it, so one letter is placed within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristocrat",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Aristocrat"
+     },
+     {
+      "clueFragment": "deeds",
+      "gives": "DEEDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "A",
+      "DE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEEDS",
+       "gives": "DESDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman implicated in wicked acts, which fits the Marquis himself.",
+     "walkthrough": "The whole clue is both the wordplay and a description of the Marquis de Sade, notorious for depravity, hence the question mark.",
+     "definitionFit": "The Marquis de Sade was a French nobleman whose cruel writings and conduct gave us the word sadism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foul"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1428,44 @@
     "text": "Sounding chivalrous whenever it's dark?",
     "enumeration": "7"
    },
-   "solution": "NIGHTLY"
+   "solution": "NIGHTLY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NIGHTLY",
+    "definitions": [
+     {
+      "text": "whenever it's dark?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounding",
+      "for": "homophone",
+      "note": "sounding means as pronounced, so the word is chosen by its sound alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chivalrous",
+      "gives": "NIGHTLY",
+      "soundsLike": "KNIGHTLY",
+      "note": "knightly behaviour is chivalrous"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who behaves gallantly only after sunset.",
+     "definitionFit": "Something done nightly happens every night, which is each time darkness falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chivalrous"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1479,42 @@
     "text": "Queer whisky",
     "enumeration": "6"
    },
-   "solution": "SCOTCH"
+   "solution": "SCOTCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOTCH",
+    "definitions": [
+     {
+      "text": "Queer",
+      "at": 0
+     },
+     {
+      "text": "whisky",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queer",
+      "note": "first meaning: to spoil or put a stop to, as in queer someone's pitch"
+     },
+     {
+      "clueFragment": "whisky",
+      "note": "second meaning: the spirit distilled in Scotland"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Queer reads as an adjective, odd, but it is the old verb meaning to thwart or spoil.",
+     "definitionFit": "To scotch a plan is to thwart or ruin it, and Scotch is also whisky made in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queer"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1528,64 @@
     "text": "Crazy people try to halt revolution",
     "enumeration": "9"
    },
-   "solution": "CRACKPOTS"
+   "solution": "CRACKPOTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CRACKPOTS",
+    "definitions": [
+     {
+      "text": "Crazy people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolution",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the word is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "CRACK",
+      "note": "to have a crack at something is to try it"
+     },
+     {
+      "clueFragment": "halt",
+      "gives": "STOP",
+      "note": "halt means stop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "POTS"
+     ],
+     "reversals": [
+      {
+       "from": "STOP",
+       "to": "POTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Madmen attempting to stop an uprising.",
+     "walkthrough": "Revolution looks like a political uprising, but it means turning round.",
+     "definitionFit": "Crackpots are eccentric or mad people with foolish ideas, so they are crazy people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1599,42 @@
     "text": "Military dress helping to make a sheikh a king",
     "enumeration": "5"
    },
-   "solution": "KHAKI"
+   "solution": "KHAKI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KHAKI",
+    "definitions": [
+     {
+      "text": "Military dress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helping to make",
+      "for": "hidden_word",
+      "note": "the letters help to make up the words that follow, lying within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sheikh a king",
+      "gives": "KHAKI",
+      "note": "spans the end of sheikh, a, and the start of king"
+     }
+    ],
+    "explanation": {
+     "surface": "Army uniform that helps turn a sheikh into a monarch.",
+     "definitionFit": "Khaki is the dull brownish cloth used for army uniforms, so it names military clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1648,64 @@
     "text": "Skimpy garment from the centre of Manchuria introduced into Chinese society",
     "enumeration": "5"
    },
-   "solution": "THONG"
+   "solution": "THONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THONG",
+    "definitions": [
+     {
+      "text": "Skimpy garment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the central letter is taken"
+     },
+     {
+      "text": "introduced into",
+      "for": "container",
+      "note": "a thing introduced into another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese society",
+      "gives": "TONG",
+      "note": "a tong is a Chinese secret society"
+     },
+     {
+      "clueFragment": "Manchuria",
+      "gives": "H",
+      "select": "middle",
+      "note": "the middle letter of the nine-letter Manchuria"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A revealing piece of clothing from the heart of Manchuria brought into Chinese circles.",
+     "definitionFit": "A thong is a minimal piece of underwear or swimwear, an example of a very small garment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1719,61 @@
     "text": "Footnote symbols indicating some worthwhile books for looking up?",
     "enumeration": "5"
    },
-   "solution": "OBELI"
+   "solution": "OBELI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OBELI",
+    "definitions": [
+     {
+      "text": "Footnote symbols",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a part of, so the letters are a portion of the next words"
+     },
+     {
+      "text": "for looking up",
+      "for": "reversal",
+      "note": "in a down answer, looking up means read from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "indicating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worthwhile books",
+      "gives": "ILEBO",
+      "note": "from the end of worthwhile and the start of books"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ILEBO",
+       "to": "OBELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Little marks at the foot of the page pointing to good reference books.",
+     "walkthrough": "Looking up seems to mean consulting reference books, but in a down clue it means read upwards.",
+     "definitionFit": "An obelus is the dagger mark used to refer to a footnote; obeli is its plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "looking"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1787,60 @@
     "text": "A letter from the borders of Transylvania",
     "enumeration": "5"
    },
-   "solution": "THETA"
+   "solution": "THETA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THETA",
+    "definitions": [
+     {
+      "text": "A letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the borders of",
+      "for": "letter_selection",
+      "note": "borders are the edges, so only the outer letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Transylvania",
+      "gives": "TA",
+      "select": "outer",
+      "note": "first and last letters of Transylvania"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A message posted from the edge of Dracula's homeland.",
+     "walkthrough": "Letter suggests correspondence, but it is a letter of the alphabet. The word the does double duty here, part of the indicator phrase and also giving THE.",
+     "definitionFit": "Theta is the eighth letter of the Greek alphabet, so it is one character among the letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1854,49 @@
     "text": "A French river must be experienced",
     "enumeration": "9"
    },
-   "solution": "UNDERWENT"
+   "solution": "UNDERWENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERWENT",
+    "definitions": [
+     {
+      "text": "experienced",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "DERWENT",
+      "note": "the Derwent is a river in several English counties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DERWENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A French river is something one has to see.",
+     "definitionFit": "To undergo something is to go through or experience it, so underwent matches past tense experienced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "experienced"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1910,63 @@
     "text": "Hot burnt residue is on hot pot",
     "enumeration": "7"
    },
-   "solution": "HASHISH"
+   "solution": "HASHISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASHISH",
+    "definitions": [
+     {
+      "text": "pot",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot on taps"
+     },
+     {
+      "clueFragment": "burnt residue",
+      "gives": "ASH",
+      "note": "ash is what remains after burning"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H again for hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASH",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Scorched gunk left on a hot cooking pot.",
+     "walkthrough": "Pot seems to be a cooking vessel, but it is slang for cannabis.",
+     "definitionFit": "Hashish is cannabis resin, and pot is a slang word for the same drug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +1980,59 @@
     "text": "That's peculiar: not even Italy is missing Al",
     "enumeration": "6"
    },
-   "solution": "ODDITY"
+   "solution": "ODDITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ODDITY",
+    "definitions": [
+     {
+      "text": "That's peculiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "missing means without, so the named letters are taken out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not even",
+      "gives": "ODD",
+      "note": "a number that is not even is odd"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "ITALY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Al",
+      "gives": "AL",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODD",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks how strange it is that Al is absent from Italy.",
+     "definitionFit": "An oddity is a peculiar thing, so the definition is phrased as that which is peculiar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   }
  ]
 }
