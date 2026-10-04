@@ -18,7 +18,6 @@ tools/file_trove_puzzles.py).
 """
 import contextlib
 import datetime
-import fcntl
 import multiprocessing
 import sys
 import time
@@ -62,6 +61,7 @@ def order(keys, rows, unread):
 def lock(ledger, wait_for_it=False):
     """Yields whether this run holds `ledger`'s lock (<ledger>.lock); with
     `wait_for_it`, waits for it instead of yielding False."""
+    import fcntl  # here, not at the top: the desktop (Windows) imports this module, never locks
     path = ledger.with_suffix(".lock")
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:

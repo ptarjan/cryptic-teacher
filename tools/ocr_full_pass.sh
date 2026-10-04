@@ -30,10 +30,10 @@ cd "$(dirname "$0")/.." || exit 1
 # Every line reaches the log as it is printed, never at a slice's end.
 export PYTHONUNBUFFERED=1
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
-# The OCR itself runs on the desktop (tools/ocr_remote.py; OCR_REMOTE= to
-# read here), so most of each worker's time is a wait on it: this host
-# keeps the parsing and the vote, at nice 19, one OCR thread a worker when
-# the desktop is off.
+# Each archive.org edition is read on the desktop, the vote and all
+# (tools/ocr_remote.py; OCR_REMOTE= to read here), so most of each worker's
+# time is a wait on it: this host keeps the scans, the Trove filer's parsing
+# and the filing, at nice 19, one OCR thread a worker when the desktop is off.
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"

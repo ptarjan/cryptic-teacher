@@ -488,6 +488,7 @@ LAYOUT = [
     ("fetching", "tools/test_sync_skip_published.sh", "sync_attempt drops a conflicting commit whose puzzle origin/master already holds, and aborts cleanly on any other conflict"),
     ("fetching", "tools/scan_crop.py", "the printed clues of an archive.org scan, cut out for the annotator"),
     ("fetching", "tools/test_scan_crop.sh", "does the annotator get the printed clues of a puzzle filed off a scan?"),
+    ("fetching", "tools/test_ocr_remote.sh", "does tools/ocr_remote.py compare every reader model a read can load, and send back an edition whose read on the desktop opened a file it was not sent?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
