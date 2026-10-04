@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Spacecraft with top the United States returned to the French",
     "enumeration": "7"
    },
-   "solution": "CAPSULE"
+   "solution": "CAPSULE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAPSULE",
+    "definitions": [
+     {
+      "text": "Spacecraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the country's initials are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "CAP",
+      "note": "a cap is the top or lid of something"
+     },
+     {
+      "clueFragment": "the United States",
+      "gives": "US",
+      "note": "the standard abbreviation for the country"
+     },
+     {
+      "clueFragment": "to the French",
+      "gives": "LE",
+      "note": "le is the masculine 'the' in French; 'to' simply adds it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "SU",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spacecraft topped with a US flag heads back towards France.",
+     "walkthrough": "'top' is a noun for a lid here, not the summit of the craft; le is French for 'the'.",
+     "definitionFit": "A capsule is the small crewed module of a rocket that carries astronauts and returns to Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,47 @@
     "text": "Some people cause havoc adorning a pear tree",
     "enumeration": "7"
    },
-   "solution": "AVOCADO"
+   "solution": "AVOCADO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AVOCADO",
+    "definitions": [
+     {
+      "text": "pear tree",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters in the words that follow are wanted, a run lifted from inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people cause",
+      "note": "surface padding, giving no letters"
+     },
+     {
+      "clueFragment": "havoc adorning",
+      "gives": "AVOCADO",
+      "note": "the run of letters sits across the two words, after the h and before the rning"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people make a nuisance of themselves decorating a pear tree.",
+     "walkthrough": "'people cause' is surface padding; the answer hides in havoc adorning. The fruit is also called the avocado pear or alligator pear.",
+     "definitionFit": "The avocado is a tropical tree whose fruit is commonly called the avocado pear, so the tree is fairly a pear tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "adorning"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +167,56 @@
     "text": "Frown from under small hood",
     "enumeration": "5"
    },
-   "solution": "SCOWL"
+   "solution": "SCOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOWL",
+    "definitions": [
+     {
+      "text": "Frown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, one piece placed under another simply follows it in the column"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the usual abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "hood",
+      "gives": "COWL",
+      "note": "a cowl is a monk's hood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COWL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glowers from beneath a little hood.",
+     "definitionFit": "A scowl is an angry, sullen facial expression, the same look as a frown with furrowed brows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,60 @@
     "text": "Crustacean throws note into river",
     "enumeration": "7"
    },
-   "solution": "LOBSTER"
+   "solution": "LOBSTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOBSTER",
+    "definitions": [
+     {
+      "text": "Crustacean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "charade",
+      "note": "the musical piece runs into the waterway, so the two sit side by side in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throws",
+      "gives": "LOBS",
+      "note": "to lob is to throw something in a high arc"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOBS",
+      "TE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A shellfish hurls a scrap of paper into the river.",
+     "walkthrough": "'Into' is not a container here: TE flows into R by sitting just before it.",
+     "definitionFit": "A lobster is a large clawed marine shellfish, one of the decapod crustaceans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,63 @@
     "text": "Care about time to produce space",
     "enumeration": "7"
    },
-   "solution": "ACREAGE"
+   "solution": "ACREAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ACREAGE",
+    "definitions": [
+     {
+      "text": "space",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about, the letters of the first word are moved around into a new order"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Care",
+      "gives": "ACRE",
+      "note": "the four letters of care rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACRE",
+      "AGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARE",
+       "gives": "ACRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking care over the timing gives you room to work.",
+     "definitionFit": "Acreage is an amount of land measured in acres, an area or extent of ground, hence space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Care"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +367,63 @@
     "text": "Church only organised in Sri Lanka once",
     "enumeration": "6"
    },
-   "solution": "CEYLON"
+   "solution": "CEYLON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CEYLON",
+    "definitions": [
+     {
+      "text": "Sri Lanka once",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organising things means arranging them, so the letters are put into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "YLON",
+      "note": "the four letters of only rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "YLON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONLY",
+       "gives": "YLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church that was only set up in Sri Lanka.",
+     "definitionFit": "Ceylon was the colonial name of the island nation until it was renamed in 1972, hence 'once'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +437,56 @@
     "text": "Burrowing invertebrate found in other warm form",
     "enumeration": "9"
    },
-   "solution": "EARTHWORM"
+   "solution": "EARTHWORM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARTHWORM",
+    "definitions": [
+     {
+      "text": "Burrowing invertebrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "form",
+      "for": "anagram",
+      "note": "the letters take another form, so they are rebuilt in a different order"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other warm",
+      "gives": "EARTHWORM",
+      "note": "all nine letters of the two words rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARTHWORM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTHERWARM",
+       "gives": "EARTHWORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A creature that digs has been discovered in a different, warmer shape.",
+     "definitionFit": "The common garden worm tunnels through soil and has no backbone, so it is a digging spineless animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +500,65 @@
     "text": "Deer must laze around with broken leg",
     "enumeration": "7"
    },
-   "solution": "GAZELLE"
+   "solution": "GAZELLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GAZELLE",
+    "definitions": [
+     {
+      "text": "Deer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "moved around, these letters are jumbled into another order"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces that can be put back differently"
+     }
+    ],
+    "linkWords": [
+     "must",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laze",
+      "gives": "LAZE",
+      "note": "taken as written, to be mixed"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "LEG",
+      "note": "taken as written, to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAZELEG",
+       "gives": "GAZELLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An injured deer has no choice but to lie about with its broken leg.",
+     "walkthrough": "Both words are scrambled together into one seven-letter answer.",
+     "definitionFit": "A gazelle is a slender antelope; the clue loosely calls it a deer, a looser fit than a strict zoologist would allow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +578,55 @@
      }
     ]
    },
-   "solution": "FOOLSPARADISE"
+   "solution": "FOOLSPARADISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOOLS PARADISE",
+    "definitions": [
+     {
+      "text": "an illusion of happiness",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can cause",
+      "for": "anagram",
+      "note": "the letters are said to produce something new, being reworked to cause a different phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loss of a diaper",
+      "gives": "FOOLSPARADISE",
+      "note": "all thirteen letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOLSPARADISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOSSOFADIAPER",
+       "gives": "FOOLSPARADISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losing a nappy can leave a baby falsely content.",
+     "walkthrough": "A diaper is the American word for a nappy.",
+     "definitionFit": "The idiom describes a state of contentment based on false beliefs, contented ignorance that cannot last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Loss"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +646,49 @@
      }
     ]
    },
-   "solution": "YOYO"
+   "solution": "YOYO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YO-YO",
+    "definitions": [
+     {
+      "text": "toy",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "here's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hello!",
+      "gives": "YO",
+      "note": "yo is a slangy greeting"
+     },
+     {
+      "clueFragment": "Hello!",
+      "gives": "YO",
+      "note": "the same greeting again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YO",
+      "YO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheerfully calls out twice while handing over a present.",
+     "definitionFit": "A yo-yo is the spinning plaything on a string that climbs back up to the hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hello"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +708,51 @@
      }
     ]
    },
-   "solution": "BOOBYPRIZE"
+   "solution": "BOOBYPRIZE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOBY PRIZE",
+    "definitions": [
+     {
+      "text": "wooden spoon",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly fool",
+      "gives": "BOOBY",
+      "note": "a booby is a stupid person"
+     },
+     {
+      "clueFragment": "treasure",
+      "gives": "PRIZE",
+      "note": "to prize something is to treasure it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOBY",
+      "PRIZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A daft person treasures an old kitchen utensil.",
+     "walkthrough": "In Britain the wooden spoon is the joke award for coming last.",
+     "definitionFit": "Both phrases name a mock award handed to whoever finishes last in a competition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spoon"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +766,51 @@
     "text": "Little piece of pork for Prince of Denmark?",
     "enumeration": "6"
    },
-   "solution": "HAMLET"
+   "solution": "HAMLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAMLET",
+    "definitions": [
+     {
+      "text": "Prince of Denmark",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of pork",
+      "gives": "HAM",
+      "note": "ham is cured meat from a pig's leg"
+     },
+     {
+      "clueFragment": "Little",
+      "gives": "LET",
+      "note": "-let is a suffix making things small, as in piglet or booklet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Offering a small slice of pork to a Danish royal.",
+     "walkthrough": "The joke reads the name as a tiny ham, the suffix -let meaning small.",
+     "definitionFit": "Shakespeare's tragic hero is the Danish royal heir whose father is murdered by Claudius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +824,64 @@
     "text": "Playing polo by hollow is way out",
     "enumeration": "8"
    },
-   "solution": "LOOPHOLE"
+   "solution": "LOOPHOLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOOPHOLE",
+    "definitions": [
+     {
+      "text": "way out",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing with something lets it be moved around freely into a new order"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polo",
+      "gives": "LOOP",
+      "note": "the four letters of polo rearranged"
+     },
+     {
+      "clueFragment": "hollow",
+      "gives": "HOLE",
+      "note": "a hole is a hollow or cavity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOP",
+      "HOLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POLO",
+       "gives": "LOOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A polo match next to a dip in the ground gives an escape route.",
+     "definitionFit": "A loophole is a gap in rules that lets someone escape an obligation, figuratively an exit or escape route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +895,49 @@
     "text": "Study screenplay, then enrol",
     "enumeration": "9"
    },
-   "solution": "CONSCRIPT"
+   "solution": "CONSCRIPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSCRIPT",
+    "definitions": [
+     {
+      "text": "enrol",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con is an old word for studying or learning by heart"
+     },
+     {
+      "clueFragment": "screenplay",
+      "gives": "SCRIPT",
+      "note": "a screenplay is a film's script"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "SCRIPT"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor reads the screenplay and then signs up.",
+     "definitionFit": "To conscript is to compel someone into military service, signing them up on the army's register."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +951,62 @@
     "text": "Patience is only stretched by Italian attitude",
     "enumeration": "9"
    },
-   "solution": "SOLITAIRE"
+   "solution": "SOLITAIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOLITAIRE",
+    "definitions": [
+     {
+      "text": "Patience",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stretched by",
+      "for": "container",
+      "note": "something stretched around another thing wraps it, so the first word goes outside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only",
+      "gives": "SOLE",
+      "note": "sole means only, as in the sole survivor"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is a short form of Italian, as in It vermouth"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "AIR",
+      "note": "an air is a manner or attitude, as in an air of confidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "IT",
+      "AIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's patience is only tested by an Italian's attitude.",
+     "walkthrough": "'Patience' looks like a virtue being tested; it is the card game, and 'stretched' means one word is pulled open around the others.",
+     "definitionFit": "Patience is the British name for the card game played alone, known in America as solitaire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Patience"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1020,50 @@
     "text": "Witches gathering by inlet to the north",
     "enumeration": "5"
    },
-   "solution": "COVEN"
+   "solution": "COVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVEN",
+    "definitions": [
+     {
+      "text": "Witches gathering",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by",
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inlet",
+      "gives": "COVE",
+      "note": "a cove is a small sheltered bay"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Witches meet beside a little bay up in the north.",
+     "definitionFit": "A coven is an assembly of witches, traditionally thirteen, meeting together for rites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1077,43 @@
     "text": "Shoot dog",
     "enumeration": "5"
    },
-   "solution": "STALK"
+   "solution": "STALK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STALK",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     },
+     {
+      "text": "dog",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shoot",
+      "note": "first meaning: a plant's stem"
+     },
+     {
+      "clueFragment": "dog",
+      "note": "second meaning: to follow someone persistently"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an order to fire at a dog, but both words are separate meanings: a noun for a plant and a verb for following.",
+     "definitionFit": "The word is both the main stem of a plant and a verb for following prey or a person secretly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1127,56 @@
     "text": "New re-count results in defeat",
     "enumeration": "7"
    },
-   "solution": "TROUNCE"
+   "solution": "TROUNCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROUNCE",
+    "definitions": [
+     {
+      "text": "defeat",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the word has its letters made over in another order"
+     }
+    ],
+    "linkWords": [
+     "results in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "re-count",
+      "gives": "TROUNCE",
+      "note": "the seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROUNCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RECOUNT",
+       "gives": "TROUNCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh recount of the votes ends in a loss for the candidate.",
+     "definitionFit": "To trounce is to beat an opponent decisively, a heavy and thorough win over them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1190,70 @@
     "text": "Medical care for mate floundering in the river",
     "enumeration": "9"
    },
-   "solution": "TREATMENT"
+   "solution": "TREATMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREATMENT",
+    "definitions": [
+     {
+      "text": "Medical care",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "floundering",
+      "for": "anagram",
+      "note": "something floundering is thrashing about, so the letters are thrown into disorder"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the other, sitting inside its letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the river",
+      "gives": "TRENT",
+      "note": "the Trent is a major river of the English Midlands"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "ATME",
+      "note": "the four letters of mate jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EATM",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATME",
+       "gives": "EATM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friend struggling in a river needs a doctor.",
+     "walkthrough": "TRE(ATME)NT: the scrambled word goes inside the river.",
+     "definitionFit": "Treatment is the care a doctor gives a patient, the therapy or management of an illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "floundering"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1267,56 @@
     "text": "Guerrilla loses money to become craftsman",
     "enumeration": "7"
    },
-   "solution": "ARTISAN"
+   "solution": "ARTISAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTISAN",
+    "definitions": [
+     {
+      "text": "craftsman",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "to lose something is to be left without it, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guerrilla",
+      "gives": "PARTISAN",
+      "note": "a partisan is an irregular resistance fighter"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "P",
+      "note": "p is a penny, as in 50p"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTISAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel fighter goes broke and takes up a trade.",
+     "walkthrough": "Remove the penny from the start of the fighter.",
+     "definitionFit": "An artisan is a skilled manual worker who makes things by hand, such as a carpenter or potter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1330,39 @@
     "text": "Pasta for the weak?",
     "enumeration": "7"
    },
-   "solution": "NOODLES"
+   "solution": "NOODLES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOODLES",
+    "definitions": [
+     {
+      "text": "Pasta for the weak?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pasta for the weak?",
+      "note": "surface reading: soft food suitable for invalids"
+     },
+     {
+      "clueFragment": "for the weak",
+      "note": "setter's reading: a limp, feeble person is likened to a strand of cooked pasta, so the pasta is a name for weaklings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark signals a pun: the strands are limp, and a weak person is said to be like one of them.",
+     "definitionFit": "They are long thin strands of pasta, notoriously floppy once cooked, matching the idea of feebleness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weak"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1376,48 @@
     "text": "Bacon the artist's girl",
     "enumeration": "6"
    },
-   "solution": "RASHER"
+   "solution": "RASHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RASHER",
+    "definitions": [
+     {
+      "text": "Bacon",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the artist's",
+      "gives": "RAS",
+      "note": "RA is a Royal Academician, a crossword artist, plus the 's"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "HER",
+      "note": "her stands for a girl or woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAS",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "Francis Bacon, the painter, and his girlfriend.",
+     "walkthrough": "Bacon looks like the painter Francis Bacon; it is breakfast bacon.",
+     "definitionFit": "A rasher is a single thin slice of bacon or ham, cut for frying or grilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bacon"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1431,39 @@
     "text": "In short, a PC form of communication",
     "enumeration": "8"
    },
-   "solution": "POSTCARD"
+   "solution": "POSTCARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POSTCARD",
+    "definitions": [
+     {
+      "text": "form of communication",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In short, a PC",
+      "note": "surface reading: briefly, a personal computer as a means of communicating"
+     },
+     {
+      "clueFragment": "In short, a PC",
+      "note": "setter's reading: PC is the standard abbreviation for the thing wanted, a card sent by mail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "PC wants to be a computer or political correctness; here it is the short form of a picture card sent through the mail.",
+     "definitionFit": "A postcard is a card with a message sent through the mail without an envelope, a way of keeping in touch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "PC"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1477,47 @@
     "text": "Habitat too peaceful to include military display",
     "enumeration": "6"
    },
-   "solution": "TATTOO"
+   "solution": "TATTOO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TATTOO",
+    "definitions": [
+     {
+      "text": "military display",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "hidden_word",
+      "note": "the words are said to include the answer, holding it within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Habitat too",
+      "gives": "TATTOO",
+      "note": "the run sits across the two words, after habi"
+     },
+     {
+      "clueFragment": "peaceful",
+      "note": "surface padding, giving no letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A habitat too tranquil to host an army show.",
+     "walkthrough": "'peaceful' is surface padding. A tattoo is an evening military display of drumming and marching, as at Edinburgh.",
+     "definitionFit": "A tattoo is an outdoor military entertainment of marching bands and drill, like the Edinburgh event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peaceful"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1531,53 @@
     "text": "Compact arrangement of trees",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "Compact",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement of",
+      "for": "anagram",
+      "note": "an arrangement sets things out in a chosen order, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "TERSE",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREES",
+       "gives": "TERSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neat, tight grouping of trees in a garden.",
+     "definitionFit": "Terse speech is brief and to the point, using few words, so it is concise or compact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Compact"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1591,64 @@
     "text": "The opposite position taken against the half-sister",
     "enumeration": "10"
    },
-   "solution": "ANTITHESIS"
+   "solution": "ANTITHESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANTITHESIS",
+    "definitions": [
+     {
+      "text": "The opposite position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half of the word is kept, the second part dropped"
+     }
+    ],
+    "linkWords": [
+     "taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "ANTI",
+      "note": "anti means opposed to"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "SISTER",
+      "note": "taken as written before halving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "THE",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes the contrary stance against their half-sister.",
+     "walkthrough": "Half-sister looks like a family relation, but means the first half of sister.",
+     "definitionFit": "A thesis is a proposition, and its antithesis is the contrasting proposition set against it, the reverse view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "half-sister"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1662,62 @@
     "text": "Depend on really, when nearly all is lost",
     "enumeration": "4"
    },
-   "solution": "RELY"
+   "solution": "RELY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RELY",
+    "definitions": [
+     {
+      "text": "Depend on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly the whole of a word means it stops one letter short of its end"
+     },
+     {
+      "text": "is lost",
+      "for": "deletion",
+      "note": "what is lost is taken out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "really",
+      "gives": "REALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "AL",
+      "note": "all cut short by its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Counting on someone, truly, when almost everything has gone.",
+     "walkthrough": "Take AL out of REALLY to leave RELY.",
+     "definitionFit": "To rely on someone is to trust them or count on them for support, the same as depend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1731,70 @@
     "text": "Ever gone back on large railway? It's fun!",
     "enumeration": "7"
    },
-   "solution": "REVELRY"
+   "solution": "REVELRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REVELRY",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone back",
+      "for": "reversal",
+      "note": "something gone back has retraced its route, so the word is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ever",
+      "gives": "EVER",
+      "note": "taken as written before turning"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-label abbreviation for large"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVE",
+      "L",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "EVER",
+       "to": "REVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a trip back on a big railway line, enjoyed by all.",
+     "definitionFit": "Revelry is lively, noisy celebration and merrymaking, high spirits and partying of a fun kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "railway"
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1808,57 @@
     "text": "Scene in \"Tempest\" will infuriate",
     "enumeration": "7"
    },
-   "solution": "INCENSE"
+   "solution": "INCENSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCENSE",
+    "definitions": [
+     {
+      "text": "infuriate",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "\"Tempest\"",
+      "for": "anagram",
+      "note": "a tempest is a violent storm, which throws the letters about into chaos"
+     }
+    ],
+    "linkWords": [
+     "will"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scene in",
+      "gives": "INCENSE",
+      "note": "all seven letters of the two words rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCENSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCENEIN",
+       "gives": "INCENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scene in Shakespeare's play The Tempest will enrage its audience.",
+     "walkthrough": "The play title looks like a source, but it is the storm that jumbles the letters.",
+     "definitionFit": "To incense someone, stressed on the second syllable, is to make them very angry or enraged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tempest"
+    }
+   }
   }
  ]
 }
