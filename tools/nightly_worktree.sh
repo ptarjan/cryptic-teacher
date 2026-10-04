@@ -64,11 +64,13 @@ if ! flock -n 9; then
   exit 0
 fi
 
-# The merge driver .gitattributes names for the keyed JSON data files. Repo
-# config is shared by every worktree of the checkout, so registering it on each
-# run covers the jobs, the people and the agents rebasing alongside them.
+# The merge driver and clean filter .gitattributes names for the keyed JSON
+# data files. Repo config is shared by every worktree of the checkout, so
+# registering them on each run covers the jobs, the people and the agents
+# rebasing and committing alongside them.
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.name "per-key JSON merge (tools/json_merge.py)"
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
+git -C "$(dirname "${BASH_SOURCE[0]}")" config filter.json-keys.clean "python3 tools/json_merge.py --clean"
 
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

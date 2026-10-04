@@ -1,8 +1,9 @@
 # Keyed JSON data that several writers append to at once: merged per key by
-# tools/json_merge.py, which tools/nightly_worktree.sh registers as the
-# json-keys driver. Where the driver is not registered git ignores the
-# attribute and merges line by line.
-tools/data/corroboration_ledger.json merge=json-keys
-tools/data/setter_error.json merge=json-keys
-tools/data/source_answer_wrong.json merge=json-keys
-tools/data/source_clue_wrong.json merge=json-keys
+# tools/json_merge.py, and staged in its one-line-per-key layout by the same
+# script as a clean filter. tools/nightly_worktree.sh registers both as
+# json-keys; where they are not registered git ignores the attributes, and
+# tools/test_json_merge.sh fails on a committed file that is not in that layout.
+tools/data/corroboration_ledger.json merge=json-keys filter=json-keys
+tools/data/setter_error.json merge=json-keys filter=json-keys
+tools/data/source_answer_wrong.json merge=json-keys filter=json-keys
+tools/data/source_clue_wrong.json merge=json-keys filter=json-keys
