@@ -909,7 +909,7 @@ check("a held clue on two lights takes this reading's clue for each, answers kep
       ([e["clue"]["text"] for e in mended["entries"]], now, mended["entries"][1]["solution"]))
 mended, now = f.mend_held(held_13998(["A man's man", "", occasional]), path)
 check("a light this reading has no clue for is filed blank", ("", True),
-      (mended["entries"][1]["clue"]["text"], mended["entries"][1]["clue"].get("missing")))
+      (mended["entries"][1]["clue"].get("text", ""), mended["entries"][1]["clue"].get("missing")))
 path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
 mended, now = f.mend_held(None, path)
 check("with no reading, each light a held clue sits on twice is blank", {"15-across": "", "18-across": ""}, now)
@@ -917,11 +917,25 @@ check("a held filing with no clue on two lights is left alone", None,
       f.mend_held(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
           held_13998(["A man's man", "An Athenian", occasional]))) and path))
 
-path.write_text(json.dumps(held_13998(["A man's man", "Occasional raid 18 Cops turn out", "Sporadic"])))
+# A refused held clue under an annotation (ftcryptic-9091 22 down): this
+# reading's clue replaces it and the annotation, written against the old
+# words, goes; with no clue read for it the held clue and its annotation
+# stand, since check_rewrite refuses blanking a clue's words.
+import copy, definitions, puzzle_integrity, puzzle_schema
+held = held_13998(["A man's man", "Occasional raid 18 Cops turn out", "Sporadic"])
+held["entries"][1]["annotation"] = {"definitions": [{"text": "Cops turn out", "at": 19}]}
+held["source"]["retrievedFrom"] = "newspaper"
+path.write_text(json.dumps(held))
 mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
-check("a held clue the filer now refuses takes this reading's clue", {"15-across": "An Athenian acted in any element"}, now)
-mended, now = f.mend_held(None, path)
-check("with no reading, a held clue the filer now refuses is blank", {"15-across": ""}, now)
+check("a held clue the filer now refuses takes this reading's clue, its annotation dropped",
+      ({"15-across": "An Athenian acted in any element"}, None),
+      (now, mended["entries"][1].get("annotation")))
+check("a refused held clue no reading has is left alone, annotation and all", [None, None],
+      [f.mend_held(None, path), f.mend_held(held_13998(["A man's man", "", "Sporadic"]), path)])
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
+flags = []
+puzzle_integrity.check_rewrite(held, definitions.place_puzzle(puzzle_schema.prune(copy.deepcopy(mended))), flags)
+check("a mended filing places its definitions and passes the rewrite check", [], flags)
 
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))

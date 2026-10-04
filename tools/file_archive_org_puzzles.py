@@ -1989,31 +1989,47 @@ def mend_held(puzzle, path):
     light the file gives a clue it gives another light too
     (fetch_puzzle.duplicated_clues), or a clue faults() refuses, takes this
     reading's clue for it, which one_light_each left on one light at most
-    and unfit_blanked let stand, else blank, for the blank-clue re-read.
-    None when the file holds no such clue, is not this tool's, or lies on
+    and unfit_blanked let stand. With none, a light on a shared clue goes
+    blank for the blank-clue re-read, and a refused clue stands: its words
+    are all the corpus has of it (puzzle_integrity.check_rewrite). A light
+    whose clue changes loses its annotation, written against the old words.
+    None when no clue changes, the file is not this tool's, or it lies on
     another grid than this reading. With no reading (`puzzle` None: its
-    scan now reads as another number), every such light is blank."""
+    scan now reads as another number), only the shared clues go."""
     from fetch_puzzle import duplicated_clues
     old = json.loads(path.read_text())
     puzzle = puzzle or {"entries": []}
     if (old.get("source") or {}).get("acquiredBy") != TOOL \
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
-    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids} | set(faults(old))
+    shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
+    lost = shared | set(faults(old))
     if not lost:
         return None
-    now = {entry_id(e): e["clue"] for e in puzzle["entries"]}
+    now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e["clue"] or {}).get("text")}
+    was = {entry_id(e): e.get("clue") for e in old["entries"]}
     blank = enumeration.clue("", missing=True)
+
+    def fallback(lid):
+        return blank if lid in shared else was[lid]
     for e in old["entries"]:
         if entry_id(e) in lost:
-            e["clue"] = now.get(entry_id(e)) or blank
+            e["clue"] = now.get(entry_id(e)) or fallback(entry_id(e))
     # This reading's clue for a lost light may be one the file keeps on
-    # another: that light's then goes blank too.
+    # another: that light's falls back too.
     for ids in duplicated_clues(old["entries"]):
         for e in old["entries"]:
             if entry_id(e) in ids and entry_id(e) in lost:
-                e["clue"] = blank
-    return old, {entry_id(e): e["clue"].get("text") or "" for e in old["entries"] if entry_id(e) in lost}
+                e["clue"] = fallback(entry_id(e))
+    text = lambda clue: (clue or {}).get("text") or ""
+    changed = {entry_id(e) for e in old["entries"]
+               if entry_id(e) in lost and text(e["clue"]) != text(was[entry_id(e)])}
+    if not changed:
+        return None
+    for e in old["entries"]:
+        if entry_id(e) in changed:
+            e.pop("annotation", None)
+    return old, {entry_id(e): text(e["clue"]) for e in old["entries"] if entry_id(e) in lost}
 
 
 def save(ledger, known):
@@ -2128,7 +2144,7 @@ def main(argv=None):
     ap.add_argument("--edition", action="append", metavar="ITEM/EDITION",
                     help="read this edition again, and no other (repeatable)")
     ap.add_argument("--mend-held", nargs="+", metavar="ID",
-                    help="blank each clue these held filings give two lights, or that faults() refuses, with no reading")
+                    help="blank each clue these held filings give two lights, with no reading")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
