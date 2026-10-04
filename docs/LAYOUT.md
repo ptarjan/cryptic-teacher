@@ -1409,5 +1409,10 @@ tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare ev
                                              sent?
 tools/test_prereset_index_lock.sh            do the pool's concurrent runs commit only their
                                              own puzzle?
+tools/test_anagram_ring.sh                   a clue typed anagram gets the anagram ring: app.js
+                                             deals the whole-answer anagram's fodder, else the
+                                             longest part-anagram's, and the validator warns
+                                             (ratcheted as assembly.anagrams) when a clue typed
+                                             anagram names no fodder
 ```
 <!-- LAYOUT-END -->

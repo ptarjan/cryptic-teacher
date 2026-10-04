@@ -1047,6 +1047,8 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     explanation.surface) what="ONE sentence, 25 words max, of the picture the clue pretends to paint — never its mechanics" ;;
     indicators.for) name="\`for\` on each indicator object"
       what="the one name from the clue's own \`type\` whose operation those words signal" ;;
+    assembly.anagrams) name="\`assembly.anagrams\` entry"
+      what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
   prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
