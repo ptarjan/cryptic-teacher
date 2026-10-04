@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Twins seen in orange miniskirts",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "Twins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a place is visible inside it, so the answer sits inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orange miniskirts",
+      "gives": "GEMINI",
+      "note": "runs across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair of twin sisters spotted wearing matching orange miniskirts.",
+     "walkthrough": "GEMINI sits across oranGE MINIskirts.",
+     "definitionFit": "Gemini is the zodiac sign and constellation known as the Twins, after Castor and Pollux."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twins"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,50 @@
     "text": "Disruptive cat is a lion running around",
     "enumeration": "10"
    },
-   "solution": "ANTISOCIAL"
+   "solution": "ANTISOCIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTISOCIAL",
+    "definitions": [
+     {
+      "text": "Disruptive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running around",
+      "for": "anagram",
+      "note": "letters running around are scattered about and land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat is a lion",
+      "gives": "CATISALION",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CATISALION",
+       "gives": "ANTISOCIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troublesome house cat races about as if it were a lion.",
+     "definitionFit": "Antisocial behaviour is conduct that upsets other people and the community, which is what disruptive behaviour does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +143,65 @@
     "text": "Edited diary kept by guy who looks after cows",
     "enumeration": "8"
    },
-   "solution": "DAIRYMAN"
+   "solution": "DAIRYMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DAIRYMAN",
+    "definitions": [
+     {
+      "text": "who looks after cows",
+      "at": 25,
+      "note": "a relative clause standing for the person, completed by the noun 'guy' in the surface"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Edited",
+      "for": "anagram",
+      "note": "an edited text has been reworked, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "kept by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diary",
+      "gives": "DIARY",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "a guy is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAIRY",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIARY",
+       "gives": "DAIRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmhand's journal, tidied up for publication.",
+     "walkthrough": "Diary and dairy differ only in the order of two letters, a swap setters love; 'kept by' simply joins the two parts.",
+     "definitionFit": "A dairyman is a farm worker employed to milk and tend a herd of milking cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edited"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +215,51 @@
     "text": "Cold bird is yellow",
     "enumeration": "6"
    },
-   "solution": "CRAVEN"
+   "solution": "CRAVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAVEN",
+    "definitions": [
+     {
+      "text": "yellow",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "RAVEN",
+      "note": "a large black crow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A chilly bird turns out to be yellow-feathered.",
+     "walkthrough": "'Yellow' looks like a colour but means cowardly here.",
+     "definitionFit": "Yellow is slang for cowardly, and craven means lacking courage in a contemptible way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yellow"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +273,56 @@
     "text": "Extent of news about to be written in pen",
     "enumeration": "8"
    },
-   "solution": "COVERAGE"
+   "solution": "COVERAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVERAGE",
+    "definitions": [
+     {
+      "text": "Extent of news",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be written in",
+      "for": "container",
+      "note": "words written in something are placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "CAGE",
+      "note": "a pen is an enclosure for animals"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "OVER",
+      "note": "as in arguing over something, meaning about it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "How widely a story is reported, about to be written up by a journalist's pen.",
+     "walkthrough": "'Pen' suggests writing, but here it is an animal enclosure.",
+     "definitionFit": "Coverage is the amount of attention and reporting that the media give to a story or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +336,54 @@
     "text": "Attractive farmland about to suffice",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADORABLE",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farmland",
+      "gives": "ARABLE",
+      "note": "arable land is ploughed for crops"
+     },
+     {
+      "clueFragment": "to suffice",
+      "gives": "DO",
+      "note": "as in 'that will do'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretty piece of farmland is just about good enough.",
+     "definitionFit": "Something adorable is lovable and charming, which is close to pleasing or attractive in appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suffice"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +403,43 @@
      }
     ]
    },
-   "solution": "INCAMERA"
+   "solution": "INCAMERA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN CAMERA",
+    "definitions": [
+     {
+      "text": "Find film here",
+      "at": 0
+     },
+     {
+      "text": "privately",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find film here",
+      "note": "first meaning, read literally: the place where the roll of film is loaded"
+     },
+     {
+      "clueFragment": "privately",
+      "note": "second meaning: a legal phrase for proceedings held behind closed doors"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is a playful literal reading; the second is the Latin-derived legal phrase used of hearings closed to the public.",
+     "definitionFit": "A case heard in camera takes place in the judge's private rooms, with press and public excluded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +453,58 @@
     "text": "Issue of \"Time\" turned up",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up reads it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "TIME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An edition of Time magazine has appeared.",
+     "walkthrough": "'Issue' looks like a magazine edition but is the verb.",
+     "definitionFit": "To emit is to send out or discharge, which is to issue in the sense of giving forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +518,47 @@
     "text": "A cloth border attracts attention",
     "enumeration": "4"
    },
-   "solution": "AHEM"
+   "solution": "AHEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHEM",
+    "definitions": [
+     {
+      "text": "attracts attention",
+      "at": 15,
+      "note": "a phrase describing what the interjection does rather than a synonym for it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cloth border",
+      "gives": "HEM",
+      "note": "the folded and sewn edge of fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HEM"
+     ]
+    },
+    "explanation": {
+     "surface": "A decorative edging on a fabric catches people's eye.",
+     "definitionFit": "Ahem is the small throat-clearing cough a speaker makes to get someone to notice them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "attracts"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +572,71 @@
     "text": "Fiddle with oil mixed in French wine",
     "enumeration": "6"
    },
-   "solution": "VIOLIN"
+   "solution": "VIOLIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VIOLIN",
+    "definitions": [
+     {
+      "text": "Fiddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed letters are stirred up into a different order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French wine",
+      "gives": "VIN",
+      "note": "the French word for wine"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "OLI",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OIL",
+       "gives": "OLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook adulterates French wine by stirring oil into it.",
+     "walkthrough": "'Fiddle' suggests tampering, but it is the instrument.",
+     "definitionFit": "Fiddle is the everyday name for the violin, especially in folk music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fiddle"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +650,63 @@
     "text": "Headache needs one small quantity eaten by me",
     "enumeration": "8"
    },
-   "solution": "MIGRAINE"
+   "solution": "MIGRAINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MIGRAINE",
+    "definitions": [
+     {
+      "text": "Headache",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "food eaten by someone ends up inside them"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "small quantity",
+      "gives": "GRAIN",
+      "note": "a tiny particle or amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IGRAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a headache insists they need just one small dose swallowed.",
+     "definitionFit": "A migraine is a severe, recurring kind of headache, often with nausea and disturbed vision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +726,51 @@
      }
     ]
    },
-   "solution": "READINGROOM"
+   "solution": "READINGROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READING ROOM",
+    "definitions": [
+     {
+      "text": "Quiet place",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thames town",
+      "gives": "READING",
+      "note": "Reading is a large town on the River Thames, west of London"
+     },
+     {
+      "clueFragment": "apartment",
+      "gives": "ROOM",
+      "note": "an apartment can mean a single room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READING",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking for a peaceful flat in a riverside town.",
+     "walkthrough": "Reading, the Berkshire town, is pronounced 'redding', which hides it inside the ordinary word.",
+     "definitionFit": "A reading room in a library or club is set aside for silent study, so talking is discouraged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "apartment"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +794,43 @@
      }
     ]
    },
-   "solution": "GETTHEBIRD"
+   "solution": "GETTHEBIRD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET THE BIRD",
+    "definitions": [
+     {
+      "text": "Be hissed at",
+      "at": 0
+     },
+     {
+      "text": "for Christmas?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be hissed at",
+      "note": "first meaning: an idiom for a performer being booed by the audience"
+     },
+     {
+      "clueFragment": "for Christmas?",
+      "note": "second meaning, read literally: to receive the turkey for the festive dinner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful literal reading of the theatrical idiom.",
+     "definitionFit": "To get the bird is theatre slang for being jeered off stage, while the bird at Christmas is the roast turkey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hissed"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +844,64 @@
     "text": "Old word for \"chief\" is found in the morning",
     "enumeration": "8"
    },
-   "solution": "ARCHAISM"
+   "solution": "ARCHAISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARCHAISM",
+    "definitions": [
+     {
+      "text": "Old word",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place is located inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief",
+      "gives": "ARCH",
+      "note": "as in archenemy, meaning principal"
+     },
+     {
+      "clueFragment": "the morning",
+      "gives": "AM",
+      "note": "a.m. is short for ante meridiem, the morning"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "A",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictionary note says an outdated term for 'chief' turns up in early use.",
+     "definitionFit": "An archaism is a word or expression that has fallen out of current use, kept only for effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "morning"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +915,56 @@
     "text": "A daughter with chance to have a new child",
     "enumeration": "8"
    },
-   "solution": "ADOPTION"
+   "solution": "ADOPTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADOPTION",
+    "definitions": [
+     {
+      "text": "to have a new child",
+      "at": 23,
+      "note": "the clue gives a purpose phrase; the answer is the noun for that act"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter, as in family trees"
+     },
+     {
+      "clueFragment": "chance",
+      "gives": "OPTION",
+      "note": "an opportunity or choice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "OPTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter gets the opportunity of a new sibling.",
+     "definitionFit": "Adoption is the legal process by which a family takes in another person's child as their own."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daughter"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +978,64 @@
     "text": "Nonsensical bilge right for Sullivan's partner",
     "enumeration": "7"
    },
-   "solution": "GILBERT"
+   "solution": "GILBERT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GILBERT",
+    "definitions": [
+     {
+      "text": "Sullivan's partner",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nonsensical",
+      "for": "anagram",
+      "note": "a nonsensical word makes no sense as it stands and must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bilge",
+      "gives": "BILGE",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GILBE",
+      "RT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BILGE",
+       "gives": "GILBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Absurd rubbish is just right for a famous composer's collaborator.",
+     "walkthrough": "'Bilge' looks like part of the surface's disdain for nonsense, but it is the raw material.",
+     "definitionFit": "W.S. Gilbert wrote the librettos for Arthur Sullivan's comic operas, such as The Mikado."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bilge"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1049,50 @@
     "text": "Sinner he could, perhaps, cherish as sacred",
     "enumeration": "8"
    },
-   "solution": "ENSHRINE"
+   "solution": "ENSHRINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENSHRINE",
+    "definitions": [
+     {
+      "text": "cherish as sacred",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could, perhaps",
+      "for": "anagram",
+      "note": "'could, perhaps' hints the letters might be arranged some other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinner he",
+      "gives": "SINNERHE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINNERHE",
+       "gives": "ENSHRINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Could a sinner, perhaps, still hold something holy?",
+     "definitionFit": "To enshrine is to place in a shrine, or more generally to preserve something as holy and inviolable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sinner"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1106,51 @@
     "text": "One grid strangely neglected",
     "enumeration": "7"
    },
-   "solution": "IGNORED"
+   "solution": "IGNORED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORED",
+    "definitions": [
+     {
+      "text": "neglected",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters come out oddly ordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One grid",
+      "gives": "ONEGRID",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEGRID",
+       "gives": "IGNORED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single crossword grid left oddly unattended.",
+     "walkthrough": "'One' tempts you to write I, but all its letters go into the mix.",
+     "definitionFit": "To be ignored is to have been disregarded or paid no attention, which is to be neglected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1164,60 @@
     "text": "Prize for chars busy with polish",
     "enumeration": "11"
    },
-   "solution": "SCHOLARSHIP"
+   "solution": "SCHOLARSHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHOLARSHIP",
+    "definitions": [
+     {
+      "text": "Prize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy letters are bustling about and get thoroughly jumbled"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chars",
+      "gives": "CHARS",
+      "note": "the first part of the letters to rearrange"
+     },
+     {
+      "clueFragment": "polish",
+      "gives": "POLISH",
+      "note": "the second part of the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARSPOLISH",
+       "gives": "SCHOLARSHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An award goes to cleaning ladies kept busy with the polish.",
+     "walkthrough": "A char, or charwoman, is an old British word for a cleaning lady.",
+     "definitionFit": "A scholarship is an award of money for study, given to a student for academic merit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chars"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1231,55 @@
     "text": "Part-dried grape is seen in the rain",
     "enumeration": "6"
    },
-   "solution": "RAISIN"
+   "solution": "RAISIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAISIN",
+    "definitions": [
+     {
+      "text": "Part-dried grape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a place is located inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the rain",
+      "gives": "RAIN",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "IS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grape left half-dried is spotted out in the wet weather.",
+     "walkthrough": "'The' is part of the outer piece's fragment and adds no letters.",
+     "definitionFit": "A raisin is a grape that has been dried, usually in the sun, until shrivelled and sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rain"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1293,57 @@
     "text": "I'm at the front of the bistro: \"The Stork\"",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IBIS",
+    "definitions": [
+     {
+      "text": "The Stork",
+      "at": 33,
+      "note": "the ibis is a wading bird of the stork's family, so this is a loose example"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letters, so only the start is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm at the",
+      "gives": "I",
+      "note": "the letter I placed first"
+     },
+     {
+      "clueFragment": "the bistro",
+      "gives": "BIS",
+      "select": "first",
+      "note": "the opening three letters of bistro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant owner announces they are out front at The Stork bistro.",
+     "walkthrough": "I goes at the front, followed by the first three letters of bistro.",
+     "definitionFit": "The ibis is a long-legged wading bird related to the storks, sacred in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stork"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1357,65 @@
     "text": "Shoot a good man with me looking up",
     "enumeration": "4"
    },
-   "solution": "STEM"
+   "solution": "STEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STEM",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking up",
+      "for": "reversal",
+      "note": "in a down entry, looking up reads the word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a good man",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint, a good man"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EM"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to fire at a virtuous man while he gazes upwards.",
+     "walkthrough": "'Shoot' looks like a command to fire, but it is the noun for a plant's growth.",
+     "definitionFit": "A shoot of a plant is a new stem growing up from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Shoot"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1429,54 @@
     "text": "Infant grasps completed garment",
     "enumeration": "8"
    },
-   "solution": "BATHROBE"
+   "solution": "BATHROBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BATHROBE",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasps",
+      "for": "container",
+      "note": "something that grasps another holds it inside its grip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infant",
+      "gives": "BABE",
+      "note": "a babe is a baby"
+     },
+     {
+      "clueFragment": "completed",
+      "gives": "THRO",
+      "note": "short for through, as in 'I'm through' meaning finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "THRO",
+      "BE"
+     ]
+    },
+    "explanation": {
+     "surface": "A baby clutches a newly finished item of clothing.",
+     "definitionFit": "A bathrobe is a loose gown worn before or after bathing, so it is an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "completed"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1490,43 @@
     "text": "Pacific atoll doesn't cover much!",
     "enumeration": "6"
    },
-   "solution": "BIKINI"
+   "solution": "BIKINI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BIKINI",
+    "definitions": [
+     {
+      "text": "Pacific atoll",
+      "at": 0
+     },
+     {
+      "text": "doesn't cover much!",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pacific atoll",
+      "note": "first meaning: the Marshall Islands atoll used for US nuclear tests"
+     },
+     {
+      "clueFragment": "doesn't cover much!",
+      "note": "second meaning: a description of a skimpy two-piece swimsuit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The swimsuit was named after the atoll in 1946, so the two senses share a history.",
+     "definitionFit": "Bikini is both the island where atomic bombs were tested and the scanty two-piece swimwear named after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1540,67 @@
     "text": "Almost see Mary hugging in college",
     "enumeration": "8"
    },
-   "solution": "SEMINARY"
+   "solution": "SEMINARY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "SEMINARY",
+    "definitions": [
+     {
+      "text": "college",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "a word hugging another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mary",
+      "gives": "MARY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "M",
+      "IN",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly time to see Mary embracing someone at university.",
+     "definitionFit": "A seminary is a college where students train for the priesthood or ministry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hugging"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1614,59 @@
     "text": "Irma held by a new pilot",
     "enumeration": "6"
    },
-   "solution": "AIRMAN"
+   "solution": "AIRMAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AIRMAN",
+    "definitions": [
+     {
+      "text": "pilot",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Irma",
+      "gives": "IRMA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IRMA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Irma is embraced by a newly qualified pilot.",
+     "definitionFit": "An airman is a member of an air force, and especially one who flies aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Irma"
+    }
+   }
   }
  ]
 }
