@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,47 @@
     "text": "Dislike of French cricket",
     "enumeration": "6"
    },
-   "solution": "DETEST"
+   "solution": "DETEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETEST",
+    "definitions": [
+     {
+      "text": "Dislike",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is the French word for of"
+     },
+     {
+      "clueFragment": "cricket",
+      "gives": "TEST",
+      "note": "a Test is an international cricket match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses an aversion to the way the French play cricket.",
+     "walkthrough": "'Dislike' reads as a noun in the surface but works as a verb here.",
+     "definitionFit": "Both verbs express strong aversion; to loathe something is to dislike it intensely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +92,62 @@
     "text": "Society girl giving support to another in scandal",
     "enumeration": "8"
    },
-   "solution": "DISGRACE"
+   "solution": "DISGRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISGRACE",
+    "definitions": [
+     {
+      "text": "scandal",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving support to",
+      "for": "charade",
+      "note": "in a down clue, what gives support sits underneath, so it follows in the grid"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "DI",
+      "note": "another girl's name, short for Diana"
+     },
+     {
+      "clueFragment": "Society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GRACE",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "GRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante props up a friend caught in a scandal.",
+     "definitionFit": "A disgrace is a shameful affair that brings dishonour, close in sense to a scandal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +161,44 @@
     "text": "When refreshment is served, leaves promptly?",
     "enumeration": "7"
    },
-   "solution": "TEATIME"
+   "solution": "TEATIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEATIME",
+    "definitions": [
+     {
+      "text": "When refreshment is served",
+      "at": 0
+     },
+     {
+      "text": "leaves promptly",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When refreshment is served",
+      "note": "first meaning: the hour of the afternoon meal"
+     },
+     {
+      "clueFragment": "leaves promptly?",
+      "note": "second, punning meaning: leaves read as tea leaves, and promptly as on time"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone departs on the dot just as the refreshments arrive.",
+     "walkthrough": "'Leaves' looks like a verb of departure; read it as tea leaves, and 'promptly' as time, and the question mark flags the pun.",
+     "definitionFit": "The late-afternoon meal in Britain is taken at a fixed hour, when cups and cakes are brought out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +212,66 @@
     "text": "Left in vessel with crew, he could be blue",
     "enumeration": "9"
    },
-   "solution": "SPORTSMAN"
+   "solution": "SPORTSMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPORTSMAN",
+    "definitions": [
+     {
+      "text": "he could be blue",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the letters of the vessel"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "SS",
+      "note": "SS is a steamship"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MAN",
+      "note": "to man a ship is to crew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PORT",
+      "S",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor left on a ship with its crew might be feeling sad.",
+     "walkthrough": "A blue is someone who has represented Oxford or Cambridge University at sport, so 'blue' is not sadness.",
+     "definitionFit": "A university blue is awarded to an athlete, so such a person is an example of an athlete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +285,47 @@
     "text": "Frenzied City at standstill",
     "enumeration": "8"
    },
-   "solution": "ECSTATIC"
+   "solution": "ECSTATIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECSTATIC",
+    "definitions": [
+     {
+      "text": "Frenzied",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postal district of the City of London"
+     },
+     {
+      "clueFragment": "at standstill",
+      "gives": "STATIC",
+      "note": "static means not moving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "STATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "The financial City is paralysed and its traders are in a panic.",
+     "walkthrough": "The City, capitalised, is London's financial district, whose postcodes begin EC.",
+     "definitionFit": "Someone in a frenzy of delight or excitement is beside themselves, which is what this adjective describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +339,62 @@
     "text": "Climbing equipment's design to conserve energy put limits on freedom",
     "enumeration": "14"
    },
-   "solution": "CRAMPONESSTYLE"
+   "solution": "CRAMPONESSTYLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CRAMP ONE'S STYLE",
+    "definitions": [
+     {
+      "text": "put limits on freedom",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to conserve",
+      "for": "container",
+      "note": "to conserve something is to keep it safe inside, so a letter is held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Climbing equipment's",
+      "gives": "CRAMPONS",
+      "note": "crampons are spiked frames fixed to boots for climbing on ice"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "STYLE",
+      "note": "a style is a design"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAMPON",
+      "E",
+      "S",
+      "STYLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mountaineering gear designed to save effort ends up restricting movement.",
+     "walkthrough": "The energy letter slips in before the possessive S, so 'equipment's' does double duty as plural and possessive.",
+     "definitionFit": "The idiom means to restrict someone's freedom of action, hampering how they would naturally behave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conserve"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +408,54 @@
     "text": "Lush fish on river",
     "enumeration": "5"
    },
-   "solution": "TOPER"
+   "solution": "TOPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOPER",
+    "definitions": [
+     {
+      "text": "Lush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the first part comes earlier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "TOPE",
+      "note": "the tope is a small shark"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A lush, plump fish lies in the river.",
+     "walkthrough": "'Lush' looks like an adjective for green growth; it is slang for a drunkard.",
+     "definitionFit": "A toper is a habitual heavy drinker, and lush is slang for exactly such a drunkard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lush"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +469,68 @@
     "text": "Workers collectively given rise in political group's gesture of appreciation",
     "enumeration": "7"
    },
-   "solution": "TRIBUTE"
+   "solution": "TRIBUTE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRIBUTE",
+    "definitions": [
+     {
+      "text": "gesture of appreciation",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given rise",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from the bottom up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reversed letters inside the group word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political group's",
+      "gives": "TRIBE",
+      "note": "a tribe is a faction or political grouping"
+     },
+     {
+      "clueFragment": "Workers collectively",
+      "gives": "TU",
+      "note": "a TU, trade union, is workers acting collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIB",
+      "UT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TU",
+       "to": "UT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Union members are given a pay rise as a party's thank-you.",
+     "walkthrough": "'Given rise' suggests a pay rise, but in a down clue rising means reading upwards.",
+     "definitionFit": "A tribute is an act or statement showing gratitude, respect or admiration for someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +544,43 @@
     "text": "Voice strong objection to fashion",
     "enumeration": "6"
    },
-   "solution": "CREATE"
+   "solution": "CREATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREATE",
+    "definitions": [
+     {
+      "text": "Voice strong objection",
+      "at": 0
+     },
+     {
+      "text": "fashion",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Voice strong objection",
+      "note": "first meaning: British informal sense, to make a fuss or complain loudly"
+     },
+     {
+      "clueFragment": "fashion",
+      "note": "second meaning: to make or produce"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone complains loudly about modern fashion.",
+     "walkthrough": "In British speech, to create is to kick up a fuss, as in 'don't create'.",
+     "definitionFit": "To fashion something is to make or shape it; the informal British sense means to make a scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +594,63 @@
     "text": "Excited interest with opera getting new performance",
     "enumeration": "14"
    },
-   "solution": "REPRESENTATION"
+   "solution": "REPRESENTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPRESENTATION",
+    "definitions": [
+     {
+      "text": "performance",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are churned into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interest",
+      "gives": "INTEREST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "opera",
+      "gives": "OPERA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTERESTOPERAN",
+       "gives": "REPRESENTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eager interest in an opera's new production.",
+     "definitionFit": "A representation is a staging or production of a play, an old theatrical sense for a show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Excited"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +664,56 @@
     "text": "Singular senior citizen works for TV programme",
     "enumeration": "9"
    },
-   "solution": "SOAPOPERA"
+   "solution": "SOAPOPERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOAP OPERA",
+    "definitions": [
+     {
+      "text": "TV programme",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the grammatical abbreviation for singular"
+     },
+     {
+      "clueFragment": "senior citizen",
+      "gives": "OAP",
+      "note": "OAP is an old-age pensioner"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "OPERA",
+      "note": "opera is the Latin plural of opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OAP",
+      "OPERA"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd pensioner produces something for television.",
+     "walkthrough": "OAP, old-age pensioner, is the standard British label for a senior citizen.",
+     "definitionFit": "A long-running serial drama on television is the classic example of this kind of show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +727,42 @@
     "text": "Principal charge",
     "enumeration": "5"
    },
-   "solution": "PRIME"
+   "solution": "PRIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIME",
+    "definitions": [
+     {
+      "text": "Principal",
+      "at": 0
+     },
+     {
+      "text": "charge",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principal",
+      "note": "first meaning: chief, most important"
+     },
+     {
+      "clueFragment": "charge",
+      "note": "second meaning: load a gun or prepare it for firing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Principal charge' sounds like the main accusation in a court case; it is two separate meanings.",
+     "definitionFit": "A prime suspect is the main one, and to prime an old firearm was to load its powder before firing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +776,49 @@
     "text": "Disorderly rioters make merry",
     "enumeration": "7"
    },
-   "solution": "ROISTER"
+   "solution": "ROISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROISTER",
+    "definitions": [
+     {
+      "text": "make merry",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disorderly",
+      "for": "anagram",
+      "note": "disorderly means out of order, so the word it qualifies is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rioters",
+      "gives": "RIOTERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIOTERS",
+       "gives": "ROISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unruly mob celebrating rowdily in the streets.",
+     "definitionFit": "To revel noisily and boisterously is the sense of this verb, close to carousing or celebrating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +832,60 @@
     "text": "Flawless cut diamonds, perhaps, collected in search",
     "enumeration": "7"
    },
-   "solution": "PURSUIT"
+   "solution": "PURSUIT",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "PURSUIT",
+    "definitions": [
+     {
+      "text": "search",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected in",
+      "for": "container",
+      "note": "something collected in is gathered inside, so one word goes within the other"
+     },
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means trimmed short, so the final letter is lopped off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flawless",
+      "gives": "PURE",
+      "note": "pure means without flaw"
+     },
+     {
+      "clueFragment": "diamonds, perhaps",
+      "gives": "SUIT",
+      "note": "diamonds is one of the four suits of cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "SUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller hunts for perfectly cut diamonds.",
+     "walkthrough": "'Flawless cut diamonds' reads as a jeweller's phrase, but cut applies to the first word: the cards go inside it before its last letter is trimmed.",
+     "definitionFit": "A pursuit is a chase or hunt, the act of seeking after something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +899,57 @@
     "text": "Study to acquire English in the top grade",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "the top grade",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "to acquire something is to take it in, so a letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CRAM",
+      "note": "to cram is to study hard before an exam"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A student works hard at English to earn the highest mark.",
+     "definitionFit": "The cream of anything is its finest part, the elite or best quality, as cream rises to the top of milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +963,63 @@
     "text": "Daily transaction to collect right rent",
     "enumeration": "8"
    },
-   "solution": "SUNDERED"
+   "solution": "SUNDERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUNDERED",
+    "definitions": [
+     {
+      "text": "rent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "to collect something is to gather it in, so a letter is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daily",
+      "gives": "SUN",
+      "note": "The Sun is a British daily newspaper"
+     },
+     {
+      "clueFragment": "transaction",
+      "gives": "DEED",
+      "note": "a deed is a legal document recording a transaction"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DE",
+      "R",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A daily payment collected by a landlord for the rent.",
+     "walkthrough": "'Rent' looks like money paid to a landlord; it is the past participle of rend, to tear.",
+     "definitionFit": "Rent as a past participle means torn apart, which is exactly what split or severed asunder describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1033,75 @@
     "text": "Muddle as doctor called extremely late after initial note",
     "enumeration": "9"
    },
-   "solution": "EMBRANGLE"
+   "solution": "EMBRANGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMBRANGLE",
+    "definitions": [
+     {
+      "text": "Muddle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely means at the extremes, so only the two end letters are kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so everything else comes behind the opening note"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initial note",
+      "gives": "E",
+      "note": "E is a musical note"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, a doctor's degree"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "RANG",
+      "note": "rang means telephoned, called"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the outer letters of late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "RANG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A confused GP turns up very late after the first patient.",
+     "definitionFit": "To embrangle is an old verb meaning to entangle or confuse, so it can stand for muddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1115,54 @@
     "text": "Paid the price of fighting in action",
     "enumeration": "8"
    },
-   "solution": "DEFRAYED"
+   "solution": "DEFRAYED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFRAYED",
+    "definitions": [
+     {
+      "text": "Paid the price of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an action"
+     },
+     {
+      "clueFragment": "fighting",
+      "gives": "FRAY",
+      "note": "a fray is a fight or brawl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FRAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone paid dearly for going into battle.",
+     "definitionFit": "To defray costs is to settle or meet them, so defrayed means covered the expense of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1176,57 @@
     "text": "Profits from pub invested in extensions",
     "enumeration": "8"
    },
-   "solution": "WINNINGS"
+   "solution": "WINNINGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WINNINGS",
+    "definitions": [
+     {
+      "text": "Profits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is placed inside it, so one word sits within another"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "extensions",
+      "gives": "WINGS",
+      "note": "wings are extensions built onto a building"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INN",
+      "INGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord ploughs bar takings into building extensions.",
+     "definitionFit": "Money gained from gambling or competition counts as gains or earnings, a sense close to profits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1240,67 @@
     "text": "Very large folk housed in special semi",
     "enumeration": "7"
    },
-   "solution": "IMMENSE"
+   "solution": "IMMENSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMMENSE",
+    "definitions": [
+     {
+      "text": "Very large",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "special",
+      "for": "anagram",
+      "note": "special suggests an unusual version, so the word is rearranged"
+     },
+     {
+      "text": "housed in",
+      "for": "container",
+      "note": "housed in means given a home inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "semi",
+      "gives": "SEMI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "folk",
+      "gives": "MEN",
+      "note": "men are people, folk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MEN",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEMI",
+       "gives": "IMSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big family lives in an unusual semi-detached house.",
+     "walkthrough": "A semi is a British semi-detached house, sharing one wall with its neighbour.",
+     "definitionFit": "Immense means huge or enormous, of extremely great size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "semi"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1314,41 @@
     "text": "Celebration has some robing earlier",
     "enumeration": "5"
    },
-   "solution": "BINGE"
+   "solution": "BINGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BINGE",
+    "definitions": [
+     {
+      "text": "Celebration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has some",
+      "for": "hidden_word",
+      "note": "has some means holds a portion, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robing earlier",
+      "gives": "BINGE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Getting dressed up early before a party.",
+     "definitionFit": "A binge is a bout of heavy drinking or partying, a spree that marks a festive occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1362,61 @@
     "text": "Girl in late given a rollicking",
     "enumeration": "7"
    },
-   "solution": "NATALIE"
+   "solution": "NATALIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATALIE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given a rollicking",
+      "for": "anagram",
+      "note": "a rollicking is a telling-off that knocks someone about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "LATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INLATEA",
+       "gives": "NATALIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who came home late gets a severe scolding.",
+     "walkthrough": "A rollicking is British slang for a telling-off; the a after 'given' joins the anagram.",
+     "definitionFit": "Natalie is a woman's given name, an example of a girl as crosswords use the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rollicking"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1430,67 @@
     "text": "Standing army, in a way, kept up by America",
     "enumeration": "6"
    },
-   "solution": "STATUS"
+   "solution": "STATUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STATUS",
+    "definitions": [
+     {
+      "text": "Standing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the army abbreviation inside the road word"
+     },
+     {
+      "text": "kept up by",
+      "for": "charade",
+      "note": "in a down clue, kept up by means resting on something underneath, so that part follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, is Britain's volunteer reserve"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TA",
+      "T",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A standing army is propped up by the United States.",
+     "walkthrough": "'Standing army' reads as a phrase, but 'Standing' alone is the definition.",
+     "definitionFit": "Standing means rank or position in society, which is what status means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "army"
+    }
+   }
   },
   {
    "number": 23,
@@ -357,7 +1504,66 @@
     "text": "Artist's application an agent collected on return",
     "enumeration": "7"
    },
-   "solution": "TEMPERA"
+   "solution": "TEMPERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TEMPERA",
+    "definitions": [
+     {
+      "text": "Artist's application",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "on return means coming back, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales agent or representative"
+     },
+     {
+      "clueFragment": "collected",
+      "gives": "MET",
+      "note": "to collect someone off a train is to meet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEM",
+      "PER",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AREPMET",
+       "to": "TEMPERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's agent is picked up at the station on the way back.",
+     "definitionFit": "Tempera is a paint made with egg yolk that a painter applies to a panel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "application"
+    }
+   }
   },
   {
    "number": 24,
@@ -371,7 +1577,59 @@
     "text": "Cereal product covering most of the soil",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "soil",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means all but a little, so the last letter is dropped"
+     },
+     {
+      "text": "covering",
+      "for": "charade",
+      "note": "in a down clue, covering means lying on top, so this part comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cereal product",
+      "gives": "EAR",
+      "note": "an ear is the grain-bearing head of a cereal plant"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A crop of grain spread over most of the field.",
+     "definitionFit": "Earth is the loose ground in which plants grow, the same stuff as soil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "product"
+    }
+   }
   },
   {
    "number": 25,
@@ -385,7 +1643,64 @@
     "text": "Rubbish cart reversed into another vehicle",
     "enumeration": "7"
    },
-   "solution": "TRACTOR"
+   "solution": "TRACTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRACTOR",
+    "definitions": [
+     {
+      "text": "another vehicle",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned round, applying to both words before it"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "ROT",
+      "note": "rot is nonsense, rubbish"
+     },
+     {
+      "clueFragment": "cart",
+      "gives": "CART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTCART",
+       "to": "TRACTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dustcart backs into another vehicle.",
+     "walkthrough": "'Rubbish cart' reads as a dustcart, but rubbish gives a word of its own and both words are reversed together.",
+     "definitionFit": "A tractor is a farm vehicle, and 'another' plays off the cart already in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 26,
@@ -399,7 +1714,50 @@
     "text": "Number of men giving voice?",
     "enumeration": "5"
    },
-   "solution": "TENOR"
+   "solution": "TENOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENOR",
+    "definitions": [
+     {
+      "text": "voice",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "of men",
+      "gives": "OR",
+      "note": "OR is other ranks, the ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "How many men are needed to sing?",
+     "walkthrough": "OR, other ranks, is the military label for soldiers who are not officers.",
+     "definitionFit": "The tenor is a male singing voice, the highest ordinary register for adult men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 27,
@@ -413,7 +1771,60 @@
     "text": "Unfortunate friend, say, held without licence",
     "enumeration": "9"
    },
-   "solution": "ILLEGALLY"
+   "solution": "ILLEGALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ILLEGALLY",
+    "definitions": [
+     {
+      "text": "without licence",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped inside, so an abbreviation goes within a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfortunate",
+      "gives": "ILL",
+      "note": "ill as in ill-fated, unlucky"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "EG",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A luckless companion has been detained for some offence committed without a permit.",
+     "definitionFit": "Acting without permission or authorisation from the law is acting unlawfully, which is this adverb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 28,
@@ -427,7 +1838,66 @@
     "text": "Disturbance in night spot at opening of bubbly",
     "enumeration": "8"
    },
-   "solution": "SEETHING"
+   "solution": "SEETHING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SEETHING",
+    "definitions": [
+     {
+      "text": "bubbly",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disturbance in",
+      "for": "anagram",
+      "note": "a disturbance throws things into disorder, so the following word is shuffled"
+     },
+     {
+      "text": "at opening of",
+      "for": "charade",
+      "note": "placed at the opening means put at the front of the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spot",
+      "gives": "SEE",
+      "note": "to spot is to see"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "NIGHT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "THING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGHT",
+       "gives": "THING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fracas breaks out at a nightclub just as the champagne is opened.",
+     "walkthrough": "'Night spot' looks like a club and 'bubbly' like champagne; spot is a verb and bubbly the definition.",
+     "definitionFit": "Seething liquid boils and froths, so seething works as an adjective for bubbling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bubbly"
+    }
+   }
   },
   {
    "number": 29,
@@ -441,7 +1911,56 @@
     "text": "Finish up on lap for traditional story",
     "enumeration": "6"
    },
-   "solution": "LEGEND"
+   "solution": "LEGEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGEND",
+    "definitions": [
+     {
+      "text": "traditional story",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up on",
+      "for": "charade",
+      "note": "up on means placed against, so one part follows directly after the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lap",
+      "gives": "LEG",
+      "note": "a leg is one stage or lap of a race"
+     },
+     {
+      "clueFragment": "Finish",
+      "gives": "END",
+      "note": "end means finish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner completes the circuit in a race.",
+     "definitionFit": "A legend is an old tale handed down through generations, often of heroic deeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lap"
+    }
+   }
   }
  ]
 }
