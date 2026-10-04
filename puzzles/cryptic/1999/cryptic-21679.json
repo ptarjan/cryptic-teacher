@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,40 @@
     "text": "Announcer's autocue?",
     "enumeration": "8"
    },
-   "solution": "TAILBACK"
+   "solution": "TAILBACK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TAILBACK",
+    "definitions": [
+     {
+      "text": "Announcer's autocue?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Announcer's autocue?",
+      "note": "surface reading: the prompting screen a TV presenter reads from"
+     },
+     {
+      "clueFragment": "autocue",
+      "note": "setter's reading: said by an announcer, 'cue' is heard as 'queue', so an 'auto queue' is a line of stationary cars"
+     }
+    ],
+    "explanation": {
+     "surface": "A newsreader glancing at the prompter screen that scrolls the script.",
+     "walkthrough": "The question mark flags the pun: spoken aloud, cue and queue are the same, and an auto queue is a line of cars.",
+     "definitionFit": "A queue of motor traffic stretching back from an obstruction on the road is what Britons call this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "autocue"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +83,61 @@
     "text": "Taken to ring outside Spanish city",
     "enumeration": "6"
    },
-   "solution": "TOLEDO"
+   "solution": "TOLEDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TOLEDO",
+    "definitions": [
+     {
+      "text": "Spanish city",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one part sits outside, wrapping around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "Taken",
+      "gives": "LED",
+      "note": "taken somewhere, as a guide leads you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "O",
+      "LED",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone being taken to a bullring on the edge of a Spanish city.",
+     "definitionFit": "It is the historic walled capital of Castile-La Mancha, famed for steel and El Greco."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,46 @@
     "text": "Artist has painting restored and framed",
     "enumeration": "6"
    },
-   "solution": "INGRES"
+   "solution": "INGRES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INGRES",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "framed",
+      "for": "hidden_word",
+      "note": "a frame surrounds a picture, so the letters are enclosed by the words"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painting restored",
+      "gives": "INGRES",
+      "note": "the end of painting and the start of restored"
+     }
+    ],
+    "explanation": {
+     "surface": "A painter's canvas has been cleaned up and put in a new frame.",
+     "walkthrough": "The surface points to an anagram with 'restored'; the name is lodged across two words.",
+     "definitionFit": "Jean-Auguste-Dominique Ingres was a nineteenth-century French Neoclassical painter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restored"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +204,69 @@
     "text": "Just lean on Jack when he returns above",
     "enumeration": "6"
    },
-   "solution": "BARELY"
+   "solution": "BARELY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BARELY",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way one came, so the word is read backwards"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down clue, above means placed before in the column"
+     }
+    ],
+    "linkWords": [
+     "when he"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "AB",
+      "note": "a jack is a sailor, as is an AB, able seaman"
+     },
+     {
+      "clueFragment": "lean on",
+      "gives": "RELY",
+      "note": "to rely on someone is to lean on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RELY"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leaning lightly on a friend called Jack when he comes back.",
+     "walkthrough": "Jack and Jack Tar are slang for a sailor; AB stands for able-bodied seaman.",
+     "definitionFit": "Just and only-just both mean scarcely, by the narrowest of margins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,70 @@
     "text": "Kind of chair one lowered overboard",
     "enumeration": "10"
    },
-   "solution": "CHARITABLE"
+   "solution": "CHARITABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHARITABLE",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lowered",
+      "for": "anagram",
+      "note": "one letter is moved further down the column, reordering the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chair",
+      "gives": "CHAR",
+      "note": "chair without its I, which moves"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "overboard",
+      "gives": "TABLE",
+      "note": "split as over + board: board means a table, as in board and lodging, and in a down clue it sits under what comes over it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARI",
+      "TABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAIR",
+       "gives": "CHARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone throwing a chair over the side of a ship.",
+     "walkthrough": "'Overboard' splits into over and board; 'Kind of' looks like part of the description, but Kind is the adjective.",
+     "definitionFit": "Generous, gentle and considerate towards others in need: the adjective sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overboard"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +357,47 @@
     "text": "Having docked, moved up and down with the waves",
     "enumeration": "6"
    },
-   "solution": "BOBBED"
+   "solution": "BOBBED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOBBED",
+    "definitions": [
+     {
+      "text": "Having docked",
+      "at": 0
+     },
+     {
+      "text": "moved up and down with the waves",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having docked",
+      "note": "first meaning: having cut short, as a horse's tail or hair is cut"
+     },
+     {
+      "clueFragment": "moved up and down with the waves",
+      "note": "second meaning: floated, rising and falling like a cork"
+     }
+    ],
+    "explanation": {
+     "surface": "A boat that has come into harbour, rocking on the swell.",
+     "walkthrough": "'Docked' suggests a ship arriving in port, which fits the waves; here it means cut short.",
+     "definitionFit": "The verb covers both cutting hair or a tail short and bouncing gently on water, in its past form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +411,44 @@
     "text": "Non-member is unlikely winner",
     "enumeration": "8"
    },
-   "solution": "OUTSIDER"
+   "solution": "OUTSIDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTSIDER",
+    "definitions": [
+     {
+      "text": "Non-member",
+      "at": 0
+     },
+     {
+      "text": "unlikely winner",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-member",
+      "note": "first meaning: a person not belonging to the group"
+     },
+     {
+      "clueFragment": "unlikely winner",
+      "note": "second meaning: a horse or competitor given little chance"
+     }
+    ],
+    "explanation": {
+     "surface": "A newcomer who isn't in the club is a long shot to win.",
+     "definitionFit": "The word means both a person excluded from a group and a long-odds entrant in a race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +462,48 @@
     "text": "Voice is breaking - fit for longs",
     "enumeration": "8"
    },
-   "solution": "BREECHES"
+   "solution": "BREECHES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BREECHES",
+    "definitions": [
+     {
+      "text": "longs",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Voice",
+      "for": "homophone",
+      "note": "voicing a word means speaking it, so its sound counts, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "fit for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is breaking",
+      "gives": "BREECHES",
+      "soundsLike": "BREACHES",
+      "note": "breaches means breaks, as a wall or rule is broken"
+     }
+    ],
+    "explanation": {
+     "surface": "A teenage boy whose voice is breaking, ready for his first long trousers.",
+     "walkthrough": "Longs are long trousers, the garment a boy graduated to from shorts.",
+     "definitionFit": "Both words are plural nouns for trousers, longs being the old schoolboy name for full-length ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +517,68 @@
     "text": "Forlorn miss stood up, taken in by boyfriend",
     "enumeration": "8"
    },
-   "solution": "DESOLATE"
+   "solution": "DESOLATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DESOLATE",
+    "definitions": [
+     {
+      "text": "Forlorn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stood up",
+      "for": "reversal",
+      "note": "standing up in a down clue makes the word read from bottom to top"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in means being held inside the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boyfriend",
+      "gives": "DATE",
+      "note": "a date is the person you go out with"
+     },
+     {
+      "clueFragment": "miss",
+      "gives": "LOSE",
+      "note": "to miss a chance is to lose it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ESOL",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "LOSE",
+       "to": "ESOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl left miserable after being stood up by her boyfriend.",
+     "walkthrough": "'Miss' looks like a young woman and 'stood up' like being jilted; they are a verb and a reversal.",
+     "definitionFit": "Both words describe a person left bleak, abandoned and utterly wretched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "miss"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +598,50 @@
      }
     ]
    },
-   "solution": "LEGBREAK"
+   "solution": "LEGBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEG BREAK",
+    "definitions": [
+     {
+      "text": "Ball",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "comes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peg",
+      "gives": "LEG",
+      "note": "peg is informal for a leg"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "BREAK",
+      "note": "a break is a rest or pause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A ball rolling to a halt against a peg, as in a game of bagatelle.",
+     "walkthrough": "In an across clue 'rest on peg' puts the rest after the peg. A legbreak is a cricket delivery that turns from the leg side towards the off side.",
+     "definitionFit": "In cricket this is a type of spin bowling delivery, so it names a single ball bowled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peg"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +655,60 @@
     "text": "Highlight, ie streak, front part of hair",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Highlight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only the start of streak is kept"
+     }
+    ],
+    "linkWords": [
+     "ie"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "streak",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of streak"
+     },
+     {
+      "clueFragment": "part of hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A hairdresser explaining that a highlight is just a streak at the front of the hair.",
+     "walkthrough": "Highlights and streaks belong together in a salon, which hides that 'Highlight' is the verb meaning emphasise.",
+     "definitionFit": "To highlight a point is to give it emphasis, which is what laying weight on it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Highlight"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +728,51 @@
      }
     ]
    },
-   "solution": "DEEPLAID"
+   "solution": "DEEPLAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEEP-LAID",
+    "definitions": [
+     {
+      "text": "carefully designed",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "DEE",
+      "note": "the Dee is a river, a thing that flows"
+     },
+     {
+      "clueFragment": "patterned cloth",
+      "gives": "PLAID",
+      "note": "plaid is a checked or tartan woollen fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "PLAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A length of fabric printed with a floral design.",
+     "walkthrough": "'Flower' reads as a bloom, but in crosswords it is often a river, something that flows; the Dee runs through Scotland, Wales and England.",
+     "definitionFit": "A plan worked out thoroughly and secretly in advance is called this, especially a plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +786,56 @@
     "text": "Tax-related fine is set by State",
     "enumeration": "6"
    },
-   "solution": "FISCAL"
+   "solution": "FISCAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FISCAL",
+    "definitions": [
+     {
+      "text": "Tax-related",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "set by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil grading abbreviation for fine"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "State",
+      "gives": "CAL",
+      "note": "Cal is a short form for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IS",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial penalty for tax evasion imposed by the government.",
+     "walkthrough": "'State' sounds like the government imposing the fine; it is one American state, California.",
+     "definitionFit": "The adjective describes matters of public revenue and government finance, chiefly taxation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +855,65 @@
      }
     ]
    },
-   "solution": "MAPREANING"
+   "solution": "MAPREADING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MAP-READING",
+    "definitions": [
+     {
+      "text": "looking for a reference",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes up",
+      "for": "reversal",
+      "note": "coming up in a down clue means rising, so the name is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "PAM",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "READING",
+      "note": "Reading is a town in Berkshire, west of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAP",
+      "READING"
+     ],
+     "reversals": [
+      {
+       "from": "PAM",
+       "to": "MAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl travelling up to town to look for a job reference.",
+     "walkthrough": "The reference is a grid reference on a map, not a testimonial.",
+     "definitionFit": "Interpreting a map means hunting for grid references and locations on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reference"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +927,70 @@
     "text": "Board game with ten moves to counter",
     "enumeration": "10"
    },
-   "solution": "MANAGEMENT"
+   "solution": "MANAGEMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MANAGEMENT",
+    "definitions": [
+     {
+      "text": "Board",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moves",
+      "for": "anagram",
+      "note": "pieces that move change position, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counter",
+      "gives": "MAN",
+      "note": "a man is a counter in draughts or chess"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "AGEMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAMETEN",
+       "gives": "AGEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A board game with ten moves before you reach a counter.",
+     "walkthrough": "Board, game, moves and counter all suggest draughts; 'to counter' places the shuffled letters after the piece. The board is the directors of a company.",
+     "definitionFit": "A company's board of directors is the body that runs it, its controlling executives collectively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1004,70 @@
     "text": "Speculative by half - deposited in account after account",
     "enumeration": "8"
    },
-   "solution": "ACADEMIC"
+   "solution": "ACADEMIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ACADEMIC",
+    "definitions": [
+     {
+      "text": "Speculative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deposited in",
+      "for": "container",
+      "note": "money deposited goes into an account, so one part goes inside"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "in a down clue, after places one part below the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is short for account"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is short for account"
+     },
+     {
+      "clueFragment": "half",
+      "gives": "DEMI",
+      "note": "demi- is a prefix meaning half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "A",
+      "DEMI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A banker making a speculative deposit, splitting the money across two accounts.",
+     "walkthrough": "The first account comes first, and the half sits within the second one.",
+     "definitionFit": "Theoretical, of no practical consequence: a question that is purely hypothetical is called this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deposited"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1081,70 @@
     "text": "Foul, bad, mean, grasping, low and abhorrent",
     "enumeration": "8"
    },
-   "solution": "DAMNABLE"
+   "solution": "DAMNABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DAMNABLE",
+    "definitions": [
+     {
+      "text": "abhorrent",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foul",
+      "for": "anagram",
+      "note": "something foul is spoilt or corrupted, so the letters are scrambled"
+     },
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "grasping something means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad, mean",
+      "gives": "BADMEAN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "L",
+      "note": "L marks low, as on a control dial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAMNAB",
+      "L",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BADMEAN",
+       "gives": "DAMNABE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A string of insults: foul, bad, mean, grasping, low and abhorrent.",
+     "walkthrough": "The clue reads as a list of near-synonyms; only the first word, the last word and the middle ones are working.",
+     "definitionFit": "Deserving of condemnation and hateful are both senses of the adjective, much as accursed is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foul"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1158,52 @@
     "text": "Gearbox designed for transit causes it to break down",
     "enumeration": "8"
    },
-   "solution": "SUITCASE"
+   "solution": "SUITCASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUITCASE",
+    "definitions": [
+     {
+      "text": "Gearbox designed for transit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break down",
+      "for": "anagram",
+      "note": "breaking down means falling to pieces, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "causes it",
+      "gives": "CAUSESIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAUSESIT",
+       "gives": "SUITCASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist's transmission, built for a Ford Transit van, keeps making the van break down.",
+     "walkthrough": "'Gearbox' is read as a box for gear, your belongings, and transit as travelling; Transit is also a Ford van.",
+     "definitionFit": "A travelling case carries one's clothes and belongings, a container for gear on a journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gearbox"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1217,56 @@
     "text": "Girl in therapy for skin problem",
     "enumeration": "10"
    },
-   "solution": "CRAQUELURE"
+   "solution": "CRAQUELURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAQUELURE",
+    "definitions": [
+     {
+      "text": "skin problem",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a person in therapy is inside a course of treatment, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "RAQUEL",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "therapy",
+      "gives": "CURE",
+      "note": "a cure is a course of treatment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAQUEL",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl undergoing treatment for a complaint of the skin, such as eczema.",
+     "walkthrough": "The 'skin' is the surface layer of an old oil painting, not a person's.",
+     "definitionFit": "The network of fine cracks in the varnish or paint of an old picture is a flaw in its outer surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1280,40 @@
     "text": "He puts his baby to bed before running off ...",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "He puts his baby to bed before running off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He puts his baby to bed before running off",
+      "note": "surface reading: a father settling his child for the night, then slipping out"
+     },
+     {
+      "clueFragment": "baby to bed before running off",
+      "note": "setter's reading: the baby is a newspaper, sent to bed (to press) before the presses run off copies"
+     }
+    ],
+    "explanation": {
+     "surface": "A father puts his child to bed and then dashes off out.",
+     "walkthrough": "In printing, putting a paper to bed means finalising it for press, and running off means printing copies.",
+     "definitionFit": "The person in charge of a newspaper signs it off for the presses each night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "baby"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1327,48 @@
     "text": "... to Fathers' Club",
     "enumeration": "6"
    },
-   "solution": "PRIEST"
+   "solution": "PRIEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIEST",
+    "definitions": [
+     {
+      "text": "Fathers'",
+      "at": 7,
+      "note": "plural possessive, the answer is singular"
+     },
+     {
+      "text": "Club",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fathers'",
+      "note": "first meaning: a clergyman addressed as Father"
+     },
+     {
+      "clueFragment": "Club",
+      "note": "second meaning: a small cudgel used by anglers to kill a caught fish"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue, the father runs off to his club.",
+     "walkthrough": "The ellipsis makes it look like the editor's evening out; the fishing club is the obscure sense.",
+     "definitionFit": "A Catholic cleric is called Father, and anglers call their little weighted fish-killing cosh by the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Club"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1382,53 @@
     "text": "Maenad danced about wearing a chaplet",
     "enumeration": "6"
    },
-   "solution": "ANADEM"
+   "solution": "ANADEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANADEM",
+    "definitions": [
+     {
+      "text": "a chaplet",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "danced about",
+      "for": "anagram",
+      "note": "dancing about means moving around in all directions, so the letters swap places"
+     }
+    ],
+    "linkWords": [
+     "wearing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maenad",
+      "gives": "MAENAD",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAENAD",
+       "gives": "ANADEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frenzied female worshipper of Bacchus dancing wildly with a wreath on her head.",
+     "walkthrough": "A maenad was a wild follower of Dionysus, so a garland is perfectly at home in the scene.",
+     "definitionFit": "Both words name a garland or wreath of flowers worn on the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1442,58 @@
     "text": "Present for appointment, having to hold on",
     "enumeration": "6"
    },
-   "solution": "DONATE"
+   "solution": "DONATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DONATE",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appointment",
+      "gives": "DATE",
+      "note": "a date is an arranged meeting"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being on time for an appointment, and having to wait on hold.",
+     "walkthrough": "'Present' looks like an adjective meaning in attendance; it is a verb, to give.",
+     "definitionFit": "To present something to a cause or charity is to give it as a gift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1507,47 @@
     "text": "Duck a l'orange",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     },
+     {
+      "text": "orange",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "a l'"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duck",
+      "note": "first meaning: a colourful East Asian species of duck"
+     },
+     {
+      "clueFragment": "orange",
+      "note": "second meaning: a small loose-skinned citrus fruit"
+     }
+    ],
+    "explanation": {
+     "surface": "The classic French restaurant dish of roast duck in orange sauce.",
+     "walkthrough": "The dish name hides two separate meanings, one at each end.",
+     "definitionFit": "The word names both an ornamental Asian duck breed and a small easily peeled citrus fruit, the tangerine family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1561,50 @@
     "text": "Old headdress vulgar - put on better",
     "enumeration": "6"
    },
-   "solution": "MOBCAP"
+   "solution": "MOBCAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOBCAP",
+    "definitions": [
+     {
+      "text": "Old headdress",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vulgar",
+      "gives": "MOB",
+      "note": "the mob is the common people, the vulgar"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "CAP",
+      "note": "to cap a story is to go one better than it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOB",
+      "CAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneering that an old-fashioned headdress looks vulgar when worn.",
+     "walkthrough": "'Vulgar' as a noun once meant the common people, the mob; 'put on' sets the mob in front of the cap.",
+     "definitionFit": "A large soft frilled bonnet worn indoors by women in the eighteenth century is this item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1618,59 @@
     "text": "Crop tends to lie awkwardly",
     "enumeration": "8"
    },
-   "solution": "LINTSEED"
+   "solution": "LINTSEED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LINTSEED",
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "doing something awkwardly means doing it clumsily and out of order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tends",
+      "gives": "TENDS",
+      "note": "the first set of letters to be rearranged"
+     },
+     {
+      "clueFragment": "lie",
+      "gives": "LIE",
+      "note": "the second set of letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENDS LIE",
+       "gives": "LINTSEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field crop that tends to lie flat in an awkward way after rain.",
+     "walkthrough": "Lintseed is an old variant spelling of linseed.",
+     "definitionFit": "Seed of flax, grown as a field crop for its oil, is what this word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tends"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1684,48 @@
     "text": "Fell, we hear, for this yarn",
     "enumeration": "6"
    },
-   "solution": "CREWEL"
+   "solution": "CREWEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CREWEL",
+    "definitions": [
+     {
+      "text": "yarn",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the word is taken by how it is said"
+     }
+    ],
+    "linkWords": [
+     "for this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fell",
+      "gives": "CREWEL",
+      "soundsLike": "CRUEL",
+      "note": "fell as an adjective means fierce or ruthless"
+     }
+    ],
+    "explanation": {
+     "surface": "A tall story about a fell, a northern English hill, told as a yarn.",
+     "walkthrough": "'Yarn' looks like a tale to go with 'we hear'; it is wool. Fell as an adjective means savage, as in 'one fell swoop'.",
+     "definitionFit": "This is a thin worsted wool thread used for embroidery and tapestry work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "yarn"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1739,65 @@
     "text": "Flower from a desert in bloom",
     "enumeration": "8"
    },
-   "solution": "AGERATUM"
+   "solution": "AGERATUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AGERATUM",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bloom",
+      "gives": "GEUM",
+      "note": "geum is a garden flower, avens"
+     },
+     {
+      "clueFragment": "desert",
+      "gives": "RAT",
+      "note": "to rat is to desert or betray one's side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GE",
+      "RAT",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower that springs up when a desert bursts into bloom after rain.",
+     "walkthrough": "'Desert' looks like the sandy noun; it is the verb, to abandon.",
+     "definitionFit": "It is a genus of plants with fluffy blue or white heads, grown in borders as bedding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   }
  ]
 }
