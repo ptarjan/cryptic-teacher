@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Git merge driver for the keyed JSON data files several writers append to.
+"""Git merge driver and clean filter for the keyed JSON data files several
+writers append to.
 
     git config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
+    git config filter.json-keys.clean "python3 tools/json_merge.py --clean"
 
 registered by tools/nightly_worktree.sh on every scheduled run, and named per
 file in .gitattributes. Git hands it the ancestor (%O), the current side (%A)
@@ -17,10 +19,16 @@ as lists by union, and otherwise takes %B (in a rebase, the commit being
 replayed), with a note on stderr. A rebase stopped on a ledger row strands every
 later commit, which costs far more than either side's version of one row.
 
-The result keeps the file's own layout: tools/corroborate.py's one line per
-top-level key (dump_lines), or json.dumps(indent=2). Keys and lists that were
-sorted stay sorted. Anything that does not parse as a JSON object, or is laid
-out in neither form, exits 1 and git falls back to an ordinary conflict.
+Every one of these files is laid out by dump_lines, one line per top-level key,
+and the merge writes that layout whatever the sides were in, since a side that
+parses is mergeable however it was spaced. Keys and lists that were sorted stay
+sorted. Anything that does not parse as a JSON object exits 1 and git falls back
+to an ordinary conflict.
+
+The clean filter is what keeps that layout in the repository: `git add` stores
+dump_lines of whatever is on disk, so a row typed in by hand (an annotating
+model editing the file) is staged in the canonical layout. Input that does not
+parse is staged as it is, and the merge refuses it later.
 """
 import json
 import sys
@@ -35,10 +43,6 @@ def dump_lines(held):
              f"{json.dumps(held[k], sort_keys=True, ensure_ascii=False)}"
              for k in sorted(held)]
     return "{\n" + ",\n".join(lines) + "\n}\n"
-
-
-def dump_indent(held):
-    return json.dumps(held, indent=2, ensure_ascii=False) + "\n"
 
 
 def _sorted(seq):
@@ -94,19 +98,28 @@ def main(o_path, a_path, b_path):
     if not all(isinstance(x, dict) for x in (o, a, b)):
         print("json_merge: not a JSON object; leaving the conflict", file=sys.stderr)
         return 1
-    dump = next((d for d in (dump_lines, dump_indent)
-                 for t, x in ((texts[1], a), (texts[2], b)) if t.strip() and d(x) == t),
-                None)
-    if dump is None:
-        print("json_merge: layout is neither one-line-per-key nor indent=2; "
-              "leaving the conflict", file=sys.stderr)
-        return 1
     with open(a_path, "w", encoding="utf-8") as f:
-        f.write(dump(merge(o, a, b)))
+        f.write(dump_lines(merge(o, a, b)))
     return 0
 
 
+def clean(text):
+    """dump_lines of `text` when it is a JSON object, else `text` unchanged."""
+    try:
+        held = json.loads(text)
+    except ValueError as err:
+        print(f"json_merge --clean: not JSON ({err}); staged as it is", file=sys.stderr)
+        return text
+    if not isinstance(held, dict):
+        print("json_merge --clean: not a JSON object; staged as it is", file=sys.stderr)
+        return text
+    return dump_lines(held)
+
+
 if __name__ == "__main__":
+    if sys.argv[1:] == ["--clean"]:
+        sys.stdout.write(clean(sys.stdin.read()))
+        sys.exit(0)
     if len(sys.argv) != 4:
-        sys.exit("usage: json_merge.py ANCESTOR CURRENT OTHER")
+        sys.exit("usage: json_merge.py ANCESTOR CURRENT OTHER | json_merge.py --clean")
     sys.exit(main(*sys.argv[1:]))
