@@ -2079,7 +2079,9 @@ def clue_page_instructions(page_html):
     m = re.search(r"<b>\s*(?:Across|Down|[A-Z]|\d+(?:\s*,\s*\d+)*)\s*</b>", page_html, re.I)
     if not m:
         return None
-    titles = list(re.finditer(r"</b>", page_html[:m.start()], re.I))
+    # A bold run closes its own <b>: a stray "</b>" (cryptic-23598's "Click
+    # here</b>") is not the title.
+    titles = list(re.finditer(r"<b>[^<]*</b>", page_html[:m.start()], re.I))
     note = re.sub(r"(?si)<!--.*?-->|<br\s*/?>", " ", page_html[titles[-1].end():m.start()]) if titles else ""
     return preamble(note)
 
@@ -2730,6 +2732,16 @@ def reindex():
 # actually wanted; valued with (url template to fetch instead of the default
 # order, the number to trust over whatever that page's own data says — None
 # to trust the page).
+# The instructions two 2008 prizes printed only on the PDF their page's note
+# links to (the page's own note is just the link, which preamble() drops):
+# by number, the PDF's words as printed.
+PDF_PREAMBLES = {
+    24307: "Solve the clues and fit the solutions in the diagram jigsaw-wise, wherever they will go.",
+    24433: "This week's Prize has a special set of clues. Because of the symmetry of the grid, "
+           "there are two possible ways of filling it in; but several indications show which is correct.",
+}
+
+
 NUMBER_URL_FIXES = {
     24451: ("https://www.theguardian.com/crosswords/prize/{num}", None),
     24551: ("https://www.theguardian.com/crosswords/cryptic/24451", 24551),
@@ -2803,6 +2815,8 @@ def fetch_number(num, series="cryptic"):
         if forced_number is not None:
             data["number"] = forced_number
     puzzle = convert(data)
+    if data["number"] in PDF_PREAMBLES:
+        puzzle["preamble"] = PDF_PREAMBLES[data["number"]]
     check_not_copy(puzzle)
     # Through puzzle_path, never spelled here: this line said ".js" from the
     # day the fetcher was written, and the assert in write_puzzle_file is what
