@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,88 @@
      }
     ]
    },
-   "solution": "HOUSEOFCOMMONS"
+   "solution": "HOUSEOFCOMMONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "HOUSE OF COMMONS",
+    "definitions": [
+     {
+      "text": "here (but not in the Lords)",
+      "at": 77
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get rid of",
+      "for": "deletion",
+      "note": "getting rid of something means taking it away, so the royal letter must be dropped from the hour"
+     },
+     {
+      "text": "overthrowing",
+      "for": "reversal",
+      "note": "to overthrow is to turn upside down, which in a down-the-page reading means the word is turned backwards"
+     }
+    ],
+    "linkWords": [
+     "Take",
+     "up to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an hour",
+      "gives": "HOUR",
+      "note": "the word itself, before one letter is removed"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R, for Rex, is the usual abbreviation for a king"
+     },
+     {
+      "clueFragment": "enemies",
+      "gives": "FOES",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "usual",
+      "gives": "COMMON",
+      "note": "common means ordinary or usual"
+     },
+     {
+      "clueFragment": "a point",
+      "gives": "S",
+      "note": "S, south, is a point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOU",
+      "SEOF",
+      "COMMON",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "FOES",
+       "to": "SEOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy politician schedules an hour to topple a monarch, with enemies overthrown as routine, a scene not tolerated among the peers.",
+     "walkthrough": "'Take' is only a lead-in. The Lords is the House of Lords, the unelected upper chamber of the UK Parliament, so the answer is the other house.",
+     "definitionFit": "The elected lower chamber of the British Parliament is the counterpart of the unelected upper chamber, the Lords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 1,
@@ -67,7 +151,50 @@
      }
     ]
    },
-   "solution": "HOLDYOURHORSES"
+   "solution": "HOLDYOURHORSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOLD YOUR HORSES",
+    "definitions": [
+     {
+      "text": "wait a moment!",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "anyway",
+      "for": "anagram",
+      "note": "'any way' invites the letters to be put in any order you like"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh, sorry, he's loud",
+      "gives": "OHSORRYHESLOUD",
+      "note": "every letter of these words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OHSORRYHESLOUD",
+       "gives": "HOLDYOURHORSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone apologises for a noisy man while telling everyone to hang on a second.",
+     "definitionFit": "The idiom is a request to slow down and be patient, exactly an exclamation telling someone to pause briefly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "anyway"
+    }
+   }
   },
   {
    "number": 2,
@@ -81,7 +208,73 @@
     "text": "A French play leader, rearranging sack, takes the stuff out",
     "enumeration": "7"
    },
-   "solution": "UNPACKS"
+   "solution": "UNPACKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNPACKS",
+    "definitions": [
+     {
+      "text": "takes the stuff out",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     },
+     {
+      "text": "rearranging",
+      "for": "anagram",
+      "note": "rearranging means putting the letters in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is the French for 'a'"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of play"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "ACKS",
+      "note": "the four letters of sack shuffled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "P",
+      "ACKS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SACK",
+       "gives": "ACKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French theatre lead tidies a bag and empties it.",
+     "definitionFit": "To unpack a case or bag is to remove its contents, the things packed inside it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 3,
@@ -101,7 +294,83 @@
      }
     ]
    },
-   "solution": "ESTATECAR"
+   "solution": "ESTATECAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESTATE CAR",
+    "definitions": [
+     {
+      "text": "shooting brake",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "set out suggests laying the letters out afresh in another order"
+     },
+     {
+      "text": "comeback",
+      "for": "reversal",
+      "note": "a comeback goes back the way it came, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "making",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set",
+      "gives": "EST",
+      "note": "the three letters of set rearranged"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "RACE",
+      "note": "taken as written, before being turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "ATECAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RACE",
+       "to": "ECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets off to stage a racing comeback while out on a shoot.",
+     "walkthrough": "'Shooting brake' looks like gear for a shoot, but it is an old British name for a car with a large rear load space.",
+     "definitionFit": "A shooting brake is the older British term for a car with an extended rear and tailgate, today usually called an estate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +384,70 @@
     "text": "As if us dancing round church would produce flowers!",
     "enumeration": "8"
    },
-   "solution": "FUCHSIAS"
+   "solution": "FUCHSIAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FUCHSIAS",
+    "definitions": [
+     {
+      "text": "flowers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and settle in a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one part is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "would produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As if us",
+      "gives": "FUSIAS",
+      "note": "these six letters rearranged, then split open"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "CH",
+      "SIAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASIFUS",
+       "gives": "FUSIAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry remark that a dance around a church would make blooms appear.",
+     "definitionFit": "Fuchsias are garden shrubs grown for their drooping, bell-shaped pink and purple blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +461,42 @@
     "text": "Boy's terrapin consumes shellfish",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "shellfish",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumes",
+      "for": "hidden_word",
+      "note": "what is consumed sits inside the eater, so the letters lie within the words around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy's terrapin",
+      "gives": "OYSTER",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A lad's pet turtle eats some seafood.",
+     "definitionFit": "An oyster is a bivalve mollusc, the kind of shelled sea creature eaten raw as seafood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumes"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +510,59 @@
     "text": "Artist portrays airless moon with alien",
     "enumeration": "5"
    },
-   "solution": "MONET"
+   "solution": "MONET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MONET",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "airless",
+      "for": "deletion",
+      "note": "losing its air means a round letter like a bubble is let out of the word"
+     }
+    ],
+    "linkWords": [
+     "portrays",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moon",
+      "gives": "MOON",
+      "note": "taken as written, before one letter goes"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET, the extraterrestrial of the Spielberg film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter depicts a lunar landscape with no atmosphere, complete with a visitor from space.",
+     "walkthrough": "Treating the letter O as 'air' is the setter's own liberty, perhaps as a round bubble; it is not a standard crossword abbreviation.",
+     "definitionFit": "Claude Monet was the French Impressionist painter of water lilies, so he is an example of a painter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "airless"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +576,62 @@
     "text": "Northern order in Alabama is valued in name only",
     "enumeration": "7"
    },
-   "solution": "NOMINAL"
+   "solution": "NOMINAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOMINAL",
+    "definitions": [
+     {
+      "text": "valued in name only",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for north or northern"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "the Order of Merit, a British honour"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Alabama",
+      "gives": "AL",
+      "note": "AL is the US postal code for Alabama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OM",
+      "IN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Northern decree in an American state turns out to be a mere token.",
+     "walkthrough": "The OM, Order of Merit, is an honour awarded by the British monarch.",
+     "definitionFit": "A nominal sum or role exists in title rather than substance, like a share's face value or a token fee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +651,77 @@
      }
     ]
    },
-   "solution": "SHERLOCKHOLMES"
+   "solution": "SHERLOCKHOLMES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHERLOCK HOLMES",
+    "definitions": [
+     {
+      "text": "Detective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something placed inside sits within the other word's letters"
+     }
+    ],
+    "linkWords": [
+     "gives",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "SHE",
+      "note": "the pronoun for a woman"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "to secure",
+      "gives": "LOCK",
+      "note": "to lock something is to secure it"
+     },
+     {
+      "clueFragment": "houses",
+      "gives": "HOMES",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "L",
+      "note": "L, from Latin libra, is the pound sign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "R",
+      "LOCK",
+      "HO",
+      "L",
+      "MES"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleuth hands a woman the right to fasten up properties with cash stashed inside.",
+     "definitionFit": "Conan Doyle's fictional consulting investigator of Baker Street is the most famous example of a sleuth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +735,52 @@
     "text": "Make-up adheres to cheek",
     "enumeration": "9"
    },
-   "solution": "LIPSTICKS"
+   "solution": "LIPSTICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIPSTICKS",
+    "definitions": [
+     {
+      "text": "Make-up",
+      "at": 0,
+      "note": "plural answer for a mass noun"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheek",
+      "gives": "LIP",
+      "note": "lip means impertinence, as does cheek"
+     },
+     {
+      "clueFragment": "adheres",
+      "gives": "STICKS",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIP",
+      "STICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cosmetics cling to the face.",
+     "walkthrough": "'Cheek' looks like part of the face, but here it is sauciness, the same as lip; the parts read in reverse clue order.",
+     "definitionFit": "Lipsticks are cosmetic sticks of colour for the mouth, a kind of cosmetic applied to the face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cheek"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +794,55 @@
     "text": "Quiet hymn transformed spirit of nature",
     "enumeration": "5"
    },
-   "solution": "NYMPH"
+   "solution": "NYMPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NYMPH",
+    "definitions": [
+     {
+      "text": "spirit of nature",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "something transformed is changed in form, so its letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     },
+     {
+      "clueFragment": "hymn",
+      "gives": "HYMN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHYMN",
+       "gives": "NYMPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soft hymn changes into a woodland sprite.",
+     "definitionFit": "In Greek myth a nymph is a minor female deity dwelling in woods, rivers or mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiet"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +856,53 @@
     "text": "\"Cathy Wild\" is a sailing boat",
     "enumeration": "5"
    },
-   "solution": "YACHT"
+   "solution": "YACHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YACHT",
+    "definitions": [
+     {
+      "text": "a sailing boat",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "wild letters are out of control and run into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cathy",
+      "gives": "CATHY",
+      "note": "the name taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CATHY",
+       "gives": "YACHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat is named Cathy Wild, as if after its owner.",
+     "definitionFit": "A yacht is a sail-powered vessel used for racing or cruising, so it is a type of sailing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +916,65 @@
     "text": "Saccharine is nicer with some nectar in",
     "enumeration": "9"
    },
-   "solution": "SWEETENER"
+   "solution": "SWEETENER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SWEETENER",
+    "definitions": [
+     {
+      "text": "Saccharine",
+      "at": 0,
+      "note": "the clue's word is usually an adjective; as a noun it is the sweetener saccharin"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "letter_selection",
+      "note": "some of a word is only a part of it, here its opening pair"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "with something in means it goes inside the other word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nicer",
+      "gives": "SWEETER",
+      "note": "sweeter means nicer, more pleasant"
+     },
+     {
+      "clueFragment": "nectar",
+      "gives": "NE",
+      "select": "first",
+      "note": "the first two letters of nectar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEETE",
+      "NE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A sugary drink tastes better with a drop of nectar added.",
+     "definitionFit": "Saccharin is an artificial sugar substitute, the classic example of a calorie-free sweetening additive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Saccharine"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +988,58 @@
     "text": "For fun not to begin at get-together isn't friendly",
     "enumeration": "8"
    },
-   "solution": "UNSOCIAL"
+   "solution": "UNSOCIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNSOCIAL",
+    "definitions": [
+     {
+      "text": "isn't friendly",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not to begin",
+      "for": "deletion",
+      "note": "not beginning means the word's opening letter is left off"
+     }
+    ],
+    "linkWords": [
+     "For",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fun",
+      "gives": "FUN",
+      "note": "taken as written, before the start goes"
+     },
+     {
+      "clueFragment": "get-together",
+      "gives": "SOCIAL",
+      "note": "a social is an informal party or gathering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SOCIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to join in at a party, which looks unfriendly.",
+     "definitionFit": "Unsocial describes avoiding company, so it means not friendly, though the definition is a verb phrase standing for an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fun"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1053,45 @@
     "text": "Some take a poll on who's God",
     "enumeration": "6"
    },
-   "solution": "APOLLO"
+   "solution": "APOLLO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APOLLO",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some take",
+      "for": "hidden_word",
+      "note": "some take means only part is taken, a run of letters lifted from within the words"
+     }
+    ],
+    "linkWords": [
+     "on who's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a poll on",
+      "gives": "APOLLO",
+      "note": "found running through these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Pollsters ask the public which deity is the true one.",
+     "definitionFit": "Apollo was the Greek and Roman deity of music, poetry and the sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poll"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1105,64 @@
     "text": "Go by the left side first to obtain travel documents",
     "enumeration": "9"
    },
-   "solution": "PASSPORTS"
+   "solution": "PASSPORTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PASSPORTS",
+    "definitions": [
+     {
+      "text": "travel documents",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "to obtain"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go by",
+      "gives": "PASS",
+      "note": "to pass is to go by"
+     },
+     {
+      "clueFragment": "the left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "PORT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for queueing at a border control: pass on the left to get your papers.",
+     "definitionFit": "Passports are official identity papers that allow their holders to cross international borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1182,64 @@
      }
     ]
    },
-   "solution": "BONEIDLE"
+   "solution": "BONEIDLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BONE IDLE",
+    "definitions": [
+     {
+      "text": "Lazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by mistake",
+      "for": "anagram",
+      "note": "a mistake puts things in the wrong order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "went to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss Peep",
+      "gives": "BO",
+      "note": "Little Bo Peep, the shepherdess of the nursery rhyme who lost her sheep"
+     },
+     {
+      "clueFragment": "Leiden",
+      "gives": "NEIDLE",
+      "note": "the Dutch city's letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "NEIDLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEIDEN",
+       "gives": "NEIDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idle shepherdess ends up in the wrong Dutch city.",
+     "definitionFit": "Bone idle is a British idiom for extremely indolent, lazy right down to the bone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Lazy"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1253,53 @@
     "text": "Longing to drop a country in central Europe",
     "enumeration": "6"
    },
-   "solution": "HUNGRY"
+   "solution": "HUNGRY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HUNGRY",
+    "definitions": [
+     {
+      "text": "Longing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drop",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "country in central Europe",
+      "gives": "HUNGARY",
+      "note": "the country whose capital is Budapest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUNGRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yearns to leave a certain central European land.",
+     "definitionFit": "Hungry can mean craving or eager for something, not only wanting food, so it matches yearning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1313,58 @@
     "text": "I go in more inquisitive and come out more clamorous!",
     "enumeration": "7"
    },
-   "solution": "NOISIER"
+   "solution": "NOISIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISIER",
+    "definitions": [
+     {
+      "text": "more clamorous",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "go in",
+      "for": "container",
+      "note": "going in means entering the other word and sitting within it"
+     }
+    ],
+    "linkWords": [
+     "and come out"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "more inquisitive",
+      "gives": "NOSIER",
+      "note": "nosier means more prying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A busybody boasts of going in nosy and coming out loud.",
+     "definitionFit": "Noisier means making more noise, and clamorous describes loud, insistent sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "come"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1378,49 @@
     "text": "Control makes pleasure last",
     "enumeration": "8"
    },
-   "solution": "JOYSTICK"
+   "solution": "JOYSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOYSTICK",
+    "definitions": [
+     {
+      "text": "Control",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pleasure",
+      "gives": "JOY",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "STICK",
+      "note": "to stick is to last or endure, as a habit sticks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOY",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Happiness that endures is put down to being in charge.",
+     "definitionFit": "A joystick is the hand lever used to steer an aircraft or a video game, so it is a controlling device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1434,60 @@
     "text": "Make believe I decoded Enigma",
     "enumeration": "7"
    },
-   "solution": "IMAGINE"
+   "solution": "IMAGINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IMAGINE",
+    "definitions": [
+     {
+      "text": "Make believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decoded",
+      "for": "anagram",
+      "note": "decoding a cipher rearranges scrambled letters into a fresh reading"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Enigma",
+      "gives": "MAGINE",
+      "note": "the letters of the cipher machine's name rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAGINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENIGMA",
+       "gives": "MAGINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A codebreaker pretends to have cracked the German wartime cipher machine.",
+     "definitionFit": "To imagine is to form a mental picture of something not real, which is to pretend or fancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decoded"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1501,74 @@
     "text": "Heat up uncooked male tench, when gutted",
     "enumeration": "6"
    },
-   "solution": "WARMTH"
+   "solution": "WARMTH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WARMTH",
+    "definitions": [
+     {
+      "text": "Heat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from bottom to top"
+     },
+     {
+      "text": "when gutted",
+      "for": "letter_selection",
+      "note": "a gutted fish has its insides taken out, leaving only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncooked",
+      "gives": "RAW",
+      "note": "raw food is uncooked"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "tench",
+      "gives": "TH",
+      "select": "outer",
+      "note": "the first and last letters of tench"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "M",
+      "TH"
+     ],
+     "reversals": [
+      {
+       "from": "RAW",
+       "to": "WAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking instruction: warm up a raw male tench after cleaning it.",
+     "walkthrough": "The tench is a freshwater fish, which makes 'gutted' fit the kitchen picture.",
+     "definitionFit": "Warmth is the state of being warm, a mild degree of heat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1582,69 @@
     "text": "Repeat rite involved with Queen and brew tea",
     "enumeration": "9"
    },
-   "solution": "REITERATE"
+   "solution": "REITERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REITERATE",
+    "definitions": [
+     {
+      "text": "Repeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so the letters are mixed together"
+     },
+     {
+      "text": "brew",
+      "for": "anagram",
+      "note": "brewing stirs ingredients together, mixing up these letters too"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rite",
+      "gives": "RITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the usual abbreviation for the Queen"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RITEERTEA",
+       "gives": "REITERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony with the monarch and a pot of tea, performed again and again.",
+     "definitionFit": "To reiterate is to say or do something again, often for emphasis, which is to repeat it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brew"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1658,63 @@
     "text": "Old flame takes pictures back as well",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "as well",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "taking something back returns it the other way, so the word reads from its end"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old flame",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "art is pictures collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner reclaims the paintings too, after a break-up.",
+     "definitionFit": "Extra means additional or in addition, which is what 'as well' expresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flame"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1728,39 @@
     "text": "The quiet half of the instrument!",
     "enumeration": "5"
    },
-   "solution": "PIANO"
+   "solution": "PIANO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PIANO",
+    "definitions": [
+     {
+      "text": "The quiet half of the instrument!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The quiet half of the instrument!",
+      "note": "surface reading: the softer-sounding part of some musical instrument"
+     },
+     {
+      "clueFragment": "The quiet half of the instrument!",
+      "note": "setter's reading: the instrument's full name joins the Italian words for soft and loud, and the first of those is the quiet half"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The full Italian name is pianoforte, literally 'soft-loud'; the soft half has become the everyday name.",
+     "definitionFit": "The keyboard instrument's short name is the first half of pianoforte, and the Italian musical term meaning soft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1774,71 @@
     "text": "Writer, Ms George, ends up prostrate with overwork",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ELIOT",
+    "definitions": [
+     {
+      "text": "Writer, Ms George",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "turned up means flipped over, so the joined letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overwork",
+      "gives": "TOIL",
+      "note": "toil is hard, exhausting work"
+     },
+     {
+      "clueFragment": "prostrate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of prostrate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LIOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOILE",
+       "to": "ELIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman novelist collapses flat out from working too hard.",
+     "walkthrough": "George Eliot was the pen name of Mary Ann Evans, hence 'Ms' George.",
+     "definitionFit": "George Eliot, author of Middlemarch, was a Victorian novelist who wrote under a male pen name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "prostrate"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1852,68 @@
     "text": "Way Royal Navy managed initially reflects the newest ideas",
     "enumeration": "9"
    },
-   "solution": "MODERNISM"
+   "solution": "MODERNISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MODERNISM",
+    "definitions": [
+     {
+      "text": "the newest ideas",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "MODE",
+      "note": "a mode is a way or manner"
+     },
+     {
+      "clueFragment": "Royal Navy",
+      "gives": "RN",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "reflects",
+      "gives": "IS",
+      "note": "loosely, a thing that reflects something is it in image"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of managed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODE",
+      "RN",
+      "IS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The way the navy was run mirrors the latest thinking.",
+     "walkthrough": "The wordplay is loose: 'reflects' has to stand for 'is', in the sense of being an image of something, and its letters sit ahead of the initial of 'managed'.",
+     "definitionFit": "Modernism is a movement embracing up-to-date thought and breaking with tradition, so it is a body of recent thinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflects"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1927,75 @@
     "text": "Combination of eastern herbs and salt on head causes extreme agitation",
     "enumeration": "14"
    },
-   "solution": "BREATHLESSNESS"
+   "solution": "BREATHLESSNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BREATHLESSNESS",
+    "definitions": [
+     {
+      "text": "extreme agitation",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Combination",
+      "for": "anagram",
+      "note": "a combination mixes items together, so their letters are blended into a new order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "on",
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "herbs",
+      "gives": "HERBS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "SALT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness's neighbours or Dungeness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREATHLESS",
+      "NESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EHERBSSALT",
+       "gives": "BREATHLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spicy seasoning mix of oriental herbs and salt sends someone into a frenzy.",
+     "definitionFit": "Breathlessness is being out of breath, which comes with intense excitement or panic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
