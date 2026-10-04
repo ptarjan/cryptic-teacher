@@ -1915,6 +1915,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18750", "25-across"): (
+        "Able to go to Elba, for example 7 )",
+        "Able to go to Elba, for example",
+        "OCR misread: the trailing 7 ) is the enumeration with its opening bracket lost"),
+    ("times-18750", "26-across"): (
+        "Not engaged, just sitting on the fence (",
+        "Not engaged, just sitting on the fence",
+        "OCR misread: a stray bracket after the clue"),
+    ("times-18750", "14-down"): (
+        "“Bright star, would I were —.— as thou an” (Keats)",
+        "“Bright star, would I were — as thou art” (Keats)",
+        "OCR misread: Keats wrote as thou art, and the blank is a single dash"),
     ("times-18742", "27-across"): (
         "In short, the skill needed 10 make a cocktail",
         "In short, the skill needed to make a cocktail",
