@@ -134,6 +134,42 @@ try:
     check("a served opening still corrects", F.source_clue(pid, "3-across", "Something served") == "Something else")
     check("and a blank clue is not mistaken for that opening", F.source_clue(pid, "3-across", "") == "")
     del F.SOURCE_CLUE_WRONG[(pid, "3-across")]
+
+    # A write that changes an annotated clue's text (an OCR re-read, a
+    # corroborated reading) keeps the annotation only on the same words, every
+    # phrase it quotes still there: ftcryptic-8476 7 down lost its page debris
+    # "Jotter Pad 7" and kept a block quoting it.
+    ft = tmp / "ftcryptic-8476.json"
+    shutil.copy(F.puzzle_paths.find("ftcryptic-8476"), ft)
+    def seven_down(p):
+        return next(e for e in p["entries"] if groups.entry_id(e) == "7-down")
+    held = F.read_puzzle_file(ft)
+    debris = copy.deepcopy(seven_down(held))
+    debris["clue"]["text"] = "Jotter Pad 7 " + debris["clue"]["text"]
+    debris["annotation"]["blocks"].insert(0, {"clueFragment": "Jotter Pad 7", "note": "page debris"})
+    held["entries"] = [debris if groups.entry_id(e) == "7-down" else e for e in held["entries"]]
+    def rewrite(text, ann=None):
+        ft.write_text(json.dumps(held, indent=1))
+        p = F.read_puzzle_file(ft)
+        seven_down(p)["clue"]["text"] = text
+        if ann is not None:
+            seven_down(p)["annotation"] = ann
+        F.write_puzzle_file(ft, p)
+        return F.read_puzzle_file(ft)
+    clean = "Bring a well qualified person in with all speed"
+    out = rewrite(clean)
+    check("a carried annotation quoting words the new clue lacks is dropped",
+          "annotation" not in seven_down(out))
+    check("and only that entry's", sum("annotation" in e for e in out["entries"])
+          == sum("annotation" in e for e in held["entries"]) - 1)
+    out = rewrite("Jotter Pad 7  Bring a well qualified person in, with all speed")
+    check("a typography-only change that keeps every quoted phrase keeps it",
+          seven_down(out).get("annotation", {}).get("blocks") == debris["annotation"]["blocks"])
+    check("and its definition is placed again", seven_down(out)["annotation"]["definitions"][0]["at"] == 48)
+    fresh = copy.deepcopy(debris["annotation"]); fresh["blocks"] = fresh["blocks"][1:]
+    out = rewrite(clean, fresh)
+    check("an annotation written for the new clue is kept",
+          seven_down(out).get("annotation", {}).get("blocks") == fresh["blocks"])
 finally:
     shutil.rmtree(tmp)
 sys.exit(fails)

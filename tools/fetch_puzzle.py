@@ -241,6 +241,41 @@ def clue_words(clue):
     return re.sub(r"[^a-z0-9]", "", folded.lower())
 
 
+def quoted(ann):
+    """Every piece of clue text `ann` quotes: its definitions, indicators,
+    link words and block fragments."""
+    texts = ([d.get("text") for d in ann.get("definitions") or [] if isinstance(d, dict)]
+             + [i.get("text") for i in ann.get("indicators") or [] if isinstance(i, dict)]
+             + list(ann.get("linkWords") or [])
+             + [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)])
+    return [t for t in texts if isinstance(t, str) and t]
+
+
+def written_against(puzzle):
+    """{entry id: (annotation, clue text)}: the words each of `puzzle`'s
+    annotations was written for."""
+    return {entry_id(e): (e["annotation"], (e.get("clue") or {}).get("text") or "")
+            for e in puzzle.get("entries") or [] if isinstance(e.get("annotation"), dict)}
+
+
+def drop_stale_annotations(puzzle, *written):
+    """`puzzle` without each annotation whose clue text has changed, since the
+    first of `written` (written_against) holding that same annotation, to
+    other words, or to text missing a phrase the annotation quotes. The entry
+    goes back to the annotate backlog (annotate_check's annotateOnly) rather
+    than reaching disk explained by words its clue does not have."""
+    entries = []
+    for e in puzzle.get("entries") or []:
+        ann, text = e.get("annotation"), (e.get("clue") or {}).get("text") or ""
+        before = next((w[entry_id(e)][1] for w in written
+                       if entry_id(e) in w and w[entry_id(e)][0] == ann), text)
+        if text != before and (clue_words(text) != clue_words(before)
+                               or not all(q in text for q in quoted(ann))):
+            e = {k: v for k, v in e.items() if k != "annotation"}
+        entries.append(e)
+    return {**puzzle, "entries": entries}
+
+
 def has_words(clue):
     """A clue's text (its enumeration is kept apart, in `enumeration`) has to
     hold something, or the paper published nothing to solve.
@@ -923,6 +958,9 @@ def write_puzzle_file(path, puzzle, generator=None):
     held = puzzle_paths.find(puzzle["id"]) if corpus else (path if path.exists() else None)
     old = read_puzzle_file(held) if held else None
     generator = generator or generator_of(held or path)
+    # What each annotation was written for: the held file's words, or the
+    # writer's own for one it wrote now.
+    written = (written_against(old) if old is not None else {}), written_against(puzzle)
     # Every write to the corpus is corroborated against the other sources we
     # hold for the puzzle, here, so that a new fetcher cannot skip it. Only the
     # real corpus: the caches describe the real puzzles and the ledger records
@@ -937,6 +975,10 @@ def write_puzzle_file(path, puzzle, generator=None):
     errata.apply(puzzle)
     if path.resolve().is_relative_to((ROOT / "puzzles").resolve()):
         puzzle = corroborate.corroborate(puzzle)
+    # Whatever changed a clue's text (the writer's re-read, an erratum, the
+    # corroborated reading above), an annotation written for the old words
+    # does not reach disk on the new ones.
+    puzzle = drop_stale_annotations(puzzle, *written)
     # A puzzle built fresh from a page names only its url; the file's own
     # source says when it was acquired, and re-fetching it does not change
     # that. The old answers' origin is carried under whatever solutions the
