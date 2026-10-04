@@ -495,6 +495,7 @@ LAYOUT = [
     ("fetching", "tools/test_ocr_remote.sh", "does tools/ocr_remote.py compare every reader model a read can load, and send back an edition whose read on the desktop opened a file it was not sent?"),
     ("fetching", "tools/test_prereset_index_lock.sh", "do the pool's concurrent runs commit only their own puzzle?"),
     ("fetching", "tools/test_anagram_ring.sh", "a clue typed anagram gets the anagram ring: app.js deals the whole-answer anagram's fodder, else the longest part-anagram's, and the validator warns (ratcheted as assembly.anagrams) when a clue typed anagram names no fodder"),
+    ("fetching", "tools/test_discard_alert.sh", "does a rejected annotation alert only when the puzzle is parked?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

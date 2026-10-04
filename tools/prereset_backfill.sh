@@ -904,11 +904,6 @@ commit_puzzle() {
       commit_puzzle "$num" "$what" retry
       return $?
     fi
-    # The work is thrown away and the puzzle stays unannotated, which is worth
-    # saying out loud. Sent through alert so the line goes out explained
-    # rather than as one more failure alert.sh found nobody had written an
-    # alert for; quoting it verbatim is what marks it claimed.
-    alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     tail -5 /tmp/ct-prereset-validate.txt
     # A model's answer the run could not parse may be the wrong word, and a
     # failure record would hold it until its inputs change, which is never. So
@@ -921,6 +916,13 @@ commit_puzzle() {
       # shellcheck disable=SC2086 # $reopen is a list of entry ids
       reopen_answers "$num" $reopen && return 1
     fi
+    # Parked: the work is thrown away and the puzzle stays unannotated until
+    # its inputs change, which only a person mending the clue or answer does,
+    # so this is the case that is said out loud. A reopened puzzle above is
+    # solved again by this run and says nothing. Sent through alert so the
+    # line goes out explained rather than as one more failure alert.sh found
+    # nobody had written an alert for; quoting it verbatim marks it claimed.
+    alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     # Recorded against the puzzle's inputs, not the window: this run finished
     # and was rejected, which is the one failure that says something about the
     # grid. It stays out of the queue until those inputs change.
