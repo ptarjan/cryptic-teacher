@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,49 @@
     "text": "Book, one passed on to descendants by relative",
     "enumeration": "7"
    },
-   "solution": "GENESIS"
+   "solution": "GENESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENESIS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one passed on to descendants",
+      "gives": "GENE",
+      "note": "a gene is the unit of heredity handed down through generations"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "SIS",
+      "note": "short for sister, a family member"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENE",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A family heirloom, perhaps a book, handed down to the descendants by a relation.",
+     "definitionFit": "The first book of the Old Testament, telling of the creation of the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +94,71 @@
     "text": "Mock exam's beginning after major upset",
     "enumeration": "4"
    },
-   "solution": "GIBE"
+   "solution": "GIBE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GIBE",
+    "definitions": [
+     {
+      "text": "Mock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, which in a down clue flips the word end to end"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "beginning points to just the opening letter of exam being used"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "major",
+      "gives": "BIG",
+      "note": "major means big, here read backwards"
+     },
+     {
+      "clueFragment": "exam's",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIB",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "BIG",
+       "to": "GIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student taunted when an exam starts after a big upset.",
+     "definitionFit": "To gibe is to jeer or taunt someone, the same as to mock them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mock"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +172,43 @@
     "text": "Bigwig — why he eats off his lap?",
     "enumeration": "7"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTABLE",
+    "definitions": [
+     {
+      "text": "Bigwig",
+      "at": 0
+     },
+     {
+      "text": "why he eats off his lap?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bigwig",
+      "note": "first meaning: an important person"
+     },
+     {
+      "clueFragment": "why he eats off his lap?",
+      "note": "second meaning, read cryptically: he has nothing to put his plate on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as NO TABLE, the answer explains a plate balanced on knees.",
+     "definitionFit": "A notable is a person of distinction or importance, just as a bigwig is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lap"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,10 +219,59 @@
    },
    "length": 5,
    "clue": {
-    "text": "No bath for Solomon's mother before state visit from here?. 4",
+    "text": "No bath for Solomon's mother before state visit from here?",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHEBA",
+    "definitions": [
+     {
+      "text": "state visit from here?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "No tells us to strip a word away, here the word bath"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solomon's mother",
+      "gives": "BATHSHEBA",
+      "note": "Bathsheba was King David's wife and mother of Solomon"
+     },
+     {
+      "clueFragment": "bath",
+      "gives": "BATH",
+      "note": "taken as written: the word to be taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHEBA"
+     ]
+    },
+    "explanation": {
+     "surface": "Biblical gossip: Solomon's mother skipped her bath before a royal visit.",
+     "walkthrough": "Bathsheba was famously seen bathing by David; remove BATH. The Queen of Sheba made a celebrated visit to Solomon's court.",
+     "definitionFit": "The Queen of Sheba travelled from her kingdom to visit King Solomon, a biblical state visit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bath"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +285,46 @@
     "text": "Stuff for treating water succeeded with greater regularity",
     "enumeration": "8"
    },
-   "solution": "SOFTENER"
+   "solution": "SOFTENER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOFTENER",
+    "definitions": [
+     {
+      "text": "Stuff for treating water",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, as in genealogies"
+     },
+     {
+      "clueFragment": "with greater regularity",
+      "gives": "OFTENER",
+      "note": "more often"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OFTENER"
+     ]
+    },
+    "explanation": {
+     "surface": "A water treatment that works more reliably than before.",
+     "definitionFit": "A water softener is a substance or device that removes hardness minerals from water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeded"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +338,61 @@
     "text": "Man about to fail to take catch, for example",
     "enumeration": "7"
    },
-   "solution": "DISMISS"
+   "solution": "DISMISS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISMISS",
+    "definitions": [
+     {
+      "text": "catch, for example",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the man's name is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "SID",
+      "note": "a man's name, read backwards"
+     },
+     {
+      "clueFragment": "fail to take",
+      "gives": "MISS",
+      "note": "to miss something is to fail to take it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MISS"
+     ],
+     "reversals": [
+      {
+       "from": "SID",
+       "to": "DIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fielder fumbles a catch, the classic cricket blunder.",
+     "walkthrough": "The surface paints a dropped catch, but in cricket a catch is one way to send a batsman out.",
+     "definitionFit": "In cricket a catch is one method by which a bowler or fielder gets a batsman out, so the verb fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +406,46 @@
     "text": "Old satirist is boring to study",
     "enumeration": "6"
    },
-   "solution": "DRYDEN"
+   "solution": "DRYDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRYDEN",
+    "definitions": [
+     {
+      "text": "Old satirist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is boring",
+      "gives": "DRY",
+      "note": "something dry is dull and boring"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private room or study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that an old satirical writer is tedious to read.",
+     "definitionFit": "John Dryden, the 17th-century poet, wrote satires such as Absalom and Achitophel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +465,49 @@
      }
     ]
    },
-   "solution": "STRAWPOLL"
+   "solution": "STRAWPOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAW POLL",
+    "definitions": [
+     {
+      "text": "Test of opinion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desperate measure",
+      "gives": "STRAW",
+      "note": "a drowning person clutches at a straw, a desperate last resort"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "POLL",
+      "note": "to poll is to cut or crop hair or horns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAW",
+      "POLL"
+     ]
+    },
+    "explanation": {
+     "surface": "An opinion survey prompts a desperate step to be axed.",
+     "definitionFit": "A straw poll is an informal vote taken to gauge general feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +521,46 @@
     "text": "Popular part of the Bible? Just the opposite",
     "enumeration": "7"
    },
-   "solution": "INVERSE"
+   "solution": "INVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVERSE",
+    "definitions": [
+     {
+      "text": "Just the opposite",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "part of the Bible",
+      "gives": "VERSE",
+      "note": "the Bible is divided into chapters and verses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a well-loved Bible passage says the reverse of what we think.",
+     "definitionFit": "Inverse means opposite or reversed in order or effect, the contrary of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +574,48 @@
     "text": "Sort of electronics firm, say",
     "enumeration": "10"
    },
-   "solution": "SOLIDSTATE"
+   "solution": "SOLIDSTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLID-STATE",
+    "definitions": [
+     {
+      "text": "Sort of electronics",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "SOLID",
+      "note": "solid and firm both mean hard and stable"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLID",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A company in the electronics trade, for instance.",
+     "walkthrough": "'Firm' looks like a company noun, but it is the adjective meaning hard.",
+     "definitionFit": "Solid-state electronics use semiconductors such as transistors rather than valves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +628,61 @@
    "clue": {
     "text": "Insect flew pointlessly into food store"
    },
-   "solution": "BUTTERFLY"
+   "solution": "BUTTERFLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BUTTERFLY",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pointlessly",
+      "for": "deletion",
+      "note": "without points: the compass-point letters in the word flew are dropped"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means the shortened word is placed inside the food store"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food store",
+      "gives": "BUTTERY",
+      "note": "a buttery is a pantry or storeroom for provisions"
+     },
+     {
+      "clueFragment": "flew",
+      "gives": "FLEW",
+      "note": "taken as written, then losing the compass points E and W"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTER",
+      "FL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly zooms aimlessly into the larder.",
+     "walkthrough": "E and W are compass points, so 'pointlessly' strips both from flew. A buttery is an old word for a pantry, still used in colleges.",
+     "definitionFit": "A butterfly is a winged insect with broad, often colourful wings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pointlessly"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +696,48 @@
     "text": "Show, not a delightful entertainment",
     "enumeration": "5"
    },
-   "solution": "REVEL"
+   "solution": "REVEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REVEL",
+    "definitions": [
+     {
+      "text": "delightful entertainment",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not a",
+      "for": "deletion",
+      "note": "not a tells us to remove one letter A from the word for show"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show",
+      "gives": "REVEAL",
+      "note": "to reveal is to show"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that some show was no fun at all.",
+     "walkthrough": "REVEAL loses its A to give REVEL.",
+     "definitionFit": "A revel is a lively, merry festivity or celebration enjoyed by a crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +751,49 @@
     "text": "Apocalyptic future vision warrior's given to his continent",
     "enumeration": "13"
    },
-   "solution": "BRAVENEWWORLD"
+   "solution": "BRAVENEWWORLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAVE NEW WORLD",
+    "definitions": [
+     {
+      "text": "Apocalyptic future vision",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warrior's",
+      "gives": "BRAVE",
+      "note": "a brave is a Native American warrior; the 's is read as 'is'"
+     },
+     {
+      "clueFragment": "his continent",
+      "gives": "NEW WORLD",
+      "note": "the Americas, home continent of such a warrior"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAVE",
+      "NEWWORLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim prophecy of a warrior handing over his land.",
+     "definitionFit": "Aldous Huxley's novel imagines a dystopian future society, so it is a bleak futuristic vision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warrior's"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +807,47 @@
     "text": "Winning hand producing sign the king's embarrassed?",
     "enumeration": "10"
    },
-   "solution": "ROYALFLUSH"
+   "solution": "ROYALFLUSH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROYAL FLUSH",
+    "definitions": [
+     {
+      "text": "Winning hand",
+      "at": 0
+     },
+     {
+      "text": "sign the king's embarrassed?",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winning hand",
+      "note": "first meaning: the best possible poker hand"
+     },
+     {
+      "clueFragment": "sign the king's embarrassed?",
+      "note": "second meaning, read whimsically: a monarch reddening in the face"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player blushes at holding an unbeatable hand.",
+     "walkthrough": "The question mark flags the playful second reading: a flush on a royal face.",
+     "definitionFit": "In poker the top hand is ace to ten of one suit; read literally it is a reddening of royalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "king's"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +861,55 @@
     "text": "In summary, have finished struggle with wife",
     "enumeration": "8"
    },
-   "solution": "OVERVIEW"
+   "solution": "OVERVIEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERVIEW",
+    "definitions": [
+     {
+      "text": "summary",
+      "at": 3
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have finished",
+      "gives": "OVER",
+      "note": "when something is over it has finished"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete or struggle"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "VIE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief account of someone ending a battle alongside his wife.",
+     "definitionFit": "An overview is a general outline, a brief survey of the main points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +923,69 @@
     "text": "See strange tree on hillside showing lots of spiny segments",
     "enumeration": "9"
    },
-   "solution": "VERTEBRAE"
+   "solution": "VERTEBRAE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VERTEBRAE",
+    "definitions": [
+     {
+      "text": "lots of spiny segments",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or unfamiliar, so the letters appear in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "V",
+      "note": "V stands for vide, Latin for see"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "hillside",
+      "gives": "BRAE",
+      "note": "brae is Scottish for a hillside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ERTE",
+      "BRAE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "ERTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look at an odd tree on a slope, with many spiky parts.",
+     "definitionFit": "Vertebrae are the bones that link together to form the backbone or spine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +999,55 @@
     "text": "Compelling dope to stay in bed",
     "enumeration": "6"
    },
-   "solution": "COGENT"
+   "solution": "COGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COGENT",
+    "definitions": [
+     {
+      "text": "Compelling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stay in",
+      "for": "container",
+      "note": "to stay in something is to be inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "GEN",
+      "note": "dope and gen are both slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A dazed or drugged person forced to remain in bed.",
+     "walkthrough": "'Dope' suggests drugs or a fool, but here it means inside information.",
+     "definitionFit": "A cogent argument is persuasive and convincing, which is what compelling means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +1061,43 @@
     "text": "Getting down overheads in court? Excellent!",
     "enumeration": "8"
    },
-   "solution": "SMASHING"
+   "solution": "SMASHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMASHING",
+    "definitions": [
+     {
+      "text": "Getting down overheads in court?",
+      "at": 0
+     },
+     {
+      "text": "Excellent!",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Getting down overheads in court?",
+      "note": "first meaning: hitting overhead shots hard down in tennis"
+     },
+     {
+      "clueFragment": "Excellent!",
+      "note": "second meaning: an exclamation of approval"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Court' suggests a law court, but it is a tennis court where overheads are smashed.",
+     "definitionFit": "In tennis a smash is a hard overhead shot; informally, smashing means splendid or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1111,54 @@
     "text": "Notice animal's accommodated on Ark, for example",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on Ark, for example",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodated",
+      "for": "container",
+      "note": "accommodated means housed, so one piece is lodged inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice or advertisement"
+     },
+     {
+      "clueFragment": "animal's",
+      "gives": "BOAR",
+      "note": "a boar is an animal; the 's is read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign announcing that an animal has been given a berth on Noah's vessel.",
+     "definitionFit": "On a ship such as Noah's Ark means on board the vessel, as a passenger would be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1172,43 @@
     "text": "Works collected in No. 10. perhaps?",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OMNIBUS",
+    "definitions": [
+     {
+      "text": "Works collected",
+      "at": 0
+     },
+     {
+      "text": "No. 10. perhaps?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Works collected",
+      "note": "first meaning: a volume gathering several works"
+     },
+     {
+      "clueFragment": "No. 10. perhaps?",
+      "note": "second meaning: a bus route number"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "No. 10 suggests Downing Street, but here it is a bus route.",
+     "definitionFit": "An omnibus edition collects several works in one volume; an omnibus is also the full name for a bus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "10."
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1222,56 @@
     "text": "Writer's block restricting girl",
     "enumeration": "8"
    },
-   "solution": "SMOLLETT"
+   "solution": "SMOLLETT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMOLLETT",
+    "definitions": [
+     {
+      "text": "Writer's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means hemming in, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "block",
+      "gives": "SETT",
+      "note": "a sett is a stone paving block"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MOLL",
+      "note": "a moll is a girl, especially a gangster's companion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOLL",
+      "ETT"
+     ]
+    },
+    "explanation": {
+     "surface": "Writer's block holding an author back from a woman character.",
+     "walkthrough": "'Writer's block' reads as one phrase, but it splits: the definition is Writer's, and block gives the stone. Tobias Smollett was an 18th-century Scottish novelist.",
+     "definitionFit": "Tobias Smollett was a novelist, author of Roderick Random and Humphry Clinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1285,56 @@
     "text": "Four expelled from government and put to death",
     "enumeration": "7"
    },
-   "solution": "EXECUTE"
+   "solution": "EXECUTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EXECUTE",
+    "definitions": [
+     {
+      "text": "put to death",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelled from",
+      "for": "deletion",
+      "note": "expelled from means thrown out, so those letters are removed from the longer word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Four",
+      "gives": "IV",
+      "note": "Roman numeral for four"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "EXECUTIVE",
+      "note": "the executive is the governing branch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXECUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Four ministers thrown out of the cabinet and then killed.",
+     "walkthrough": "Removing the Roman IV from EXECUTIVE leaves EXECUTE.",
+     "definitionFit": "To execute someone is to carry out a death sentence on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Four"
+    }
+   }
   },
   {
    "number": 21,
@@ -348,7 +1348,58 @@
     "text": "Largely mysterious success for naturalist",
     "enumeration": "6"
    },
-   "solution": "DARWIN"
+   "solution": "DARWIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DARWIN",
+    "definitions": [
+     {
+      "text": "naturalist",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mysterious",
+      "gives": "DARK",
+      "note": "dark means obscure or mysterious"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "WIN",
+      "note": "a win is a success"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAR",
+      "WIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling triumph for a nature scientist.",
+     "walkthrough": "DARK minus its last letter gives DAR.",
+     "definitionFit": "Charles Darwin was the Victorian naturalist who proposed evolution by natural selection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mysterious"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1419,72 @@
      }
     ]
    },
-   "solution": "FINNEGANSWAKE"
+   "solution": "FINNEGANSWAKE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FINNEGANS WAKE",
+    "definitions": [
+     {
+      "text": "Ulysses successor",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revoltingly",
+      "for": "anagram",
+      "note": "revoltingly suggests rising in revolt, so these letters are overturned and rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the jumbled letters wrap around the extra pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seen fawning",
+      "gives": "SEENFAWNING",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINNEGANSW",
+      "AK",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEENFAWNING",
+       "gives": "FINNEGANSWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Courtiers seen fawning repulsively around a monarch, Odysseus's heir.",
+     "walkthrough": "Ulysses looks like the Greek hero, but it is James Joyce's novel; the answer was his next and last.",
+     "definitionFit": "Joyce wrote this novel after Ulysses, so it followed that book in his output."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ulysses"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1498,43 @@
     "text": "Part in theatre needed in kitchen-sink work?",
     "enumeration": "5"
    },
-   "solution": "APRON"
+   "solution": "APRON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "APRON",
+    "definitions": [
+     {
+      "text": "Part in theatre",
+      "at": 0
+     },
+     {
+      "text": "needed in kitchen-sink work?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part in theatre",
+      "note": "first meaning: the stage area in front of the curtain"
+     },
+     {
+      "clueFragment": "needed in kitchen-sink work?",
+      "note": "second meaning: a garment worn while washing up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Kitchen-sink drama is gritty realist theatre, so the surface stays in the playhouse while the second meaning is literal washing up.",
+     "definitionFit": "An apron is both the forward stage area in a playhouse and a protective garment for kitchen chores."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kitchen-sink"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1548,42 @@
     "text": "Pyramidologist reveals pagan statue",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "pagan statue",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reveals",
+      "for": "hidden_word",
+      "note": "reveals means lets us see what is inside the long word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pyramidologist",
+      "gives": "IDOL",
+      "note": "letters three to six of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "An Egypt scholar uncovers a heathen figure.",
+     "definitionFit": "An idol is an image or figure worshipped as a god."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reveals"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1597,51 @@
     "text": "River commonly said to be dark brown",
     "enumeration": "5"
    },
-   "solution": "UMBER"
+   "solution": "UMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UMBER",
+    "definitions": [
+     {
+      "text": "dark brown",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "commonly said",
+      "for": "deletion",
+      "note": "commonly said means spoken in a dropped-aitch Cockney way, so the opening letter H is lost"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "HUMBER",
+      "note": "the Humber is an estuary in north-east England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "The water of a river described, in local speech, as murky brown.",
+     "walkthrough": "The Humber is a river estuary in Yorkshire and Lincolnshire; a Cockney drops the H.",
+     "definitionFit": "Umber is a natural earth pigment giving a dark brownish colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commonly"
+    }
+   }
   },
   {
    "number": 26,
@@ -430,7 +1661,51 @@
      }
     ]
    },
-   "solution": "WHIPROUND"
+   "solution": "WHIPROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHIP-ROUND",
+    "definitions": [
+     {
+      "text": "collection",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party organiser",
+      "gives": "WHIP",
+      "note": "a whip enforces discipline within a political party"
+     },
+     {
+      "clueFragment": "circular",
+      "gives": "ROUND",
+      "note": "round and circular both describe a ring shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIP",
+      "ROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arranging a party sends out a leaflet asking for donations.",
+     "walkthrough": "A whip is the parliamentary official who keeps a party's members voting together.",
+     "definitionFit": "A whip-round is an informal gathering of money from a group, for a gift or cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1725,53 @@
      }
     ]
    },
-   "solution": "HASBEEN"
+   "solution": "HASBEEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAS-BEEN",
+    "definitions": [
+     {
+      "text": "one declining",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints at one possible arrangement of the letters rather than the given order"
+     }
+    ],
+    "linkWords": [
+     "could do for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banshee",
+      "gives": "BANSHEE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANSHEE",
+       "gives": "HASBEEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wailing Irish spirit might well finish off someone in decline.",
+     "definitionFit": "A has-been is a person whose fame or success is past and fading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Banshee"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1785,61 @@
     "text": "Well-bred set capturing record? Almost",
     "enumeration": "7"
    },
-   "solution": "GENTEEL"
+   "solution": "GENTEEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GENTEEL",
+    "definitions": [
+     {
+      "text": "Well-bred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the last letter of the word for record goes"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing means holding inside, so the word for set surrounds the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "GEL",
+      "note": "to gel is to set, as jelly does"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "ENTER",
+      "note": "to enter data is to record it; then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ENTE",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A refined crowd nearly grabbing some prize or record.",
+     "walkthrough": "'Set' looks like a noun for a social group, matching Well-bred, but it is the verb meaning solidify.",
+     "definitionFit": "Genteel describes refined, polite manners associated with good upbringing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   }
  ]
 }
