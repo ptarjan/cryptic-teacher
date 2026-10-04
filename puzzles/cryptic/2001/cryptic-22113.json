@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Estimator includes a boat",
     "enumeration": "7"
    },
-   "solution": "COASTER"
+   "solution": "COASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COASTER",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes says the first word holds the next item inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Estimator",
+      "gives": "COSTER",
+      "note": "a coster is one who works out what something costs"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "A",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A valuer of some kind takes on a boat as part of the job.",
+     "walkthrough": "COSTER opens to take in A, giving COASTER.",
+     "definitionFit": "A coaster is a small ship that trades along the shoreline between ports."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Estimator"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,53 @@
     "text": "Odd dialect in fortress",
     "enumeration": "7"
    },
-   "solution": "CITADEL"
+   "solution": "CITADEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CITADEL",
+    "definitions": [
+     {
+      "text": "fortress",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd",
+      "for": "anagram",
+      "note": "odd means strange or out of the ordinary, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dialect",
+      "gives": "DIALECT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIALECT",
+       "gives": "CITADEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange local speech is spoken inside a fortress.",
+     "definitionFit": "A citadel is a stronghold guarding a city, a fortified place of refuge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,70 @@
     "text": "Excellent and malicious article overturned complaint",
     "enumeration": "7"
    },
-   "solution": "ANAEMIA"
+   "solution": "ANAEMIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANAEMIA",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, so in a down clue the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     },
+     {
+      "clueFragment": "malicious",
+      "gives": "MEAN",
+      "note": "mean can mean spiteful"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NAEM",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIMEANA",
+       "to": "ANAEMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine but spiteful newspaper piece knocked over a grievance.",
+     "walkthrough": "'Complaint' is an illness here, not a grievance.",
+     "definitionFit": "Anaemia is a medical condition of too few red blood cells, and a complaint can mean an ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +235,50 @@
     "text": "Volunteers dig in lake",
     "enumeration": "5"
    },
-   "solution": "TAHOE"
+   "solution": "TAHOE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAHOE",
+    "definitions": [
+     {
+      "text": "lake",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volunteers",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "dig",
+      "gives": "HOE",
+      "note": "to hoe is to dig and break up soil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "HOE"
+     ]
+    },
+    "explanation": {
+     "surface": "Volunteers dig in by a lakeside.",
+     "walkthrough": "'Dig in' reads as a phrase, but 'in' just links the wordplay to the definition.",
+     "definitionFit": "Lake Tahoe is a large freshwater body on the California-Nevada border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,51 @@
      }
     ]
    },
-   "solution": "RINGFENCE"
+   "solution": "RINGFENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RING-FENCE",
+    "definitions": [
+     {
+      "text": "All-round protection",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telephone",
+      "gives": "RING",
+      "note": "to ring someone is to telephone them"
+     },
+     {
+      "clueFragment": "receiver",
+      "gives": "FENCE",
+      "note": "a fence is someone who receives stolen goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "FENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wrap-around protection for a phone handset.",
+     "walkthrough": "'Receiver' suggests a phone's earpiece; it is a dealer in stolen goods.",
+     "definitionFit": "A ring-fence is a fence enclosing an area completely, or figuratively a guarantee shielding funds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "receiver"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,58 @@
     "text": "Vessel requires time in delivery",
     "enumeration": "7"
    },
-   "solution": "STEAMER"
+   "solution": "STEAMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEAMER",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us this letter is placed within the following word"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delivery",
+      "gives": "SEAMER",
+      "note": "in cricket a seamer is a ball bowled so it moves off its seam"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "EAMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship that needs a set time for its delivery to arrive.",
+     "walkthrough": "Cricket is a British bat-and-ball game; T goes inside SEAMER to give STEAMER.",
+     "definitionFit": "A steamer is a ship powered by steam engines, a kind of vessel at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +421,55 @@
     "text": "Mawkish agent out of work",
     "enumeration": "5"
    },
-   "solution": "SOPPY"
+   "solution": "SOPPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOPPY",
+    "definitions": [
+     {
+      "text": "Mawkish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "container",
+      "note": "the agent stands on the outside of the work, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentimental secret agent finds himself unemployed.",
+     "walkthrough": "'Out of work' looks like jobless; here it says the agent sits round the work. Op is short for opus.",
+     "definitionFit": "Soppy is British informal for overly sentimental, just as mawkish means sickly sentimental."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +483,55 @@
     "text": "River separated worker from performer",
     "enumeration": "9"
    },
-   "solution": "EXECUTANT"
+   "solution": "EXECUTANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXECUTANT",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, England"
+     },
+     {
+      "clueFragment": "separated",
+      "gives": "CUT",
+      "note": "to cut is to separate"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "a worker ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "CUT",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A river has divided a labourer from an artist.",
+     "definitionFit": "An executant is one who carries out a task, especially a musician who plays a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "separated"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +545,51 @@
     "text": "Swallow iodine in drink",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swallow",
+      "gives": "MARTIN",
+      "note": "the martin is a bird of the swallow family"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is the chemical symbol for iodine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARTIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Gulp down iodine mixed into a beverage.",
+     "walkthrough": "'Swallow' is a verb on the surface; here it is the bird.",
+     "definitionFit": "A martini is a cocktail of gin or vodka with vermouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Swallow"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +603,62 @@
     "text": "Staff regret keeping key money",
     "enumeration": "7"
    },
-   "solution": "RETINUE"
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding on to, so one word holds the rest inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is British slang for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "TIN",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "Employees regret holding on to the key to the cash.",
+     "walkthrough": "Tin as money is British slang.",
+     "definitionFit": "A retinue is a group of attendants serving an important person, their staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +678,56 @@
      }
     ]
    },
-   "solution": "TEACHIN"
+   "solution": "TEACHIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEACH-IN",
+    "definitions": [
+     {
+      "text": "seminar",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "TEA",
+      "note": "tea is a drink"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "CHI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sips a drink beside a new Greek face at a seminar.",
+     "definitionFit": "A teach-in is an informal lecture and discussion session on a topic, much like a seminar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +741,58 @@
     "text": "Before the nonsense there's support for the entertainer",
     "enumeration": "7"
    },
-   "solution": "PIERROT"
+   "solution": "PIERROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIERROT",
+    "definitions": [
+     {
+      "text": "entertainer",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Before",
+      "for": "charade",
+      "note": "before says the following piece is placed ahead of the earlier one in the answer"
+     }
+    ],
+    "linkWords": [
+     "there's",
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a pillar holding up a bridge or arch"
+     },
+     {
+      "clueFragment": "the nonsense",
+      "gives": "ROT",
+      "note": "rot is rubbish or nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIER",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian is propped up before he starts his silly act.",
+     "walkthrough": "'Support' sounds like encouragement; here it is a structural prop such as a pillar.",
+     "definitionFit": "Pierrot is the sad white-faced clown of French pantomime, a stock stage performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +806,61 @@
     "text": "Hold back fairy caught by cunning insect",
     "enumeration": "9"
    },
-   "solution": "DAMSELFLY"
+   "solution": "DAMSELFLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DAMSELFLY",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held in its grip, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold back",
+      "gives": "DAM",
+      "note": "to dam is to hold back water"
+     },
+     {
+      "clueFragment": "fairy",
+      "gives": "ELF",
+      "note": "an elf is a small fairy creature"
+     },
+     {
+      "clueFragment": "cunning",
+      "gives": "SLY",
+      "note": "sly means cunning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "S",
+      "ELF",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wily insect traps a fairy and keeps her from escaping.",
+     "definitionFit": "A damselfly is a slender winged insect related to the dragonfly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fairy"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +874,53 @@
     "text": "Public sector workers giving up Sunday league",
     "enumeration": "5"
    },
-   "solution": "UNION"
+   "solution": "UNION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNION",
+    "definitions": [
+     {
+      "text": "league",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving up",
+      "for": "deletion",
+      "note": "giving up something means letting it go, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public sector workers",
+      "gives": "UNISON",
+      "note": "the name of Britain's largest labour organisation for public service staff"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "note": "S is the abbreviation for Sunday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNION"
+     ]
+    },
+    "explanation": {
+     "surface": "Public sector staff abandon a Sunday sports league.",
+     "walkthrough": "Remove the S from UNISON to leave UNION.",
+     "definitionFit": "A union is an alliance or association of parties, just as a league is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "league"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +934,53 @@
     "text": "Sovereign owns a capital",
     "enumeration": "5"
    },
-   "solution": "LHASA"
+   "solution": "LHASA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LHASA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sovereign",
+      "gives": "L",
+      "note": "a sovereign is a gold pound coin, and L is the pound sign's letter"
+     },
+     {
+      "clueFragment": "owns",
+      "gives": "HAS",
+      "note": "to own is to have"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "HAS",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler possesses a capital city.",
+     "walkthrough": "A sovereign is an old British gold coin worth one pound; L stands for pound, from Latin libra.",
+     "definitionFit": "Lhasa is the chief city of Tibet, its traditional seat of government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sovereign"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +994,51 @@
     "text": "Radio epic broadcast irregularly",
     "enumeration": "9"
    },
-   "solution": "APERIODIC"
+   "solution": "APERIODIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APERIODIC",
+    "definitions": [
+     {
+      "text": "irregularly",
+      "at": 21,
+      "note": "adverb, while the answer is an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Radio epic",
+      "gives": "RADIOEPIC",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RADIOEPIC",
+       "gives": "APERIODIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long radio drama goes out on an uneven schedule.",
+     "definitionFit": "Aperiodic means not occurring at regular intervals, lacking any fixed cycle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1052,53 @@
     "text": "Fruit produced in a recent development",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "development",
+      "for": "anagram",
+      "note": "a development is a change in form, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "produced"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a recent",
+      "gives": "INARECENT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INARECENT",
+       "gives": "NECTARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new fruit variety has come out of recent breeding work.",
+     "definitionFit": "A nectarine is a smooth-skinned stone fruit, a variety of peach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "development"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1112,62 @@
     "text": "In the square obtain oriental vegetable",
     "enumeration": "9"
    },
-   "solution": "COURGETTE"
+   "solution": "COURGETTE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COURGETTE",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places the next item inside the one that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the square",
+      "gives": "COURT",
+      "note": "a court is an open square or yard"
+     },
+     {
+      "clueFragment": "obtain",
+      "gives": "GET",
+      "note": "to obtain is to get"
+     },
+     {
+      "clueFragment": "oriental",
+      "gives": "E",
+      "note": "E for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUR",
+      "GET",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pick up some Asian produce in the town square.",
+     "walkthrough": "Courgette is the British word; Americans say zucchini.",
+     "definitionFit": "A courgette is a small green summer squash cooked and eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1181,51 @@
     "text": "Alewife having cigarette with Perrier?",
     "enumeration": "9"
    },
-   "solution": "GASPEREAU"
+   "solution": "GASPEREAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASPEREAU",
+    "definitions": [
+     {
+      "text": "Alewife",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cigarette",
+      "gives": "GASPER",
+      "note": "gasper is old British slang for a cheap cigarette"
+     },
+     {
+      "clueFragment": "with Perrier?",
+      "gives": "EAU",
+      "note": "Perrier is a French mineral water, and eau is French for water; the question mark flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GASPER",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlady at the pub smokes while sipping fizzy water.",
+     "walkthrough": "'Alewife' looks like a woman who runs an alehouse; here it is a fish.",
+     "definitionFit": "The alewife is a North American herring-like fish, also known in Canada as the gaspereau."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Alewife"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1239,69 @@
     "text": "Duck to waddle initially in rancour",
     "enumeration": "7"
    },
-   "solution": "GADWALL"
+   "solution": "GADWALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "GADWALL",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rancour",
+      "gives": "GALL",
+      "note": "gall is bitterness or rancour"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "AD",
+      "note": "ad is Latin for to"
+     },
+     {
+      "clueFragment": "waddle",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AD",
+      "W",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck sets off waddling bitterly.",
+     "walkthrough": "'To' looks like a link word; it is Latin ad, a standard crossword convention.",
+     "definitionFit": "The gadwall is a greyish dabbling duck found across Europe and North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1315,54 @@
     "text": "Endlessly display smuggled ornamental pouch",
     "enumeration": "7"
    },
-   "solution": "SPORRAN"
+   "solution": "SPORRAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SPORRAN",
+    "definitions": [
+     {
+      "text": "ornamental pouch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "display",
+      "gives": "SPORT",
+      "note": "to sport something is to show it off"
+     },
+     {
+      "clueFragment": "smuggled",
+      "gives": "RAN",
+      "note": "to run goods is to smuggle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOR",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Constantly showing off a fancy bag of contraband.",
+     "definitionFit": "A sporran is the decorative pouch hung at the front of a Scottish kilt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "smuggled"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1376,54 @@
     "text": "Rumour about second-class furniture",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "furniture",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means surrounding, so one item wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rumour",
+      "gives": "TALE",
+      "note": "a tale can be idle gossip"
+     },
+     {
+      "clueFragment": "second-class",
+      "gives": "B",
+      "note": "B grade is second class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip that some furniture is shoddy and second-rate.",
+     "definitionFit": "A table is a standard household item with a flat top on legs, one piece among furnishings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rumour"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1437,54 @@
     "text": "Girl wears obscure cosmetic",
     "enumeration": "7"
    },
-   "solution": "BLUSHER"
+   "solution": "BLUSHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLUSHER",
+    "definitions": [
+     {
+      "text": "cosmetic",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "one worn sits inside the clothing, so the girl goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "BLUR",
+      "note": "to blur is to obscure"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "SHE",
+      "note": "she refers to a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLU",
+      "SHE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl puts on concealing make-up.",
+     "definitionFit": "Blusher is a pink or red powder applied to the cheeks as make-up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obscure"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1498,62 @@
     "text": "English general accepts tax raise",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELEVATE",
+    "definitions": [
+     {
+      "text": "raise",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "accepts means takes in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English"
+     },
+     {
+      "clueFragment": "general",
+      "gives": "LEE",
+      "note": "Robert E. Lee was the Confederate general"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax, the British sales tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "VAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An English general agrees to a tax rise.",
+     "walkthrough": "VAT is value added tax, the British sales tax.",
+     "definitionFit": "To elevate something is to lift it higher, a direct synonym of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1567,54 @@
     "text": "Little girl conceals stolen loincloth",
     "enumeration": "5"
    },
-   "solution": "DHOTI"
+   "solution": "DHOTI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DHOTI",
+    "definitions": [
+     {
+      "text": "loincloth",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "what is concealed is hidden inside, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little girl",
+      "gives": "DI",
+      "note": "Di is a short form of the name Diana"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "hot is slang for stolen goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "HOT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A young girl hides a stolen piece of clothing.",
+     "definitionFit": "A dhoti is the long cloth worn wrapped round the waist and legs by men in India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1628,50 @@
     "text": "Giants rue faked endorsement",
     "enumeration": "9"
    },
-   "solution": "SIGNATURE"
+   "solution": "SIGNATURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGNATURE",
+    "definitions": [
+     {
+      "text": "endorsement",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "faked",
+      "for": "anagram",
+      "note": "something faked is made up, so the letters are made up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giants rue",
+      "gives": "GIANTSRUE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIANTSRUE",
+       "gives": "SIGNATURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Giants regret a forged approval on their contract.",
+     "definitionFit": "A signature on a document shows approval, the act of endorsing it with your name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Giants"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1685,54 @@
     "text": "Amiable holy man eats very little",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEET",
+    "definitions": [
+     {
+      "text": "Amiable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "what is eaten goes inside the eater"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy man",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "very little",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly hermit lives on almost nothing.",
+     "definitionFit": "Sweet describes a kind, pleasant, gentle nature, much like an agreeable person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1746,50 @@
     "text": "A charge leads to a verdict",
     "enumeration": "5"
    },
-   "solution": "AWARD"
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "verdict",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "WARD",
+      "note": "a ward is a person in one's charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An accusation results in a court ruling.",
+     "walkthrough": "'Charge' suggests a criminal accusation; it is a person under protection.",
+     "definitionFit": "An award is a judgment or decision granted by arbitrators or a court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1803,51 @@
     "text": "A couple's contract",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABRIDGE",
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "BRIDGE",
+      "note": "to bridge two things is to join or couple them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A married pair's legal agreement.",
+     "walkthrough": "'Couple' reads as a noun, a pair; it is the verb join. 'Contract' looks like a noun but is the verb shorten.",
+     "definitionFit": "To abridge a text is to shorten or condense it, which is one sense of the verb contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1861,72 @@
     "text": "Rejected expertise about hurt part of the body",
     "enumeration": "7"
    },
-   "solution": "TRACHEA"
+   "solution": "TRACHEA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRACHEA",
+    "definitions": [
+     {
+      "text": "part of the body",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read the other way"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean in a different arrangement, so these letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expertise",
+      "gives": "ART",
+      "note": "art is skill or expertise"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "ACHE",
+      "note": "to ache is to hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "CHEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACHE",
+       "gives": "CHEA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turned-down know-how about an injured bit of anatomy.",
+     "definitionFit": "The trachea is the windpipe, the tube carrying air from the throat to the lungs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1940,59 @@
     "text": "Endlessly clouting contrived artwork",
     "enumeration": "7"
    },
-   "solution": "LINOCUT"
+   "solution": "LINOCUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LINOCUT",
+    "definitions": [
+     {
+      "text": "artwork",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the final letter goes"
+     },
+     {
+      "text": "contrived",
+      "for": "anagram",
+      "note": "contrived means artificially arranged, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clouting",
+      "gives": "CLOUTIN",
+      "note": "the word with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINOCUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLOUTIN",
+       "gives": "LINOCUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Non-stop violent hitting staged as a work of art.",
+     "definitionFit": "A linocut is a print made from a design carved into a block of linoleum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clouting"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +2006,55 @@
     "text": "Back 'urdler following tip",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says the piece comes after the other, so it is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "END",
+      "note": "a tip is an end or point"
+     },
+     {
+      "clueFragment": "'urdler",
+      "gives": "ORSE",
+      "note": "a hurdler is a horse that jumps hurdles; the apostrophe shows the H is dropped, Cockney-style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "ORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Support a runner in a hurdles race who follows a tip.",
+     "walkthrough": "Dropping the H in 'urdler tells you to drop it in the answer too: horse becomes 'orse.",
+     "definitionFit": "To back a candidate or plan is to support it, which is what endorse means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   }
  ]
 }
