@@ -112,6 +112,18 @@ def pick(cands, key, used, per_series=None, n=PER_SECTION):
     return out
 
 
+def oldest_per_paper(fs):
+    """The earliest dated puzzle of each publisher, oldest first."""
+    best = {}
+    for f in fs:
+        if not f["dated"] or f["day"] is None:
+            continue
+        paper = series_meta.publisher(f["series"])
+        if paper not in best or (f["day"], f["id"]) < (best[paper]["day"], best[paper]["id"]):
+            best[paper] = f
+    return sorted(best.values(), key=lambda f: (f["day"], f["id"]))
+
+
 def pangram_times(f):
     return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=1)
 
@@ -123,6 +135,10 @@ def sections(all_facts, hinted=True):
     used = set()
     fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
+    # Picked first so no other section takes a paper's oldest puzzle and leaves
+    # its second-oldest to stand in; shown last, where it always sat.
+    oldest = oldest_per_paper(fs)
+    used.update(f["id"] for f in oldest)
 
     def add(slug, heading, blurb, picked, note):
         if picked:
@@ -181,9 +197,8 @@ def sections(all_facts, hinted=True):
               and f["number"] % 1000 == 0], newest_first, used, per_series=1),
         lambda f: "")
     add("oldest", "The oldest",
-        "The earliest puzzles in the archive.",
-        pick([f for f in fs if f["dated"]], lambda f: f["day"], used, per_series=3),
-        lambda f: "")
+        "The earliest puzzle we have from each paper, oldest first.",
+        oldest, lambda f: series_meta.publisher(f["series"]))
     return out
 
 

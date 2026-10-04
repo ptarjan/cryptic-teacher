@@ -72,7 +72,7 @@ shown = [f["id"] for _, _, _, cards in sc.sections(pool) for f, _ in cards]
 check("the showcase shows only annotated puzzles",
       shown and all(int(i.split("-")[1]) % 2 == 0 for i in shown), shown)
 check("wanted() names the unhinted puzzles it would have shown",
-      sorted(sc.wanted(pool)) == ["cryptic-1", "cryptic-3", "cryptic-5", "cryptic-7"],
+      sorted(sc.wanted(pool)) == ["cryptic-1", "cryptic-5", "cryptic-7"],
       sc.wanted(pool))
 
 # --- a pick opens the solver, and no reader page may link an answer page ---
@@ -112,6 +112,15 @@ check("an archive row whose own link is the answer page is refused",
 check("the old-number chooser may link the answer pages it replaced",
       not refused("puzzles/30000/index.html",
                   f'<ul><li><a href="{B.BASE}/puzzles/cryptic-30000/">x</a></li></ul>'))
+
+# --- the oldest section: one puzzle per paper, oldest first ---
+mk = lambda i, series, day, dated=True: {"id": i, "series": series, "day": day,
+    "dated": dated, "annotated": True, "tags": [], "message": False, "jigsaw": False,
+    "answers": 1, "longest": None, "difficulty": None, "number": 1, "counted": False}
+old = sc.oldest_per_paper([mk("a2", "cryptic", 200), mk("a1", "cryptic", 100),
+                           mk("t1", "times", 50), mk("b1", "cryptic", 10, False)])
+check("the oldest shows one dated puzzle per paper, oldest first",
+      [f["id"] for f in old] == ["t1", "a1"], [f["id"] for f in old])
 
 print("\n%d failure(s)" % fails)
 raise SystemExit(fails > 0)
