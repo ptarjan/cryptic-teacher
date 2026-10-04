@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Initial payment bound to include bribe in return",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "Initial payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include means the word for bound wraps around the word for bribe"
+     },
+     {
+      "text": "in return",
+      "for": "reversal",
+      "note": "in return asks for the whole combined string to be turned round and read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound",
+      "gives": "TIED",
+      "note": "bound, as with rope, is tied"
+     },
+     {
+      "clueFragment": "bribe",
+      "gives": "SOP",
+      "note": "a sop is something given to pacify or buy someone off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "POS",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "TISOPED",
+       "to": "DEPOSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first instalment comes with a kickback attached, paid back in kind.",
+     "walkthrough": "TI(SOP)ED is built first, then the whole thing is read backwards to give DEPOSIT.",
+     "definitionFit": "A deposit is the sum handed over first to secure a purchase, with the balance paid later."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,51 @@
     "text": "Boil for two months",
     "enumeration": "6"
    },
-   "solution": "DECOCT"
+   "solution": "DECOCT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECOCT",
+    "definitions": [
+     {
+      "text": "Boil",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two",
+      "gives": "DEC",
+      "note": "December, abbreviated"
+     },
+     {
+      "clueFragment": "months",
+      "gives": "OCT",
+      "note": "October, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "OCT"
+     ]
+    },
+    "explanation": {
+     "surface": "Simmer something for two whole months.",
+     "walkthrough": "'Two months' reads as a duration; it actually supplies two month abbreviations, DEC and OCT.",
+     "definitionFit": "To decoct is to boil a substance down to extract its essence, as in making a decoction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "months"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,49 @@
     "text": "Reduce books in relation",
     "enumeration": "6"
    },
-   "solution": "PARENT"
+   "solution": "PARENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARENT",
+    "definitions": [
+     {
+      "text": "relation",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reduce",
+      "gives": "PARE",
+      "note": "to pare is to trim down"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "New Testament books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Cutting down on reading matter about kinship.",
+     "definitionFit": "A parent is a mother or father, a close family member and so a relation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +230,62 @@
      }
     ]
    },
-   "solution": "SQUAREMEAL"
+   "solution": "SQUAREMEAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SQUARE MEAL",
+    "definitions": [
+     {
+      "text": "hearty dish",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'usband",
+      "for": "deletion",
+      "note": "the dropped aitch in this word tells you to drop the H from the group too"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the complaint word goes round the group"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group sharing",
+      "gives": "HAREM",
+      "note": "the wives of one man, who share him"
+     },
+     {
+      "clueFragment": "complain",
+      "gives": "SQUEAL",
+      "note": "to squeal is to protest loudly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQU",
+      "AREM",
+      "EAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cockney wife grumbles that the household shares a husband over dinner.",
+     "walkthrough": "The apostrophe in 'usband mimics a dropped aitch, so the group of wives loses its H too.",
+     "definitionFit": "A square meal is a substantial, nourishing meal, which is what a hearty dish provides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sharing"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +299,48 @@
     "text": "Everything in Plato turned round",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "Everything",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie inside the words that follow"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "round means the found letters are turned about to read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plato turned",
+      "gives": "LATOT",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "All of Plato's thought, turned upside down.",
+     "definitionFit": "A total is the whole amount, everything added together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +354,60 @@
     "text": "Rub up, if given brush-off",
     "enumeration": "7"
    },
-   "solution": "FURBISH"
+   "solution": "FURBISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FURBISH",
+    "definitions": [
+     {
+      "text": "Rub up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means wrong or awry, so the letters are not in their proper order"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brush",
+      "gives": "BRUSH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFBRUSH",
+       "gives": "FURBISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Polish something up, if you get given the brush-off.",
+     "walkthrough": "'Brush-off' reads as a snub, but the hyphen hides the word brush followed by its anagram signal.",
+     "definitionFit": "To furbish is to polish or burnish, restoring the shine of something by rubbing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brush-off"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +421,46 @@
     "text": "Anticipate a lot of trees - 4?",
     "enumeration": "9"
    },
-   "solution": "FORESTALL"
+   "solution": "FORESTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORESTALL",
+    "definitions": [
+     {
+      "text": "Anticipate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot of trees",
+      "gives": "FOREST",
+      "note": "a forest is a large area of trees"
+     },
+     {
+      "clueFragment": "4?",
+      "gives": "ALL",
+      "note": "the answer to 4 down means everything, which is all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOREST",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Predicting a huge number of trees, with a nod to another clue.",
+     "walkthrough": "The cross-reference uses the answer to 4 down, everything, as a synonym rather than as letters.",
+     "definitionFit": "To forestall is to act ahead of an event so as to prevent it, getting in first."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +474,58 @@
     "text": "Be rewarded with dialectal river in posh accent",
     "enumeration": "4"
    },
-   "solution": "REAP"
+   "solution": "REAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REAP",
+    "definitions": [
+     {
+      "text": "Be rewarded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the river word inside the abbreviation for the accent"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh accent",
+      "gives": "RP",
+      "note": "Received Pronunciation, standard upper-class English"
+     },
+     {
+      "clueFragment": "dialectal river",
+      "gives": "EA",
+      "note": "ea is a dialect word for a river or stream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting one's reward by speaking of a river in a plummy voice.",
+     "walkthrough": "RP, Received Pronunciation, is the accent associated with the BBC and public schools.",
+     "definitionFit": "To reap is to gather in a harvest, and figuratively to receive the benefits of one's efforts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accent"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +539,67 @@
     "text": "Bad reversal of northern light for Orsino and Olivia, say",
     "enumeration": "8"
    },
-   "solution": "ILLYRIAN"
+   "solution": "ILLYRIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ILLYRIAN",
+    "definitions": [
+     {
+      "text": "for Orsino and Olivia, say",
+      "at": 31,
+      "note": "an adjective describing them, not a synonym for them"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversal of",
+      "for": "reversal",
+      "note": "reversal of says the following words' letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad",
+      "gives": "ILL",
+      "note": "ill means bad"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "abbreviation for northern"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "AIRY",
+      "note": "light and airy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "YRIAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAIRY",
+       "to": "YRIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad turn for the northern lights, seen by two Shakespearean lovers.",
+     "walkthrough": "Orsino and Olivia live in Illyria, the setting of Twelfth Night; the 'northern light' phrase hides N and a word for light.",
+     "definitionFit": "Orsino and Olivia, from Shakespeare's Twelfth Night, are natives of Illyria on the Adriatic coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +613,61 @@
     "text": "Remnant to be suspended round middle of range",
     "enumeration": "8"
    },
-   "solution": "HANGOVER"
+   "solution": "HANGOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HANGOVER",
+    "definitions": [
+     {
+      "text": "Remnant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of asks for the central letters, dropping both ends"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the suspended word goes outside the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "ANG",
+      "select": "middle",
+      "note": "range without its first and last letters"
+     },
+     {
+      "clueFragment": "to be suspended",
+      "gives": "HOVER",
+      "note": "to hover is to hang in the air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ANG",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "What is left over after hanging around in the middle of a mountain range.",
+     "definitionFit": "A hangover is something surviving from an earlier time, a leftover or relic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspended"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +681,71 @@
     "text": "Isle of Gold first formed in copper",
     "enumeration": "5"
    },
-   "solution": "CORFU"
+   "solution": "CORFU",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CORFU",
+    "definitions": [
+     {
+      "text": "Isle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word formed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the symbol for copper"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     },
+     {
+      "clueFragment": "formed",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of formed"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OR",
+      "F",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "An island of gold was first shaped inside copper, like a myth of creation.",
+     "definitionFit": "Corfu is a Greek island in the Ionian Sea, off the coast of Albania."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gold"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +759,67 @@
     "text": "Covering prolific corres-pondent in train crash",
     "enumeration": "9"
    },
-   "solution": "TARPAULIN"
+   "solution": "TARPAULIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TARPAULIN",
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crash",
+      "for": "anagram",
+      "note": "a crashed train is a wreck, so its letters lie scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the correspondent inside the wrecked word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prolific corres-pondent",
+      "gives": "PAUL",
+      "note": "St Paul wrote many of the New Testament epistles"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TRAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "PAUL",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAIN",
+       "gives": "TARIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A busy letter-writer is caught up in a rail accident, ending under a sheet.",
+     "walkthrough": "The hyphen in corres-pondent is a quirk of the source's typesetting; the phrase means a writer of many letters.",
+     "definitionFit": "A tarpaulin is a heavy waterproof sheet used to cover loads, boats or goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corres-pondent"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +833,51 @@
     "text": "Interlaces components, as bureaucracy may?",
     "enumeration": "10"
    },
-   "solution": "CENTRALISE"
+   "solution": "CENTRALISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CENTRALISE",
+    "definitions": [
+     {
+      "text": "as bureaucracy may",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "components",
+      "for": "anagram",
+      "note": "the components of a word are its letters, taken apart and put together afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interlaces",
+      "gives": "INTERLACES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTERLACES",
+       "gives": "CENTRALISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weaving parts together, the way an administrative machine tends to operate.",
+     "walkthrough": "The definition is a description of action rather than a synonym, which the question mark flags.",
+     "definitionFit": "Bureaucracies tend to gather power and control into one central office, which is what centralising does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "components"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +891,65 @@
     "text": "Flower of Conrad's \"Heart\" read backwards",
     "enumeration": "4"
    },
-   "solution": "ARNO"
+   "solution": "ARNO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "ARNO",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "\"Heart\"",
+      "for": "letter_selection",
+      "note": "the heart of a word is its inside, dropping the first and last letters"
+     },
+     {
+      "text": "read backwards",
+      "for": "reversal",
+      "note": "read backwards says the kept letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conrad's",
+      "gives": "ONRA",
+      "select": "middle",
+      "note": "the inner letters of Conrad, with C and D dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARNO"
+     ],
+     "reversals": [
+      {
+       "from": "ONRA",
+       "to": "ARNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conrad's Heart of Darkness is a book about a river journey, read here backwards.",
+     "walkthrough": "'Flower' is crossword code for a river, something that flows; the Arno runs through Florence and Pisa.",
+     "definitionFit": "A river is a thing that flows, hence a 'flow-er', and the Arno is an Italian river."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +969,70 @@
      }
     ]
    },
-   "solution": "GRETAGARBO"
+   "solution": "GRETAGARBO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GRETA GARBO",
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(not West)",
+      "for": "deletion",
+      "note": "not West means losing the compass letter for west, while hinting it is not Mae West"
+     },
+     {
+      "text": "out of",
+      "for": "container",
+      "note": "out of means sitting outside, around the next words"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grow",
+      "gives": "GROW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "terrorist",
+      "gives": "ETA",
+      "note": "ETA was the Basque separatist group"
+     },
+     {
+      "clueFragment": "costume",
+      "gives": "GARB",
+      "note": "garb is clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "ETA",
+      "GARB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress, not Mae West, outgrows her terrorist disguise.",
+     "walkthrough": "The bracket does double duty: the actress is not Mae West, and W is removed from grow.",
+     "definitionFit": "Greta Garbo was a Swedish-born Hollywood film star of the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1046,60 @@
     "text": "Unfortunate outcome is about to disrupt the union",
     "enumeration": "11"
    },
-   "solution": "MISCARRIAGE"
+   "solution": "MISCARRIAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISCARRIAGE",
+    "definitions": [
+     {
+      "text": "Unfortunate outcome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to disrupt",
+      "for": "container",
+      "note": "to disrupt means breaking into the union and lodging in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     },
+     {
+      "clueFragment": "the union",
+      "gives": "MARRIAGE",
+      "note": "a union of two people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISC",
+      "ARRIAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad result is about to break up a marriage.",
+     "definitionFit": "A miscarriage, as in a miscarriage of justice, is a failure or a result that goes badly wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1113,57 @@
     "text": "Pretend to keep time and get going",
     "enumeration": "9"
    },
-   "solution": "STIMULATE"
+   "solution": "STIMULATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STIMULATE",
+    "definitions": [
+     {
+      "text": "get going",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep means holding the time letter inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pretend",
+      "gives": "SIMULATE",
+      "note": "to simulate is to feign"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "IMULATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fake keeping the beat, then get moving.",
+     "definitionFit": "To stimulate is to rouse into action, to set something going or spur it on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1177,62 @@
     "text": "Turn up prompt (after one) for decoration",
     "enumeration": "8"
    },
-   "solution": "CURLICUE"
+   "solution": "CURLICUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURLICUE",
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the prompt word behind the numeral"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn up",
+      "gives": "CURL",
+      "note": "to curl is to turn upward"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "prompt",
+      "gives": "CUE",
+      "note": "a cue is an actor's prompt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURL",
+      "I",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Show up on time, after one o'clock, to decorate.",
+     "definitionFit": "A curlicue is an ornamental twist or flourish in handwriting or design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prompt"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1246,61 @@
     "text": "Surprises model kept in dark, mostly",
     "enumeration": "8"
    },
-   "solution": "STARTLES"
+   "solution": "STARTLES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STARTLES",
+    "definitions": [
+     {
+      "text": "Surprises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means the last letter of the dark word is dropped"
+     },
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means the model sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dark",
+      "gives": "STARLESS",
+      "note": "a dark night is starless"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "T",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A model is held captive in darkness, much to everyone's shock.",
+     "walkthrough": "The Model T was Henry Ford's famous car, so model gives T.",
+     "definitionFit": "To startle is to give someone a sudden shock or fright, so startles means surprises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1320,73 @@
      }
     ]
    },
-   "solution": "ULTRAVIOLET"
+   "solution": "ULTRAVIOLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ULTRA-VIOLET",
+    "definitions": [
+     {
+      "text": "extremely colourful",
+      "at": 48,
+      "note": "jokey definition: beyond violet, at the extreme end of the spectrum"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lots of",
+      "for": "deletion",
+      "note": "lots of, rather than all of, means the pasta loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "abbreviation for lieutenant"
+     },
+     {
+      "clueFragment": "pasta",
+      "gives": "RAVIOLI",
+      "note": "stuffed pasta squares"
+     },
+     {
+      "clueFragment": "and in French",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "LT",
+      "RAVIOL",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A smart officer piles up pasta and turns out, in French style, very bright.",
+     "walkthrough": "U for upper-class is an old British usage made famous by Nancy Mitford.",
+     "definitionFit": "Ultraviolet light lies past violet, beyond the visible spectrum, so it is colour taken to an extreme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colourful"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1400,56 @@
     "text": "Article on origin of language",
     "enumeration": "6"
    },
-   "solution": "GERMAN"
+   "solution": "GERMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GERMAN",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means the first part sits on top of, so after, the second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "origin",
+      "gives": "GERM",
+      "note": "the germ of an idea is its origin"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing about where language comes from.",
+     "definitionFit": "German is the tongue spoken in Germany, Austria and much of Switzerland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1463,55 @@
     "text": "Storey designed with delicacy",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "delicacy",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means planned out anew, so the letters are given a new layout"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storey",
+      "gives": "STOREY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STOREY",
+       "gives": "OYSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A floor of a building laid out with great care.",
+     "walkthrough": "'Delicacy' looks like it describes the design's care, but it is a fine food.",
+     "definitionFit": "Oysters are a shellfish prized as luxury food, a classic gourmet treat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delicacy"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1525,46 @@
     "text": "Fun with bird",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LARK",
+    "definitions": [
+     {
+      "text": "Fun",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fun",
+      "note": "first meaning: a prank or bit of mischief"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a songbird famous for singing in flight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Fun with bird reads like slang for an evening out with a girlfriend; it is two separate meanings.",
+     "definitionFit": "Doing something for a lark means for fun, and the skylark is a common songbird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1578,82 @@
     "text": "Encourage return into town, pursuing stench of cant",
     "enumeration": "10"
    },
-   "solution": "HUMBUGGERY"
+   "solution": "HUMBUGGERY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "HUMBUGGERY",
+    "definitions": [
+     {
+      "text": "cant",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "return means the word for encourage goes back the way it came"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into puts those letters inside the town"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing places the town part after the stench part"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stench",
+      "gives": "HUM",
+      "note": "a hum is a bad smell"
+     },
+     {
+      "clueFragment": "Encourage",
+      "gives": "EGG",
+      "note": "to egg on is to urge"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "BURY",
+      "note": "Bury is a town near Manchester"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "BU",
+      "GGE",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "EGG",
+       "to": "GGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Urging a return to town, following a smell of hypocrisy.",
+     "walkthrough": "Hum for a stink is informal British usage; Bury is a town in Greater Manchester.",
+     "definitionFit": "Humbuggery is hypocritical talk or sham, which is what cant means: insincere pious language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stench"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1667,48 @@
     "text": "Approve of the second-rate and inferior",
     "enumeration": "5"
    },
-   "solution": "BLESS"
+   "solution": "BLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLESS",
+    "definitions": [
+     {
+      "text": "Approve of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the second-rate",
+      "gives": "B",
+      "note": "B grade is second class"
+     },
+     {
+      "clueFragment": "inferior",
+      "gives": "LESS",
+      "note": "lesser, lower in standard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Endorsing the mediocre and the poor quality.",
+     "definitionFit": "To bless something is to give it one's sanction or consent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1722,55 @@
     "text": "Victim in Cortez's adventure, initially",
     "enumeration": "4"
    },
-   "solution": "INCA"
+   "solution": "INCA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INCA",
+    "definitions": [
+     {
+      "text": "Victim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for the opening letters of the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cortez's adventure",
+      "gives": "CA",
+      "select": "first",
+      "note": "first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who suffered in the Spanish conquistador's expedition.",
+     "walkthrough": "The conquest of Peru was Pizarro's, but the Incas were victims of the Spanish conquest generally.",
+     "definitionFit": "The Inca people were conquered and destroyed by Spanish invaders in the sixteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1784,64 @@
     "text": "Columns put a stop to new dean",
     "enumeration": "9"
    },
-   "solution": "COLONNADE"
+   "solution": "COLONNADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "COLONNADE",
+    "definitions": [
+     {
+      "text": "Columns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new means made over in a fresh form, so the letters of dean are rearranged"
+     }
+    ],
+    "linkWords": [
+     "put",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a stop",
+      "gives": "COLON",
+      "note": "a colon is a punctuation mark, a stop"
+     },
+     {
+      "clueFragment": "dean",
+      "gives": "DEAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLON",
+      "NADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEAN",
+       "gives": "NADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pillars put an end to the new dean's plans.",
+     "definitionFit": "A colonnade is a row of columns, usually supporting a roof or entablature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1855,57 @@
     "text": "Turn back the clock for reference",
     "enumeration": "5"
    },
-   "solution": "REMIT"
+   "solution": "REMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REMIT",
+    "definitions": [
+     {
+      "text": "reference",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn back",
+      "for": "reversal",
+      "note": "turn back says the clock word is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the clock",
+      "gives": "TIMER",
+      "note": "a clock is a timer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIMER",
+       "to": "REMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting the clocks back, as a matter of record.",
+     "walkthrough": "'Turn back the clock' suggests nostalgia; here it is literally a word read backwards.",
+     "definitionFit": "A remit is a body's terms of reference, the brief of what it is to consider."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clock"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1919,50 @@
     "text": "Being to wash and take into service",
     "enumeration": "7"
    },
-   "solution": "ENSLAVE"
+   "solution": "ENSLAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENSLAVE",
+    "definitions": [
+     {
+      "text": "take into service",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being",
+      "gives": "ENS",
+      "note": "ens is a philosophical term for being or existence"
+     },
+     {
+      "clueFragment": "to wash",
+      "gives": "LAVE",
+      "note": "lave is a literary verb for wash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENS",
+      "LAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who must wash and be put to work as a servant.",
+     "walkthrough": "Ens, Latin for being, is a crossword staple from philosophy.",
+     "definitionFit": "To enslave someone is to force them into servitude, bound to work for another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1976,70 @@
     "text": "Belgian artist back about one with consonant transposer",
     "enumeration": "7"
    },
-   "solution": "SPOONER"
+   "solution": "SPOONER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPOONER",
+    "definitions": [
+     {
+      "text": "consonant transposer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the artist's name is written in the other direction"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means those letters go round the number word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belgian artist",
+      "gives": "ROPS",
+      "note": "Felicien Rops was a Belgian printmaker"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPO",
+      "ONE",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "ROPS",
+       "to": "SPOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Belgian painter returns with a man who swaps letters round.",
+     "walkthrough": "The Rev William Spooner of Oxford gave his name to the spoonerism, swapping the opening sounds of words.",
+     "definitionFit": "Spooner was famed for transposing initial consonants, as in 'a well-boiled icicle' for a well-oiled bicycle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   }
  ]
 }
