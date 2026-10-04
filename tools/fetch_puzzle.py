@@ -1911,6 +1911,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18267", "19-down"): (
+        "Nearly all foe money's here by time specified",
+        "Nearly all for money's here by time specified",
+        "OCR misread: the charade needs the link word for, not foe"),
     ("times-18264", "9-across"): (
         "Train in torn clothes?",
         "Train me torn clothes?",
