@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "32 entries, 64 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,58 @@
     "text": "Dog in a chase outside",
     "enumeration": "5"
    },
-   "solution": "HAUNT"
+   "solution": "HAUNT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAUNT",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word standing outside another wraps around it, holding the short word within"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chase",
+      "gives": "HUNT",
+      "note": "a hunt is a chase after quarry"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "UNT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hound runs out in the middle of a fox chase.",
+     "walkthrough": "'Dog' is a verb here, not the animal.",
+     "definitionFit": "To dog someone is to follow them persistently, just as a ghost or a worry keeps pursuing its victim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +103,45 @@
     "text": "Architect has a worse cough, might some say?",
     "enumeration": "9"
    },
-   "solution": "HAWKSMOOR"
+   "solution": "HAWKSMOOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HAWKSMOOR",
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might some say",
+      "for": "homophone",
+      "note": "what some people might say points to how the words are spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has a worse cough",
+      "gives": "HAWKSMOOR",
+      "soundsLike": "HAWKS MORE",
+      "note": "someone with a worse cough hawks more, clearing the throat more often"
+     }
+    ],
+    "explanation": {
+     "surface": "A sickly architect's cough has got worse.",
+     "walkthrough": "Nicholas Hawksmoor was an English architect of the early 1700s, known for his London churches.",
+     "definitionFit": "Nicholas Hawksmoor designed several London churches and worked alongside Wren, so he is an example of an architect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cough"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +155,55 @@
     "text": "Woman, no maiden, but an angel",
     "enumeration": "5"
    },
-   "solution": "URIEL"
+   "solution": "URIEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URIEL",
+    "definitions": [
+     {
+      "text": "an angel",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "having no maiden means the letter standing for one is taken away"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "MURIEL",
+      "note": "Muriel is a woman's name"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket abbreviation for a maiden over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URIEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who is no maiden may still be an angel.",
+     "definitionFit": "Uriel is one of the archangels named in Jewish and Christian tradition, so he is one particular angel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +223,55 @@
      }
     ]
    },
-   "solution": "TIEDYEING"
+   "solution": "TIEDYEING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIE-DYEING",
+    "definitions": [
+     {
+      "text": "Applying colour to fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its proper shape, so the letters must be rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "tiny edge",
+      "gives": "TINYEDGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "I TINYEDGE",
+       "gives": "TIEDYEING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "While dyeing some cloth, someone spoilt a small border.",
+     "definitionFit": "Tie-dyeing colours cloth by knotting it before dipping it in dye, giving patterned textiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +291,63 @@
      }
     ]
    },
-   "solution": "FIREALARM"
+   "solution": "FIREALARM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FIRE-ALARM",
+    "definitions": [
+     {
+      "text": "a hot tip",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "a word that receives others takes them in, so they go inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stable",
+      "gives": "FIRM",
+      "note": "firm means steady or stable"
+     },
+     {
+      "clueFragment": "the genuine",
+      "gives": "REAL",
+      "note": "the genuine thing is the real one"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "REAL",
+      "A",
+      "RM"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing stable takes in a real star horse, giving punters a good tip.",
+     "walkthrough": "'Stable' and 'hot tip' suggest racing, but the stable is an adjective and the tip is a warning.",
+     "definitionFit": "A fire alarm is a warning signal, a tip-off that there is heat or burning nearby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stable"
+    }
+   }
   },
   {
    "number": 4,
@@ -117,7 +361,46 @@
     "text": "Flirting pays — here's an explanation",
     "enumeration": "7"
    },
-   "solution": "FOOTSIE"
+   "solution": "FOOTSIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOTSIE",
+    "definitions": [
+     {
+      "text": "Flirting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pays",
+      "gives": "FOOTS",
+      "note": "to foot a bill is to pay it"
+     },
+     {
+      "clueFragment": "here's an explanation",
+      "gives": "IE",
+      "note": "i.e. (id est, that is) introduces an explanation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOTS",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains why being flirtatious is worthwhile.",
+     "definitionFit": "Playing footsie means touching feet under a table as a playful romantic advance, so the word names a form of flirting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pays"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +414,46 @@
     "text": "Butterfly makes a curly spiral",
     "enumeration": "7"
    },
-   "solution": "RINGLET"
+   "solution": "RINGLET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RINGLET",
+    "definitions": [
+     {
+      "text": "Butterfly",
+      "at": 0
+     },
+     {
+      "text": "a curly spiral",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Butterfly",
+      "note": "first meaning: a brown butterfly with ring-shaped eyespots"
+     },
+     {
+      "clueFragment": "a curly spiral",
+      "note": "second meaning: a long curled lock of hair"
+     }
+    ],
+    "explanation": {
+     "surface": "A butterfly flutters in a curving spiral.",
+     "definitionFit": "The word names both a species of brown butterfly with small circular wing markings and a coiled lock of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Butterfly"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +467,43 @@
     "text": "Ask for something fruity?",
     "enumeration": "5"
    },
-   "solution": "APPLY"
+   "solution": "APPLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "APPLY",
+    "definitions": [
+     {
+      "text": "Ask for",
+      "at": 0
+     },
+     {
+      "text": "something fruity",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ask for",
+      "note": "first meaning: to make a formal request, as for a job"
+     },
+     {
+      "clueFragment": "something fruity",
+      "note": "second meaning, read as a made-up adjective: like a certain orchard fruit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second sense is invented: the word is read as an adjective formed from apple, like fruity.",
+     "definitionFit": "To apply for a post is to ask for it formally; the second reading coins an adjective from an orchard fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fruity"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +517,43 @@
     "text": "To do with the legend of Sullivan?",
     "enumeration": "9"
    },
-   "solution": "ARTHURIAN"
+   "solution": "ARTHURIAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARTHURIAN",
+    "definitions": [
+     {
+      "text": "To do with the legend",
+      "at": 0
+     },
+     {
+      "text": "of Sullivan",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To do with the legend",
+      "note": "first meaning: relating to the tales of King Arthur and his knights"
+     },
+     {
+      "clueFragment": "of Sullivan",
+      "note": "second meaning, playfully: belonging to Sir Arthur Sullivan, the composer of Gilbert and Sullivan operettas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sullivan, of Gilbert and Sullivan, was a composer whose first name was Arthur; the question mark flags that the adjective is stretched to cover him.",
+     "definitionFit": "The adjective describes things belonging to King Arthur's legend, and jokingly anything belonging to a man first-named Arthur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "legend"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +567,56 @@
     "text": "Race didn't finish by an Italian city",
     "enumeration": "5"
    },
-   "solution": "MILAN"
+   "solution": "MILAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MILAN",
+    "definitions": [
+     {
+      "text": "an Italian city",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "didn't finish",
+      "for": "deletion",
+      "note": "a word that didn't finish has its final letter missing"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Race",
+      "gives": "MILE",
+      "note": "the mile is a running race"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIL",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner failed to complete a race beside an Italian city.",
+     "definitionFit": "Milan is the major city of Lombardy in northern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +636,41 @@
      }
     ]
    },
-   "solution": "WRITEDOWN"
+   "solution": "WRITEDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WRITE DOWN",
+    "definitions": [
+     {
+      "text": "Devalue",
+      "at": 0
+     },
+     {
+      "text": "record",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devalue",
+      "note": "first meaning: to reduce the book value of an asset in accounts"
+     },
+     {
+      "clueFragment": "record",
+      "note": "second meaning: to put on paper"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Accountants reduce an asset's recorded worth with this phrasal verb, which also means noting something on paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +684,59 @@
     "text": "This part of a flower perishes first — and others follow",
     "enumeration": "5"
    },
-   "solution": "PETAL"
+   "solution": "PETAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PETAL",
+    "definitions": [
+     {
+      "text": "This part of a flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks only for the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "follow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perishes",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of perishes"
+     },
+     {
+      "clueFragment": "and others",
+      "gives": "ETAL",
+      "note": "et al. is Latin shorthand for and others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ETAL"
+     ]
+    },
+    "explanation": {
+     "surface": "One part of a bloom wilts before the rest go the same way.",
+     "walkthrough": "'follow' places the and-others piece after the single letter.",
+     "definitionFit": "Petals are the coloured leaf-like segments of a bloom, one component of its structure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perishes"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +750,42 @@
     "text": "Unsociable vehicle?",
     "enumeration": "5"
    },
-   "solution": "SULKY"
+   "solution": "SULKY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SULKY",
+    "definitions": [
+     {
+      "text": "Unsociable",
+      "at": 0
+     },
+     {
+      "text": "vehicle",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unsociable",
+      "note": "first meaning: moody and withdrawn"
+     },
+     {
+      "clueFragment": "vehicle",
+      "note": "second meaning: a light two-wheeled horse-drawn cart for one, used in trotting races"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A sulky is a light one-seat cart pulled by a horse in harness racing, so called because its driver rides alone.",
+     "definitionFit": "A sullen person keeps away from company, and a one-seater trotting cart shares the name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +796,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Embracing novices, nun lays out take she made",
+    "text": "Embracing novices, nun lays out cake she made",
     "enumeration": "5,4",
     "separators": [
      {
@@ -241,7 +805,67 @@
      }
     ]
    },
-   "solution": "SALLYLUNN"
+   "solution": "SALLYLUNN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SALLY LUNN",
+    "definitions": [
+     {
+      "text": "cake she made",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Embracing",
+      "for": "container",
+      "note": "embracing means holding in the arms, so these letters are wrapped around the others"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "laid out here means spread about and rearranged rather than kept in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nun lays",
+      "gives": "NUNLAYS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "novices",
+      "gives": "LL",
+      "note": "L is a learner, so two novices give two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LL",
+      "YLUNN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NUNLAYS",
+       "gives": "SAYLUNN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun sets out a cake she baked, surrounded by trainee sisters.",
+     "walkthrough": "A Sally Lunn is a sweet bun from Bath, named after the woman said to have first baked it.",
+     "definitionFit": "The light teacake bears the name of the Bath baker credited with inventing it, so it is both the cake and its maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novices"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +879,71 @@
     "text": "Slim centre in round pane of glass",
     "enumeration": "7"
    },
-   "solution": "OPALINE"
+   "solution": "OPALINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "OPALINE",
+    "definitions": [
+     {
+      "text": "glass",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle, so only the inner letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in something means set inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "pane",
+      "gives": "PANE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Slim",
+      "gives": "LI",
+      "select": "middle",
+      "note": "the two middle letters of slim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PA",
+      "LI",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A slender centrepiece is set in a circular window of glass.",
+     "definitionFit": "Opaline is a milky, semi-translucent glass, often used for vases and decorative ware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +957,52 @@
     "text": "Diver eats flaky puff",
     "enumeration": "9"
    },
-   "solution": "ADVERTISE"
+   "solution": "ADVERTISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADVERTISE",
+    "definitions": [
+     {
+      "text": "puff",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flaky",
+      "for": "anagram",
+      "note": "something flaky crumbles into pieces, which can then be rebuilt in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diver eats",
+      "gives": "DIVEREATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIVEREATS",
+       "gives": "ADVERTISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer tucks into a crumbly pastry.",
+     "walkthrough": "'flaky puff' reads as pastry, but puff is the definition, a verb.",
+     "definitionFit": "To puff something is to praise it extravagantly for promotion, which is what commercial publicity does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "puff"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1016,46 @@
     "text": "Beef is better than fish",
     "enumeration": "7"
    },
-   "solution": "TOPSIDE"
+   "solution": "TOPSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOPSIDE",
+    "definitions": [
+     {
+      "text": "Beef",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is better than",
+      "gives": "TOPS",
+      "note": "to top something is to beat it, so this one tops the other"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide is a freshwater fish, a crossword regular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPS",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prefers steak to seafood.",
+     "definitionFit": "Topside is a lean joint cut from the upper rear leg of a cow, used for roasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1069,62 @@
     "text": "Endlessly narrow-minded after prison in America — in Florida, say",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PENINSULA",
+    "definitions": [
+     {
+      "text": "Florida, say",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without its end, a word loses its final letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after tells the solver the piece named first in the clue is placed second in the answer"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison in America",
+      "gives": "PEN",
+      "note": "pen, short for penitentiary, is American for a jail"
+     },
+     {
+      "clueFragment": "narrow-minded",
+      "gives": "INSULAR",
+      "note": "insular means inward-looking and narrow in outlook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "INSULA"
+     ]
+    },
+    "explanation": {
+     "surface": "A small-minded American prisoner is locked up in Florida.",
+     "definitionFit": "Florida is a long strip of land surrounded by water on three sides, an example of this landform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prison"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1138,54 @@
     "text": "Laurence captivated by feature possibly Japanese",
     "enumeration": "9"
    },
-   "solution": "EASTERNER"
+   "solution": "EASTERNER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EASTERNER",
+    "definitions": [
+     {
+      "text": "possibly Japanese",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "someone captivated by another is held captive by them, so sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feature",
+      "gives": "EAR",
+      "note": "a feature of the face"
+     },
+     {
+      "clueFragment": "Laurence",
+      "gives": "STERNE",
+      "note": "Laurence Sterne wrote Tristram Shandy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "STERNE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Laurence falls for a striking feature, perhaps of a Japanese person.",
+     "definitionFit": "Someone from Japan comes from the Far East, so is an example of an Oriental person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Laurence"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1199,53 @@
     "text": "Evidence of damage — changing ends makes it wilder",
     "enumeration": "7"
    },
-   "solution": "RAVAGES"
+   "solution": "RAVAGES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAVAGES",
+    "definitions": [
+     {
+      "text": "Evidence of damage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing ends",
+      "for": "anagram",
+      "note": "changing the ends swaps the first and last letters while the rest stay put"
+     }
+    ],
+    "linkWords": [
+     "makes it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wilder",
+      "gives": "SAVAGER",
+      "note": "more savage, fiercer"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAVAGER",
+       "gives": "RAVAGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Damage left behind shows that something is getting wilder.",
+     "walkthrough": "Only the outer two letters trade places; the middle stays as it is.",
+     "definitionFit": "Ravages are the destructive effects left behind by time, war or disease, the visible signs of harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1259,50 @@
     "text": "Projecting fortification entails reorganisation",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Projecting fortification",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reorganisation",
+      "for": "anagram",
+      "note": "a reorganisation puts things into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entails",
+      "gives": "ENTAILS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTAILS",
+       "gives": "SALIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Building an outlying fort requires restructuring the defences.",
+     "definitionFit": "In military usage a salient is a bastion or line jutting forward into enemy ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entails"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1316,58 @@
     "text": "Start to buy pineapple and other fruit",
     "enumeration": "7"
    },
-   "solution": "BANANAS"
+   "solution": "BANANAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BANANAS",
+    "definitions": [
+     {
+      "text": "other fruit",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buy",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of buy"
+     },
+     {
+      "clueFragment": "pineapple",
+      "gives": "ANANAS",
+      "note": "ananas is the French and botanical name for the pineapple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANANAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper begins by buying a pineapple and some other fruit.",
+     "walkthrough": "Ananas is the pineapple's name in French and many other languages.",
+     "definitionFit": "Bananas are a different tropical crop from the pineapple, so they are other fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1381,65 @@
     "text": "Best men are not wearing tails— they'd get dirty",
     "enumeration": "7"
    },
-   "solution": "BESMEAR"
+   "solution": "BESMEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BESMEAR",
+    "definitions": [
+     {
+      "text": "dirty",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not wearing tails",
+      "for": "deletion",
+      "note": "without their tails these words lose their final letters"
+     }
+    ],
+    "linkWords": [
+     "they'd get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best",
+      "gives": "BEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BES",
+      "ME",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Groomsmen not in tailcoats would end up grubby.",
+     "walkthrough": "Tails are formal coats at a wedding, but here they are the last letters of the three words.",
+     "definitionFit": "To besmear is to smudge or soil something, an old verb for making it filthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tails"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1453,51 @@
     "text": "Adolescent Butterfly has lyrics changed",
     "enumeration": "9"
    },
-   "solution": "CHRYSALIS"
+   "solution": "CHRYSALIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHRYSALIS",
+    "definitions": [
+     {
+      "text": "Adolescent Butterfly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed letters are rearranged into another form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has lyrics",
+      "gives": "HASLYRICS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASLYRICS",
+       "gives": "CHRYSALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenage band named Butterfly has rewritten the words of its song.",
+     "definitionFit": "The pupa is the stage between caterpillar and winged adult, the insect's teenage years in effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lyrics"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1511,57 @@
     "text": "Illness of king imprisoned by revolution",
     "enumeration": "5"
    },
-   "solution": "CROUP"
+   "solution": "CROUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CROUP",
+    "definitions": [
+     {
+      "text": "Illness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned by",
+      "for": "container",
+      "note": "something imprisoned is locked inside a cell, so it sits within"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolution",
+      "gives": "COUP",
+      "note": "a coup is a sudden overthrow of government"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "OUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch falls ill after rebels lock him up.",
+     "definitionFit": "Croup is a childhood respiratory infection causing a barking cough, so it is a kind of ailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1575,44 @@
     "text": "Handel noted her arrival in parts he banned",
     "enumeration": "5"
    },
-   "solution": "SHEBA"
+   "solution": "SHEBA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHEBA",
+    "definitions": [
+     {
+      "text": "Handel noted her arrival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells the solver the letters sit within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parts he banned",
+      "gives": "SHEBA",
+      "note": "the run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer wrote music about a woman's entrance, though only in sections he had forbidden.",
+     "walkthrough": "Handel's 'Arrival of the Queen of Sheba' is a famous orchestral piece from his oratorio Solomon.",
+     "definitionFit": "Handel set the entrance of the biblical queen from this land to music, so she is the woman whose arrival he scored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "noted"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1626,63 @@
     "text": "Jog naked round garden at first",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Jog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first keeps only the opening letter of the word before"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means encircling it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "NUDE",
+      "note": "unclothed"
+     },
+     {
+      "clueFragment": "garden",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs undressed around the garden first thing.",
+     "walkthrough": "'Jog' looks like running, but it is a verb meaning to prod.",
+     "definitionFit": "To jog someone's elbow is to give it a gentle push, the same as a gentle prod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Jog"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1696,59 @@
     "text": "Aboard the Beagle, say, there's sophisticated activity",
     "enumeration": "5"
    },
-   "solution": "DOING"
+   "solution": "DOING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOING",
+    "definitions": [
+     {
+      "text": "activity",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Aboard",
+      "for": "container",
+      "note": "aboard means on a vessel, carried inside it"
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Beagle, say",
+      "gives": "DOG",
+      "note": "a beagle is a breed of dog"
+     },
+     {
+      "clueFragment": "sophisticated",
+      "gives": "IN",
+      "note": "in means fashionable, the smart thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Aboard Darwin's ship there was refined scientific work.",
+     "walkthrough": "The Beagle was Darwin's survey ship, but here it is just a hound.",
+     "definitionFit": "A doing is something done, an act or piece of activity, as in 'that was your doing'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Beagle"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1762,43 @@
     "text": "Fruit all dead?",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     },
+     {
+      "text": "all dead",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit",
+      "note": "first meaning: the small oily stone fruit"
+     },
+     {
+      "clueFragment": "all dead",
+      "note": "second meaning, split into two: zero, written as a letter, followed by live, so nobody lives"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark warns that the second definition is a punning split: a nought then live describes a place where no one remains alive.",
+     "definitionFit": "The Mediterranean tree's oily stone fruit is the plain sense; read as nought plus live, the word says nobody survives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1812,43 @@
     "text": "Seizure may be cause of death",
     "enumeration": "9"
    },
-   "solution": "EXECUTION"
+   "solution": "EXECUTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXECUTION",
+    "definitions": [
+     {
+      "text": "Seizure",
+      "at": 0
+     },
+     {
+      "text": "may be cause of death",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seizure",
+      "note": "first meaning: the legal taking of a debtor's goods under a court order"
+     },
+     {
+      "clueFragment": "may be cause of death",
+      "note": "second meaning: carrying out a death sentence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Seizure' suggests a fit, which could kill, but it is the legal sense of seizing property.",
+     "definitionFit": "In law a writ of this name lets bailiffs take goods for a debt, and the same word names a judicial killing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Seizure"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1862,47 @@
     "text": "McGonagalL, say, dipping into The Raven?",
     "enumeration": "9"
    },
-   "solution": "POETASTER"
+   "solution": "POETASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POETASTER",
+    "definitions": [
+     {
+      "text": "McGonagalL, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Raven",
+      "gives": "POE",
+      "note": "Edgar Allan Poe wrote the poem The Raven"
+     },
+     {
+      "clueFragment": "dipping into",
+      "gives": "TASTER",
+      "note": "one dipping into something samples it, a taster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POE",
+      "TASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A notoriously bad Scottish versifier browses a famous American poem.",
+     "walkthrough": "William McGonagall was a Victorian Scot famed as the worst poet in English; the author stands for his poem, and the taster goes after him.",
+     "definitionFit": "A poetaster is an inferior writer of verse, and McGonagall is the classic example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dipping"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1916,51 @@
     "text": "Old car won't start, causing exasperation",
     "enumeration": "5"
    },
-   "solution": "ANGER"
+   "solution": "ANGER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANGER",
+    "definitions": [
+     {
+      "text": "exasperation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "won't start",
+      "for": "deletion",
+      "note": "a word that won't start is missing its opening letter"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old car",
+      "gives": "BANGER",
+      "note": "banger is British slang for a battered old car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clapped-out car refuses to start, which is infuriating.",
+     "walkthrough": "In Britain a banger is a decrepit old car (also a sausage).",
+     "definitionFit": "Exasperation is intense irritation, close in sense to rage or wrath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   }
  ]
 }
