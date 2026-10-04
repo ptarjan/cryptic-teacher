@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Shabby outsiders block organisation",
     "enumeration": "6"
    },
-   "solution": "SYSTEM"
+   "solution": "SYSTEM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SYSTEM",
+    "definitions": [
+     {
+      "text": "organisation",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outsiders",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its first and last letters, the ones standing on the outside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shabby",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of shabby"
+     },
+     {
+      "clueFragment": "block",
+      "gives": "STEM",
+      "note": "to stem a flow is to block it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "STEM"
+     ]
+    },
+    "explanation": {
+     "surface": "Scruffy types from outside are getting in the way of a group's plans.",
+     "walkthrough": "'Block' reads as a noun after 'outsiders', but it is the verb stem, as in stemming a flow.",
+     "definitionFit": "A system is an orderly arrangement or method, the way something is set up and run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,43 @@
     "text": "Hit on the foot",
     "enumeration": "4"
    },
-   "solution": "SOCK"
+   "solution": "SOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOCK",
+    "definitions": [
+     {
+      "text": "Hit",
+      "at": 0
+     },
+     {
+      "text": "on the foot",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit",
+      "note": "first meaning: a punch or hard blow"
+     },
+     {
+      "clueFragment": "on the foot",
+      "note": "second meaning: the knitted garment worn there"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a kick or a stamp landing on someone's foot; the two halves are separate meanings.",
+     "definitionFit": "Sock is slang for a punch, and also the garment worn over a foot inside a shoe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,51 @@
     "text": "Affair of the woman with fringe",
     "enumeration": "7"
    },
-   "solution": "SHEBANG"
+   "solution": "SHEBANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEBANG",
+    "definitions": [
+     {
+      "text": "Affair",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the woman",
+      "gives": "SHE",
+      "note": "the pronoun for a woman"
+     },
+     {
+      "clueFragment": "fringe",
+      "gives": "BANG",
+      "note": "a fringe of hair is called a bang, especially in American English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "BANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic affair conducted by a woman with a fringe haircut.",
+     "walkthrough": "'Affair' suggests a love affair, but it means a business or matter, as in 'the whole shebang'.",
+     "definitionFit": "Shebang is informal for a matter or set of things, used chiefly in the phrase 'the whole shebang'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Affair"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,65 @@
     "text": "I came back and dined, but get thin",
     "enumeration": "8"
    },
-   "solution": "EMACIATE"
+   "solution": "EMACIATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMACIATE",
+    "definitions": [
+     {
+      "text": "get thin",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "coming back means travelling the other way, so the words are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I came",
+      "gives": "ICAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "to dine is to eat a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMACI",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ICAME",
+       "to": "EMACI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returned home and had dinner, yet still loses weight.",
+     "definitionFit": "To emaciate is to become or make abnormally lean, wasting away through lack of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,52 @@
     "text": "Brave Tim crumbled -- literally",
     "enumeration": "8"
    },
-   "solution": "VERBATIM"
+   "solution": "VERBATIM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERBATIM",
+    "definitions": [
+     {
+      "text": "literally",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crumbled",
+      "for": "anagram",
+      "note": "something crumbled has broken into bits, so the letters fall apart and are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brave Tim",
+      "gives": "BRAVETIM",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRAVETIM",
+       "gives": "VERBATIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courageous man named Tim actually fell to pieces.",
+     "walkthrough": "'Literally' sounds like an intensifier for the collapse; it is the definition, meaning word for word.",
+     "definitionFit": "Verbatim means in exactly the same words, reproducing a text with total fidelity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "literally"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +338,56 @@
     "text": "Charm about craft of Circe, for example",
     "enumeration": "11"
    },
-   "solution": "ENCHANTRESS"
+   "solution": "ENCHANTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENCHANTRESS",
+    "definitions": [
+     {
+      "text": "Circe, for example",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charm",
+      "gives": "ENCHANT",
+      "note": "to charm is to enchant"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "SS",
+      "note": "SS stands for steamship, a craft on water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCHANT",
+      "RE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell concerning the boat of the Greek sorceress who detained Odysseus.",
+     "walkthrough": "Circe was the witch in the Odyssey who turned sailors into pigs, so 'for example' marks her as one instance of the answer.",
+     "definitionFit": "Circe is the classic sorceress of Greek myth, a woman who casts magic spells on men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +401,43 @@
     "text": "Aeroplane jacket?",
     "enumeration": "6"
    },
-   "solution": "BOMBER"
+   "solution": "BOMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOMBER",
+    "definitions": [
+     {
+      "text": "Aeroplane",
+      "at": 0
+     },
+     {
+      "text": "jacket",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aeroplane",
+      "note": "first meaning: a military plane that drops explosives"
+     },
+     {
+      "clueFragment": "jacket",
+      "note": "second meaning: a short zipped flying jacket with a gathered waist"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a single question about an aircraft's jacket; the two words are separate meanings of one word.",
+     "definitionFit": "The word names both a warplane carrying explosives and a short padded jacket originally worn by aircrew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jacket"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +451,53 @@
     "text": "Foot-powered machine a step ahead of the French",
     "enumeration": "7"
    },
-   "solution": "TREADLE"
+   "solution": "TREADLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TREADLE",
+    "definitions": [
+     {
+      "text": "Foot-powered machine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "being ahead of something means coming in front of it, which fixes the order of the two parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a step",
+      "gives": "TREAD",
+      "note": "a tread is a step, as on a staircase"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pedal-driven device that keeps one step in front of the French.",
+     "definitionFit": "A treadle is a pedal-operated lever driving a wheel, as on an old sewing machine or spinning wheel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +511,54 @@
     "text": "Heard the girl is valued, but disparaged",
     "enumeration": "9"
    },
-   "solution": "MISPRISED"
+   "solution": "MISPRISED",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "MISPRISED",
+    "definitions": [
+     {
+      "text": "disparaged",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "what is heard is what the ear picks up, so the spelling follows the sound only"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the girl",
+      "gives": "MIS",
+      "soundsLike": "MISS",
+      "note": "Miss is the title for a girl"
+     },
+     {
+      "clueFragment": "is valued",
+      "gives": "PRISED",
+      "soundsLike": "PRIZED",
+      "note": "something valued is prized"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour says a young woman is highly regarded, yet she is belittled.",
+     "walkthrough": "The clue sounds like a contradiction about one girl's reputation; it is really two sounds strung together.",
+     "definitionFit": "Misprise is an old word meaning to undervalue or scorn, so something misprised has been looked down on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heard"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +572,70 @@
     "text": "Emperor took vehicle round turbulent sea",
     "enumeration": "6"
    },
-   "solution": "CAESAR"
+   "solution": "CAESAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CAESAR",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turbulent",
+      "for": "anagram",
+      "note": "turbulent water is churned up, so the letters are stirred into another order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "took"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AES",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman ruler drove a vehicle around a stormy sea.",
+     "definitionFit": "Caesar was the title of the Roman emperors, taken from Julius Caesar's family name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turbulent"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +649,53 @@
     "text": "Hurries south before those in temporary accommodation",
     "enumeration": "8"
    },
-   "solution": "SCAMPERS"
+   "solution": "SCAMPERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAMPERS",
+    "definitions": [
+     {
+      "text": "Hurries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "coming before means standing in front, which sets the order of the two parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "those in temporary accommodation",
+      "gives": "CAMPERS",
+      "note": "campers live in tents, a temporary shelter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAMPERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes southwards ahead of people staying in tents or caravans.",
+     "definitionFit": "To scamper is to run with quick light steps, so it is a lively synonym for dashing along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "south"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +715,39 @@
      }
     ]
    },
-   "solution": "RACINGCALENDAR"
+   "solution": "RACINGCALENDAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RACING CALENDAR",
+    "definitions": [
+     {
+      "text": "Time passing quickly for punters",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time passing quickly",
+      "note": "surface reading: gamblers enjoying themselves so much that the hours fly by"
+     },
+     {
+      "clueFragment": "for punters",
+      "note": "setter's reading: a schedule of fast-moving events, with dates, drawn up for people who bet on horses"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Time passing quickly' sounds like the hours flying; read literally it is time, as dates, set out for races. Punters are gamblers in British English.",
+     "definitionFit": "It is the published schedule of race meetings, the dates that betting people plan around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quickly"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +761,39 @@
     "text": "Environmentally friendly tradesman?",
     "enumeration": "11"
    },
-   "solution": "GREENGROCER"
+   "solution": "GREENGROCER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GREENGROCER",
+    "definitions": [
+     {
+      "text": "Environmentally friendly tradesman?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Environmentally friendly",
+      "note": "surface reading: a merchant with ecological credentials"
+     },
+     {
+      "clueFragment": "tradesman?",
+      "note": "setter's reading: a shopkeeper whose stock is fresh vegetables, greens in the colour sense"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that 'green' is not about ecology but about produce: the trader sells leafy vegetables and fruit.",
+     "definitionFit": "This shopkeeper sells fruit and vegetables, and the first half of the word is the colour linked with ecology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Environmentally"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +807,46 @@
     "text": "Last on the course for a coming of age",
     "enumeration": "10"
    },
-   "solution": "EIGHTEENTH"
+   "solution": "EIGHTEENTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EIGHTEENTH",
+    "definitions": [
+     {
+      "text": "Last on the course",
+      "at": 0
+     },
+     {
+      "text": "a coming of age",
+      "at": 23,
+      "note": "names the birthday, which the answer stands for as a noun"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last on the course",
+      "note": "first meaning: the final hole of a standard golf round"
+     },
+     {
+      "clueFragment": "a coming of age",
+      "note": "second meaning: the birthday on which one becomes a legal adult in Britain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A golf course has eighteen holes, so its final hole carries this number; reaching that age is legal adulthood in the UK.",
+     "definitionFit": "A full golf round ends at the hole with this number, and turning this age marks becoming a legal adult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +860,57 @@
     "text": "Surround leaderless men with direction finder",
     "enumeration": "9"
    },
-   "solution": "ENCOMPASS"
+   "solution": "ENCOMPASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENCOMPASS",
+    "definitions": [
+     {
+      "text": "Surround",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaderless",
+      "for": "deletion",
+      "note": "without a leader means losing the one at the front, so the opening letter goes"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "direction finder",
+      "gives": "COMPASS",
+      "note": "a compass shows which way is north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "COMPASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops without a commander have to rely on a compass to surround the enemy.",
+     "definitionFit": "To encompass is to encircle or enclose something completely on every side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaderless"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +924,46 @@
     "text": "Dining room's a disaster!",
     "enumeration": "4"
    },
-   "solution": "MESS"
+   "solution": "MESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MESS",
+    "definitions": [
+     {
+      "text": "Dining room",
+      "at": 0
+     },
+     {
+      "text": "a disaster",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dining room",
+      "note": "first meaning: the hall where military officers eat together"
+     },
+     {
+      "clueFragment": "a disaster",
+      "note": "second meaning: a shambles or chaotic state"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone surveys the wreckage of a dining room after a bad party.",
+     "definitionFit": "A mess is where service personnel take their meals, and also any untidy, chaotic situation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dining"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +977,47 @@
     "text": "Shell vehicle at speed",
     "enumeration": "8"
    },
-   "solution": "CARAPACE"
+   "solution": "CARAPACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARAPACE",
+    "definitions": [
+     {
+      "text": "Shell",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "at speed",
+      "gives": "APACE",
+      "note": "apace means quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "APACE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fire upon a vehicle that is travelling fast.",
+     "walkthrough": "'Shell' looks like a verb, to bombard, but it is the noun, a hard casing.",
+     "definitionFit": "A carapace is the hard upper casing of a tortoise, crab or beetle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shell"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1031,42 @@
     "text": "Discard the players",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "Discard",
+      "at": 0
+     },
+     {
+      "text": "the players",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discard",
+      "note": "first meaning: to throw off, as a snake does its skin"
+     },
+     {
+      "clueFragment": "the players",
+      "note": "second meaning: the actors in a play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like dropping members of a team; the two halves are separate meanings.",
+     "definitionFit": "To cast off is to throw away, and a cast is the full company of actors in a production."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1080,53 @@
     "text": "Strange cribs to describe flashing lights",
     "enumeration": "7"
    },
-   "solution": "STROBIC"
+   "solution": "STROBIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STROBIC",
+    "definitions": [
+     {
+      "text": "describe flashing lights",
+      "at": 17,
+      "note": "the answer is an adjective; the clue phrase says what it is used for"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "strange means odd or out of the ordinary, so the letters end up in an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cribs to",
+      "gives": "CRIBSTO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIBSTO",
+       "gives": "STROBIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Odd baby cots decorated with blinking lights.",
+     "walkthrough": "'to' looks like part of the definition, but it belongs to the letters being rearranged.",
+     "definitionFit": "Strobic is an adjective for things that flash or spin rapidly, the effect of a stroboscope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cribs"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1140,51 @@
     "text": "Handle rude arrangement without warning",
     "enumeration": "10"
    },
-   "solution": "UNHERALDED"
+   "solution": "UNHERALDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNHERALDED",
+    "definitions": [
+     {
+      "text": "without warning",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement sets things out in a fresh order, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handle rude",
+      "gives": "HANDLERUDE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HANDLERUDE",
+       "gives": "UNHERALDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deal with a rude arrangement that turns up suddenly.",
+     "walkthrough": "'rude' looks like an adjective on 'arrangement', but it is part of the letters.",
+     "definitionFit": "Unheralded means unannounced, arriving with no fanfare or advance notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rude"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1198,66 @@
     "text": "Real confusion after last month, say",
     "enumeration": "7"
    },
-   "solution": "DECLARE"
+   "solution": "DECLARE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DECLARE",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confusion",
+      "for": "anagram",
+      "note": "confusion means a muddle, so the letters are jumbled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means standing behind, which fixes the order of the two parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last month",
+      "gives": "DEC",
+      "note": "December is the last month of the year"
+     },
+     {
+      "clueFragment": "Real",
+      "gives": "REAL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "LARE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "LARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Genuine bewilderment at the end of December, so to speak.",
+     "walkthrough": "'say' looks like 'for example', but it is the definition, a verb.",
+     "definitionFit": "To declare is to state something openly or announce it formally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1271,58 @@
     "text": "Recover from river in dreaming sleep",
     "enumeration": "6"
    },
-   "solution": "REDEEM"
+   "solution": "REDEEM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REDEEM",
+    "definitions": [
+     {
+      "text": "Recover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside another, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland and another between England and Wales"
+     },
+     {
+      "clueFragment": "dreaming sleep",
+      "gives": "REM",
+      "note": "REM, rapid eye movement, is the phase of sleep when dreams happen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DEE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recovers something from a river while sound asleep and dreaming.",
+     "definitionFit": "To redeem is to regain possession of something, as when buying back a pawned item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Recover"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1342,50 @@
      }
     ]
    },
-   "solution": "MARKETRESEARCH"
+   "solution": "MARKETRESEARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARKET RESEARCH",
+    "definitions": [
+     {
+      "text": "Customer enquiry",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "about",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sales event",
+      "gives": "MARKET",
+      "note": "a market is an event where goods are sold"
+     },
+     {
+      "clueFragment": "new look",
+      "gives": "RESEARCH",
+      "note": "re-search is to search again, a new look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARKET",
+      "RESEARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A survey of shoppers about a sale and a store's makeover.",
+     "definitionFit": "This is the gathering of information about consumers' needs and preferences by surveying them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1399,53 @@
     "text": "Lazy and lied badly",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Lazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrong, so the letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lied",
+      "gives": "LIED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIED",
+       "gives": "IDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is both slothful and an incompetent fibber.",
+     "definitionFit": "Idle describes someone avoiding work, an exact synonym for slothful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lied"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1459,70 @@
     "text": "Atmosphere produced by a doctor that is mainly nice",
     "enumeration": "8"
    },
-   "solution": "AMBIENCE"
+   "solution": "AMBIENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AMBIENCE",
+    "definitions": [
+     {
+      "text": "Atmosphere",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means for the most part, not entirely, so a letter of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's degree"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for id est, that is"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MB",
+      "IE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor creates a mood that is largely pleasant.",
+     "walkthrough": "Unusually, 'mainly' drops an inner letter, the I, rather than the last one.",
+     "definitionFit": "Ambience is the character or mood of a place, the feeling surrounding it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1536,47 @@
     "text": "Rumour about a French duck",
     "enumeration": "6"
    },
-   "solution": "CANARD"
+   "solution": "CANARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CANARD",
+    "definitions": [
+     {
+      "text": "Rumour",
+      "at": 0
+     },
+     {
+      "text": "a French duck",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rumour",
+      "note": "first meaning: a false story or hoax put about"
+     },
+     {
+      "clueFragment": "a French duck",
+      "note": "second meaning: the French word for duck"
+     }
+    ],
+    "explanation": {
+     "surface": "Gossip is circulating about a duck from France.",
+     "walkthrough": "'about' looks like the reversal or circa signal; here it only joins the two meanings.",
+     "definitionFit": "In English the borrowed word means a false report; in French it is simply the bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1590,58 @@
     "text": "Tree makes my Italian darling sound ill at first",
     "enumeration": "8"
    },
-   "solution": "SYCAMORE"
+   "solution": "SYCAMORE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SYCAMORE",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "to sound like something is to be said like it, so only the pronunciation counts"
+     },
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "at first puts this part at the front, ahead of the other"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ill",
+      "gives": "SYC",
+      "soundsLike": "SICK",
+      "note": "ill means sick"
+     },
+     {
+      "clueFragment": "my Italian darling",
+      "gives": "AMORE",
+      "note": "amore is Italian for love or darling, as in amore mio"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree makes someone's Italian sweetheart sound unwell at the start.",
+     "definitionFit": "The sycamore is a large broadleaved maple with winged seeds, common in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1655,59 @@
     "text": "Cut off ear first? That's harsh",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "harsh",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut off",
+      "gives": "SEVER",
+      "note": "to sever is to cut off"
+     },
+     {
+      "clueFragment": "ear",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of ear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Slicing off someone's ear before anything else is a brutal punishment.",
+     "walkthrough": "'Cut off ear' suggests Van Gogh, but the cut-off is one piece and only the ear's first letter is used.",
+     "definitionFit": "Severe means stern, strict or extremely unkind in treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ear"
+    }
+   }
   }
  ]
 }
