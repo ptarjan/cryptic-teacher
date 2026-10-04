@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Union leader comes in to bless deck",
     "enumeration": "8"
    },
-   "solution": "BEAUTIFY"
+   "solution": "BEAUTIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEAUTIFY",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter of the word union is wanted"
+     },
+     {
+      "text": "comes in",
+      "for": "container",
+      "note": "to come in is to enter, so this letter goes inside the word for bless"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bless",
+      "gives": "BEATIFY",
+      "note": "to beatify is to bless, the step before sainthood"
+     },
+     {
+      "clueFragment": "Union",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of Union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEA",
+      "U",
+      "TIFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade union boss turns up to bless a ship's deck at a ceremony.",
+     "walkthrough": "'Deck' looks like a ship's deck but is a verb here, as in deck the halls.",
+     "definitionFit": "To deck something is to adorn or decorate it, which is a synonym for making it more attractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,48 @@
     "text": "A terror on the golf course was Humphrey, so I've heard",
     "enumeration": "4"
    },
-   "solution": "BOGY"
+   "solution": "BOGY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BOGY",
+    "definitions": [
+     {
+      "text": "A terror on the golf course",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so I've heard",
+      "for": "homophone",
+      "note": "something only heard rather than seen is a matter of sound, not spelling"
+     }
+    ],
+    "linkWords": [
+     "was"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Humphrey",
+      "gives": "BOGY",
+      "soundsLike": "BOGIE",
+      "note": "Bogie was the nickname of the film star Humphrey Bogart"
+     }
+    ],
+    "explanation": {
+     "surface": "Humphrey Bogart is pictured as a menace on the golf links.",
+     "walkthrough": "BOGY is both a bugbear or goblin (a terror) and a spelling of bogey, the golfer's score of one over par.",
+     "definitionFit": "A bogy is a frightening spectre, and on the links a bogey score is what golfers dread most."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Humphrey"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,46 @@
     "text": "Shaw said to be a culture vulture?",
     "enumeration": "4"
    },
-   "solution": "ARTY"
+   "solution": "ARTY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ARTY",
+    "definitions": [
+     {
+      "text": "to be a culture vulture",
+      "at": 10,
+      "note": "a phrase describing someone, matching the adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "something said is spoken aloud, so we want a word sounding like the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shaw",
+      "gives": "ARTY",
+      "soundsLike": "ARTIE",
+      "note": "Artie Shaw was an American swing bandleader and clarinettist"
+     }
+    ],
+    "explanation": {
+     "surface": "Is Bernard Shaw rumoured to be a snob about the arts?",
+     "walkthrough": "Shaw suggests George Bernard Shaw, but the Shaw needed is the bandleader Artie Shaw.",
+     "definitionFit": "Someone arty shows a showy, perhaps pretentious enthusiasm for the arts, exactly what a culture vulture has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shaw"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +226,39 @@
    "group": [
     "3-down",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THOMAS HARDY",
+    "definitions": [
+     {
+      "text": "He wrote, after his time, about some hot potato",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He wrote, after his time, about some hot potato",
+      "note": "surface reading: a journalist writing late about a touchy issue"
+     },
+     {
+      "clueFragment": "about some hot potato",
+      "note": "setter's reading: a Victorian novelist whose later books were scandalous and controversial"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer covered a controversial issue only after it had passed.",
+     "walkthrough": "The novelist of Tess and Jude the Obscure, a book so controversial it was burnt; he went on writing poetry well into the twentieth century. No tighter wordplay for the letters has been found.",
+     "definitionFit": "The Dorset author's novels caused outrage on publication, making them a literary hot potato of their era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potato"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +272,55 @@
     "text": "Designer for use at work at a table",
     "enumeration": "13"
    },
-   "solution": "FUNCTIONALIST"
+   "solution": "FUNCTIONALIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FUNCTIONALIST",
+    "definitions": [
+     {
+      "text": "Designer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "use at work",
+      "gives": "FUNCTION",
+      "note": "a function is the use something serves when working"
+     },
+     {
+      "clueFragment": "at a",
+      "gives": "A",
+      "note": "the article, with at joining"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "LIST",
+      "note": "a table of items is a list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUNCTION",
+      "A",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone designing furniture meant for practical use at a working table.",
+     "definitionFit": "A functionalist is an architect or designer who holds that form should follow purpose, so it names a kind of designer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +334,45 @@
     "text": "Group to be followed by UEU",
     "enumeration": "6"
    },
-   "solution": "SESTET"
+   "solution": "SESTET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SESTET",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group to be followed by UEU",
+      "note": "surface reading: a band billed ahead of an act named UEU"
+     },
+     {
+      "clueFragment": "Group",
+      "note": "setter's reading: a group of six, such as the closing lines of a sonnet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EST",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A band is told it will be succeeded on stage by an act called UEU.",
+     "walkthrough": "Only 'Group' clearly defines; what 'to be followed by UEU' contributes is unexplained, and the clue may be damaged in this copy.",
+     "definitionFit": "A sestet is a set of six, especially six musicians or the last six lines of a sonnet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +386,66 @@
     "text": "Celestial quarter where duck swallows lady",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Celestial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what swallows something takes it inside, so the bird's name encloses the other word"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quarter",
+      "gives": "E",
+      "note": "east, one of the four compass quarters"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "TEAL",
+      "note": "the teal is a small duck"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "HER",
+      "note": "a lady is a her"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "T",
+      "HER",
+      "EAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A part of a pond where a duck gulps down a woman, oddly called heavenly.",
+     "walkthrough": "'Quarter' is not a district but one of the four points of the compass.",
+     "definitionFit": "Ethereal means of the upper air or heavens, so it is a synonym for heavenly or celestial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +459,54 @@
     "text": "Sailor, one to cheat and lie",
     "enumeration": "10"
    },
-   "solution": "TARADIDDLE"
+   "solution": "TARADIDDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARADIDDLE",
+    "definitions": [
+     {
+      "text": "lie",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one as the article a"
+     },
+     {
+      "clueFragment": "to cheat",
+      "gives": "DIDDLE",
+      "note": "to diddle someone is to swindle them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "A",
+      "DIDDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman sets out to swindle and deceive.",
+     "definitionFit": "A taradiddle is a petty falsehood or fib, so the word is a synonym for a lie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +520,70 @@
     "text": "Playing by ear during attempts with soft fruit",
     "enumeration": "10"
    },
-   "solution": "TAYBERRIES"
+   "solution": "TAYBERRIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TAYBERRIES",
+    "definitions": [
+     {
+      "text": "soft fruit",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing by ear is improvising, so the letters are freely rearranged"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "what happens during something sits within it, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by ear",
+      "gives": "AYBER",
+      "note": "the letters of by ear rearranged"
+     },
+     {
+      "clueFragment": "attempts",
+      "gives": "TRIES",
+      "note": "attempts are tries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "AYBER",
+      "RIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BYEAR",
+       "gives": "AYBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician improvises tunes through several attempts while eating fruit.",
+     "walkthrough": "The mixed letters sit after the T of TRIES: T-AYBER-RIES.",
+     "definitionFit": "Tayberries are a raspberry and blackberry hybrid, an example of soft summer fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +607,66 @@
      }
     ]
    },
-   "solution": "GETTOKNOW"
+   "solution": "GETTOKNOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GET TO KNOW",
+    "definitions": [
+     {
+      "text": "Become familiar with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is dropped from the area"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single race area",
+      "gives": "GHETTO",
+      "note": "a ghetto is a district occupied by one ethnic group"
+     },
+     {
+      "clueFragment": "high",
+      "gives": "H",
+      "note": "H is the abbreviation for high"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K for king, as in chess"
+     },
+     {
+      "clueFragment": "at present",
+      "gives": "NOW",
+      "note": "at present means now"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GETTO",
+      "K",
+      "NOW"
+     ]
+    },
+    "explanation": {
+     "surface": "An area for one race, minus a high king, is something to learn about now.",
+     "walkthrough": "'Without' governs only 'high'; the king is then added, not removed.",
+     "definitionFit": "To get to know someone is to become acquainted with them, the same idiom in other words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +686,58 @@
      }
     ]
    },
-   "solution": "WORLDPREMIERE"
+   "solution": "WORLDPREMIERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORLD PREMIERE",
+    "definitions": [
+     {
+      "text": "The very first performance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "version",
+      "for": "anagram",
+      "note": "a new version is a reworking, so the letters are given a fresh order"
+     }
+    ],
+    "linkWords": [
+     "of the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emperor",
+      "gives": "EMPEROR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Wilder",
+      "gives": "WILDER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EMPEROR WILDER",
+       "gives": "WORLDPREMIERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The debut of Beethoven's Emperor concerto in a wilder interpretation.",
+     "definitionFit": "A world premiere is the first public performance of a work anywhere, so it is literally the very first showing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +765,51 @@
     "text": "3 11's place for sugar with game",
     "enumeration": "12"
    },
-   "solution": "CASTERBRIDGE"
+   "solution": "CASTERBRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASTERBRIDGE",
+    "definitions": [
+     {
+      "text": "3 11's place",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sugar",
+      "gives": "CASTER",
+      "note": "caster sugar is a fine-grained white sugar"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "BRIDGE",
+      "note": "bridge is a card game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASTER",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A place where sugar goes with a game of cards.",
+     "walkthrough": "3 11 is Thomas Hardy, and caster sugar is the British name for superfine sugar.",
+     "definitionFit": "Casterbridge is the fictional Wessex town, modelled on Dorchester, in the novels of the Dorset author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +823,73 @@
     "text": "Veto on one, with the monarch intervening, sent into exile",
     "enumeration": "10"
    },
-   "solution": "BANISHMENT"
+   "solution": "BANISHMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BANISHMENT",
+    "definitions": [
+     {
+      "text": "exile",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intervening",
+      "for": "container",
+      "note": "to intervene is to come between, so the royal letters go inside the next word"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "with",
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Veto",
+      "gives": "BAN",
+      "note": "a veto is a ban"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one as the Roman numeral I"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "SENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the monarch",
+      "gives": "HM",
+      "note": "HM stands for His or Her Majesty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "I",
+      "S",
+      "HM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A banned person, after royal intervention, is packed off abroad.",
+     "walkthrough": "'Sent' looks like part of the definition but is wordplay; only 'exile' defines.",
+     "definitionFit": "Banishment is the state of being expelled from one's country, which is a synonym for exile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sent"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +903,64 @@
     "text": "Biased account supplied by idiots to Royal Navy",
     "enumeration": "10"
    },
-   "solution": "DISTORTION"
+   "solution": "DISTORTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISTORTION",
+    "definitions": [
+     {
+      "text": "Biased account",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supplied",
+      "for": "anagram",
+      "note": "read as supple-y, bent into a new shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiots",
+      "gives": "IDIOTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Royal Navy",
+      "gives": "RN",
+      "note": "RN is the abbreviation for the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDIOTS TO RN",
+       "gives": "DISTORTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fools handed the Navy a one-sided version of events.",
+     "walkthrough": "'Supplied' looks like simply provided, but is read as made supple, the signal to mix the letters.",
+     "definitionFit": "A distortion is a misleading, slanted representation of the facts, so it fits a biased account."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supplied"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +974,51 @@
     "text": "A lot of policemen take drugs",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACID",
+    "definitions": [
+     {
+      "text": "drugs",
+      "at": 24,
+      "note": "plural, while the answer names one drug"
+     }
+    ],
+    "linkWords": [
+     "take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lot of policemen",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, the detective branch of British police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "Many police officers are using narcotics.",
+     "walkthrough": "'A lot of' looks like a quantity but splits: A, then the lot (body) of policemen.",
+     "definitionFit": "Acid is slang for LSD, a hallucinogen, so it is an example of the drugs in question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1032,73 @@
     "text": "One of 3 11's people, funny old article seen in amazement",
     "enumeration": "10"
    },
-   "solution": "WOODLANDER"
+   "solution": "WOODLANDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "WOODLANDER",
+    "definitions": [
+     {
+      "text": "One of 3 11's people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "something funny is peculiar or out of order, so the word old is jumbled"
+     },
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "seen in means appearing inside, so these letters are placed within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "ODL",
+      "note": "the letters of old mixed up"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "amazement",
+      "gives": "WONDER",
+      "note": "wonder is amazement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "ODL",
+      "ANDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "A WONDER",
+       "gives": "WOANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic antique piece viewed with astonishment.",
+     "walkthrough": "The Woodlanders is a Thomas Hardy novel set among Dorset forest folk.",
+     "definitionFit": "The Woodlanders is Thomas Hardy's novel about forest dwellers, so a woodlander is one of its people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1112,83 @@
     "text": "Old sailor in a groove has a drink - upset inside",
     "enumeration": "8"
    },
-   "solution": "ARGONAUT"
+   "solution": "ARGONAUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "ARGONAUT",
+    "definitions": [
+     {
+      "text": "Old sailor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, which in a down clue flips the letters"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the drink within the groove"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "groove",
+      "gives": "RUT",
+      "note": "a rut is a groove"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "NOG",
+      "note": "nog is a strong ale or eggnog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GONA",
+      "UT"
+     ],
+     "reversals": [
+      {
+       "from": "ANOG",
+       "to": "GONA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran sailor stuck in a rut takes a drink and gets upset.",
+     "walkthrough": "The overturned drink goes into the groove just after its first letter.",
+     "definitionFit": "The Argonauts sailed with Jason on the Argo, so an Argonaut is a mythical sailor of ancient times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1202,61 @@
     "text": "Cross-fertilise, perhaps - try near rim?",
     "enumeration": "10"
    },
-   "solution": "INTERMARRY"
+   "solution": "INTERMARRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERMARRY",
+    "definitions": [
+     {
+      "text": "Cross-fertilise, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "?",
+      "for": "anagram",
+      "note": "the query mark asks the solver to try another order of the closing words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "TRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "NEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rim",
+      "gives": "RIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRY NEAR RIM",
+       "gives": "INTERMARRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener wonders about pollinating plants near a pot's edge.",
+     "walkthrough": "There is no word signalling the mix; the question mark invites trying the three words in another order.",
+     "definitionFit": "Intermarry means to marry outside one's group, which is a human form of crossbreeding or cross-fertilising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1270,44 @@
     "text": "Illness reported - I must let some air in",
     "enumeration": "4"
    },
-   "solution": "FLUE"
+   "solution": "FLUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLUE",
+    "definitions": [
+     {
+      "text": "I must let some air in",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is spoken, so the word sounds like the illness"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illness",
+      "gives": "FLUE",
+      "soundsLike": "FLU",
+      "note": "flu, short for influenza"
+     }
+    ],
+    "explanation": {
+     "surface": "A sick person reports feeling ill and wants a window opened.",
+     "definitionFit": "A flue is a chimney duct, which must draw in air for the fire to burn: the definition is the flue speaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Illness"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1321,62 @@
     "text": "Dome scene, 10 with a commercial turn",
     "enumeration": "6"
    },
-   "solution": "XANADU"
+   "solution": "XANADU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "XANADU",
+    "definitions": [
+     {
+      "text": "Dome scene",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is ten in Roman numerals"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "AN",
+      "note": "the article in its other form"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "a U-turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "AN",
+      "AD",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A setting for the Millennium Dome, with an advert at clue 10.",
+     "walkthrough": "'10' looks like a cross-reference to the clue at 10 but is just the number ten.",
+     "definitionFit": "In Coleridge's poem Kubla Khan, Xanadu is where the stately pleasure-dome was decreed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1396,70 @@
      }
     ]
    },
-   "solution": "HARMONICMEAN"
+   "solution": "HARMONICMEAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HARMONIC MEAN",
+    "definitions": [
+     {
+      "text": "an arithmetical concept",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the coin's letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damage",
+      "gives": "HARM",
+      "note": "to damage is to harm"
+     },
+     {
+      "clueFragment": "coin",
+      "gives": "ONIC",
+      "note": "the letters of coin rearranged"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "MEAN",
+      "note": "base and mean both mean low or ignoble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARM",
+      "ONIC",
+      "MEAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COIN",
+       "gives": "ONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A damaged coin is spoiled at the base by a sum.",
+     "definitionFit": "The harmonic mean is a kind of average, the reciprocal of the mean of reciprocals, a mathematical idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1473,47 @@
     "text": "One with pride at being a celebrity",
     "enumeration": "4"
    },
-   "solution": "LION"
+   "solution": "LION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LION",
+    "definitions": [
+     {
+      "text": "One with pride",
+      "at": 0
+     },
+     {
+      "text": "a celebrity",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "at being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One with pride",
+      "note": "first meaning: a big cat living in a pride"
+     },
+     {
+      "clueFragment": "a celebrity",
+      "note": "second meaning: a famous person sought after socially"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is proud to be famous.",
+     "walkthrough": "'Pride' reads as vanity but means a group of big cats.",
+     "definitionFit": "A pride is a group of the big cats, and a lion is also a celebrated person, as in a literary lion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pride"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1527,43 @@
     "text": "Joint complaint?",
     "enumeration": "4"
    },
-   "solution": "BEEF"
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     },
+     {
+      "text": "complaint",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joint",
+      "note": "first meaning: a joint of meat from cattle"
+     },
+     {
+      "clueFragment": "complaint",
+      "note": "second meaning: a grievance, slang"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Joint complaint' sounds like arthritis; the two words are separate meanings.",
+     "definitionFit": "A roast of cattle meat is a joint of this, and as slang a grumble or grievance is also one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1577,60 @@
     "text": "Musical from 27 25",
     "enumeration": "5"
    },
-   "solution": "EVITA"
+   "solution": "EVITA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "hidden_word"
+    ],
+    "answer": "EVITA",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "27",
+      "for": "reversal",
+      "note": "the entry at 27 reads return of, and returning a word means reading it backwards"
+     },
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means taken out of, so the answer is lifted from the longer string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "25",
+      "gives": "ATIVE",
+      "note": "the closing letters of the entry at 25, the native"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVITA"
+     ],
+     "reversals": [
+      {
+       "from": "ATIVE",
+       "to": "EVITA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage show taken from Hardy's novel The Return of the Native.",
+     "walkthrough": "Read the novel's title literally: the return of the native runs that phrase backwards, and the musical is found in it.",
+     "definitionFit": "Evita is the Lloyd Webber and Rice stage musical about Eva Perón."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "27"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1664,63 @@
     "text": "They are held by 5 with one change in polarity",
     "enumeration": "6"
    },
-   "solution": "TENETS"
+   "solution": "TENETS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "TENETS",
+    "definitions": [
+     {
+      "text": "They are held",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with one change in polarity",
+      "for": "substitution",
+      "note": "changing polarity swaps south for north, so one compass letter is replaced"
+     },
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "change also tells us to alter the order of the letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "5",
+      "gives": "SESTET",
+      "note": "the answer at 5"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NESTET",
+       "gives": "TENETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beliefs held by a group of six, one of whom has switched sides.",
+     "walkthrough": "S (south) becomes N (north), the opposite pole, then the letters are rearranged.",
+     "definitionFit": "Tenets are principles or doctrines that people hold, so they are things which are held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "polarity"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1748,74 @@
    "group": [
     "27-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETURN OF THE NATIVE",
+    "definitions": [
+     {
+      "text": "3 11's",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made a profit",
+      "gives": "RETURN",
+      "note": "a return is a profit made on an investment"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFT",
+      "note": "oft is an old word for often"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford"
+     },
+     {
+      "clueFragment": "I have cut",
+      "gives": "IVE",
+      "note": "I have shortened to the contraction I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETURN",
+      "OFT",
+      "HEN",
+      "A",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frequently profited with a woman and a model, though now cut back.",
+     "walkthrough": "3 11 is Thomas Hardy; the title is one of his novels.",
+     "definitionFit": "The Return of the Native is an 1878 novel by the Dorset author, so it is one of his works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   }
  ]
 }
