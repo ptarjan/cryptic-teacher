@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Strip with sex appeal for gangster",
     "enumeration": "6"
    },
-   "solution": "BANDIT"
+   "solution": "BANDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDIT",
+    "definitions": [
+     {
+      "text": "gangster",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strip",
+      "gives": "BAND",
+      "note": "a band is a narrow strip of material"
+     },
+     {
+      "clueFragment": "sex appeal",
+      "gives": "IT",
+      "note": "'it' is old slang for sex appeal, as in the 'It girl'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster who strips off and has plenty of sex appeal.",
+     "definitionFit": "A bandit is an armed robber or outlaw, near enough a synonym for a violent criminal mobster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strip"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,41 @@
     "text": "Ostracise a cricketer",
     "enumeration": "7"
    },
-   "solution": "BOYCOTT"
+   "solution": "BOYCOTT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOYCOTT",
+    "definitions": [
+     {
+      "text": "Ostracise",
+      "at": 0
+     },
+     {
+      "text": "a cricketer",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ostracise",
+      "note": "first meaning: shun or refuse to deal with"
+     },
+     {
+      "clueFragment": "a cricketer",
+      "note": "second meaning: Geoffrey ..., the Yorkshire and England batsman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Geoffrey Boycott was a famous England opening batsman, later a commentator.",
+     "definitionFit": "To boycott is to refuse dealings with someone as a protest, and the surname belongs to a well-known England batsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +140,59 @@
     "text": "Promote and organise endless unrest",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NURSE",
+    "definitions": [
+     {
+      "text": "Promote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organise",
+      "for": "anagram",
+      "note": "organising puts things into a new order"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unrest",
+      "gives": "UNRES",
+      "note": "unrest without its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNRES",
+       "gives": "NURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to stir up and organise unrest that never ends.",
+     "definitionFit": "To nurse an idea or project is to foster and encourage it, helping it grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Promote"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +206,71 @@
     "text": "Flash Labour leader may end being on the spot",
     "enumeration": "9"
    },
-   "solution": "INSTANTLY"
+   "solution": "INSTANTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INSTANTLY",
+    "definitions": [
+     {
+      "text": "on the spot",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so only the opening letter counts"
+     },
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end is the final letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flash",
+      "gives": "INSTANT",
+      "note": "in a flash means in an instant"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "may",
+      "gives": "Y",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTANT",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour Party leader might suddenly find their career ending on the spot.",
+     "walkthrough": "Labour is one of Britain's two main political parties.",
+     "definitionFit": "On the spot is an idiom meaning immediately, without any delay at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flash"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +284,61 @@
     "text": "Is dead duck in quarantine?",
     "enumeration": "7"
    },
-   "solution": "ISOLATE"
+   "solution": "ISOLATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISOLATE",
+    "definitions": [
+     {
+      "text": "quarantine",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of the others, so the duck sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "LATE",
+      "note": "the late king means the dead king"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "O",
+      "LATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a dead duck has been put into quarantine, as with bird flu.",
+     "walkthrough": "A duck is a score of zero in cricket, written as the letter that looks like nought.",
+     "definitionFit": "To quarantine is to keep a person or animal apart from others to stop disease spreading; isolate is the verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +352,51 @@
     "text": "Ken will smash pot found in desk",
     "enumeration": "7"
    },
-   "solution": "INKWELL"
+   "solution": "INKWELL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INKWELL",
+    "definitions": [
+     {
+      "text": "pot found in desk",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smash",
+      "for": "anagram",
+      "note": "smashing breaks things to pieces that are put back differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ken will",
+      "gives": "KENWILL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KENWILL",
+       "gives": "INKWELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ken is going to break a pot he found in his desk.",
+     "walkthrough": "Old school desks had a hole holding a small ink pot.",
+     "definitionFit": "An inkwell is a small container for ink, once set into a hole in a school desk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "smash"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +410,56 @@
     "text": "Overdose on some valium? Shame!",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ODIUM",
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "deletion",
+      "note": "some means only part, so a portion of the drug name is kept and the rest dropped"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overdose",
+      "gives": "OD",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "valium",
+      "gives": "VALIUM",
+      "note": "the tranquilliser, of which only the tail is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "IUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overdoses on tranquillisers and is met with disgrace.",
+     "definitionFit": "Odium is the disgrace or hatred attached to someone because of their conduct, close to opprobrium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +473,77 @@
     "text": "All extremely overweight men get, initially, tiny ration",
     "enumeration": "9"
    },
-   "solution": "ALLOTMENT"
+   "solution": "ALLOTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALLOTMENT",
+    "definitions": [
+     {
+      "text": "ration",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "overweight",
+      "gives": "OT",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tiny",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OT",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Every very fat man is put on a tiny food ration.",
+     "definitionFit": "An allotment is a share allocated to someone, so a portion or allowance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +557,42 @@
     "text": "Covered in unguent, I certainly tantalise!",
     "enumeration": "6"
    },
-   "solution": "ENTICE"
+   "solution": "ENTICE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTICE",
+    "definitions": [
+     {
+      "text": "tantalise",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Covered in",
+      "for": "hidden_word",
+      "note": "the letters lie wrapped inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unguent, I certainly",
+      "gives": "ENTICE",
+      "note": "found across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone smeared in ointment boasts of being seductive.",
+     "definitionFit": "To entice is to tempt or lure, much as tantalising draws someone on with something desirable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +606,42 @@
     "text": "\"Echo\" was a Maxwell paper once",
     "enumeration": "6"
    },
-   "solution": "MIRROR"
+   "solution": "MIRROR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIRROR",
+    "definitions": [
+     {
+      "text": "Echo",
+      "at": 1
+     },
+     {
+      "text": "was a Maxwell paper once",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Echo",
+      "note": "first meaning: to copy or reflect back"
+     },
+     {
+      "clueFragment": "was a Maxwell paper once",
+      "note": "second meaning: the Daily ... tabloid, owned by Robert Maxwell"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Echo is also a newspaper title, but here it is a verb. Robert Maxwell owned the Daily Mirror, a British tabloid, until 1991.",
+     "definitionFit": "To mirror is to reflect or copy closely, and the Daily Mirror tabloid was once in Robert Maxwell's media empire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Echo"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +655,51 @@
     "text": "Police HQ's taking credit for measure",
     "enumeration": "9"
    },
-   "solution": "YARDSTICK"
+   "solution": "YARDSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YARDSTICK",
+    "definitions": [
+     {
+      "text": "measure",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police HQ's",
+      "gives": "YARDS",
+      "note": "Scotland Yard is the London police headquarters, often just 'the Yard'; plus the 's"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "TICK",
+      "note": "buying on tick is buying on credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARDS",
+      "TICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Police headquarters claims credit as a measure of its success.",
+     "walkthrough": "Scotland Yard is the headquarters of London's Metropolitan Police; 'on tick' is British slang for on credit.",
+     "definitionFit": "A yardstick is a standard used for judging things, so a measure in the figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +713,47 @@
     "text": "Holm has a tenant",
     "enumeration": "5"
    },
-   "solution": "ISLET"
+   "solution": "ISLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLET",
+    "definitions": [
+     {
+      "text": "Holm",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "IS",
+      "note": "a house that has a tenant is let; 'has' is read as the verb part"
+     },
+     {
+      "clueFragment": "a tenant",
+      "gives": "LET",
+      "note": "a property with a tenant is said to be let"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Reports that a property called Holm has a tenant.",
+     "walkthrough": "'Has a tenant' becomes 'is let', which runs together as one word. Holm looks like a house name or surname.",
+     "definitionFit": "A holm is a small island, especially in a river, the same thing as a little island in other wording."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Holm"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +767,51 @@
     "text": "Operation time for Norma?",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "Norma",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Operation",
+      "gives": "OP",
+      "note": "OP is the short form of operation; that the whole run also sits at the front of this word is a coincidence"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks when a woman called Norma is due for her operation.",
+     "walkthrough": "Norma is not a patient but Bellini's opera, so the question mark flags a definition by example.",
+     "definitionFit": "Norma is a famous bel canto work by Bellini, an instance of staged musical drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Norma"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +825,51 @@
     "text": "Doctor, I hurt: came with swollen joints",
     "enumeration": "9"
    },
-   "solution": "RHEUMATIC"
+   "solution": "RHEUMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RHEUMATIC",
+    "definitions": [
+     {
+      "text": "with swollen joints",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are altered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I hurt: came",
+      "gives": "IHURTCAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IHURTCAME",
+       "gives": "RHEUMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient tells the doctor they are in pain and arrived with swollen joints.",
+     "walkthrough": "'Doctor' looks like someone being addressed, but it is a verb telling you to rearrange the letters.",
+     "definitionFit": "Rheumatism causes painful inflamed joints, so someone rheumatic suffers from swelling and stiffness there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +883,77 @@
     "text": "Gutless tergiversator, a single Tory, almost becomes turncoat",
     "enumeration": "7"
    },
-   "solution": "TRAITOR"
+   "solution": "TRAITOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "TRAITOR",
+    "definitions": [
+     {
+      "text": "turncoat",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Gutless",
+      "for": "letter_selection",
+      "note": "removing the guts leaves only the outside of the long word"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the party word loses its end"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tergiversator",
+      "gives": "TR",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TOR",
+      "note": "Tory missing its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "I",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A spineless Tory who keeps changing sides ends up as a defector.",
+     "walkthrough": "A tergiversator is someone who changes sides, which fits the surface neatly. A Tory is a member of Britain's Conservative Party.",
+     "definitionFit": "A turncoat is a person who deserts their side for the enemy, which is what a betrayer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gutless"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +967,50 @@
     "text": "Revolutionary's terribly rash antic",
     "enumeration": "9"
    },
-   "solution": "ANARCHIST"
+   "solution": "ANARCHIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANARCHIST",
+    "definitions": [
+     {
+      "text": "Revolutionary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly suggests something badly done, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rash antic",
+      "gives": "RASHANTIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RASHANTIC",
+       "gives": "ANARCHIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary's stunt is described as dreadfully reckless.",
+     "walkthrough": "The 's stands for 'is'.",
+     "definitionFit": "An anarchist seeks to overthrow government entirely, so a radical rebel or revolutionary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1024,43 @@
     "text": "Gee, perhaps it's in the post",
     "enumeration": "6"
    },
-   "solution": "LETTER"
+   "solution": "LETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LETTER",
+    "definitions": [
+     {
+      "text": "Gee, perhaps",
+      "at": 0
+     },
+     {
+      "text": "it's in the post",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gee, perhaps",
+      "note": "first meaning: gee is how the seventh character of the alphabet is spelt out"
+     },
+     {
+      "clueFragment": "it's in the post",
+      "note": "second meaning: a written message sent by mail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Gee' reads as an exclamation of surprise, but it is the name of the alphabet character G.",
+     "definitionFit": "G is one character of the alphabet, and a written note sent through the mail is also called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gee"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1074,62 @@
     "text": "Time to act: ICI takes on an expert planner",
     "enumeration": "9"
    },
-   "solution": "TACTICIAN"
+   "solution": "TACTICIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TACTICIAN",
+    "definitions": [
+     {
+      "text": "expert planner",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to",
+     "takes on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "ACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ICI",
+      "gives": "ICI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ACT",
+      "ICI",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Chemical giant ICI decides to act and hires a strategist.",
+     "walkthrough": "ICI was Imperial Chemical Industries, a big British company.",
+     "definitionFit": "A tactician is skilled at planning moves and manoeuvres to achieve an aim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1143,44 @@
     "text": "Ravine in Tuscany, once hidden",
     "enumeration": "6"
    },
-   "solution": "CANYON"
+   "solution": "CANYON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CANYON",
+    "definitions": [
+     {
+      "text": "Ravine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden",
+      "for": "hidden_word",
+      "note": "the clue says outright that something is concealed inside the neighbouring words"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tuscany, once",
+      "gives": "CANYON",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A ravine in Tuscany that was once hidden from view.",
+     "definitionFit": "A canyon is a deep gorge, so it is a larger relative of a narrow steep-sided valley."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1194,52 @@
     "text": "Sewers are not entirely unnecessary",
     "enumeration": "7"
    },
-   "solution": "NEEDLES"
+   "solution": "NEEDLES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEEDLES",
+    "definitions": [
+     {
+      "text": "Sewers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not the whole word, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unnecessary",
+      "gives": "NEEDLESS",
+      "note": "needless means unnecessary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEEDLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that drains are not wholly superfluous.",
+     "walkthrough": "'Sewers' looks like drains, but it means things that sew.",
+     "definitionFit": "Read as 'things that sew', sewers are the pointed tools used to pull thread through cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sewers"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1253,56 @@
     "text": "Concert I enter by the back passage",
     "enumeration": "7"
    },
-   "solution": "RECITAL"
+   "solution": "RECITAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECITAL",
+    "definitions": [
+     {
+      "text": "Concert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enter",
+      "for": "container",
+      "note": "the letter goes into the phrase that follows, as a person enters a room"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by the back passage",
+      "gives": "RECTAL",
+      "note": "rectal means by way of the rectum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "I",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A concert-goer slips in through the rear entrance.",
+     "walkthrough": "The innocent-looking back entrance is really the anatomical one: I goes inside RECTAL.",
+     "definitionFit": "A recital is a musical performance, often by one soloist, so a kind of concert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1316,41 @@
     "text": "Thinking highly of sailor",
     "enumeration": "6"
    },
-   "solution": "RATING"
+   "solution": "RATING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RATING",
+    "definitions": [
+     {
+      "text": "Thinking highly of",
+      "at": 0
+     },
+     {
+      "text": "sailor",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thinking highly of",
+      "note": "first meaning: valuing or esteeming someone"
+     },
+     {
+      "clueFragment": "sailor",
+      "note": "second meaning: a non-commissioned seaman in the navy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A rating is an ordinary seaman, not an officer, in the Royal Navy.",
+     "definitionFit": "To rate someone is to hold them in esteem, and a naval rating is an enlisted seaman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1364,45 @@
     "text": "Lynne, it's said, catches birds",
     "enumeration": "7"
    },
-   "solution": "LINNETS"
+   "solution": "LINNETS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LINNETS",
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "said points to how the name and words are pronounced"
+     }
+    ],
+    "linkWords": [
+     "catches"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lynne, it's",
+      "gives": "LINNETS",
+      "soundsLike": "LYNNE ITS",
+      "note": "the name and contraction run together"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman named Lynne is said to catch birds.",
+     "definitionFit": "Linnets are small brown finches known for their song, so they are songbirds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1416,56 @@
     "text": "Flee first east then south to South African province",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Flee",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "first",
+     "then",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "South African province",
+      "gives": "CAPE",
+      "note": "the Cape Province of South Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions for running away: head east, then south, to South Africa.",
+     "definitionFit": "To escape is to get away from danger or captivity, which is what fleeing does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1479,47 @@
     "text": "California city curtailed religious ceremony",
     "enumeration": "9"
    },
-   "solution": "SACRAMENT"
+   "solution": "SACRAMENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SACRAMENT",
+    "definitions": [
+     {
+      "text": "religious ceremony",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed literally means having its tail cut off, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California city",
+      "gives": "SACRAMENTO",
+      "note": "the state capital of California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SACRAMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Californian city cuts back its religious ceremonies.",
+     "definitionFit": "A sacrament is a Christian rite such as baptism or communion, held as a channel of divine grace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "curtailed"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1533,49 @@
     "text": "Department in pursuit of a skilled person",
     "enumeration": "5"
    },
-   "solution": "ADEPT"
+   "solution": "ADEPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADEPT",
+    "definitions": [
+     {
+      "text": "skilled person",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in pursuit of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Department",
+      "gives": "DEPT",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DEPT"
+     ]
+    },
+    "explanation": {
+     "surface": "A department is hunting for a skilled recruit.",
+     "walkthrough": "'In pursuit of' tells you DEPT comes after A.",
+     "definitionFit": "An adept is an expert, someone highly proficient at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1589,46 @@
     "text": "Old Peruvian's in jail",
     "enumeration": "5"
    },
-   "solution": "INCAN"
+   "solution": "INCAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCAN",
+    "definitions": [
+     {
+      "text": "Old Peruvian",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "CAN",
+      "note": "the can is American slang for prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Peruvian has ended up behind bars.",
+     "walkthrough": "The 's stands for 'is', linking definition to wordplay.",
+     "definitionFit": "The Inca empire ruled Peru before the Spanish conquest, so an ancient Peruvian native is an Incan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1642,51 @@
     "text": "Unrefined and ignorant support for Conservative",
     "enumeration": "5"
    },
-   "solution": "CRUDE"
+   "solution": "CRUDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUDE",
+    "definitions": [
+     {
+      "text": "Unrefined",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "support for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "ignorant",
+      "gives": "RUDE",
+      "note": "rude in its old sense of uneducated, unlearned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocks a coarse, ill-informed supporter of the Conservatives.",
+     "walkthrough": "In a down answer, a support sits below what it holds up, so RUDE goes under C.",
+     "definitionFit": "Crude oil is unrefined, and crude manners are coarse, so the adjective means not processed or polished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1700,55 @@
     "text": "A&E's admitting 54: quick!",
     "enumeration": "5"
    },
-   "solution": "ALIVE"
+   "solution": "ALIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALIVE",
+    "definitions": [
+     {
+      "text": "quick",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "a hospital admits patients, taking them inside, so the number goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "the two letters of the hospital department name"
+     },
+     {
+      "clueFragment": "54",
+      "gives": "LIV",
+      "note": "54 in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The casualty department admits patient number 54 and urges haste.",
+     "walkthrough": "A&E (accident and emergency) is the British hospital casualty department. 'Quick' is the old sense, as in 'the quick and the dead'.",
+     "definitionFit": "Quick in its archaic sense means living, as in the biblical phrase about judging the living and the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quick"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1762,51 @@
     "text": "Train line dug to line east -- or west -- of Greenwich",
     "enumeration": "9"
    },
-   "solution": "LONGITUDE"
+   "solution": "LONGITUDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LONGITUDE",
+    "definitions": [
+     {
+      "text": "line east -- or west -- of Greenwich",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Train",
+      "for": "anagram",
+      "note": "to train something is to shape or discipline it into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line dug to",
+      "gives": "LINEDUGTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LINEDUGTO",
+       "gives": "LONGITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway line has been dug out to run east or west from Greenwich.",
+     "walkthrough": "'Train line' looks like a railway, but Train is the anagram signal.",
+     "definitionFit": "Longitude measures position east or west of the prime meridian, which passes through Greenwich in London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1820,48 @@
     "text": "Lands in east Massachusetts and Maine, for instance",
     "enumeration": "7"
    },
-   "solution": "ESTATES"
+   "solution": "ESTATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATES",
+    "definitions": [
+     {
+      "text": "Lands",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "the compass abbreviation"
+     },
+     {
+      "clueFragment": "Massachusetts and Maine, for instance",
+      "gives": "STATES",
+      "note": "both are US states"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes landholdings in New England.",
+     "definitionFit": "Estates are large areas of land owned by one person or family, so properties or lands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -467,7 +1875,57 @@
     "text": "Infuriates Her Majesty and 'angs about",
     "enumeration": "6"
    },
-   "solution": "ANGERS"
+   "solution": "ANGERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANGERS",
+    "definitions": [
+     {
+      "text": "Infuriates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'angs",
+      "gives": "ANGS",
+      "note": "hangs with the H dropped, as in Cockney speech"
+     },
+     {
+      "clueFragment": "Her Majesty",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANG",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen is annoyed at someone who loiters around.",
+     "walkthrough": "The apostrophe in 'angs shows a dropped H, so the word is taken without it.",
+     "definitionFit": "To anger someone is to make them furious, a plain verb synonym for infuriates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
