@@ -632,6 +632,10 @@ check("a linked clue's numbers read, commas and 'dn' not taken for clue numbers"
        ["across"] + f.parse("Across\n1 A (3)\nDown\n4 See 26 ac\n6 Bound (6)")[0]["down"][:1]])
 check("a clue's opening A run into its next word split; a word, or a commoner word misspelt, kept",
       "15 A danger out east (5)\n3 Abed (4)\n4 Arived (7)", f.tidy("15 Adanger out east (5)\n3 Abed (4)\n4 Arived (7)"))
+# A word is_word has but the lexicon does not rank ("whore") is no crash:
+# a commoner spelling ("ashore") keeps the line as read.
+check("an unranked word after a glued A is compared as rarest",
+      "5 Awhore (6)", f.tidy("5 Awhore (6)"))
 check("rn read as m mended", True, "carnivore" in ocr_clues.edits("camivore"))
 g = ["...#...", "...#...", "......."]
 pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
