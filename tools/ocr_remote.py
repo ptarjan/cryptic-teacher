@@ -107,6 +107,9 @@ def full_speed():
     # off: ProcessPowerThrottling (4).
     state = State(1, 1, 0)
     k32 = ctypes.windll.kernel32
+    # A HANDLE is 64 bits: ctypes' default int return truncates it.
+    k32.GetCurrentProcess.restype = ctypes.c_void_p
+    k32.SetProcessInformation.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
     if not k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(state), ctypes.sizeof(state)):
         print(f"SetProcessInformation failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
 
