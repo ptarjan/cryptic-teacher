@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,51 @@
     "text": "Palace supporter disrupted match? No, sir!",
     "enumeration": "10"
    },
-   "solution": "MONARCHIST"
+   "solution": "MONARCHIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONARCHIST",
+    "definitions": [
+     {
+      "text": "Palace supporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "something disrupted is thrown out of its usual order, so the letters that follow get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match? No, sir",
+      "gives": "MATCHNOSIR",
+      "note": "the letters of these three words, punctuation ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATCHNOSIR",
+       "gives": "MONARCHIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal loyalist breaks up a contest, while someone protests to an officer.",
+     "walkthrough": "'Palace' points to Buckingham Palace, so its supporter backs the Crown.",
+     "definitionFit": "A monarchist favours keeping a king or queen, and the palace stands for the royal household."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +96,58 @@
     "text": "Wizard in match getting swapped, oddly",
     "enumeration": "4"
    },
-   "solution": "MAGE"
+   "solution": "MAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGE",
+    "definitions": [
+     {
+      "text": "Wizard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting swapped, oddly",
+      "for": "anagram",
+      "note": "the odd-numbered letters trade places with each other, first with third"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "GAME",
+      "note": "a game is a match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAM",
+       "gives": "MAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magician takes part in a contest that gets switched around strangely.",
+     "walkthrough": "Swap the first and third letters of GAME, the odd ones, to get MAGE.",
+     "definitionFit": "A mage is an old or literary word for a magician or sorcerer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +161,67 @@
     "text": "Falls over once more — not in rain",
     "enumeration": "7"
    },
-   "solution": "NIAGARA"
+   "solution": "NIAGARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NIAGARA",
+    "definitions": [
+     {
+      "text": "Falls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, the word for once more is read backwards in a down light"
+     },
+     {
+      "text": "not in",
+      "for": "deletion",
+      "note": "not in tells us to remove the letters of in from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once more",
+      "gives": "AGAIN",
+      "note": "again means once more"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "RAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIAGA",
+      "RA"
+     ],
+     "reversals": [
+      {
+       "from": "AGAIN",
+       "to": "NIAGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something tumbles again, though not out in the rain.",
+     "walkthrough": "'Falls' looks like a verb, but it is the waterfall's name.",
+     "definitionFit": "Niagara is the famous set of waterfalls on the US–Canada border, so it can be named as Falls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Falls"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +241,39 @@
      }
     ]
    },
-   "solution": "RHYMINGSLANG"
+   "solution": "RHYMINGSLANG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RHYMING SLANG",
+    "definitions": [
+     {
+      "text": "Is it incomprehensible to one unversed in Cockney?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is it incomprehensible to one unversed in Cockney?",
+      "note": "surface reading: is London dialect hard to follow for an outsider"
+     },
+     {
+      "clueFragment": "unversed",
+      "note": "setter's reading: one with no knowledge of the verses, the paired rhymes that replace ordinary words in East End speech"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Unversed' means unfamiliar, but also hints at verse and rhyme: the Cockney code swaps words for rhyming phrases, like apples and pears for stairs.",
+     "definitionFit": "Rhyming slang is the Cockney practice of replacing a word with a phrase that rhymes with it, often baffling outsiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unversed"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +293,50 @@
      }
     ]
    },
-   "solution": "HEREGOES"
+   "solution": "HEREGOES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERE GOES",
+    "definitions": [
+     {
+      "text": "I'm taking a risk",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present",
+      "gives": "HERE",
+      "note": "here means present, as when answering a register"
+     },
+     {
+      "clueFragment": "travels",
+      "gives": "GOES",
+      "note": "goes means travels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERE",
+      "GOES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gambling on a current journey.",
+     "walkthrough": "'Present' looks like a gift, but it means in attendance.",
+     "definitionFit": "Here goes is a spoken idiom said just before attempting something daring or uncertain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +350,59 @@
     "text": "Tiny piece of money I exchanged with pound",
     "enumeration": "6"
    },
-   "solution": "SLIVER"
+   "solution": "SLIVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLIVER",
+    "definitions": [
+     {
+      "text": "Tiny piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I exchanged with pound",
+      "for": "anagram",
+      "note": "one named letter trades places with the abbreviation for a pound, a minimal rearrangement within the word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "SILVER",
+      "note": "silver is coins, loose change"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LI",
+      "VER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IL",
+       "gives": "LI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small coin changed for a pound.",
+     "walkthrough": "Pound is L, from Latin libra; in SILVER swap the I with the L to get SLIVER.",
+     "definitionFit": "A sliver is a very small, thin piece of something, such as a sliver of cake or glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +416,54 @@
     "text": "Soft edge receives mark",
     "enumeration": "4"
    },
-   "solution": "LIMP"
+   "solution": "LIMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMP",
+    "definitions": [
+     {
+      "text": "Soft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "to receive something is to take it inside, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edge",
+      "gives": "LIP",
+      "note": "a lip is the rim or edge of a cup or crater"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M is the abbreviation for the old German currency, the mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft border takes on a stain or scratch.",
+     "definitionFit": "Limp describes something floppy and lacking stiffness, close in meaning to soft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +477,72 @@
     "text": "Elementary form is to put in work on English",
     "enumeration": "7"
    },
-   "solution": "ISOTOPE"
+   "solution": "ISOTOPE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ISOTOPE",
+    "definitions": [
+     {
+      "text": "Elementary form",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "to put something in is to insert it inside another word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "O",
+      "TO",
+      "P",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Something basic needs to be applied to English work.",
+     "walkthrough": "'Elementary' means a form of a chemical element, not something simple.",
+     "definitionFit": "An isotope is one of several forms of a chemical element differing in neutron count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Elementary"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +556,70 @@
     "text": "In history, it's simple to revise a previously used paper",
     "enumeration": "10"
    },
-   "solution": "PALIMPSEST"
+   "solution": "PALIMPSEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PALIMPSEST",
+    "definitions": [
+     {
+      "text": "a previously used paper",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places the following material inside the word for history"
+     },
+     {
+      "text": "to revise",
+      "for": "anagram",
+      "note": "revising something means reworking it, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "history",
+      "gives": "PAST",
+      "note": "the past is history"
+     },
+     {
+      "clueFragment": "simple",
+      "gives": "SIMPLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "LIMPSE",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIMPLE",
+       "gives": "LIMPSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historian says it is easy to rewrite the record.",
+     "walkthrough": "The shuffled letters of simple go inside PAST, between its A and S.",
+     "definitionFit": "A palimpsest is a manuscript scraped clean and written over again, so the page was used before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "revise"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +639,52 @@
      }
     ]
    },
-   "solution": "GRAVYTRAIN"
+   "solution": "GRAVYTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAVY TRAIN",
+    "definitions": [
+     {
+      "text": "source of easy money",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "Having",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sauce",
+      "gives": "GRAVY",
+      "note": "gravy is a meat sauce"
+     },
+     {
+      "clueFragment": "to aim",
+      "gives": "TRAIN",
+      "note": "to train a gun is to aim it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAVY",
+      "TRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has the cheek to go after easy cash.",
+     "walkthrough": "'Having the sauce' suggests cheek, as sauce also means impudence; here it is simply the meat sauce.",
+     "definitionFit": "A gravy train is an idiom for a job or scheme yielding large profits for little effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +698,43 @@
     "text": "Parrot's head",
     "enumeration": "4"
    },
-   "solution": "POLL"
+   "solution": "POLL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLL",
+    "definitions": [
+     {
+      "text": "Parrot's",
+      "at": 0
+     },
+     {
+      "text": "head",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parrot's",
+      "note": "first meaning: ..., the traditional pet name for a parrot (as in Polly)"
+     },
+     {
+      "clueFragment": "head",
+      "note": "second meaning: the top of the head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one bird's head; the possessive actually turns 'Parrot's' into 'a parrot is', a name for the bird.",
+     "definitionFit": "Poll is a stock name for a pet parrot, and also an archaic word for the scalp or crown of a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Parrot's"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +748,51 @@
     "text": "Rest of burial party's job?",
     "enumeration": "12"
    },
-   "solution": "INTERMISSION"
+   "solution": "INTERMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERMISSION",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burial",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "party's job",
+      "gives": "MISSION",
+      "note": "a mission is a task assigned to a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "What's left of the work of a funeral group.",
+     "walkthrough": "Read as one phrase, the job of a burial party is an inter-mission.",
+     "definitionFit": "An intermission is a break or pause in a performance, a time to rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +806,73 @@
     "text": "With arid spell, possibly, river disappears here",
     "enumeration": "4"
    },
-   "solution": "WADI"
+   "solution": "WADI",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "WADI",
+    "definitions": [
+     {
+      "text": "With arid spell, possibly, river disappears here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spell, possibly",
+      "for": "anagram",
+      "note": "a spell of letters is one possible spelling, so another arrangement of them is wanted"
+     },
+     {
+      "text": "disappears",
+      "for": "deletion",
+      "note": "whatever disappears is lost from the word it was in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     },
+     {
+      "clueFragment": "arid",
+      "gives": "ARID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ADI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AID",
+       "gives": "ADI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a dry spell a river vanishes into the ground at this place.",
+     "walkthrough": "Take R out of ARID and rearrange the rest after W to get WADI; the whole clue also describes one.",
+     "definitionFit": "A wadi is a desert valley whose stream runs only after rain and dries away in arid seasons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +883,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Space on grassy area thar's provided for players to relax",
+    "text": "Space on grassy area that's provided for players to relax",
     "enumeration": "5,4",
     "separators": [
      {
@@ -241,7 +892,47 @@
      }
     ]
    },
-   "solution": "GREENROOM"
+   "solution": "GREENROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREEN ROOM",
+    "definitions": [
+     {
+      "text": "that's provided for players to relax",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grassy area",
+      "gives": "GREEN",
+      "note": "a green is a grassy area such as a village green"
+     },
+     {
+      "clueFragment": "Space",
+      "gives": "ROOM",
+      "note": "room means space, as in room to move"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawn somewhere has a spot set aside for athletes to unwind.",
+     "walkthrough": "'On' in a down or across clue here just places the space after the grassy area. 'Players' sounds sporting but means actors.",
+     "definitionFit": "A green room is the lounge in a theatre where performers wait and rest before going on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +946,50 @@
     "text": "Grimes's profits in gambling enterprise",
     "enumeration": "10"
    },
-   "solution": "SWEEPSTAKE"
+   "solution": "SWEEPSTAKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEEPSTAKE",
+    "definitions": [
+     {
+      "text": "gambling enterprise",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grimes's",
+      "gives": "SWEEPS",
+      "note": "Mr Grimes is the chimney sweep in Kingsley's The Water Babies"
+     },
+     {
+      "clueFragment": "profits",
+      "gives": "TAKE",
+      "note": "the take is the money earned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEEPS",
+      "TAKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Grimes makes money in a betting venture.",
+     "walkthrough": "Grimes is the cruel chimney sweep in Charles Kingsley's children's novel The Water Babies.",
+     "definitionFit": "A sweepstake is a lottery-style bet where all the stakes are pooled and paid to the winners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grimes's"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1003,41 @@
     "text": "One would dispute his degree was top-class",
     "enumeration": "8"
    },
-   "solution": "WRANGLER"
+   "solution": "WRANGLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WRANGLER",
+    "definitions": [
+     {
+      "text": "One would dispute",
+      "at": 0
+     },
+     {
+      "text": "his degree was top-class",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One would dispute",
+      "note": "first meaning: someone who wrangles, an arguer"
+     },
+     {
+      "clueFragment": "his degree was top-class",
+      "note": "second meaning: a Cambridge student gaining first-class honours in mathematics"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "At Cambridge University, anyone with a first in the maths degree is called a wrangler.",
+     "definitionFit": "To wrangle is to argue, so a wrangler is a debater; the word is also a Cambridge title for top mathematics graduates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1051,49 @@
     "text": "Parts of river finally reversing direction",
     "enumeration": "6"
    },
-   "solution": "SEVERS"
+   "solution": "SEVERS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SEVERS",
+    "definitions": [
+     {
+      "text": "Parts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally reversing direction",
+      "for": "substitution",
+      "note": "the closing letter is a compass point that turns round to face the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "SEVERN",
+      "note": "the Severn is Britain's longest river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Stretches of a river at last flow back the other way.",
+     "walkthrough": "SEVERN ends in N for north; reverse that direction to S for south and you get SEVERS.",
+     "definitionFit": "To sever is to cut apart or separate, the same as the verb parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parts"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1107,43 @@
     "text": "Drawing fuel",
     "enumeration": "8"
    },
-   "solution": "CHARCOAL"
+   "solution": "CHARCOAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARCOAL",
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     },
+     {
+      "text": "fuel",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drawing",
+      "note": "first meaning: a sketch made with a charred stick"
+     },
+     {
+      "clueFragment": "fuel",
+      "note": "second meaning: the carbon used on barbecues"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Drawing fuel' suggests sucking up petrol; the words are two separate senses.",
+     "definitionFit": "Charcoal names both an artist's sketch done in burnt wood and the carbon that burns on a barbecue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drawing"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1157,48 @@
     "text": "Puff away, being no longer fit?",
     "enumeration": "6"
    },
-   "solution": "EXHALE"
+   "solution": "EXHALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXHALE",
+    "definitions": [
+     {
+      "text": "Puff",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "away, being no longer",
+      "gives": "EX",
+      "note": "ex means former, no longer what it was"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "HALE",
+      "note": "hale means healthy and fit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone out of shape gasps for breath.",
+     "walkthrough": "An ex-hale person is one no longer fit, a whimsical reading of the word.",
+     "definitionFit": "To exhale is to breathe out, which is what a puff of breath does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Puff"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1212,54 @@
     "text": "Making slow progress, not liking to cross line",
     "enumeration": "7"
    },
-   "solution": "HALTING"
+   "solution": "HALTING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HALTING",
+    "definitions": [
+     {
+      "text": "Making slow progress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "a word crossing something spans it, so it holds the line inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not liking",
+      "gives": "HATING",
+      "note": "hating is the opposite of liking"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "L",
+      "TING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shuffling along, reluctant to step over a mark.",
+     "definitionFit": "Halting means hesitant and faltering, moving forward only with difficulty and pauses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1273,41 @@
     "text": "Dictionary used by judge",
     "enumeration": "8"
    },
-   "solution": "CHAMBERS"
+   "solution": "CHAMBERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHAMBERS",
+    "definitions": [
+     {
+      "text": "Dictionary",
+      "at": 0
+     },
+     {
+      "text": "used by judge",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dictionary",
+      "note": "first meaning: the ... Dictionary, the reference book favoured by crossword setters"
+     },
+     {
+      "clueFragment": "used by judge",
+      "note": "second meaning: a judge's private rooms where cases are heard out of court"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a judge consulting a dictionary; the second half is the judge's office.",
+     "definitionFit": "Chambers is a well-known British dictionary publisher, and also the term for a judge's private offices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1321,64 @@
     "text": "Pull out from tour heartlessly, being in demand",
     "enumeration": "7"
    },
-   "solution": "EXTRACT"
+   "solution": "EXTRACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EXTRACT",
+    "definitions": [
+     {
+      "text": "Pull out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "letter_selection",
+      "note": "without its heart the word loses its middle, leaving only the outside letters"
+     },
+     {
+      "text": "being in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demand",
+      "gives": "EXACT",
+      "note": "to exact is to demand"
+     },
+     {
+      "clueFragment": "tour",
+      "gives": "TR",
+      "select": "outer",
+      "note": "just the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TR",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone withdraws from a trip coldly, being much sought after.",
+     "definitionFit": "To extract is to draw or pull something out, as a dentist does a tooth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1392,60 @@
     "text": "Foresee a holding in good wine-bar",
     "enumeration": "6"
    },
-   "solution": "BODEGA"
+   "solution": "BODEGA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BODEGA",
+    "definitions": [
+     {
+      "text": "wine-bar",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding in",
+      "for": "container",
+      "note": "holding something in means keeping it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foresee",
+      "gives": "BODE",
+      "note": "to bode is to foretell or portend"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BODE",
+      "G",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone predicts a decent taverna will hold its own.",
+     "walkthrough": "BODE A holds G between its parts.",
+     "definitionFit": "Bodega is the Spanish term for a cellar or shop selling drink, borrowed into English for such a bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1459,64 @@
     "text": "Gone off to capture place - aim for glory",
     "enumeration": "9"
    },
-   "solution": "SPLENDOUR"
+   "solution": "SPLENDOUR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPLENDOUR",
+    "definitions": [
+     {
+      "text": "glory",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing something means taking it and holding it inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gone off",
+      "gives": "SOUR",
+      "note": "milk that has gone off has turned sour"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "PL is the abbreviation for place, as in street names"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "END",
+      "note": "an end is a goal or aim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PL",
+      "END",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier leaves to seize a position, chasing military honour.",
+     "definitionFit": "Splendour is magnificent brilliance or grandeur, which is what glory means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gone"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1530,44 @@
     "text": "Plot reported a good deal",
     "enumeration": "4"
    },
-   "solution": "SITE"
+   "solution": "SITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SITE",
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "a report is spoken, so we want a word heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a good deal",
+      "gives": "SITE",
+      "soundsLike": "SIGHT",
+      "note": "a sight more means a good deal more"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item tells of a bargain over a scheme.",
+     "walkthrough": "'Plot' looks like a scheme, but it is a piece of land.",
+     "definitionFit": "A site is a plot of land on which something is or will be built."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1581,42 @@
     "text": "Vital passage some have infiltrated",
     "enumeration": "4"
    },
-   "solution": "VEIN"
+   "solution": "VEIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VEIN",
+    "definitions": [
+     {
+      "text": "Vital passage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have infiltrated",
+      "gives": "VEIN",
+      "note": "spans the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people have got into an important corridor.",
+     "definitionFit": "A vein is a blood vessel, a channel the body cannot live without."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,10 +1627,49 @@
    },
    "length": 4,
    "clue": {
-    "text": "As some say, opposed to machine machine",
+    "text": "As some say, opposed to a machine",
     "enumeration": "4"
    },
-   "solution": "AGIN"
+   "solution": "AGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGIN",
+    "definitions": [
+     {
+      "text": "As some say, opposed to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "machine",
+      "gives": "GIN",
+      "note": "a gin is a machine, as in the cotton gin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Some people say they are against machinery.",
+     "walkthrough": "'As some say' marks a dialect word, not a sound-alike: agin is a rural form of against.",
+     "definitionFit": "Agin is a dialect or folksy form of against, meaning hostile toward or set against something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1683,51 @@
     "text": "Mentioned a different name",
     "enumeration": "10"
    },
-   "solution": "DENOMINATE"
+   "solution": "DENOMINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DENOMINATE",
+    "definitions": [
+     {
+      "text": "name",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "a different version of the letters is a new arrangement of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mentioned a",
+      "gives": "MENTIONEDA",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENTIONEDA",
+       "gives": "DENOMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone referred to an alternative title.",
+     "walkthrough": "'Mentioned' looks like the definition, being a verb in the past, but it is fodder; the definition is the final word.",
+     "definitionFit": "To denominate is to give something a title or designation, a formal synonym for the verb name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mentioned"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1741,46 @@
     "text": "Privet for example, commonly said to be used for boundary",
     "enumeration": "4"
    },
-   "solution": "EDGE"
+   "solution": "EDGE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EDGE",
+    "definitions": [
+     {
+      "text": "boundary",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "commonly said",
+      "for": "homophone",
+      "note": "common speech here means a dropped initial h, so we listen to a casual pronunciation"
+     }
+    ],
+    "linkWords": [
+     "to be used for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Privet for example",
+      "gives": "EDGE",
+      "soundsLike": "HEDGE",
+      "note": "privet is a shrub grown as a garden hedge, said here with the h dropped"
+     }
+    ],
+    "explanation": {
+     "surface": "Privet is usually planted to mark where a garden ends.",
+     "walkthrough": "Dropping the h is the classic Cockney or 'common' pronunciation.",
+     "definitionFit": "An edge is the outer limit or border of an area, the same as a boundary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +1794,64 @@
     "text": "Not returning to delightful Northern town",
     "enumeration": "10"
    },
-   "solution": "DARLINGTON"
+   "solution": "DARLINGTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DARLINGTON",
+    "definitions": [
+     {
+      "text": "Northern town",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word not is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delightful",
+      "gives": "DARLING",
+      "note": "darling as an adjective means charming or delightful"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARLING",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to go back to a charming town in the north.",
+     "walkthrough": "Darlington is a town in County Durham, north-east England.",
+     "definitionFit": "Darlington is a market town in the north of England, famous for the early Stockton and Darlington Railway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   }
  ]
 }
