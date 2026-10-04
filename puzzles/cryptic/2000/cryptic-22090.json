@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Postage to be delivered by secret service",
     "enumeration": "7"
    },
-   "solution": "GESTAPO"
+   "solution": "GESTAPO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GESTAPO",
+    "definitions": [
+     {
+      "text": "secret service",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be delivered",
+      "for": "anagram",
+      "note": "the letters are to be delivered like a parcel, freed from their order and set down afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Postage",
+      "gives": "POSTAGE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POSTAGE",
+       "gives": "GESTAPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parcel's postage is being carried by an intelligence agency's couriers.",
+     "definitionFit": "The Gestapo was the secret state police of Nazi Germany, a notorious example of a security force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,67 @@
     "text": "Lift victorious day up in lift",
     "enumeration": "7"
    },
-   "solution": "ELEVATE"
+   "solution": "ELEVATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ELEVATE",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up reads the letters from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other, enclosed by its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victorious day",
+      "gives": "VE",
+      "note": "VE Day celebrated victory in Europe in 1945"
+     },
+     {
+      "clueFragment": "lift",
+      "gives": "ELATE",
+      "note": "to lift someone's spirits is to elate them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "EV",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "VE",
+       "to": "EV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to raise the mood on a day of triumph.",
+     "walkthrough": "The word lift appears twice: once as the definition, once meaning to cheer up.",
+     "definitionFit": "To elevate something is to raise it higher, a plain synonym for the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "victorious"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +167,45 @@
     "text": "Soundly munched on a house",
     "enumeration": "5"
    },
-   "solution": "TUDOR"
+   "solution": "TUDOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TUDOR",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Soundly",
+      "for": "homophone",
+      "note": "soundly means as heard when spoken, not as written on the page"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "munched on a",
+      "gives": "TUDOR",
+      "soundsLike": "CHEWED A",
+      "note": "munched on a is chewed a, said quickly in a non-rhotic accent"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone noisily gnawing away at a building.",
+     "walkthrough": "Say chewed a quickly and it gives the name of the royal dynasty. House here means a ruling family.",
+     "definitionFit": "The Tudors were a royal house of England, the dynasty from Henry VII to Elizabeth I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "munched"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +225,42 @@
      }
     ]
    },
-   "solution": "POTHERB"
+   "solution": "POTHERB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "POT HERB",
+    "definitions": [
+     {
+      "text": "flavouring",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ingredient of",
+      "for": "hidden_word",
+      "note": "an ingredient is part of a mixture, so the letters form part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soup, other broth's",
+      "gives": "POTHERB",
+      "note": "spans the end of soup, all of other and the start of broth"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe note about what gives a second broth its taste.",
+     "definitionFit": "A potherb is a herb grown for cooking, used to season soups and stews."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ingredient"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +284,42 @@
    "group": [
     "5-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHICKEN FEED",
+    "definitions": [
+     {
+      "text": "Grain",
+      "at": 0
+     },
+     {
+      "text": "28",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grain",
+      "note": "first meaning: corn scattered for poultry"
+     },
+     {
+      "clueFragment": "28",
+      "note": "second meaning: peanuts, a trivially small sum of money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "28 points to the answer at 28-across, read in its slang sense of a paltry amount.",
+     "definitionFit": "Corn thrown to hens is literal poultry food, and figuratively the phrase means a negligible sum, as peanuts does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +333,43 @@
     "text": "Listed at last?",
     "enumeration": "6"
    },
-   "solution": "HEELED"
+   "solution": "HEELED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEELED",
+    "definitions": [
+     {
+      "text": "Listed",
+      "at": 0
+     },
+     {
+      "text": "at last?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listed",
+      "note": "first meaning: a ship that has listed has leaned over to one side"
+     },
+     {
+      "clueFragment": "at last?",
+      "note": "second meaning: a shoe on the cobbler's last gets a heel fitted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as finally being put on a list; a last is a foot-shaped block on which shoes are made and mended.",
+     "definitionFit": "A vessel heels when it tilts in the water, and a shoe is heeled when the cobbler fits its back part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +383,55 @@
     "text": "Reportedly, one over the eight wants curry on top of a male 5",
     "enumeration": "9"
    },
-   "solution": "COCKSCOMB"
+   "solution": "COCKSCOMB",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "COCKSCOMB",
+    "definitions": [
+     {
+      "text": "on top of a male 5",
+      "at": 43,
+      "note": "describes the crest on a cockerel's head"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means by word of mouth, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one over the eight",
+      "gives": "COCKS",
+      "soundsLike": "COX",
+      "note": "the cox steers and commands a rowing eight"
+     },
+     {
+      "clueFragment": "curry",
+      "gives": "COMB",
+      "note": "to curry a horse is to groom it, as with a currycomb"
+     }
+    ],
+    "explanation": {
+     "surface": "A drunk, one over the eight, craves a curry before tackling a chicken dish.",
+     "walkthrough": "One over the eight normally means tipsy; here it is the person in charge of eight rowers. 5 refers to the answer at 5-across.",
+     "definitionFit": "The cockscomb is the fleshy red crest growing on the head of a rooster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "curry"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +451,53 @@
      }
     ]
    },
-   "solution": "EARLOBE"
+   "solution": "EARLOBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EAR LOBE",
+    "definitions": [
+     {
+      "text": "appendage",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appended to",
+      "for": "charade",
+      "note": "appended to means added after, so the award follows the noble in the grid"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noble",
+      "gives": "EARL",
+      "note": "an earl is a British peer"
+     },
+     {
+      "clueFragment": "Award",
+      "gives": "OBE",
+      "note": "the Order of the British Empire, an honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "OBE"
+     ]
+    },
+    "explanation": {
+     "surface": "An honour tacked on to a peer's title.",
+     "definitionFit": "The lobe is the soft hanging part of the outer ear, a small body appendage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appendage"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +511,48 @@
     "text": "Backing arranged, having acted as solicitor",
     "enumeration": "13"
    },
-   "solution": "PROPOSITIONED"
+   "solution": "PROPOSITIONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROPOSITIONED",
+    "definitions": [
+     {
+      "text": "having acted as solicitor",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Backing",
+      "gives": "PRO",
+      "note": "being pro something is backing it"
+     },
+     {
+      "clueFragment": "arranged",
+      "gives": "POSITIONED",
+      "note": "things arranged have been positioned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "POSITIONED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer who set up financial support.",
+     "walkthrough": "Solicitor suggests a lawyer; here it is one who solicits, making an improper offer.",
+     "definitionFit": "To proposition someone is to solicit them, so having done so is having acted as one who solicits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +580,65 @@
     "text": "Welshman with French horn breaks into the old-fashioned number",
     "enumeration": "10"
    },
-   "solution": "THREESCORE"
+   "solution": "THREESCORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THREESCORE",
+    "definitions": [
+     {
+      "text": "old-fashioned number",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks into",
+      "for": "container",
+      "note": "a burglar breaking into a house ends up inside it, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welshman",
+      "gives": "REES",
+      "note": "a common Welsh name"
+     },
+     {
+      "clueFragment": "French horn",
+      "gives": "COR",
+      "note": "cor is French for horn"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "REES",
+      "COR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh player with his horn bursting into a vintage song.",
+     "walkthrough": "Number looks like a song; it is a quantity, sixty.",
+     "definitionFit": "A score is twenty, so three of them make sixty, a biblical, archaic way of counting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +652,50 @@
     "text": "Author wants hedge trimmed",
     "enumeration": "6"
    },
-   "solution": "BARRIE"
+   "solution": "BARRIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BARRIE",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "a trimmed hedge has its end cut off, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hedge",
+      "gives": "BARRIER",
+      "note": "a hedge is a barrier between fields"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARRIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer asking for the garden hedge to be cut.",
+     "definitionFit": "J. M. Barrie was the Scottish novelist and playwright who created Peter Pan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trimmed"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +715,52 @@
      }
     ]
    },
-   "solution": "PRESSBOX"
+   "solution": "PRESSBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS BOX",
+    "definitions": [
+     {
+      "text": "In which reporters",
+      "at": 0,
+      "note": "a descriptive phrase for a place, standing for the noun"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harass",
+      "gives": "PRESS",
+      "note": "to press someone is to harass them"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOX",
+      "note": "boxing is fighting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists in their enclosure pestering and brawling.",
+     "walkthrough": "The whole clue reads as a description of the place too: reporters both harass and scrap there.",
+     "definitionFit": "The press box is the stand reserved for journalists at a sports ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "fight"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +780,49 @@
      }
     ]
    },
-   "solution": "LEVELBEST"
+   "solution": "LEVELBEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEVEL BEST",
+    "definitions": [
+     {
+      "text": "all you can give",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plain",
+      "gives": "LEVEL",
+      "note": "a plain is flat, level ground"
+     },
+     {
+      "clueFragment": "cream",
+      "gives": "BEST",
+      "note": "the cream of something is its best part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVEL",
+      "BEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Plain cream is all a dairy has to offer.",
+     "definitionFit": "Doing your level best means making the greatest possible effort, giving all you have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cream"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +836,50 @@
     "text": "Removing hair, arrange into a pile",
     "enumeration": "9"
    },
-   "solution": "EPILATION"
+   "solution": "EPILATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPILATION",
+    "definitions": [
+     {
+      "text": "Removing hair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrange",
+      "for": "anagram",
+      "note": "to arrange is to put in a fresh order, so the following letters get reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into a pile",
+      "gives": "INTOAPILE",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOAPILE",
+       "gives": "EPILATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for sweeping up shorn locks into a heap.",
+     "definitionFit": "Epilation is depilation by the roots, the technical term for getting rid of body hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pile"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +893,51 @@
     "text": "\"The Arabian Nights\" number takes time for a 29",
     "enumeration": "5"
    },
-   "solution": "MONET"
+   "solution": "MONET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONET",
+    "definitions": [
+     {
+      "text": "29",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"The Arabian Nights\" number",
+      "gives": "MONE",
+      "note": "the tales are the Thousand and One Nights: M is a thousand in Roman numerals, plus one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller's tale gets timed for an artist.",
+     "walkthrough": "29 refers to the answer at 29-across.",
+     "definitionFit": "Claude Monet was the French Impressionist artist famous for his water lilies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +951,46 @@
     "text": "Sack the band",
     "enumeration": "5"
    },
-   "solution": "STRIP"
+   "solution": "STRIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIP",
+    "definitions": [
+     {
+      "text": "Sack",
+      "at": 0
+     },
+     {
+      "text": "band",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sack",
+      "note": "first meaning: to plunder, despoil"
+     },
+     {
+      "clueFragment": "band",
+      "note": "second meaning: a long narrow piece of material"
+     }
+    ],
+    "explanation": {
+     "surface": "Fire the whole group of musicians.",
+     "walkthrough": "Sack and band suggest firing a pop group; this is also the theme word, a comic strip.",
+     "definitionFit": "To strip a town is to plunder it bare, and a strip is a narrow length like a band of cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1004,57 @@
     "text": "Fall in support for student",
     "enumeration": "7"
    },
-   "solution": "TRAINEE"
+   "solution": "TRAINEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAINEE",
+    "definitions": [
+     {
+      "text": "student",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the other, enclosed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a golf tee supports the ball"
+     },
+     {
+      "clueFragment": "Fall",
+      "gives": "RAIN",
+      "note": "rain is what falls from the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAIN",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collapsing into a prop meant for a learner.",
+     "definitionFit": "A trainee is someone learning a job, much as a student is learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1074,38 @@
      }
     ]
    },
-   "solution": "STEVEBELL"
+   "solution": "STEVEBELL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STEVE BELL",
+    "definitions": [
+     {
+      "text": "Doing 14 for our 17?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doing 14 for our 17?",
+      "note": "surface reading: trying as hard as possible for the newspaper's comic strip"
+     },
+     {
+      "clueFragment": "our 17",
+      "note": "setter's reading: our strip is the Guardian's, so the answer is the cartoonist who draws it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "14 and 17 point to the answers LEVEL BEST and STRIP. Steve Bell drew the long-running If... strip in the Guardian, where this puzzle appeared.",
+     "definitionFit": "A cartoonist working for the paper that printed the puzzle produced its strip, hopefully trying his hardest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1119,64 @@
     "text": "Lynn and Dicky on stage outdoors",
     "enumeration": "7"
    },
-   "solution": "VERANDA"
+   "solution": "VERANDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VERANDA",
+    "definitions": [
+     {
+      "text": "stage outdoors",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for faulty or shaky, so the letters are unsound and get rearranged"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lynn",
+      "gives": "VERA",
+      "note": "Dame Vera Lynn, the wartime singer"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERA",
+      "NDA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AND",
+       "gives": "NDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two performers, Lynn and Dicky, appearing in an open-air show.",
+     "walkthrough": "Dicky looks like a second performer's name; it is the anagram signal. Vera Lynn was the Forces' Sweetheart of the Second World War.",
+     "definitionFit": "A veranda is a roofed platform along the outside of a house, a raised outdoor floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1190,58 @@
     "text": "Insects delightful? Not one - that's right!",
     "enumeration": "7"
    },
-   "solution": "LICENCE"
+   "solution": "LICENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LICENCE",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not one",
+      "for": "deletion",
+      "note": "not one means without the numeral one, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insects",
+      "gives": "LICE",
+      "note": "lice are small parasitic insects"
+     },
+     {
+      "clueFragment": "delightful",
+      "gives": "NICE",
+      "note": "nice means pleasant or delightful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LICE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protesting that bugs are lovely, then conceding none are.",
+     "walkthrough": "I is the Roman numeral for one.",
+     "definitionFit": "A licence is a permission or entitlement, as when one has the right to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1261,57 @@
      }
     ]
    },
-   "solution": "RIGOUT"
+   "solution": "RIGOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIG OUT",
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "getting into something means ending up inside it, enclosed"
+     }
+    ],
+    "linkWords": [
+     "with which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the groove",
+      "gives": "RUT",
+      "note": "a rut is a groove worn in the ground"
+     },
+     {
+      "clueFragment": "I try",
+      "gives": "IGO",
+      "note": "I plus GO, a try or attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "IGO",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "An outfit worn for getting into the groove on the dance floor.",
+     "definitionFit": "A rig-out is an informal British word for an outfit or set of clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "groove"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1325,67 @@
     "text": "Sea battle requires most of warships and one in Florentine river",
     "enumeration": "8"
    },
-   "solution": "NAVARINO"
+   "solution": "NAVARINO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "NAVARINO",
+    "definitions": [
+     {
+      "text": "Sea battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means nearly all, so the final letter is lost"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the single letter inside the river's name"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warships",
+      "gives": "NAVY",
+      "note": "a navy is a fleet of warships"
+     },
+     {
+      "clueFragment": "Florentine river",
+      "gives": "ARNO",
+      "note": "the Arno flows through Florence"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAV",
+      "ARINO"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval engagement needs most of the fleet plus a ship on an Italian river.",
+     "definitionFit": "Navarino, in 1827, was a naval battle in which allied fleets destroyed the Ottoman–Egyptian navy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1399,69 @@
     "text": "Country doctor leaves, admitting love of French style",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "French style",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves means goes away from, so the doctor departs from the country's name"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the remaining letters take something inside"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "MOROCCO",
+      "note": "a North African country"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROC",
+      "O",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A rural GP quits, confessing a fondness for Gallic design.",
+     "walkthrough": "Country doctor looks like one phrase for a rural GP; it splits into two separate pieces.",
+     "definitionFit": "Rococo is the ornate eighteenth-century decorative manner that originated in France under Louis XV."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1475,51 @@
     "text": "Acadian preparation of 5, taking about a month",
     "enumeration": "5"
    },
-   "solution": "CAJUN"
+   "solution": "CAJUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAJUN",
+    "definitions": [
+     {
+      "text": "Acadian preparation of 5",
+      "at": 0,
+      "note": "the answer is an adjective, as in a style of chicken dish"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, about"
+     },
+     {
+      "clueFragment": "a month",
+      "gives": "JUN",
+      "note": "Jun is the abbreviation for June"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "JUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Louisiana chicken recipe that takes weeks to make.",
+     "walkthrough": "5 refers to the answer at 5-across, chicken.",
+     "definitionFit": "Cajuns are Louisianans of Acadian descent, and their spicy cooking style gives Cajun chicken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "month"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1533,64 @@
     "text": "On the mountains, negotiating summit with oxygen, at the world's extremities",
     "enumeration": "10"
    },
-   "solution": "ANTIPODEAN"
+   "solution": "ANTIPODEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANTIPODEAN",
+    "definitions": [
+     {
+      "text": "at the world's extremities",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "negotiating",
+      "for": "container",
+      "note": "to negotiate a pass is to get through it, so the mountain word wraps around what comes through"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On the mountains",
+      "gives": "ANDEAN",
+      "note": "Andean means of the Andes"
+     },
+     {
+      "clueFragment": "summit",
+      "gives": "TIP",
+      "note": "a tip is the top"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TIP",
+      "O",
+      "DEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbers in the Andes tackling a peak with bottled oxygen, far from home.",
+     "definitionFit": "The antipodes are places diametrically opposite on the globe, typically Australia and New Zealand seen from Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "negotiating"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1604,38 @@
     "text": "17 for each 17?",
     "enumeration": "4"
    },
-   "solution": "JANE"
+   "solution": "JANE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JANE",
+    "definitions": [
+     {
+      "text": "17 for each 17?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "17 for each 17?",
+      "note": "surface reading: strip for each strip, an odd repetition"
+     },
+     {
+      "clueFragment": "for each 17",
+      "note": "setter's reading: in every episode of her comic strip the heroine undressed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "17 is the answer STRIP. Jane was a Daily Mirror comic strip from 1932 whose heroine kept losing her clothes.",
+     "definitionFit": "The cartoon heroine was famous for undressing in each instalment of the newspaper strip named after her."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1649,45 @@
     "text": "17, though not much to show for it!",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "17",
+      "at": 0
+     },
+     {
+      "text": "not much to show for it",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "17",
+      "note": "first meaning: Charles Schulz's comic strip, 17 being STRIP"
+     },
+     {
+      "clueFragment": "not much to show for it",
+      "note": "second meaning: a paltry reward, slang for very little money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation suggests a strip-cartoonist's meagre pay.",
+     "definitionFit": "Peanuts is the Snoopy and Charlie Brown cartoon, and peanuts is slang for a trivial payment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +1701,43 @@
     "text": "Craftsman needed to secure craft?",
     "enumeration": "7"
    },
-   "solution": "PAINTER"
+   "solution": "PAINTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAINTER",
+    "definitions": [
+     {
+      "text": "Craftsman",
+      "at": 0
+     },
+     {
+      "text": "needed to secure craft?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Craftsman",
+      "note": "first meaning: a decorator or artist who applies colour"
+     },
+     {
+      "clueFragment": "needed to secure craft?",
+      "note": "second meaning: a rope at a boat's bow for tying it up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Craft shifts from skill to boat between the two halves.",
+     "definitionFit": "A painter is a skilled tradesman with brushes, and also the mooring line used to tie a small boat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   }
  ]
 }
