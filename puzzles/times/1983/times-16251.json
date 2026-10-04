@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,10 +35,47 @@
    },
    "length": 10,
    "clue": {
-    "text": "These guns satisfy more t than one key requirement",
+    "text": "These guns satisfy more than one key requirement",
     "enumeration": "10"
    },
-   "solution": "MATCHLOCKS"
+   "solution": "MATCHLOCKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MATCHLOCKS",
+    "definitions": [
+     {
+      "text": "These guns",
+      "at": 0
+     },
+     {
+      "text": "satisfy more than one key requirement",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "These guns",
+      "note": "first meaning: old muskets fired by a slow-burning cord"
+     },
+     {
+      "clueFragment": "satisfy more than one key requirement",
+      "note": "second meaning, read as a phrase: what a key must do is fit locks, and fitting several is matching them"
+     }
+    ],
+    "explanation": {
+     "surface": "Guns that tick several boxes for some important requirement.",
+     "walkthrough": "Split the answer as MATCH LOCKS: a key's whole job is to match its lock, and these do it for more than one.",
+     "definitionFit": "A matchlock is an early firearm whose powder was lit by a smouldering slow match, so the plural names such guns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +89,42 @@
     "text": "Faces Mercator made",
     "enumeration": "4"
    },
-   "solution": "MAPS"
+   "solution": "MAPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAPS",
+    "definitions": [
+     {
+      "text": "Faces",
+      "at": 0
+     },
+     {
+      "text": "Mercator made",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faces",
+      "note": "first meaning: map is slang for a face"
+     },
+     {
+      "clueFragment": "Mercator made",
+      "note": "second meaning: the Flemish cartographer produced charts of the world"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mercator is the sixteenth-century geographer behind the familiar projection of the globe.",
+     "definitionFit": "Map is informal slang for a person's face, and charts of the earth were Mercator's work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Faces"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +138,58 @@
     "text": "For country, prepare to fire without hesitation",
     "enumeration": "7"
    },
-   "solution": "TERRAIN"
+   "solution": "TERRAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRAIN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so one word wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prepare to fire",
+      "gives": "TRAIN",
+      "note": "you train a gun on a target before firing"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ER",
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to a soldier to get ready to shoot for his country, without delay.",
+     "walkthrough": "Without looks like 'lacking' but means outside: T(ER)RAIN.",
+     "definitionFit": "Country in the sense of land or ground, its physical lie and features, is terrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +200,7 @@
    },
    "length": 12,
    "clue": {
-    "text": "Flimsy construction made eccentric MPs",
+    "text": "Flimsy construction made by eccentric MPs",
     "enumeration": "5,2,5",
     "separators": [
      {
@@ -87,7 +213,57 @@
      }
     ]
    },
-   "solution": "HOUSEOFCARDS"
+   "solution": "HOUSEOFCARDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOUSE OF CARDS",
+    "definitions": [
+     {
+      "text": "Flimsy construction",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MPs",
+      "gives": "HOUSE",
+      "note": "MPs sit in the House of Commons, known simply as the House"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "OF",
+      "note": "a work by someone is a work of theirs"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "CARDS",
+      "note": "an eccentric person is a card, so eccentrics are cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUSE",
+      "OF",
+      "CARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shaky structure put up by some oddball members of parliament.",
+     "walkthrough": "MPs are Members of Parliament, who sit in the House; a card is British slang for a comic eccentric.",
+     "definitionFit": "A structure built of stacked playing cards collapses at a touch, so it stands for anything precarious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "eccentric"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +277,58 @@
     "text": "Confusing 12 with 26 can produce obstruction",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "obstruction",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Confusing",
+      "for": "anagram",
+      "note": "confusing two things jumbles them together into a muddle"
+     }
+    ],
+    "linkWords": [
+     "can produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12",
+      "gives": "CASE",
+      "note": "the answer to 12 across"
+     },
+     {
+      "clueFragment": "26",
+      "gives": "BLOT",
+      "note": "the answer to 26 across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CASE BLOT",
+       "gives": "OBSTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mixing up two items can lead to a blockage.",
+     "definitionFit": "An obstacle is something in the way, a barrier or hindrance blocking progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Confusing"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,10 +339,43 @@
    },
    "length": 6,
    "clue": {
-    "text": "Such a  problem Alexander solved at a stroke",
+    "text": "Such a problem Alexander solved at a stroke",
     "enumeration": "6"
    },
-   "solution": "KNOTTY"
+   "solution": "KNOTTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KNOTTY",
+    "definitions": [
+     {
+      "text": "Such a problem Alexander solved at a stroke",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such a problem Alexander solved at a stroke",
+      "note": "surface reading: a puzzle that a clever man cracked in one go"
+     },
+     {
+      "clueFragment": "Alexander solved at a stroke",
+      "note": "setter's reading: Alexander the Great cut the tangled Gordian rope with one sword blow"
+     }
+    ],
+    "explanation": {
+     "surface": "A tricky problem someone called Alexander cracked in an instant.",
+     "walkthrough": "The legend says whoever undid the Gordian tie would rule Asia; Alexander simply cut it with his sword.",
+     "definitionFit": "A knotty problem is a complicated, intricate one, and the legendary tie was literally full of tangles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stroke"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +389,54 @@
     "text": "Bareback, so to speak, in the ring",
     "enumeration": "4"
    },
-   "solution": "HOOP"
+   "solution": "HOOP",
+   "annotation": {
+    "type": [
+     "homophone",
+     "reversal"
+    ],
+    "answer": "HOOP",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so to speak",
+      "for": "homophone",
+      "note": "so to speak tells us to take Bare by its sound, as the animal word that sounds the same"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back asks for the word just found to be read from its end to its start"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bareback",
+      "gives": "POOH",
+      "soundsLike": "BEAR BACK",
+      "note": "heard as bear back: the best-known bear in children's books is Winnie-the-Pooh, and back says to turn him round"
+     }
+    ],
+    "explanation": {
+     "surface": "A circus act: riding horses without a saddle round the ring.",
+     "walkthrough": "Read Bareback as BEAR BACK: POOH the bear turned round gives HOOP. Bareback riders in a circus ring do leap through hoops, which keeps the surface honest.",
+     "definitionFit": "A hoop is a circular band, so it is simply another word for a ring shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bareback"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +450,44 @@
     "text": "Cover up what Matilda used to do?",
     "enumeration": "7"
    },
-   "solution": "OVERLIE"
+   "solution": "OVERLIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERLIE",
+    "definitions": [
+     {
+      "text": "Cover up",
+      "at": 0
+     },
+     {
+      "text": "what Matilda used to do",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cover up",
+      "note": "first meaning: to lie on top of something"
+     },
+     {
+      "clueFragment": "what Matilda used to do",
+      "note": "second meaning, split in two: Belloc's Matilda told lies to excess"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about hiding the truth, as a famous liar did.",
+     "walkthrough": "Hilaire Belloc's cautionary poem tells of Matilda, who told such dreadful lies; read the answer as OVER LIE, to lie too much.",
+     "definitionFit": "To overlie is to rest on top of something, so concealing or covering it from above."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Matilda"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +507,50 @@
      }
     ]
    },
-   "solution": "POINTBLANK"
+   "solution": "POINTBLANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POINT-BLANK",
+    "definitions": [
+     {
+      "text": "Direct",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aim",
+      "gives": "POINT",
+      "note": "the point of something is its aim or purpose"
+     },
+     {
+      "clueFragment": "empty space",
+      "gives": "BLANK",
+      "note": "a blank is an empty space on a form"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POINT",
+      "BLANK"
+     ]
+    },
+    "explanation": {
+     "surface": "Pointing a gun straight across open ground.",
+     "walkthrough": "In a down clue, over places the first piece above the second.",
+     "definitionFit": "A point-blank question or refusal is blunt and straightforward, which is what direct means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aim"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +564,48 @@
     "text": "Instruments for supersonic trip",
     "enumeration": "10"
    },
-   "solution": "PERCUSSION"
+   "solution": "PERCUSSION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERCUSSION",
+    "definitions": [
+     {
+      "text": "Instruments",
+      "at": 0
+     },
+     {
+      "text": "supersonic trip",
+      "at": 16,
+      "note": "what such a flight produces: the shock of a sonic boom"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instruments",
+      "note": "first meaning: the drums, cymbals and timpani of an orchestra"
+     },
+     {
+      "clueFragment": "supersonic trip",
+      "note": "second meaning: a flight past the speed of sound strikes the ground with the shock of its boom"
+     }
+    ],
+    "explanation": {
+     "surface": "The flight instruments needed on a journey faster than sound.",
+     "walkthrough": "Instruments are not aircraft gauges but the struck section of an orchestra; the second sense is the blow of sound a supersonic flight delivers, its sonic boom.",
+     "definitionFit": "The word names both the orchestra's struck instruments and the forceful impact of one thing, or a shock wave, on another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Instruments"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +619,59 @@
     "text": "Endlessly observed one went to soldier's head",
     "enumeration": "4"
    },
-   "solution": "KEPI"
+   "solution": "KEPI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "KEPI",
+    "definitions": [
+     {
+      "text": "soldier's head",
+      "at": 31,
+      "note": "the headgear on a soldier's head"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "went to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "observed",
+      "gives": "KEPT",
+      "note": "one kept, or observed, a rule or a festival"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEP",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone watched as a single thing went to a soldier's head, like success going to it.",
+     "walkthrough": "KEPT loses its T, then I follows to make KEPI.",
+     "definitionFit": "A kepi is the flat-topped peaked cap worn by French soldiers, so it sits on a soldier's head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +691,51 @@
      }
     ]
    },
-   "solution": "SPARROWGRASS"
+   "solution": "SPARROWGRASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARROW-GRASS",
+    "definitions": [
+     {
+      "text": "Plant commonly said",
+      "at": 0,
+      "note": "a plant's name in common or dialect speech"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "SPARROW",
+      "note": "a sparrow is a bird"
+     },
+     {
+      "clueFragment": "sing",
+      "gives": "GRASS",
+      "note": "to sing is criminal slang for informing, as is to grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARROW",
+      "GRASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A herb that folk say will set a bird singing.",
+     "walkthrough": "Sparrowgrass is the old folk corruption of asparagus. Grass and sing are both British slang for informing on someone to the police.",
+     "definitionFit": "Country speakers turned the vegetable asparagus into a familiar-sounding name for the same plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sing"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +749,47 @@
     "text": "Something for Holmes or Watson to handle",
     "enumeration": "4"
    },
-   "solution": "CASE"
+   "solution": "CASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASE",
+    "definitions": [
+     {
+      "text": "Something for Holmes",
+      "at": 0
+     },
+     {
+      "text": "Watson to handle",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something for Holmes",
+      "note": "first meaning: a crime or mystery for the detective to investigate"
+     },
+     {
+      "clueFragment": "Watson to handle",
+      "note": "second meaning: Dr Watson is a physician, and a patient under treatment goes by this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A mystery waiting for Sherlock Holmes or Dr Watson to take on.",
+     "walkthrough": "The two men are partners, but the clue splits them: one gets a mystery, the other, a doctor, gets a patient.",
+     "definitionFit": "A matter under investigation is a case, and so is a patient a doctor is treating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +803,62 @@
     "text": "George symbolized 24 to religious group",
     "enumeration": "9"
    },
-   "solution": "AUTOPILOT"
+   "solution": "AUTOPILOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUTOPILOT",
+    "definitions": [
+     {
+      "text": "George",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "symbolized"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24",
+      "gives": "AU",
+      "note": "24 across is gold, whose chemical symbol is Au"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "religious",
+      "gives": "PI",
+      "note": "pi is old slang for pious, religious"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group or batch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "TO",
+      "PI",
+      "LOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called George stood for some cross-reference to a religious sect.",
+     "walkthrough": "Symbolized signals the chemical symbol for 24, gold. George is British pilots' nickname for the automatic pilot.",
+     "definitionFit": "In RAF slang George was the name given to an aircraft's automatic steering system, hence the nickname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,10 +869,68 @@
    },
    "length": 10,
    "clue": {
-    "text": "Extremely hard - so simple could be, without 29",
+    "text": "Extremely hard - so simple I could be, without 29",
     "enumeration": "10"
    },
-   "solution": "IMPOSSIBLE"
+   "solution": "IMPOSSIBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IMPOSSIBLE",
+    "definitions": [
+     {
+      "text": "Extremely hard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without 29",
+      "for": "deletion",
+      "note": "without asks for something to be taken away, though what 29 removes is never made clear"
+     },
+     {
+      "text": "could",
+      "for": "anagram",
+      "note": "could suggests what the words might turn into if they were reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so simple I",
+      "gives": "SOSIMPLEI",
+      "note": "taken letter for letter as material to rearrange"
+     },
+     {
+      "clueFragment": "be",
+      "gives": "B",
+      "note": "this word kept only as its first letter, its E dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPOSSIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOSIMPLEIB",
+       "gives": "IMPOSSIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something very tough that would be easy but for one missing thing.",
+     "walkthrough": "The anagram needs SO SIMPLE I plus B, the start of be. Without 29 seems meant to strip be's E, but 29 is BRIDESHEAD, so the clue as printed does not quite add up.",
+     "definitionFit": "Something impossible cannot be done at all, which is the extreme end of very difficult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "simple"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,10 +941,58 @@
    },
    "length": 8,
    "clue": {
-    "text": "Chap and fail, lacking singleness of purpose",
+    "text": "Chap and I fail, lacking singleness of purpose",
     "enumeration": "8"
    },
-   "solution": "MANIFOLD"
+   "solution": "MANIFOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANIFOLD",
+    "definitions": [
+     {
+      "text": "lacking singleness of purpose",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "FOLD",
+      "note": "a business that fails folds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "I",
+      "FOLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A man confesses that he and his partner both fail because they cannot decide what they want.",
+     "definitionFit": "Manifold means many and varied, having numerous forms or aims, the opposite of single-minded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fail"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1006,51 @@
     "text": "Author writes 24 before spring",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "writes",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24",
+      "gives": "OR",
+      "note": "24 across is gold, which is or in heraldry"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a spring is a well, a source of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer composes something about gold before spring arrives.",
+     "walkthrough": "Gold here is the heraldic tincture, OR, a word crosswords lean on often.",
+     "definitionFit": "George Orwell wrote Animal Farm and Nineteen Eighty-Four, so he is a famous author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1064,50 @@
     "text": "Profit declared? Totally denied",
     "enumeration": "8"
    },
-   "solution": "GAINSAID"
+   "solution": "GAINSAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAINSAID",
+    "definitions": [
+     {
+      "text": "denied",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "Totally"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Profit",
+      "gives": "GAIN",
+      "note": "profit is gain"
+     },
+     {
+      "clueFragment": "declared",
+      "gives": "SAID",
+      "note": "declared means said"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAIN",
+      "SAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A company's reported earnings were flatly contradicted.",
+     "walkthrough": "Totally works as a sum: profit plus declared, all added up.",
+     "definitionFit": "To gainsay is an old-fashioned verb for contradicting or disputing a claim, so its past tense means refuted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Profit"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1127,43 @@
      }
     ]
    },
-   "solution": "OLDMAN"
+   "solution": "OLDMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD MAN",
+    "definitions": [
+     {
+      "text": "Mississippi river",
+      "at": 0
+     },
+     {
+      "text": "captain",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mississippi river",
+      "note": "first meaning: the river is nicknamed Ol' Man River in the song from Show Boat"
+     },
+     {
+      "clueFragment": "captain",
+      "note": "second meaning: sailors call their ship's captain by this informal title"
+     }
+    ],
+    "explanation": {
+     "surface": "The skipper of a Mississippi riverboat.",
+     "walkthrough": "It reads as one riverboat captain, but the river itself and the captain are two separate meanings.",
+     "definitionFit": "The song Ol' Man River gave the Mississippi its nickname, and crews informally refer to a ship's master the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1183,42 @@
      }
     ]
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DROP-OUT",
+    "definitions": [
+     {
+      "text": "Non-participant",
+      "at": 0
+     },
+     {
+      "text": "seen at Twickenham",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-participant",
+      "note": "first meaning: someone who withdraws from a course or society"
+     },
+     {
+      "clueFragment": "seen at Twickenham",
+      "note": "second meaning: a rugby restart kicked from the 22-metre line"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Twickenham is the London ground that is the home of English rugby union, where a drop kick restarts play in this way.",
+     "definitionFit": "Someone who quits school or society is a dropout, and in rugby the term names a particular restart kick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twickenham"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1232,51 @@
     "text": "Islander shows capability of officer",
     "enumeration": "8"
    },
-   "solution": "MAJORCAN"
+   "solution": "MAJORCAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAJORCAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shows",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer",
+      "gives": "MAJOR",
+      "note": "a major is an army officer"
+     },
+     {
+      "clueFragment": "capability",
+      "gives": "CAN",
+      "note": "being able to is what can expresses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAJOR",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from an island proves as capable as an army officer.",
+     "walkthrough": "Capability of officer puts the officer's word first and the ability word after.",
+     "definitionFit": "A native of Majorca, the largest Balearic island in the Mediterranean, is a Majorcan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capability"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1290,50 @@
     "text": "Writer to elect after constitutional reform",
     "enumeration": "7"
    },
-   "solution": "COLETTE"
+   "solution": "COLETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLETTE",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after constitutional reform",
+      "for": "anagram",
+      "note": "a reform reshapes something, so these letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to elect",
+      "gives": "TOELECT",
+      "note": "taken letter for letter as material to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOELECT",
+       "gives": "COLETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author called on to vote once the constitution has been changed.",
+     "definitionFit": "Colette was the French novelist who wrote Gigi and the Claudine books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constitutional"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1347,45 @@
     "text": "Monkey's silly mistake",
     "enumeration": "6"
    },
-   "solution": "HOWLER"
+   "solution": "HOWLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOWLER",
+    "definitions": [
+     {
+      "text": "Monkey",
+      "at": 0
+     },
+     {
+      "text": "silly mistake",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monkey",
+      "note": "first meaning: a loud-voiced American monkey"
+     },
+     {
+      "clueFragment": "silly mistake",
+      "note": "second meaning: a glaring, laughable blunder"
+     }
+    ],
+    "explanation": {
+     "surface": "A monkey has made a daft blunder.",
+     "definitionFit": "The howler monkey of Central and South America is named for its call, and a howler is also a ludicrous error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Monkey"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1405,63 @@
      }
     ]
    },
-   "solution": "STOODDOWN"
+   "solution": "STOODDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOOD DOWN",
+    "definitions": [
+     {
+      "text": "left witness box",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paragon",
+      "gives": "ST",
+      "note": "a saint, abbreviated ST, is a paragon of virtue"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     },
+     {
+      "clueFragment": "unusual",
+      "gives": "ODD",
+      "note": "unusual means odd"
+     },
+     {
+      "clueFragment": "confess",
+      "gives": "OWN",
+      "note": "to own up is to confess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "O",
+      "ODD",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A model citizen with no secrets to admit steps out of the witness box.",
+     "walkthrough": "Unusual looks like an anagram signal, but here it simply means ODD.",
+     "definitionFit": "A witness who has finished giving evidence is said in court to have stood down from the box."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1475,47 @@
     "text": "Good standard in bull-ring",
     "enumeration": "4"
    },
-   "solution": "GOLD"
+   "solution": "GOLD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOLD",
+    "definitions": [
+     {
+      "text": "Good standard",
+      "at": 0
+     },
+     {
+      "text": "bull-ring",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good standard",
+      "note": "first meaning: the ... standard, the benchmark of excellence"
+     },
+     {
+      "clueFragment": "bull-ring",
+      "note": "second meaning: in archery the innermost ring of the target, the bull, is coloured this and named after it"
+     }
+    ],
+    "explanation": {
+     "surface": "Something of decent quality found in an arena for bullfights.",
+     "walkthrough": "The bull-ring is not a Spanish arena but the centre of an archery target.",
+     "definitionFit": "The yellow centre of an archery target bears this name, and the metal is the proverbial benchmark of quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bull-ring"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1529,45 @@
     "text": "Composer sounds like a natural music-maker",
     "enumeration": "4"
    },
-   "solution": "BYRD"
+   "solution": "BYRD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BYRD",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds like",
+      "for": "homophone",
+      "note": "sounds like says the answer is said the same as the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a natural music-maker",
+      "gives": "BYRD",
+      "soundsLike": "BIRD",
+      "note": "a songbird makes music by nature"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer whose name evokes nature's own musician.",
+     "walkthrough": "William Byrd was an English composer of Elizabethan church music.",
+     "definitionFit": "William Byrd wrote masses and keyboard pieces in Tudor England, so he is a composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "natural"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1581,46 @@
     "text": "Defect in obscure bit of writing",
     "enumeration": "4"
    },
-   "solution": "BLOT"
+   "solution": "BLOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOT",
+    "definitions": [
+     {
+      "text": "Defect",
+      "at": 0
+     },
+     {
+      "text": "obscure bit of writing",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defect",
+      "note": "first meaning: a stain or flaw that spoils something"
+     },
+     {
+      "clueFragment": "obscure bit of writing",
+      "note": "second meaning, a verb phrase: to smudge or blank out some words, as with ink"
+     }
+    ],
+    "explanation": {
+     "surface": "A flaw hidden in a hard-to-read passage.",
+     "walkthrough": "Obscure is a verb, not an adjective: the second meaning is to blank out some writing.",
+     "definitionFit": "The word is both a noun for a spot or flaw and a verb for spoiling or hiding writing with ink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obscure"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1634,58 @@
     "text": "Humorous speech from Liberal among rustics",
     "enumeration": "10"
    },
-   "solution": "PLEASANTRY"
+   "solution": "PLEASANTRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEASANTRY",
+    "definitions": [
+     {
+      "text": "Humorous speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among puts the one item inside the group named after it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rustics",
+      "gives": "PEASANTRY",
+      "note": "country folk taken together are the peasantry"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASANTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician cracks jokes while canvassing country voters.",
+     "walkthrough": "L goes inside PEASANTRY, after the PE: PE(L)ASANTRY.",
+     "definitionFit": "A pleasantry is a joking or polite remark, a bit of light good-humoured talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1699,51 @@
     "text": "Painter of Cockney girl",
     "enumeration": "4"
    },
-   "solution": "ETTY"
+   "solution": "ETTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ETTY",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney",
+      "for": "deletion",
+      "note": "a Cockney Londoner famously drops the h at the start of words"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "HETTY",
+      "note": "Hetty is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETTY"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist who painted a London working-class girl.",
+     "walkthrough": "Cockney is the accent of working-class East London, which drops the H: HETTY becomes 'ETTY.",
+     "definitionFit": "William Etty was a nineteenth-century English artist known for his nude figure studies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cockney"
+    }
+   }
   },
   {
    "number": 29,
@@ -481,7 +1757,44 @@
     "text": "Country seat wedding-day close-up",
     "enumeration": "10"
    },
-   "solution": "BRIDESHEAD"
+   "solution": "BRIDESHEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRIDESHEAD",
+    "definitions": [
+     {
+      "text": "Country seat",
+      "at": 0
+     },
+     {
+      "text": "wedding-day close-up",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country seat",
+      "note": "first meaning: the great house of the Flyte family in Evelyn Waugh's novel"
+     },
+     {
+      "clueFragment": "wedding-day close-up",
+      "note": "second meaning, split in two: a photograph framing the face of the woman being married"
+     }
+    ],
+    "explanation": {
+     "surface": "A wedding photographer's close-up shot at a grand country house.",
+     "walkthrough": "Split as BRIDE'S HEAD, it is just the shot a wedding photographer zooms in on. Brideshead Revisited is Evelyn Waugh's novel.",
+     "definitionFit": "Brideshead Castle is the stately home in Waugh's novel, and a stately home is an English country seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "close-up"
+    }
+   }
   }
  ]
 }
