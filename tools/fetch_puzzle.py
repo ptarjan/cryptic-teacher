@@ -1906,6 +1906,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18233", "5-down"): (
+        "One managing to deceive - 2 fisherman",
+        "One managing to deceive - a fisherman",
+        "OCR misread: the wordplay needs the article a before fisherman, not 2"),
+    ("times-18233", "16-across"): (
+        "Grassland parking will be avail able in spring",
+        "Grassland parking will be available in spring",
+        "OCR misread: the link phrase needs the single word available"),
+    ("times-18233", "24-down"): (
+        "Wavering voter, thar's plain",
+        "Wavering voter, that's plain",
+        "OCR misread: the link needs that's"),
     ("times-18223", "1-across"): (
         "It's police to provide notes fore arrival",
         "It's polite to provide notes fore arrival",
