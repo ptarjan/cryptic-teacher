@@ -164,8 +164,9 @@ def specs(fs):
           "work out where each answer goes, like a jigsaw."),
          [f for f in fs if f["jigsaw"]], newest_first, lambda f: "jigsaw", None),
         ("alphabet", "One answer for every letter",
-         "Twenty-six answers, and each starts with a different letter of the alphabet.",
-         [f for f in fs if "alphabetical" in f["tags"] and f["answers"] == 26],
+         ("Every letter of the alphabet starts an answer, A to Z. With more than "
+          "twenty-six answers, a letter or two starts more than one."),
+         [f for f in fs if "alphabetical" in f["tags"]],
          newest_first, lambda f: "A to Z", None),
         ("pangrams", "Every letter of the alphabet",
          ("Every letter, Q, X and Z included, appears in the finished grid. In a double "
