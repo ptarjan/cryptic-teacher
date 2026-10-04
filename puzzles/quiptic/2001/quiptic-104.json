@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Is unable to get a girl into bed!",
     "enumeration": "6"
    },
-   "solution": "CANNOT"
+   "solution": "CANNOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANNOT",
+    "definitions": [
+     {
+      "text": "Is unable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "getting one thing into another places it inside, so the girl's name goes within the bed"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "get a girl",
+      "gives": "ANN",
+      "note": "Ann is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANN",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated suitor complains that he never manages to take a girl to bed.",
+     "walkthrough": "The exclamation mark flags the cheeky surface; 'Is unable' is the definition, not part of the story.",
+     "definitionFit": "Cannot is the plain negative form of can, meaning lacking the ability to do something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,62 @@
     "text": "Film head office put in a container",
     "enumeration": "7"
    },
-   "solution": "CARTOON"
+   "solution": "CARTOON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARTOON",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the start of office is kept"
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "putting something in a box places it inside, so this letter goes within the box word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a container",
+      "gives": "CARTON",
+      "note": "a carton is a cardboard container"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CART",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A film company's head office is housed in a shipping container.",
+     "walkthrough": "'head office' reads as a company's headquarters, but 'head' only picks the opening letter of 'office'.",
+     "definitionFit": "A cartoon is an animated film, such as a Disney short."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,56 @@
     "text": "Famous, but having no time to meet journalist",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTED",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but having",
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, a journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity too busy to give an interview to a reporter.",
+     "definitionFit": "Noted means well known or celebrated, as in a noted author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,64 @@
     "text": "Material for musical instrument and street guide turned up",
     "enumeration": "7"
    },
-   "solution": "ORGANZA"
+   "solution": "ORGANZA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ORGANZA",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top, so the guide's letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical instrument",
+      "gives": "ORGAN",
+      "note": "an organ is a keyboard instrument"
+     },
+     {
+      "clueFragment": "street guide",
+      "gives": "AZ",
+      "note": "the A-Z is a British street atlas of a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "ZA"
+     ],
+     "reversals": [
+      {
+       "from": "AZ",
+       "to": "ZA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shops for fabric to make a cover for an organ and a road atlas.",
+     "walkthrough": "The A-Z is the standard British street map book, especially of London.",
+     "definitionFit": "Organza is a thin, stiff, sheer fabric made of silk or synthetic fibre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +304,56 @@
     "text": "Sixty seconds on motorway in an Australian pick-up",
     "enumeration": "6"
    },
-   "solution": "MINUTE"
+   "solution": "MINUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINUTE",
+    "definitions": [
+     {
+      "text": "Sixty seconds",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the abbreviation for motorway, as in M1"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an Australian pick-up",
+      "gives": "UTE",
+      "note": "a ute (utility vehicle) is the Australian name for a pick-up truck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "UTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spends a brief spell on the motorway riding in an Australian truck.",
+     "walkthrough": "M is the British road-numbering prefix for motorways.",
+     "definitionFit": "A minute is the unit of time made up of exactly sixty seconds on any clock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pick-up"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +367,49 @@
     "text": "Native using pub scoffed",
     "enumeration": "6"
    },
-   "solution": "INNATE"
+   "solution": "INNATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNATE",
+    "definitions": [
+     {
+      "text": "Native",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "scoffed",
+      "gives": "ATE",
+      "note": "to scoff food is to eat it greedily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A local who ate greedily at the pub.",
+     "definitionFit": "Native and innate both describe qualities someone is born with rather than acquired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Native"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +423,49 @@
     "text": "Girl beaten but not ashamed",
     "enumeration": "9"
    },
-   "solution": "UNABASHED"
+   "solution": "UNABASHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNABASHED",
+    "definitions": [
+     {
+      "text": "not ashamed",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "UNA",
+      "note": "Una is a girl's name"
+     },
+     {
+      "clueFragment": "beaten",
+      "gives": "BASHED",
+      "note": "to be bashed is to be beaten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNA",
+      "BASHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl loses a contest but holds her head high.",
+     "definitionFit": "Unabashed means without embarrassment, entirely unembarrassed by something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beaten"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +479,59 @@
     "text": "Came out in front of entrance and mingled",
     "enumeration": "7"
    },
-   "solution": "EMERGED"
+   "solution": "EMERGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EMERGED",
+    "definitions": [
+     {
+      "text": "Came out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only that letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrance",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of entrance"
+     },
+     {
+      "clueFragment": "mingled",
+      "gives": "MERGED",
+      "note": "things mingled together have merged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MERGED"
+     ]
+    },
+    "explanation": {
+     "surface": "Guests stepped out by the entrance and chatted with the crowd.",
+     "definitionFit": "To emerge is to come out into view, as from a doorway or hiding place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mingled"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +545,58 @@
     "text": "Decline to discourage one with a speech",
     "enumeration": "13"
    },
-   "solution": "DETERIORATION"
+   "solution": "DETERIORATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETERIORATION",
+    "definitions": [
+     {
+      "text": "Decline",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discourage",
+      "gives": "DETER",
+      "note": "to deter is to discourage"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "a speech",
+      "gives": "ORATION",
+      "note": "an oration is a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "I",
+      "ORATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to put a speaker off.",
+     "walkthrough": "'Decline' looks like a verb, refuse, but is a noun meaning worsening.",
+     "definitionFit": "Deterioration is a gradual worsening in condition or quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +610,53 @@
     "text": "Court order author Elizabeth to leave",
     "enumeration": "4"
    },
-   "solution": "WRIT"
+   "solution": "WRIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WRIT",
+    "definitions": [
+     {
+      "text": "Court order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "the queen's initials are told to go away, so they are removed from the writer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "WRITER",
+      "note": "an author is a writer"
+     },
+     {
+      "clueFragment": "Elizabeth",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the cipher of Queen Elizabeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WRIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A court orders a writer called Elizabeth to quit the premises.",
+     "walkthrough": "WRITER loses ER to leave WRIT.",
+     "definitionFit": "A writ is a formal written command issued by a court ordering someone to act or refrain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elizabeth"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +670,64 @@
     "text": "Raw egg, as ordered, and plums",
     "enumeration": "10"
    },
-   "solution": "GREENGAGES"
+   "solution": "GREENGAGES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GREENGAGES",
+    "definitions": [
+     {
+      "text": "plums",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "letters that are ordered are put into a new sequence, so these are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raw",
+      "gives": "GREEN",
+      "note": "raw in the sense of inexperienced is green"
+     },
+     {
+      "clueFragment": "egg, as",
+      "gives": "EGGAS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "GAGES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGGAS",
+       "gives": "GAGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast order: a raw egg, done as requested, along with some plums.",
+     "walkthrough": "'Raw egg' reads as a unit, but 'Raw' stands alone as a synonym and only 'egg, as' is shuffled.",
+     "definitionFit": "Greengages are a variety of small sweet green dessert plum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raw"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +741,56 @@
     "text": "Where a pupil takes on a college fellow",
     "enumeration": "6"
    },
-   "solution": "LONDON"
+   "solution": "LONDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONDON",
+    "definitions": [
+     {
+      "text": "Where",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pupil",
+      "gives": "L",
+      "note": "L is a learner, as on learner-driver plates"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a college fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a university college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ON",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks in which place a student goes on to become a college fellow.",
+     "walkthrough": "The definition is the single word 'Where', answered by a place name.",
+     "definitionFit": "The answer names a place, the British capital city, which answers the question word asking for a location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Where"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +804,66 @@
     "text": "Using badly set compass, gets cut off",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "cut off",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly comes out jumbled, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "Using",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "compass",
+      "gives": "RANGE",
+      "note": "compass in the sense of scope or extent is range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "RANGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hiker relying on a wrongly set compass ends up stranded.",
+     "walkthrough": "'Compass' looks like the navigation tool but means extent or range.",
+     "definitionFit": "To estrange is to alienate or separate someone, leaving them isolated from family or friends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "compass"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +877,59 @@
     "text": "Note I'm acting strangely, which is puzzling",
     "enumeration": "9"
    },
-   "solution": "ENIGMATIC"
+   "solution": "ENIGMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMATIC",
+    "definitions": [
+     {
+      "text": "puzzling",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "acting strangely means behaving out of the usual order, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "E",
+      "note": "E is a musical note"
+     },
+     {
+      "clueFragment": "I'm acting",
+      "gives": "IMACTING",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EIMACTING",
+       "gives": "ENIGMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observes their own odd behaviour and finds it baffling.",
+     "walkthrough": "'Note' looks like 'observe' but is the musical note E, joined to the shuffled letters.",
+     "definitionFit": "Enigmatic describes something mysterious and hard to interpret, like a riddle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +943,55 @@
     "text": "Doctor ruins game making bloomers",
     "enumeration": "9"
    },
-   "solution": "GERANIUMS"
+   "solution": "GERANIUMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GERANIUMS",
+    "definitions": [
+     {
+      "text": "bloomers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with or alter it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruins game",
+      "gives": "RUINSGAME",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUINSGAME",
+       "gives": "GERANIUMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic wrecks a match by committing silly blunders.",
+     "walkthrough": "'bloomers' looks like mistakes or knickers, but means flowering plants.",
+     "definitionFit": "Geraniums are popular flowering plants, things that bloom, so playfully bloomers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomers"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1005,48 @@
     "text": "Dropped in to wish Edwina well",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "Dropped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wish Edwina",
+      "gives": "SHED",
+      "note": "the letters run across the two words"
+     },
+     {
+      "clueFragment": "well",
+      "note": "surface padding, completing the picture of a get-well visit"
+     }
+    ],
+    "explanation": {
+     "surface": "A friend drops by to give Edwina their good wishes.",
+     "walkthrough": "wiSH EDwina holds the answer across the word break.",
+     "definitionFit": "To shed something is to let it fall or cast it off, as a tree drops leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dropped"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1060,49 @@
     "text": "Conservatives are causing trouble",
     "enumeration": "4"
    },
-   "solution": "CARE"
+   "solution": "CARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARE",
+    "definitions": [
+     {
+      "text": "trouble",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservatives",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political complaint that the Tories are making a nuisance of themselves.",
+     "definitionFit": "Care in the sense of worry or anxiety is a burden that troubles the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservatives"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1116,67 @@
     "text": "Oriental church in a different see",
     "enumeration": "7"
    },
-   "solution": "CHINESE"
+   "solution": "CHINESE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHINESE",
+    "definitions": [
+     {
+      "text": "Oriental",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "a different version is changed from the original, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IN",
+      "ESE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEE",
+       "gives": "ESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Eastern church that belongs to another bishop's diocese.",
+     "walkthrough": "A see is a bishop's diocese, which fits the church picture but is just letters here.",
+     "definitionFit": "Chinese, from China, is an example of something Oriental, from the East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1190,64 @@
     "text": "Officer on two-masted vessel I read about",
     "enumeration": "9"
    },
-   "solution": "BRIGADIER"
+   "solution": "BRIGADIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BRIGADIER",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving round, so the letters are turned into a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two-masted vessel",
+      "gives": "BRIG",
+      "note": "a brig is a two-masted square-rigged sailing ship"
+     },
+     {
+      "clueFragment": "I read",
+      "gives": "IREAD",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIG",
+      "ADIER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IREAD",
+       "gives": "ADIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor recounts reading about an officer serving aboard a two-masted ship.",
+     "walkthrough": "'about' looks like 'concerning' but signals the shuffle.",
+     "definitionFit": "A brigadier is a senior army rank, commanding a brigade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1261,43 @@
     "text": "Beginning of a good book",
     "enumeration": "7"
    },
-   "solution": "GENESIS"
+   "solution": "GENESIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GENESIS",
+    "definitions": [
+     {
+      "text": "Beginning",
+      "at": 0
+     },
+     {
+      "text": "of a good book",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beginning",
+      "note": "first meaning: an origin or coming into being"
+     },
+     {
+      "clueFragment": "of a good book",
+      "note": "second meaning: the opening book of the Bible, the Good Book"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Good Book is the Bible, and its first book tells of creation, so the word means both an origin and that book.",
+     "definitionFit": "Genesis means origin or creation, and is also the name of the first book of the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1311,49 @@
     "text": "Once named becomes agitated",
     "enumeration": "7"
    },
-   "solution": "EXCITED"
+   "solution": "EXCITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCITED",
+    "definitions": [
+     {
+      "text": "agitated",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once",
+      "gives": "EX",
+      "note": "ex means former, once"
+     },
+     {
+      "clueFragment": "named",
+      "gives": "CITED",
+      "note": "to cite someone is to name them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CITED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets flustered after being mentioned by name.",
+     "definitionFit": "Excited means stirred up or worked up emotionally, roused and restless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Once"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1367,49 @@
     "text": "Office machine company needing support",
     "enumeration": "6"
    },
-   "solution": "COPIER"
+   "solution": "COPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COPIER",
+    "definitions": [
+     {
+      "text": "Office machine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. abbreviates company"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a supporting pillar of a bridge or arch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "PIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's photocopier is in need of maintenance backing.",
+     "definitionFit": "A copier, or photocopier, is a standard piece of office equipment for duplicating documents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1423,50 @@
     "text": "Shows you the way to endorse an appointment",
     "enumeration": "8"
    },
-   "solution": "SIGNPOST"
+   "solution": "SIGNPOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNPOST",
+    "definitions": [
+     {
+      "text": "Shows you the way",
+      "at": 0,
+      "note": "a verb phrase in the third person; the answer is the bare verb or the noun"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endorse",
+      "gives": "SIGN",
+      "note": "to endorse a document is to sign it"
+     },
+     {
+      "clueFragment": "an appointment",
+      "gives": "POST",
+      "note": "an appointment to a job is a post"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "POST"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on how to approve someone's appointment to a job.",
+     "definitionFit": "A signpost is a roadside marker that points travellers in the right direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appointment"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1480,66 @@
     "text": "Warning if reversing 100mph on a slippery surface",
     "enumeration": "6"
    },
-   "solution": "NOTICE"
+   "solution": "NOTICE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOTICE",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the speed word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "if",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100mph",
+      "gives": "TON",
+      "note": "a ton is slang for a hundred miles per hour"
+     },
+     {
+      "clueFragment": "a slippery surface",
+      "gives": "ICE",
+      "note": "ice makes a slippery surface"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "ICE"
+     ],
+     "reversals": [
+      {
+       "from": "TON",
+       "to": "NOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road-safety caution about doing a hundred in reverse on an icy road.",
+     "walkthrough": "'Doing the ton' is British slang for driving at 100mph.",
+     "definitionFit": "A notice is a formal announcement or advance warning, as in giving notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1553,43 @@
     "text": "Number inside both reels",
     "enumeration": "5"
    },
-   "solution": "THREE"
+   "solution": "THREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THREE",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "inside says the letters lie within the following words, spanning their join"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both reels",
+      "gives": "THREE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A film buff notes a figure appears on each of two reels.",
+     "walkthrough": "boTH REEls hides the answer across the word break.",
+     "definitionFit": "Three is a cardinal number, the integer after two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reels"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1603,55 @@
     "text": "Description of certain plants, for example, illuminated externally",
     "enumeration": "10"
    },
-   "solution": "LEGUMINOUS"
+   "solution": "LEGUMINOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEGUMINOUS",
+    "definitions": [
+     {
+      "text": "Description of certain plants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "externally",
+      "for": "container",
+      "note": "something lying externally is on the outside, so the bright word wraps around the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "illuminated",
+      "gives": "LUMINOUS",
+      "note": "illuminated means lit up, luminous"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "UMINOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A botanical label noting that some plants glow when lit up.",
+     "walkthrough": "LU(EG)MINOUS: the abbreviation sits inside.",
+     "definitionFit": "Leguminous describes plants of the pea and bean family, which bear pods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "illuminated"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1665,50 @@
     "text": "Consider tear needs repairing",
     "enumeration": "4"
    },
-   "solution": "RATE"
+   "solution": "RATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RATE",
+    "definitions": [
+     {
+      "text": "Consider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs repairing",
+      "for": "anagram",
+      "note": "something in need of repair is broken and must be put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tear",
+      "gives": "TEAR",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAR",
+       "gives": "RATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks a rip in a garment ought to be mended.",
+     "definitionFit": "To rate something is to regard or judge it in a certain way, as in rating someone highly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tear"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1722,61 @@
     "text": "Make certain nurse turns key",
     "enumeration": "6"
    },
-   "solution": "ENSURE"
+   "solution": "ENSURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENSURE",
+    "definitions": [
+     {
+      "text": "Make certain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "anagram",
+      "note": "turns suggests twisting into a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "NURSE",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSUR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NURSE",
+       "gives": "ENSUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A careful nurse turns the key to check that a door is locked.",
+     "walkthrough": "'key' is the musical key E, not a door key.",
+     "definitionFit": "To ensure is to guarantee or secure that something happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1790,51 @@
     "text": "Very big nurse is after the port!",
     "enumeration": "6"
    },
-   "solution": "OSTEND"
+   "solution": "OSTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSTEND",
+    "definitions": [
+     {
+      "text": "the port",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very big",
+      "gives": "OS",
+      "note": "OS is outsize, the clothing-size label"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse is to tend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's joke that a huge nurse wants nothing but a bottle of port.",
+     "walkthrough": "'port' looks like the drink; it is the Belgian ferry port.",
+     "definitionFit": "Ostend is a harbour town on the Belgian coast with ferry links to Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   }
  ]
 }
