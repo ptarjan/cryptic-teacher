@@ -11,7 +11,8 @@ measured CPU.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them). Its order
-is backlog()'s: the puzzles a lockout cut off first, then each series' first
+is backlog()'s: the puzzles a lockout cut off first, then the puzzles /showcase/
+would pick once annotated (showcase.wanted), then each series' first
 puzzle (series.is_first_issue), then each series' OLDEST_PER_SERIES oldest
 puzzles, oldest first, then the partly annotated ones, fewest clues
 missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
@@ -809,6 +810,18 @@ def tagged_puzzles(index_path=INDEX):
     return out
 
 
+def showcase_wanted(index_path=INDEX):
+    """The unannotated puzzles /showcase/ would pick (tools/showcase.py), which
+    shows only annotated ones: a reader opens a pick to solve it with hints.
+    Empty when there is no index to read."""
+    try:
+        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return set()
+    import showcase
+    return set(showcase.wanted(showcase.corpus_facts(index)))
+
+
 def first_issues(queue, pinned):
     """pinned, then the queue's series-first puzzles in queue order. Paul,
     2026-10-02: "Puzzle 1 is a special puzzle ... our solver should
@@ -949,7 +962,8 @@ def unsolved(pid):
 
 
 def cover_first(pinned):
-    """The ids on stdin, reordered: pinned first, then each series' first
+    """The ids on stdin, reordered: pinned first, then the showcase's wanted
+    puzzles, then each series' first
     puzzle, then each series' OLDEST_PER_SERIES oldest puzzles, oldest first,
     then the partly annotated
     puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
@@ -959,6 +973,10 @@ def cover_first(pinned):
     queue = sys.stdin.read().split()
     ctc = ctc_puzzles()
     partial = partly_annotated()
+    before = len(pinned)
+    pinned = promote(queue, pinned, showcase_wanted())
+    print(f"showcase: {len(pinned) - before} queued puzzles /showcase/ wants go first",
+          file=sys.stderr)
     pinned = first_issues(queue, pinned)
     pinned = oldest_per_series(queue, pinned, puzzle_days())
     pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),

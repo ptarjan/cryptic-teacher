@@ -584,7 +584,8 @@ pool_interval_start() {
   POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   wide=$(wave_width)
-  # Ahead of the round-robin: each series' first puzzle, then each series'
+  # Ahead of the round-robin: the unannotated puzzles /showcase/ would pick
+  # (tools/showcase.py wanted()), then each series' first puzzle, then each series'
   # oldest few (OLDEST_PER_SERIES), oldest first, then the partly annotated puzzles, then
   # Cracking the Cryptic's puzzles, then the puzzles with a notable tag (tools/puzzle_tags.py), then the puzzles that give an
   # indicator on /indicators/ its first annotated clue (tools/indicator_cover.py). Cut-off puzzles stay first. Anything but a whole
