@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 60 crossings, 0 conflicts"
+  "check": "32 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "7-down",
+    "was": "RAMPART",
+    "now": "RAMPANT",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,65 @@
     "text": "Look for quiet in a school",
     "enumeration": "6"
    },
-   "solution": "ASPECT"
+   "solution": "ASPECT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASPECT",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SECT",
+      "note": "a school of thought or belief, a sect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "P",
+      "ECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks where to look for some peace and quiet inside a school.",
+     "walkthrough": "'Look' as a noun: the look of a building is its aspect. A school of thought is a sect.",
+     "definitionFit": "An aspect is how something appears to the eye, its outward appearance or expression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +118,62 @@
     "text": "Judges a rider's about to crack up",
     "enumeration": "9"
    },
-   "solution": "APPRAISES"
+   "solution": "APPRAISES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPRAISES",
+    "definitions": [
+     {
+      "text": "Judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rider's",
+      "gives": "PS",
+      "note": "a rider is an added note, a postscript, PS"
+     },
+     {
+      "clueFragment": "to crack up",
+      "gives": "PRAISE",
+      "note": "to crack someone up is to speak very highly of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PRAISE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Panel members rate how a jockey falls apart under pressure.",
+     "walkthrough": "'Crack up' looks like a breakdown; it also means to praise, as in 'not all it's cracked up to be'. PS goes about it: A + P(PRAISE)S.",
+     "definitionFit": "Someone who appraises assesses the value or quality of something, as a judge does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rider's"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +187,66 @@
     "text": "One goes through new recipe -- it's about right",
     "enumeration": "7"
    },
-   "solution": "PIERCER"
+   "solution": "PIERCER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PIERCER",
+    "definitions": [
+     {
+      "text": "One goes through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something made new is remade, so these letters take a fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "it's about means it goes around, enclosing what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "PIECER",
+      "note": "the letters of recipe in a new order"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "R",
+      "CER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RECIPE",
+       "gives": "PIECER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook works through a new recipe and finds it about right.",
+     "definitionFit": "A piercer is something or someone that makes a hole by passing through a thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +260,44 @@
     "text": "Private communication of faith",
     "enumeration": "10"
    },
-   "solution": "CONFIDENCE"
+   "solution": "CONFIDENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONFIDENCE",
+    "definitions": [
+     {
+      "text": "Private communication",
+      "at": 0
+     },
+     {
+      "text": "faith",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Private communication",
+      "note": "first meaning: a secret told to someone trusted"
+     },
+     {
+      "clueFragment": "faith",
+      "note": "second meaning: trust or belief in someone"
+     }
+    ],
+    "explanation": {
+     "surface": "A private message expressing someone's religious belief.",
+     "definitionFit": "A confidence is a secret shared in trust, and the word also means firm trust or belief in someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +311,53 @@
     "text": "Gather a number on the roadside",
     "enumeration": "8"
    },
-   "solution": "CONVERGE"
+   "solution": "CONVERGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVERGE",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the roadside",
+      "gives": "VERGE",
+      "note": "a verge is the grass strip along the edge of a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "VERGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd assembles at the edge of a road.",
+     "walkthrough": "'A number' is often a Roman numeral: here C. In Britain the verge is the grassy strip at the side of a road.",
+     "definitionFit": "To converge is to come together at one point, as people do when they assemble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +371,56 @@
     "text": "Work iron and gold for a taskmaster",
     "enumeration": "9"
    },
-   "solution": "OPPRESSOR"
+   "solution": "OPPRESSOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPRESSOR",
+    "definitions": [
+     {
+      "text": "taskmaster",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "PRESS",
+      "note": "to iron clothes is to press them"
+     },
+     {
+      "clueFragment": "and gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry; and simply joins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "PRESS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh boss orders a smith to work iron and gold.",
+     "walkthrough": "'Work iron' reads like smithing; all three words are separate pieces.",
+     "definitionFit": "An oppressor treats people harshly and cruelly, like a demanding master driving workers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +434,58 @@
     "text": "To struggle without money is awful",
     "enumeration": "4"
    },
-   "solution": "VILE"
+   "solution": "VILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VILE",
+    "definitions": [
+     {
+      "text": "awful",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one word goes around the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete, struggle"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "L",
+      "note": "L for pound, libra, money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Being broke and fighting to get by is dreadful.",
+     "walkthrough": "'Without' looks like 'lacking'; here it means outside, so VIE wraps L.",
+     "definitionFit": "Vile means extremely unpleasant or bad, much like dreadful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +499,61 @@
     "text": "Storm about a member standing up",
     "enumeration": "7"
    },
-   "solution": "RAMPART"
+   "solution": "RAMPANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RAMPANT",
+    "definitions": [
+     {
+      "text": "standing up",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Storm",
+      "gives": "RANT",
+      "note": "to storm is to rage and rant"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AMP",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rages about an MP who rises to speak.",
+     "walkthrough": "'Standing up' sounds like an MP rising; it is a heraldry term for a beast reared on its hind legs.",
+     "definitionFit": "In heraldry a rampant lion is shown rearing on its hind legs, upright with forepaws raised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Storm"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +567,61 @@
     "text": "The man turned in here in readiness",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "The man",
+      "at": 0,
+      "note": "a man's name standing for the man named"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit in the words that follow, across their breaks"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here in readiness",
+      "gives": "EINRE",
+      "note": "the letters run across the end of here, all of in, and the start of readiness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERNIE"
+     ],
+     "reversals": [
+      {
+       "from": "EINRE",
+       "to": "ERNIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man has gone to bed here, ready for the morning.",
+     "walkthrough": "'Turned in' looks like going to bed; split it: turned is reversal, in is the hidden signal. ERNIE is also Britain's Premium Bond number-drawing machine.",
+     "definitionFit": "Ernie is a man's first name, a short form of Ernest, so it can stand for a particular man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +635,59 @@
     "text": "Centre of front row for a once revered figure",
     "enumeration": "4"
    },
-   "solution": "ODIN"
+   "solution": "ODIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ODIN",
+    "definitions": [
+     {
+      "text": "a once revered figure",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is the single letter in its middle"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "front",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle letter of front"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row is a loud noise, a din"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A seat in the middle of the front row is kept for a once-honoured celebrity.",
+     "walkthrough": "'Front row' reads as one phrase; the two words do separate jobs, and row rhymes with cow.",
+     "definitionFit": "Odin was chief god of Norse mythology, worshipped by Vikings and no longer venerated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +701,40 @@
     "text": "Prepared for flight",
     "enumeration": "7"
    },
-   "solution": "PREENED"
+   "solution": "PREENED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PREENED",
+    "definitions": [
+     {
+      "text": "Prepared for flight",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepared for flight",
+      "note": "surface reading: got ready to run away, or packed for a plane journey"
+     },
+     {
+      "clueFragment": "Prepared for flight",
+      "note": "setter's reading: what a bird did to its feathers before flying off"
+     }
+    ],
+    "explanation": {
+     "surface": "A fugitive or a traveller has got everything ready to leave.",
+     "walkthrough": "'Flight' suggests escape or air travel; the setter means a bird tidying its plumage before taking wing.",
+     "definitionFit": "Birds smooth and arrange their feathers with the beak, which keeps the plumage in order for flying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +748,48 @@
     "text": "Having influence, fellow gets luxurious transport",
     "enumeration": "7"
    },
-   "solution": "PULLMAN"
+   "solution": "PULLMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PULLMAN",
+    "definitions": [
+     {
+      "text": "luxurious transport",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having influence",
+      "gives": "PULL",
+      "note": "pull is influence, as in having pull with someone"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULL",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-connected man is rewarded with a smart ride.",
+     "definitionFit": "A Pullman is a comfortable railway carriage with superior seating and service, named after its American designer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +803,40 @@
     "text": "He wants to dispose of the lot!",
     "enumeration": "10"
    },
-   "solution": "AUCTIONEER"
+   "solution": "AUCTIONEER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AUCTIONEER",
+    "definitions": [
+     {
+      "text": "He wants to dispose of the lot!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He wants to dispose of the lot!",
+      "note": "surface reading: someone keen to get rid of everything at once"
+     },
+     {
+      "clueFragment": "He wants to dispose of the lot!",
+      "note": "setter's reading: a lot is an item for sale in a saleroom, and this man sells each one to the highest bidder"
+     }
+    ],
+    "explanation": {
+     "surface": "A man clearing out wants rid of every last thing.",
+     "walkthrough": "'The lot' reads as 'everything', but a lot is a numbered item at a sale.",
+     "definitionFit": "The person running a sale by bidding sells each lot, knocking it down with a hammer to whoever bids most."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +850,43 @@
     "text": "The head's cloak",
     "enumeration": "4"
    },
-   "solution": "CAPE"
+   "solution": "CAPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAPE",
+    "definitions": [
+     {
+      "text": "The head's",
+      "at": 0
+     },
+     {
+      "text": "cloak",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The head's",
+      "note": "first meaning: a headland, a point of land jutting into the sea"
+     },
+     {
+      "clueFragment": "cloak",
+      "note": "second meaning: a sleeveless garment worn over the shoulders"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a headteacher's gown; 'head' is a headland, and the 's is just 'is'.",
+     "definitionFit": "A cape is both a promontory jutting into the sea and a short sleeveless outer garment hung from the shoulders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head's"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +900,38 @@
     "text": "The manicurist?",
     "enumeration": "10"
    },
-   "solution": "HANDMAIDEN"
+   "solution": "HANDMAIDEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HANDMAIDEN",
+    "definitions": [
+     {
+      "text": "The manicurist?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The manicurist?",
+      "note": "surface reading: the person who does your nails"
+     },
+     {
+      "clueFragment": "The manicurist?",
+      "note": "setter's reading: a maid who attends to hands, a hand-maid; really a female servant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as hand + maiden: a girl who looks after hands.",
+     "definitionFit": "A handmaiden is a female personal attendant or servant, and one who tends hands could be called one jokingly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +945,57 @@
     "text": "There's too much foam - drawback, that",
     "enumeration": "7"
    },
-   "solution": "SURFEIT"
+   "solution": "SURFEIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURFEIT",
+    "definitions": [
+     {
+      "text": "There's too much",
+      "at": 0,
+      "note": "a clause standing for the noun: a surfeit is a case of there being too much"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foam",
+      "gives": "SURF",
+      "note": "surf is the foam of breaking waves"
+     },
+     {
+      "clueFragment": "drawback",
+      "gives": "EIT",
+      "note": "split as draw + back: a drawn match is a tie, and back has it run the other way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURF",
+      "EIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIE",
+       "to": "EIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Too much froth on a pint is a nuisance.",
+     "walkthrough": "'Drawback' looks like one word meaning a snag; split it into draw + back.",
+     "definitionFit": "A surfeit is an excess, an oversupply of something beyond what is wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawback"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1009,55 @@
     "text": "Exciting article about running water",
     "enumeration": "9"
    },
-   "solution": "THRILLING"
+   "solution": "THRILLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRILLING",
+    "definitions": [
+     {
+      "text": "Exciting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THING",
+      "note": "an article is a thing, an item"
+     },
+     {
+      "clueFragment": "running water",
+      "gives": "RILL",
+      "note": "a rill is a small stream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RILL",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A gripping magazine piece about rivers and streams.",
+     "walkthrough": "'Article' wants to be a, an or the; here it is an item, a thing. TH(RILL)ING.",
+     "definitionFit": "Thrilling means causing a sudden rush of excitement and pleasure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1071,47 @@
     "text": "Opener to lead the King",
     "enumeration": "7"
    },
-   "solution": "STARTER"
+   "solution": "STARTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARTER",
+    "definitions": [
+     {
+      "text": "Opener",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to lead",
+      "gives": "START",
+      "note": "to lead off is to start"
+     },
+     {
+      "clueFragment": "the King",
+      "gives": "ER",
+      "note": "ER, Edwardus Rex, King Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "START",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman opening the innings is to go in ahead of the King.",
+     "walkthrough": "ER is more often the Queen; here it stands for Edward Rex.",
+     "definitionFit": "A starter opens a meal, or is the person who opens a race by giving the signal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1125,55 @@
     "text": "A variety of stones are used in rings",
     "enumeration": "9"
    },
-   "solution": "RESONATES"
+   "solution": "RESONATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESONATES",
+    "definitions": [
+     {
+      "text": "rings",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A variety of",
+      "for": "anagram",
+      "note": "a variety offers different forms, so these letters appear in another order"
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stones are",
+      "gives": "STONESARE",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STONESARE",
+       "gives": "RESONATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jewellers set various gems in rings.",
+     "walkthrough": "'Rings' looks like jewellery, which suits stones; it is the verb, to ring out.",
+     "definitionFit": "Something that resonates echoes with a deep, sustained sound, as a bell does when it rings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1193,50 @@
      }
     ]
    },
-   "solution": "SIDECAR"
+   "solution": "SIDECAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDE-CAR",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "way-out",
+      "for": "anagram",
+      "note": "something way-out is wild and eccentric, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cider's a",
+      "gives": "CIDERSA",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIDERSA",
+       "gives": "SIDECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares cider a really far-out drink.",
+     "definitionFit": "A sidecar is a cocktail of brandy, orange liqueur and lemon juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way-out"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1250,59 @@
     "text": "Drawing of an Indian city with dull frame",
     "enumeration": "7"
    },
-   "solution": "DIAGRAM"
+   "solution": "DIAGRAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIAGRAM",
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frame",
+      "for": "container",
+      "note": "a frame surrounds a picture, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "DIM",
+      "note": "dim means dull, not bright"
+     },
+     {
+      "clueFragment": "an Indian city",
+      "gives": "AGRA",
+      "note": "Agra, the city of the Taj Mahal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "AGRA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A sketch of an Indian city mounted in a drab frame.",
+     "walkthrough": "DIM frames AGRA: DI(AGRA)M.",
+     "definitionFit": "A diagram is a simple drawing showing the parts or workings of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frame"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1316,45 @@
     "text": "Set right about clothes",
     "enumeration": "7"
    },
-   "solution": "REDRESS"
+   "solution": "REDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDRESS",
+    "definitions": [
+     {
+      "text": "Set right",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "clothes",
+      "gives": "DRESS",
+      "note": "dress is clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone corrects an error concerning what people wear.",
+     "definitionFit": "To redress a wrong is to remedy or correct it, putting the matter back in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1368,55 @@
     "text": "Record one's poem or chapter",
     "enumeration": "7"
    },
-   "solution": "EPISODE"
+   "solution": "EPISODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPISODE",
+    "definitions": [
+     {
+      "text": "chapter",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "EP",
+      "note": "an EP, extended-play record"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, and 's is is"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "IS",
+      "ODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone records their own poem or a chapter of a book.",
+     "definitionFit": "An episode is one instalment or section of a series or story, much like a chapter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 23,
@@ -363,7 +1430,49 @@
     "text": "To the doctor an indication of distress",
     "enumeration": "4"
    },
-   "solution": "MOAN"
+   "solution": "MOAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOAN",
+    "definitions": [
+     {
+      "text": "indication of distress",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "To"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient shows the doctor a symptom of being unwell.",
+     "definitionFit": "A moan is a low mournful sound of pain or unhappiness, or a complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1486,47 @@
     "text": "An operatic heroine many imitate",
     "enumeration": "5"
    },
-   "solution": "MIMIC"
+   "solution": "MIMIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIMIC",
+    "definitions": [
+     {
+      "text": "imitate",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An operatic heroine",
+      "gives": "MIMI",
+      "note": "Mimi, the heroine of Puccini's La Bohème"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred, a large number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIMI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of singers copy a famous operatic heroine.",
+     "walkthrough": "'Many' gives a Roman numeral, here C for a hundred.",
+     "definitionFit": "To mimic is to copy someone's voice or manner, often to amuse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1540,50 @@
     "text": "Change the blend of tea on trial",
     "enumeration": "10"
    },
-   "solution": "ALTERATION"
+   "solution": "ALTERATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALTERATION",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the blend of",
+      "for": "anagram",
+      "note": "a blend mixes things together, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea on trial",
+      "gives": "TEAONTRIAL",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAONTRIAL",
+       "gives": "ALTERATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tea company tries out a new blend before switching.",
+     "definitionFit": "A plain synonym: an alteration is a modification or adjustment that makes something different."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blend"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1597,54 @@
     "text": "Effective uprising in the Mediterranean",
     "enumeration": "4"
    },
-   "solution": "ELBA"
+   "solution": "ELBA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ELBA",
+    "definitions": [
+     {
+      "text": "in the Mediterranean",
+      "at": 19,
+      "note": "a place description standing for the island it describes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "rising up in a down entry means read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Effective",
+      "gives": "ABLE",
+      "note": "able means capable, effective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELBA"
+     ],
+     "reversals": [
+      {
+       "from": "ABLE",
+       "to": "ELBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A successful revolt breaks out somewhere around the Mediterranean.",
+     "definitionFit": "Elba is an Italian island off Tuscany, famous as Napoleon's place of exile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1658,51 @@
     "text": "Type of sanctimonious accountant",
     "enumeration": "4"
    },
-   "solution": "PICA"
+   "solution": "PICA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PICA",
+    "definitions": [
+     {
+      "text": "Type",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sanctimonious",
+      "gives": "PI",
+      "note": "pi is short for pious, sanctimonious"
+     },
+     {
+      "clueFragment": "accountant",
+      "gives": "CA",
+      "note": "CA, chartered accountant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of self-righteous bookkeeper.",
+     "walkthrough": "'Type' looks like 'kind'; it is printing type.",
+     "definitionFit": "Pica is a size of printing type, about twelve points, and a typewriter typeface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 27,
@@ -430,10 +1713,61 @@
    },
    "length": 7,
    "clue": {
-    "text": "In short, the skill needed 10 make a cocktail",
+    "text": "In short, the skill needed to make a cocktail",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "cocktail",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one thing in another means it is placed inside the second"
+     }
+    ],
+    "linkWords": [
+     "needed to make a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "MINI",
+      "note": "mini means short, as in a miniskirt"
+     },
+     {
+      "clueFragment": "the skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of conversation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ART",
+      "INI"
+     ]
+    },
+    "explanation": {
+     "surface": "Briefly put, some craft is required to mix a good cocktail.",
+     "walkthrough": "'In short' looks like 'briefly'; split it, and short is the miniskirt sense of mini.",
+     "definitionFit": "A martini is a cocktail of gin and dry vermouth, usually served with an olive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1781,40 @@
     "text": "Letters for the patient?",
     "enumeration": "7"
    },
-   "solution": "BEDPOST"
+   "solution": "BEDPOST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEDPOST",
+    "definitions": [
+     {
+      "text": "Letters for the patient?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letters for the patient?",
+      "note": "surface reading: mail delivered to someone in hospital"
+     },
+     {
+      "clueFragment": "Letters for the patient?",
+      "note": "setter's reading: the patient lies in bed; really an upright at a corner of a bed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks about the mail for a hospital patient.",
+     "walkthrough": "Read the answer as two words, bed + post, and it means mail for the bedridden.",
+     "definitionFit": "The thing named is an upright at one corner of a bed frame, which split in two also means mail delivered to a bedridden person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Letters"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +1828,52 @@
     "text": "Drive a camping convertible",
     "enumeration": "8"
    },
-   "solution": "CAMPAIGN"
+   "solution": "CAMPAIGN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAMPAIGN",
+    "definitions": [
+     {
+      "text": "Drive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "convertible",
+      "for": "anagram",
+      "note": "something convertible can be changed into another form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a camping",
+      "gives": "ACAMPING",
+      "note": "the letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACAMPING",
+       "gives": "CAMPAIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a convertible car out on a camping trip.",
+     "walkthrough": "'Convertible' looks like a car, which suits 'Drive'; it is the signal to rearrange.",
+     "definitionFit": "A drive is an organised effort to achieve something, such as a fundraising or election push."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "convertible"
+    }
+   }
   },
   {
    "number": 30,
@@ -475,7 +1887,42 @@
     "text": "This French place causes some offence",
     "enumeration": "6"
    },
-   "solution": "ANGERS"
+   "solution": "ANGERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGERS",
+    "definitions": [
+     {
+      "text": "This French place",
+      "at": 0
+     },
+     {
+      "text": "causes some offence",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This French place",
+      "note": "first meaning: a city on the Loire in western France"
+     },
+     {
+      "clueFragment": "causes some offence",
+      "note": "second meaning: makes someone cross"
+     }
+    ],
+    "explanation": {
+     "surface": "A French town manages to put people's backs up.",
+     "definitionFit": "Angers is a historic city in the Loire valley, and the English verb means makes someone irritated or annoyed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
