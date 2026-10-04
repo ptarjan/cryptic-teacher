@@ -1906,6 +1906,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18255", "20-down"): (
+        "Dr's left chemist for poet",
+        "Di's left chemist for poet",
+        "OCR misread: the wordplay needs DI to leave DISPENSER"),
+    ("times-18255", "16-down"): (
+        "22. we hear, is a pupil",
+        "22, we hear, is a pupil",
+        "OCR misread: the cross-reference is followed by a comma, not a full stop"),
     ("times-18254", "12-across"): (
         "Embracing novices, nun lays out take she made",
         "Embracing novices, nun lays out cake she made",
