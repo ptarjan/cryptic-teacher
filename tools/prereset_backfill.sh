@@ -686,8 +686,31 @@ run_pool() {
 # (see sync_wave). --autostash for what is left uncommitted. HEAD is detached in
 # this worktree, so master is named on both sides of the push.
 sync_attempt() {
-  git fetch -q origin master && git rebase -q --autostash origin/master &&
-    if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
+  git fetch -q origin master || return
+  git rebase -q --autostash origin/master || skip_published_conflicts || return
+  if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
+}
+
+# A rebase stopped on a conflict. A commit whose puzzle files origin/master
+# already holds byte for byte was published by another path (a hand rebuild,
+# push_puzzle_commit's own merge), so it is skipped, side files and all: the
+# copy on master carries them. Any other conflict aborts, leaving the tree as
+# it was rather than unmerged.
+skip_published_conflicts() {
+  local c paths
+  while [ -d "$(git rev-parse --git-path rebase-merge)" ]; do
+    c=$(git rev-parse -q --verify REBASE_HEAD) || break
+    paths=$(git diff-tree --no-commit-id --name-only -r "$c" -- 'puzzles/*.json')
+    if [ -z "$paths" ] || ! git diff --quiet origin/master "$c" -- $paths; then
+      echo "sync: $(git log -1 --format='%h %s' "$c") conflicts and is not on origin/master; aborting the rebase" >&2
+      git rebase --abort
+      return 1
+    fi
+    echo "sync: dropping $(git log -1 --format='%h %s' "$c") — origin/master already has its puzzle" >&2
+    git rebase --skip >/dev/null 2>&1 ||
+      [ "$(git rev-parse -q --verify REBASE_HEAD)" != "$c" ] || { git rebase --abort; return 1; }
+  done
+  [ -z "$(git ls-files -u)" ]
 }
 
 # Every shared data file the runs wrote, committed and pushed the way a puzzle
