@@ -952,7 +952,7 @@ commit_puzzle() {
     if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
       # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
       # a refused commit has to stop here or the log says "committed".
-      git reset -q -- "$(puzzle_spec "$num")" tools/fetch_puzzle.py tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
+      git reset -q -- "$(puzzle_spec "$num")" tools/fetch_puzzle.py tools/data/setter_error.json tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
       index_unlock
       alert "pre-reset backfill could not commit $what $num, so nothing it annotates reaches the site until this is fixed: $(printf '%s' "$out" | tail -5)"
       return 1
