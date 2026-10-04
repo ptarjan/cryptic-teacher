@@ -1911,6 +1911,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18734", "1-across"): (
+        "Traps not big enough for growl-era?",
+        "Traps not big enough for growlers?",
+        "OCR misread: the joke needs growlers (horse cabs, and dogs), not growl-era"),
     ("times-18262", "25-across"): (
         "Jack got track - that's clear",
         "Jack got crack - that's clear",
