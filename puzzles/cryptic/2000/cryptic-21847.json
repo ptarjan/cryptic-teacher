@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Deal with lease which retired persons are under?",
     "enumeration": "8"
    },
-   "solution": "COVERLET"
+   "solution": "COVERLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COVERLET",
+    "definitions": [
+     {
+      "text": "which retired persons are under?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal with",
+      "gives": "COVER",
+      "note": "to deal with a topic is to cover it"
+     },
+     {
+      "clueFragment": "lease",
+      "gives": "LET",
+      "note": "to lease a property is to let it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COVER",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Pensioners sorting out a lease on the flat they live under.",
+     "walkthrough": "'Retired' does not mean pensioned off here: it means gone to bed, and people in bed lie under a bedspread.",
+     "definitionFit": "A coverlet is a light bedspread, the thing sleepers who have gone to bed lie beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +91,53 @@
     "text": "Plan using one less guide",
     "enumeration": "4"
    },
-   "solution": "PLOT"
+   "solution": "PLOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLOT",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using one less",
+      "for": "deletion",
+      "note": "'one less' asks for a single letter standing for one to be dropped from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guide",
+      "gives": "PILOT",
+      "note": "a pilot guides ships into harbour"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme that manages with one fewer tour guide.",
+     "walkthrough": "Remove I from PILOT to leave PLOT.",
+     "definitionFit": "A plot is a secret scheme or plan, so the noun swaps cleanly for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guide"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,49 @@
     "text": "Good man telephoned after being tied up",
     "enumeration": "6"
    },
-   "solution": "STRUNG"
+   "solution": "STRUNG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRUNG",
+    "definitions": [
+     {
+      "text": "tied up",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "after being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man",
+      "gives": "ST",
+      "note": "a saint is a good man, abbreviated ST"
+     },
+     {
+      "clueFragment": "telephoned",
+      "gives": "RUNG",
+      "note": "to have rung someone is to have telephoned them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RUNG"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly man made a phone call after he had been bound up.",
+     "definitionFit": "Strung means threaded or fastened on a string, so something strung has been tied up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +207,79 @@
     "text": "Cool prophet upset about father getting hard",
     "enumeration": "7"
    },
-   "solution": "REFRESH"
+   "solution": "REFRESH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "REFRESH",
+    "definitions": [
+     {
+      "text": "Cool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word reads from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one part wraps around another"
+     },
+     {
+      "text": "getting",
+      "for": "charade",
+      "note": "getting means acquiring something extra, added at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophet",
+      "gives": "SEER",
+      "note": "a seer is a prophet who sees the future"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FR",
+      "ES",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "SEER",
+       "to": "REES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calm seer gets agitated about his dad turning tough.",
+     "walkthrough": "'Cool' is a verb here, not an adjective. In a down clue the prophet is turned upside down and wrapped around the father, with hard added at the foot.",
+     "definitionFit": "To refresh is to cool down and revive, as a cold drink refreshes someone on a hot day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cool"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +293,59 @@
     "text": "Believes there's flounder on board",
     "enumeration": "8"
    },
-   "solution": "SWALLOWS"
+   "solution": "SWALLOWS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWALLOWS",
+    "definitions": [
+     {
+      "text": "Believes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "container",
+      "note": "something on board a ship is inside it, so the word goes within the vessel's letters"
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "SS",
+      "note": "on board means aboard ship, and a steamship is SS"
+     },
+     {
+      "clueFragment": "flounder",
+      "gives": "WALLOW",
+      "note": "to flounder in mud is to wallow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WALLOW",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is convinced there is a flatfish on the ship.",
+     "walkthrough": "'Flounder' looks like the fish but is the verb meaning to struggle clumsily in mud or water.",
+     "definitionFit": "To swallow a story is an idiom for accepting it without question, so it means believes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flounder"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +359,61 @@
     "text": "When getting married, say, send new form",
     "enumeration": "10"
    },
-   "solution": "WEDNESDAYS"
+   "solution": "WEDNESDAYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WEDNESDAYS",
+    "definitions": [
+     {
+      "text": "When",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new form",
+      "for": "anagram",
+      "note": "giving words a new form means rearranging their letters into a different shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "getting married",
+      "gives": "WED",
+      "note": "to wed is to get married"
+     },
+     {
+      "clueFragment": "say, send",
+      "gives": "NESDAYS",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WED",
+      "NESDAYS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAYSEND",
+       "gives": "NESDAYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking when the wedding is, and telling someone to send a new form.",
+     "walkthrough": "'When' looks like a conjunction starting the sentence, but it is the definition: a time at which something happens.",
+     "definitionFit": "Wednesdays name recurring times, so the answer can stand for 'when', as in 'on Wednesdays we meet'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "When"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +427,59 @@
     "text": "Unfortunately kaput, but not put here",
     "enumeration": "6"
    },
-   "solution": "ALASKA"
+   "solution": "ALASKA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALASKA",
+    "definitions": [
+     {
+      "text": "here",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not put",
+      "for": "deletion",
+      "note": "'not put' says those very letters are left out of the word before"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfortunately",
+      "gives": "ALAS",
+      "note": "alas is an exclamation of regret, meaning unfortunately"
+     },
+     {
+      "clueFragment": "kaput",
+      "gives": "KAPUT",
+      "note": "taken as written before the cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALAS",
+      "KA"
+     ]
+    },
+    "explanation": {
+     "surface": "Something has sadly broken down, but it was not left in this spot.",
+     "walkthrough": "'Here' defines the answer as a place, as if the clue were spoken by someone standing in it; 'not put' strips those exact letters from the end of kaput.",
+     "definitionFit": "Read as a place name, 'here' points to the location of the speaker, cheekily taken to be the American state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "here"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +503,40 @@
    "group": [
     "8-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROULETTE WHEEL",
+    "definitions": [
+     {
+      "text": "One taking turns to make people rich?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One taking turns to make people rich?",
+      "note": "surface reading: a generous person who takes it in turns to enrich others"
+     },
+     {
+      "clueFragment": "taking turns",
+      "note": "setter's reading: something that literally spins round, and occasionally makes a gambler rich"
+     }
+    ],
+    "explanation": {
+     "surface": "A philanthropist who rotates through people, making each wealthy in turn.",
+     "walkthrough": "'Taking turns' means spinning, and the people made rich are the lucky gamblers in a casino.",
+     "definitionFit": "The casino gambling device spins round and sometimes pays out a fortune to a lucky player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +564,65 @@
     "text": "Exhausted, in need of first aid in punt",
     "enumeration": "4"
    },
-   "solution": "BEAT"
+   "solution": "BEAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEAT",
+    "definitions": [
+     {
+      "text": "Exhausted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word that follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one part sits within the other"
+     }
+    ],
+    "linkWords": [
+     "need of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punt",
+      "gives": "BET",
+      "note": "a punt is British slang for a wager"
+     },
+     {
+      "clueFragment": "aid",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of aid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out boater on the river needs first aid.",
+     "walkthrough": "'Punt' suggests the flat-bottomed boat; here it is the British slang word for a bet. A goes inside BET.",
+     "definitionFit": "Beat is informal for worn out, as in 'I'm dead beat', a synonym of exhausted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punt"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +636,56 @@
     "text": "Disobedience leads to ruin unless corrected",
     "enumeration": "10"
    },
-   "solution": "UNRULINESS"
+   "solution": "UNRULINESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNRULINESS",
+    "definitions": [
+     {
+      "text": "Disobedience",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrected",
+      "for": "anagram",
+      "note": "something corrected has been altered and put right, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruin unless",
+      "gives": "UNRULINESS",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNRULINESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUINUNLESS",
+       "gives": "UNRULINESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moral warning that disobedience brings ruin unless it is put right.",
+     "definitionFit": "Unruliness is wild, ungovernable behaviour, a state of refusing to obey rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrected"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +709,71 @@
    "group": [
     "12-across",
     "14-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FLYING SCOTSMAN",
+    "definitions": [
+     {
+      "text": "old locomotive",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "staggering",
+      "for": "anagram",
+      "note": "staggering means reeling unsteadily, so these letters lurch into a new order"
+     }
+    ],
+    "linkWords": [
+     "about",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brief",
+      "gives": "FLYING",
+      "note": "a flying visit is a brief one"
+     },
+     {
+      "clueFragment": "costs",
+      "gives": "SCOTS",
+      "note": "the letters of costs, rearranged"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to staff a desk is to man it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLYING",
+      "SCOTS",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COSTS",
+       "gives": "SCOTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short note to employees about the alarming running costs of a vintage engine.",
+     "walkthrough": "'Staff' is a verb, and 'about' loosely places it beside the shuffled costs, at the end. The Flying Scotsman is a famous British steam engine of the 1920s.",
+     "definitionFit": "The Flying Scotsman is a celebrated London and North Eastern Railway steam locomotive built in 1923, now preserved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brief"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +787,49 @@
     "text": "Novelty pub gets a round of applause",
     "enumeration": "10"
    },
-   "solution": "INNOVATION"
+   "solution": "INNOVATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNOVATION",
+    "definitions": [
+     {
+      "text": "Novelty",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "a round of applause",
+      "gives": "OVATION",
+      "note": "an ovation is a burst of applause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "OVATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A gimmicky pub wins cheers from its customers.",
+     "definitionFit": "An innovation is something newly introduced, and novelty means newness or a new thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +857,65 @@
     "text": "Undersized bananas returned by man",
     "enumeration": "7"
    },
-   "solution": "STUNTED"
+   "solution": "STUNTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STUNTED",
+    "definitions": [
+     {
+      "text": "Undersized",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bananas",
+      "gives": "NUTS",
+      "note": "bananas and nuts are both slang for crazy"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "TED",
+      "note": "Ted is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUN",
+      "TED"
+     ],
+     "reversals": [
+      {
+       "from": "NUTS",
+       "to": "STUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sends back some bananas because they are too small.",
+     "walkthrough": "'Bananas' is the slang adjective for mad, not the fruit.",
+     "definitionFit": "Stunted growth is growth held back, so something stunted is smaller than it should be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +929,57 @@
     "text": "Recorded by Rod and Ellen Turner",
     "enumeration": "8"
    },
-   "solution": "ENROLLED"
+   "solution": "ENROLLED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENROLLED",
+    "definitions": [
+     {
+      "text": "Recorded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turner",
+      "for": "anagram",
+      "note": "a turner is something that turns, so it turns the letters round into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rod and Ellen",
+      "gives": "ENROLLED",
+      "note": "the letters of Rod and Ellen, the word 'and' left out, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENROLLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RODELLEN",
+       "gives": "ENROLLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song recorded by a duo called Rod and Ellen Turner.",
+     "walkthrough": "Turner looks like Ellen's surname; it is the anagram signal. 'And' simply joins the two names.",
+     "definitionFit": "To be enrolled is to have one's name entered on an official register, so recorded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +993,58 @@
     "text": "In time, pity makes you embarrassed",
     "enumeration": "7"
    },
-   "solution": "ASHAMED"
+   "solution": "ASHAMED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASHAMED",
+    "definitions": [
+     {
+      "text": "embarrassed",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in means placed inside, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "makes you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "AD",
+      "note": "AD, anno Domini, marks the era of time used in dates"
+     },
+     {
+      "clueFragment": "pity",
+      "gives": "SHAME",
+      "note": "'what a pity' and 'what a shame' mean the same"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHAME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Eventually, being pitied leaves you red-faced.",
+     "walkthrough": "'In time' reads as 'eventually'; split, 'in' places the pity inside the dating era.",
+     "definitionFit": "Ashamed means feeling guilt or embarrassment over something one has done, a close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1058,67 @@
     "text": "Family name is inserted under \"hospital department admission\"",
     "enumeration": "8"
    },
-   "solution": "ENTRANCE"
+   "solution": "ENTRANCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ENTRANCE",
+    "definitions": [
+     {
+      "text": "admission",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is inserted",
+      "for": "container",
+      "note": "something inserted is put inside, so one piece goes within another"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so one part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department of a hospital"
+     },
+     {
+      "clueFragment": "Family",
+      "gives": "RACE",
+      "note": "a race can mean a family line or lineage"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "RA",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A surname being entered on a hospital department's admissions sheet.",
+     "walkthrough": "'Family name' looks like one phrase meaning surname; it splits into two pieces, the second going inside the first.",
+     "definitionFit": "Entrance can mean the right or act of entering, as in 'entrance fee', which is admission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Family"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1132,53 @@
     "text": "Year-end renovation of cathedral official's house",
     "enumeration": "7"
    },
-   "solution": "DEANERY"
+   "solution": "DEANERY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEANERY",
+    "definitions": [
+     {
+      "text": "cathedral official's house",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "renovation of",
+      "for": "anagram",
+      "note": "renovation is rebuilding, so these letters are reconstructed in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Year-end",
+      "gives": "DEANERY",
+      "note": "the letters of year-end, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEANERY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YEAREND",
+       "gives": "DEANERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cathedral official's residence gets done up at the end of the year.",
+     "definitionFit": "A deanery is the official residence of a dean, the senior clergyman in charge of a cathedral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "renovation"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1192,42 @@
     "text": "Contrary talk",
     "enumeration": "8"
    },
-   "solution": "CONVERSE"
+   "solution": "CONVERSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONVERSE",
+    "definitions": [
+     {
+      "text": "Contrary",
+      "at": 0
+     },
+     {
+      "text": "talk",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contrary",
+      "note": "first meaning: opposite, reversed"
+     },
+     {
+      "clueFragment": "talk",
+      "note": "second meaning: to hold a conversation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like 'argumentative chat'; they are separate meanings, one a noun or adjective, the other a verb.",
+     "definitionFit": "The converse of a statement is its opposite, and to converse is to chat with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Contrary"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1241,62 @@
     "text": "Ring Ian about 50/100 lubricant container",
     "enumeration": "6"
    },
-   "solution": "OILCAN"
+   "solution": "OILCAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OILCAN",
+    "definitions": [
+     {
+      "text": "lubricant container",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the name wraps around the numbers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "50/100",
+      "gives": "LC",
+      "note": "L and C are the Roman numerals for fifty and a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "I",
+      "LC",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Phone Ian about something rated fifty out of a hundred.",
+     "walkthrough": "'Ring' looks like a telephone call to Ian; it is the round letter. '50/100' reads as a score but is two Roman numerals.",
+     "definitionFit": "An oilcan is a small can with a spout used for applying oil to machinery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1310,42 @@
     "text": "Fake keepers at zoo, well concealed",
     "enumeration": "6"
    },
-   "solution": "ERSATZ"
+   "solution": "ERSATZ",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERSATZ",
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "well concealed",
+      "for": "hidden_word",
+      "note": "concealed means tucked away out of sight, inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keepers at zoo",
+      "gives": "ERSATZ",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Bogus zookeepers who have hidden themselves very cleverly.",
+     "definitionFit": "Ersatz describes an artificial substitute, an imitation of the genuine article, so fake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keepers"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1359,64 @@
     "text": "Former temp working for free",
     "enumeration": "6"
    },
-   "solution": "EXEMPT"
+   "solution": "EXEMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXEMPT",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means being worked on, so these letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "temp",
+      "gives": "EMPT",
+      "note": "the letters of temp, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "EMPT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEMP",
+       "gives": "EMPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time temporary worker who now works without pay.",
+     "walkthrough": "'Working for free' suggests unpaid labour; 'free' means released from an obligation, as in free of tax.",
+     "definitionFit": "Exempt means released from a duty or charge that others must bear, as in exempt from tax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1430,58 @@
     "text": "Uncle felt a change in the wind",
     "enumeration": "10"
    },
-   "solution": "FLATULENCE"
+   "solution": "FLATULENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLATULENCE",
+    "definitions": [
+     {
+      "text": "the wind",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "a change means an alteration, so the letters before are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncle felt a",
+      "gives": "FLATULENCE",
+      "note": "the letters of these three words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLATULENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNCLEFELTA",
+       "gives": "FLATULENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle sensed the weather turning.",
+     "walkthrough": "'A change in the wind' reads as weather; 'wind' means gas in the gut.",
+     "definitionFit": "Flatulence is gas in the digestive tract, which in everyday speech is called wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1495,74 @@
     "text": "Applaud company returns around April 1st",
     "enumeration": "4"
    },
-   "solution": "CLAP"
+   "solution": "CLAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CLAP",
+    "definitions": [
+     {
+      "text": "Applaud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returns means comes back, so the word is read backwards"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece wraps the other"
+     },
+     {
+      "text": "1st",
+      "for": "letter_selection",
+      "note": "1st asks for only the opening letter of the month named"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "PLC",
+      "note": "PLC is a public limited company"
+     },
+     {
+      "clueFragment": "April",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of April"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "A",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "PLC",
+       "to": "CLP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's results around April Fools' Day deserve a cheer.",
+     "walkthrough": "'Company' is not the usual CO here: it is PLC, the British abbreviation for a public limited company. 'April 1st' suggests April Fools' Day.",
+     "definitionFit": "To clap is to strike the palms together in approval, which is to applaud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1576,42 @@
     "text": "Produce a whip",
     "enumeration": "4"
    },
-   "solution": "CROP"
+   "solution": "CROP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROP",
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     },
+     {
+      "text": "a whip",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce",
+      "note": "first meaning: a harvest, the yield of a field"
+     },
+     {
+      "clueFragment": "a whip",
+      "note": "second meaning: a short riding whip"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an instruction to bring out a whip; 'Produce' is the noun, stressed on the first syllable.",
+     "definitionFit": "A crop is the harvested yield of a farm, and a riding crop is a short whip used by horse riders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Produce"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1635,56 @@
    "group": [
     "25-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOVE REPROACH",
+    "definitions": [
+     {
+      "text": "blameless",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "is accepted as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Heaven",
+      "gives": "ABOVE",
+      "note": "heaven is traditionally above, so something in heaven is up above"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep, short for representative, is a travelling salesman"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ROACH",
+      "note": "a roach is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOVE",
+      "REP",
+      "ROACH"
+     ]
+    },
+    "explanation": {
+     "surface": "Up in Heaven, a fishmonger is welcomed as having lived without sin.",
+     "walkthrough": "The salesman comes before the fish in the answer, though the clue names the fish first; 'fish salesman' reads as one person but is two pieces.",
+     "definitionFit": "Above reproach is an idiom for so good that no criticism can be made, meaning blameless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 26,
