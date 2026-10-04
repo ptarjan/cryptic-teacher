@@ -1915,6 +1915,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18829", "17-down"): (
+        "Unbelievable female celebrated intially as novelist and artist",
+        "Unbelievable female celebrated initially as novelist and artist",
+        "OCR misread: the letter-selection indicator needs the word initially"),
+    ("times-18829", "24-down"): (
+        "(Quiet friend — that's what one is",
+        "Quiet friend — that's what one is",
+        "OCR misread: a stray bracket before 'Quiet', the word giving P"),
     ("times-18816", "3-down"): (
         "Advice once given 1to conceal gold bar in coat",
         "Advice once given to conceal gold bar in coat",
