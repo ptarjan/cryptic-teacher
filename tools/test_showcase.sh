@@ -99,8 +99,19 @@ check("a relative answer link is refused too",
 check("the hub and series links are not answer pages",
       not refused("showcase/index.html", f'<a href="{B.BASE}/puzzles/">x</a>'
                   f'<a href="{B.BASE}/puzzles/series/cryptic/">y</a>'))
-check("the archive listings link answer pages, their crawl path",
-      not refused("puzzles/series/cryptic/2020/index.html", answer))
+row = B.hub_row(meta["cryptic-8"])
+check("an archive row opens the app and links the answer page beside it",
+      row.startswith(f'<li><a href="{B.BASE}/?p=cryptic-8">')
+      and f'<a class="p-answers" href="{B.BASE}/puzzles/cryptic-8/">answers</a></li>' in row, row)
+listing = f'<ul class="s-index">{row}</ul>'
+check("the archive listings may link answer pages beside the row, their crawl path",
+      not refused("puzzles/series/cryptic/2020/index.html", listing))
+check("an archive row whose own link is the answer page is refused",
+      refused("puzzles/series/cryptic/2020/index.html",
+              f'<ul class="s-index"><li><a href="{B.BASE}/puzzles/cryptic-8/">x</a></li></ul>'))
+check("the old-number chooser may link the answer pages it replaced",
+      not refused("puzzles/30000/index.html",
+                  f'<ul><li><a href="{B.BASE}/puzzles/cryptic-30000/">x</a></li></ul>'))
 
 print("\n%d failure(s)" % fails)
 raise SystemExit(fails > 0)

@@ -751,8 +751,9 @@ def puzzle_page(puz, meta, prev_p, next_p):
 def hub_row(p, note=None):
     """One archive row. Every listing page is made of these and nothing else.
     With `note` it is a showcase row: what is unusual about the puzzle takes
-    the place of the hints badges, which say nothing about why it was picked,
-    and the row opens the puzzle in the app rather than on its answer page."""
+    the place of the hints badges, which say nothing about why it was picked.
+    The row opens the puzzle in the app; an archive row adds a small link to
+    its answer page, which is how a crawler reaches every one (homepage_nav)."""
     d = p.get("difficulty") or {}
     when = datestr(p)
     badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
@@ -773,12 +774,13 @@ def hub_row(p, note=None):
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
     series = (f'<span class="badge series">'
               f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
-    href = solve_url(p["id"]) if note is not None else f"{BASE}/puzzles/{p['id']}/"
-    return (f'<li><a href="{href}">'
+    answers = ("" if note is not None else
+               f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
+    return (f'<li><a href="{solve_url(p["id"])}">'
             f'<span class="p-num">{display_number(p)}</span>'
             f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
-            f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
+            f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a>{answers}</li>')
 
 
 # The archive is one page per series per year, under /puzzles/series/, and the
@@ -2111,14 +2113,24 @@ def assert_no_root_relative(path, text):
 # app (solve_url); the answer pages are for search engines.
 READER_PAGES = ("learn", "abbreviations", "indicators", "difficulty", "showcase")
 ANSWER_LINK = re.compile(r'href="[^"]*\bpuzzles/(?!series/)[^/"?#]+/[^"]*"')
+# A puzzle row in a list (hub_row). The chooser legacy_ids() writes for an old
+# /puzzles/<number>/ is not one: it was an answer page's URL, and its links
+# are where that page went.
+ROW_LIST = re.compile(r'<ul class="s-index">(.*?)</ul>', re.S)
+ROW_LINK = re.compile(r'<li><a href="([^"]*)"')
 
 
 def assert_no_answer_links(path, text):
-    """No reader page links a puzzle's answer page."""
-    if path.name != "index.html" or path.parent.name not in READER_PAGES \
-            or path.parent.parent != ROOT:
+    """No reader page links a puzzle's answer page, and every list row's own
+    link, the one a reader clicks, opens the app: an archive row may add a
+    small "answers" link beside it, and nothing more."""
+    if path.suffix != ".html":
         return
-    bad = ANSWER_LINK.findall(text)
+    bad = [h for rows in ROW_LIST.findall(text) for h in ROW_LINK.findall(rows)
+           if "?p=" not in h]
+    if path.name == "index.html" and path.parent.name in READER_PAGES \
+            and path.parent.parent == ROOT:
+        bad += ANSWER_LINK.findall(text)
     if bad:
         raise SystemExit(f"{path.relative_to(ROOT)} links puzzles to their answer pages; "
                          "a reader's puzzle link opens the app (solve_url):\n  "
