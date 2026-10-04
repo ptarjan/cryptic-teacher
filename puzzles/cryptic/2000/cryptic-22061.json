@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Unplaced Texan horse out of the melee almost",
     "enumeration": "8"
    },
-   "solution": "HOMELESS"
+   "solution": "HOMELESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HOMELESS",
+    "definitions": [
+     {
+      "text": "Unplaced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word before it is dropped"
+     },
+     {
+      "text": "out of",
+      "for": "container",
+      "note": "the horse sits out, round the outside of what follows, wrapping it up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Texan horse",
+      "gives": "HOSS",
+      "note": "hoss is the Western drawl for a horse"
+     },
+     {
+      "clueFragment": "the melee",
+      "gives": "MELEE",
+      "note": "taken as written, before its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "MELE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Texan cowboy's horse has bolted from the brawl and ended up nowhere in the race.",
+     "walkthrough": "'Out of' looks like leaving the melee, but the horse goes round the outside of it. 'Unplaced' is not a racing result here but a person with no place to live.",
+     "definitionFit": "Someone without any fixed abode has no place of their own, so 'unplaced' describes a person living rough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Unplaced"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,40 @@
     "text": "Establishment figure on the staff",
     "enumeration": "4"
    },
-   "solution": "CLEF"
+   "solution": "CLEF",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CLEF",
+    "definitions": [
+     {
+      "text": "Establishment figure on the staff",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establishment figure on the staff",
+      "note": "surface reading: a member of the Establishment employed by some organisation"
+     },
+     {
+      "clueFragment": "Establishment figure",
+      "note": "setter's reading: a printed symbol that establishes the pitch of the lines in music"
+     }
+    ],
+    "explanation": {
+     "surface": "A pillar of the Establishment has joined the payroll of some institution.",
+     "walkthrough": "The staff is the five-line musical stave, and a clef is the sign at its start that fixes which note each line stands for.",
+     "definitionFit": "A clef is the symbol written on a musical stave that establishes the pitch reference for every note after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,64 @@
     "text": "Discursive wit restored to the pen",
     "enumeration": "6"
    },
-   "solution": "TWISTY"
+   "solution": "TWISTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TWISTY",
+    "definitions": [
+     {
+      "text": "Discursive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restored",
+      "for": "anagram",
+      "note": "something restored has been put back together, here in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wit",
+      "gives": "WIT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the pen",
+      "gives": "STY",
+      "note": "a sty is a pen for pigs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWI",
+      "STY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WIT",
+       "gives": "TWI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's rambling humour has been given back to the pen that produced it.",
+     "definitionFit": "Discursive talk wanders from topic to topic, taking a winding, meandering course rather than a straight one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +222,49 @@
     "text": "Like Tichborne's Orton, one loudly crying out",
     "enumeration": "8"
    },
-   "solution": "CLAIMANT"
+   "solution": "CLAIMANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAIMANT",
+    "definitions": [
+     {
+      "text": "Like Tichborne's Orton",
+      "at": 0,
+      "note": "the answer is the title Orton bore, a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "loudly crying out",
+      "gives": "CLAMANT",
+      "note": "clamant means clamouring, noisily insistent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "I",
+      "MANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical note about the famous Victorian impostor, crying out loudly for his inheritance.",
+     "walkthrough": "Arthur Orton was the Tichborne Claimant, a butcher who in the 1860s posed as the lost heir to a baronetcy. I sits inside CLAMANT, with no word signalling the insertion.",
+     "definitionFit": "Orton laid claim to the Tichborne title and estates, and the Victorian press called him simply the Claimant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crying"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +278,56 @@
     "text": "Plastic aim destroyed the system? Hardly!",
     "enumeration": "10"
    },
-   "solution": "CAPITALISM"
+   "solution": "CAPITALISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAPITALISM",
+    "definitions": [
+     {
+      "text": "the system",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "destroyed means broken apart, so the letters before it are smashed and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plastic aim",
+      "gives": "PLASTICAIM",
+      "note": "the ten letters to be rearranged"
+     },
+     {
+      "clueFragment": "Hardly",
+      "note": "surface padding: an ironic aside that gives no letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLASTICAIM",
+       "gives": "CAPITALISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protester's slogan: credit-card ambitions have wrecked the economic order, or have they?",
+     "walkthrough": "'Hardly!' is the setter's wink: plastic credit is the system's lifeblood, not its destroyer.",
+     "definitionFit": "Capitalism is the economic order based on private ownership and markets, often simply called the system by its critics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Plastic"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +341,39 @@
     "text": "Death-defying 13",
     "enumeration": "6"
    },
-   "solution": "SEANCE"
+   "solution": "SEANCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEANCE",
+    "definitions": [
+     {
+      "text": "Death-defying 13",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Death-defying",
+      "note": "surface reading: a reckless stunt that risks life"
+     },
+     {
+      "clueFragment": "Death-defying 13",
+      "note": "setter's reading: a gathering whose concentration aims to reach past the grave to the dead"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "13 is FOCUS GROUP; this group focuses on contacting the departed, so it defies death's silence rather than risking a fall.",
+     "definitionFit": "Spiritualists sit together at a table hoping to communicate with dead spirits, a group meeting that ignores mortality's barrier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Death-defying"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +401,47 @@
    "group": [
     "7-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOLLOW-MY-LEADER",
+    "definitions": [
+     {
+      "text": "Ape one ahead",
+      "at": 0
+     },
+     {
+      "text": "party line diversion",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ape one ahead",
+      "note": "first meaning: copy whoever is in front of you"
+     },
+     {
+      "clueFragment": "party line diversion",
+      "note": "second meaning: a children's party game played in a line, each copying the one at the front"
+     }
+    ],
+    "explanation": {
+     "surface": "Political loyalists slavishly copy their chief, toeing the party line as entertainment.",
+     "walkthrough": "'Party line' suggests politics and toeing the line, but it is a line of children at a party.",
+     "definitionFit": "The children's game has everyone in a queue imitating the actions of the child at the head of the line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +455,55 @@
     "text": "Lock out noisy green woodpecker",
     "enumeration": "6"
    },
-   "solution": "YAFFLE"
+   "solution": "YAFFLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YAFFLE",
+    "definitions": [
+     {
+      "text": "green woodpecker",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "container",
+      "note": "the lock is placed out, on the outside, enclosing the next part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lock",
+      "gives": "YALE",
+      "note": "Yale is a well-known brand of door lock"
+     },
+     {
+      "clueFragment": "noisy",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical marking for very loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YA",
+      "FF",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy woodpecker is being locked out of somewhere.",
+     "walkthrough": "The bird's dialect name imitates its laughing call.",
+     "definitionFit": "Yaffle is an old country name for the green woodpecker, echoing its loud laughing cry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lock"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +541,60 @@
    "group": [
     "10-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SELF-SUFFICIENT",
+    "definitions": [
+     {
+      "text": "Freewheeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runs out",
+      "for": "anagram",
+      "note": "when things run out they scatter in all directions, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fitness if",
+      "gives": "FITNESSIF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "FUEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FITNESSIFCFUEL",
+       "gives": "SELFSUFFICIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist coasting downhill stays fit even when the car's tank has run dry.",
+     "definitionFit": "A freewheeling person is independent and unconstrained, relying on nobody else for support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Freewheeling"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +622,49 @@
     "text": "Championship golfers using clubs or bats in here?",
     "enumeration": "6"
    },
-   "solution": "BELFRY"
+   "solution": "BELFRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELFRY",
+    "definitions": [
+     {
+      "text": "Championship golfers using clubs",
+      "at": 0,
+      "note": "a venue for these golfers, not the golfers"
+     },
+     {
+      "text": "bats in here",
+      "at": 36,
+      "note": "a place, as in the phrase"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Championship golfers using clubs",
+      "note": "first meaning: the course near Birmingham that has hosted the Ryder Cup"
+     },
+     {
+      "clueFragment": "bats in here",
+      "note": "second meaning: the church tower of the idiom about having bats there, i.e. being crazy"
+     }
+    ],
+    "explanation": {
+     "surface": "A sporting question: whether to wield clubs or bats in this spot.",
+     "walkthrough": "Clubs and bats look like a pair of sports implements; the bats are the flying animals of the saying.",
+     "definitionFit": "The Belfry is a famous English golf venue, and a belfry is a bell tower where bats roost in the saying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +684,40 @@
      }
     ]
    },
-   "solution": "FOCUSGROUP"
+   "solution": "FOCUSGROUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOCUS GROUP",
+    "definitions": [
+     {
+      "text": "But does the chattering class come to the point here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the chattering class",
+      "note": "surface reading: opinionated media and political commentators who talk endlessly"
+     },
+     {
+      "clueFragment": "come to the point here",
+      "note": "setter's reading: a panel of ordinary people gathered to discuss a product, supposedly with a sharp concentration"
+     }
+    ],
+    "explanation": {
+     "surface": "A sceptic wonders whether the chattering classes ever get to the point.",
+     "walkthrough": "The name promises concentration, yet such gatherings are mostly talk, hence the doubting 'But'.",
+     "definitionFit": "Market researchers assemble a small panel of people to discuss and react to an idea in a directed conversation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +731,40 @@
     "text": "Escapes from the open prisons, say",
     "enumeration": "8"
    },
-   "solution": "LEAKAGES"
+   "solution": "LEAKAGES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LEAKAGES",
+    "definitions": [
+     {
+      "text": "Escapes from the open prisons, say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escapes from the open prisons",
+      "note": "surface reading: inmates walking out of minimum-security jails"
+     },
+     {
+      "clueFragment": "Escapes",
+      "note": "setter's reading: losses of fluid or gas through a crack, as from anything open or porous"
+     }
+    ],
+    "explanation": {
+     "surface": "Prisoners keep slipping away from minimum-security jails.",
+     "walkthrough": "An open prison is one with little security; the word for escaping liquid doubles as a figure for people seeping out.",
+     "definitionFit": "When fluid or information escapes through a gap, those losses are described as seepage or drips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prisons"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +788,72 @@
    "group": [
     "15-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECOND-STRIKE",
+    "definitions": [
+     {
+      "text": "Such capability",
+      "at": 0,
+      "note": "the answer is the kind of capability, an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restoring",
+      "for": "anagram",
+      "note": "restoring suggests rebuilding, so the letters that follow are put together anew"
+     },
+     {
+      "text": "blast",
+      "for": "anagram",
+      "note": "a blast blows things apart, scattering the letters before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nike''s",
+      "gives": "NIKES",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "cred",
+      "gives": "CRED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "O",
+      "gives": "O",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIKESSTCREDO",
+       "gives": "SECONDSTRIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sportswear firm's ability to win back its cool image, with a frustrated curse.",
+     "walkthrough": "Nike is also the Greek goddess of victory, which fits the nuclear theme.",
+     "definitionFit": "Second-strike capability is a nuclear power's ability to retaliate after surviving an enemy's first attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nike''s"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +873,48 @@
      }
     ]
    },
-   "solution": "NONUNION"
+   "solution": "NONUNION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NON-UNION",
+    "definitions": [
+     {
+      "text": "Failing to heal bone",
+      "at": 0
+     },
+     {
+      "text": "such an establishment",
+      "at": 32,
+      "note": "describes the kind of workplace, used as an adjective"
+     }
+    ],
+    "linkWords": [
+     "or scab in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failing to heal bone",
+      "note": "first meaning: the medical term for a fracture whose ends never knit"
+     },
+     {
+      "clueFragment": "scab in such an establishment",
+      "note": "second meaning: a workplace whose staff are not organised, where a strike-breaker may work freely"
+     }
+    ],
+    "explanation": {
+     "surface": "A medical case where a broken bone, or a wound's scab, won't mend.",
+     "walkthrough": "'Scab' and 'heal' suggest wounds, but a scab is also a strike-breaker.",
+     "definitionFit": "Surgeons call a fracture that never knits a non-union, and a shop without trade union membership is non-union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scab"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +942,43 @@
     "text": "Joe Blogg's morality?",
     "enumeration": "8"
    },
-   "solution": "EVERYMAN"
+   "solution": "EVERYMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVERYMAN",
+    "definitions": [
+     {
+      "text": "Joe Blogg",
+      "at": 0
+     },
+     {
+      "text": "morality",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joe Blogg",
+      "note": "first meaning: the typical ordinary person, Joe Bloggs being the British name for him"
+     },
+     {
+      "clueFragment": "morality",
+      "note": "second meaning: the medieval English morality play about a man summoned by Death"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Joe Bloggs is the British stand-in name for an average person, like John Doe. A morality was a medieval allegorical drama.",
+     "definitionFit": "The title names both the typical ordinary person and the best-known fifteenth-century English allegorical drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "morality"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +992,78 @@
     "text": "I'd turn up in \"Spanish Eyes\", they say, for \"These You Have Loved\"",
     "enumeration": "6"
    },
-   "solution": "OLDIES"
+   "solution": "OLDIES",
+   "annotation": {
+    "type": [
+     "homophone",
+     "reversal",
+     "container"
+    ],
+    "answer": "OLDIES",
+    "definitions": [
+     {
+      "text": "\"These You Have Loved\"",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "they say means the phrase before it is heard rather than read"
+     },
+     {
+      "text": "turn up",
+      "for": "reversal",
+      "note": "in a down entry, turning up makes the word read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish Eyes",
+      "gives": "OLES",
+      "soundsLike": "SPANISH AYES",
+      "note": "heard as Spanish ayes: the cheers of approval shouted at a bullfight"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OL",
+      "DI",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer would pop up in the hit song Spanish Eyes, played on a nostalgic radio show.",
+     "walkthrough": "These You Have Loved was a long-running BBC radio programme of well-loved old music; Spanish Eyes is an old crooner's hit.",
+     "definitionFit": "The radio show played familiar favourite records from earlier decades, the kind of tunes people call golden ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eyes"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1087,39 @@
    "group": [
     "20-across",
     "22-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PERSONAL NUMBER",
+    "definitions": [
+     {
+      "text": "Random numerals open branch briefly with this?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Random numerals",
+      "note": "surface reading: arbitrary digits"
+     },
+     {
+      "clueFragment": "open branch briefly",
+      "note": "setter's reading: the secret code that lets you into your bank account at a cash machine, for a short time"
+     }
+    ],
+    "explanation": {
+     "surface": "A string of random digits somehow unlocks a bank branch for a moment.",
+     "walkthrough": "The digits of a PIN are chosen at random, and keying them in briefly opens your bank to you at the hole in the wall.",
+     "definitionFit": "A secret identification code issued to a customer is a set of digits unique to that individual account holder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "branch"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1133,69 @@
     "text": "Observing one in a slip up",
     "enumeration": "6"
    },
-   "solution": "ESPIAL"
+   "solution": "ESPIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESPIAL",
+    "definitions": [
+     {
+      "text": "Observing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the number inside the other word"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slip",
+      "gives": "LAPSE",
+      "note": "a lapse is a slip or small error"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESP",
+      "I",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAPSE",
+       "to": "ESPAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is caught watching after a single slip-up.",
+     "definitionFit": "Espial is the act of catching sight of or spying on something, a formal noun for watching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1223,57 @@
     "text": "Mole betraying no Scots against us",
     "enumeration": "6"
    },
-   "solution": "NAEVUS"
+   "solution": "NAEVUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAEVUS",
+    "definitions": [
+     {
+      "text": "Mole",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "betraying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no Scots",
+      "gives": "NAE",
+      "note": "nae is the Scots word for no"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v, versus, means against"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAE",
+      "V",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy turns traitor, refusing the Scots and siding against us.",
+     "walkthrough": "'Mole' and 'betraying' paint a spy story, but the mole is a skin blemish.",
+     "definitionFit": "Naevus is the medical term for a birthmark or pigmented spot on the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mole"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1293,41 @@
      }
     ]
    },
-   "solution": "APPRENTICE"
+   "solution": "APPRENTICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "APPRENTICE",
+    "definitions": [
+     {
+      "text": "Are they bound to march by the Foyle?",
+      "at": 0,
+      "note": "defines the two-word answer, completed by BOYS at 24"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound to march",
+      "note": "surface reading: certain or obliged to parade"
+     },
+     {
+      "clueFragment": "bound",
+      "note": "setter's reading: indentured to a master, as trainees once were, and marching in Derry beside its river"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether some group is sure to parade beside a river.",
+     "walkthrough": "The Foyle is the river through Derry, Northern Ireland, where a loyalist order named after the youths who shut the city gates in 1688 marches each year.",
+     "definitionFit": "The Derry loyal order commemorates young indentured trainees who closed the gates against King James's army."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1341,38 @@
     "text": "See 22",
     "enumeration": "4"
    },
-   "solution": "BOYS"
+   "solution": "BOYS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BOYS",
+    "definitions": [
+     {
+      "text": "See 22",
+      "at": 0,
+      "note": "a cross-reference: the clue for this second word is at 23"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "note": "surface reading: a pointer to another clue in the grid"
+     },
+     {
+      "clueFragment": "22",
+      "note": "setter's reading: the number is misprinted; the clue meant is 23, whose cryptic definition covers both words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The source prints 'See 22', but the clue it belongs with is 23-across, which defines the loyal order that marches in Derry each year.",
+     "definitionFit": "The second word completes the name of the Derry loyalist marching order commemorating thirteen young trainees of 1688."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1386,50 @@
     "text": "It's off south-west Scotland: except it's east",
     "enumeration": "4"
    },
-   "solution": "BUTE"
+   "solution": "BUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTE",
+    "definitions": [
+     {
+      "text": "It's off south-west Scotland",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "except",
+      "gives": "BUT",
+      "note": "but can mean except, as in 'all but one'"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography correction: this place lies off the south-west of Scotland, except it is actually east.",
+     "walkthrough": "The island lies in the Firth of Clyde, off Scotland's west coast.",
+     "definitionFit": "The Isle of Bute is a small island in the Firth of Clyde, west of the Scottish mainland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 25,
@@ -459,7 +1443,62 @@
     "text": "But, when entering the ring, one's from Lesotho",
     "enumeration": "6"
    },
-   "solution": "BASUTO"
+   "solution": "BASUTO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BASUTO",
+    "definitions": [
+     {
+      "text": "one's from Lesotho",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means one word goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "But",
+      "gives": "BUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "the ring",
+      "gives": "O",
+      "note": "O is shaped like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "UT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer from southern Africa climbs into the ring.",
+     "walkthrough": "Lesotho was formerly Basutoland, and Basuto is the older name for its people.",
+     "definitionFit": "Basuto is the older name for a Sotho person, the people of Lesotho, formerly Basutoland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 26,
@@ -473,7 +1512,40 @@
     "text": "His career is doubly dangerous",
     "enumeration": "8"
    },
-   "solution": "STUNTMAN"
+   "solution": "STUNTMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STUNTMAN",
+    "definitions": [
+     {
+      "text": "His career is doubly dangerous",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His career",
+      "note": "surface reading: a man's job or profession"
+     },
+     {
+      "clueFragment": "career",
+      "note": "setter's reading: rushing headlong out of control, a risky movement performed for film at his own risk"
+     }
+    ],
+    "explanation": {
+     "surface": "A man whose job is twice as risky as most.",
+     "walkthrough": "Career is both a profession and a reckless rush, and he doubles for the star, so 'doubly' works twice.",
+     "definitionFit": "A film double performs perilous falls, crashes and chases in place of the star actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "doubly"
+    }
+   }
   }
  ]
 }
