@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "28 entries, 56 crossings, 0 conflicts"
+  "check": "28 entries, 56 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "21-down",
+    "was": "SHANTY",
+    "now": "SCATTY",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,62 @@
     "text": "Greedily grab a lot, holding a celebration in Scotland",
     "enumeration": "8"
    },
-   "solution": "HOGMANAY"
+   "solution": "HOGMANAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HOGMANAY",
+    "definitions": [
+     {
+      "text": "celebration in Scotland",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means the word for a lot wraps around the little word a"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greedily grab",
+      "gives": "HOG",
+      "note": "to hog is to take more than your share"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "MANY",
+      "note": "a lot of something is many"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOG",
+      "MAN",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grabs greedily at a party in Scotland.",
+     "walkthrough": "Hogmanay is the Scottish New Year's Eve, famous for its street parties.",
+     "definitionFit": "Hogmanay is the Scottish name for the New Year's Eve festivities, a famous Scottish party night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +121,70 @@
      }
     ]
    },
-   "solution": "ONCEOVER"
+   "solution": "ONCEOVER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ONCE-OVER",
+    "definitions": [
+     {
+      "text": "Quick appraisal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener",
+      "for": "letter_selection",
+      "note": "an opener is what comes first, so only the start of county is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the county's first letter inside the word for single"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "county",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of county"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "single means one"
+     },
+     {
+      "clueFragment": "period of cricket",
+      "gives": "OVER",
+      "note": "an over is a set of six balls bowled in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "C",
+      "E",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket commentator sizes up a county side's opening batsman in one over.",
+     "walkthrough": "'Opener' looks like the cricket term for a batsman who opens the innings, but it only picks a first letter.",
+     "definitionFit": "A once-over is a brief, casual inspection or look, the quick appraisal you give something in passing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +198,70 @@
     "text": "Made and spread fertilizer around, restricting university event",
     "enumeration": "12"
    },
-   "solution": "MANUFACTURED"
+   "solution": "MANUFACTURED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MANUFACTURED",
+    "definitions": [
+     {
+      "text": "Made",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the fertilizer word goes round the next part"
+     },
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting repeats the idea: the outer word confines what sits within it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spread fertilizer",
+      "gives": "MANURED",
+      "note": "to manure land is to spread fertilizer on it"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the usual abbreviation for university"
+     },
+     {
+      "clueFragment": "event",
+      "gives": "FACT",
+      "note": "an event or occurrence can be called a fact, a thing that happened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "UFACT",
+      "URED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone made something and spread fertilizer round a university event.",
+     "walkthrough": "The outer word splits after its third letter to take in the university letter and the event.",
+     "definitionFit": "Manufactured means produced or fabricated, especially industrially, which is a past-tense synonym of made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "event"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +275,55 @@
     "text": "Asians born outside boundaries",
     "enumeration": "8"
    },
-   "solution": "NEPALESE"
+   "solution": "NEPALESE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEPALESE",
+    "definitions": [
+     {
+      "text": "Asians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside puts the word for born around the word for boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "born",
+      "gives": "NEE",
+      "note": "née, French for born, marks a woman's maiden name"
+     },
+     {
+      "clueFragment": "boundaries",
+      "gives": "PALES",
+      "note": "pales are fences, as in beyond the pale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "PALES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "People from Asia born outside a country's borders.",
+     "walkthrough": "Pales are fence stakes, hence boundaries, as in the phrase beyond the pale.",
+     "definitionFit": "Nepalese, as a plural noun, means people from Nepal, a Himalayan country of South Asia, so they are Asians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boundaries"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +343,51 @@
      }
     ]
    },
-   "solution": "YEWTREE"
+   "solution": "YEWTREE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "YEW TREE",
+    "definitions": [
+     {
+      "text": "might appear in churchyard scene",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means the word you is taken by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "YEW",
+      "soundsLike": "YOU",
+      "note": "the tree name sounds the same as you"
+     },
+     {
+      "clueFragment": "great actor",
+      "gives": "TREE",
+      "note": "Sir Herbert Beerbohm Tree was a celebrated Victorian actor-manager"
+     }
+    ],
+    "explanation": {
+     "surface": "You tell a famous actor he might feature in a graveyard scene, like Hamlet's.",
+     "walkthrough": "The surface suggests the gravedigger scene in Hamlet; the actor is Herbert Beerbohm Tree. The definition describes the answer rather than naming it.",
+     "definitionFit": "Yews are traditionally planted in English churchyards, so one is a typical feature of any churchyard view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scene"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +401,56 @@
     "text": "Resist appearing as model after work",
     "enumeration": "6"
    },
-   "solution": "OPPOSE"
+   "solution": "OPPOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPOSE",
+    "definitions": [
+     {
+      "text": "Resist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the model word is placed following the work word in the down entry"
+     }
+    ],
+    "linkWords": [
+     "appearing as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "POSE",
+      "note": "to model for an artist is to pose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "POSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resists sitting as a model once the day's work is over.",
+     "definitionFit": "To oppose something is to resist or stand against it, an ordinary verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +464,43 @@
     "text": "Some consider Osiris a god",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "a god",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consider Osiris",
+      "gives": "EROS",
+      "note": "the letters run across the end of consider and the start of Osiris"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people regard Osiris, the Egyptian deity, as a god.",
+     "walkthrough": "Osiris looks like the answer to 'a god', but the god sits across consid-ER OS-iris.",
+     "definitionFit": "Eros is the Greek god of love, the counterpart of the Roman Cupid, so he is a deity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Osiris"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +514,55 @@
     "text": "Dickensian halfwit engaged in tedious skivvying",
     "enumeration": "8"
    },
-   "solution": "DRUDGERY"
+   "solution": "DRUDGERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRUDGERY",
+    "definitions": [
+     {
+      "text": "skivvying",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged in",
+      "for": "container",
+      "note": "engaged in means one word is held inside the other, occupied within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tedious",
+      "gives": "DRY",
+      "note": "dry means dull"
+     },
+     {
+      "clueFragment": "Dickensian halfwit",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge is the simple-minded hero of Dickens's novel of that name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RUDGE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim-witted Dickens character is stuck doing boring menial chores.",
+     "walkthrough": "'Tedious' seems to describe the work, but it gives the outer word. A skivvy is a British word for a lowly household servant.",
+     "definitionFit": "Drudgery is hard, dull menial labour, exactly what a skivvy, a household servant, spends the day doing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tedious"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +576,44 @@
     "text": "Cook perhaps -- one prepared to try new' courses",
     "enumeration": "8"
    },
-   "solution": "EXPLORER"
+   "solution": "EXPLORER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPLORER",
+    "definitions": [
+     {
+      "text": "Cook perhaps",
+      "at": 0
+     },
+     {
+      "text": "one prepared to try new' courses",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook perhaps",
+      "note": "first meaning: Captain James Cook, the voyager, as an example"
+     },
+     {
+      "clueFragment": "one prepared to try new' courses",
+      "note": "second meaning: someone willing to set off on untried routes"
+     }
+    ],
+    "explanation": {
+     "surface": "A chef who is happy to experiment with new dishes on the menu.",
+     "walkthrough": "Cook and courses push toward the kitchen; the cook is Captain Cook and the courses are routes.",
+     "definitionFit": "Captain Cook was a famous navigator, and an explorer is anyone who ventures along unknown routes into new territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "courses"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +627,56 @@
     "text": "Devotional carving made by prisoner on island",
     "enumeration": "4"
    },
-   "solution": "ICON"
+   "solution": "ICON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICON",
+    "definitions": [
+     {
+      "text": "Devotional carving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer on puts the prisoner word after, built on top of, the island letter"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map abbreviation for island"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "con is slang for a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner held on an island whittles a religious carving.",
+     "definitionFit": "An icon is a holy image, painted or carved, used in prayer especially in the Orthodox church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prisoner"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +690,53 @@
     "text": "Our hunt's idea, unfortunately, is not approved",
     "enumeration": "12"
    },
-   "solution": "UNAUTHORISED"
+   "solution": "UNAUTHORISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNAUTHORISED",
+    "definitions": [
+     {
+      "text": "not approved",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters before it come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Our hunt's idea",
+      "gives": "OURHUNTSIDEA",
+      "note": "all twelve letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURHUNTSIDEA",
+       "gives": "UNAUTHORISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunt's plan has, sadly, been refused permission.",
+     "definitionFit": "Unauthorised describes something done without official permission or sanction, which is what lacking approval means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +750,55 @@
     "text": "Uncompromising officer taken aboard en route",
     "enumeration": "12"
    },
-   "solution": "INTRANSIGENT"
+   "solution": "INTRANSIGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTRANSIGENT",
+    "definitions": [
+     {
+      "text": "Uncompromising",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aboard",
+      "for": "container",
+      "note": "taken aboard means carried inside, like a passenger in a vehicle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "en route",
+      "gives": "INTRANSIT",
+      "note": "in transit means on the way"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "GEN",
+      "note": "Gen is the abbreviation for General"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTRANSI",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn officer is picked up while travelling.",
+     "walkthrough": "GEN goes inside IN TRANSIT, just before the last T.",
+     "definitionFit": "Intransigent means refusing to change one's views or yield, so it is a close synonym of uncompromising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aboard"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +812,56 @@
     "text": "Fly in collection of books I devoured",
     "enumeration": "6"
    },
-   "solution": "AVIATE"
+   "solution": "AVIATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVIATE",
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "collection of books",
+      "gives": "AV",
+      "note": "AV is the Authorised Version, the King James Bible, a collection of books"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "devoured",
+      "gives": "ATE",
+      "note": "devoured means ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eats up a library while on a flight.",
+     "walkthrough": "The Bible is a collection of books, and AV is its standard abbreviation in crosswords.",
+     "definitionFit": "To aviate is to pilot or travel in an aircraft, a rather formal verb for flying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collection"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +875,60 @@
     "text": "PM once replacing head of state lacking teeth",
     "enumeration": "8"
    },
-   "solution": "EDENTATE"
+   "solution": "EDENTATE",
+   "annotation": {
+    "type": [
+     "substitution",
+     "deletion"
+    ],
+    "answer": "EDENTATE",
+    "definitions": [
+     {
+      "text": "lacking teeth",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing says the former prime minister takes the place of a letter, swapping it out"
+     },
+     {
+      "text": "head of",
+      "for": "deletion",
+      "note": "head of points at the first letter of the following word, the one that is swapped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM once",
+      "gives": "EDEN",
+      "note": "Anthony Eden was British Prime Minister in the 1950s"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "TATE",
+      "note": "state without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDEN",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister takes over as head of state.",
+     "walkthrough": "EDEN stands where the S of STATE was. Anthony Eden was a British prime minister.",
+     "definitionFit": "Edentate describes animals such as sloths and anteaters that lack front teeth, a zoological adjective for toothlessness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +942,54 @@
     "text": "One of the family runs into trouble",
     "enumeration": "7"
    },
-   "solution": "BROTHER"
+   "solution": "BROTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROTHER",
+    "definitions": [
+     {
+      "text": "One of the family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means the runs letter goes inside the word for trouble"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "BOTHER",
+      "note": "bother means trouble"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member gets into a scrape.",
+     "definitionFit": "A brother is a male sibling, one of the relatives who make up a family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1009,39 @@
      }
     ]
    },
-   "solution": "BELLBUOY"
+   "solution": "BELLBUOY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BELL-BUOY",
+    "definitions": [
+     {
+      "text": "It's a warning to sailors when swayed by the drink",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's a warning to sailors when swayed by the drink",
+      "note": "surface reading: drunken sailors are being warned off the booze"
+     },
+     {
+      "clueFragment": "swayed by the drink",
+      "note": "setter's reading: a floating marker rocked by the sea, the drink, rings to warn shipping"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The drink is slang for the sea; being swayed by it is what makes this marker ring.",
+     "definitionFit": "A bell buoy is a floating navigation marker whose bell rings as the waves rock it, alerting ships to hazards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1055,58 @@
     "text": "Extremely tiresome woman given temporary possession",
     "enumeration": "7"
    },
-   "solution": "TENANCY"
+   "solution": "TENANCY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TENANCY",
+    "definitions": [
+     {
+      "text": "temporary possession",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the very ends of the word tiresome"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiresome",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of tiresome"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "NANCY",
+      "note": "Nancy is a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "NANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A very tiresome woman is lent something for a while.",
+     "definitionFit": "A tenancy is the holding of land or property as a tenant for a fixed period, so occupancy that is not permanent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1120,67 @@
     "text": "Worthy priest overlooks taunt about learner",
     "enumeration": "8"
    },
-   "solution": "ELIGIBLE"
+   "solution": "ELIGIBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELIGIBLE",
+    "definitions": [
+     {
+      "text": "Worthy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooks",
+      "for": "charade",
+      "note": "in a down entry, overlooks puts the priest word above, so first, the rest"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the taunt word goes around the learner letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel, a crossword regular"
+     },
+     {
+      "clueFragment": "taunt",
+      "gives": "GIBE",
+      "note": "a gibe is a jeer"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for learner, as on British L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "GIB",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A deserving priest ignores a jibe aimed at a learner driver.",
+     "walkthrough": "In a down clue, 'overlooks' means sits above, so the priest comes first.",
+     "definitionFit": "Eligible means qualified or suitable to be chosen, so deserving of selection, as worthy can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooks"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1194,58 @@
     "text": "E.g. screwdriver to fix tap on train",
     "enumeration": "8"
    },
-   "solution": "COCKTAIL"
+   "solution": "COCKTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKTAIL",
+    "definitions": [
+     {
+      "text": "E.g. screwdriver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry on puts the tap word above the train word"
+     }
+    ],
+    "linkWords": [
+     "to fix"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tap",
+      "gives": "COCK",
+      "note": "a cock is a tap or valve, as in stopcock"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TAIL",
+      "note": "a train is the trailing part of a dress, a tail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber uses a screwdriver to fit a tap on a railway train.",
+     "walkthrough": "The screwdriver is the drink, vodka and orange juice, not the tool.",
+     "definitionFit": "A screwdriver is a mixed drink of vodka and orange juice, so it is one example of a cocktail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "screwdriver"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1259,63 @@
     "text": "Judge putting one inside for serious crime",
     "enumeration": "7"
    },
-   "solution": "DEICIDE"
+   "solution": "DEICIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEICIDE",
+    "definitions": [
+     {
+      "text": "serious crime",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting one inside says the letter for one is placed within the judge word"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells where the numeral goes: within the word, not at either end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "DECIDE",
+      "note": "to judge is to decide"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "I",
+      "CIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge sends someone to jail for a grave offence.",
+     "walkthrough": "'Judge' and 'putting inside' suggest sentencing a criminal; judge is a verb meaning decide.",
+     "definitionFit": "Deicide is the killing of a god, which believers would regard as about the gravest offence imaginable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1329,63 @@
     "text": "Score 50., as it turns out, in the game",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "the game",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it turns out",
+      "for": "anagram",
+      "note": "turns out suggests the letters are turned about and come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Score",
+      "gives": "SCORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCORELAS",
+       "gives": "LACROSSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player scores fifty, as it happens, during a match.",
+     "definitionFit": "Lacrosse is a team sport played with netted sticks, so it is one example of a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Score"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1399,55 @@
     "text": "Empty-headed creature in unsuitable accommodation",
     "enumeration": "6"
    },
-   "solution": "SHANTY"
+   "solution": "SCATTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCATTY",
+    "definitions": [
+     {
+      "text": "Empty-headed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the creature is housed within the word for poor lodgings"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsuitable accommodation",
+      "gives": "STY",
+      "note": "a pigsty, a byword for squalid, unfit living quarters"
+     },
+     {
+      "clueFragment": "creature",
+      "gives": "CAT",
+      "note": "a cat is a creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim-witted animal is kept in squalid lodgings.",
+     "walkthrough": "'Unsuitable accommodation' looks like the definition, inviting SHANTY; it is the outer word, and 'Empty-headed' at the front is the definition.",
+     "definitionFit": "Scatty is British informal for scatterbrained, absent-minded and disorganised, which is how a featherbrained person behaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodation"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1461,48 @@
     "text": "Social worker, perhaps, belonging to breakaway group",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSECT",
+    "definitions": [
+     {
+      "text": "Social worker, perhaps",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belonging to",
+      "gives": "IN",
+      "note": "belonging to a group is being in it"
+     },
+     {
+      "clueFragment": "breakaway group",
+      "gives": "SECT",
+      "note": "a sect is a group that has split off from a larger body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A social worker belongs to a splinter group.",
+     "walkthrough": "A social worker here is an ant or bee: a worker in an insect colony, not a welfare officer.",
+     "definitionFit": "Worker ants and bees live in organised colonies, so a social worker can be an insect such as these."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Social"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1522,39 @@
      }
     ]
    },
-   "solution": "BIRDWATCHING"
+   "solution": "BIRDWATCHING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BIRD-WATCHING",
+    "definitions": [
+     {
+      "text": "Larks about, possibly, encouraging this observation?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Larks about",
+      "note": "surface reading: someone fooling around, prompting people to keep an eye on them"
+     },
+     {
+      "clueFragment": "Larks about, possibly, encouraging this observation?",
+      "note": "setter's reading: skylarks nearby would encourage a hobby of observing wild birds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Larks about reads as messing around; take larks as birds that are about, nearby.",
+     "definitionFit": "The hobby of observing wild birds in their habitats, which larks in the area would invite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Larks"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1568,60 @@
     "text": "List of people taking turns climbing a peak",
     "enumeration": "4"
    },
-   "solution": "ROTA"
+   "solution": "ROTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROTA",
+    "definitions": [
+     {
+      "text": "List of people taking turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry climbing means read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "peak",
+      "gives": "TOR",
+      "note": "a tor is a rocky hilltop, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ATOR",
+       "to": "ROTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A roster of climbers taking turns going up a mountain.",
+     "definitionFit": "A rota is a schedule showing who does a duty when, so a roster of people working in rotation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1635,56 @@
     "text": "Compelled to go back for this dairy product",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDAM",
+    "definitions": [
+     {
+      "text": "dairy product",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go back",
+      "for": "reversal",
+      "note": "to go back means the word is read in the backwards direction"
+     }
+    ],
+    "linkWords": [
+     "for this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compelled",
+      "gives": "MADE",
+      "note": "made, as in made to do something, means compelled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDAM"
+     ],
+     "reversals": [
+      {
+       "from": "MADE",
+       "to": "EDAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was forced to return for some milk or cheese.",
+     "definitionFit": "Edam is a mild Dutch cheese with a red wax rind, and cheese is made from milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Compelled"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1698,56 @@
     "text": "Impossible to determine age of old coin that's obsolete",
     "enumeration": "8"
    },
-   "solution": "OUTDATED"
+   "solution": "OUTDATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTDATED",
+    "definitions": [
+     {
+      "text": "obsolete",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impossible",
+      "gives": "OUT",
+      "note": "out means ruled out, not possible, as in that's out"
+     },
+     {
+      "clueFragment": "determine age of",
+      "gives": "DATE",
+      "note": "to date something is to work out how old it is"
+     },
+     {
+      "clueFragment": "old coin",
+      "gives": "D",
+      "note": "d was the abbreviation for the old British penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "DATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An old coin is so worn its age cannot be read, and it is no longer legal tender.",
+     "walkthrough": "The d of pounds, shillings and pence stood for the pre-1971 British penny.",
+     "definitionFit": "Outdated means out of fashion or no longer in use, so it is a straightforward synonym of obsolete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Impossible"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1761,39 @@
     "text": "Support for a crabby viewer?",
     "enumeration": "8"
    },
-   "solution": "EYESTALK"
+   "solution": "EYESTALK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EYESTALK",
+    "definitions": [
+     {
+      "text": "Support for a crabby viewer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support for a crabby viewer?",
+      "note": "surface reading: comfort for a grumpy television watcher"
+     },
+     {
+      "clueFragment": "crabby viewer",
+      "note": "setter's reading: an eye belonging to a crab, held up on a movable stalk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crabby looks like bad-tempered; here it means of a crab, and the viewer is its eye.",
+     "definitionFit": "Crabs and snails carry their eyes on movable stalks, which hold up and support each eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crabby"
+    }
+   }
   }
  ]
 }
