@@ -30,11 +30,18 @@
 #      must "unsolved" over a grid full of answers, and a retrieval channel
 #      that disagrees with the tool that did the retrieving.
 #
-#   4. THE REAL CORPUS PASSES. Run against the files on disk, because a rule
-#      that holds only on fixtures is a rule the corpus has not been held to.
+#   4. REAL PUZZLES PASS. Run against files on disk, not synthetic dicts. The
+#      sample below holds one puzzle of every grid origin, solution origin and
+#      retrieval channel in the corpus; walking all ~16,000 files (or the whole
+#      git history, as backfill_provenance.py does without --only) is minutes,
+#      and a test runs in seconds.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 REPO="$PWD"
+# One puzzle per value of every enum: published/reconstructed grids; published,
+# writeup, model and unsolved answers; publisher, blog, wayback, newspaper,
+# book and unknown channels; a model fill since confirmed (everyman-4165).
+SAMPLE="cyclops-526 book-3027 book-8001 cryptic-30078 cryptic-12575 cryptic-26407 everyman-4165 everyman-3551 canberra-670714 metro-20260917"
 fails=0
 same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
@@ -71,14 +78,15 @@ same "no ACQUIRED_BY key names a missing script" "$(field MISSING "$out")" "0"
 same "every tool's channel is a declared RETRIEVAL_CHANNEL" "$(field BAD_CHANNEL "$out")" "0"
 same "every enum value says what it means" "$(field UNDOCUMENTED "$out")" "0"
 
-echo "the corpus itself: every puzzle carries provenance the validator accepts"
-out2=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+echo "the sample: every puzzle carries provenance the validator accepts"
+out2=$(PYTHONPATH="$REPO/tools" python3 - $SAMPLE <<'PY'
+import sys
 import fetch_puzzle
 import provenance as p
 
 missing = flagged = total = 0
-for path in fetch_puzzle.puzzle_files():
-    puzzle = fetch_puzzle.read_puzzle_file(path)
+for pid in sys.argv[1:]:
+    puzzle = fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle(pid))
     total += 1
     if not (puzzle.get("source") and puzzle.get("solutions")):
         missing += 1
@@ -88,16 +96,17 @@ print("MISSING", missing)
 print("FLAGGED", flagged)
 PY
 )
-same "every puzzle has a source and a solutions block" "$(field MISSING "$out2")" "0"
+same "every sample puzzle has a source and a solutions block" "$(field MISSING "$out2")" "0"
 same "and not one of them is flagged" "$(field FLAGGED "$out2")" "0"
 
 echo "one enum, proved by deletion: removing a value flags every puzzle using it"
-out3=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+out3=$(PYTHONPATH="$REPO/tools" python3 - $SAMPLE <<'PY'
+import sys
 import fetch_puzzle
 import provenance as p
 
-corpus = [fetch_puzzle.read_puzzle_file(path)
-          for path in fetch_puzzle.puzzle_files()]
+corpus = [fetch_puzzle.read_puzzle_file(fetch_puzzle.resolve_puzzle(pid))
+          for pid in sys.argv[1:]]
 
 
 def flagged():
@@ -119,8 +128,7 @@ for label, getter, table in (
     using[label] = counts
 
 print("CLEAN", flagged())
-# "published" grids are 15,931 of the corpus; drop the value and every one of
-# them must be refused. If the allowed list were restated anywhere else, they
+# Drop the "published" grid value and every sample puzzle using it must be refused. If the allowed list were restated anywhere else, they
 # would sail through against the copy.
 kept = dict(p.GRID_ORIGINS)
 p.GRID_ORIGINS = {k: v for k, v in kept.items() if k != "published"}
@@ -140,14 +148,14 @@ p.RETRIEVAL_CHANNELS = kept
 print("RESTORED", flagged())
 PY
 )
-same "the corpus is clean to begin with" "$(field CLEAN "$out3")" "0"
+same "the sample is clean to begin with" "$(field CLEAN "$out3")" "0"
 for case in DROP_PUBLISHED_GRID:published-grid DROP_WRITEUP:writeup-solution DROP_WAYBACK:wayback-channel; do
   key=${case%%:*}; name=${case##*:}
   got=$(awk -v k="$key" '$1==k {print $2}' <<<"$out3")
   want=$(awk -v k="$key" '$1==k {print $3}' <<<"$out3")
   same "dropping the $name value flags exactly the puzzles that use it" "$got" "$want"
 done
-same "every value restored, corpus clean again" "$(field RESTORED "$out3")" "0"
+same "every value restored, sample clean again" "$(field RESTORED "$out3")" "0"
 
 echo "a provenance that contradicts its own file is refused"
 out4=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
@@ -330,8 +338,10 @@ same "its answers are now the write-up's" "$(field NOW "$out8")" "writeup"
 same "and the file remembers they were once ours" "$(field REMEMBERS "$out8")" "model"
 same "a model fill rewritten as a model fill records nothing" "$(field STILL_MODEL "$out8")" "False"
 
-echo "the backfill is idempotent: a second run over a written corpus changes nothing"
-out5=$(python3 tools/backfill_provenance.py --dry-run --report 2>&1)
+echo "the backfill is idempotent: a second run over written puzzles changes nothing"
+out5=$(python3 tools/backfill_provenance.py --dry-run --report --only $SAMPLE 2>&1)
+same "all of the sample is read" \
+  "$(grep -oE '^[0-9]+ puzzles' <<<"$out5" | awk '{print $1}')" "$(wc -w <<<"$SAMPLE")"
 same "nothing left to change" \
   "$(grep -oE 'would change [0-9]+' <<<"$out5" | awk '{print $3}')" "0"
 

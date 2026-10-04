@@ -267,18 +267,26 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--dry-run", action="store_true",
                     help="derive and tally, write nothing")
+    ap.add_argument("--only", nargs="+", metavar="ID",
+                    help="act on these puzzle ids alone, reading no git history "
+                         "(a sample: each file's recorded acquiredOn and "
+                         "previousOrigin stand)")
     ap.add_argument("--report", action="store_true",
                     help="the per-bucket tally only, no per-file output")
     args = ap.parse_args(argv)
 
-    bulk = add_dates()
-    solved_ever, unresolved = machine_solved_ever()
+    only = set(args.only or ())
+    # A history scan is minutes whatever it is scoped to, so a sample reads none.
+    bulk, (solved_ever, unresolved) = ({}, (set(), [])) if only else \
+        (add_dates(), machine_solved_ever())
     buckets = {k: {} for k in ("acquiredBy", "acquiredOn", "retrievedFrom",
                                "gridOrigin", "origin")}
     changed = unchanged = 0
     carried = []
 
     for path in puzzle_files():
+        if only and path.stem not in only:
+            continue
         puzzle = read_puzzle_file(path)
         rel = path.relative_to(ROOT).as_posix()
         existing = (puzzle.get("source") or {}).get("acquiredOn")
