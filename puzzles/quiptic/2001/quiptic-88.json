@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Kitchen sideboard wanted for theatre employee",
     "enumeration": "7"
    },
-   "solution": "DRESSER"
+   "solution": "DRESSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESSER",
+    "definitions": [
+     {
+      "text": "Kitchen sideboard",
+      "at": 0
+     },
+     {
+      "text": "theatre employee",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "wanted for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kitchen sideboard",
+      "note": "first meaning: a cabinet with shelves for crockery"
+     },
+     {
+      "clueFragment": "theatre employee",
+      "note": "second meaning: the backstage worker who helps actors into costume"
+     }
+    ],
+    "explanation": {
+     "surface": "A theatre is advertising for staff, and a piece of kitchen furniture seems to be on the job list.",
+     "definitionFit": "The word names both a piece of furniture with shelves for plates and the backstage helper who looks after an actor's costumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wanted"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,73 @@
     "text": "Describes tea, say, in spiced mixture",
     "enumeration": "7"
    },
-   "solution": "DEPICTS"
+   "solution": "DEPICTS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "container"
+    ],
+    "answer": "DEPICTS",
+    "definitions": [
+     {
+      "text": "Describes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say tells the solver to use the sound of the word before it, not its spelling"
+     },
+     {
+      "text": "mixture",
+      "for": "anagram",
+      "note": "a mixture is a blend, so the word before it has its letters mixed up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the jumbled word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiced",
+      "gives": "SPICED",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "soundsLike": "TEA",
+      "note": "the drink sounds like the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPIC",
+      "T",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPICED",
+       "gives": "DEPICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains what goes into a cup of spiced chai.",
+     "definitionFit": "To depict something is to portray or represent it in words or pictures, the same as describing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,57 @@
     "text": "Person in administration wanted about four put to death",
     "enumeration": "9"
    },
-   "solution": "EXECUTIVE"
+   "solution": "EXECUTIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXECUTIVE",
+    "definitions": [
+     {
+      "text": "Person in administration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the following word is wrapped around the number"
+     }
+    ],
+    "linkWords": [
+     "wanted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put to death",
+      "gives": "EXECUTE",
+      "note": "to execute is to put to death"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "IV is four in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXECUT",
+      "IV",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A wanted official faces capital punishment along with three others.",
+     "definitionFit": "An executive is a senior manager whose job is to run an organisation's administration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "four"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +233,54 @@
     "text": "Charming little street on the outskirts",
     "enumeration": "5"
    },
-   "solution": "SWEET"
+   "solution": "SWEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWEET",
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the outskirts",
+      "for": "container",
+      "note": "the outskirts are the edges, so one piece stands on either side of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "wee is Scottish for little"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretty little lane lies at the edge of town.",
+     "definitionFit": "Sweet in the sense of delightful or appealing is a close synonym of charming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outskirts"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +294,43 @@
     "text": "Videos court officials",
     "enumeration": "9"
    },
-   "solution": "RECORDERS"
+   "solution": "RECORDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORDERS",
+    "definitions": [
+     {
+      "text": "Videos",
+      "at": 0
+     },
+     {
+      "text": "court officials",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Videos",
+      "note": "first meaning: machines that tape television programmes"
+     },
+     {
+      "clueFragment": "court officials",
+      "note": "second meaning: judges in English courts of a certain rank"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Videos' reads as a verb about filming the court; it is a noun for the machines. A recorder is also a part-time judge in England and Wales.",
+     "definitionFit": "Video recorders are the machines people called videos, and recorders are also a rank of English judge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Videos"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +344,54 @@
     "text": "Contemplate getting into bed, bewildered!",
     "enumeration": "7"
    },
-   "solution": "BEMUSED"
+   "solution": "BEMUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEMUSED",
+    "definitions": [
+     {
+      "text": "bewildered",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something means going inside it, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written; it is the outer piece"
+     },
+     {
+      "clueFragment": "Contemplate",
+      "gives": "MUSE",
+      "note": "to muse is to ponder or contemplate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "MUSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ponders climbing into bed and ends up confused.",
+     "definitionFit": "Bemused is a synonym for puzzled or confused, describing someone at a loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +405,58 @@
     "text": "Boring billboard's first to come down",
     "enumeration": "5"
    },
-   "solution": "BLAND"
+   "solution": "BLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLAND",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s first",
+      "for": "letter_selection",
+      "note": "first points to only the opening letter of the word it is attached to"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "billboard",
+      "gives": "B",
+      "select": "first",
+      "note": "just the first letter of this word"
+     },
+     {
+      "clueFragment": "come down",
+      "gives": "LAND",
+      "note": "to land is to come down to the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull advertising hoarding is to be taken down.",
+     "definitionFit": "Bland means lacking interest or flavour, so it serves as a synonym for dull and boring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "billboard's"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +470,49 @@
     "text": "Manufacture women's garment as a temporary substitute",
     "enumeration": "9"
    },
-   "solution": "MAKESHIFT"
+   "solution": "MAKESHIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAKESHIFT",
+    "definitions": [
+     {
+      "text": "temporary substitute",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manufacture",
+      "gives": "MAKE",
+      "note": "to make is to manufacture"
+     },
+     {
+      "clueFragment": "women's garment",
+      "gives": "SHIFT",
+      "note": "a shift is a simple straight dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAKE",
+      "SHIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "Run up a dress quickly to serve as a stopgap.",
+     "definitionFit": "A makeshift is something improvised to serve for the time being until the proper thing is available."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Manufacture"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +526,57 @@
     "text": "Person who is late starts silly quarrel",
     "enumeration": "5"
    },
-   "solution": "STIFF"
+   "solution": "STIFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STIFF",
+    "definitions": [
+     {
+      "text": "Person who is late",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter only of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silly",
+      "gives": "S",
+      "select": "first",
+      "note": "just the first letter of this word"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "TIFF",
+      "note": "a tiff is a petty quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who arrives late sparks a pointless argument.",
+     "walkthrough": "'Late' here means dead, not tardy.",
+     "definitionFit": "A stiff is slang for a corpse, and the late are those who have died."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +590,70 @@
     "text": "Leading doctor agreed being wrong causes dishonour",
     "enumeration": "7"
    },
-   "solution": "DEGRADE"
+   "solution": "DEGRADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEGRADE",
+    "definitions": [
+     {
+      "text": "dishonour",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leading",
+      "for": "letter_selection",
+      "note": "leading points to the first letter only of the following word"
+     },
+     {
+      "text": "being wrong",
+      "for": "anagram",
+      "note": "something wrong is not in order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "D",
+      "select": "first",
+      "note": "just the first letter of this word"
+     },
+     {
+      "clueFragment": "agreed",
+      "gives": "AGREED",
+      "note": "taken as written, as anagram material"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGRADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGREED",
+       "gives": "EGRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior doctor's mistaken agreement brings shame on them.",
+     "definitionFit": "To degrade someone is to humiliate or lower them in esteem, the verb sense of dishonour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leading"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +667,51 @@
     "text": "Music in \"Thieving Magpie\" cellists love",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells the solver the letters are sitting inside the following words of the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thieving",
+      "note": "surface padding: completes the opera's title"
+     },
+     {
+      "clueFragment": "Magpie\" cellists",
+      "gives": "PIECE",
+      "note": "the letters run across the end of one word and the start of the next"
+     },
+     {
+      "clueFragment": "love",
+      "note": "surface padding: finishes the sentence about the players"
+     }
+    ],
+    "explanation": {
+     "surface": "Cellists are fond of Rossini's overture The Thieving Magpie.",
+     "walkthrough": "PIECE spans magPIE CEllists; 'love' only finishes the surface sentence. The Thieving Magpie is itself a musical piece, an opera by Rossini.",
+     "definitionFit": "A piece is a single musical composition, so music in the sense of a work can be called one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Magpie"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +725,54 @@
     "text": "Left in excellent bit of roast pork",
     "enumeration": "9"
    },
-   "solution": "CRACKLING"
+   "solution": "CRACKLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRACKLING",
+    "definitions": [
+     {
+      "text": "bit of roast pork",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "CRACKING",
+      "note": "cracking is informal British for excellent"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACK",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook praises the delicious crispy part of a pork roast.",
+     "definitionFit": "Crackling is the crisp, browned rind of roast pork, the crunchy part many diners prize."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +786,56 @@
     "text": "Opposed to having journalist behind bar",
     "enumeration": "9"
    },
-   "solution": "COUNTERED"
+   "solution": "COUNTERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUNTERED",
+    "definitions": [
+     {
+      "text": "Opposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind says the journalist comes after the bar in the finished word"
+     }
+    ],
+    "linkWords": [
+     "to having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "COUNTER",
+      "note": "the counter is the bar in a pub or shop"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the stock crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objects to a reporter standing behind the bar.",
+     "definitionFit": "To counter an argument or move is to oppose it with one of your own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +849,56 @@
     "text": "Where one is sitting in an upholstered seat?",
     "enumeration": "5"
    },
-   "solution": "SOFIA"
+   "solution": "SOFIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOFIA",
+    "definitions": [
+     {
+      "text": "Where",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is sitting in",
+      "for": "container",
+      "note": "sitting in something means being inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an upholstered seat",
+      "gives": "SOFA",
+      "note": "a sofa is an upholstered seat for several people"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOF",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about where a person sits on a padded couch.",
+     "walkthrough": "'Where' is the definition: the answer is a place, the capital of Bulgaria, which the question mark flags.",
+     "definitionFit": "A city is a location, so a capital name can answer the question of where something is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Where"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +912,45 @@
     "text": "Go round for something for her to wear",
     "enumeration": "5"
    },
-   "solution": "SKIRT"
+   "solution": "SKIRT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SKIRT",
+    "definitions": [
+     {
+      "text": "Go round",
+      "at": 0
+     },
+     {
+      "text": "something for her to wear",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go round",
+      "note": "first meaning: to pass around the edge of something, avoiding it"
+     },
+     {
+      "clueFragment": "something for her to wear",
+      "note": "second meaning: a garment hanging from the waist"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is sent out to shop for a woman's outfit.",
+     "definitionFit": "The verb means to bypass or move along the edge of; the noun is a women's garment hanging from the waist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +964,67 @@
     "text": "In a diplomatic way, filled in catty members",
     "enumeration": "9"
    },
-   "solution": "TACTFULLY"
+   "solution": "TACTFULLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TACTFULLY",
+    "definitions": [
+     {
+      "text": "In a diplomatic way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "members",
+      "for": "anagram",
+      "note": "a weak signal: the members of the word are taken and reassembled in another order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catty",
+      "gives": "CATTY",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "filled",
+      "gives": "FULL",
+      "note": "something filled is full"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACT",
+      "FULL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CATTY",
+       "gives": "TACTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spiteful people were informed of something with tact.",
+     "walkthrough": "The clue lacks a clear anagram signal for catty; 'members' is the only word left to do it.",
+     "definitionFit": "Acting tactfully means handling people with sensitivity and discretion, which is how a diplomat behaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "catty"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1038,50 @@
     "text": "Get rid of brewed ale in time",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients together, so these letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ale in time",
+      "gives": "ALEINTIME",
+      "note": "every letter of these three words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALEINTIME",
+       "gives": "ELIMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to finish off the beer that's being made before it's too late.",
+     "definitionFit": "To eliminate something is to remove it entirely, a direct synonym of discarding it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brewed"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1095,55 @@
     "text": "Fashionable because about to become hypocritical",
     "enumeration": "9"
    },
-   "solution": "INSINCERE"
+   "solution": "INSINCERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSINCERE",
+    "definitions": [
+     {
+      "text": "hypocritical",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "because",
+      "gives": "SINCE",
+      "note": "since can mean because"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SINCE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Following fashion purely for its own sake makes a person a fraud.",
+     "definitionFit": "An insincere person says what they do not mean, which is the core of being hypocritical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1157,50 @@
     "text": "Excellent! Blair made changes",
     "enumeration": "9"
    },
-   "solution": "ADMIRABLE"
+   "solution": "ADMIRABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADMIRABLE",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "making changes means altering things, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blair made",
+      "gives": "BLAIRMADE",
+      "note": "both words are used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLAIRMADE",
+       "gives": "ADMIRABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for the reforms of Tony Blair, the former British Prime Minister.",
+     "definitionFit": "Admirable means deserving praise and respect, close in sense to outstanding or excellent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1214,57 @@
     "text": "Drills and cuts out round a ruler",
     "enumeration": "9"
    },
-   "solution": "EXERCISES"
+   "solution": "EXERCISES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXERCISES",
+    "definitions": [
+     {
+      "text": "Drills",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cuts out",
+      "gives": "EXCISES",
+      "note": "to excise is to cut something out"
+     },
+     {
+      "clueFragment": "a ruler",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, stands for the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ER",
+      "CISES"
+     ]
+    },
+    "explanation": {
+     "surface": "A routine of practice sessions and trimming done around a monarch.",
+     "definitionFit": "Exercises are repeated practice routines, the same thing as military or school drills."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1278,46 @@
     "text": "Divorcee sat for an artist, naked",
     "enumeration": "7"
    },
-   "solution": "EXPOSED"
+   "solution": "EXPOSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPOSED",
+    "definitions": [
+     {
+      "text": "naked",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divorcee",
+      "gives": "EX",
+      "note": "an ex is a former spouse"
+     },
+     {
+      "clueFragment": "sat for an artist",
+      "gives": "POSED",
+      "note": "a model who sits for a painter poses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "POSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A former wife modelled for a painter in the nude.",
+     "definitionFit": "Exposed means uncovered and laid bare, so it fits naked in the sense of unclothed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1331,55 @@
     "text": "Try to persuade relief worker to start talking",
     "enumeration": "5"
    },
-   "solution": "TEMPT"
+   "solution": "TEMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEMPT",
+    "definitions": [
+     {
+      "text": "Try to persuade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "to start points to the opening letter only of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relief worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary worker who relieves permanent staff"
+     },
+     {
+      "clueFragment": "talking",
+      "gives": "T",
+      "select": "first",
+      "note": "just the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to coax a stand-in employee into opening up.",
+     "definitionFit": "To tempt someone is to entice or coax them into doing something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relief"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1393,43 @@
     "text": "Handled in a patient way?",
     "enumeration": "7"
    },
-   "solution": "TREATED"
+   "solution": "TREATED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREATED",
+    "definitions": [
+     {
+      "text": "Handled",
+      "at": 0
+     },
+     {
+      "text": "in a patient way",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Handled",
+      "note": "first meaning: dealt with or managed"
+     },
+     {
+      "clueFragment": "in a patient way",
+      "note": "second meaning: given medical care, as a patient is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Patient' looks like the adjective for calm; it is the noun, someone receiving medical care.",
+     "definitionFit": "The word means both dealt with in some manner and given medical attention, as happens to a patient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "patient"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1443,63 @@
     "text": "Poor misguided fellow needed evidence",
     "enumeration": "5"
    },
-   "solution": "PROOF"
+   "solution": "PROOF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PROOF",
+    "definitions": [
+     {
+      "text": "evidence",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misguided",
+      "for": "anagram",
+      "note": "something misguided has gone astray, so these letters are led into a different order"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor",
+      "gives": "POOR",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROO",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POOR",
+       "gives": "PROO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hapless man who got things wrong needs evidence to back him.",
+     "definitionFit": "Proof is evidence that establishes a fact, so the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1513,58 @@
     "text": "Eye crooked cop with it",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "Eye",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crooked",
+      "for": "anagram",
+      "note": "crooked means bent out of shape, so these letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cop",
+      "gives": "COP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPIT",
+       "gives": "OPTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps a watchful eye on a corrupt police officer.",
+     "definitionFit": "Optic is an informal or jocular term for the eye, the organ of sight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crooked"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1578,57 @@
     "text": "Be taking on a bit of a French emperor",
     "enumeration": "9"
    },
-   "solution": "BONAPARTE"
+   "solution": "BONAPARTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BONAPARTE",
+    "definitions": [
+     {
+      "text": "French emperor",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking in something means holding it inside, so the first word wraps the rest"
+     }
+    ],
+    "linkWords": [
+     "of a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be",
+      "gives": "BE",
+      "note": "taken as written; it is the outer piece"
+     },
+     {
+      "clueFragment": "on a bit",
+      "gives": "ONAPART",
+      "note": "on and a are kept as written; a bit is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ONAPART",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to play a small role as Napoleon.",
+     "definitionFit": "Napoleon Bonaparte crowned himself Emperor of the French in 1804; his surname identifies him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1642,44 @@
     "text": "Unable to see, as closed at one end",
     "enumeration": "5"
    },
-   "solution": "BLIND"
+   "solution": "BLIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLIND",
+    "definitions": [
+     {
+      "text": "Unable to see",
+      "at": 0
+     },
+     {
+      "text": "closed at one end",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unable to see",
+      "note": "first meaning: without sight"
+     },
+     {
+      "clueFragment": "closed at one end",
+      "note": "second meaning: as in a dead-end alley"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Blind means sightless, and a blind alley or tube is one with no exit at the far end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1693,47 @@
     "text": "Spike, caught in an apron, goes red!",
     "enumeration": "5"
    },
-   "solution": "PRONG"
+   "solution": "PRONG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PRONG",
+    "definitions": [
+     {
+      "text": "Spike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught in",
+      "for": "hidden_word",
+      "note": "caught in says the letters are trapped inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apron, goes",
+      "gives": "PRONG",
+      "note": "the letters run across the end of one word and the start of the next"
+     },
+     {
+      "clueFragment": "red",
+      "note": "surface padding: the blush that completes the picture"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone blushes after snagging an apron on a sharp point.",
+     "walkthrough": "PRONG sits in aPRON Goes; 'an' and 'red' only complete the picture.",
+     "definitionFit": "A prong is a sharp pointed tine, as on a fork, so it is a kind of spike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1747,53 @@
     "text": "Tease, till upset, a space traveller",
     "enumeration": "9"
    },
-   "solution": "SATELLITE"
+   "solution": "SATELLITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATELLITE",
+    "definitions": [
+     {
+      "text": "space traveller",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tease, till",
+      "gives": "TEASETILL",
+      "note": "both words are used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEASETILL",
+       "gives": "SATELLITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep teasing an astronaut until they get upset.",
+     "definitionFit": "A satellite is an object orbiting the Earth, so it travels through space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1807,50 @@
     "text": "Encircle the globe with it",
     "enumeration": "5"
    },
-   "solution": "ORBIT"
+   "solution": "ORBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORBIT",
+    "definitions": [
+     {
+      "text": "Encircle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the globe",
+      "gives": "ORB",
+      "note": "an orb is a sphere or globe"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORB",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to go all the way round the world.",
+     "walkthrough": "The surface makes 'the globe' the thing circled; it is a separate piece of the wordplay.",
+     "definitionFit": "To orbit something is to travel in a circular path around it, which is to encircle it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "globe"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1864,57 @@
     "text": "Rotten month? Yes, to a former copper!",
     "enumeration": "7"
    },
-   "solution": "DECAYED"
+   "solution": "DECAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECAYED",
+    "definitions": [
+     {
+      "text": "Rotten",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "DEC",
+      "note": "DEC is the calendar abbreviation for December"
+     },
+     {
+      "clueFragment": "Yes",
+      "gives": "AYE",
+      "note": "aye is an old or dialect word for yes"
+     },
+     {
+      "clueFragment": "a former copper",
+      "gives": "D",
+      "note": "D stood for the old penny, a copper coin before British decimalisation in 1971"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "AYE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks a retired policeman whether a month has gone bad.",
+     "walkthrough": "'Copper' suggests a police officer, but here it is a coin: the pre-1971 British penny, abbreviated D.",
+     "definitionFit": "Decayed food or wood has decomposed, which is what it means to be rotten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1928,55 @@
     "text": "Intellectual, for example, and good to lead",
     "enumeration": "7"
    },
-   "solution": "EGGHEAD"
+   "solution": "EGGHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGGHEAD",
+    "definitions": [
+     {
+      "text": "Intellectual",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "EG is the abbreviation of exempli gratia, for example"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "to lead",
+      "gives": "HEAD",
+      "note": "to head a group is to lead it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "G",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever person is held up as a fine model of leadership.",
+     "definitionFit": "Egghead is an informal, slightly mocking name for a bookish, highly intellectual person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   }
  ]
 }
