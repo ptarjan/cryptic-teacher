@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Recent medical graduates bury partners",
     "enumeration": "7"
    },
-   "solution": "INTERNS"
+   "solution": "INTERNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERNS",
+    "definitions": [
+     {
+      "text": "Recent medical graduates",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bury",
+      "gives": "INTER",
+      "note": "to inter is to bury a body"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "NS",
+      "note": "North and South are partners at the bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Overworked junior doctors are told to bury their partners, a grim picture of hospital life.",
+     "walkthrough": "In bridge, North and South play as a pair against East and West, so 'partners' can be N and S.",
+     "definitionFit": "Interns are newly qualified doctors serving a supervised hospital year, chiefly in American usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,58 @@
     "text": "So disgusting that no one takes part",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "So disgusting",
+      "at": 0,
+      "note": "the clue's 'so' just intensifies the adjective"
+     }
+    ],
+    "linkWords": [
+     "that",
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "SOME",
+      "note": "some is a part or portion of a whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "An activity is so repellent that nobody wants to join in.",
+     "walkthrough": "'No one takes part' reads as a single phrase about participation, but it splits into three separate pieces.",
+     "definitionFit": "Noisome describes something offensive, foul-smelling or nauseating, a close synonym of disgusting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,44 @@
     "text": "A little sister I called Heather",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "Heather",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a small portion of the following words is wanted, a run of letters tucked inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sister I called",
+      "gives": "ERICA",
+      "note": "the letters run across the end of the first word, the second word, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone recalls naming their younger sister Heather.",
+     "walkthrough": "Heather looks like a girl's name, matching the sister; it is the plant, and Erica is its botanical genus as well as a name.",
+     "definitionFit": "Erica is the botanical genus of heaths and heathers, low evergreen moorland shrubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heather"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +206,84 @@
     "text": "Novelist's name on a new book - Vladimir's first",
     "enumeration": "7"
    },
-   "solution": "NABOKOV"
+   "solution": "NABOKOV",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NABOKOV",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of a word is a remade one, so its letters are set out afresh"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the given name is needed here"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "BOOK",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Vladimir's",
+      "gives": "V",
+      "select": "first",
+      "note": "the initial of the name Vladimir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "BOKO",
+      "V"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOOK",
+       "gives": "BOKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's name appears on a freshly published book, with Vladimir's initial up front.",
+     "walkthrough": "Fittingly, Vladimir is the novelist's own first name, though here it only supplies its first letter at the end.",
+     "definitionFit": "Vladimir Nabokov was the Russian-American author of Lolita and Pale Fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,44 @@
     "text": "Setter seen in Florida",
     "enumeration": "7"
    },
-   "solution": "ORLANDO"
+   "solution": "ORLANDO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORLANDO",
+    "definitions": [
+     {
+      "text": "Setter",
+      "at": 0
+     },
+     {
+      "text": "seen in Florida",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "note": "first meaning: the pseudonym of the compiler of this very puzzle"
+     },
+     {
+      "clueFragment": "seen in Florida",
+      "note": "second meaning: a large city in central Florida, home of theme parks"
+     }
+    ],
+    "explanation": {
+     "surface": "The puzzle's compiler has been spotted on holiday in the Sunshine State.",
+     "walkthrough": "The setter is referring to himself: Orlando is the pen name on this crossword.",
+     "definitionFit": "Orlando is this puzzle's compiler's pseudonym and also the Florida city famous for Disney World."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +348,54 @@
     "text": "Rules broken by singer",
     "enumeration": "6"
    },
-   "solution": "REIGNS"
+   "solution": "REIGNS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REIGNS",
+    "definitions": [
+     {
+      "text": "Rules",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has its parts smashed apart, ready to be put back in another order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "SINGER",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGER",
+       "gives": "REIGNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regulations are flouted by a vocalist.",
+     "walkthrough": "'Rules' reads as a plural noun, but it is the verb: a monarch rules or reigns.",
+     "definitionFit": "To reign is to hold sovereign power, so a monarch who reigns governs the realm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rules"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +409,66 @@
     "text": "Plentiful ill-gotten gain both sides of border",
     "enumeration": "9"
    },
-   "solution": "ABOUNDING"
+   "solution": "ABOUNDING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ABOUNDING",
+    "definitions": [
+     {
+      "text": "Plentiful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ill-gotten",
+      "for": "anagram",
+      "note": "something ill-gotten is obtained crookedly, suggesting letters twisted out of shape"
+     },
+     {
+      "text": "both sides of",
+      "for": "container",
+      "note": "the rearranged letters are split to sit on either side of the next word, flanking it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gain",
+      "gives": "GAIN",
+      "note": "taken as written, then rearranged and split"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "BOUND",
+      "note": "a bound is a limit or boundary line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOUND",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAIN",
+       "gives": "AING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Smugglers rake in plenty of dishonest profit on either side of a frontier.",
+     "definitionFit": "Abounding means existing in large quantities, so it is a synonym of plentiful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ill-gotten"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +482,53 @@
     "text": "Erased document about lease",
     "enumeration": "7"
    },
-   "solution": "DELETED"
+   "solution": "DELETED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DELETED",
+    "definitions": [
+     {
+      "text": "Erased",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps itself round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "document",
+      "gives": "DEED",
+      "note": "a deed is a signed legal document"
+     },
+     {
+      "clueFragment": "lease",
+      "gives": "LET",
+      "note": "to let a property is to lease it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LET",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal paper concerning a tenancy has been wiped out.",
+     "definitionFit": "Deleted means removed or struck out from a text or file, the same as erased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +548,60 @@
      }
     ]
    },
-   "solution": "CROWNIMPERIAL"
+   "solution": "CROWNIMPERIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CROWN IMPERIAL",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reform",
+      "for": "anagram",
+      "note": "to reform is literally to form again, building a new shape from the same letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "POWER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "CRIMINAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POWERCRIMINAL",
+       "gives": "CROWNIMPERIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign slogan, like flower power, calling for penal reform.",
+     "walkthrough": "Flower power was the 1960s hippie slogan, which hides the definition at the front.",
+     "definitionFit": "The crown imperial is a tall fritillary with a ring of hanging orange bells, a garden bulb plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +615,41 @@
     "text": "Soprano role - 1,001 duets",
     "enumeration": "4"
    },
-   "solution": "MIMI"
+   "solution": "MIMI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIMI",
+    "definitions": [
+     {
+      "text": "Soprano role",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1,001 duets",
+      "gives": "MIMI",
+      "note": "1,001 in Roman numerals is M plus I, and a duet makes two of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIMI"
+     ]
+    },
+    "explanation": {
+     "surface": "An opera singer's part involves a thousand and one duets.",
+     "walkthrough": "M is 1,000 and I is 1, so 1,001 is MI; 'duets' asks for it twice.",
+     "definitionFit": "Mimì is the consumptive seamstress heroine of Puccini's La Bohème, sung by a soprano."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duets"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +663,70 @@
     "text": "Conductor excluding writer with bad return",
     "enumeration": "10"
    },
-   "solution": "BARBIROLLI"
+   "solution": "BARBIROLLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BARBIROLLI",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excluding",
+      "gives": "BAR",
+      "note": "bar can mean except or excluding, as in 'bar none'"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "BIRO",
+      "note": "a Biro is a ballpoint pen, the everyday British name"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ILL",
+      "note": "ill can mean bad, as in ill effects"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BIRO",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILL",
+       "to": "LLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor is sacked from an orchestra, leaving out a writer whose comeback flopped.",
+     "walkthrough": "A Biro is the British word for any ballpoint pen.",
+     "definitionFit": "Sir John Barbirolli was a celebrated British conductor, long associated with Manchester's Hallé Orchestra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +746,56 @@
      }
     ]
    },
-   "solution": "GOBACK"
+   "solution": "GOBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO BACK",
+    "definitions": [
+     {
+      "text": "Return",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the support word behind the game word in the final order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GO",
+      "note": "Go is the ancient Asian board game played with stones"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A player comes back to the team to offer support after the match.",
+     "definitionFit": "To go back is to return to a former place or state, the phrasal verb equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +815,48 @@
      }
     ]
    },
-   "solution": "WINGNUTS"
+   "solution": "WINGNUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WING NUTS",
+    "definitions": [
+     {
+      "text": "They are wound",
+      "at": 0
+     },
+     {
+      "text": "screwy",
+      "at": 19,
+      "note": "the answer is a plural noun for crazy people, not an adjective"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They are wound",
+      "note": "first meaning: fasteners with two flat flanges, turned by hand onto a bolt"
+     },
+     {
+      "clueFragment": "screwy",
+      "note": "second meaning: slang for eccentric or crackpot people"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people are wound up tight and a bit crazy.",
+     "walkthrough": "'Wound' looks like an injury but rhymes with 'round': these things are twisted on by hand. 'Screwy' doubles the hardware joke.",
+     "definitionFit": "Butterfly-shaped fasteners are twisted on by finger and thumb, and in slang the term means eccentric extremists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +870,59 @@
     "text": "River rose exceptionally, giving rise to water supply",
     "enumeration": "9"
    },
-   "solution": "RESERVOIR"
+   "solution": "RESERVOIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESERVOIR",
+    "definitions": [
+     {
+      "text": "water supply",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exceptionally",
+      "for": "anagram",
+      "note": "something done exceptionally is out of the usual order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "giving rise to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "RIVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rose",
+      "gives": "ROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIVERROSE",
+       "gives": "RESERVOIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A river in flood rose unusually high, feeding the town's water.",
+     "walkthrough": "'River rose' reads as a flood report, but both words are simply raw letters.",
+     "definitionFit": "A reservoir is a lake, often man-made, where water is stored for public supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +936,71 @@
     "text": "Unnecessary oath from former president I've allowed in",
     "enumeration": "9"
    },
-   "solution": "EXPLETIVE"
+   "solution": "EXPLETIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXPLETIVE",
+    "definitions": [
+     {
+      "text": "Unnecessary oath",
+      "at": 0,
+      "note": "an expletive is both a swear word and, in grammar, a filler word adding nothing to sense"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the allowed word is placed inside the other letters rather than beside them"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "president",
+      "gives": "P",
+      "note": "P is the abbreviation for president"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "to let is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "LET",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former president lets slip a gratuitous swear word, admitting it.",
+     "walkthrough": "The allowed piece goes in between the first two pieces and the last one.",
+     "definitionFit": "A swear word is called an expletive, and the grammar term means a word that merely fills a sentence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "allowed"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1014,43 @@
     "text": "Frightened of the weather forecast?",
     "enumeration": "5"
    },
-   "solution": "WINDY"
+   "solution": "WINDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WINDY",
+    "definitions": [
+     {
+      "text": "Frightened",
+      "at": 0
+     },
+     {
+      "text": "of the weather forecast?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frightened",
+      "note": "first meaning: British slang for nervous or scared"
+     },
+     {
+      "clueFragment": "of the weather forecast?",
+      "note": "second meaning: describing gusty, blowy conditions a forecaster might predict"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Windy is informal British English for nervous or scared, as in 'getting windy'.",
+     "definitionFit": "The word means jittery in British slang and describes blustery weather with strong breezes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Frightened"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1064,66 @@
     "text": "Brushed round seats and tabletop",
     "enumeration": "5"
    },
-   "solution": "SWEPT"
+   "solution": "SWEPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEPT",
+    "definitions": [
+     {
+      "text": "Brushed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round sends it back the other way, so the seats word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seats",
+      "gives": "PEWS",
+      "note": "pews are the bench seats in a church"
+     },
+     {
+      "clueFragment": "tabletop",
+      "gives": "T",
+      "select": "first",
+      "note": "the top of table, read as its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PEWS",
+       "to": "SWEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tidying a church hall brushed around the seating and the table surface.",
+     "walkthrough": "'Tabletop' looks like one word for a surface, but it splits into a word and its top letter.",
+     "definitionFit": "Swept is the past tense of sweep, cleaning with a broom, so it matches brushed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tabletop"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1143,59 @@
      }
     ]
    },
-   "solution": "WOODANT"
+   "solution": "WOODANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WOOD ANT",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite all of the poet is used, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "DANTE",
+      "note": "Dante Alighieri was the Italian poet of the Divine Comedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "DANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal court poet is almost, but not quite, a creepy-crawly.",
+     "walkthrough": "'Court' looks like a royal household, but it is the verb meaning to pursue romantically.",
+     "definitionFit": "The wood ant is a large red forest ant that builds mound nests of pine needles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Court"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1209,58 @@
     "text": "A spaniel without one is more resilient",
     "enumeration": "9"
    },
-   "solution": "SPRINGIER"
+   "solution": "SPRINGIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPRINGIER",
+    "definitions": [
+     {
+      "text": "more resilient",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so the dog surrounds the one"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A spaniel",
+      "gives": "SPRINGER",
+      "note": "a springer is a breed of spaniel"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRING",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spaniel without a companion turns out to be tougher.",
+     "walkthrough": "'Without' looks like it means lacking, which would remove letters; here it means outside.",
+     "definitionFit": "Springier is the comparative of springy, bouncing back readily, so more resilient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1280,44 @@
      }
     ]
    },
-   "solution": "INFORCE"
+   "solution": "INFORCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN FORCE",
+    "definitions": [
+     {
+      "text": "Operative",
+      "at": 0
+     },
+     {
+      "text": "like a policeman",
+      "at": 10,
+      "note": "a cryptic reading: someone serving in the Force"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Operative",
+      "note": "first meaning: currently valid and having effect, as a law"
+     },
+     {
+      "clueFragment": "like a policeman",
+      "note": "second meaning: belonging to the Force, the police service"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Operative' looks like a noun for an agent or detective, fitting the policeman, but it is the adjective for a rule in effect.",
+     "definitionFit": "A regulation that is operative is valid and being applied, and an officer serves within the police Force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Operative"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1331,55 @@
     "text": "Going over a river stops bears",
     "enumeration": "7"
    },
-   "solution": "ENDURES"
+   "solution": "ENDURES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENDURES",
+    "definitions": [
+     {
+      "text": "bears",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Going over",
+      "for": "container",
+      "note": "going over something means passing across it on both sides, so the stops word straddles the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stops",
+      "gives": "ENDS",
+      "note": "ends can mean stops or finishes"
+     },
+     {
+      "clueFragment": "a river",
+      "gives": "URE",
+      "note": "the Ure is a river in North Yorkshire, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "URE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A trek across a river is halted by bears.",
+     "walkthrough": "'Bears' looks like the animals blocking the way; it is the verb meaning tolerates, and stands last as the definition. The Ure is a Yorkshire river.",
+     "definitionFit": "To endure something is to put up with it, so endures is a synonym of bears or tolerates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bears"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1393,46 @@
     "text": "Execution may be sedate, we hear",
     "enumeration": "6"
    },
-   "solution": "STAYED"
+   "solution": "STAYED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAYED",
+    "definitions": [
+     {
+      "text": "Execution may be",
+      "at": 0,
+      "note": "a fill-in: the answer completes the phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear points to what the word sounds like spoken, not how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sedate",
+      "gives": "STAYED",
+      "soundsLike": "STAID",
+      "note": "staid means sedate or prim and respectable"
+     }
+    ],
+    "explanation": {
+     "surface": "An execution may be carried out calmly, so people say.",
+     "walkthrough": "'Sedate' reads as the verb to drug a prisoner, but it is the adjective meaning staid.",
+     "definitionFit": "An execution that is stayed is postponed by legal order, the classic use of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sedate"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1446,51 @@
     "text": "One working with trees, working for trees",
     "enumeration": "8"
    },
-   "solution": "FORESTER"
+   "solution": "FORESTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORESTER",
+    "definitions": [
+     {
+      "text": "One working with trees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "letters that are working are in motion, not fixed, so they can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for trees",
+      "gives": "FORTREES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORTREES",
+       "gives": "FORESTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodsman is busy on behalf of the trees in their care.",
+     "walkthrough": "'Working' and 'trees' appear twice: first in the plain-sense definition, then as the anagram signal and its letters.",
+     "definitionFit": "A forester manages woodland, planting and felling timber as a profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1504,52 @@
     "text": "Pals have no right to be devils",
     "enumeration": "6"
    },
-   "solution": "FIENDS"
+   "solution": "FIENDS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FIENDS",
+    "definitions": [
+     {
+      "text": "devils",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "have no right",
+      "for": "deletion",
+      "note": "having no right means the abbreviation for right is taken away"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pals",
+      "gives": "FRIENDS",
+      "note": "pals are friends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Your mates have no business acting like demons.",
+     "walkthrough": "R is the standard abbreviation for right.",
+     "definitionFit": "Fiends are evil spirits or demons, a close synonym of devils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1563,41 @@
     "text": "Demand payment? Just so!",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Demand payment",
+      "at": 0
+     },
+     {
+      "text": "Just so",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demand payment",
+      "note": "first meaning: a verb, to insist on and obtain something owed"
+     },
+     {
+      "clueFragment": "Just so",
+      "note": "second meaning: precise, correct in every detail"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Just so!' sounds like agreement, a reply to the question; the punctuation dresses up two plain meanings.",
+     "definitionFit": "To exact a fee is to demand it, and something precise and correct is exact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1617,57 @@
      }
     ]
    },
-   "solution": "VANITYFAIR"
+   "solution": "VANITYFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VANITY FAIR",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the just word after the furniture word in the final order"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a kind of dressing-table",
+      "gives": "VANITY",
+      "note": "a vanity is a dressing table with a mirror"
+     },
+     {
+      "clueFragment": "just",
+      "gives": "FAIR",
+      "note": "fair means just or even-handed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VANITY",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A novel is discovered lying just behind a bedroom dressing table.",
+     "walkthrough": "'Just behind' reads as 'right behind'; 'just' is its own piece meaning fair.",
+     "definitionFit": "Vanity Fair is William Makepeace Thackeray's satirical novel featuring Becky Sharp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1681,47 @@
     "text": "Talk openly about East Yorkshire river",
     "enumeration": "4"
    },
-   "solution": "AIRE"
+   "solution": "AIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRE",
+    "definitions": [
+     {
+      "text": "Yorkshire river",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk openly about",
+      "gives": "AIR",
+      "note": "to air a matter is to discuss it in public"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discusses frankly a river in East Yorkshire.",
+     "walkthrough": "'East Yorkshire' looks like a county name, but East is a separate piece. The Aire flows through Leeds.",
+     "definitionFit": "The Aire is a river in Yorkshire, northern England, running through Leeds to join the Ouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1735,58 @@
     "text": "Is present given when nurse is enrolled in wartime service?",
     "enumeration": "7"
    },
-   "solution": "ATTENDS"
+   "solution": "ATTENDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATTENDS",
+    "definitions": [
+     {
+      "text": "Is present",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is enrolled in",
+      "for": "container",
+      "note": "someone enrolled in a service is placed inside it, so one word goes within another"
+     }
+    ],
+    "linkWords": [
+     "given when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wartime service",
+      "gives": "ATS",
+      "note": "the ATS was the Auxiliary Territorial Service, the British women's army branch in the Second World War"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse someone is to tend them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse joining up in wartime raises the question of who is present.",
+     "walkthrough": "The ATS was the British women's army corps of World War II.",
+     "definitionFit": "To attend is to be there at an event, so attends means is present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +1800,50 @@
     "text": "A tree, when shaken, tinkles",
     "enumeration": "7"
    },
-   "solution": "LENTISK"
+   "solution": "LENTISK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LENTISK",
+    "definitions": [
+     {
+      "text": "A tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when shaken",
+      "for": "anagram",
+      "note": "shaking jumbles things up, so the letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tinkles",
+      "gives": "TINKLES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINKLES",
+       "gives": "LENTISK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree with chimes in its branches jingles when the wind shakes it.",
+     "definitionFit": "The lentisk is the mastic tree, a Mediterranean evergreen shrub yielding aromatic resin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shaken"
+    }
+   }
   }
  ]
 }
