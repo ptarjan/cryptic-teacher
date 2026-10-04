@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Aim to get behind a sailor",
     "enumeration": "6"
    },
-   "solution": "TARGET"
+   "solution": "TARGET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TARGET",
+    "definitions": [
+     {
+      "text": "Aim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind tells us which piece comes second, so the verb follows the sailor in the answer"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sailor",
+      "gives": "TAR",
+      "note": "a tar is an old word for a sailor"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "GET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone planning to fall in line behind a sailor on parade.",
+     "definitionFit": "A target is the thing you aim at, so the noun matches aim in the sense of a goal or objective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +105,44 @@
      }
     ]
    },
-   "solution": "TEALEAF"
+   "solution": "TEALEAF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEA LEAF",
+    "definitions": [
+     {
+      "text": "Who takes?",
+      "at": 0
+     },
+     {
+      "text": "We take it with hot water at 4pm",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who takes?",
+      "note": "first meaning: someone who takes things, a thief in Cockney rhyming slang"
+     },
+     {
+      "clueFragment": "We take it with hot water at 4pm",
+      "note": "second meaning: what goes into the pot for afternoon tea"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle about afternoon tea at four o'clock.",
+     "walkthrough": "In Cockney rhyming slang, a tea leaf is a thief, because the words rhyme; afternoon tea at 4pm is a British custom.",
+     "definitionFit": "A thief is someone who takes things, and loose tea leaves are brewed in boiling water for an afternoon cuppa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +156,54 @@
     "text": "Dr No and I could be reshaped by this sculptor",
     "enumeration": "5"
    },
-   "solution": "RODIN"
+   "solution": "RODIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RODIN",
+    "definitions": [
+     {
+      "text": "sculptor",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be reshaped",
+      "for": "anagram",
+      "note": "reshaping material changes its form, so the letters take on a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "by this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dr No and I",
+      "gives": "DRNOI",
+      "note": "the letters of Dr No plus I, ignoring and"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRNOI",
+       "gives": "RODIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bond villain and the speaker being modelled in clay by a sculptor.",
+     "walkthrough": "'and' simply joins the two parts of the fodder.",
+     "definitionFit": "Auguste Rodin was the French artist who made The Thinker, a famous sculptor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reshaped"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +217,68 @@
     "text": "Ruler has contrary salesman imprisoned in Rome",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "Ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned in",
+      "for": "container",
+      "note": "someone imprisoned is shut inside walls, so one piece sits within the other"
+     },
+     {
+      "text": "contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the combined letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "ROME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPEROR"
+     ],
+     "reversals": [
+      {
+       "from": "ROREPME",
+       "to": "EMPEROR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman ruler has jailed an awkward travelling salesman.",
+     "walkthrough": "The salesman goes between the O and M of Rome, then the whole is turned round.",
+     "definitionFit": "An emperor is the supreme sovereign of an empire, such as those who governed ancient Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,49 @@
     "text": "Periods of good fortune inflamed the end result",
     "enumeration": "6"
    },
-   "solution": "UPSHOT"
+   "solution": "UPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSHOT",
+    "definitions": [
+     {
+      "text": "end result",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Periods of good fortune",
+      "gives": "UPS",
+      "note": "ups, as in ups and downs, are good times"
+     },
+     {
+      "clueFragment": "inflamed",
+      "gives": "HOT",
+      "note": "an inflamed wound feels hot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky streak that ended up stirring passions.",
+     "definitionFit": "The upshot is the final outcome or consequence of a series of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inflamed"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +348,59 @@
     "text": "Like Hamlet, having an indefinite number in charge",
     "enumeration": "6"
    },
-   "solution": "PRINCE"
+   "solution": "PRINCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRINCE",
+    "definitions": [
+     {
+      "text": "Like Hamlet",
+      "at": 0,
+      "note": "the definition is a description; the answer is the title Hamlet held"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the number inside the word for a cost"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "PRICE",
+      "note": "a charge is the price of something"
+     },
+     {
+      "clueFragment": "an indefinite number",
+      "gives": "N",
+      "note": "n is the mathematician's symbol for an unspecified number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRI",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor describes a role that comes with a vague number of responsibilities.",
+     "walkthrough": "Hamlet is the Prince of Denmark in Shakespeare's play.",
+     "definitionFit": "Hamlet is a royal son and heir, the Prince of Denmark, so the title describes him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +414,67 @@
     "text": "Find hoe round motorway, then spring inside the house",
     "enumeration": "9"
    },
-   "solution": "HOMEBOUND"
+   "solution": "HOMEBOUND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOMEBOUND",
+    "definitions": [
+     {
+      "text": "inside the house",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the garden tool wraps around the road"
+     },
+     {
+      "text": "then",
+      "for": "charade",
+      "note": "then marks the next piece added afterwards in sequence"
+     }
+    ],
+    "linkWords": [
+     "Find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hoe",
+      "gives": "HOE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the prefix for British motorways, such as the M1"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "BOUND",
+      "note": "to bound is to spring or leap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOME",
+      "BOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener locates a hoe near the motorway before springtime indoors.",
+     "definitionFit": "Someone homebound is confined indoors, unable to go out because of illness or age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +488,50 @@
     "text": "After shuffling, can't see card combinations",
     "enumeration": "7"
    },
-   "solution": "TENACES"
+   "solution": "TENACES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENACES",
+    "definitions": [
+     {
+      "text": "card combinations",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After shuffling",
+      "for": "anagram",
+      "note": "shuffling mixes up a pack, so the following letters are mixed up too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can't see",
+      "gives": "CANTSEE",
+      "note": "the letters, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANTSEE",
+       "gives": "TENACES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player complains they cannot see the hands after the deck is shuffled.",
+     "walkthrough": "A tenace is a bridge term for holding two high cards with a gap between, like ace and queen.",
+     "definitionFit": "In bridge or whist, a tenace is a pair of high cards in one suit lacking the card ranked between them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +551,57 @@
      }
     ]
    },
-   "solution": "BROKENHEARTED"
+   "solution": "BROKENHEARTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROKEN-HEARTED",
+    "definitions": [
+     {
+      "text": "Crestfallen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brother",
+      "gives": "BRO",
+      "note": "short for brother"
+     },
+     {
+      "clueFragment": "Kenneth",
+      "gives": "KEN",
+      "note": "short form of Kenneth"
+     },
+     {
+      "clueFragment": "to listen",
+      "gives": "HEAR",
+      "note": "to hear is to listen"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a pet name for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRO",
+      "KEN",
+      "HEAR",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dejected brother called Kenneth must hear Edward out.",
+     "definitionFit": "Being crestfallen means dejected and disappointed, close to someone grieving and inconsolable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +615,47 @@
     "text": "Artisan's support for calligraphy, perhaps",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAND",
+    "definitions": [
+     {
+      "text": "Artisan",
+      "at": 0
+     },
+     {
+      "text": "calligraphy, perhaps",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "'s support for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artisan",
+      "note": "first meaning: a manual worker, as in a farm worker or factory worker"
+     },
+     {
+      "clueFragment": "calligraphy, perhaps",
+      "note": "second meaning: a style of handwriting"
+     }
+    ],
+    "explanation": {
+     "surface": "A craftsman's backing for beautiful lettering.",
+     "walkthrough": "The surface reads as one phrase, but the word also fits the joining sense: a craftsman's support is his own body part holding the pen.",
+     "definitionFit": "A hired worker is called a hand, and a person's writing style is also called their hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +669,59 @@
     "text": "Diet for Liam, when nursed by Mother or Father",
     "enumeration": "10"
    },
-   "solution": "PARLIAMENT"
+   "solution": "PARLIAMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARLIAMENT",
+    "definitions": [
+     {
+      "text": "Diet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when nursed by",
+      "for": "container",
+      "note": "a nursed baby is held in someone's arms, so the name is held within"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother or Father",
+      "gives": "PARENT",
+      "note": "either one is a parent"
+     },
+     {
+      "clueFragment": "Liam",
+      "gives": "LIAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "LIAM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy named Liam has a special diet looked after by his parents.",
+     "walkthrough": "'Diet' looks like food, but it is a law-making assembly, as in Japan's Diet.",
+     "definitionFit": "A diet is the name for a legislative assembly in some countries, such as Japan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Diet"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +735,51 @@
     "text": "The cleaner is not starting to get slimmer",
     "enumeration": "6"
    },
-   "solution": "LEANER"
+   "solution": "LEANER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEANER",
+    "definitions": [
+     {
+      "text": "slimmer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is not starting",
+      "for": "deletion",
+      "note": "not starting means the opening letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "The",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaner",
+      "gives": "CLEANER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEANER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner who has stopped coming in wants to lose weight.",
+     "definitionFit": "Leaner is the comparative of lean, meaning thinner, which is what slimmer means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +793,57 @@
     "text": "For a bribe, footballer wants a boot first",
     "enumeration": "8"
    },
-   "solution": "KICKBACK"
+   "solution": "KICKBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KICKBACK",
+    "definitions": [
+     {
+      "text": "a bribe",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first places the item of footwear at the front of the answer"
+     }
+    ],
+    "linkWords": [
+     "For",
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a boot",
+      "gives": "KICK",
+      "note": "a boot is a kick"
+     },
+     {
+      "clueFragment": "footballer",
+      "gives": "BACK",
+      "note": "a back is a defensive football player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KICK",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer demanding new boots before agreeing to a bribe.",
+     "definitionFit": "A kickback is an illicit payment returned to someone for arranging a deal, a form of corruption."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boot"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +857,58 @@
     "text": "Young enough to get well after getting rotten",
     "enumeration": "9"
    },
-   "solution": "OFFSPRING"
+   "solution": "OFFSPRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSPRING",
+    "definitions": [
+     {
+      "text": "Young",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the water source follows the spoiled piece"
+     }
+    ],
+    "linkWords": [
+     "enough to get",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rotten",
+      "gives": "OFF",
+      "note": "food gone off is rotten"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "SPRING",
+      "note": "a spring is a natural well of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone young enough to recover after being sick.",
+     "walkthrough": "'well' looks like healthy, but it is a source of water.",
+     "definitionFit": "An animal's young are its offspring, its children or progeny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +922,53 @@
     "text": "An unexpressed quality brings out the ghost in me",
     "enumeration": "9"
    },
-   "solution": "SOMETHING"
+   "solution": "SOMETHING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOMETHING",
+    "definitions": [
+     {
+      "text": "An unexpressed quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brings out",
+      "for": "anagram",
+      "note": "to bring out is to reveal in a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ghost in me",
+      "gives": "GHOSTINME",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GHOSTINME",
+       "gives": "SOMETHING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indefinable quality that awakens the spirit within me.",
+     "definitionFit": "We say someone has a certain something, an indefinable appeal that is hard to put into words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ghost"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +982,52 @@
     "text": "Brazil more than once, described by teachers at school",
     "enumeration": "4"
    },
-   "solution": "NUTS"
+   "solution": "NUTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUTS",
+    "definitions": [
+     {
+      "text": "Brazil more than once",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "described by",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teachers",
+      "gives": "NUT",
+      "note": "the NUT was the National Union of Teachers, a British trade union"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "S",
+      "note": "S is an abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Brazil, the country, being taught repeatedly in a geography class.",
+     "walkthrough": "'Brazil' looks like the country; it is the brazil nut, and 'more than once' makes it plural.",
+     "definitionFit": "A brazil is a kind of edible nut, so several of them are a plural of that kernel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brazil"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1041,48 @@
     "text": "No longer wild, thanks to me",
     "enumeration": "4"
    },
-   "solution": "TAME"
+   "solution": "TAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAME",
+    "definitions": [
+     {
+      "text": "No longer wild",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thank you"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal trainer boasting that the creature is domesticated because of them.",
+     "definitionFit": "A tame animal has been domesticated and is gentle, no longer feral or savage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1096,47 @@
     "text": "Faith, we hear, is made fast",
     "enumeration": "7"
    },
-   "solution": "TRUSSED"
+   "solution": "TRUSSED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRUSSED",
+    "definitions": [
+     {
+      "text": "made fast",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the word is taken by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faith",
+      "gives": "TRUSSED",
+      "soundsLike": "TRUST",
+      "note": "faith is trust, and the past tense of truss is pronounced the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "A believer claims faith makes things firm.",
+     "walkthrough": "'made fast' looks like quickly built, but fast here means secure.",
+     "definitionFit": "To truss is to tie up tightly, so something trussed has been bound securely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1150,61 @@
     "text": "It's less important to dance round with Rosy",
     "enumeration": "9"
    },
-   "solution": "SECONDARY"
+   "solution": "SECONDARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECONDARY",
+    "definitions": [
+     {
+      "text": "less important",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "anagram",
+      "note": "turning round changes order, so the letters are moved about"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "DANCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rosy",
+      "gives": "ROSY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DANCEROSY",
+       "gives": "SECONDARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dancing a turn with a girl called Rosy matters less than other things.",
+     "walkthrough": "'dance' looks like the anagram signal, but it is part of the letters to mix.",
+     "definitionFit": "Secondary describes something lower in rank or priority, coming second to the main matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1218,67 @@
     "text": "Bum steer taken in by very large mother-killer",
     "enumeration": "7"
    },
-   "solution": "ORESTES"
+   "solution": "ORESTES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ORESTES",
+    "definitions": [
+     {
+      "text": "mother-killer",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bum",
+      "for": "anagram",
+      "note": "bum as an adjective means bad or faulty, so the letters are wrongly ordered"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "taken in by means held inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS is the clothing size abbreviation for outsize"
+     },
+     {
+      "clueFragment": "steer",
+      "gives": "STEER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RESTE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STEER",
+       "gives": "RESTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge matricide was misled by bad directions.",
+     "walkthrough": "In Greek myth Orestes killed his mother Clytemnestra to avenge his father Agamemnon.",
+     "definitionFit": "Orestes is the Greek mythological hero who murdered his own parent, Clytemnestra, to avenge Agamemnon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bum"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1292,50 @@
     "text": "Circuit to rent for a lock",
     "enumeration": "7"
    },
-   "solution": "RINGLET"
+   "solution": "RINGLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RINGLET",
+    "definitions": [
+     {
+      "text": "a lock",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circuit",
+      "gives": "RING",
+      "note": "a ring is a circle or circuit"
+     },
+     {
+      "clueFragment": "to rent",
+      "gives": "LET",
+      "note": "to let a property is to rent it out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing track available for hire in exchange for a lock.",
+     "walkthrough": "'lock' looks like a fastening, but it is a lock of hair.",
+     "definitionFit": "A ringlet is a curled lock of hair, a single tress hanging in a spiral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1349,56 @@
     "text": "Compensation for blokes seen in advertisements",
     "enumeration": "6"
    },
-   "solution": "AMENDS"
+   "solution": "AMENDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMENDS",
+    "definitions": [
+     {
+      "text": "Compensation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "seen in means appearing inside, so the males are placed within the notices"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertisements",
+      "gives": "ADS",
+      "note": "ads is short for advertisements"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes are men in British slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Men who appear in adverts are paid damages.",
+     "definitionFit": "Making amends means giving reparation for a wrong, a form of redress or restitution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1412,53 @@
     "text": "Cure most adaptable for this client",
     "enumeration": "8"
    },
-   "solution": "CUSTOMER"
+   "solution": "CUSTOMER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUSTOMER",
+    "definitions": [
+     {
+      "text": "client",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adaptable",
+      "for": "anagram",
+      "note": "something adaptable can be altered, so the letters change position"
+     }
+    ],
+    "linkWords": [
+     "for this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cure most",
+      "gives": "CUREMOST",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUREMOST",
+       "gives": "CUSTOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pharmacist recommends the most flexible remedy for a client.",
+     "definitionFit": "A client is someone who buys goods or services from a business, exactly what a shopper or patron does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cure"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1472,47 @@
     "text": "Former husband to look after spread",
     "enumeration": "6"
    },
-   "solution": "EXTEND"
+   "solution": "EXTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTEND",
+    "definitions": [
+     {
+      "text": "spread",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former husband",
+      "gives": "EX",
+      "note": "an ex is a former spouse"
+     },
+     {
+      "clueFragment": "to look after",
+      "gives": "TEND",
+      "note": "to tend is to look after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-husband left to care for a lavish meal.",
+     "walkthrough": "'spread' looks like a meal laid out, but it is a verb meaning stretch out.",
+     "definitionFit": "To extend something is to stretch or widen it, making it cover more area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1526,52 @@
     "text": "A very small amount makes you react unfavourably",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "A very small amount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfavourably",
+      "for": "anagram",
+      "note": "an unfavourable response is a bad one, so the letters come out badly ordered"
+     }
+    ],
+    "linkWords": [
+     "makes you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "react",
+      "gives": "REACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REACT",
+       "gives": "TRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Even a tiny dose of something can trigger an allergic response.",
+     "definitionFit": "A trace is a barely detectable quantity, a tiny hint of a substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1585,51 @@
     "text": "Sting means bent job",
     "enumeration": "10"
    },
-   "solution": "ASSIGNMENT"
+   "solution": "ASSIGNMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSIGNMENT",
+    "definitions": [
+     {
+      "text": "job",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bent",
+      "for": "anagram",
+      "note": "bent means twisted out of shape, so the letters are twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sting means",
+      "gives": "STINGMEANS",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STINGMEANS",
+       "gives": "ASSIGNMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police sting operation means a crooked piece of work.",
+     "walkthrough": "'bent' looks like corrupt, a British word for crooked, but it marks the anagram.",
+     "definitionFit": "An assignment is a task or piece of work allotted to someone, a job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1643,41 @@
     "text": "Clever part of the tableau",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of the",
+      "for": "hidden_word",
+      "note": "part of says only a portion of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tableau",
+      "gives": "ABLE",
+      "note": "the inner letters of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A smart section of a staged scene.",
+     "definitionFit": "An able person is capable and skilful, which is close to clever or talented."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1691,58 @@
     "text": "Being abstract, I've to succeed for a biscuit",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "abstract",
+      "at": 6
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to succeed",
+      "for": "deletion",
+      "note": "to succeed means to come after, so these letters are what follows the answer in the longer word and are dropped"
+     }
+    ],
+    "linkWords": [
+     "Being",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a biscuit",
+      "gives": "DIGESTIVE",
+      "note": "a digestive is a British wholemeal biscuit"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone summarising a dull note before snacking on a biscuit.",
+     "walkthrough": "Add I've after the answer and you get a digestive, a plain British biscuit; so the answer is that biscuit without I've.",
+     "definitionFit": "An abstract is a summary of a longer text, and a digest is likewise a condensed summary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1756,49 @@
     "text": "Rise for one needing perfume",
     "enumeration": "6"
    },
-   "solution": "ASCENT"
+   "solution": "ASCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASCENT",
+    "definitions": [
+     {
+      "text": "Rise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "a scent is a perfume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing upward when someone needs fragrance.",
+     "definitionFit": "An ascent is a climb or upward movement, matching the noun sense of rise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
