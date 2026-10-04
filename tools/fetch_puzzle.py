@@ -1918,6 +1918,10 @@ SOURCE_CLUE_WRONG = {
         "Wavering voter, thar's plain",
         "Wavering voter, that's plain",
         "OCR misread: the link needs that's"),
+    ("times-18232", "3-down"): (
+        "Late others' gins after shaking",
+        "Lace others' gins after shaking",
+        "OCR misread: the definition needs lace, which a shoe-string is"),
     ("times-18223", "1-across"): (
         "It's police to provide notes fore arrival",
         "It's polite to provide notes fore arrival",
