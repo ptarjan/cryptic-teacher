@@ -1598,6 +1598,8 @@ def read_solution(sol, grid, above=False):
 #: second one's OCR fills the first one's wait; more contend for the host's
 #: four cores.
 WORKERS = 2
+#: How often (seconds) the scan phase saves the ledger.
+SAVE_EVERY = 300
 
 
 def scan_key():
@@ -1726,11 +1728,22 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh
-    for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers):
+    # A scan that raises stands as one with no headings, kept under this
+    # scan_key, so it is not made again until the scan code changes.
+    saved = time.monotonic()
+    for (d,), found in scan_queue.parallel([(d,) for d in unscanned], scan, workers,
+                                           failed=lambda item, error: {"puzzles": [], "solutions": [],
+                                                                       "failed": error}):
         scans[rels[d]] = found
-        progress(f"scanned {rels[d]}: {len(found['puzzles'])} puzzle(s)")
+        progress(f"scanned {rels[d]}: " + (f"failed: {found['failed']}" if "failed" in found
+                                           else f"{len(found['puzzles'])} puzzle(s)"))
         known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d],
                           "scanKey": scan_key()}
+        # Saved as it goes: the scans of a whole paper take hours, and a kill
+        # then loses at most SAVE_EVERY seconds of them.
+        if write and time.monotonic() - saved >= SAVE_EVERY:
+            save(ledger, known)
+            saved = time.monotonic()
     if unscanned and write:
         save(ledger, known)
     solutions = {}
@@ -1751,7 +1764,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     fresh = 0
     for (d, found), (results, vlm_ok) in scan_queue.parallel(
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
-            init=set_solutions, initargs=(solutions,)):
+            init=set_solutions, initargs=(solutions,), failed=edition_failed):
         rel = rels[d]
         h, sol_seen = due[d]
         fresh += 1
@@ -1837,6 +1850,13 @@ def read_edition(d, found):
                                f"crashed: {type(e).__name__}: {e}"}, None
         results.append((verdict, puzzle))
     return results, vlm.reachable()
+
+
+def edition_failed(item, error):
+    """read_edition's result for an edition whose read raised: each title
+    refused, as read_edition refuses a title whose read raises."""
+    _, found = item
+    return [({"number": hit["number"], "refused": f"crashed: {error}"}, None) for hit in found["puzzles"]], False
 
 
 def filled(puzzle):

@@ -1376,5 +1376,7 @@ tools/test_placeholder_clues.sh              a puzzle whose clues are pointers a
                                              elsewhere has no clues
 tools/sweep_series.py                        probe every number of a Guardian series between
                                              two bounds, file what is served
+tools/ocr_remote.py                          the clue OCR (tools/ocr_clues.py raw_words) run on
+                                             Paul's desktop over ssh
 ```
 <!-- LAYOUT-END -->

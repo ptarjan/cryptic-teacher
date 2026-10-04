@@ -484,6 +484,7 @@ LAYOUT = [
     ("fetching", "tools/clue_index.py", "which puzzle files share clues: normalised clue text -> puzzle ids"),
     ("fetching", "tools/test_placeholder_clues.sh", "a puzzle whose clues are pointers at clues printed elsewhere has no clues"),
     ("fetching", "tools/sweep_series.py", "probe every number of a Guardian series between two bounds, file what is served"),
+    ("fetching", "tools/ocr_remote.py", "the clue OCR (tools/ocr_clues.py raw_words) run on Paul's desktop over ssh"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

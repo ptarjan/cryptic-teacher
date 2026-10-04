@@ -121,11 +121,13 @@ def tesseract_words(crop, model=None):
         lang = ["--tessdata-dir", str(model.parent), "-l", model.stem] if model else ["-l", "eng"]
         # TSV by parameter, not the "tsv" config file: a model's own
         # tessdata directory has no configs/.
+        # Tesseract writes UTF-8 whatever the host's locale (the desktop's
+        # is cp1252).
         # One thread: OpenMP's spinning threads take minutes over one crop
         # on a busy host, where a single thread takes seconds.
         res = subprocess.run([tesseract(), str(path), "-", "--psm", "4", *lang,
                               "-c", "tessedit_create_tsv=1"],
-                             capture_output=True, text=True, timeout=300, check=False,
+                             capture_output=True, encoding="utf-8", timeout=300, check=False,
                              env={**os.environ, "OMP_THREAD_LIMIT": "1"})
     if res.returncode:
         raise RuntimeError(f"tesseract failed ({res.returncode}): {res.stderr.strip()[-300:]}")
@@ -138,22 +140,35 @@ def tesseract_words(crop, model=None):
     return words
 
 
-def read_words(img, which):
-    """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `img`,
-    read at UPSCALE times its size, in `img`'s own pixels."""
-    import numpy as np
-    crop = img.convert("RGB")
-    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+def raw_words(crop, which):
+    """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `crop`,
+    in its pixels as the reader gives them (RapidOCR's floats)."""
     if which in TESS_MODELS:
-        res = [(((x0, y0), (x1, y1)), t, None)
-               for x0, y0, x1, y1, t in tesseract_words(crop, TESS_MODELS[which])]
-    else:
-        res, _ = engine(which)(np.asarray(crop), use_cls=False)
+        return tesseract_words(crop, TESS_MODELS[which])
+    import numpy as np
+    res, _ = engine(which)(np.asarray(crop), use_cls=False)
     words = []
     for b, t, _ in res or ():
-        xs, ys = [p[0] / UPSCALE for p in b], [p[1] / UPSCALE for p in b]
-        words.append((int(min(xs)), int(min(ys)), int(max(xs)), int(max(ys)), t))
+        xs, ys = [p[0] for p in b], [p[1] for p in b]
+        words.append((min(xs), min(ys), max(xs), max(ys), t))
     return words
+
+
+def read_words(img, which):
+    """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `img`,
+    read at UPSCALE times its size, in `img`'s own pixels: none in an image
+    with no pixels. Read on the desktop when tools/ocr_remote.py can, the
+    same reading as here."""
+    import ocr_remote
+    crop = img.convert("RGB")
+    if not crop.width or not crop.height:
+        return []
+    crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    words = ocr_remote.words(crop, which)
+    if words is None:
+        words = raw_words(crop, which)
+    return [(int(x0 / UPSCALE), int(y0 / UPSCALE), int(x1 / UPSCALE), int(y1 / UPSCALE), t)
+            for x0, y0, x1, y1, t in words]
 
 
 def lines_of(words):

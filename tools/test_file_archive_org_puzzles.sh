@@ -968,6 +968,34 @@ for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the gr
           ([t[0] for t in got], bool(got) and abs(got[0][0] - paper.expected(day)) <= f.NUMBER_SLACK))
 f.band_words = band_words
 
+# A grid at the page's top edge has a title band over it with no height
+# (title_bands clips it to the page): it reads as no words, it does not
+# stop the scan. No OCR runs: the band is empty before any reader sees it.
+os.environ.pop("OCR_REMOTE", None)
+page_img = Image.new("RGB", (400, 600), "white")
+band = f.title_bands(page_img, (100, 0, 300, 200))[0]
+check("a title band over a grid at the page's top edge has no height", 0, band[3] - band[1])
+check("a band with no height reads as no words, not a crash", [],
+      f.band_words(page_img, band, "times", Path(os.environ["TMP"]) / "band.json"))
+check("an image with no width reads as no words", [], ocr_clues.read_words(Image.new("RGB", (0, 40)), "ch"))
+
+# The desktop not answering: the crop is read here (None from ocr_remote),
+# the reason logged, and no second attempt until RETRY has passed.
+import contextlib, io, time
+import ocr_remote
+os.environ["OCR_REMOTE"] = "nobody@127.0.0.1"
+ocr_remote.SSH = ocr_remote.SSH + ["-p", "1"]
+ocr_remote.versions = lambda: {}
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    t = time.monotonic()
+    first = ocr_remote.words(page_img, "ch")
+    second = ocr_remote.words(page_img, "ch")
+    took = time.monotonic() - t
+check("a desktop that is off: read here, the reason logged, not retried at once, no hang",
+      (None, None, True, True), (first, second, "unavailable (nobody@127.0.0.1: " in err.getvalue(), took < 30))
+os.environ.pop("OCR_REMOTE")
+
 print(f"FAILS {fails}")
 EOF
 )
