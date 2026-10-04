@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Extinct animal is around in changed form",
     "enumeration": "8"
    },
-   "solution": "DINOSAUR"
+   "solution": "DINOSAUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DINOSAUR",
+    "definitions": [
+     {
+      "text": "Extinct animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in changed form",
+      "for": "anagram",
+      "note": "something put in a changed form has had its parts rearranged, so the preceding words are shuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is around",
+      "gives": "ISAROUND",
+      "note": "two words taken as written, used as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISAROUND",
+       "gives": "DINOSAUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some long-gone creature turns out to be still about, only looking different.",
+     "definitionFit": "Dinosaurs are the classic example of creatures that died out entirely millions of years ago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,43 @@
     "text": "Feed a mouse with cheese",
     "enumeration": "4"
    },
-   "solution": "EDAM"
+   "solution": "EDAM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDAM",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "hidden_word",
+      "note": "the phrase is read as holding something within it, so the letters sit inside the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feed a mouse",
+      "gives": "EDAM",
+      "note": "the letters run across the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions for feeding a pet mouse: give it some cheese.",
+     "walkthrough": "The surface makes cheese the food for the mouse; in fact the cheese is lurking in fEED A Mouse.",
+     "definitionFit": "Edam is a mild Dutch variety sold in round balls coated with red wax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +143,56 @@
     "text": "Pound is good in France and capital elsewhere",
     "enumeration": "6"
    },
-   "solution": "LISBON"
+   "solution": "LISBON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LISBON",
+    "definitions": [
+     {
+      "text": "capital elsewhere",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound, from Latin libra"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good in France",
+      "gives": "BON",
+      "note": "bon is the French word for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "BON"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about money: the pound does well in France, and its capital does well somewhere else.",
+     "walkthrough": "'Elsewhere' signals that this capital is not in France, after the French word just used: it is in Portugal.",
+     "definitionFit": "Lisbon is the capital city of Portugal, a country other than the France just mentioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pound"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +212,44 @@
      }
     ]
    },
-   "solution": "GETAWAY"
+   "solution": "GETAWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET AWAY",
+    "definitions": [
+     {
+      "text": "Go on!",
+      "at": 0
+     },
+     {
+      "text": "Holiday!",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go on!",
+      "note": "first meaning: an exclamation of disbelief, as in 'you're joking!'"
+     },
+     {
+      "clueFragment": "Holiday!",
+      "note": "second meaning: a short break away from home"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone urging a friend to take that holiday they keep talking about.",
+     "walkthrough": "'Get away!' is an exclamation of surprised disbelief, the same as 'Go on!'; a getaway is also a short break.",
+     "definitionFit": "The phrase serves both as an incredulous exclamation and as a noun for a brief vacation trip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +269,64 @@
      }
     ]
    },
-   "solution": "WELLNIGH"
+   "solution": "WELLNIGH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WELL-NIGH",
+    "definitions": [
+     {
+      "text": "almost",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word wraps around what follows"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weigh",
+      "gives": "WEIGH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two pounds",
+      "gives": "LL",
+      "note": "L is the pound abbreviation, doubled"
+     },
+     {
+      "clueFragment": "a quarter",
+      "gives": "N",
+      "note": "north is one of the four compass points, a quarter in crossword terms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "LLN",
+      "IGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to weigh something at around two and a quarter pounds, near enough.",
+     "walkthrough": "The LL and N go inside WEIGH after its first two letters. A quarter is a compass point (N, E, S or W) in crossword convention.",
+     "definitionFit": "Well-nigh is a slightly old-fashioned adverb meaning very nearly or all but."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +340,56 @@
     "text": "Girl allowed by her aunt in Paris to be a dabbler",
     "enumeration": "10"
    },
-   "solution": "DILETTANTE"
+   "solution": "DILETTANTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DILETTANTE",
+    "definitions": [
+     {
+      "text": "dabbler",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "by her",
+     "to be a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "DI",
+      "note": "Di is a short girl's name"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means permitted"
+     },
+     {
+      "clueFragment": "aunt in Paris",
+      "gives": "TANTE",
+      "note": "tante is the French word for aunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "LET",
+      "TANTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's French aunt lets her try her hand at things without committing.",
+     "definitionFit": "A dilettante takes up an art or subject superficially, for amusement, never with serious study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +403,47 @@
     "text": "They may be smoked and eaten",
     "enumeration": "6"
    },
-   "solution": "JOINTS"
+   "solution": "JOINTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOINTS",
+    "definitions": [
+     {
+      "text": "They may be smoked",
+      "at": 0
+     },
+     {
+      "text": "eaten",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They may be smoked",
+      "note": "first meaning: cannabis cigarettes"
+     },
+     {
+      "clueFragment": "eaten",
+      "note": "second meaning: large cuts of roasted meat"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that can be both smoked and eaten, like a kipper or a ham.",
+     "walkthrough": "Smoked suggests fish or bacon; instead one sense is the cannabis cigarette and the other the Sunday roast.",
+     "definitionFit": "The word names both rolled cannabis cigarettes and large butcher's cuts of meat for roasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoked"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +457,51 @@
     "text": "Blow whistle for a breathing space",
     "enumeration": "8"
    },
-   "solution": "WINDPIPE"
+   "solution": "WINDPIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINDPIPE",
+    "definitions": [
+     {
+      "text": "a breathing space",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blow",
+      "gives": "WIND",
+      "note": "wind is moving air, a blow"
+     },
+     {
+      "clueFragment": "whistle",
+      "gives": "PIPE",
+      "note": "a pipe is a simple whistle-like wind instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "PIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blowing a whistle to call a pause in play.",
+     "walkthrough": "'Breathing space' looks like a rest or pause, but here it is literally a passage that air travels through.",
+     "definitionFit": "The trachea is the tube carrying air between throat and lungs, a literal passage for respiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +515,39 @@
     "text": "Elite type found in newspaper production",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Elite type found in newspaper production",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite type found in newspaper production",
+      "note": "surface reading: Elite is the name of a typeface, the kind of print used to set a paper"
+     },
+     {
+      "clueFragment": "Elite type",
+      "note": "setter's reading: a top person, one of the elite, who runs a paper's output"
+     }
+    ],
+    "explanation": {
+     "surface": "A font called Elite being used to print a newspaper.",
+     "definitionFit": "The person in charge of a newspaper decides its content and is senior to all its journalists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +561,45 @@
     "text": "The hollow sound of success in business",
     "enumeration": "4"
    },
-   "solution": "BOOM"
+   "solution": "BOOM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOOM",
+    "definitions": [
+     {
+      "text": "The hollow sound",
+      "at": 0
+     },
+     {
+      "text": "success in business",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The hollow sound",
+      "note": "first meaning: a deep resonant noise"
+     },
+     {
+      "clueFragment": "success in business",
+      "note": "second meaning: a period of rapid economic growth"
+     }
+    ],
+    "explanation": {
+     "surface": "Success in business makes a hollow noise, a cynical remark about empty prosperity.",
+     "definitionFit": "The word means a deep resonant noise and also a spell of rapid commercial growth and prosperity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +623,41 @@
      }
     ]
    },
-   "solution": "BYALLMEANS"
+   "solution": "BYALLMEANS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BY ALL MEANS",
+    "definitions": [
+     {
+      "text": "Certainly",
+      "at": 0
+     },
+     {
+      "text": "using every available method",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly",
+      "note": "first meaning: a polite 'of course'"
+     },
+     {
+      "clueFragment": "using every available method",
+      "note": "second meaning: read literally, through all possible ways"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone promising to try every possible approach without question.",
+     "definitionFit": "The phrase is a courteous way of granting permission, and literally describes employing every possible way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +671,49 @@
     "text": "Be able to repeat a vigorous dance",
     "enumeration": "6"
    },
-   "solution": "CANCAN"
+   "solution": "CANCAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANCAN",
+    "definitions": [
+     {
+      "text": "a vigorous dance",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be able",
+      "gives": "CAN",
+      "note": "can means be able"
+     },
+     {
+      "clueFragment": "repeat",
+      "gives": "CAN",
+      "note": "the same word said once more"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Being able to perform an energetic dance more than once.",
+     "definitionFit": "The cancan is a lively high-kicking chorus routine from Parisian music halls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repeat"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +733,40 @@
      }
     ]
    },
-   "solution": "COCONUTSHY"
+   "solution": "COCONUTSHY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COCONUT-SHY",
+    "definitions": [
+     {
+      "text": "One may have a fair throw at it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may have a fair throw at it",
+      "note": "surface reading: a reasonable attempt or a fair chance at something"
+     },
+     {
+      "clueFragment": "fair throw",
+      "note": "setter's reading: a throw at a fairground stall where balls are hurled to knock prizes off posts"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone getting a reasonable chance at a goal.",
+     "walkthrough": "'A fair throw' sounds like a fair go; the fair is a funfair, a travelling fairground.",
+     "definitionFit": "This fairground sideshow has visitors hurling wooden balls to knock nuts from stands to win them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +786,51 @@
      }
     ]
    },
-   "solution": "ACIDTEST"
+   "solution": "ACIDTEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACID TEST",
+    "definitions": [
+     {
+      "text": "chemistry examination involving litmus paper",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the word is made from the same letters in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dictates",
+      "gives": "DICTATES",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DICTATES",
+       "gives": "ACIDTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher prescribes a fresh practical exam in chemistry.",
+     "walkthrough": "Litmus paper turns red in acid, so the clue's definition describes the chemistry literally; the phrase also means any decisive trial.",
+     "definitionFit": "Literally a test for acidity, such as dipping blue litmus to see it turn red."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dictates"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +850,47 @@
      }
     ]
    },
-   "solution": "DRYCELL"
+   "solution": "DRYCELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRY-CELL",
+    "definitions": [
+     {
+      "text": "Healthy accommodation for a prisoner",
+      "at": 0
+     },
+     {
+      "text": "battery",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "charged with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Healthy accommodation for a prisoner",
+      "note": "first meaning: a prison room that is not damp"
+     },
+     {
+      "clueFragment": "battery",
+      "note": "second meaning: a battery with a paste electrolyte rather than liquid"
+     }
+    ],
+    "explanation": {
+     "surface": "Decent lodgings for an inmate who is accused of assault.",
+     "walkthrough": "'Charged with battery' reads as a criminal accusation, but it just links the cell definition to the electrical one.",
+     "definitionFit": "This type of electric cell uses a paste electrolyte, as in an ordinary torch battery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "battery"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +904,47 @@
     "text": "Slash material price",
     "enumeration": "8"
    },
-   "solution": "LACERATE"
+   "solution": "LACERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACERATE",
+    "definitions": [
+     {
+      "text": "Slash",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "LACE",
+      "note": "lace is a fine openwork fabric"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "RATE",
+      "note": "a rate is a charge or price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop announcing it has cut the cost of fabric.",
+     "walkthrough": "'Slash' reads as a verb about cutting prices; it means cut flesh deeply.",
+     "definitionFit": "To lacerate is to tear or gash skin, as a blade or claws would."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slash"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +958,50 @@
     "text": "Risk getting left in church",
     "enumeration": "7"
    },
-   "solution": "CHANCEL"
+   "solution": "CHANCEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANCEL",
+    "definitions": [
+     {
+      "text": "in church",
+      "at": 18,
+      "note": "names a place within a church; the answer is the part of the building"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk",
+      "gives": "CHANCE",
+      "note": "to chance something is to risk it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHANCE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone taking a gamble on being abandoned at the altar.",
+     "definitionFit": "The chancel is the area near the altar reserved for clergy and choir, a section of the building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1015,39 @@
     "text": "Mummy's nationality",
     "enumeration": "8"
    },
-   "solution": "EGYPTIAN"
+   "solution": "EGYPTIAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGYPTIAN",
+    "definitions": [
+     {
+      "text": "Mummy's nationality",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mummy's nationality",
+      "note": "surface reading: the country one's mother comes from"
+     },
+     {
+      "clueFragment": "Mummy's",
+      "note": "setter's reading: an embalmed body, as in the ancient tombs by the Nile"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking where someone's mother was born.",
+     "definitionFit": "Embalmed preserved bodies are most famously from the pharaohs' land along the Nile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mummy's"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1061,55 @@
     "text": "They're out of step and overfussy",
     "enumeration": "7"
    },
-   "solution": "PEDANTS"
+   "solution": "PEDANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PEDANTS",
+    "definitions": [
+     {
+      "text": "overfussy",
+      "at": 24,
+      "note": "an adjective; with 'They're' it describes people, the plural noun answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "anagram",
+      "note": "out of order: the words that follow are knocked out of their sequence"
+     }
+    ],
+    "linkWords": [
+     "They're"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step and",
+      "gives": "STEPAND",
+      "note": "two words taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STEPAND",
+       "gives": "PEDANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who march out of time are also fussy about detail.",
+     "walkthrough": "'Out of step' reads as a fixed phrase meaning nonconforming, which hides the split into indicator and letters.",
+     "definitionFit": "Pedants are people excessively concerned with minor details and petty rules of correctness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "step"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1123,36 @@
     "text": "Housing for a direction-finder",
     "enumeration": "8"
    },
-   "solution": "BINNACLE"
+   "solution": "BINNACLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BINNACLE",
+    "definitions": [
+     {
+      "text": "Housing for a direction-finder",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Housing for a direction-finder",
+      "note": "surface reading: a casing for some kind of navigation gadget"
+     },
+     {
+      "clueFragment": "direction-finder",
+      "note": "setter's reading: a ship's compass, which stands on deck in its own stand"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "On a ship the compass is mounted in a stand near the helm, so this is its case."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1166,54 @@
     "text": "Ladies in fashion becoming models",
     "enumeration": "6"
    },
-   "solution": "IDEALS"
+   "solution": "IDEALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDEALS",
+    "definitions": [
+     {
+      "text": "models",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in fashion",
+      "for": "anagram",
+      "note": "to fashion is to shape, so the word is reshaped into a new form"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladies",
+      "gives": "LADIES",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LADIES",
+       "gives": "IDEALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women working in the fashion world end up as catwalk models.",
+     "walkthrough": "The fashion picture makes models mean catwalk models; here they are perfect examples.",
+     "definitionFit": "Ideals are perfect standards or exemplars worth copying, in the same sense as role models."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1233,43 @@
      }
     ]
    },
-   "solution": "AYEAYE"
+   "solution": "AYEAYE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AYE-AYE",
+    "definitions": [
+     {
+      "text": "It lives in Madagascar",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the agreement of sailors",
+      "gives": "AYEAYE",
+      "note": "sailors acknowledge an order with a doubled old word for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AYEAYE"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature living on an island, approved by passing seamen.",
+     "definitionFit": "The aye-aye is a nocturnal lemur found only on that island, with a long thin middle finger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1283,42 @@
     "text": "Business concern",
     "enumeration": "6"
    },
-   "solution": "AFFAIR"
+   "solution": "AFFAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFFAIR",
+    "definitions": [
+     {
+      "text": "Business",
+      "at": 0
+     },
+     {
+      "text": "concern",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "note": "first meaning: a matter, as in 'that is my business'"
+     },
+     {
+      "clueFragment": "concern",
+      "note": "second meaning: a thing that is someone's responsibility"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Business concern' reads as one phrase meaning a firm; split it, and each word separately means a matter.",
+     "definitionFit": "An affair is a matter or event that someone is responsible for or involved in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concern"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1338,50 @@
      }
     ]
    },
-   "solution": "BETTERHALF"
+   "solution": "BETTERHALF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER HALF",
+    "definitions": [
+     {
+      "text": "Dutch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punter",
+      "gives": "BETTER",
+      "note": "a punter is someone who places bets"
+     },
+     {
+      "clueFragment": "50%",
+      "gives": "HALF",
+      "note": "fifty per cent is one half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "HALF"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler from Holland lands odds of better than evens.",
+     "walkthrough": "Dutch is not about Holland: 'my old Dutch' is London slang for one's wife, from rhyming slang duchess of Fife.",
+     "definitionFit": "Both phrases are affectionate, jokey British terms for a man's wife or spouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dutch"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1395,44 @@
     "text": "Small amounts put on horses",
     "enumeration": "4"
    },
-   "solution": "BITS"
+   "solution": "BITS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BITS",
+    "definitions": [
+     {
+      "text": "Small amounts",
+      "at": 0
+     },
+     {
+      "text": "put on horses",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small amounts",
+      "note": "first meaning: little pieces"
+     },
+     {
+      "clueFragment": "put on horses",
+      "note": "second meaning: metal mouthpieces fitted on a horse's bridle"
+     }
+    ],
+    "explanation": {
+     "surface": "Modest stakes placed on a race.",
+     "walkthrough": "'Put on horses' suggests betting small amounts; instead it is tack placed in the horse's mouth.",
+     "definitionFit": "The word means small pieces, and also metal bars fixed in a horse's mouth for steering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1446,42 @@
     "text": "Harbour transport",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAR",
+    "definitions": [
+     {
+      "text": "Harbour",
+      "at": 0
+     },
+     {
+      "text": "transport",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harbour",
+      "note": "first meaning: to hold within"
+     },
+     {
+      "clueFragment": "transport",
+      "note": "second meaning: to carry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Harbour transport' suggests ferries in a port; both words are verbs here.",
+     "definitionFit": "To bear means to nurse a feeling such as a grudge, and also to carry something along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harbour"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1501,43 @@
      }
     ]
    },
-   "solution": "OLDHAT"
+   "solution": "OLDHAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OLD HAT",
+    "definitions": [
+     {
+      "text": "Out-of-date",
+      "at": 0
+     },
+     {
+      "text": "like a tricorn for example",
+      "at": 13,
+      "note": "the second sense is a noun phrase, an aged piece of headwear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out-of-date",
+      "note": "first meaning: unfashionable, stale"
+     },
+     {
+      "clueFragment": "like a tricorn for example",
+      "note": "second meaning, read literally: a piece of headwear from long ago"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A tricorn is the three-cornered hat of the 18th century, literally an ancient piece of headgear.",
+     "definitionFit": "The idiom describes stale, hackneyed ideas, and literally it is an aged item of headwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1551,60 @@
     "text": "Vessel manoeuvring in River Tamar",
     "enumeration": "8"
    },
-   "solution": "TRIMARAN"
+   "solution": "TRIMARAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIMARAN",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvring",
+      "for": "anagram",
+      "note": "manoeuvring means moving about, so the letters are moved into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "Tamar",
+      "gives": "TAMAR",
+      "note": "taken as written; the Tamar divides Devon from Cornwall"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INRTAMAR",
+       "gives": "TRIMARAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat steering its way along a river in the West of England.",
+     "definitionFit": "A trimaran is a sailing boat with three parallel hulls, a type of seagoing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
