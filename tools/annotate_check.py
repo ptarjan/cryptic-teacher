@@ -10,10 +10,12 @@ into tools/_ann_<ID>.json first: each named field replaced, null removing it,
 and deletes FILE. Many clues' fixes are one Write and this one command, not a
 fix script, which these runs cannot get approved.
 
-An entry's `printedClue` (a misread clue mended) and `setterError` (a
-setter's slip) are filed as its rows of tools/data/source_clue_wrong.json and
-setter_error.json and taken off the entry (FILED), so filing one is a field in
-the same write, not a hand edit of a sorted table.
+An entry's `printedClue` (a misread clue mended), `setterError` (a setter's
+slip) and `answerTypo` (the paper's key misprinted) are filed as its rows of
+tools/data/source_clue_wrong.json, setter_error.json and
+source_answer_wrong.json and taken off the entry (FILED), so filing one is a
+field in the same write, not a hand edit of a sorted table. An `answerTypo`
+also puts the corrected letters in the puzzle file's grid before the apply.
 
 An entry the _ann file has no key for is filled in as null (not done yet), so
 a file written a few clues at a time applies as it stands, an `answer`
@@ -54,6 +56,7 @@ from annotation import assembly, wordplay_letters  # noqa: E402
 import blog_post  # noqa: E402
 import fetch_puzzle  # noqa: E402
 import clue_types  # noqa: E402
+import corroborate  # noqa: E402
 import definitions  # noqa: E402
 import groups  # noqa: E402
 import provenance  # noqa: E402
@@ -64,6 +67,7 @@ from apply_annotations import (  # noqa: E402
     annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle  # noqa: E402
 from json_merge import dump_lines  # noqa: E402
+from validate_annotations import letters  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
@@ -343,23 +347,58 @@ def patch(pending, fix):
 
 DATA = TOOLS / "data"
 # _ann field -> (table it is filed in, what it must hold, an example). A row is
-# keyed "<ID>/<entry id>"; printedClue's row opens with the clue as shown.
+# keyed "<ID>/<entry id>"; printedClue's row opens with the clue as shown,
+# answerTypo's with the letters the paper printed.
 FILED = {
     "printedClue": ("source_clue_wrong", '["<clue as printed, no count>", "<evidence>"]',
                     '["Fudge the issue", "OCR misread: the anagram needs fudge"]'),
     "setterError": ("setter_error", '["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]',
                     '["skis Elf oil", "KISSOFLIFE", "the page prints Elf oil: one F short, one L over"]'),
+    "answerTypo": ("source_answer_wrong", '["<letters the wordplay builds>", "<evidence>"]',
+                   '["MINUSCULE", "NUS + CU in MILE; the grid prints MINISCULE, which the wordplay cannot give"]'),
 }
+# A key's misprint is a slipped letter or two; more is a different answer.
+TYPO_LETTERS = 2
+
+
+def answer_typo_problems(puzzle, eid, corrected, served, fixes):
+    """What stops `served` at `eid` being filed as the paper's misprint of
+    `corrected`, with `fixes` ({entry id: letters}) the batch's corrections."""
+    entry = {entry_id(e): e for e in puzzle["entries"]}[eid]
+    if not served:
+        return ["names an answer the paper never printed: a model's fill is "
+                "corrected through `answer`"]
+    if len(served) != entry.get("length"):
+        return [f"the printed {served} spans more than its light: file it by hand"]
+    if len(corrected) != len(served):
+        return [f"{corrected} is {len(corrected)} letters; the printed {served} is {len(served)}"]
+    changed = [i for i, (a, b) in enumerate(zip(served, corrected, strict=True)) if a != b]
+    if not changed:
+        return [f"{corrected} is what the grid already holds"]
+    if len(changed) > TYPO_LETTERS:
+        return [(f"{corrected} changes {len(changed)} letters of the printed {served}; a "
+                 f"misprint is at most {TYPO_LETTERS}, so re-read the wordplay")]
+    grid = {}
+    for e in puzzle["entries"]:
+        word = fixes.get(entry_id(e)) or letters(e.get("solution"))
+        if entry_id(e) != eid and len(word) == e.get("length"):
+            for cell, ch in zip(corroborate.cells(e), word, strict=True):
+                grid.setdefault(cell, []).append((entry_id(e), ch))
+    mine = corroborate.cells(entry)
+    return [f"its letter {i + 1} becomes {corrected[i]}, but crossing {other} has {ch} there"
+            for i in changed for other, ch in grid.get(mine[i], ()) if ch != corrected[i]]
 
 
 def file_rows(path, pending, data=DATA):
-    """Move each entry's `printedClue` and `setterError` in `pending` into
+    """Move each entry's `printedClue`, `setterError` and `answerTypo` in `pending` into
     their tables (FILED); returns (["<field> <entry id>" filed], what is wrong
     or None).
 
-    printedClue's row is [clue as shown, clue as printed, evidence]. The clue
-    as shown is the row's own when the key is already filed, so a re-run does
-    not record the mended text as what the source served."""
+    printedClue's row is [clue as shown, clue as printed, evidence], and
+    answerTypo's [answer printed, letters corrected, evidence]. What was shown
+    or printed is the row's own when the key is already filed, so a re-run does
+    not record the mended text as what the source served. An answerTypo's
+    letters go into the puzzle file's grid."""
     try:
         ann = json.loads(pending.read_text(encoding="utf-8"))
     except ValueError:
@@ -381,11 +420,22 @@ def file_rows(path, pending, data=DATA):
     unknown = sorted({eid for _, eid, _ in wants} - set(by_id))
     if unknown:
         return [], f"{', '.join(unknown)}: not an entry of {puzzle['id']}, so nothing to file"
+    answer_rows = json.loads((data / "source_answer_wrong.json").read_text(encoding="utf-8"))
+    printed = provenance.printed_answers(puzzle)
+    fixes = {eid: letters(v[0]) for field, eid, v in wants if field == "answerTypo"}
+    served = {}
     for field, eid, v in wants:
         if field == "setterError":
             problems = validate_annotations.setter_error_problems(puzzle, eid, v, ann[eid])
-            if problems:
-                return [], f"{eid}: " + "; ".join(problems)
+        elif field == "answerTypo":
+            key = f"{puzzle['id']}/{eid}"
+            served[eid] = (answer_rows[key][0] if key in answer_rows
+                           else letters(printed.get(eid)))
+            problems = answer_typo_problems(puzzle, eid, fixes[eid], served[eid], fixes)
+        else:
+            continue
+        if problems:
+            return [], f"{eid}: {field} " + "; ".join(problems)
     tables = {}
     for field, eid, v in wants:
         name = FILED[field][0]
@@ -396,12 +446,18 @@ def file_rows(path, pending, data=DATA):
             shown = rows[key][0] if key in rows else (by_id[eid]["clue"].get("text") or "")
             row = ["" if validate_annotations.is_blank_clue(shown) else shown] + row
             fetch_puzzle.SOURCE_CLUE_WRONG[(puzzle["id"], eid)] = tuple(row)
+        elif field == "answerTypo":
+            row = [served[eid], fixes[eid], row[1]]
+            fetch_puzzle.SOURCE_ANSWER_WRONG[(puzzle["id"], eid)] = tuple(row)
+            by_id[eid]["solution"] = fixes[eid]
         else:
             validate_annotations.SETTER_ERROR[(puzzle["id"], eid)] = tuple(row)
         rows[key] = row
         del ann[eid][field]
     for name, rows in tables.items():
         (data / f"{name}.json").write_text(dump_lines(rows), encoding="utf-8")
+    if fixes:
+        fetch_puzzle.write_puzzle_file(path, puzzle)
     pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return [f"{field} {eid}" for field, eid, _ in wants], None
 

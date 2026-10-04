@@ -1366,10 +1366,11 @@ tools/vlm_pick_prompt.md                     what the VLM reader is told when th
                                              disagree on one clue
 tools/test_annotate_partial.sh               a puzzle that has hints and lacks some is
                                              annotated only where it lacks them
-tools/test_annotate_filed_rows.sh            an _ann entry's printedClue and setterError are
-                                             filed as their source-table rows by
-                                             annotate_check, and the run's view carries
-                                             source.retrievedFrom and the grid
+tools/test_annotate_filed_rows.sh            an _ann entry's printedClue, setterError and
+                                             answerTypo are filed as their source-table rows by
+                                             annotate_check (answerTypo's letters into the
+                                             grid, refused against a crossing), and the run's
+                                             view carries source.retrievedFrom and the grid
 tools/errata.py                              a paper's erratum is a fix to the puzzle, not a
                                              preamble
 tools/test_errata.sh                         a paper's erratum in the preamble fixes its clue

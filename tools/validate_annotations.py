@@ -2315,7 +2315,10 @@ def check_blocks_account_for_answer(entries, errors, warnings):
         errors.append(
             f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) have blocks whose letters "
             f"are not the answer's. Letters that don't add up mean the wordplay was "
-            f"described rather than worked out")
+            f"described rather than worked out, or, when they build a real word a "
+            f"letter or two from a printed answer that is not one, that the key is "
+            f"misprinted: give that _ann entry \"answerTypo\": [\"<letters the "
+            f"wordplay builds>\", \"<evidence>\"]")
 
 
 def check_blocks_decompose(entries, errors, warnings):
