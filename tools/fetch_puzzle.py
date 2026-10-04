@@ -1919,6 +1919,10 @@ SOURCE_CLUE_WRONG = {
         "Composer changes ending 10 a short narrative",
         "Composer changes ending to a short narrative",
         "OCR misread: the wordplay needs to (the ending changes to A), not 10"),
+    ("times-18737", "19-across"): (
+        "Part of kitchen 111 embellish with fabric",
+        "Part of kitchen I'll embellish with fabric",
+        "OCR misread: CHENILLE is hidden in kitCHEN I'LL Embellish, which needs I'll, not 111"),
     ("times-18732", "24-down"): (
         "Outstanding victory obtained in miscalculation by team male",
         "Outstanding victory obtained in miscalculation by team-mate",
