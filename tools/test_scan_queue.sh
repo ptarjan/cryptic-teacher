@@ -38,6 +38,25 @@ check("a pool of two reads every item", [1, 2, 3], got)
 check("nothing starts after the deadline", [], list(q.parallel([(-1,)], abs, workers=2, deadline=time.monotonic() - 1)))
 check("serial when one worker, in order", [1, 2], [r for _, r in q.parallel([(-1,), (-2,)], abs)])
 
+# One item that raises is logged with its error and stands as failed()'s
+# result (or is left out), in a pool and serially; the rest still read.
+import contextlib, io
+def bad(x):
+    if x == 2:
+        raise ValueError("height and width must be > 0")
+    return x
+for workers in (1, 2):
+    err = io.StringIO()
+    with contextlib.redirect_stderr(err):
+        got = sorted((i[0], r) for i, r in q.parallel([(1,), (2,), (3,)], bad, workers=workers,
+                                                      failed=lambda item, e: f"failed: {e}"))
+        left = sorted(r for _, r in q.parallel([(1,), (2,), (3,)], bad, workers=workers))
+    check(f"workers={workers}: a raising item stands as failed()'s result, the rest read",
+          [(1, 1), (2, "failed: ValueError: height and width must be > 0"), (3, 3)], got)
+    check(f"workers={workers}: without failed() it is left out", [1, 3], left)
+    check(f"workers={workers}: the log names the item and the error", True,
+          "failed 2: ValueError: height and width must be > 0" in err.getvalue())
+
 ledger = Path(os.environ["TMP"]) / "filed.jsonl"
 with q.lock(ledger) as first:
     with q.lock(ledger) as second:
@@ -87,6 +106,18 @@ check("archive.org: an edition read without the VLM is read again once it answer
       [json.loads(l).get("vlm") for l in aledger.read_text().splitlines()])
 f.vlm.version = lambda: "v2"
 check("archive.org: a new VLM model alone makes nothing due", [], aread())
+
+real_scan = f.scan
+def raising(d):
+    raise ValueError("height and width must be > 0")
+f.scan = raising
+f.input_hash = lambda d: "new files"
+err = io.StringIO()
+with contextlib.redirect_stderr(err):
+    rows = f.run(cache, ledger=aledger, out=io.StringIO(), workers=2)
+check("archive.org: an edition whose scan raises is logged and kept as failed, the run goes on",
+      (4, True), (sum(1 for r in rows if r["scan"].get("failed")), "failed " in err.getvalue()))
+f.scan, f.input_hash = real_scan, (lambda d: "files")
 
 # The Trove filer, the same way.
 import file_trove_puzzles as F

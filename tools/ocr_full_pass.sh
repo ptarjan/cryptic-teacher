@@ -30,7 +30,13 @@ cd "$(dirname "$0")/.." || exit 1
 # Every line reaches the log as it is printed, never at a slice's end.
 export PYTHONUNBUFFERED=1
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
-WORKERS="${OCR_FULL_PASS_WORKERS:-2}"
+# The OCR itself runs on the desktop (tools/ocr_remote.py; OCR_REMOTE= to
+# read here), so most of each worker's time is a wait on it: this host
+# keeps the parsing and the vote, at nice 19, one OCR thread a worker when
+# the desktop is off.
+export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.48}"
+export OCR_THREADS="${OCR_THREADS:-1}"
+WORKERS="${OCR_FULL_PASS_WORKERS:-12}"
 # Scan filer: readings screened against the grid, VLM picks held to the readers
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-03T15:22:00+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
@@ -57,7 +63,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
     # is doing now; the copy in $out is read for the slice's tally.
-    nice -n 10 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
+    nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
     rc=${PIPESTATUS[0]}
     publish "$what" || echo "commit failed for $what"
     [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; rm -f "$out"; return 1; }

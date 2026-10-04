@@ -10,7 +10,9 @@ tools/file_trove_puzzles.py).
   - parallel(): `workers` sources in flight at once, in a process pool, so
     one source's wait on the desktop VLM (one request at a time) overlaps
     another's OCR. No source starts once `deadline` (time.monotonic()) has
-    passed.
+    passed. A source whose read raises is logged (the source and the
+    traceback) and stands as `failed(item, error)`'s result, or is left out:
+    one bad page never stops a run.
   - lock(): one run per ledger, so a long full pass and the nightly never
     write the same ledger at once.
 """
@@ -20,7 +22,9 @@ import fcntl
 import multiprocessing
 import sys
 import time
+import traceback
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
+from concurrent.futures.process import BrokenProcessPool
 
 
 def now():
@@ -74,10 +78,22 @@ def lock(ledger, wait_for_it=False):
         yield True
 
 
-def parallel(items, fn, workers=1, deadline=None, init=None, initargs=()):
+def _failure(item, e):
+    """The log line for `item`'s read raising `e`: the source and the whole
+    traceback (a worker's included), so the log says what to look at."""
+    text = "".join(traceback.format_exception(e)).rstrip()
+    print(f"{time.strftime('%H:%M:%S')} failed {item[0]}: {type(e).__name__}: {e}\n{text}",
+          file=sys.stderr, flush=True)
+    return f"{type(e).__name__}: {e}"
+
+
+def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed=None):
     """Yields (item, fn(*item)) as each finishes, at most `workers` at once
     (1: in this process, in order). `init(*initargs)` runs first in each
-    process. No item starts once `deadline` has passed."""
+    process. No item starts once `deadline` has passed. An item whose fn
+    raises is logged and yields (item, failed(item, "Type: message")), or
+    nothing without `failed`. A dead pool (a worker killed) still raises:
+    that is the host, not the item."""
     def due():
         return deadline is not None and time.monotonic() >= deadline
     items = iter(items)
@@ -87,7 +103,14 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=()):
         for item in items:
             if due():
                 return
-            yield item, fn(*item)
+            try:
+                result = fn(*item)
+            except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
+                error = _failure(item, e)
+                if failed is not None:
+                    yield item, failed(item, error)
+                continue
+            yield item, result
         return
     # Forked, so a worker starts with the parent's lexicon and modules loaded
     # (the parent loads no OCR model, so no thread is forked mid-call).
@@ -106,5 +129,15 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=()):
         while running:
             done, _ = wait(running, return_when=FIRST_COMPLETED)
             for fut in done:
-                yield running.pop(fut), fut.result()
+                item = running.pop(fut)
+                try:
+                    result = fut.result()
+                except BrokenProcessPool:
+                    raise
+                except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
+                    error = _failure(item, e)
+                    if failed is not None:
+                        yield item, failed(item, error)
+                    continue
+                yield item, result
             top_up()

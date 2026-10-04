@@ -1000,7 +1000,8 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
     # A line every few minutes, so a watcher sees a long slice move.
     reported = time.monotonic()
     for done, ((d,), (verdict, puzzle, vlm_ok)) in enumerate(scan_queue.parallel(
-            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,)), 1):
+            [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,),
+            failed=lambda item, error: ({"refused": f"crashed: {error}"}, None, False)), 1):
         aid, h = d.name, due[d]
         if time.monotonic() - reported >= 300:
             reported = time.monotonic()
