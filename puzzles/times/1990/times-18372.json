@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "29 entries, 60 crossings, 0 conflicts"
+  "check": "29 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "8-down",
+    "was": "KEROSENE",
+    "now": "KEROSINE",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,57 @@
     "text": "Imperturbable clan-leader in his shoulder-cloth",
     "enumeration": "6"
    },
-   "solution": "PLACID"
+   "solution": "PLACID",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PLACID",
+    "definitions": [
+     {
+      "text": "Imperturbable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside that other item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his shoulder-cloth",
+      "gives": "PLAID",
+      "note": "a plaid is the tartan cloth a Highlander wears over the shoulder"
+     },
+     {
+      "clueFragment": "clan-leader",
+      "gives": "C",
+      "select": "first",
+      "note": "the leading letter of clan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "C",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm Scottish chief stands wrapped in his tartan shoulder-cloth.",
+     "walkthrough": "C goes inside PLAID to give PLACID.",
+     "definitionFit": "Placid describes someone calm and not easily upset, a close synonym of unflappable or serene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clan-leader"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +110,63 @@
     "text": "He hangs about with royal, or elite, assortment",
     "enumeration": "8"
    },
-   "solution": "LOITERER"
+   "solution": "LOITERER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOITERER",
+    "definitions": [
+     {
+      "text": "He hangs about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assortment",
+      "for": "anagram",
+      "note": "an assortment is a mixed collection, so the letters come jumbled together"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R is the abbreviation for royal"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elite",
+      "gives": "ELITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROR ELITE",
+       "gives": "LOITERER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lingers near royals or the upper class, a mixed crowd.",
+     "definitionFit": "A loiterer is a person who idles or lingers in a place without obvious purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "royal"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +180,39 @@
     "text": "The Muse who makes a fair noise?",
     "enumeration": "8"
    },
-   "solution": "CALLIOPE"
+   "solution": "CALLIOPE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CALLIOPE",
+    "definitions": [
+     {
+      "text": "The Muse who makes a fair noise?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Muse who makes a fair noise?",
+      "note": "surface reading: a goddess of song with a pleasant enough voice"
+     },
+     {
+      "clueFragment": "fair noise",
+      "note": "setter's reading: the steam organ heard at a fairground, named after the Muse of epic poetry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Fair means fairground, not reasonable: the steam whistle organ played at fairs shares the Muse's name.",
+     "definitionFit": "Calliope is the Muse of epic poetry and also a loud steam-whistle organ used at fairgrounds and circuses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +226,63 @@
     "text": "Finger-nail broken giving heart-stimulant",
     "enumeration": "9"
    },
-   "solution": "DIGITALIN"
+   "solution": "DIGITALIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DIGITALIN",
+    "definitions": [
+     {
+      "text": "heart-stimulant",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so its letters fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finger",
+      "gives": "DIGIT",
+      "note": "a digit is a finger"
+     },
+     {
+      "clueFragment": "nail",
+      "gives": "ALIN",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGIT",
+      "ALIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAIL",
+       "gives": "ALIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An injured fingernail sends someone's pulse racing.",
+     "definitionFit": "Digitalin is a drug from foxglove used to strengthen and regulate the heartbeat, a cardiac stimulant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +302,40 @@
      }
     ]
    },
-   "solution": "HERDBOOK"
+   "solution": "HERDBOOK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HERD-BOOK",
+    "definitions": [
+     {
+      "text": "Volume of stock lines",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volume of stock lines",
+      "note": "surface reading: a book listing the stock lines a shop or market carries"
+     },
+     {
+      "clueFragment": "stock lines",
+      "note": "setter's reading: livestock bloodlines, the pedigrees of cattle recorded in a register"
+     }
+    ],
+    "explanation": {
+     "surface": "A catalogue of goods a merchant keeps in stock.",
+     "walkthrough": "Stock means livestock, and lines means breeding lines, so the volume is a pedigree register for cattle.",
+     "definitionFit": "A herd-book is the official register recording pedigrees of cattle or pigs, a volume of livestock ancestry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +355,67 @@
      }
     ]
    },
-   "solution": "HARVESTFESTIVAL"
+   "solution": "HARVESTFESTIVAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HARVEST FESTIVAL",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is its first letter"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "letters arranged are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "in which",
+     "round"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Rev has vittles",
+      "gives": "AREVHASVITTLES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "font",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of font"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AREVHASVITTLESF",
+       "gives": "HARVESTFESTIVAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service where the vicar sets out food around the font.",
+     "walkthrough": "Font is the church basin, fitting the scene; only its first letter joins the fodder, with round placing it among the mixed letters.",
+     "definitionFit": "A harvest festival is a church thanksgiving service in autumn, with produce displayed in the church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "font"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +429,47 @@
     "text": "Runs quickly in shorts",
     "enumeration": "7"
    },
-   "solution": "DOUBLES"
+   "solution": "DOUBLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOUBLES",
+    "definitions": [
+     {
+      "text": "Runs quickly",
+      "at": 0
+     },
+     {
+      "text": "shorts",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs quickly",
+      "note": "first meaning: goes at the double, at a quick march"
+     },
+     {
+      "clueFragment": "shorts",
+      "note": "second meaning: double measures of spirits, which are short drinks"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete sprints in short trousers.",
+     "walkthrough": "Shorts are not trousers but short drinks of spirits; doubles are large ones.",
+     "definitionFit": "To double is to move at twice the pace, and doubles are twin measures of whisky or other spirits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shorts"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +489,49 @@
      }
     ]
    },
-   "solution": "OFFSTAGE"
+   "solution": "OFFSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFF-STAGE",
+    "definitions": [
+     {
+      "text": "Players cannot be seen here",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slack",
+      "gives": "OFF",
+      "note": "off means slack or quiet, as in an off season"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "STAGE",
+      "note": "a stage is a phase or period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "STAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Actors vanish from view during a lull.",
+     "definitionFit": "Off-stage is the area hidden from the audience in a theatre, where actors waiting for cues stay out of view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "slack"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +545,75 @@
     "text": "Fuel for Hawker, leaving May, with terrible noise",
     "enumeration": "8"
    },
-   "solution": "KEROSENE"
+   "solution": "KEROSINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "anagram"
+    ],
+    "answer": "KEROSINE",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so those letters are taken out"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "terrible suggests a mess, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hawker",
+      "gives": "HAWKER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "May",
+      "gives": "HAW",
+      "note": "may is hawthorn blossom, whose berry is the haw"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "OSINE",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KER",
+      "OSINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOISE",
+       "gives": "OSINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fuel for a Hawker jet aircraft, minus a pilot called May, makes a dreadful racket.",
+     "walkthrough": "The wordplay gives KEROSINE, a standard variant spelling of KEROSENE; the I is unchecked, so the clue's letters decide it.",
+     "definitionFit": "Kerosine is paraffin oil, burnt in lamps and heaters and used as jet engine fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +627,63 @@
     "text": "No town-dweller has a drink after 6.50",
     "enumeration": "8"
    },
-   "solution": "VILLAGER"
+   "solution": "VILLAGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VILLAGER",
+    "definitions": [
+     {
+      "text": "No town-dweller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one item coming after another fixes their order, the drink placed last"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "6",
+      "gives": "VI",
+      "note": "6 in Roman numerals"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "50 in Roman numerals"
+     },
+     {
+      "clueFragment": "a drink",
+      "gives": "LAGER",
+      "note": "a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "L",
+      "LAGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A country person settles down with a beer just before seven o'clock.",
+     "walkthrough": "6.50 looks like a clock time but splits into Roman numerals VI and L.",
+     "definitionFit": "A villager lives in a small rural settlement, so is not someone residing in a town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "6.50"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +697,44 @@
     "text": "Cove at the end of the line?",
     "enumeration": "6"
    },
-   "solution": "BUFFER"
+   "solution": "BUFFER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUFFER",
+    "definitions": [
+     {
+      "text": "Cove",
+      "at": 0
+     },
+     {
+      "text": "at the end of the line",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cove",
+      "note": "first meaning: a chap"
+     },
+     {
+      "clueFragment": "at the end of the line",
+      "note": "second meaning: the sprung stop at the end of a railway track"
+     }
+    ],
+    "explanation": {
+     "surface": "A bay sits where a coastline finishes.",
+     "walkthrough": "Cove is old British slang for a man, not an inlet; 'old buffer' is a fond name for an elderly fellow.",
+     "definitionFit": "Buffer is informal British for a fellow, and buffers are the shock-absorbing stops terminating a railway track."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cove"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +748,47 @@
     "text": "Dwarf to remain undersized",
     "enumeration": "8"
    },
-   "solution": "BELITTLE"
+   "solution": "BELITTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BELITTLE",
+    "definitions": [
+     {
+      "text": "Dwarf",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to remain",
+      "gives": "BE",
+      "note": "to be is to exist or remain"
+     },
+     {
+      "clueFragment": "undersized",
+      "gives": "LITTLE",
+      "note": "small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LITTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dwarf is destined to stay small.",
+     "walkthrough": "Dwarf reads as a noun but is the verb: to make something seem small.",
+     "definitionFit": "To belittle something is to make it seem smaller or less important, which is what dwarfing it does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dwarf"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +802,58 @@
     "text": "Scolds for being unpunctual on board",
     "enumeration": "6"
    },
-   "solution": "SLATES"
+   "solution": "SLATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLATES",
+    "definitions": [
+     {
+      "text": "Scolds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "being on board a vessel means being inside the ship's abbreviation"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being unpunctual",
+      "gives": "LATE",
+      "note": "not on time"
+     },
+     {
+      "clueFragment": "on board",
+      "gives": "SS",
+      "note": "SS is steamship, the usual ship in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets told off for turning up late to a meeting of the board.",
+     "walkthrough": "Board suggests a committee, but being on board in crosswords means aboard a ship, the usual steamship abbreviation.",
+     "definitionFit": "To slate is to criticise harshly, a British informal synonym for scolding or rebuking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +867,39 @@
     "text": "Party tricks?",
     "enumeration": "8"
    },
-   "solution": "POLITICS"
+   "solution": "POLITICS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "POLITICS",
+    "definitions": [
+     {
+      "text": "Party tricks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party tricks?",
+      "note": "surface reading: amusing turns performed at a social gathering"
+     },
+     {
+      "clueFragment": "Party",
+      "note": "setter's reading: the schemes and manoeuvres of a political party"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that party means a political organisation rather than a celebration.",
+     "definitionFit": "Politics covers the manoeuvring and scheming done by parties to gain power, so is their stock of tricks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +913,54 @@
     "text": "Stance all wrong for governor to keep",
     "enumeration": "9"
    },
-   "solution": "CASTELLAN"
+   "solution": "CASTELLAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASTELLAN",
+    "definitions": [
+     {
+      "text": "governor to keep",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters gone wrong are out of their proper order and must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stance all",
+      "gives": "STANCEALL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STANCEALL",
+       "gives": "CASTELLAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruler's posture is criticised as the wrong one to maintain.",
+     "walkthrough": "Keep is the noun, a castle's stronghold tower, not the verb to retain.",
+     "definitionFit": "A castellan was the governor or warden in charge of a castle and its keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +974,39 @@
     "text": "Bank of Scotland?",
     "enumeration": "4"
    },
-   "solution": "BRAE"
+   "solution": "BRAE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRAE",
+    "definitions": [
+     {
+      "text": "Bank of Scotland?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bank of Scotland?",
+      "note": "surface reading: the financial institution of that name"
+     },
+     {
+      "clueFragment": "Bank",
+      "note": "setter's reading: a hillside slope, in the Scots word for one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Bank of Scotland is a real bank, but here bank means a grassy slope as Scots call it.",
+     "definitionFit": "Brae is the Scots word for a hillside or steep slope, a bank of earth in Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1020,39 @@
     "text": "Pole standing in the middle of this shelter",
     "enumeration": "8"
    },
-   "solution": "BELLTENT"
+   "solution": "BELLTENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BELL TENT",
+    "definitions": [
+     {
+      "text": "Pole standing in the middle of this shelter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole standing in the middle",
+      "note": "surface reading: a person from Poland standing in a shelter"
+     },
+     {
+      "clueFragment": "Pole",
+      "note": "setter's reading: a single upright post supporting a round canvas shelter from its centre"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pole looks like a nationality, but is the single central post holding up a conical canvas shelter.",
+     "definitionFit": "A bell tent is a cone-shaped tent held up by one central pole, shaped somewhat like a bell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1066,47 @@
     "text": "Freud is said to be a keeper of records",
     "enumeration": "8"
    },
-   "solution": "ANNALIST"
+   "solution": "ANNALIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ANNALIST",
+    "definitions": [
+     {
+      "text": "a keeper of records",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is said",
+      "for": "homophone",
+      "note": "what is said is spoken, so a word with the same sound but another spelling is wanted"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Freud",
+      "gives": "ANNALIST",
+      "soundsLike": "ANALYST",
+      "note": "Sigmund Freud was the founding psychoanalyst"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that the father of psychoanalysis kept careful notes on his patients.",
+     "definitionFit": "An annalist writes annals, the year-by-year historical chronicles of events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Freud"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1120,43 @@
     "text": "I say! That's rather embarrassing — shut up!",
     "enumeration": "4"
    },
-   "solution": "HERE"
+   "solution": "HERE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HERE",
+    "definitions": [
+     {
+      "text": "I say!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shut up",
+      "for": "hidden_word",
+      "note": "shut up means enclosed, so the letters are locked inside the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather embarrassing",
+      "gives": "HERE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone flusters at an awkward moment and tells another to be quiet.",
+     "walkthrough": "The answer runs through ratHER Embarrassing; shut up reads as an order but is the indicator.",
+     "definitionFit": "Here! is an exclamation for catching attention or protesting, used just like the British I say!"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shut"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1176,39 @@
      }
     ]
    },
-   "solution": "HALFMAST"
+   "solution": "HALFMAST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HALF-MAST",
+    "definitions": [
+     {
+      "text": "Extent to which standards are lowered, sadly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standards are lowered, sadly",
+      "note": "surface reading: a lament about declining quality"
+     },
+     {
+      "clueFragment": "standards",
+      "note": "setter's reading: flags are dropped partway down their poles as a sign of mourning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Standards reads as levels of quality but means flags, lowered partway in mourning.",
+     "definitionFit": "Flying a flag at half-mast, partway down its pole, signals mourning for a death."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standards"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1222,58 @@
     "text": "Architect losing head - lightweight to be rid of",
     "enumeration": "8"
    },
-   "solution": "RENOUNCE"
+   "solution": "RENOUNCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RENOUNCE",
+    "definitions": [
+     {
+      "text": "be rid of",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the word drops its opening letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Architect",
+      "gives": "WREN",
+      "note": "Sir Christopher Wren, architect of St Paul's Cathedral"
+     },
+     {
+      "clueFragment": "lightweight",
+      "gives": "OUNCE",
+      "note": "an ounce is a small unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REN",
+      "OUNCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A beheaded architect, a featherweight, is one to be got rid of.",
+     "walkthrough": "Wren loses its W.",
+     "definitionFit": "To renounce something is to give it up formally, abandoning it and so being free of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lightweight"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1287,44 @@
     "text": "Position of cedilla, we hear — below the surface",
     "enumeration": "8"
    },
-   "solution": "UNDERSEA"
+   "solution": "UNDERSEA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "UNDERSEA",
+    "definitions": [
+     {
+      "text": "below the surface",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the spelling follows the pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Position of cedilla",
+      "gives": "UNDERSEA",
+      "soundsLike": "UNDER C",
+      "note": "a cedilla is the hook written beneath the letter c, as in façade"
+     }
+    ],
+    "explanation": {
+     "surface": "A grammar point about where an accent mark sits, then a diving trip.",
+     "definitionFit": "Undersea means beneath the ocean's waves, located down past the water's top layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cedilla"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1338,39 @@
     "text": "One who makes one?",
     "enumeration": "7"
    },
-   "solution": "UNIFIER"
+   "solution": "UNIFIER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNIFIER",
+    "definitions": [
+     {
+      "text": "One who makes one?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who makes one?",
+      "note": "surface reading: a maker of some single thing"
+     },
+     {
+      "clueFragment": "makes one",
+      "note": "setter's reading: brings several parts together into a single whole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Makes one means joins into a single unit, not produces an item.",
+     "definitionFit": "A unifier joins separate groups or parts so they become a single united whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "makes"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1384,50 @@
     "text": "Conduct acceptable with this note of introduction",
     "enumeration": "6"
    },
-   "solution": "LEADIN"
+   "solution": "LEADIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAD-IN",
+    "definitions": [
+     {
+      "text": "note of introduction",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conduct",
+      "gives": "LEAD",
+      "note": "to conduct is to lead"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "IN",
+      "note": "in means fashionable or acceptable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAD",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Good behaviour is welcome when accompanied by a letter of introduction.",
+     "walkthrough": "Conduct is the verb, not behaviour.",
+     "definitionFit": "A lead-in is an opening remark or passage that introduces what follows, like a preface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conduct"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1447,39 @@
      }
     ]
    },
-   "solution": "TREEFROG"
+   "solution": "TREEFROG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TREE-FROG",
+    "definitions": [
+     {
+      "text": "Does it hop the twig as it croaks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hop the twig as it croaks",
+      "note": "surface reading: both phrases are slang for dying"
+     },
+     {
+      "clueFragment": "hop the twig",
+      "note": "setter's reading: a small amphibian literally jumps among branches and makes its croaking call"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hop the twig and croak are British slang for die, but taken literally they describe a croaking creature leaping along branches.",
+     "definitionFit": "A tree-frog is an amphibian living in trees, so it really does hop on twigs and croak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "croaks"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1493,54 @@
     "text": "Bring out legal point first",
     "enumeration": "6"
    },
-   "solution": "ELICIT"
+   "solution": "ELICIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELICIT",
+    "definitions": [
+     {
+      "text": "Bring out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first places the point at the very front, ahead of the word for legal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "a compass point, east"
+     },
+     {
+      "clueFragment": "legal",
+      "gives": "LICIT",
+      "note": "permitted by law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LICIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer opens by raising a point of law.",
+     "walkthrough": "Point is a compass point, E, not a point of argument.",
+     "definitionFit": "To elicit is to draw out a response or information, the same as drawing or coaxing it forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -429,7 +1554,56 @@
     "text": "Foul play of midlands team at home, taking on unknown quantity",
     "enumeration": "8"
    },
-   "solution": "VILLAINY"
+   "solution": "VILLAINY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VILLAINY",
+    "definitions": [
+     {
+      "text": "Foul play",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "midlands team",
+      "gives": "VILLA",
+      "note": "Aston Villa, the Birmingham football club"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "algebra's unknowns are x, y and z"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VILLA",
+      "IN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: dirty tactics in a midlands side's home match against unknown opponents.",
+     "walkthrough": "Aston Villa is a Birmingham football club, widely called just Villa.",
+     "definitionFit": "Villainy is wicked or criminal behaviour, the kind of wrongdoing called foul play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 24,
@@ -443,7 +1617,67 @@
     "text": "Coaching could be out in test",
     "enumeration": "8"
    },
-   "solution": "TUTORIAL"
+   "solution": "TUTORIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TUTORIAL",
+    "definitions": [
+     {
+      "text": "Coaching",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests the word may take another form, so its letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in the test word means it goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "TRIAL",
+      "note": "a trial is a test"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "UTO",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "UTO",
+      "RIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "UTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman's coaching session might end with him being out in a Test match.",
+     "walkthrough": "The rearranged OUT goes after the T of TRIAL.",
+     "definitionFit": "A tutorial is a teaching session with a tutor, a period of individual instruction or coaching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 25,
@@ -457,7 +1691,51 @@
     "text": "Northern number is lower",
     "enumeration": "6"
    },
-   "solution": "NETHER"
+   "solution": "NETHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NETHER",
+    "definitions": [
+     {
+      "text": "lower",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "ETHER",
+      "note": "a number here is something that numbs: ether is an anaesthetic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ETHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A statistic from the north comes in below expectations.",
+     "walkthrough": "Number is read as numb-er, a thing that numbs, which ether did as an early anaesthetic.",
+     "definitionFit": "Nether is an old-fashioned adjective meaning lower or under, as in the nether regions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   }
  ]
 }
