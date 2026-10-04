@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "32 entries, 64 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "Mythical King John captured by church officer",
     "enumeration": "9"
    },
-   "solution": "PRESBYTER"
+   "solution": "PRESBYTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRESBYTER",
+    "definitions": [
+     {
+      "text": "church officer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured",
+      "for": "container",
+      "note": "whatever is captured is held inside its captor, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mythical King John",
+      "gives": "PRESTER",
+      "note": "Prester John was the legendary Christian king of the East in medieval tales"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "BY",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary king is seized by a churchman.",
+     "walkthrough": "'Captured by' reads as one passive phrase, but 'by' is the captive and 'captured' tells you to put it inside the king's name: PRES-BY-TER.",
+     "definitionFit": "A presbyter is an elder in early or Presbyterian churches, an official with pastoral duties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +100,62 @@
     "text": "Down i Poet's way to frame a line",
     "enumeration": "5"
    },
-   "solution": "PLATH"
+   "solution": "PLATH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLATH",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to frame",
+      "for": "container",
+      "note": "a frame surrounds a picture, so one word is placed around the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Down i",
+      "note": "not part of the clue: the scanned column heading and clue number, Down 1, run into its text"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "PATH",
+      "note": "a path is a way or track"
+     },
+     {
+      "clueFragment": "a line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "ATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's knack for setting a single line in a frame.",
+     "walkthrough": "'Down i' is the scanned column heading 'Down 1' run into the clue and is not part of it. The 's after Poet is 'is', not a possessive.",
+     "definitionFit": "Sylvia Plath was an American poet, famous for Ariel and the novel The Bell Jar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +169,48 @@
     "text": "Talks volubly, getting over some intense suffering",
     "enumeration": "7"
    },
-   "solution": "EFFUSES"
+   "solution": "EFFUSES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EFFUSES",
+    "definitions": [
+     {
+      "text": "Talks volubly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, a run lying across two words"
+     },
+     {
+      "text": "getting over",
+      "for": "reversal",
+      "note": "in a down clue, turning over flips the run so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intense suffering",
+      "gives": "SESUFFE",
+      "note": "the run spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone pours out words while recovering from great pain.",
+     "definitionFit": "To effuse is to pour forth, and of a person, to speak with unrestrained enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +224,45 @@
     "text": "Complain tediously of internal pain",
     "enumeration": "9"
    },
-   "solution": "BELLYACHE"
+   "solution": "BELLYACHE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BELLYACHE",
+    "definitions": [
+     {
+      "text": "Complain tediously",
+      "at": 0
+     },
+     {
+      "text": "internal pain",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complain tediously",
+      "note": "first meaning: a verb, to whine and grumble at length"
+     },
+     {
+      "clueFragment": "internal pain",
+      "note": "second meaning: a noun, a pain in the stomach"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone moans endlessly about a pain inside.",
+     "definitionFit": "The informal verb means to grumble persistently, while the literal noun names a sore stomach or colic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +286,46 @@
      }
     ]
    },
-   "solution": "THATSDONEIT"
+   "solution": "THATSDONEIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THAT'S DONE IT",
+    "definitions": [
+     {
+      "text": "I've succeeded!",
+      "at": 0
+     },
+     {
+      "text": "I've made a mistake!",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "No."
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I've succeeded!",
+      "note": "first meaning: a cry of satisfaction when a job is finished"
+     },
+     {
+      "clueFragment": "I've made a mistake!",
+      "note": "second meaning: a cry of dismay when something has been ruined"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone claims triumph, then corrects themselves: it has all gone wrong.",
+     "walkthrough": "'No.' is the speaker changing their mind, which is exactly how the one phrase swings between triumph and disaster.",
+     "definitionFit": "The exclamation is used both when a task is completed and, ironically, when a blunder has spoilt everything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +339,50 @@
     "text": "Top half of missile flew fabulously",
     "enumeration": "3"
    },
-   "solution": "ROC"
+   "solution": "ROC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROC",
+    "definitions": [
+     {
+      "text": "flew fabulously",
+      "at": 20,
+      "note": "a verb phrase describing the bird, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top half of",
+      "for": "deletion",
+      "note": "in a down clue the top half is the first half, so the rest of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "missile",
+      "gives": "ROCKET",
+      "note": "a rocket is a self-propelled missile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROC"
+     ]
+    },
+    "explanation": {
+     "surface": "The nose of a missile soared like something out of a fable.",
+     "walkthrough": "'Fabulously' means in fable: the clue describes the creature by what it did in legend.",
+     "definitionFit": "The roc is a giant mythical bird of Arabian legend, as in Sinbad's voyages, that flew carrying elephants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fabulously"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +396,47 @@
     "text": "Fine for police officer?",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUPER",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     },
+     {
+      "text": "police officer",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "note": "first meaning: excellent, splendid"
+     },
+     {
+      "clueFragment": "police officer",
+      "note": "second meaning: short for a superintendent"
+     }
+    ],
+    "explanation": {
+     "surface": "A penalty imposed on a policeman.",
+     "walkthrough": "'Fine' looks like a penalty but is the adjective meaning splendid. A super is British slang for a police superintendent.",
+     "definitionFit": "The adjective is informal for excellent, and the noun is a clipped form of superintendent, a senior police rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +450,46 @@
     "text": "In position, and seen talking",
     "enumeration": "5"
    },
-   "solution": "SITED"
+   "solution": "SITED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SITED",
+    "definitions": [
+     {
+      "text": "In position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talking",
+      "for": "homophone",
+      "note": "talking means the word is heard rather than read, so its sound counts"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seen",
+      "gives": "SITED",
+      "soundsLike": "SIGHTED",
+      "note": "sighted means seen, and is said the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is in place and visibly chatting.",
+     "definitionFit": "Something sited has been located or placed in a particular spot, so it is set in its position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "talking"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +509,58 @@
      }
     ]
    },
-   "solution": "PERDIEM"
+   "solution": "PERDIEM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PER DIEM",
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enclosing",
+      "for": "container",
+      "note": "enclosing means surrounding, so one word goes around the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pools entry",
+      "gives": "PERM",
+      "note": "a perm (permutation) is a combination of matches entered on the British football pools"
+     },
+     {
+      "clueFragment": "stamp",
+      "gives": "DIE",
+      "note": "a die is a tool that stamps a design, as on coins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "DIE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's football pools coupon has a postage stamp inside.",
+     "walkthrough": "'Daily' looks like a newspaper, but it is the adverb. The football pools are a British weekly betting game on match results.",
+     "definitionFit": "The Latin phrase means for each day, an adverb used of rates or allowances paid by the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +574,73 @@
     "text": "Hope created this exalted expression worn by penniless Calvinist",
     "enumeration": "9"
    },
-   "solution": "RURITANIA"
+   "solution": "RURITANIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "RURITANIA",
+    "definitions": [
+     {
+      "text": "Hope created this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exalted",
+      "for": "reversal",
+      "note": "exalted means raised up, and in a down clue lifting a word makes it read bottom to top"
+     },
+     {
+      "text": "penniless",
+      "for": "deletion",
+      "note": "having no penny means the letter standing for a penny is removed"
+     },
+     {
+      "text": "worn by",
+      "for": "container",
+      "note": "what is worn goes around the wearer, so one word surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expression",
+      "gives": "AIR",
+      "note": "an air is a look or manner, as in an air of confidence"
+     },
+     {
+      "clueFragment": "Calvinist",
+      "gives": "PURITAN",
+      "note": "the Puritans were English Calvinist Protestants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "URITAN",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hope coined this lofty phrase, sported by a hard-up Calvinist.",
+     "walkthrough": "'Hope' looks like the feeling but is the novelist Anthony Hope. P for penny goes from the Calvinist, and RIA wraps the rest.",
+     "definitionFit": "Anthony Hope invented the fictional central European kingdom in his novel The Prisoner of Zenda."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hope"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +654,49 @@
     "text": "Twin boys taking a purple plant",
     "enumeration": "7"
    },
-   "solution": "ALFALFA"
+   "solution": "ALFALFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALFALFA",
+    "definitions": [
+     {
+      "text": "purple plant",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twin boys",
+      "gives": "ALFALF",
+      "note": "two boys with the same short name, Alf and Alf"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALFALF",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Twin brothers pick a purple-flowered plant.",
+     "definitionFit": "Lucerne, a fodder crop of the pea family, bears clusters of small purple flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Twin"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +710,57 @@
     "text": "Nurse holding note from supplier",
     "enumeration": "7"
    },
-   "solution": "CATERER"
+   "solution": "CATERER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CATERER",
+    "definitions": [
+     {
+      "text": "supplier",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a word that holds another has it inside, so the second goes within the first"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "CARER",
+      "note": "a carer looks after someone, as a nurse does"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is the seventh note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TE",
+      "RER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse holds a note sent by a supplier.",
+     "definitionFit": "A caterer is a business that provides food and drink for events, so a supplier of meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +774,57 @@
     "text": "Holds borders of territory fast",
     "enumeration": "5"
    },
-   "solution": "HASTY"
+   "solution": "HASTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HASTY",
+    "definitions": [
+     {
+      "text": "fast",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders of",
+      "for": "letter_selection",
+      "note": "the borders are the edges, so only the outermost letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holds",
+      "gives": "HAS",
+      "note": "to have something is to hold it"
+     },
+     {
+      "clueFragment": "territory",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAS",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A defender keeps the edges of a territory secure.",
+     "walkthrough": "'Fast' reads as firmly held, but it is the definition in its sense of quick.",
+     "definitionFit": "Hasty means quick or hurried, the speed sense of fast rather than its firmly-fixed sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +838,51 @@
     "text": "Move slowly around with reel and spray",
     "enumeration": "9"
    },
-   "solution": "SPINDRIFT"
+   "solution": "SPINDRIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPINDRIFT",
+    "definitions": [
+     {
+      "text": "spray",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reel",
+      "gives": "SPIN",
+      "note": "to reel is to whirl or spin round"
+     },
+     {
+      "clueFragment": "Move slowly around",
+      "gives": "DRIFT",
+      "note": "to drift around is to wander slowly and aimlessly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "DRIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler wanders slowly about with rod and reel in the sea spray.",
+     "walkthrough": "'With' joins the two pieces in either order, so the reel's letters come first.",
+     "definitionFit": "Spindrift is fine spray blown from the crests of waves by the wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reel"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +896,39 @@
     "text": "Message of appreciation could be cut",
     "enumeration": "11"
    },
-   "solution": "INSCRIPTION"
+   "solution": "INSCRIPTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSCRIPTION",
+    "definitions": [
+     {
+      "text": "Message of appreciation could be cut",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Message of appreciation could be cut",
+      "note": "surface reading: a thank-you speech that might be shortened or dropped"
+     },
+     {
+      "clueFragment": "could be cut",
+      "note": "setter's reading: the words could be carved or engraved, as on a plaque or trophy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cut suggests editing a speech; here it means carved into stone or metal, as a tribute engraved on a presentation gift.",
+     "definitionFit": "Words engraved on a monument, cup or gift, often dedicating it to someone in gratitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +942,51 @@
     "text": "Bottom of a ship",
     "enumeration": "3"
    },
-   "solution": "ASS"
+   "solution": "ASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASS",
+    "definitions": [
+     {
+      "text": "Bottom",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship, a prefix in ship names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "The lowest part of a vessel.",
+     "walkthrough": "'Bottom' looks like a ship's hull, but it is the backside.",
+     "definitionFit": "The American slang word for the buttocks, so another name for one's behind or rear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1000,61 @@
     "text": "Working out a chart that one wrote oneself",
     "enumeration": "9"
    },
-   "solution": "AUTOGRAPH"
+   "solution": "AUTOGRAPH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AUTOGRAPH",
+    "definitions": [
+     {
+      "text": "that one wrote oneself",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working means being worked on or kneaded, so the letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out a",
+      "gives": "AUTO",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "chart",
+      "gives": "GRAPH",
+      "note": "a graph is a chart of data"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTO",
+      "GRAPH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUTA",
+       "gives": "AUTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working out a chart they drew up themselves.",
+     "walkthrough": "'Working out' reads as a phrase, but 'out' belongs with 'a' as letters to rework.",
+     "definitionFit": "A signature is something a person writes with their own hand, as the Greek roots auto- and -graph say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1068,55 @@
     "text": "Old soldier angry having to submit to servant",
     "enumeration": "11"
    },
-   "solution": "CROSSBOWMAN"
+   "solution": "CROSSBOWMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSBOWMAN",
+    "definitions": [
+     {
+      "text": "Old soldier",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     },
+     {
+      "clueFragment": "submit",
+      "gives": "BOW",
+      "note": "to bow is to yield or give in"
+     },
+     {
+      "clueFragment": "servant",
+      "gives": "MAN",
+      "note": "a man is a manservant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "BOW",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross veteran must bow down to a servant.",
+     "definitionFit": "A medieval soldier armed with a crossbow, so a fighter from the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1140,47 @@
      }
     ]
    },
-   "solution": "OUTOFDATE"
+   "solution": "OUTOFDATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT OF DATE",
+    "definitions": [
+     {
+      "text": "Where palm tree came from",
+      "at": 0
+     },
+     {
+      "text": "square",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where palm tree came from",
+      "note": "first meaning, cryptic: a date palm grows from the stone of a date"
+     },
+     {
+      "clueFragment": "square",
+      "note": "second meaning: old-fashioned, unfashionable"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking where a palm tree sprang from, in a square.",
+     "walkthrough": "A palm tree, read literally, grows from a date's seed. 'Square' is slang for conventional and unfashionable.",
+     "definitionFit": "Someone square is stuffy and behind the times, which is what outdated means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1200,57 @@
      }
     ]
    },
-   "solution": "TRADESECRET"
+   "solution": "TRADESECRET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRADE SECRET",
+    "definitions": [
+     {
+      "text": "inside knowledge",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one piece sitting on another follows it, so the word after this goes second"
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bargain",
+      "gives": "TRADE",
+      "note": "to trade is to bargain or deal"
+     },
+     {
+      "clueFragment": "closed",
+      "gives": "SECRET",
+      "note": "closed in the sense of hidden from others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRADE",
+      "SECRET"
+     ]
+    },
+    "explanation": {
+     "surface": "Insider information has sealed a deal.",
+     "walkthrough": "In an across clue 'on' places the closed piece after the bargain piece.",
+     "definitionFit": "A method or formula a firm keeps private is known only to insiders, so privileged knowledge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "closed"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1264,46 @@
     "text": "A dance avoiding contact",
     "enumeration": "7"
    },
-   "solution": "ASOCIAL"
+   "solution": "ASOCIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASOCIAL",
+    "definitions": [
+     {
+      "text": "avoiding contact",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "SOCIAL",
+      "note": "a social is an informal party or dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SOCIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dance where partners never touch.",
+     "definitionFit": "An asocial person shuns other people and company, keeping away from interaction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 19,
@@ -358,10 +1314,60 @@
    },
    "length": 3,
    "clue": {
-    "text": "Stole pig -rums of",
+    "text": "Stole pig - run's off",
     "enumeration": "3"
    },
-   "solution": "BOA"
+   "solution": "BOA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BOA",
+    "definitions": [
+     {
+      "text": "Stole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "something that is off has gone away, so that letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "gives": "BOAR",
+      "note": "a boar is a male pig"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOA"
+     ]
+    },
+    "explanation": {
+     "surface": "A thief took a pig, and it ran off.",
+     "walkthrough": "'Stole' looks like a verb, but it is the noun: a scarf.",
+     "definitionFit": "A boa is a long fluffy scarf of feathers or fur worn around the shoulders, a kind of wrap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stole"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1381,55 @@
     "text": "Ordered almost the finest bonnet",
     "enumeration": "7"
    },
-   "solution": "BESPOKE"
+   "solution": "BESPOKE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BESPOKE",
+    "definitions": [
+     {
+      "text": "Ordered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the finest",
+      "gives": "BEST",
+      "note": "the best is the finest"
+     },
+     {
+      "clueFragment": "bonnet",
+      "gives": "POKE",
+      "note": "a poke is a bonnet with a projecting brim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BES",
+      "POKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ordered nearly the best hat.",
+     "walkthrough": "'Ordered' looks like a past-tense verb but works as an adjective. A poke bonnet has a brim jutting out at the front.",
+     "definitionFit": "Bespoke clothes are made to the customer's order, as in a bespoke suit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ordered"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1449,39 @@
      }
     ]
    },
-   "solution": "GOOSESTEP"
+   "solution": "GOOSESTEP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOOSE-STEP",
+    "definitions": [
+     {
+      "text": "Inflexible advance of the military?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inflexible advance of the military?",
+      "note": "surface reading: an army's rigid, unstoppable push forward"
+     },
+     {
+      "clueFragment": "Inflexible advance",
+      "note": "setter's reading: a march with stiff, unbent legs, step by step"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the literal reading: the advance is a parade-ground stride taken with legs kept straight, not a campaign.",
+     "definitionFit": "A marching style in which soldiers swing straight, unbending legs high, famously on military parades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 21,
@@ -409,7 +1495,60 @@
     "text": "It decides winners before you put a nickel in",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "It decides winners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you put",
+      "for": "container",
+      "note": "putting something in means placing it inside, together with the closing word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the closing word completes the instruction to place one word within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "a nickel",
+      "gives": "NI",
+      "note": "Ni is the chemical symbol for nickel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "NI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A slot machine picks its winners before you've even fed it a coin.",
+     "walkthrough": "A nickel looks like a US coin, but it is the element. ERNIE is the computer that draws British Premium Bond prizes.",
+     "definitionFit": "The random number generator picks the monthly prize-winning numbers in the UK's Premium Bonds savings lottery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nickel"
+    }
+   }
   },
   {
    "number": 22,
@@ -423,7 +1562,50 @@
     "text": "Suspicious quantity to be found on plate",
     "enumeration": "5"
    },
-   "solution": "FISHY"
+   "solution": "FISHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FISHY",
+    "definitions": [
+     {
+      "text": "Suspicious",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plate",
+      "gives": "FISH",
+      "note": "a fish is a flat strengthening plate, as in a railway fishplate"
+     },
+     {
+      "clueFragment": "quantity",
+      "gives": "Y",
+      "note": "in algebra y stands for an unknown quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FISH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Something dodgy found in quantity on a dinner plate.",
+     "walkthrough": "The plate looks like crockery, but a fish is a carpenter's or engineer's flat joining plate. In an across clue 'on' puts the quantity after it.",
+     "definitionFit": "Fishy is informal for dubious or arousing doubt, as a story that smells wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1619,53 @@
     "text": "Cook's ingredient, as yet to be cooked",
     "enumeration": "5"
    },
-   "solution": "YEAST"
+   "solution": "YEAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YEAST",
+    "definitions": [
+     {
+      "text": "Cook's ingredient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be cooked",
+      "for": "anagram",
+      "note": "cooking turns raw stuff into something new, so these letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as yet",
+      "gives": "ASYET",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASYET",
+       "gives": "YEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ingredient still waiting in the kitchen to be cooked.",
+     "definitionFit": "Yeast is the fungus a baker adds to dough to make bread rise, a staple kitchen item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1679,78 @@
     "text": "One starts to genuflect, naturally, after seeing Bible on old Pope's seat",
     "enumeration": "7"
    },
-   "solution": "AVIGNON"
+   "solution": "AVIGNON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AVIGNON",
+    "definitions": [
+     {
+      "text": "old Pope's seat",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "after seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bible",
+      "gives": "AV",
+      "note": "AV is the Authorised Version of the Bible"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     },
+     {
+      "clueFragment": "genuflect",
+      "gives": "G",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "naturally",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "I",
+      "G",
+      "N",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone kneels naturally on seeing the Bible at a former papal throne.",
+     "walkthrough": "'After seeing' puts the one and the two starts behind the Bible's letters.",
+     "definitionFit": "The French city was the residence of the popes in the fourteenth century, during the Avignon papacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1764,63 @@
     "text": "My name came up as a crony of Falstaff",
     "enumeration": "3"
    },
-   "solution": "NYM"
+   "solution": "NYM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NYM",
+    "definitions": [
+     {
+      "text": "a crony of Falstaff",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "came up",
+      "for": "reversal",
+      "note": "in a down clue coming up means read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name; that the letters also run backwards across the first two clue words is a coincidence of this parse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "YM"
+     ],
+     "reversals": [
+      {
+       "from": "MYN",
+       "to": "NYM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's name was mentioned as one of Falstaff's drinking companions.",
+     "definitionFit": "Corporal Nym is one of Sir John Falstaff's disreputable companions in Shakespeare's Henry V and Merry Wives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "came"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1834,55 @@
     "text": "Duncan is lovable, to some extent",
     "enumeration": "7"
    },
-   "solution": "ISADORA"
+   "solution": "ISADORA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ISADORA",
+    "definitions": [
+     {
+      "text": "Duncan",
+      "at": 0,
+      "note": "a surname standing for the person's first name"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "deletion",
+      "note": "only partly, so the word just before is used without its tail"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lovable",
+      "gives": "ADORABLE",
+      "note": "adorable means lovable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "ADORA"
+     ]
+    },
+    "explanation": {
+     "surface": "Duncan is rather lovable.",
+     "definitionFit": "Isadora Duncan was the American pioneer of modern dance, so her first name identifies her."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Duncan"
+    }
+   }
   },
   {
    "number": 27,
@@ -493,7 +1896,46 @@
     "text": "Divide up and finish all square",
     "enumeration": "5"
    },
-   "solution": "HALVE"
+   "solution": "HALVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HALVE",
+    "definitions": [
+     {
+      "text": "Divide up",
+      "at": 0
+     },
+     {
+      "text": "finish all square",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divide up",
+      "note": "first meaning: split into two equal parts"
+     },
+     {
+      "clueFragment": "finish all square",
+      "note": "second meaning: in golf, to tie a hole or match with an opponent"
+     }
+    ],
+    "explanation": {
+     "surface": "Share things out so everyone ends up even.",
+     "walkthrough": "In golf, two players who take the same number of strokes on a hole are said to halve it.",
+     "definitionFit": "The verb means cutting something in two, and in golf, drawing level on a hole or match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 28,
@@ -504,10 +1946,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Result may be came but filling food",
+    "text": "Result may be tame but filling food",
     "enumeration": "9"
    },
-   "solution": "MINCEMEAT"
+   "solution": "MINCEMEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINCEMEAT",
+    "definitions": [
+     {
+      "text": "Result may be tame",
+      "at": 0
+     },
+     {
+      "text": "filling food",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result may be tame",
+      "note": "first meaning, cryptic: chop up the word meat and one possible result is tame"
+     },
+     {
+      "clueFragment": "filling food",
+      "note": "second meaning: the sweet fruit mixture used to fill pies"
+     }
+    ],
+    "explanation": {
+     "surface": "The outcome may be bland, yet the meal is satisfying.",
+     "walkthrough": "Read the answer as an instruction, mince 'meat': jumble those four letters and you can get TAME. Mincemeat is the spiced dried fruit filling of British Christmas mince pies.",
+     "definitionFit": "Mincemeat is the mixture of dried fruit, suet and spices baked inside mince pies, a pie filling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "filling"
+    }
+   }
   }
  ]
 }
