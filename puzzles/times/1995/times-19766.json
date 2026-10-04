@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,58 @@
     "text": "Place in hospital to get a quick dressing for injury",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHARMACY",
+    "definitions": [
+     {
+      "text": "Place in hospital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "a dressing is wrapped around a wound, so the word for quick goes round the word for injury"
+     }
+    ],
+    "linkWords": [
+     "to get a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quick",
+      "gives": "PACY",
+      "note": "pacy means fast, quick on one's feet"
+     },
+     {
+      "clueFragment": "injury",
+      "gives": "HARM",
+      "note": "harm is damage or injury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HARM",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wounded patient is sent to a hospital department to get a fast bandage on the injury.",
+     "walkthrough": "'Dressing for injury' reads as a bandage, but dressing is the wrapping instruction.",
+     "definitionFit": "A hospital pharmacy is the department that dispenses medicines to patients and wards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +103,44 @@
     "text": "A predicament Chile, say, could be in",
     "enumeration": "6"
    },
-   "solution": "PICKLE"
+   "solution": "PICKLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICKLE",
+    "definitions": [
+     {
+      "text": "A predicament",
+      "at": 0
+     },
+     {
+      "text": "Chile, say, could be in",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A predicament",
+      "note": "first meaning: a tricky situation, a fix"
+     },
+     {
+      "clueFragment": "Chile, say, could be in",
+      "note": "second meaning: a vinegar preserve, which chiles (an American spelling of chillies) are often kept in"
+     }
+    ],
+    "explanation": {
+     "surface": "A country such as Chile could find itself in a political mess.",
+     "walkthrough": "Chile looks like the South American country; here it is the hot pepper, spelt the American way.",
+     "definitionFit": "The word means both an awkward fix and the vinegar or brine preserve in which vegetables such as peppers are kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chile"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +154,46 @@
     "text": "In the plaza, leafy rhododendron flourished",
     "enumeration": "6"
    },
-   "solution": "AZALEA"
+   "solution": "AZALEA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AZALEA",
+    "definitions": [
+     {
+      "text": "rhododendron",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer lies inside the next words of the clue, running across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the plaza, leafy",
+      "gives": "AZALEA",
+      "note": "found spanning the end of plaza and the start of leafy"
+     },
+     {
+      "clueFragment": "flourished",
+      "note": "surface padding that completes the picture of a blooming shrub"
+     }
+    ],
+    "explanation": {
+     "surface": "A leafy shrub has bloomed in a town square.",
+     "walkthrough": "'Flourished' only completes the picture of a blooming shrub; it plays no part in the wordplay.",
+     "definitionFit": "Azaleas are flowering shrubs belonging to the botanical genus Rhododendron."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +207,71 @@
     "text": "Diamond's mounted on a ring it's for a big noise",
     "enumeration": "9"
    },
-   "solution": "MEGAPHONE"
+   "solution": "MEGAPHONE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MEGAPHONE",
+    "definitions": [
+     {
+      "text": "it's for a big noise",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mounted",
+      "for": "reversal",
+      "note": "in a down clue, mounting means going upward, so the word for diamond is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diamond's",
+      "gives": "GEM",
+      "note": "a diamond is a precious gem"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "PHONE",
+      "note": "to ring someone is to phone them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEG",
+      "A",
+      "PHONE"
+     ],
+     "reversals": [
+      {
+       "from": "GEM",
+       "to": "MEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diamond set on a ring sounds like a showy, loud piece of jewellery.",
+     "walkthrough": "'Ring' looks like jewellery to hold the diamond; it is the verb to telephone.",
+     "definitionFit": "A megaphone is a cone-shaped device for amplifying the voice so it carries loudly over a crowd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +291,55 @@
      }
     ]
    },
-   "solution": "CLUBSANDWICH"
+   "solution": "CLUBSANDWICH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLUB SANDWICH",
+    "definitions": [
+     {
+      "text": "An American round",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue a support sits underneath, so the town goes below the football team's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spurs, for example",
+      "gives": "CLUB",
+      "note": "Spurs, Tottenham Hotspur, is a London football club"
+     },
+     {
+      "clueFragment": "Kentish Town",
+      "gives": "SANDWICH",
+      "note": "Sandwich is a town in the English county of Kent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLUB",
+      "SANDWICH"
+     ]
+    },
+    "explanation": {
+     "surface": "An American fan from Kentish Town, a London district, follows Tottenham Hotspur.",
+     "walkthrough": "Kentish Town is a real London district, which hides that it means any town in Kent. A round is a serving of sandwiches.",
+     "definitionFit": "A round is a sandwich, and the triple-decker toasted club version originated in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +353,51 @@
     "text": "This abstract is hardly prim",
     "enumeration": "6"
    },
-   "solution": "PRECIS"
+   "solution": "PRECIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PRECIS",
+    "definitions": [
+     {
+      "text": "This abstract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hardly",
+      "for": "deletion",
+      "note": "hardly means not quite, so the word for prim falls just short and loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prim",
+      "gives": "PRECISE",
+      "note": "precise can mean fussily exact, prim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRECIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A summary of a paper is described as being rather relaxed in tone.",
+     "walkthrough": "'Hardly prim' reads as meaning informal, but hardly tells you to drop the last letter.",
+     "definitionFit": "A precis is a short summary of a text, which is what an abstract of a paper is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hardly"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +411,48 @@
     "text": "The beast later changes sides",
     "enumeration": "5"
    },
-   "solution": "RATEL"
+   "solution": "RATEL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RATEL",
+    "definitions": [
+     {
+      "text": "The beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes sides",
+      "for": "substitution",
+      "note": "sides are left and right, so the L and the R in the word swap places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "later",
+      "gives": "LATER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal is said to switch allegiance at some later point.",
+     "walkthrough": "L and R are the usual abbreviations for left and right, the two sides.",
+     "definitionFit": "The ratel is the honey badger, a fierce carnivorous mammal of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +466,57 @@
     "text": "Guide those having a row to be firm and kiss lover",
     "enumeration": "8"
    },
-   "solution": "COXSWAIN"
+   "solution": "COXSWAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COXSWAIN",
+    "definitions": [
+     {
+      "text": "Guide those having a row",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "a cross written at the end of a letter stands for a kiss"
+     },
+     {
+      "clueFragment": "lover",
+      "gives": "SWAIN",
+      "note": "a swain is an old poetic word for a young lover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "X",
+      "SWAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on making up after a quarrel: stand your ground, then kiss your partner.",
+     "walkthrough": "'Those having a row' suggests a quarrelling couple; it is a crew rowing a boat.",
+     "definitionFit": "A coxswain steers a rowing boat and directs the oarsmen, so guides the crew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +530,39 @@
     "text": "A standard description of a US star?",
     "enumeration": "8"
    },
-   "solution": "SPANGLED"
+   "solution": "SPANGLED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPANGLED",
+    "definitions": [
+     {
+      "text": "A standard description of a US star?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A standard description of a US star?",
+      "note": "surface reading: a routine way to describe an American celebrity"
+     },
+     {
+      "clueFragment": "standard",
+      "note": "setter's reading: a standard is a flag, and the national anthem describes the American flag's stars with this word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Star-Spangled Banner is the US national anthem and the name of the flag; a standard is a flag, and its stars are covered in this word.",
+     "definitionFit": "Spangled means decorated with small glittering shapes, the adjective attached to the stars of the American flag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +576,48 @@
     "text": "Howler heard making a racket",
     "enumeration": "8"
    },
-   "solution": "CLANGOUR"
+   "solution": "CLANGOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CLANGOUR",
+    "definitions": [
+     {
+      "text": "a racket",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we want the word as it sounds when spoken, not as spelt"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Howler",
+      "gives": "CLANGOUR",
+      "soundsLike": "CLANGER",
+      "note": "a clanger is a British word for a blunder, a howler"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone shouting out is overheard causing a din.",
+     "walkthrough": "'Howler' looks like a noisy creature, which suits the racket; it is a blunder. In British speech the two words sound alike.",
+     "definitionFit": "Clangour is a loud ringing clamour, the kind of din a racket describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Howler"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +631,56 @@
     "text": "Motoring organisation clamps vehicle - sign of a body out of control",
     "enumeration": "6"
    },
-   "solution": "ATAXIA"
+   "solution": "ATAXIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATAXIA",
+    "definitions": [
+     {
+      "text": "sign of a body out of control",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clamps",
+      "for": "container",
+      "note": "to clamp is to grip from both sides, so the vehicle sits held inside the organisation's letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motoring organisation",
+      "gives": "AA",
+      "note": "the AA, the Automobile Association, is Britain's motoring organisation"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "TAXI",
+      "note": "a taxi is a hired vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TAXI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakdown service wheel-clamps a car, a symptom of a regulatory body running wild.",
+     "walkthrough": "'Body' suggests an organisation; it is the human body.",
+     "definitionFit": "Ataxia is a medical condition in which a person loses coordination of their muscular movements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +700,51 @@
      }
     ]
    },
-   "solution": "TAKEPRISONER"
+   "solution": "TAKEPRISONER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAKE PRISONER",
+    "definitions": [
+     {
+      "text": "To capture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests something gone wrong or out of order, so these letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report I sneak",
+      "gives": "REPORTISNEAK",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPORTISNEAK",
+       "gives": "TAKEPRISONER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An informer's account says a spy has slipped away before being caught.",
+     "walkthrough": "'Sneak off' reads as slipping away; sneak is part of the letters and off is the signal.",
+     "definitionFit": "To take someone prisoner is to seize and hold them, which is what capturing means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +764,51 @@
      }
     ]
    },
-   "solution": "LIEUP"
+   "solution": "LIEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE UP",
+    "definitions": [
+     {
+      "text": "Go into dock",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perjure",
+      "gives": "LIE",
+      "note": "to perjure oneself is to lie under oath"
+     },
+     {
+      "clueFragment": "in front of judge",
+      "gives": "UP",
+      "note": "someone up before a judge is appearing in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A defendant takes the stand in court and lies to the judge.",
+     "walkthrough": "'Dock' looks like the courtroom dock; it is where a ship is laid up out of use.",
+     "definitionFit": "A ship that lies up is taken out of service and kept in dock or harbour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +822,65 @@
     "text": "Booty includes ring found by unknown rogue",
     "enumeration": "9"
    },
-   "solution": "SCALLYWAG"
+   "solution": "SCALLYWAG",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SCALLYWAG",
+    "definitions": [
+     {
+      "text": "rogue",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means the word for booty holds the other pieces inside it"
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Booty",
+      "gives": "SWAG",
+      "note": "swag is a burglar's loot"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "CALL",
+      "note": "to ring is to make a phone call"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is one of the algebraic unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CALL",
+      "Y",
+      "WAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A haul of loot containing a ring was discovered by an unidentified villain.",
+     "walkthrough": "The ring of the surface is jewellery in the booty; here it is a telephone call.",
+     "definitionFit": "A scallywag is a mischievous person, a scamp or a rascal, much like a rogue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +894,50 @@
     "text": "Compensate for affected neurotic pose",
     "enumeration": "12"
    },
-   "solution": "COUNTERPOISE"
+   "solution": "COUNTERPOISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COUNTERPOISE",
+    "definitions": [
+     {
+      "text": "Compensate for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "affected means put on or altered, so the letters that follow are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neurotic pose",
+      "gives": "NEUROTICPOSE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEUROTICPOSE",
+       "gives": "COUNTERPOISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes up for an artificial, anxious posture.",
+     "definitionFit": "As a verb it means to balance one weight or force against another, offsetting its effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +951,66 @@
     "text": "Declare it's divine to embrace a sweetheart",
     "enumeration": "9"
    },
-   "solution": "PREDICATE"
+   "solution": "PREDICATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PREDICATE",
+    "definitions": [
+     {
+      "text": "Declare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "to embrace is to wrap one's arms around, so the word for divine holds the article inside it"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "divine",
+      "gives": "PREDICT",
+      "note": "to divine the future is to foretell it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart of sweet is its middle letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREDIC",
+      "A",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proclaims it heavenly to hug their beloved.",
+     "walkthrough": "'Divine' reads as an adjective meaning heavenly; it is the verb to foresee. Sweetheart is a stock way to ask for the middle letter of sweet.",
+     "definitionFit": "To predicate is to assert or affirm something as a quality, so it can mean declare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "divine"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1024,50 @@
     "text": "Half of them found the ale sour",
     "enumeration": "8"
    },
-   "solution": "EMBITTER"
+   "solution": "EMBITTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBITTER",
+    "definitions": [
+     {
+      "text": "sour",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half of them",
+      "gives": "EM",
+      "note": "the second half of the word them"
+     },
+     {
+      "clueFragment": "the ale",
+      "gives": "BITTER",
+      "note": "bitter is a British style of hoppy draught beer, an ale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BITTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Half the drinkers thought the beer had gone off.",
+     "walkthrough": "'Sour' looks like an adjective about the beer; it is the verb meaning to make resentful.",
+     "definitionFit": "To embitter someone is to make them resentful, to sour their outlook or temper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sour"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1081,66 @@
     "text": "Physicist inspiring dread there's nothing jolly about it",
     "enumeration": "8"
    },
-   "solution": "ANGSTROM"
+   "solution": "ANGSTROM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANGSTROM",
+    "definitions": [
+     {
+      "text": "Physicist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about it",
+      "for": "container",
+      "note": "about means around, so the word for jolly is wrapped round the word for nothing"
+     }
+    ],
+    "linkWords": [
+     "inspiring",
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dread",
+      "gives": "ANGST",
+      "note": "angst is anxiety or dread"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a jolly is slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, the letter shaped like nought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGST",
+      "R",
+      "O",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist who strikes fear into people, and there's nothing cheerful about that.",
+     "walkthrough": "'Jolly' looks like the opposite of dread; in crosswords a jolly is a Royal Marine.",
+     "definitionFit": "Anders Jonas Ångström was a nineteenth-century Swedish scientist after whom a tiny unit of length is named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1160,39 @@
      }
     ]
    },
-   "solution": "MANGELWURZEL"
+   "solution": "MANGELWURZEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MANGEL-WURZEL",
+    "definitions": [
+     {
+      "text": "cattle food",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get a little cattle food from a chap with money",
+      "note": "surface reading: obtaining some fodder from a wealthy man"
+     },
+     {
+      "clueFragment": "a chap with money",
+      "note": "setter's reading: the answer begins with a word for a chap followed by most of the German word for money, Geld"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer buys a small amount of feed from a rich neighbour.",
+     "walkthrough": "The opening of the answer can be heard as a man plus a little of Geld, German for money.",
+     "definitionFit": "Mangel-wurzel is a large beet grown in Britain as winter fodder for livestock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1206,43 @@
     "text": "Minor cut",
     "enumeration": "6"
    },
-   "solution": "SLIGHT"
+   "solution": "SLIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLIGHT",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     },
+     {
+      "text": "cut",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minor",
+      "note": "first meaning: small or unimportant"
+     },
+     {
+      "clueFragment": "cut",
+      "note": "second meaning: a snub, to cut someone dead"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it looks like a small wound; cut is the social snub.",
+     "definitionFit": "As an adjective the word means small or trivial, and as a noun or verb it means an insult or a pointed snub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1256,65 @@
     "text": "Giving marks in a test, regardless of what's right and wrong",
     "enumeration": "6"
    },
-   "solution": "AMORAL"
+   "solution": "AMORAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMORAL",
+    "definitions": [
+     {
+      "text": "regardless of what's right and wrong",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Giving",
+      "for": "container",
+      "note": "giving the marks to the test means putting them inside its letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the marks within the words for a test"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "marks",
+      "gives": "M",
+      "note": "M is the abbreviation for the old German mark currency"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "An examiner hands out scores in an exam without caring about correct answers.",
+     "walkthrough": "'Marks' suggests exam scores; it is the old German currency.",
+     "definitionFit": "Someone amoral has no moral sense at all, unconcerned with the distinction between good and bad conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marks"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1328,62 @@
     "text": "Proclivities Tory couched in fashionable terms",
     "enumeration": "9"
    },
-   "solution": "INSTINCTS"
+   "solution": "INSTINCTS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INSTINCTS",
+    "definitions": [
+     {
+      "text": "Proclivities",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "couched in",
+      "for": "container",
+      "note": "couched in means lying inside, so the party member sits within the other words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "terms",
+      "gives": "STINTS",
+      "note": "a stint is a term or period of work"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative, the Tory party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STIN",
+      "C",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician's leanings are dressed up in trendy language.",
+     "walkthrough": "'Couched in' suggests wording; here it means placed inside.",
+     "definitionFit": "Instincts are natural inclinations or tendencies, which is what proclivities means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terms"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1397,52 @@
     "text": "I had a bit of a laugh in America",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "in America",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the short form of I had"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bit of a laugh",
+      "gives": "HO",
+      "note": "ho is one syllable of a ho-ho laugh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "A",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist reports enjoying some fun while in the United States.",
+     "walkthrough": "The definition is a place one could be in America, a US state.",
+     "definitionFit": "Idaho is a north-western state of the United States, a place one can be in America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1456,47 @@
     "text": "The first person to criticise religion",
     "enumeration": "5"
    },
-   "solution": "ISLAM"
+   "solution": "ISLAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLAM",
+    "definitions": [
+     {
+      "text": "religion",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The first person",
+      "gives": "I",
+      "note": "I is the first-person pronoun"
+     },
+     {
+      "clueFragment": "to criticise",
+      "gives": "SLAM",
+      "note": "to slam is to attack fiercely in words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is named as the earliest critic of a faith.",
+     "walkthrough": "'The first person' suggests a pioneer; it is the grammatical first person.",
+     "definitionFit": "Islam is the monotheistic faith of Muslims, founded on the teachings of the Prophet Muhammad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "person"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1510,46 @@
     "text": "Twist in the plot",
     "enumeration": "6"
    },
-   "solution": "THREAD"
+   "solution": "THREAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THREAD",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     },
+     {
+      "text": "the plot",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twist",
+      "note": "first meaning: twisted fibre, or to twist a yarn through"
+     },
+     {
+      "clueFragment": "the plot",
+      "note": "second meaning: the line of a story that runs through it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a surprise development in a story; the two words are separate meanings.",
+     "definitionFit": "A thread is a thin twisted strand of fibre, and also the connecting storyline of a narrative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1563,57 @@
     "text": "Hazard from exchange of needle tip",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDANGER",
+    "definitions": [
+     {
+      "text": "Hazard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchange of",
+      "for": "charade",
+      "note": "exchange means the two words that follow swap their order before being joined"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "END",
+      "note": "the tip of something is its end"
+     },
+     {
+      "clueFragment": "needle",
+      "gives": "ANGER",
+      "note": "to needle someone is to anger them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "Danger comes from swapping the point of a hypodermic.",
+     "walkthrough": "'Needle tip' suggests a syringe; the two words are separate pieces, put in the other order.",
+     "definitionFit": "To hazard something is to put it at risk, which is what endangering it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "needle"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1627,58 @@
     "text": "Strict disciplinarian causes staff to go on strike",
     "enumeration": "6"
    },
-   "solution": "RAMROD"
+   "solution": "RAMROD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMROD",
+    "definitions": [
+     {
+      "text": "Strict disciplinarian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go on",
+      "for": "charade",
+      "note": "in an across answer, going on means placed after, so the staff follows"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strike",
+      "gives": "RAM",
+      "note": "to ram is to strike hard"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "ROD",
+      "note": "a rod is a stick or staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh boss provokes the workforce into industrial action.",
+     "walkthrough": "'Staff' and 'strike' suggest workers walking out; they are a stick and a blow.",
+     "definitionFit": "A ramrod is a rigidly stern, unbending person, like the stiff rod used to load old guns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1692,50 @@
     "text": "Relation moving from the east",
     "enumeration": "8"
    },
-   "solution": "ORIENTAL"
+   "solution": "ORIENTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORIENTAL",
+    "definitions": [
+     {
+      "text": "from the east",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving means the letters shift about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relation",
+      "gives": "RELATION",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELATION",
+       "gives": "ORIENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member is relocating away from the eastern region.",
+     "definitionFit": "Oriental describes things originating in Asia, the lands to the east of Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relation"
+    }
+   }
   }
  ]
 }
