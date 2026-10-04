@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Naval ship requiring quarantine?",
     "enumeration": "7"
    },
-   "solution": "CARRIER"
+   "solution": "CARRIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRIER",
+    "definitions": [
+     {
+      "text": "Naval ship",
+      "at": 0
+     },
+     {
+      "text": "requiring quarantine?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naval ship",
+      "note": "first meaning: a warship that launches aircraft"
+     },
+     {
+      "clueFragment": "requiring quarantine?",
+      "note": "second meaning: someone who spreads an infection and must be isolated"
+     }
+    ],
+    "explanation": {
+     "surface": "A warship held offshore because a disease has broken out among the crew.",
+     "walkthrough": "The question mark flags that the second definition describes the person rather than naming them.",
+     "definitionFit": "The word names both an aircraft-launching warship and a person who harbours and passes on a disease, someone who must be isolated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarantine"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,38 @@
     "text": "Spotted horse thatês white, not black",
     "enumeration": "8"
    },
-   "solution": "SKEWBALD"
+   "solution": "SKEWBALD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SKEWBALD",
+    "definitions": [
+     {
+      "text": "Spotted horse",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spotted horse",
+      "note": "surface reading: a horse with patches that might be a piebald"
+     },
+     {
+      "clueFragment": "white, not black",
+      "note": "setter's reading: the patched horse whose second colour is anything but black, usually brown"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describing a patchy horse at a show and correcting the colours.",
+     "walkthrough": "A piebald is black and white; this term covers a horse with white and some other colour, so the 'not black' is the distinction being tested.",
+     "definitionFit": "Equestrian vocabulary distinguishes coats with white patches on brown or chestnut from the black-and-white piebald coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +132,65 @@
     "text": "They tend to rush over certain points",
     "enumeration": "6"
    },
-   "solution": "NURSES"
+   "solution": "NURSES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NURSES",
+    "definitions": [
+     {
+      "text": "They tend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, as in flipped, so the word for rush runs from back to front"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rush",
+      "gives": "RUN",
+      "note": "to run is to rush"
+     },
+     {
+      "clueFragment": "certain points",
+      "gives": "SES",
+      "note": "south, east, south: compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "SES"
+     ],
+     "reversals": [
+      {
+       "from": "RUN",
+       "to": "NUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some people have a habit of hurrying past particular details.",
+     "walkthrough": "'They tend to' reads as 'they are inclined to', but 'tend' is the verb of caring. Compass points are a stock source of single letters N, E, S, W.",
+     "definitionFit": "Hospital staff who look after patients are the people who tend the sick, so the plural fits the pronoun phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tend"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +210,47 @@
      }
     ]
    },
-   "solution": "GOLFCLUB"
+   "solution": "GOLFCLUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOLF CLUB",
+    "definitions": [
+     {
+      "text": "Whip up strike",
+      "at": 0
+     },
+     {
+      "text": "sporting association",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whip up strike",
+      "note": "first meaning: the implement swung up and brought down to hit a ball"
+     },
+     {
+      "clueFragment": "sporting association",
+      "note": "second meaning: a society that runs a course for members"
+     }
+    ],
+    "explanation": {
+     "surface": "Agitators stirring up industrial action inside a sports body.",
+     "walkthrough": "'Whip up strike' sounds like rousing workers to down tools; it actually describes the swing of an iron or driver.",
+     "definitionFit": "The phrase names both the stick used on the links to hit the ball and the members' organisation that owns a course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +264,55 @@
     "text": "Loan shark certain to be found in the City",
     "enumeration": "6"
    },
-   "solution": "USURER"
+   "solution": "USURER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "USURER",
+    "definitions": [
+     {
+      "text": "Loan shark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "the City",
+      "gives": "UR",
+      "note": "Ur is the ancient Mesopotamian city, the crossword's favourite city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "SURE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked moneylender is bound to turn up in London's financial district.",
+     "walkthrough": "'The City' looks like London's Square Mile, home of finance; here it is the ancient Sumerian city of Ur.",
+     "definitionFit": "A lender charging extortionate interest is the old term for what is now called a loan shark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +326,38 @@
     "text": "The bloom of life?",
     "enumeration": "7"
    },
-   "solution": "PUBERTY"
+   "solution": "PUBERTY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PUBERTY",
+    "definitions": [
+     {
+      "text": "The bloom of life?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The bloom of life?",
+      "note": "surface reading: the prime or flowering of existence"
+     },
+     {
+      "clueFragment": "bloom",
+      "note": "setter's reading: the stage when a young body blossoms into adulthood"
+     }
+    ],
+    "explanation": {
+     "surface": "A poetic phrase for the best years of one's life.",
+     "definitionFit": "Adolescence brings sexual maturity, the developmental stage when a child's body flowers into an adult one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bloom"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +377,44 @@
      }
     ]
    },
-   "solution": "WALKOUT"
+   "solution": "WALKOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WALK OUT",
+    "definitions": [
+     {
+      "text": "Industrial action",
+      "at": 0
+     },
+     {
+      "text": "court",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Industrial action",
+      "note": "first meaning: a strike in which workers leave"
+     },
+     {
+      "clueFragment": "court",
+      "note": "second meaning: to go out with someone romantically, as in the old phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A labour dispute being heard at a tribunal.",
+     "walkthrough": "'Court' looks like a law court; it is the verb meaning to date, as in 'walking out' with a sweetheart.",
+     "definitionFit": "The phrase is both a noun for workers downing tools and leaving, and an old-fashioned verb phrase for dating someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +428,39 @@
     "text": "Reckless person pulled up short",
     "enumeration": "7"
    },
-   "solution": "HOTSPUR"
+   "solution": "HOTSPUR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOTSPUR",
+    "definitions": [
+     {
+      "text": "Reckless person",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reckless person pulled up short",
+      "note": "surface reading: a rash rider or driver brought to a sudden halt"
+     },
+     {
+      "clueFragment": "pulled up short",
+      "note": "setter's reading: Shakespeare's rash Harry Percy, whose life was cut off at Shrewsbury"
+     }
+    ],
+    "explanation": {
+     "surface": "A daredevil forced to stop abruptly.",
+     "walkthrough": "Harry Percy, nicknamed for his impetuosity, is killed by Prince Hal in Henry IV Part 1, his career stopped early.",
+     "definitionFit": "The nickname of the impetuous Percy became a common noun for any rash, hot-headed individual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulled"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +480,51 @@
      }
     ]
    },
-   "solution": "LITMUSPAPER"
+   "solution": "LITMUSPAPER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LITMUS PAPER",
+    "definitions": [
+     {
+      "text": "material for test",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "form of",
+      "for": "anagram",
+      "note": "a new form of some words means their letters are reshaped into another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put a simpler",
+      "gives": "PUTASIMPLER",
+      "note": "the three words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTASIMPLER",
+       "gives": "LITMUSPAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to draft an easier version of an exam.",
+     "walkthrough": "'Material for test' suggests exam content; it means chemical paper used to test acidity.",
+     "definitionFit": "Paper treated with dye that changes colour shows whether a solution is acid or alkali, a laboratory testing material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +538,39 @@
     "text": "There aren't many of these coins left in Europe",
     "enumeration": "6"
    },
-   "solution": "CROWNS"
+   "solution": "CROWNS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CROWNS",
+    "definitions": [
+     {
+      "text": "There aren't many of these coins left in Europe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "There aren't many of these coins left in Europe",
+      "note": "surface reading: an old currency that has mostly gone out of circulation"
+     },
+     {
+      "clueFragment": "coins",
+      "note": "setter's reading: also the headgear of reigning monarchs, of which Europe keeps only a few"
+     }
+    ],
+    "explanation": {
+     "surface": "A collector remarking that a certain old coinage has become scarce on the Continent.",
+     "walkthrough": "Old British five-shilling pieces bore this name; the same word is the regal headpieces of the few monarchies left.",
+     "definitionFit": "The word names both a historic coin denomination and the jewelled symbols of royalty, both now rare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +584,46 @@
     "text": "Told, but possibly not needing to be",
     "enumeration": "8"
    },
-   "solution": "INFORMED"
+   "solution": "INFORMED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INFORMED",
+    "definitions": [
+     {
+      "text": "Told",
+      "at": 0
+     },
+     {
+      "text": "possibly not needing to be",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Told",
+      "note": "first meaning: given the news"
+     },
+     {
+      "clueFragment": "possibly not needing to be",
+      "note": "second meaning: already knowledgeable, so perhaps not requiring to be told"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone was given information they may well have known already.",
+     "walkthrough": "The second definition is a riddle: a well-read person may not need telling.",
+     "definitionFit": "The participle means notified, and as an adjective describes someone knowledgeable who already has the facts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +637,59 @@
     "text": "Julietês town is just not on for her",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VERA",
+    "definitions": [
+     {
+      "text": "her",
+      "at": 33,
+      "note": "a pronoun standing for a woman's name"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means it is taken out of the place name"
+     }
+    ],
+    "linkWords": [
+     "is just",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Julietês town",
+      "gives": "VERONA",
+      "note": "Romeo and Juliet is set in this Italian city"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Juliet's home town disapproves of a woman's conduct: it's just not on.",
+     "walkthrough": "'Just not on' reads as an idiom of disapproval; really it says drop ON from the city.",
+     "definitionFit": "Crosswords often define a female forename by a pronoun; this is a woman's given name, as in the singer Lynn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +703,56 @@
     "text": "It looks like the military is involved",
     "enumeration": "10"
    },
-   "solution": "SIMILARITY"
+   "solution": "SIMILARITY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SIMILARITY",
+    "definitions": [
+     {
+      "text": "It looks like",
+      "at": 0,
+      "note": "a phrase describing the quality rather than a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled or complicated, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military is",
+      "gives": "MILITARYIS",
+      "note": "the two words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MILITARYIS",
+       "gives": "SIMILARITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suspicion that the army has a hand in something.",
+     "walkthrough": "'Looks like' seems to mean 'apparently'; read literally, a thing that looks like another has a resemblance to it.",
+     "definitionFit": "Resemblance between two things is when one looks like the other, which is what this abstract noun names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "looks"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +772,40 @@
      }
     ]
    },
-   "solution": "ADDRESSBOOK"
+   "solution": "ADDRESSBOOK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADDRESS BOOK",
+    "definitions": [
+     {
+      "text": "Is an orator lost and speechless without it?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is an orator lost and speechless without it?",
+      "note": "surface reading: a speaker who dries up without notes"
+     },
+     {
+      "clueFragment": "lost",
+      "note": "setter's reading: someone who cannot find where people live is lost without the directory of contacts"
+     }
+    ],
+    "explanation": {
+     "surface": "A speechmaker who would be stuck dumb without a prompt.",
+     "walkthrough": "An address is a formal speech, so an orator's book sounds like a speech script; really it is the list of where friends live.",
+     "definitionFit": "A personal directory listing where contacts live; without one you are lost for where to send letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "orator"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +819,54 @@
     "text": "Agree end will be terrible for traitor",
     "enumeration": "8"
    },
-   "solution": "RENEGADE"
+   "solution": "RENEGADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENEGADE",
+    "definitions": [
+     {
+      "text": "traitor",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a bad state, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "will be",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree end",
+      "gives": "AGREEEND",
+      "note": "the two words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREEEND",
+       "gives": "RENEGADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settling the end of a deal will go badly for a turncoat.",
+     "definitionFit": "A deserter who abandons their cause or side for the enemy is a turncoat, the same as one who betrays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Agree"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +886,48 @@
      }
     ]
    },
-   "solution": "OLDHANDS"
+   "solution": "OLDHANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD HANDS",
+    "definitions": [
+     {
+      "text": "experienced campaigners",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elderly",
+      "gives": "OLD",
+      "note": "elderly means aged"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "HANDS",
+      "note": "hands are crew members on a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "HANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "An ageing team of veteran political campaigners.",
+     "definitionFit": "The idiom describes veterans with long practice at something, people who have seen many battles before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +941,53 @@
     "text": "A relative right in the midst of trouble",
     "enumeration": "7"
    },
-   "solution": "BROTHER"
+   "solution": "BROTHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROTHER",
+    "definitions": [
+     {
+      "text": "A relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the midst of",
+      "for": "container",
+      "note": "in the midst of puts one thing in the middle of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "BOTHER",
+      "note": "bother means trouble"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "OTHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member caught up in some difficulty.",
+     "definitionFit": "A male sibling is a kinsman, a member of one's family, so any such person counts as a relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1001,46 @@
     "text": "Reported to be held at gunpoint",
     "enumeration": "7"
    },
-   "solution": "COVERED"
+   "solution": "COVERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COVERED",
+    "definitions": [
+     {
+      "text": "Reported",
+      "at": 0
+     },
+     {
+      "text": "held at gunpoint",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reported",
+      "note": "first meaning: written up by a journalist"
+     },
+     {
+      "clueFragment": "held at gunpoint",
+      "note": "second meaning: kept in the sights of a weapon"
+     }
+    ],
+    "explanation": {
+     "surface": "News that someone is said to have been taken hostage.",
+     "walkthrough": "'Reported to be' looks like hearsay framing; it is a separate meaning, as a journalist reports on a story.",
+     "definitionFit": "Journalists say a story was dealt with in the news, and a gunman keeps a target within aim; one word does both."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reported"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1060,39 @@
      }
     ]
    },
-   "solution": "PRISONGATE"
+   "solution": "PRISONGATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PRISON GATE",
+    "definitions": [
+     {
+      "text": "Can-opener?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can-opener?",
+      "note": "surface reading: a kitchen tool for tins"
+     },
+     {
+      "clueFragment": "Can",
+      "note": "setter's reading: can is slang for a jail, and its opener is the entrance swung open"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Can' is American slang for jail, so its opener is the way in or out of the jail.",
+     "definitionFit": "Slang for jail is can, so the barrier that opens to let inmates in or out is the jail's opener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1106,44 @@
     "text": "Cry out -  to the police?",
     "enumeration": "6"
    },
-   "solution": "SQUEAL"
+   "solution": "SQUEAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUEAL",
+    "definitions": [
+     {
+      "text": "Cry out",
+      "at": 0
+     },
+     {
+      "text": "to the police?",
+      "at": 11,
+      "note": "short for 'inform to the police'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cry out",
+      "note": "first meaning: give a shrill cry"
+     },
+     {
+      "clueFragment": "to the police?",
+      "note": "second meaning: inform on someone, slang for grassing"
+     }
+    ],
+    "explanation": {
+     "surface": "A cry for help addressed to the police.",
+     "walkthrough": "The dash makes it one appeal; the second sense is underworld slang for informing on accomplices.",
+     "definitionFit": "The verb means to make a high-pitched cry, and in criminal slang to betray associates by informing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1157,49 @@
     "text": "Aim by listener to win affection",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "to win affection",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aim",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     },
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is the organ that listens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A goal set by an audience member hoping to be liked.",
+     "definitionFit": "To make oneself loved or liked by someone is to gain their fondness, which is what the verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1213,51 @@
     "text": "Fall for a medical man at work",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROP",
+    "definitions": [
+     {
+      "text": "Fall",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a medical man",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Falling in love with a doctor while he is on duty.",
+     "walkthrough": "'Fall for' looks like a phrasal verb about attraction; 'Fall' alone is the definition.",
+     "definitionFit": "As a noun or verb the word means a descent, a plunge or tumble, the same as a fall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1271,43 @@
     "text": "Try hard to get free labour",
     "enumeration": "8"
    },
-   "solution": "STRUGGLE"
+   "solution": "STRUGGLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRUGGLE",
+    "definitions": [
+     {
+      "text": "Try hard to get free",
+      "at": 0
+     },
+     {
+      "text": "labour",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try hard to get free",
+      "note": "first meaning: to wriggle and fight against restraint"
+     },
+     {
+      "clueFragment": "labour",
+      "note": "second meaning: to toil with great effort"
+     }
+    ],
+    "explanation": {
+     "surface": "An effort to obtain workers without paying them.",
+     "walkthrough": "'Free labour' reads as unpaid workers, but the split falls between 'free' and 'labour'.",
+     "definitionFit": "The verb covers both fighting to escape a hold and toiling with difficulty at a task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1321,58 @@
     "text": "Recompensed for returning a nappy",
     "enumeration": "6"
    },
-   "solution": "DIAPER"
+   "solution": "DIAPER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DIAPER",
+    "definitions": [
+     {
+      "text": "a nappy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recompensed",
+      "gives": "REPAID",
+      "note": "repaid means recompensed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIAPER"
+     ],
+     "reversals": [
+      {
+       "from": "REPAID",
+       "to": "DIAPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting paid back for bringing back a nappy to the shop.",
+     "walkthrough": "The answer is the American word for what Britons call a nappy, a baby's cloth or disposable pad.",
+     "definitionFit": "American English uses this word for the absorbent garment worn by babies that the British call a nappy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1386,44 @@
     "text": "Looks at with an expression of friendliness",
     "enumeration": "7"
    },
-   "solution": "REGARDS"
+   "solution": "REGARDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REGARDS",
+    "definitions": [
+     {
+      "text": "Looks at",
+      "at": 0
+     },
+     {
+      "text": "expression of friendliness",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "with an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Looks at",
+      "note": "first meaning: gazes at or considers"
+     },
+     {
+      "clueFragment": "expression of friendliness",
+      "note": "second meaning: good wishes sent at the end of a letter"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gazes at another with a warm, friendly look.",
+     "definitionFit": "The verb means observes or considers; the plural noun is the kind wishes sent, as in 'give him my best'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1437,40 @@
     "text": "They have evil ends in films",
     "enumeration": "7"
    },
-   "solution": "BADDIES"
+   "solution": "BADDIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BADDIES",
+    "definitions": [
+     {
+      "text": "They have evil ends in films",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They have evil ends in films",
+      "note": "surface reading: characters with wicked aims on screen"
+     },
+     {
+      "clueFragment": "evil ends",
+      "note": "setter's reading: villains who meet a nasty death in the final reel"
+     }
+    ],
+    "explanation": {
+     "surface": "Movie characters pursuing wicked purposes.",
+     "walkthrough": "'Evil ends' means both wicked goals and unpleasant deaths; screen villains have both.",
+     "definitionFit": "Informal word for the villains of a film or story, the wicked characters opposed to the heroes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ends"
+    }
+   }
   }
  ]
 }
