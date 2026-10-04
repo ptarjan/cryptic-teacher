@@ -45,6 +45,9 @@
    "30-across": "METEOR"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -58,7 +61,55 @@
     "text": "Composer imprisoned in connection with quarrel",
     "enumeration": "6"
    },
-   "solution": "BREACH"
+   "solution": "BREACH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREACH",
+    "definitions": [
+     {
+      "text": "quarrel",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned",
+      "for": "container",
+      "note": "someone imprisoned is shut inside walls, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "BACH",
+      "note": "Johann Sebastian Bach, the composer"
+     },
+     {
+      "clueFragment": "in connection with",
+      "gives": "RE",
+      "note": "re means regarding, as in a business letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RE",
+      "ACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer has been locked up over some row or dispute.",
+     "walkthrough": "'In connection with' looks like part of the story, but it is the short business-letter word for regarding.",
+     "definitionFit": "A breach between friends is a rift or falling-out, much the same thing as a falling-out or row."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "imprisoned"
+    }
+   }
   },
   {
    "number": 1,
@@ -72,7 +123,44 @@
     "text": "Surprise for an attractive lady",
     "enumeration": "9"
    },
-   "solution": "BOMBSHELL"
+   "solution": "BOMBSHELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOMBSHELL",
+    "definitions": [
+     {
+      "text": "Surprise",
+      "at": 0
+     },
+     {
+      "text": "attractive lady",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surprise",
+      "note": "first meaning: a shocking piece of news"
+     },
+     {
+      "clueFragment": "attractive lady",
+      "note": "second meaning: slang for a stunningly glamorous woman"
+     }
+    ],
+    "explanation": {
+     "surface": "A treat or gift arranged for a pretty woman.",
+     "definitionFit": "A shock announcement is called this explosive-device word, which is also slang for a very glamorous woman, as in blonde bombshell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -86,7 +174,54 @@
     "text": "Eat greedily and go green as a result",
     "enumeration": "7"
    },
-   "solution": "ENGORGE"
+   "solution": "ENGORGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENGORGE",
+    "definitions": [
+     {
+      "text": "Eat greedily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as a result",
+      "for": "anagram",
+      "note": "as a result says the letters before it are worked over into something new"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go green",
+      "gives": "GOGREEN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOGREEN",
+       "gives": "ENGORGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stuffs themselves and turns green from nausea.",
+     "walkthrough": "'Go green' looks like the queasy consequence; it is merely the raw material.",
+     "definitionFit": "To engorge is to gorge or devour food ravenously, filling oneself to excess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 3,
@@ -100,7 +235,62 @@
     "text": "A body of troops. German originally, in Africa perhaps",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONTINGENT",
+    "definitions": [
+     {
+      "text": "A body of troops",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how a word starts, so only its first letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Africa perhaps",
+      "gives": "CONTINENT",
+      "note": "Africa is an example of a continent, hence perhaps"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTIN",
+      "G",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A German-led force of soldiers stationed in Africa.",
+     "walkthrough": "G is placed in CONTINENT between the N and the E.",
+     "definitionFit": "A contingent is a group of soldiers or others forming part of a larger force or gathering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Africa"
+    }
+   }
   },
   {
    "number": 4,
@@ -114,7 +304,44 @@
     "text": "Rough and difficult to deal with",
     "enumeration": "8"
    },
-   "solution": "SCABROUS"
+   "solution": "SCABROUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCABROUS",
+    "definitions": [
+     {
+      "text": "Rough",
+      "at": 0
+     },
+     {
+      "text": "difficult to deal with",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rough",
+      "note": "first meaning: having a scaly, uneven surface"
+     },
+     {
+      "clueFragment": "difficult to deal with",
+      "note": "second meaning: thorny or awkward, of a subject that needs delicate handling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like one description of a tricky person; it is two separate senses of a single uncommon adjective.",
+     "definitionFit": "Scabrous describes a scaly coarse surface and, figuratively, a topic that is thorny, indelicate or hard to handle tactfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -134,7 +361,53 @@
      }
     ]
    },
-   "solution": "CARPETBAG"
+   "solution": "CARPETBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARPET-BAG",
+    "definitions": [
+     {
+      "text": "the luggage",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complain",
+      "gives": "CARP",
+      "note": "to carp is to grumble or complain"
+     },
+     {
+      "clueFragment": "in France and",
+      "gives": "ET",
+      "note": "et is the French word for and"
+     },
+     {
+      "clueFragment": "claim",
+      "gives": "BAG",
+      "note": "to bag something is to claim it, as in bagging a seat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARP",
+      "ET",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in France complains and then claims their luggage.",
+     "walkthrough": "The phrase reads as 'and, in France', the French word for and, though the surface makes it a location for the complaint.",
+     "definitionFit": "A carpet-bag is an old-fashioned travelling bag made of carpet fabric, so a piece of luggage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claim"
+    }
+   }
   },
   {
    "number": 6,
@@ -148,7 +421,44 @@
     "text": "Sculpture is ruined",
     "enumeration": "4"
    },
-   "solution": "BUST"
+   "solution": "BUST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUST",
+    "definitions": [
+     {
+      "text": "Sculpture",
+      "at": 0
+     },
+     {
+      "text": "ruined",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sculpture",
+      "note": "first meaning: a statue of head and shoulders"
+     },
+     {
+      "clueFragment": "ruined",
+      "note": "second meaning: broken or bankrupt"
+     }
+    ],
+    "explanation": {
+     "surface": "A statue has been smashed.",
+     "definitionFit": "A bust is a sculpted head and shoulders, and informally the same word means broken or financially wrecked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -162,7 +472,50 @@
     "text": "Not in the minor, that's apparent",
     "enumeration": "7"
    },
-   "solution": "OUTWARD"
+   "solution": "OUTWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTWARD",
+    "definitions": [
+     {
+      "text": "apparent",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not in",
+      "gives": "OUT",
+      "note": "out is the opposite of in"
+     },
+     {
+      "clueFragment": "the minor",
+      "gives": "WARD",
+      "note": "a ward is a minor under the care of a guardian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is plain, as long as it is not in the minor key.",
+     "walkthrough": "'Minor' suggests music; it is a young person under guardianship.",
+     "definitionFit": "Outward means visible on the surface, as in an outward show, so seeming or evident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +529,65 @@
     "text": "Lady is upset by riddle",
     "enumeration": "5"
    },
-   "solution": "SIEVE"
+   "solution": "SIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SIEVE",
+    "definitions": [
+     {
+      "text": "riddle",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the letters run from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady",
+      "gives": "EVE",
+      "note": "Eve, the first lady"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "EVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVEIS",
+       "to": "SIEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is troubled by a puzzle she cannot solve.",
+     "walkthrough": "'Riddle' looks like a puzzle, but it is also a coarse sieve, and to riddle is to sift.",
+     "definitionFit": "A riddle is a large coarse sieve for soil or gravel, so the two nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "riddle"
+    }
+   }
   },
   {
    "number": 9,
@@ -190,7 +601,42 @@
     "text": "The way some worship at home",
     "enumeration": "4"
    },
-   "solution": "PATH"
+   "solution": "PATH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PATH",
+    "definitions": [
+     {
+      "text": "The way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worship at home",
+      "gives": "PATH",
+      "note": "the run of letters straddling the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people prefer to practise their religion at home.",
+     "definitionFit": "A path is a route or track, the way along which someone travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 10,
@@ -204,7 +650,55 @@
     "text": "Get a man in distress into the shade",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGENTA",
+    "definitions": [
+     {
+      "text": "the shade",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in distress",
+      "for": "anagram",
+      "note": "something in distress is battered and disordered, so these letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get a man",
+      "gives": "GETAMAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETAMAN",
+       "gives": "MAGENTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rescuer is told to move a man in trouble out of the sun and into some shade.",
+     "walkthrough": "'Shade' suggests shelter from the sun, but here it means a colour.",
+     "definitionFit": "Magenta is a purplish-red colour, and shade is a common word for a particular hue or tint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shade"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +712,59 @@
     "text": "Increased effort at college ends in award",
     "enumeration": "7"
    },
-   "solution": "ROSETTE"
+   "solution": "ROSETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROSETTE",
+    "definitions": [
+     {
+      "text": "award",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "the ends of words are their final letters, so only the last letter of each word is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Increased",
+      "gives": "ROSE",
+      "note": "rose means went up or increased"
+     },
+     {
+      "clueFragment": "effort at college",
+      "gives": "TTE",
+      "select": "last",
+      "note": "the final letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "TTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student who works harder at university ends up winning a prize.",
+     "walkthrough": "The surface suggests effort is rewarded; in fact 'effort at college' just supplies its three end letters.",
+     "definitionFit": "A rosette is a ribbon badge given as a prize, for instance at a horse or flower show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "effort"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,10 +775,53 @@
    },
    "length": 10,
    "clue": {
-    "text": "Serious points to dear up",
+    "text": "Serious points to clear up",
     "enumeration": "10"
    },
-   "solution": "STRAIGHTEN"
+   "solution": "STRAIGHTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAIGHTEN",
+    "definitions": [
+     {
+      "text": "clear up",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "gives": "STRAIGHT",
+      "note": "straight as in a straight face: earnest, not joking"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "EN",
+      "note": "E and N, two compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAIGHT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone earnestly lists the key points that need sorting out.",
+     "walkthrough": "Compass points (N, S, E, W) are a standard source of single letters.",
+     "definitionFit": "To straighten things is to tidy or sort them out, the same as clearing up a mess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +835,44 @@
     "text": "Avoid losing husband",
     "enumeration": "4"
    },
-   "solution": "SAVE"
+   "solution": "SAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAVE",
+    "definitions": [
+     {
+      "text": "Avoid losing",
+      "at": 0
+     },
+     {
+      "text": "husband",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid losing",
+      "note": "first meaning: keep from being lost, as in rescuing a match or a soul"
+     },
+     {
+      "clueFragment": "husband",
+      "note": "second meaning: the verb, to husband resources is to use them sparingly"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to a wife not to let her husband get away.",
+     "walkthrough": "'Husband' looks like a noun for a spouse, but it is the verb meaning to conserve or economise.",
+     "definitionFit": "To save something is both to rescue it from being lost and to economise with it, which is what husbanding means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "husband"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +886,70 @@
     "text": "Foresight shown by girl climbing in the South of France",
     "enumeration": "10"
    },
-   "solution": "PROVIDENCE"
+   "solution": "PROVIDENCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PROVIDENCE",
+    "definitions": [
+     {
+      "text": "Foresight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means the letters read upwards, back to front"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the South of France",
+      "gives": "PROVENCE",
+      "note": "Provence is the region of southern France"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "DI",
+      "note": "Di, short for Diana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROV",
+      "ID",
+      "ENCE"
+     ],
+     "reversals": [
+      {
+       "from": "DI",
+       "to": "ID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl shows good planning while climbing in southern France.",
+     "walkthrough": "'Climbing' suggests mountains, but in a down clue it means the girl's name is written upwards.",
+     "definitionFit": "Providence means prudent forethought for the future, as in being provident and planning ahead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +963,68 @@
     "text": "Came up to the mark in a backward class",
     "enumeration": "7"
    },
-   "solution": "EMERGED"
+   "solution": "EMERGED",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EMERGED",
+    "definitions": [
+     {
+      "text": "Came up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     },
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "backward tells us to read the result from right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "DEGREE",
+      "note": "a degree class, or a rank or grade"
+     },
+     {
+      "clueFragment": "the mark",
+      "gives": "M",
+      "note": "M is the abbreviation for the mark, the old German currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMERGED"
+     ],
+     "reversals": [
+      {
+       "from": "DEGREME",
+       "to": "EMERGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil in a weak class finally reaches the expected standard.",
+     "walkthrough": "M goes inside DEGREE to give DEGREME, and that whole string is reversed. 'Up to the mark' looks like one idiom but splits across definition and wordplay.",
+     "definitionFit": "To emerge is to surface or come up from below, as a swimmer or a submarine does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1038,65 @@
     "text": "Succeeded in slump at a speed without comparison",
     "enumeration": "9"
    },
-   "solution": "DISPARATE"
+   "solution": "DISPARATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DISPARATE",
+    "definitions": [
+     {
+      "text": "without comparison",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slump",
+      "gives": "DIP",
+      "note": "a dip is a fall or slump"
+     },
+     {
+      "clueFragment": "Succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, used in family trees"
+     },
+     {
+      "clueFragment": "a speed",
+      "gives": "ARATE",
+      "note": "a rate is a speed or pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "P",
+      "ARATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An economy recovers from a slump at unparalleled speed.",
+     "walkthrough": "S sits inside DIP before A RATE is added.",
+     "definitionFit": "Disparate things are so fundamentally different that they cannot sensibly be compared with one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Succeeded"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1110,50 @@
     "text": "Sustained Portuguese gentleman in the doldrums",
     "enumeration": "7"
    },
-   "solution": "BOREDOM"
+   "solution": "BOREDOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOREDOM",
+    "definitions": [
+     {
+      "text": "the doldrums",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sustained",
+      "gives": "BORE",
+      "note": "bore as the past tense of bear, to sustain or support"
+     },
+     {
+      "clueFragment": "Portuguese gentleman",
+      "gives": "DOM",
+      "note": "Dom is a Portuguese title of respect for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BORE",
+      "DOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A Portuguese man endures a long spell of gloom and listlessness.",
+     "walkthrough": "'Sustained' is past tense of the verb meaning held up or endured, here BORE.",
+     "definitionFit": "The doldrums are a state of listless stagnation and low spirits, which is boredom by another name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sustained"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1167,48 @@
     "text": "Pilgrims, once in this, will possibly reach a peak",
     "enumeration": "9"
    },
-   "solution": "MAYFLOWER"
+   "solution": "MAYFLOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYFLOWER",
+    "definitions": [
+     {
+      "text": "Pilgrims, once in this",
+      "at": 0,
+      "note": "a description of the ship by those it carried"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "will possibly",
+      "gives": "MAY",
+      "note": "may expresses possibility"
+     },
+     {
+      "clueFragment": "reach a peak",
+      "gives": "FLOWER",
+      "note": "to flower is to bloom, to be at one's peak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "FLOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "Pilgrims on a mountain trek might reach the summit.",
+     "walkthrough": "The Pilgrim Fathers sailed to America in 1620; 'peak' suggests climbing but means coming into bloom.",
+     "definitionFit": "The Mayflower was the ship that carried the Pilgrim Fathers from Plymouth to New England in 1620."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1222,50 @@
     "text": "Stories told for stage purposes",
     "enumeration": "7"
    },
-   "solution": "LEGENDS"
+   "solution": "LEGENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGENDS",
+    "definitions": [
+     {
+      "text": "Stories told",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stage",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey or race"
+     },
+     {
+      "clueFragment": "purposes",
+      "gives": "ENDS",
+      "note": "ends are aims or purposes, as in means and ends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "ENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tales recounted to be acted out in the theatre.",
+     "walkthrough": "'Stage' suggests the theatre, but it is a leg of a journey.",
+     "definitionFit": "Legends are traditional tales handed down by word of mouth, often stories with little historical basis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stage"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1279,57 @@
     "text": "Learn, for example, to become popular",
     "enumeration": "7"
    },
-   "solution": "GENERAL"
+   "solution": "GENERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENERAL",
+    "definitions": [
+     {
+      "text": "popular",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to become",
+      "for": "anagram",
+      "note": "to become means the letters turn into something different"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "gives": "LEARN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNEG",
+       "gives": "GENERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to study, for instance, in order to be well liked.",
+     "definitionFit": "General and popular both mean belonging to people at large, as in general opinion or the popular vote."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -364,7 +1349,45 @@
      }
     ]
    },
-   "solution": "GIVEWAY"
+   "solution": "GIVEWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GIVE WAY",
+    "definitions": [
+     {
+      "text": "Fail",
+      "at": 0
+     },
+     {
+      "text": "begin rowing",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail",
+      "note": "first meaning: collapse under strain, as a floor or bridge does"
+     },
+     {
+      "clueFragment": "begin rowing",
+      "note": "second meaning: the cox's command for the crew to start pulling"
+     }
+    ],
+    "explanation": {
+     "surface": "A crew that never manages to get started on its row.",
+     "walkthrough": "In boating, the order to start rowing is the two-word call heard from the cox.",
+     "definitionFit": "A structure that gives way collapses or fails, and the same phrase is a rowing command to start pulling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -378,7 +1401,39 @@
     "text": "Rider pulls up to perform this stunt",
     "enumeration": "7"
    },
-   "solution": "WHEELIE"
+   "solution": "WHEELIE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WHEELIE",
+    "definitions": [
+     {
+      "text": "Rider pulls up to perform this stunt",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rider pulls up",
+      "note": "surface reading: a horse rider reins in, coming to a halt"
+     },
+     {
+      "clueFragment": "to perform this stunt",
+      "note": "setter's reading: a cyclist or motorcyclist yanks the handlebars up and rides on the back wheel alone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Pulls up' suggests stopping a horse, but here the rider lifts the front of a bike off the ground.",
+     "definitionFit": "This stunt is riding a bicycle or motorbike balanced on its rear tyre with the front raised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pulls"
+    }
+   }
   },
   {
    "number": 23,
@@ -392,7 +1447,47 @@
     "text": "Cooked and wrapped up",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DONE",
+    "definitions": [
+     {
+      "text": "Cooked",
+      "at": 0
+     },
+     {
+      "text": "wrapped up",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cooked",
+      "note": "first meaning: ready to eat, cooked through"
+     },
+     {
+      "clueFragment": "wrapped up",
+      "note": "second meaning: finished or completed"
+     }
+    ],
+    "explanation": {
+     "surface": "Food that is ready and parcelled up to take away.",
+     "walkthrough": "'Wrapped up' suggests foil round a meal, but it means concluded.",
+     "definitionFit": "Meat is said to be ready when fully cooked, and a deal that is complete is finished, concluded or sealed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wrapped"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,10 +1498,57 @@
    },
    "length": 5,
    "clue": {
-    "text": "Tram loses southern base",
+    "text": "Tyrant loses southern base",
     "enumeration": "5"
    },
-   "solution": "DEPOT"
+   "solution": "DEPOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEPOT",
+    "definitions": [
+     {
+      "text": "base",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "loses says something is taken away from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tyrant",
+      "gives": "DESPOT",
+      "note": "a despot is an absolute ruler"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator is driven from his stronghold in the south.",
+     "walkthrough": "Removing the S from DESPOT leaves the answer.",
+     "definitionFit": "A depot is a storage or supply base, as in an army depot or bus depot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 24,
@@ -426,7 +1568,52 @@
      }
     ]
    },
-   "solution": "PADDEDCELL"
+   "solution": "PADDEDCELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "PADDED CELL",
+    "definitions": [
+     {
+      "text": "designed for damage limitation",
+      "at": 23,
+      "note": "a descriptive phrase for the room"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to take the word as it is spoken rather than as it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protected",
+      "gives": "PADDED",
+      "note": "cushioned with soft material for protection"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "CELL",
+      "soundsLike": "SELL",
+      "note": "to market is to sell"
+     }
+    ],
+    "explanation": {
+     "surface": "A protected market designed to limit economic damage, in the language of trade policy.",
+     "walkthrough": "The economic jargon misleads: market is the verb, and damage limitation is literal.",
+     "definitionFit": "A padded cell has cushioned walls so a disturbed inmate cannot injure themselves, so it exists to limit harm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "market"
+    }
+   }
   },
   {
    "number": 25,
@@ -440,7 +1627,46 @@
     "text": "Suicidal queen acted with love",
     "enumeration": "4"
    },
-   "solution": "DIDO"
+   "solution": "DIDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIDO",
+    "definitions": [
+     {
+      "text": "Suicidal queen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acted",
+      "gives": "DID",
+      "note": "did as in did something, acted"
+     },
+     {
+      "clueFragment": "with love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A doomed queen behaved as she did out of love.",
+     "walkthrough": "In Virgil's Aeneid, Dido, Queen of Carthage, killed herself when Aeneas left her.",
+     "definitionFit": "Dido, the legendary Carthaginian ruler, took her own life after being abandoned by Aeneas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -454,7 +1680,42 @@
     "text": "Organize fair",
     "enumeration": "4"
    },
-   "solution": "TIDY"
+   "solution": "TIDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIDY",
+    "definitions": [
+     {
+      "text": "Organize",
+      "at": 0
+     },
+     {
+      "text": "fair",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organize",
+      "note": "first meaning: put in order"
+     },
+     {
+      "clueFragment": "fair",
+      "note": "second meaning: considerable, as in a fair amount of money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fair' could be a noun for a fete, but it means sizeable; the answer is used that way in a tidy sum.",
+     "definitionFit": "To tidy is to put things in order, and a tidy sum is a fairly large or considerable amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,10 +1726,64 @@
    },
    "length": 7,
    "clue": {
-    "text": "Solution to Puzzle No 19. MS 27 It is, in character, a piece of music",
+    "text": "It is, in character, a piece of music",
     "enumeration": "7"
    },
-   "solution": "PARTITA"
+   "solution": "PARTITA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PARTITA",
+    "definitions": [
+     {
+      "text": "a piece of music",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is, in",
+      "for": "container",
+      "note": "is in tells us one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "PART",
+      "note": "a part is a character in a play"
+     },
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "IT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that something is in keeping with someone's nature.",
+     "walkthrough": "'In character' sounds like an idiom for typical behaviour; here character is a role in a play.",
+     "definitionFit": "A partita is a Baroque musical suite or set of variations, as in Bach's partitas for solo violin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,10 +1794,57 @@
    },
    "length": 7,
    "clue": {
-    "text": "European city quarter, formerly NE of Wading St",
+    "text": "European city quarter, formerly NE of Watling St",
     "enumeration": "7"
    },
-   "solution": "DANELAW"
+   "solution": "DANELAW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DANELAW",
+    "definitions": [
+     {
+      "text": "formerly NE of Watling St",
+      "at": 23,
+      "note": "a region described by its location"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "DANE",
+      "note": "a Dane is a European, from Denmark"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "W",
+      "note": "W for west, one of the four compass quarters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DANE",
+      "LA",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A city district that once lay north-east of a famous road.",
+     "walkthrough": "Watling Street is the old Roman road from Dover through London to Wroxeter; it roughly formed the border agreed between Alfred and the Danes.",
+     "definitionFit": "The Danelaw was the part of England under Viking rule and law, lying north and east of that Roman road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 29,
@@ -496,7 +1858,54 @@
     "text": "They kept the score, being mentally active",
     "enumeration": "8"
    },
-   "solution": "TALLYMEN"
+   "solution": "TALLYMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TALLYMEN",
+    "definitions": [
+     {
+      "text": "They kept the score",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "active",
+      "for": "anagram",
+      "note": "something active is lively and moving about, so these letters shift into a new order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mentally",
+      "gives": "MENTALLY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENTALLY",
+       "gives": "TALLYMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scorers who had to stay mentally sharp to keep count.",
+     "walkthrough": "A tally is a running count, notched on a stick in the past.",
+     "definitionFit": "Tallymen kept tallies, recording counts or debts, so they were the people who kept score."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 30,
@@ -510,7 +1919,49 @@
     "text": "Disintegration of remote shooting star",
     "enumeration": "6"
    },
-   "solution": "METEOR"
+   "solution": "METEOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METEOR",
+    "definitions": [
+     {
+      "text": "shooting star",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disintegration of",
+      "for": "anagram",
+      "note": "something that disintegrates falls to pieces, so these letters are broken up and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote",
+      "gives": "REMOTE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REMOTE",
+       "gives": "METEOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A far-off shooting star burns up and breaks apart.",
+     "definitionFit": "A meteor is a fragment of space rock that glows as it burns up in the atmosphere, popularly called a shooting star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
