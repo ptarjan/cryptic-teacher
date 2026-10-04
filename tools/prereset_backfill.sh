@@ -353,19 +353,24 @@ needs_solve() {
 # which keeps it out of the queue until its inputs change.
 solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
-  local judged="" said="/tmp/ct-prereset-$1.txt" out
+  local judged="" said="/tmp/ct-prereset-$1.txt" out sha
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
   elif [ -s "$fill" ] &&
        python3 tools/apply_solution.py "$id" --fill "$fill" --model "$MODEL" --no-reindex >"$verdict" 2>&1; then
-    git add -A -- "$(puzzle_spec "$id")"
-    if ! out=$(git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+    index_lock
+    if ! out=$(git add -A -- "$(puzzle_spec "$id")" 2>&1 &&
+               git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+      git reset -q -- "$(puzzle_spec "$id")"
+      index_unlock
       alert "pre-reset backfill could not commit its solve of $id, so it is not annotated either: $(printf '%s' "$out" | tail -5)"
       discard_puzzle "$id"
       rm -f "$fill" "$verdict"
       return 1
     fi
-    tools/push_puzzle_commit.sh ||
+    sha=$(git rev-parse HEAD)
+    index_unlock
+    tools/push_puzzle_commit.sh "$sha" ||
       alert "pre-reset backfill committed its solve of $id but could not push it — the pool's next sync retries. See .prereset.log."
   else
     if [ -s "$fill" ]; then judged=--judged said="$verdict"; fi
@@ -387,21 +392,25 @@ solve_applied() {
 # that, and queue the puzzle to be solved again next. Non-zero, with the file
 # put back, when any step fails; the caller then parks the puzzle as before.
 reopen_answers() {
-  local id="$1" out
+  local id="$1" out sha
   shift
   if ! out=$(python3 tools/reopen_answers.py "$id" "$@" 2>&1); then
     alert "pre-reset backfill could not reopen $id's unparsed model answers ($*), so it is parked instead: $(printf '%s' "$out" | tail -3)"
     discard_puzzle "$id"
     return 1
   fi
-  git add -A -- "$(puzzle_spec "$id")"
-  if ! out=$(git commit -q -m "$(printf 'Reopen %s %s\n\nNo parse was found for these model answers, so they go back to be solved again, once.\n\n%s' "$id" "$*" "$(python3 tools/provenance.py trailer)")" 2>&1); then
+  index_lock
+  if ! out=$(git add -A -- "$(puzzle_spec "$id")" 2>&1 &&
+             git commit -q -m "$(printf 'Reopen %s %s\n\nNo parse was found for these model answers, so they go back to be solved again, once.\n\n%s' "$id" "$*" "$(python3 tools/provenance.py trailer)")" 2>&1); then
     alert "pre-reset backfill could not commit reopening $id ($*), so it is parked instead: $(printf '%s' "$out" | tail -5)"
     git reset -q -- "$(puzzle_spec "$id")"
+    index_unlock
     discard_puzzle "$id"
     return 1
   fi
-  tools/push_puzzle_commit.sh ||
+  sha=$(git rev-parse HEAD)
+  index_unlock
+  tools/push_puzzle_commit.sh "$sha" ||
     alert "pre-reset backfill committed reopening $id but could not push it — the pool's next sync retries. See .prereset.log."
   SOLVED_HERE="${SOLVED_HERE/ $id / }"
   queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
@@ -412,6 +421,12 @@ reopen_answers() {
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
+# The pool's runs share one index. Unlocked, one run's `git add` dies on
+# index.lock while a sibling commits, and a commit takes whatever its siblings
+# have staged. So each stages, commits and names its commit under this lock,
+# and pushes that commit by name rather than HEAD.
+index_lock() { exec 9>"$(git rev-parse --git-path ct-index.lock)"; flock 9; }
+index_unlock() { flock -u 9; exec 9>&-; }
 # Undo a run's edits to one puzzle, including a copy written to a new folder,
 # and its rows of the source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py): back as HEAD has them, then
 # any SOURCE_CLUE_WRONG row left for a clue the reverted file does not show.
@@ -426,8 +441,7 @@ discard_puzzle() {
 # with no sibling's (tools/own_rows.py). On failure nothing is left staged, so
 # the next puzzle's commit cannot carry this one.
 stage_puzzle() {
-  git add -A -- "$(puzzle_spec "$1")"
-  python3 tools/own_rows.py stage "$1" && return 0
+  git add -A -- "$(puzzle_spec "$1")" && python3 tools/own_rows.py stage "$1" && return 0
   git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
   return 1
 }
@@ -727,9 +741,13 @@ skip_published_conflicts() {
 publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
   [ -n "$(git status --porcelain -- tools/data/)" ] || return 0
-  git add -A -- tools/data/
-  git commit -q -m "$(printf 'Shared data from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
-  tools/push_puzzle_commit.sh ||
+  local sha
+  index_lock
+  git add -A -- tools/data/ &&
+    git commit -q -m "$(printf 'Shared data from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
+  sha=$(git rev-parse HEAD)
+  index_unlock
+  tools/push_puzzle_commit.sh "$sha" ||
     alert "pre-reset backfill committed shared data ($(git show --name-only --format= HEAD | tr '\n' ' ')) but could not push it — the next sync retries. See .prereset.log."
 }
 
@@ -858,6 +876,7 @@ drop_failed() {
 # committing that would publish a broken puzzle page at 04:45.
 commit_puzzle() {
   local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
+  local sha
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
   # This puzzle only. A whole-tree run would fail for a sibling in the pool
   # that is still mid-write, and discard a good annotation to punish it.
@@ -924,19 +943,25 @@ commit_puzzle() {
     # fetch_puzzle.py go with it, and only its own: a corrected clue is valid
     # only beside its SOURCE_CLUE_WRONG row, and the siblings still in flight
     # file theirs into the same file (tools/own_rows.py).
+    index_lock
     if ! out=$(stage_puzzle "$num" 2>&1); then
+      index_unlock
       alert "pre-reset backfill could not stage $num's rows of tools/fetch_puzzle.py, so $what $num is not committed: $(printf '%s' "$out" | tail -5)"
       return 1
     fi
     if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
       # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
       # a refused commit has to stop here or the log says "committed".
+      git reset -q -- "$(puzzle_spec "$num")" tools/fetch_puzzle.py tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
+      index_unlock
       alert "pre-reset backfill could not commit $what $num, so nothing it annotates reaches the site until this is fixed: $(printf '%s' "$out" | tail -5)"
       return 1
     fi
     # Straight to origin/master without touching the tree: siblings in the
     # pool are still writing here. The tree catches up in sync_wave.
-    tools/push_puzzle_commit.sh ||
+    sha=$(git rev-parse HEAD)
+    index_unlock
+    tools/push_puzzle_commit.sh "$sha" ||
       alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until the pool's next sync retries. See .prereset.log."
     echo "committed $what $num"
   else
