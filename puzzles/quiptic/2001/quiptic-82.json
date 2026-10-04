@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Radical doctor may take a bit of stick",
     "enumeration": "7"
    },
-   "solution": "DRASTIC"
+   "solution": "DRASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DRASTIC",
+    "definitions": [
+     {
+      "text": "Radical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "deletion",
+      "note": "only a bit of the word is wanted, so its tail is cut away"
+     }
+    ],
+    "linkWords": [
+     "may take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR is the standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "STIC",
+      "note": "the word with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "A",
+      "STIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A hard-line doctor is prepared to put up with some criticism.",
+     "walkthrough": "'a bit of stick' reads as some criticism, but it asks for most of the word stick.",
+     "definitionFit": "Drastic and radical both describe measures that are extreme and far-reaching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,56 @@
     "text": "Put off, but provide food again on return",
     "enumeration": "5"
    },
-   "solution": "DEFER"
+   "solution": "DEFER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEFER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provide food again",
+      "gives": "REFED",
+      "note": "to feed again is to refeed; past tense refed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFED",
+       "to": "DEFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delays a meal but promises to serve it again later.",
+     "definitionFit": "To defer something is to postpone it, which is what putting it off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,50 @@
     "text": "Name is a difficulty when suffering memory loss",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNESIA",
+    "definitions": [
+     {
+      "text": "memory loss",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "difficulty when suffering",
+      "for": "anagram",
+      "note": "letters in difficulty and suffering are in a bad state, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name is a",
+      "gives": "NAMEISA",
+      "note": "the three words used letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAMEISA",
+       "gives": "AMNESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remembering a name is hard for someone who is losing their memory.",
+     "definitionFit": "Amnesia is the medical term for a partial or total loss of recall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +227,43 @@
     "text": "A weeping wound?",
     "enumeration": "4"
    },
-   "solution": "TEAR"
+   "solution": "TEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEAR",
+    "definitions": [
+     {
+      "text": "A weeping",
+      "at": 0
+     },
+     {
+      "text": "wound",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A weeping",
+      "note": "first meaning: a drop shed from the eye when crying"
+     },
+     {
+      "clueFragment": "wound",
+      "note": "second meaning: a rip or gash, as in a muscle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the clue suggests one oozing injury; the word is pronounced differently in each sense.",
+     "definitionFit": "The same spelling names a single teardrop shed in crying and a rip or laceration in flesh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "weeping"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +283,50 @@
      }
     ]
    },
-   "solution": "CATHERINEWHEELS"
+   "solution": "CATHERINEWHEELS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATHERINE WHEELS",
+    "definitions": [
+     {
+      "text": "fireworks",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great Empress",
+      "gives": "CATHERINE",
+      "note": "Catherine the Great, Empress of Russia"
+     },
+     {
+      "clueFragment": "comes round",
+      "gives": "WHEELS",
+      "note": "to wheel is to turn or circle round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATHERINE",
+      "WHEELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand empress arrives just as the fireworks start.",
+     "walkthrough": "Catherine wheels are spinning fireworks pinned to a post, named after Saint Catherine.",
+     "definitionFit": "Catherine wheels are rotating firework devices that spin while throwing out sparks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +340,63 @@
     "text": "Sailor raises pile of money to pick up bird",
     "enumeration": "7"
    },
-   "solution": "JACKDAW"
+   "solution": "JACKDAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "JACKDAW",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raises",
+      "for": "reversal",
+      "note": "lifting something up turns it over, so the word is read back to front"
+     }
+    ],
+    "linkWords": [
+     "to pick up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "JACK",
+      "note": "Jack tar is an old name for a sailor"
+     },
+     {
+      "clueFragment": "pile of money",
+      "gives": "WAD",
+      "note": "a wad is a thick roll of banknotes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "DAW"
+     ],
+     "reversals": [
+      {
+       "from": "WAD",
+       "to": "DAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor gathers a stack of cash so he can buy a bird.",
+     "definitionFit": "The jackdaw is a small grey-headed member of the crow family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raises"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +424,63 @@
      }
     ]
    },
-   "solution": "JACKOFALLTRADES"
+   "solution": "JACKOFALLTRADES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACK OF ALL TRADES",
+    "definitions": [
+     {
+      "text": "he's master of none of them",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "first to",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knave",
+      "gives": "JACK",
+      "note": "the knave in a pack of cards is the jack"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "autumn",
+      "gives": "FALL",
+      "note": "fall is the American word for autumn"
+     },
+     {
+      "clueFragment": "crafts",
+      "gives": "TRADES",
+      "note": "skilled crafts are trades"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "O",
+      "FALL",
+      "TRADES"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue loves seasonal handicrafts yet is good at none of them.",
+     "walkthrough": "The definition quotes the proverb 'jack of all trades, master of none'; JACK comes first, then O, FALL and TRADES.",
+     "definitionFit": "The proverb describes someone who dabbles in many skills without becoming expert in any single one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Knave"
+    }
+   }
   },
   {
    "number": 6,
@@ -157,7 +500,61 @@
      }
     ]
    },
-   "solution": "COTTAGEPIE"
+   "solution": "COTTAGEPIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COTTAGE PIE",
+    "definitions": [
+     {
+      "text": "Traditional dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed",
+      "for": "anagram",
+      "note": "something crushed is broken up, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "made from",
+     "served with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pottage",
+      "gives": "POTTAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ice",
+      "gives": "ICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POTTAGEICE",
+       "gives": "COTTAGEPIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned stew is oddly served with crushed ice.",
+     "walkthrough": "Pottage is a thick soup or stew; cottage pie is minced beef topped with mashed potato.",
+     "definitionFit": "Cottage pie is a long-established British dish of minced meat baked under mashed potato."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +568,45 @@
     "text": "Samuel Pepys was reportedly the worst",
     "enumeration": "7"
    },
-   "solution": "DIARIST"
+   "solution": "DIARIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DIARIST",
+    "definitions": [
+     {
+      "text": "Samuel Pepys was",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than read, so the sound is what counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the worst",
+      "gives": "DIARIST",
+      "soundsLike": "DIREST",
+      "note": "the most dire is the worst"
+     }
+    ],
+    "explanation": {
+     "surface": "A slur that the famous seventeenth-century writer was the worst of men.",
+     "walkthrough": "Spoken quickly, 'direst' and the answer sound alike.",
+     "definitionFit": "Pepys kept a celebrated daily journal of 1660s London, making him history's best-known keeper of a diary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "worst"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +620,64 @@
     "text": "Roused by funeral party when little Dennis returned",
     "enumeration": "7"
    },
-   "solution": "WAKENED"
+   "solution": "WAKENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WAKENED",
+    "definitions": [
+     {
+      "text": "Roused",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so the short name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funeral party",
+      "gives": "WAKE",
+      "note": "a wake is a gathering after a funeral"
+     },
+     {
+      "clueFragment": "little Dennis",
+      "gives": "DEN",
+      "note": "Den is a short form of Dennis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAKE",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "DEN",
+       "to": "NED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is woken by the noise of a wake when Dennis comes home.",
+     "definitionFit": "To be roused is to be woken up or stirred from sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +691,65 @@
     "text": "See enthusiast with cat: it's dancing. Wonderful!",
     "enumeration": "9"
    },
-   "solution": "FANTASTIC"
+   "solution": "FANTASTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FANTASTIC",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about, so they land in a new order"
+     }
+    ],
+    "linkWords": [
+     "See",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enthusiast",
+      "gives": "FAN",
+      "note": "a fan is an enthusiast"
+     },
+     {
+      "clueFragment": "cat: it's",
+      "gives": "CATITS",
+      "note": "the letters as written, before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "TASTIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CATITS",
+       "gives": "TASTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An onlooker marvels at a cat-lover whose pet dances.",
+     "definitionFit": "Fantastic is an informal intensifier for something marvellous or excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +763,42 @@
     "text": "Follow a trail",
     "enumeration": "5"
    },
-   "solution": "TRACK"
+   "solution": "TRACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRACK",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     },
+     {
+      "text": "a trail",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follow",
+      "note": "first meaning: a verb, to pursue or trace"
+     },
+     {
+      "clueFragment": "a trail",
+      "note": "second meaning: a noun, a rough path"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one instruction to follow a trail, but the verb and the noun phrase are separate meanings.",
+     "definitionFit": "As a verb the word means to pursue someone; as a noun it means a rough path or footway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Follow"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +812,65 @@
     "text": "To start run with a broken ski is a gamble",
     "enumeration": "4"
    },
-   "solution": "RISK"
+   "solution": "RISK",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RISK",
+    "definitions": [
+     {
+      "text": "a gamble",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken item has its parts out of place, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "To start",
+     "with",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "ski",
+      "gives": "SKI",
+      "note": "letters as written, before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ISK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SKI",
+       "gives": "ISK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Setting off down a slope on a damaged ski is reckless.",
+     "definitionFit": "A risk is a venture whose outcome is uncertain, the same thing as a gamble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +884,49 @@
     "text": "Short Christmas-time speech provides embellishment",
     "enumeration": "10"
    },
-   "solution": "DECORATION"
+   "solution": "DECORATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECORATION",
+    "definitions": [
+     {
+      "text": "embellishment",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short Christmas-time",
+      "gives": "DEC",
+      "note": "Dec is the short form of December, the Christmas month"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "ORATION",
+      "note": "an oration is a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "ORATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief festive address adds a flourish to the occasion.",
+     "definitionFit": "A decoration is an ornament added to make something prettier, which is an embellishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Christmas-time"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +946,48 @@
      }
     ]
    },
-   "solution": "COMICSTRIP"
+   "solution": "COMICSTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMIC STRIP",
+    "definitions": [
+     {
+      "text": "funny graphic",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comedians'",
+      "gives": "COMICS",
+      "note": "comics are comedians"
+     },
+     {
+      "clueFragment": "day out",
+      "gives": "TRIP",
+      "note": "a trip is an outing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMICS",
+      "TRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedians' outing results in an amusing cartoon.",
+     "definitionFit": "A comic strip is a sequence of drawn panels telling a humorous story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1001,59 @@
     "text": "Actor takes dodgy CIA job",
     "enumeration": "6"
    },
-   "solution": "JACOBI"
+   "solution": "JACOBI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "JACOBI",
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is not straight, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CIA",
+      "gives": "CIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "JOB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIAJOB",
+       "gives": "JACOBI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer accepts a shady assignment from American intelligence.",
+     "walkthrough": "Sir Derek Jacobi is an English stage and screen actor, known for I, Claudius.",
+     "definitionFit": "Derek Jacobi is a famous British performer, so he is an example of an actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Actor"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1067,72 @@
     "text": "After playing Lear to a tee, Edward was warned",
     "enumeration": "7"
    },
-   "solution": "ALERTED"
+   "solution": "ALERTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALERTED",
+    "definitions": [
+     {
+      "text": "warned",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "an actor playing a role reinterprets it, so the letters take new positions"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "to",
+     "was"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lear",
+      "gives": "LEAR",
+      "note": "letters as written, before rearranging"
+     },
+     {
+      "clueFragment": "a tee",
+      "gives": "T",
+      "note": "tee is the spelt-out name of the letter"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALER",
+      "T",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAR",
+       "gives": "ALER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor who plays King Lear perfectly is given a warning.",
+     "walkthrough": "'to a tee' means perfectly, but here 'a tee' is just the letter T.",
+     "definitionFit": "To be alerted is to be made aware of danger, the same as being warned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tee"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1146,46 @@
     "text": "Is celibacy an ideal, or can it produce poison?",
     "enumeration": "7"
    },
-   "solution": "CYANIDE"
+   "solution": "CYANIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CYANIDE",
+    "definitions": [
+     {
+      "text": "poison",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can it produce",
+      "for": "hidden_word",
+      "note": "the phrase yields the answer from within its own run of letters"
+     }
+    ],
+    "linkWords": [
+     "Is",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celibacy an ideal",
+      "gives": "CYANIDE",
+      "note": "the run of letters spans the end of the first word, the second, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A philosophical question: is chastity a virtue or a toxic idea?",
+     "definitionFit": "Cyanide is a fast-acting deadly chemical, the classic toxin of detective stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "produce"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1199,50 @@
     "text": "Prince's cleaning lady meets the French",
     "enumeration": "7"
    },
-   "solution": "CHARLES"
+   "solution": "CHARLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARLES",
+    "definitions": [
+     {
+      "text": "Prince",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "meets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaning lady",
+      "gives": "CHAR",
+      "note": "a char, or charwoman, is a British term for a cleaner"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for the (plural)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal's cleaner is introduced to some French people.",
+     "definitionFit": "Charles was the long-serving Prince of Wales, heir to the British throne."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1256,72 @@
     "text": "Mixed team go with me to river to measure the current",
     "enumeration": "7"
    },
-   "solution": "AMMETER"
+   "solution": "AMMETER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AMMETER",
+    "definitions": [
+     {
+      "text": "measure the current",
+      "at": 34,
+      "note": "a verb phrase standing for the instrument that does this"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixed",
+      "for": "anagram",
+      "note": "mixed things are stirred together, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "go with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "TEAM",
+      "note": "letters as written"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "letters as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMMETE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAMME",
+       "gives": "AMMETE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mixed team and I go down to the river to check its flow.",
+     "walkthrough": "The current is electrical, not a river's flow, and the definition describes what the device does.",
+     "definitionFit": "An ammeter is an instrument for gauging electric flow in amperes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1335,56 @@
     "text": "Hang about! Look, it may be the Queen!",
     "enumeration": "6"
    },
-   "solution": "LOITER"
+   "solution": "LOITER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOITER",
+    "definitions": [
+     {
+      "text": "Hang about",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "may be the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word for look"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "IT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells a friend to wait because the monarch might appear.",
+     "walkthrough": "'Hang about!' looks like an exclamation meaning 'wait', but it is the verb definition.",
+     "definitionFit": "To loiter is to linger idly somewhere, the same as hanging about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hang"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1398,69 @@
     "text": "Go off former lover (quiet student) and overdose on Ecstasy",
     "enumeration": "7"
    },
-   "solution": "EXPLODE"
+   "solution": "EXPLODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLODE",
+    "definitions": [
+     {
+      "text": "Go off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is the learner plate"
+     },
+     {
+      "clueFragment": "overdose",
+      "gives": "OD",
+      "note": "OD is the usual abbreviation for overdose"
+     },
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "L",
+      "OD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry outburst at an ex and a student who has taken too much ecstasy.",
+     "walkthrough": "L is the learner plate on a British car, so it stands for a student.",
+     "definitionFit": "Explode and go off both describe a bomb detonating, or a person losing their temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1474,69 @@
     "text": "Air with a most freak acidity level before",
     "enumeration": "10"
    },
-   "solution": "ATMOSPHERE"
+   "solution": "ATMOSPHERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ATMOSPHERE",
+    "definitions": [
+     {
+      "text": "Air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freak",
+      "for": "anagram",
+      "note": "a freak is abnormal, so these letters come out in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a most",
+      "gives": "AMOST",
+      "note": "letters as written, before rearranging"
+     },
+     {
+      "clueFragment": "acidity level",
+      "gives": "PH",
+      "note": "pH is the scale of acidity"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATMOS",
+      "PH",
+      "ERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMOST",
+       "gives": "ATMOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Air that had a strangely high acidity at some earlier time.",
+     "definitionFit": "The atmosphere is the envelope of gases surrounding the earth, which we breathe as air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freak"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1550,64 @@
     "text": "Dad returned to collect notes that were copied",
     "enumeration": "4"
    },
-   "solution": "APED"
+   "solution": "APED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "APED",
+    "definitions": [
+     {
+      "text": "copied",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so the word is written backwards"
+     }
+    ],
+    "linkWords": [
+     "to collect",
+     "that were"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "ED",
+      "note": "E and D are two musical notes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Father came back to pick up some notes that had been photocopied.",
+     "definitionFit": "To ape someone is to mimic them, so aped means imitated or copied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1621,59 @@
     "text": "Take bearing in English forest - it's impenetrable",
     "enumeration": "5"
    },
-   "solution": "DENSE"
+   "solution": "DENSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DENSE",
+    "definitions": [
+     {
+      "text": "impenetrable",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "putting one thing in another means it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "Take",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bearing",
+      "gives": "S",
+      "note": "S, south, is a compass bearing"
+     },
+     {
+      "clueFragment": "English forest",
+      "gives": "DENE",
+      "note": "dene is an English dialect word for a wooded valley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a compass reading inside a thick English wood.",
+     "walkthrough": "A dene (or dean) is a narrow wooded valley in English place names; S goes before its last letter.",
+     "definitionFit": "Dense undergrowth is so thick and closely packed that it cannot be passed through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1687,59 @@
     "text": "Smile when king falls into the drink",
     "enumeration": "4"
    },
-   "solution": "GRIN"
+   "solution": "GRIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIN",
+    "definitions": [
+     {
+      "text": "Smile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falls into",
+      "for": "container",
+      "note": "falling into something puts one inside it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R, rex, is Latin for king"
+     },
+     {
+      "clueFragment": "the drink",
+      "gives": "GIN",
+      "note": "gin is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "People smile when a monarch tumbles into the water.",
+     "walkthrough": "'the drink' is slang for the sea, but here it is a spirit.",
+     "definitionFit": "A grin is a broad smile showing the teeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1753,43 @@
     "text": "After a while, one's even more dead!",
     "enumeration": "5"
    },
-   "solution": "LATER"
+   "solution": "LATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LATER",
+    "definitions": [
+     {
+      "text": "After a while",
+      "at": 0
+     },
+     {
+      "text": "even more dead",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "After a while",
+      "note": "first meaning: at some time afterwards"
+     },
+     {
+      "clueFragment": "even more dead",
+      "note": "second meaning: comparative of late, as in the late king"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The late' means deceased, so a jokey comparative of it means deader still.",
+     "definitionFit": "As an adverb it means subsequently; as the comparative adjective of late (deceased) it jokingly means deader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1803,53 @@
     "text": "I wondered about getting a quilt",
     "enumeration": "9"
    },
-   "solution": "EIDERDOWN"
+   "solution": "EIDERDOWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EIDERDOWN",
+    "definitions": [
+     {
+      "text": "a quilt",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so the letters are turned into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I wondered",
+      "gives": "IWONDERED",
+      "note": "letters as written, before rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IWONDERED",
+       "gives": "EIDERDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses about whether to buy a bedcover.",
+     "definitionFit": "An eiderdown is a thick bed covering, originally stuffed with soft duck feathers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1863,55 @@
     "text": "Takes off clothes in oriental bars",
     "enumeration": "7"
    },
-   "solution": "STRIPES"
+   "solution": "STRIPES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRIPES",
+    "definitions": [
+     {
+      "text": "bars",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Takes off clothes",
+      "gives": "STRIPS",
+      "note": "to strip is to undress"
+     },
+     {
+      "clueFragment": "oriental",
+      "gives": "E",
+      "note": "E for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIP",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone undresses in nightclubs in the Far East.",
+     "walkthrough": "'bars' looks like drinking places but means bands of colour.",
+     "definitionFit": "Stripes are long narrow bands of colour, also called bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1925,69 @@
     "text": "True Church surrounded by evil and hollow rite",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "True",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded by others is enclosed between them"
+     },
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow word has had its middle emptied, leaving only its outside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil",
+      "gives": "SIN",
+      "note": "sin is wickedness"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "rite",
+      "gives": "RE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "CE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A true church encircled by wickedness and empty ritual.",
+     "definitionFit": "Sincere and true both describe feelings that are genuine and honestly meant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   }
  ]
 }
