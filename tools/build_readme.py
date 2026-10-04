@@ -490,6 +490,7 @@ LAYOUT = [
     ("fetching", "tools/scan_crop.py", "the printed clues of an archive.org scan, cut out for the annotator"),
     ("fetching", "tools/test_scan_crop.sh", "does the annotator get the printed clues of a puzzle filed off a scan?"),
     ("fetching", "tools/test_ocr_remote.sh", "does tools/ocr_remote.py compare every reader model a read can load, and send back an edition whose read on the desktop opened a file it was not sent?"),
+    ("fetching", "tools/test_prereset_index_lock.sh", "do the pool's concurrent runs commit only their own puzzle?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

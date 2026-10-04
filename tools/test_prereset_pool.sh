@@ -36,7 +36,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-run drain for the sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
-          needs_solve solve_applied; do
+          needs_solve solve_applied index_lock index_unlock; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
@@ -60,7 +60,7 @@ run_solve() {
   echo "end $1 $(now)" >>"$EVENTS"
   echo "solved $1" >"/tmp/ct-prereset-$1.txt"
 }
-git() { echo "git $1 ${*: -1}" >>"$EVENTS"; }
+git() { [ "$1" = rev-parse ] && { echo "$tree/${*: -1}"; return; }; echo "git $1 ${*: -1}" >>"$EVENTS"; }
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
 discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }

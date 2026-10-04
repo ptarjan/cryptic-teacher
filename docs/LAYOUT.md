@@ -1396,5 +1396,7 @@ tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare ev
                                              model a read can load, and send back an edition
                                              whose read on the desktop opened a file it was not
                                              sent?
+tools/test_prereset_index_lock.sh            do the pool's concurrent runs commit only their
+                                             own puzzle?
 ```
 <!-- LAYOUT-END -->
