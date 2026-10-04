@@ -1911,6 +1911,11 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18262", "25-across"): (
+        "Jack got track - that's clear",
+        "Jack got crack - that's clear",
+        "OCR misread: the wordplay needs crack (SOLVE) after Jack (AB)",
+    ),
     ("times-18267", "19-down"): (
         "Nearly all foe money's here by time specified",
         "Nearly all for money's here by time specified",
