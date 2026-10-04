@@ -1906,6 +1906,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18251", "4-across"): (
+        "The other side of the coin, so 10 speak",
+        "The other side of the coin, so to speak",
+        "OCR misread: the phrase is so to speak, not so 10"),
+    ("times-18251", "25-down"): (
+        "No longer T writing about the church",
+        "No longer writing about the church",
+        "OCR misread: a stray T; the wordplay is ON (writing about) plus CE"),
     ("times-18233", "5-down"): (
         "One managing to deceive - 2 fisherman",
         "One managing to deceive - a fisherman",
