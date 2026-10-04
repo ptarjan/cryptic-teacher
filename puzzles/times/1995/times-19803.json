@@ -36,6 +36,9 @@
    "19-down": "TUNDRA"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,55 @@
     "text": "Delivered around close once a week",
     "enumeration": "8"
    },
-   "solution": "SENNIGHT"
+   "solution": "SENNIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SENNIGHT",
+    "definitions": [
+     {
+      "text": "once a week",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word wraps around the other, so it holds the second word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delivered",
+      "gives": "SENT",
+      "note": "something delivered has been sent"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "NIGH",
+      "note": "close by, near at hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "NIGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A parcel or newspaper dropped round to a nearby house every week.",
+     "walkthrough": "'Once' means formerly: SENNIGHT, 'seven nights', is an archaic word for a week.",
+     "definitionFit": "Sennight is the old contraction of seven nights, a term for a seven-day period that has since dropped out of everyday use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 1,
@@ -63,7 +114,74 @@
     "text": "Church leaders miss out in such a division",
     "enumeration": "6"
    },
-   "solution": "SCHISM"
+   "solution": "SCHISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SCHISM",
+    "definitions": [
+     {
+      "text": "such a division",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "the leaders of a word are the letters at its front, here its opening pair"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out of place have been knocked into disorder"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one element sits inside the other, enclosed by its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "select": 2,
+      "note": "the leading pair of letters of the word Church"
+     },
+     {
+      "clueFragment": "miss",
+      "gives": "MISS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CH",
+      "ISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MISS",
+       "gives": "SISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Church elders failing to turn up causes a split in the congregation.",
+     "walkthrough": "'Leaders' is plural, so it takes two letters rather than one; the whole clue doubles as a description of a church split.",
+     "definitionFit": "A schism is a formal split within a religious body, exactly the kind of rupture the surface describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +195,43 @@
     "text": "Butterflies trapped in inner vestibule",
     "enumeration": "6"
    },
-   "solution": "NERVES"
+   "solution": "NERVES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NERVES",
+    "definitions": [
+     {
+      "text": "Butterflies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "hidden_word",
+      "note": "the letters are caught inside the following words, held within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inner vestibule",
+      "gives": "NERVES",
+      "note": "the run of letters across the end of inner and the start of vestibule"
+     }
+    ],
+    "explanation": {
+     "surface": "Butterflies caught in an entrance hall, fluttering to get out.",
+     "definitionFit": "Butterflies in the stomach is the idiom for anxiety, the same jittery feeling as pre-performance jitters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Butterflies"
+    }
+   }
   },
   {
    "number": 3,
@@ -88,10 +242,68 @@
    },
    "length": 9,
    "clue": {
-    "text": "Characteristic of the rash, with no initial redness in face or up?",
+    "text": "Characteristic of the rash, with no initial redness in face or lip?",
     "enumeration": "9"
    },
-   "solution": "IMPUDENCE"
+   "solution": "IMPUDENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "IMPUDENCE",
+    "definitions": [
+     {
+      "text": "face or lip",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "initial points to the leading letter of the word that follows"
+     },
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "having none of something means it is taken away from the phrase"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Characteristic of the rash",
+      "gives": "IMPRUDENCE",
+      "note": "rash people act without prudence"
+     },
+     {
+      "clueFragment": "redness",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of redness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "UDENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor describing a skin rash that has lost its red flush on the face or lips.",
+     "walkthrough": "'The rash' looks like a skin complaint but means rash people. Remove the R from IMPRUDENCE to get IMPUDENCE.",
+     "definitionFit": "Face and lip are both informal words for cheek or insolence, as in 'none of your lip'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rash"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +317,50 @@
     "text": "Academic topic, healthy alternative",
     "enumeration": "12"
    },
-   "solution": "HYPOTHETICAL"
+   "solution": "HYPOTHETICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HYPOTHETICAL",
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version of these words is a different arrangement of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "topic, healthy",
+      "gives": "TOPICHEALTHY",
+      "note": "the fodder, all twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPICHEALTHY",
+       "gives": "HYPOTHETICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer chooses a wholesome subject, like alternative medicine, as a study topic.",
+     "definitionFit": "An academic question is one of theory only, with no practical bearing, so it is merely supposed or theoretical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +374,57 @@
     "text": "Greek character provides notes on essayist",
     "enumeration": "6"
    },
-   "solution": "LAMBDA"
+   "solution": "LAMBDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAMBDA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down-style reading 'on' places one part after the other, so it follows"
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "essayist",
+      "gives": "LAMB",
+      "note": "Charles Lamb, the English essayist who wrote as Elia"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "DA",
+      "note": "D and A are two musical notes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAMB",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek-letter symbol helpfully supplies annotations on a writer's work.",
+     "walkthrough": "The notes come after the essayist: 'on' means placed next to.",
+     "definitionFit": "Lambda is the eleventh letter of the Greek alphabet, the one corresponding to our L."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +438,59 @@
     "text": "Everybody visits boat-centre here on the Forth estuary",
     "enumeration": "5"
    },
-   "solution": "ALLOA"
+   "solution": "ALLOA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALLOA",
+    "definitions": [
+     {
+      "text": "here on the Forth estuary",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters, with the ends dropped"
+     }
+    ],
+    "linkWords": [
+     "visits"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everybody",
+      "gives": "ALL",
+      "note": "everybody, the lot"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "OA",
+      "select": "middle",
+      "note": "the two middle letters of boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OA"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone calls in at a boating centre on the Scottish estuary.",
+     "walkthrough": "The Forth is the Scottish river that runs past Stirling into the sea at Edinburgh; ALLOA is a town on its estuary.",
+     "definitionFit": "Alloa is a small Scottish town in Clackmannanshire lying on the north bank of that river's upper estuary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +504,49 @@
     "text": "Tie wrinkles in such knots",
     "enumeration": "8"
    },
-   "solution": "BOWLINES"
+   "solution": "BOWLINES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOWLINES",
+    "definitions": [
+     {
+      "text": "such knots",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tie",
+      "gives": "BOW",
+      "note": "a bow is a tie, as in bow tie"
+     },
+     {
+      "clueFragment": "wrinkles",
+      "gives": "LINES",
+      "note": "lines on the face are wrinkles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOW",
+      "LINES"
+     ]
+    },
+    "explanation": {
+     "surface": "Tying knots leaves creases in the rope or ribbon.",
+     "definitionFit": "A bowline is a sailor's knot forming a fixed loop at the end of a rope, so these are a type of hitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrinkles"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +560,51 @@
     "text": "Appropriate that spa does not open",
     "enumeration": "8"
    },
-   "solution": "ARROGATE"
+   "solution": "ARROGATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARROGATE",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "does not open",
+      "for": "deletion",
+      "note": "a word that does not open has lost its first letter"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spa",
+      "gives": "HARROGATE",
+      "note": "a spa town in North Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARROGATE"
+     ]
+    },
+    "explanation": {
+     "surface": "It would be fitting that a health spa stays closed.",
+     "walkthrough": "'Appropriate' reads as an adjective but is the verb. HARROGATE is a Yorkshire spa town; dropping its H gives ARROGATE.",
+     "definitionFit": "To appropriate something is to take it for yourself without right, which is what arrogating means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +618,57 @@
     "text": "Steps on deck with hooter and whistle",
     "enumeration": "8"
    },
-   "solution": "HORNPIPE"
+   "solution": "HORNPIPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HORNPIPE",
+    "definitions": [
+     {
+      "text": "Steps on deck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "this conjunction simply joins the second part on after the first"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooter",
+      "gives": "HORN",
+      "note": "a horn is a hooter"
+     },
+     {
+      "clueFragment": "whistle",
+      "gives": "PIPE",
+      "note": "a pipe, like a bosun's whistle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORN",
+      "PIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing stairs on a ship to the sound of a horn and whistle.",
+     "definitionFit": "A hornpipe is the lively solo dance traditionally performed by sailors, so its dance moves happen on board ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Steps"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +682,62 @@
     "text": "Later, to cloud up after a sunny start",
     "enumeration": "6"
    },
-   "solution": "SLOWER"
+   "solution": "SLOWER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLOWER",
+    "definitions": [
+     {
+      "text": "Later",
+      "at": 0,
+      "note": "comparative: 'more slowly', taking more time"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece comes after the other, so it is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sunny",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sunny"
+     },
+     {
+      "clueFragment": "to cloud up",
+      "gives": "LOWER",
+      "note": "to lower (rhymes with 'flower') is to darken or turn threatening, of the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast: bright in the morning, clouding over later.",
+     "walkthrough": "Lower here is the weather verb, pronounced to rhyme with 'power'; the forecast surface hides it.",
+     "definitionFit": "Something done slower takes more time and so finishes at a more delayed point, a loose comparative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Later"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +757,40 @@
      }
     ]
    },
-   "solution": "TRIGGERHAPPY"
+   "solution": "TRIGGERHAPPY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRIGGER-HAPPY",
+    "definitions": [
+     {
+      "text": "Not wanting a shooting-brake to cramp one's style?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shooting-brake",
+      "note": "surface reading: a shooting-brake is an old British name for an estate car"
+     },
+     {
+      "clueFragment": "Not wanting a shooting-brake to cramp one's style?",
+      "note": "setter's reading: someone who wants no brake at all on their shooting, all too keen to fire"
+     }
+    ],
+    "explanation": {
+     "surface": "A stylish driver who would hate to be seen in a dowdy estate car.",
+     "walkthrough": "A shooting-brake is a British term for an estate car (station wagon); split it into 'shooting' and 'brake' for the real sense.",
+     "definitionFit": "Trigger-happy describes someone too ready to open fire, unwilling to hold back or restrain their gunplay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shooting-brake"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +804,42 @@
     "text": "Upper expedition",
     "enumeration": "5"
    },
-   "solution": "SPEED"
+   "solution": "SPEED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPEED",
+    "definitions": [
+     {
+      "text": "Upper",
+      "at": 0
+     },
+     {
+      "text": "expedition",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upper",
+      "note": "first meaning: a stimulant drug, slang for amphetamine"
+     },
+     {
+      "clueFragment": "expedition",
+      "note": "second meaning: haste, promptness, as in 'with all expedition'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Upper and expedition look like an adjective and a journey; they are slang for a stimulant and an old word for haste.",
+     "definitionFit": "Speed is street slang for amphetamine, a stimulant pill, and also means swiftness, the older sense of expedition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "expedition"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +853,59 @@
     "text": "Making way through crowd for the 'Unfinished\" performance",
     "enumeration": "9"
    },
-   "solution": "THREADING"
+   "solution": "THREADING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THREADING",
+    "definitions": [
+     {
+      "text": "Making way through crowd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its ending, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "READING",
+      "note": "a reading is a performance of a text aloud to an audience"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "READING"
+     ]
+    },
+    "explanation": {
+     "surface": "Pushing through the audience to hear Schubert's Unfinished Symphony.",
+     "walkthrough": "The quotation marks make 'Unfinished' look like Schubert's symphony; it just cuts the last letter from 'the'.",
+     "definitionFit": "Threading one's way means picking a winding path through a dense crowd, as a thread passes through narrow gaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Unfinished"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +919,52 @@
     "text": "Run danger met by positioning slip, for example",
     "enumeration": "12"
    },
-   "solution": "UNDERGARMENT"
+   "solution": "UNDERGARMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDERGARMENT",
+    "definitions": [
+     {
+      "text": "slip, for example",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by positioning",
+      "for": "anagram",
+      "note": "positioning letters means arranging them into new places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run danger met",
+      "gives": "RUNDANGERMET",
+      "note": "the fodder, all twelve letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUNDANGERMET",
+       "gives": "UNDERGARMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner faces hazard by where they stand, maybe slipping over.",
+     "walkthrough": "'Slip' wants to be a fall; it is the petticoat-like garment, hence 'for example'.",
+     "definitionFit": "A slip is a thin dress-length piece of lingerie worn beneath clothes, one instance of underwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +978,51 @@
     "text": "Stock heroin for a runner?",
     "enumeration": "9"
    },
-   "solution": "RACEHORSE"
+   "solution": "RACEHORSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RACEHORSE",
+    "definitions": [
+     {
+      "text": "a runner?",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stock",
+      "gives": "RACE",
+      "note": "stock in the sense of breed or lineage"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "HORSE",
+      "note": "horse is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACE",
+      "HORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer stocks up on heroin to supply a drug runner.",
+     "walkthrough": "'Runner' suggests a drug courier, but it is a horse in a race; the question mark flags the definition by example.",
+     "definitionFit": "Horses entered in a race are called runners, so a thoroughbred bred for the turf fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,10 +1033,59 @@
    },
    "length": 8,
    "clue": {
-    "text": "Naturally there is accommodation at cathedral) city",
+    "text": "Naturally there is accommodation at cathedral city",
     "enumeration": "8"
    },
-   "solution": "INNATELY"
+   "solution": "INNATELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNATELY",
+    "definitions": [
+     {
+      "text": "Naturally",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "there is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accommodation",
+      "gives": "INN",
+      "note": "an inn provides lodging"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cathedral city",
+      "gives": "ELY",
+      "note": "Ely, the cathedral city in Cambridgeshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "AT",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Of course you can find a place to stay in a cathedral city.",
+     "walkthrough": "ELY is a small English city in the Fens, known for its cathedral.",
+     "definitionFit": "Innately means by birth or inborn nature, so something done instinctively without being learnt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Naturally"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,10 +1096,74 @@
    },
    "length": 8,
    "clue": {
-    "text": "King can rise and put on sweaters c.",
+    "text": "King can rise and put on sweaters etc.",
     "enumeration": "8"
    },
-   "solution": "KNITWEAR"
+   "solution": "KNITWEAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "KNITWEAR",
+    "definitions": [
+     {
+      "text": "sweaters etc.",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "in a down clue, rising means the word is read from the bottom upwards"
+     },
+     {
+      "text": "and",
+      "for": "charade",
+      "note": "this conjunction simply joins the next piece on at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess and card abbreviation for king"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "put on",
+      "gives": "WEAR",
+      "note": "to put on clothes is to wear them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIT",
+      "WEAR"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king can get up and pull on his jumpers.",
+     "definitionFit": "Knitwear covers all garments made by knitting, sweaters and cardigans being the commonest examples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1177,39 @@
     "text": "People do not live in this state",
     "enumeration": "12"
    },
-   "solution": "NONRESIDENCE"
+   "solution": "NONRESIDENCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NON-RESIDENCE",
+    "definitions": [
+     {
+      "text": "People do not live in this state",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this state",
+      "note": "surface reading: a country or nation that is empty of inhabitants"
+     },
+     {
+      "clueFragment": "People do not live in this state",
+      "note": "setter's reading: state meaning condition, the condition of not living somewhere"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'State' wants to be a country nobody lives in; it is a condition, the status of someone who does not reside at a place.",
+     "definitionFit": "Non-residence is the legal or tax status of not living in a given place, the condition of absence from home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1223,66 @@
     "text": "A road maniac overturns where there are permanent sheets of ice",
     "enumeration": "6"
    },
-   "solution": "TUNDRA"
+   "solution": "TUNDRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TUNDRA",
+    "definitions": [
+     {
+      "text": "where there are permanent sheets of ice",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturns",
+      "for": "reversal",
+      "note": "something overturned is upended, so in a down clue the letters run bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the standard abbreviation for road"
+     },
+     {
+      "clueFragment": "maniac",
+      "gives": "NUT",
+      "note": "a nut is a crazy person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "DR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ARDNUT",
+       "to": "TUNDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reckless driver flips the car on an icy road.",
+     "definitionFit": "Tundra is the treeless Arctic plain whose subsoil stays frozen all year round, the permafrost zone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maniac"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1296,47 @@
     "text": "Ring for theatre seats",
     "enumeration": "6"
    },
-   "solution": "CIRCLE"
+   "solution": "CIRCLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CIRCLE",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     },
+     {
+      "text": "theatre seats",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "note": "first meaning: a round shape, a loop"
+     },
+     {
+      "clueFragment": "theatre seats",
+      "note": "second meaning: an upper tier of an auditorium"
+     }
+    ],
+    "explanation": {
+     "surface": "Phoning the box office to book seats for a play.",
+     "walkthrough": "'Ring' looks like a phone call; it is the shape.",
+     "definitionFit": "A circle is any round loop, and in a playhouse it is the curved balcony tier above the stalls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1350,51 @@
     "text": "Second mowing ordered at the farm",
     "enumeration": "9"
    },
-   "solution": "AFTERMATH"
+   "solution": "AFTERMATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTERMATH",
+    "definitions": [
+     {
+      "text": "Second mowing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "putting letters in order means arranging them afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at the farm",
+      "gives": "ATTHEFARM",
+      "note": "the fodder, all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTHEFARM",
+       "gives": "AFTERMATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer orders a second cut of the hay meadow.",
+     "walkthrough": "A 'math' is an old word for a mowing, so the after-math is the crop of grass that grows after the first cut; the modern sense came later.",
+     "definitionFit": "Aftermath originally meant the fresh growth of grass cut after the first hay harvest, a second crop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1408,44 @@
     "text": "Old money one may charge in Africa?",
     "enumeration": "5"
    },
-   "solution": "RHINO"
+   "solution": "RHINO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RHINO",
+    "definitions": [
+     {
+      "text": "Old money",
+      "at": 0
+     },
+     {
+      "text": "one may charge in Africa?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old money",
+      "note": "first meaning: dated British slang for cash"
+     },
+     {
+      "clueFragment": "one may charge in Africa?",
+      "note": "second meaning: a large horned animal known for charging"
+     }
+    ],
+    "explanation": {
+     "surface": "Old cash that someone might spend on purchases in Africa.",
+     "walkthrough": "'Old money' suggests inherited wealth or pre-decimal coins; rhino is old slang for cash. 'Charge' suggests a fee, but it is a stampede.",
+     "definitionFit": "Rhino was period slang for cash, and the rhinoceros of the African savanna is notorious for charging intruders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1459,58 @@
     "text": "This eastern dish takes time, one concludes",
     "enumeration": "5"
    },
-   "solution": "HOURI"
+   "solution": "HOURI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOURI",
+    "definitions": [
+     {
+      "text": "This eastern dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concludes",
+      "for": "charade",
+      "note": "a piece that concludes comes at the end, placed last"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "HOUR",
+      "note": "an hour is a period of time"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-cooked oriental dish that needs time to finish.",
+     "walkthrough": "'Dish' suggests food, but it is slang for an attractive person.",
+     "definitionFit": "A houri is one of the beautiful maidens of the Islamic paradise, so a glamorous woman from Eastern tradition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,10 +1521,54 @@
    },
    "length": 6,
    "clue": {
-    "text": "One good at batting has to watch cover! 6).",
+    "text": "One good at batting has to watch cover!",
     "enumeration": "6"
    },
-   "solution": "EYELID"
+   "solution": "EYELID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYELID",
+    "definitions": [
+     {
+      "text": "One good at batting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watch",
+      "gives": "EYE",
+      "note": "to eye something is to watch it"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "LID"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled cricket batsman must keep an eye on the cover fielder.",
+     "walkthrough": "Cover is a fielding position in cricket, which makes 'batting' look like cricket; here batting means blinking.",
+     "definitionFit": "We bat our eyelids when blinking or flirting, so that flap of skin is the thing that does the fluttering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "batting"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1582,51 @@
     "text": "PC's radio switched off and on",
     "enumeration": "8"
    },
-   "solution": "SPORADIC"
+   "solution": "SPORADIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPORADIC",
+    "definitions": [
+     {
+      "text": "off and on",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switched",
+      "for": "anagram",
+      "note": "letters switched about have been swapped into fresh positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PC's radio",
+      "gives": "PCSRADIO",
+      "note": "the fodder, all eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PCSRADIO",
+       "gives": "SPORADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police constable's radio keeps cutting in and out.",
+     "walkthrough": "PC is a police constable; the radio flicking off and on is also the definition.",
+     "definitionFit": "Off and on is an idiom for intermittently, happening at irregular intervals rather than steadily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "switched"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1640,68 @@
     "text": "Badger comes back eating a perennial herb",
     "enumeration": "6"
    },
-   "solution": "YARROW"
+   "solution": "YARROW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "YARROW",
+    "definitions": [
+     {
+      "text": "a perennial herb",
+      "at": 25,
+      "note": "the clue's 'a' does double duty: it is eaten in the wordplay and part of the definition"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes back",
+      "for": "reversal",
+      "note": "coming back means travelling the other way, so the word runs right to left"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Badger",
+      "gives": "WORRY",
+      "note": "to badger someone is to pester or worry them"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "A",
+      "RROW"
+     ],
+     "reversals": [
+      {
+       "from": "WORRY",
+       "to": "YRROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badger returns to its sett, munching on a garden plant.",
+     "walkthrough": "'Badger' wants to be the animal; it is the verb meaning to pester.",
+     "definitionFit": "Yarrow is Achillea millefolium, a feathery-leaved plant with flat white flower heads that returns each year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Badger"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1715,51 @@
     "text": "Sort to confront Roman, perhaps",
     "enumeration": "8"
    },
-   "solution": "TYPEFACE"
+   "solution": "TYPEFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TYPE-FACE",
+    "definitions": [
+     {
+      "text": "Roman, perhaps",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort",
+      "gives": "TYPE",
+      "note": "a sort or kind"
+     },
+     {
+      "clueFragment": "confront",
+      "gives": "FACE",
+      "note": "to face someone is to confront them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYPE",
+      "FACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of soldier squaring up to an ancient Roman.",
+     "walkthrough": "'Roman' suggests a citizen of Rome; it is upright print, as opposed to italic.",
+     "definitionFit": "Roman is a style of printed lettering, the plain upright design used for most text, and so a font."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Roman"
+    }
+   }
   }
  ]
 }
