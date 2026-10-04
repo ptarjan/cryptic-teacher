@@ -34,7 +34,7 @@ CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 # read here), so most of each worker's time is a wait on it: this host
 # keeps the parsing and the vote, at nice 19, one OCR thread a worker when
 # the desktop is off.
-export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.48}"
+export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # Scan filer: readings screened against the grid, VLM picks held to the readers

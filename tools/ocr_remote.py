@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """The clue OCR (tools/ocr_clues.py raw_words) run on Paul's desktop over ssh.
 
-    OCR_REMOTE=micro@100.68.145.15,micro@192.168.1.48 python3 tools/file_archive_org_puzzles.py ...
+    OCR_REMOTE=micro@100.68.145.15,micro@192.168.1.198 python3 tools/file_archive_org_puzzles.py ...
     python3 tools/ocr_remote.py check        # connect, report versions, read one crop both ways
 
 The Mac mini has 4 cores; the desktop has 28. With OCR_REMOTE set, each
 process holds one ssh session to `python ocr_remote.py serve` on the first
 host that answers, sends it the already-upscaled crop as PNG and gets the
-words back as JSON. The desktop runs the same code (this file and
-ocr_clues.py, shipped on connect when its copies differ), the same reader
-models and the same tesseract and onnxruntime builds: the session is used
-only when the versions it reports are this host's, so a reading is the same
+words back as JSON. The desktop runs the same code (this file, ocr_clues.py
+and the Tesseract model, shipped once into a directory named by their hash,
+so a running session's files are never overwritten), the same reader models
+and the same tesseract and onnxruntime builds: the session is used only
+when the versions it reports are this host's, so a reading is the same
 whichever host made it.
 
 When no host answers, or one stops answering mid-read, the reason is logged
@@ -18,11 +19,12 @@ and this process reads locally, trying the desktop again after RETRY
 seconds: a desktop that is off slows a run down and never stops or hangs it.
 
 Desktop layout (C:\\Users\\micro\\ocrw): venv/ (the pinned Python packages),
-tess/ (conda-forge tesseract, micromamba), tools/ (shipped here).
+tess/ (conda-forge tesseract, micromamba), v-<code hash>/tools/ (shipped here).
 """
 import hashlib
 import json
 import os
+import random
 import select
 import subprocess
 import sys
@@ -33,16 +35,18 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
-#: The desktop's directory and the server it runs there.
+#: The desktop's directory.
 HOME = r"C:\Users\micro\ocrw"
-SERVE = rf"{HOME}\venv\Scripts\python.exe {HOME}\tools\ocr_remote.py serve"
 #: Seconds to wait for a session to say it is ready, and for one crop.
 CONNECT_TIMEOUT = 60
 READ_TIMEOUT = 300
 #: Seconds before a process that lost the desktop tries it again.
 RETRY = 600
+#: Every OCR_REMOTE host is the desktop, its host key known by its tailnet
+#: address (this host's known_hosts is read-only), so its LAN address
+#: checks against that.
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5", "-o", "ServerAliveInterval=15",
-       "-o", "ServerAliveCountMax=4"]
+       "-o", "ServerAliveCountMax=4", "-o", "HostKeyAlias=100.68.145.15"]
 
 
 def shipped():
@@ -52,6 +56,18 @@ def shipped():
     for model in ocr_clues.TESS_MODELS.values():
         files[f"tools/{model.relative_to(TOOLS).as_posix()}"] = model
     return files
+
+
+def code_hash():
+    """The hash of shipped()'s contents: the desktop directory they live in."""
+    h = hashlib.sha1()
+    for name, path in sorted(shipped().items()):
+        h.update(name.encode() + b"\0" + path.read_bytes())
+    return h.hexdigest()[:12]
+
+
+def code_dir():
+    return rf"{HOME}\v-{code_hash()}"
 
 
 def versions():
@@ -121,11 +137,17 @@ class Session:
     def __init__(self, host):
         self.host = host
         self.err = tempfile.TemporaryFile()  # noqa: SIM115 -- ssh writes to it for the session's life
-        self.proc = subprocess.Popen([*SSH, host, SERVE], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        serve = rf"{HOME}\venv\Scripts\python.exe {code_dir()}\tools\ocr_remote.py serve"
+        self.proc = subprocess.Popen([*SSH, host, serve], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                      stderr=self.err)
         self.buf = b""
-        self.ready = self.answer(CONNECT_TIMEOUT).get("ready")
+        try:
+            self.ready = self.answer(CONNECT_TIMEOUT).get("ready")
+        except Unavailable:
+            self.close()
+            raise
         if self.ready is None:
+            self.close()
             raise Unavailable("no ready line")
 
     def answer(self, timeout):
@@ -167,57 +189,83 @@ class Session:
 
 
 def ship(host):
-    """Copy shipped() to the desktop's HOME, over ssh as a tar stream."""
+    """Copy shipped() into the desktop's code_dir(), over ssh as a tar
+    stream."""
     import io
     import tarfile
     buf = io.BytesIO()
     with tarfile.open(fileobj=buf, mode="w") as tar:
         for name, path in shipped().items():
             tar.add(path, arcname=name)
-    res = subprocess.run([*SSH, host, f'cd /d "{HOME}" && tar -xf -'], input=buf.getvalue(),
-                         capture_output=True, timeout=120, check=False)
+    res = subprocess.run([*SSH, host, f'mkdir "{code_dir()}" 2>nul & cd /d "{code_dir()}" && tar -xf -'],
+                         input=buf.getvalue(), capture_output=True, timeout=120, check=False)
     if res.returncode:
         raise Unavailable(f"shipping the code failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
 
 
 _STATE = {"pid": None, "session": None, "retry": 0.0, "local": None}
+#: Held while one process ships: the rest wait, then find the code there.
+SHIP_LOCK = Path(tempfile.gettempdir()) / "ocr_remote.ship.lock"
 
 
 def log(line):
     print(f"{time.strftime('%H:%M:%S')} desktop OCR [{os.getpid()}]: {line}", file=sys.stderr, flush=True)
 
 
+def matched(s):
+    """`s` when its versions are this host's, else None and why (closed)."""
+    differ = sorted(k for k in set(s.ready) | set(_STATE["local"]) if s.ready.get(k) != _STATE["local"].get(k))
+    if not differ:
+        return s, None
+    s.close()
+    return None, f"{s.host}: not this host's readers: " + ", ".join(
+        f"{k} {s.ready.get(k)} here {_STATE['local'].get(k)}" for k in differ)
+
+
+def opened(host, tries=3):
+    """A Session on `host`, tried `tries` times a few seconds apart (the
+    desktop's sshd turns away a burst of new connections)."""
+    for attempt in range(tries):
+        try:
+            return Session(host)
+        except Unavailable:
+            if attempt == tries - 1:
+                raise
+            time.sleep(random.uniform(2, 8))
+    raise AssertionError("unreachable")
+
+
 def connect():
     """A ready session whose versions are this host's, on the first of
-    OCR_REMOTE's hosts that gives one; else None, the reasons logged."""
+    OCR_REMOTE's hosts that gives one, the code shipped there first when it
+    is missing; else None, the reasons logged."""
+    import fcntl
     if _STATE["local"] is None:
         _STATE["local"] = versions()
     reasons = []
     for host in filter(None, os.environ.get("OCR_REMOTE", "").split(",")):
-        # A first failure or a stale copy of the code: ship it, try once more.
-        for attempt in range(2):
+        try:
+            s, why = matched(opened(host))
+        except Unavailable as e:
+            s, why = None, f"{host}: {e}"
+        if s:
+            return s
+        with open(SHIP_LOCK, "w") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
             try:
-                s = Session(host)
-            except Unavailable as e:
-                why = f"{host}: {e}"
-            else:
-                differ = sorted(k for k in set(s.ready) | set(_STATE["local"])
-                                if s.ready.get(k) != _STATE["local"].get(k))
-                if not differ:
-                    return s
-                s.close()
-                why = f"{host}: not this host's readers: " + ", ".join(
-                    f"{k} {s.ready.get(k)} here {_STATE['local'].get(k)}" for k in differ)
-                if any(not k.startswith("tools/") for k in differ):
-                    attempt = 1
-            if attempt:
-                reasons.append(why)
-                break
+                s, why = matched(opened(host, 1))
+            except Unavailable:
+                s = None
+            if s:
+                return s
             try:
                 ship(host)
+                s, why = matched(opened(host, 1))
             except (Unavailable, OSError, subprocess.TimeoutExpired) as e:
-                reasons.append(f"{why}; {host}: {e}")
-                break
+                s, why = None, f"{why}; then {host}: {e}"
+            if s:
+                return s
+        reasons.append(why)
     log("unavailable (" + "; ".join(reasons or ["OCR_REMOTE names no host"])
         + f"), reading here; trying again in {RETRY}s")
     return None
