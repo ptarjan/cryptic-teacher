@@ -45,8 +45,19 @@
    "25-across": "TRAMMEL",
    "26-across": "CLOTH",
    "27-across": "STOVEPIPE"
-  }
+  },
+  "corrected": [
+   {
+    "entry": "28-across",
+    "was": "PLEASANT",
+    "now": "PLEASING",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -60,7 +71,57 @@
     "text": "Serve with mushroom ingredient and swallow",
     "enumeration": "6"
    },
-   "solution": "ACCEPT"
+   "solution": "ACCEPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCEPT",
+    "definitions": [
+     {
+      "text": "swallow",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingredient",
+      "for": "container",
+      "note": "an ingredient goes into a mixture, so the mushroom word is placed inside the other word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serve",
+      "gives": "ACT",
+      "note": "to act as something is to serve in that role"
+     },
+     {
+      "clueFragment": "mushroom",
+      "gives": "CEP",
+      "note": "the cep is the edible porcini mushroom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CEP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook serves a dish with mushrooms in it and tells the diner to swallow.",
+     "definitionFit": "To accept something is to take it in without objection, the figurative sense of swallowing a story or insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Serve"
+    }
+   }
   },
   {
    "number": 1,
@@ -74,7 +135,50 @@
     "text": "Ambitious partisan in trouble",
     "enumeration": "8"
    },
-   "solution": "ASPIRANT"
+   "solution": "ASPIRANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASPIRANT",
+    "definitions": [
+     {
+      "text": "Ambitious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in trouble",
+      "for": "anagram",
+      "note": "something in trouble is in a mess, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "partisan",
+      "gives": "PARTISAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARTISAN",
+       "gives": "ASPIRANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen party loyalist has landed in hot water.",
+     "definitionFit": "Aspirant as an adjective describes someone striving or aiming high for a position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trouble"
+    }
+   }
   },
   {
    "number": 2,
@@ -88,7 +192,59 @@
     "text": "Daily provided free around Tyneside",
     "enumeration": "7"
    },
-   "solution": "CLEANER"
+   "solution": "CLEANER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEANER",
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "provided"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "CLEAR",
+      "note": "clear means free of obstruction"
+     },
+     {
+      "clueFragment": "Tyneside",
+      "gives": "NE",
+      "note": "Tyneside is in the North East of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEA",
+      "NE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A daily newspaper is handed out free in the Newcastle area.",
+     "walkthrough": "A daily is British for a cleaning woman who comes in each day, not a newspaper.",
+     "definitionFit": "In British usage a daily is a domestic help who comes in to do housework each day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 3,
@@ -102,7 +258,65 @@
     "text": "Mobile phone has bad name for producing odd effects",
     "enumeration": "9"
    },
-   "solution": "PHENOMENA"
+   "solution": "PHENOMENA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHENOMENA",
+    "definitions": [
+     {
+      "text": "odd effects",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mobile",
+      "for": "anagram",
+      "note": "mobile means movable, so these letters move around"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad means corrupted, so these letters are spoilt into a new order"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phone",
+      "gives": "PHONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "NAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHONENAME",
+       "gives": "PHENOMENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cellphone with a poorly chosen name causes strange results.",
+     "walkthrough": "'Mobile phone' reads as one item, but 'Mobile' is the signal to rearrange.",
+     "definitionFit": "Phenomena are observed occurrences, especially remarkable or unusual happenings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mobile"
+    }
+   }
   },
   {
    "number": 4,
@@ -116,7 +330,50 @@
     "text": "Expedition getting passage by old aircraft",
     "enumeration": "8"
    },
-   "solution": "TRIPLANE"
+   "solution": "TRIPLANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPLANE",
+    "definitions": [
+     {
+      "text": "old aircraft",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expedition",
+      "gives": "TRIP",
+      "note": "a trip is a journey or outing"
+     },
+     {
+      "clueFragment": "passage",
+      "gives": "LANE",
+      "note": "a lane is a narrow way through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "LANE"
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers on an expedition secure a route home on a vintage aeroplane.",
+     "definitionFit": "A triplane, with three stacked wings, is an early design of flying machine from the First World War era."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 5,
@@ -130,7 +387,59 @@
     "text": "Hood's aim in robbery is to capture underworld boss in vengeance",
     "enumeration": "14"
    },
-   "solution": "REDISTRIBUTION"
+   "solution": "REDISTRIBUTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REDISTRIBUTION",
+    "definitions": [
+     {
+      "text": "Hood's aim in robbery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing something holds it inside, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vengeance",
+      "gives": "RETRIBUTION",
+      "note": "retribution is punishment as revenge"
+     },
+     {
+      "clueFragment": "underworld boss",
+      "gives": "DIS",
+      "note": "Dis is the Roman god of the underworld"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DIS",
+      "TRIBUTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster robs to grab the crime boss as a form of revenge.",
+     "walkthrough": "Hood is Robin Hood, who robbed the rich to give to the poor.",
+     "definitionFit": "Robin Hood's motive was to share out wealth more equally, taking from the rich for the poor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hood's"
+    }
+   }
   },
   {
    "number": 6,
@@ -144,7 +453,54 @@
     "text": "Nothing but shillings inside money bag",
     "enumeration": "5"
    },
-   "solution": "PURSE"
+   "solution": "PURSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PURSE",
+    "definitions": [
+     {
+      "text": "money bag",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the shillings within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing but",
+      "gives": "PURE",
+      "note": "pure luck means nothing but luck"
+     },
+     {
+      "clueFragment": "shillings",
+      "gives": "S",
+      "note": "s is the abbreviation for shillings in old British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "There is nothing in the money bag except shillings, the old British coins.",
+     "definitionFit": "A purse is a small pouch in which coins and cash are carried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nothing"
+    }
+   }
   },
   {
    "number": 7,
@@ -158,7 +514,71 @@
     "text": "A lodging set up for rowdy having reformed",
     "enumeration": "7"
    },
-   "solution": "ADAPTED"
+   "solution": "ADAPTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADAPTED",
+    "definitions": [
+     {
+      "text": "reformed",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up lifts the word so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lodging",
+      "gives": "PAD",
+      "note": "a pad is slang for a place to live"
+     },
+     {
+      "clueFragment": "rowdy",
+      "gives": "TED",
+      "note": "a Ted, or Teddy boy, was a 1950s British youth known for rowdiness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAP",
+      "TED"
+     ],
+     "reversals": [
+      {
+       "from": "PAD",
+       "to": "DAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Accommodation has been arranged for a hooligan who has turned over a new leaf.",
+     "walkthrough": "Teddy boys were 1950s British youths in Edwardian-style suits with a rowdy reputation.",
+     "definitionFit": "Something adapted has been altered to suit new conditions, so it has been changed into a new form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reformed"
+    }
+   }
   },
   {
    "number": 8,
@@ -172,7 +592,48 @@
     "text": "Warming up for Cockney's consumption",
     "enumeration": "6"
    },
-   "solution": "EATING"
+   "solution": "EATING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EATING",
+    "definitions": [
+     {
+      "text": "consumption",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Cockney's",
+      "for": "deletion",
+      "note": "Cockneys famously drop the h sound at the start of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warming up",
+      "gives": "HEATING",
+      "note": "heating up is warming up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EATING"
+     ]
+    },
+    "explanation": {
+     "surface": "Food is being warmed up for a Londoner to eat.",
+     "walkthrough": "A Cockney is a working-class East Londoner, whose accent drops initial H.",
+     "definitionFit": "Eating is the act of consuming food, and consumption is the noun for that intake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumption"
+    }
+   }
   },
   {
    "number": 9,
@@ -196,7 +657,51 @@
      }
     ]
    },
-   "solution": "STANDSTOREASON"
+   "solution": "STANDSTOREASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANDS TO REASON",
+    "definitions": [
+     {
+      "text": "it's apparent from the evidence",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gets up",
+      "gives": "STANDS",
+      "note": "to stand is to get up"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "argue case",
+      "gives": "REASON",
+      "note": "to reason is to argue a case logically"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STANDS",
+      "TO",
+      "REASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A barrister rises in court to argue the case.",
+     "definitionFit": "The idiom describes a conclusion that is logical and obvious from the facts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -210,7 +715,73 @@
     "text": "Checked in tournament restricted by revolutionary pawn opening",
     "enumeration": "9"
    },
-   "solution": "PREVENTED"
+   "solution": "PREVENTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PREVENTED",
+    "definitions": [
+     {
+      "text": "Checked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricted by",
+      "for": "container",
+      "note": "something restricted by another thing is hemmed in by it, so one word sits inside the other"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter alone"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of pawn, also its chess abbreviation"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "RED",
+      "note": "a Red is a communist revolutionary"
+     },
+     {
+      "clueFragment": "tournament",
+      "gives": "EVENT",
+      "note": "a sporting event or competition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "EVENT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player checked in a tournament after a revolutionary opening move with a pawn.",
+     "walkthrough": "'Checked' sounds like chess, but here it means stopped; P is also the standard chess abbreviation for pawn.",
+     "definitionFit": "To prevent something is to stop or block it, the same as holding it in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Checked"
+    }
+   }
   },
   {
    "number": 11,
@@ -224,7 +795,42 @@
     "text": "Criticize cook",
     "enumeration": "5"
    },
-   "solution": "ROAST"
+   "solution": "ROAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROAST",
+    "definitions": [
+     {
+      "text": "Criticize",
+      "at": 0
+     },
+     {
+      "text": "cook",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticize",
+      "note": "first meaning: to attack someone harshly or mock them mercilessly"
+     },
+     {
+      "clueFragment": "cook",
+      "note": "second meaning: to cook meat in an oven"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like a complaint about a chef, but each is a separate meaning of one word.",
+     "definitionFit": "The verb covers both slating someone severely in words and baking meat with dry heat in an oven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 12,
@@ -244,7 +850,42 @@
      }
     ]
    },
-   "solution": "RUNDOWN"
+   "solution": "RUNDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUN-DOWN",
+    "definitions": [
+     {
+      "text": "Find fault with",
+      "at": 0
+     },
+     {
+      "text": "summary",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find fault with",
+      "note": "first meaning: to disparage, as a verb phrase"
+     },
+     {
+      "clueFragment": "summary",
+      "note": "second meaning: a brief account of the main points"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "As two words it is a verb phrase for belittling; hyphenated or closed up it is a noun for a quick overview.",
+     "definitionFit": "To run something down is to belittle it, while a rundown is a short briefing of the key points."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "summary"
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +899,67 @@
     "text": "Replace bags holding very little sugar",
     "enumeration": "7"
    },
-   "solution": "SWEETEN"
+   "solution": "SWEETEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWEETEN",
+    "definitions": [
+     {
+      "text": "sugar",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Replace",
+      "for": "anagram",
+      "note": "to replace things is to put them back in a different place, so the letters are rearranged"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one part holding another keeps it inside, so the small word goes into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bags",
+      "gives": "NETS",
+      "note": "to bag something is to net or capture it"
+     },
+     {
+      "clueFragment": "very little",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NETS",
+       "gives": "STEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to swap out the bags because they hold hardly any sugar.",
+     "walkthrough": "'bags' looks like a noun, sacks, but it is the verb: bags means nets, captures.",
+     "definitionFit": "To sugar something, as a verb, is to make it sweeter or more palatable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bags"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +973,55 @@
     "text": "Railwaymen have points to look after",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NURSE",
+    "definitions": [
+     {
+      "text": "look after",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Railwaymen",
+      "gives": "NUR",
+      "note": "the National Union of Railwaymen, a former British trade union"
+     },
+     {
+      "clueFragment": "have",
+      "note": "joins the parts"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "SE",
+      "note": "two compass points, south and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Railway workers are given junction points to look after on the line.",
+     "walkthrough": "The NUR was the National Union of Railwaymen in Britain. 'points' look like railway points but are compass points.",
+     "definitionFit": "To nurse someone is to tend and care for them while they are ill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +1035,39 @@
     "text": "Night air?",
     "enumeration": "8"
    },
-   "solution": "SERENADE"
+   "solution": "SERENADE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SERENADE",
+    "definitions": [
+     {
+      "text": "Night air?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night air",
+      "note": "surface reading: the cool atmosphere after dark"
+     },
+     {
+      "clueFragment": "air?",
+      "note": "setter's reading: an air is a tune, so this is a song sung at night"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'air' reads as the atmosphere, but here it is a melody; the classic picture is a lover singing beneath a window in the evening.",
+     "definitionFit": "The word names a song performed outdoors in the evening by a lover beneath a beloved's window."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +1081,74 @@
     "text": "Nothing about new opera composition is unique",
     "enumeration": "9"
    },
-   "solution": "NONPAREIL"
+   "solution": "NONPAREIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NONPAREIL",
+    "definitions": [
+     {
+      "text": "unique",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so nothing wraps the rest"
+     },
+     {
+      "text": "composition",
+      "for": "anagram",
+      "note": "a composition is something put together, so these letters are assembled anew"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "NIL",
+      "note": "nil is zero"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "opera",
+      "gives": "OPERA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ONPARE",
+      "IL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOPERA",
+       "gives": "ONPARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing compares with this new opera, which is one of a kind.",
+     "definitionFit": "Nonpareil means having no equal, matchless, from the French for without peer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1168,62 @@
      }
     ]
    },
-   "solution": "HELLBENT"
+   "solution": "HELLBENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HELL-BENT",
+    "definitions": [
+     {
+      "text": "to show strong intent",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pound goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "HE",
+      "note": "he is a male person"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "LENT",
+      "note": "to advance money is to lend it"
+     },
+     {
+      "clueFragment": "a pound",
+      "gives": "LB",
+      "note": "lb is the abbreviation for a pound weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "L",
+      "LB",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man lent around a pound as a sign of serious commitment.",
+     "walkthrough": "The pound weight sits after the first letter of the loan word.",
+     "definitionFit": "Hell-bent describes someone fiercely determined to do something regardless of the consequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1237,58 @@
     "text": "Both came freely to sacrifice",
     "enumeration": "8"
    },
-   "solution": "HECATOMB"
+   "solution": "HECATOMB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HECATOMB",
+    "definitions": [
+     {
+      "text": "sacrifice",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freely",
+      "for": "anagram",
+      "note": "moving freely means without fixed order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Both",
+      "gives": "BOTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "came",
+      "gives": "CAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOTHCAME",
+       "gives": "HECATOMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people both turned up willingly to make a sacrifice.",
+     "definitionFit": "A hecatomb was an ancient Greek offering of many cattle to the gods, a great public ritual slaughter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freely"
+    }
+   }
   },
   {
    "number": 19,
@@ -348,7 +1302,51 @@
     "text": "Angry after survey shows unpleasant prospect",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "unpleasant prospect",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "survey",
+      "gives": "EYE",
+      "note": "to eye is to look over"
+     },
+     {
+      "clueFragment": "Angry",
+      "gives": "SORE",
+      "note": "sore means annoyed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "SORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A furious reaction after a survey reveals a grim outlook.",
+     "walkthrough": "'after' puts the angry word behind the survey word.",
+     "definitionFit": "An eyesore is an ugly sight, and a prospect is a view, so it is a view that offends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prospect"
+    }
+   }
   },
   {
    "number": 20,
@@ -362,7 +1360,42 @@
     "text": "Opening some tonic hesitantly",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the words means only part of them, a run of letters taken from inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tonic hesitantly",
+      "gives": "NICHE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tentatively starts on part of a tonic, perhaps a nervous first sip.",
+     "definitionFit": "A niche is a recess or hollow in a wall, a kind of small gap or opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
+    }
+   }
   },
   {
    "number": 21,
@@ -376,7 +1409,69 @@
     "text": "Put in appearance to entertain rising writer in get-together",
     "enumeration": "7"
    },
-   "solution": "COMBINE"
+   "solution": "COMBINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "COMBINE",
+    "definitions": [
+     {
+      "text": "get-together",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue rising means reading upwards, bottom to top"
+     },
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put in appearance",
+      "gives": "COME",
+      "note": "to come is to show up"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "NIB",
+      "note": "a nib is a pen's writing point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "BIN",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "NIB",
+       "to": "BIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turn up at a party to host an up-and-coming author.",
+     "definitionFit": "A combine is a business or political association formed by joining together, a sort of alliance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 22,
@@ -390,7 +1485,64 @@
     "text": "Henry at university comprehends small volume with difficulty",
     "enumeration": "6"
    },
-   "solution": "HICCUP"
+   "solution": "HICCUP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HICCUP",
+    "definitions": [
+     {
+      "text": "difficulty",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comprehends",
+      "for": "container",
+      "note": "to comprehend is literally to take in, so the volume goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry",
+      "gives": "HI",
+      "note": "H is henry, the unit of inductance; the extra I is not clued as printed"
+     },
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "to be up is to be in residence at university"
+     },
+     {
+      "clueFragment": "small volume",
+      "gives": "CC",
+      "note": "cc is a cubic centimetre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "CC",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A prince at college grasps a slim book only with effort.",
+     "walkthrough": "Being up means in residence at university. The printed clue gives no source for the second letter; the setter may have meant Henry I.",
+     "definitionFit": "A hiccup is informally a minor setback or temporary snag in a process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 23,
@@ -404,7 +1556,57 @@
     "text": "Learned student left to rehearse speech",
     "enumeration": "7"
    },
-   "solution": "ITERATE"
+   "solution": "ITERATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITERATE",
+    "definitions": [
+     {
+      "text": "rehearse speech",
+      "at": 24,
+      "note": "verb plus object: to iterate is to repeat what was said"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "the student has left, departed, so that letter goes out of the word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learned",
+      "gives": "LITERATE",
+      "note": "a learned person is literate, well read"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITERATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever student leaves to practise a speech.",
+     "walkthrough": "'left' looks like a direction, but the student departs, taking L out of LITERATE.",
+     "definitionFit": "To iterate is to say or do again, much as one goes over words repeatedly when practising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 24,
@@ -418,7 +1620,46 @@
     "text": "Mount of a musketeer?",
     "enumeration": "5"
    },
-   "solution": "ATHOS"
+   "solution": "ATHOS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATHOS",
+    "definitions": [
+     {
+      "text": "Mount",
+      "at": 0
+     },
+     {
+      "text": "musketeer?",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mount",
+      "note": "first meaning: the Greek holy mountain of monasteries"
+     },
+     {
+      "clueFragment": "musketeer",
+      "note": "second meaning: one of Dumas's Three Musketeers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as asking for a musketeer's horse; the name is both a Greek peak and one of the Three Musketeers.",
+     "definitionFit": "Mount Athos is a monastic peninsula mountain in Greece, and Athos is a hero in Dumas's novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mount"
+    }
+   }
   },
   {
    "number": 25,
@@ -432,7 +1673,43 @@
     "text": "Some say vehicle will impede progress",
     "enumeration": "7"
    },
-   "solution": "TRAMMEL"
+   "solution": "TRAMMEL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRAMMEL",
+    "definitions": [
+     {
+      "text": "impede progress",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some say",
+      "for": "homophone",
+      "note": "what some say is heard rather than read, so the sound counts here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle will",
+      "gives": "TRAMMEL",
+      "soundsLike": "TRAM'LL",
+      "note": "a tram is a street vehicle on rails, and 'll is will shortened"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people claim a tram service will slow everyone down.",
+     "definitionFit": "To trammel is to hamper or restrict freedom of movement, like a net or shackle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1723,50 @@
     "text": "Many reluctant to join clergy",
     "enumeration": "5"
    },
-   "solution": "CLOTH"
+   "solution": "CLOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLOTH",
+    "definitions": [
+     {
+      "text": "clergy",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to join"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred, a large number"
+     },
+     {
+      "clueFragment": "reluctant",
+      "gives": "LOTH",
+      "note": "loth is a variant spelling of loath, unwilling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of people are unwilling to be ordained.",
+     "walkthrough": "C for 'many' is a crossword convention from the Roman hundred.",
+     "definitionFit": "The cloth is an idiom for the clerical profession, from the dark garments priests wear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Many"
+    }
+   }
   },
   {
    "number": 27,
@@ -466,7 +1786,43 @@
      }
     ]
    },
-   "solution": "STOVEPIPE"
+   "solution": "STOVEPIPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STOVE-PIPE",
+    "definitions": [
+     {
+      "text": "Kind of headgear",
+      "at": 0
+     },
+     {
+      "text": "worn by a smoker?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of headgear",
+      "note": "first meaning: a tall cylindrical silk top hat"
+     },
+     {
+      "clueFragment": "worn by a smoker?",
+      "note": "second meaning, whimsically: the flue a smoking stove has on top"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The tall hat takes its name from a stove's chimney flue, so a smoking stove literally wears one.",
+     "definitionFit": "It names both a tall cylindrical silk top hat and the metal flue carrying smoke from a stove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoker"
+    }
+   }
   },
   {
    "number": 28,
@@ -480,7 +1836,53 @@
     "text": "Attractive soft meadow grass",
     "enumeration": "8"
    },
-   "solution": "PLEASANT"
+   "solution": "PLEASING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASING",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, soft in music"
+     },
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "lea is a poetic word for a meadow"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "SING",
+      "note": "to grass is to inform on someone, as does one who sings to the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEA",
+      "SING"
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely soft meadow full of grass.",
+     "walkthrough": "'grass' is the British slang verb for informing, not the plant.",
+     "definitionFit": "Something pleasing is agreeable and delightful, hence attractive to look at or experience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 29,
@@ -494,7 +1896,56 @@
     "text": "He may be on watch to deliver note in warning",
     "enumeration": "6"
    },
-   "solution": "ALBERT"
+   "solution": "ALBERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALBERT",
+    "definitions": [
+     {
+      "text": "He may be on watch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to deliver",
+      "for": "container",
+      "note": "delivering something in a package places it within, so the note goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warning",
+      "gives": "ALERT",
+      "note": "an alert is a warning"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "B",
+      "note": "B is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "B",
+      "ERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentry on guard duty must pass on a warning message.",
+     "walkthrough": "An albert is a watch chain, named after Prince Albert; 'on watch' means attached to a pocket watch, not on guard.",
+     "definitionFit": "An albert is a short chain for a pocket watch, so it literally hangs on a timepiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   }
  ]
 }
