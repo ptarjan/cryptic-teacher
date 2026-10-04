@@ -28,6 +28,9 @@
    "9-across": "PRIMITIVE"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +44,47 @@
     "text": "Top grade on history course",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "history",
+      "gives": "PAST",
+      "note": "history is what is past"
+     },
+     {
+      "clueFragment": "Top grade",
+      "gives": "A",
+      "note": "A is the highest exam grade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A student earns the best mark on a history module.",
+     "walkthrough": "In an across clue 'on' means placed after, so the grade follows the history.",
+     "definitionFit": "Pasta is commonly served as a separate dish within a meal, so it can be a course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 1,
@@ -61,7 +104,46 @@
      }
     ]
    },
-   "solution": "PIPEDREAM"
+   "solution": "PIPEDREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIPE-DREAM",
+    "definitions": [
+     {
+      "text": "a hopeless scheme",
+      "at": 41
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transmitted by wire",
+      "gives": "PIPED",
+      "note": "piped music or signals are sent along a wire"
+     },
+     {
+      "clueFragment": "a number of papers",
+      "gives": "REAM",
+      "note": "a ream is a quantity of paper sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIPED",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A telegram about a stack of documents describing a doomed plan.",
+     "definitionFit": "A pipe dream is a fanciful hope or plan with no realistic chance of success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "papers"
+    }
+   }
   },
   {
    "number": 2,
@@ -75,7 +157,69 @@
     "text": "High church almost offers pie in the sky",
     "enumeration": "5"
    },
-   "solution": "SPIKY"
+   "solution": "SPIKY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SPIKY",
+    "definitions": [
+     {
+      "text": "High church",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the other"
+     }
+    ],
+    "linkWords": [
+     "offers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sky",
+      "gives": "S",
+      "note": "sky is the outer word"
+     },
+     {
+      "clueFragment": "pie",
+      "gives": "PI",
+      "note": "pie without its last letter"
+     },
+     {
+      "clueFragment": "the sky",
+      "gives": "KY",
+      "note": "the rest of sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PI",
+      "KY"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand church offers a promise of reward in heaven.",
+     "walkthrough": "Spiky is informal British slang for Anglo-Catholic, ritual-loving High Church; 'pie in the sky' looks like an idiom but is the wordplay.",
+     "definitionFit": "Spiky is a colloquial label for Anglicans of the High Church, ritualist wing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pie"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +233,54 @@
     "text": "Soulful philosopher's aim isn't to be confusing",
     "enumeration": "7"
    },
-   "solution": "ANIMIST"
+   "solution": "ANIMIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANIMIST",
+    "definitions": [
+     {
+      "text": "Soulful philosopher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be confusing",
+      "for": "anagram",
+      "note": "something confusing is jumbled, so its letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aim isn't",
+      "gives": "AIMISNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIMISNT",
+       "gives": "ANIMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker concerned with the soul admits their aim is not to confuse.",
+     "walkthrough": "The 's is read as 'is', linking definition to wordplay rather than showing possession.",
+     "definitionFit": "An animist believes that souls or spirits dwell in all things, natural objects included."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Soulful"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +294,51 @@
     "text": "Weaken the monetary unit, that's the paper's impression",
     "enumeration": "9"
    },
-   "solution": "WATERMARK"
+   "solution": "WATERMARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WATERMARK",
+    "definitions": [
+     {
+      "text": "the paper's impression",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weaken",
+      "gives": "WATER",
+      "note": "to water down is to weaken"
+     },
+     {
+      "clueFragment": "the monetary unit",
+      "gives": "MARK",
+      "note": "the mark was the German currency unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "MARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial report on debasing the currency, with a newspaper's view of it.",
+     "walkthrough": "'The paper's impression' reads like a newspaper's opinion, but it is a design pressed into paper itself.",
+     "definitionFit": "A watermark is a faint design made in paper during manufacture, visible when held to the light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 4,
@@ -117,7 +352,57 @@
     "text": "We might dispense with mark of authority",
     "enumeration": "6"
    },
-   "solution": "WEIGHT"
+   "solution": "WEIGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WEIGHT",
+    "definitions": [
+     {
+      "text": "authority",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispense with",
+      "for": "deletion",
+      "note": "to dispense with something is to do without it, so it is removed"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We might",
+      "gives": "WEMIGHT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M is short for the mark currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps we could do without a badge of office.",
+     "walkthrough": "'Mark of authority' reads as one phrase, a seal or badge, but splits after mark.",
+     "definitionFit": "Weight means influence or authority, as in a person whose opinion carries weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 5,
@@ -131,7 +416,39 @@
     "text": "It may help reveal age of elder",
     "enumeration": "8"
    },
-   "solution": "TREERING"
+   "solution": "TREERING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TREERING",
+    "definitions": [
+     {
+      "text": "It may help reveal age of elder",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It may help reveal age of elder",
+      "note": "surface reading: something showing how old an older relative is"
+     },
+     {
+      "clueFragment": "elder",
+      "note": "setter's reading: the elder is a shrub or tree, whose trunk shows its years in yearly growth bands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Elder looks like an older person, but it is the elder tree; counting its yearly growth bands gives its age.",
+     "definitionFit": "Each annual band of growth in a trunk's cross-section marks one year, so counting them dates the plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elder"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +462,50 @@
     "text": "Cockney artist confirmed divine promise",
     "enumeration": "7"
    },
-   "solution": "RAINBOW"
+   "solution": "RAINBOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAINBOW",
+    "definitions": [
+     {
+      "text": "divine promise",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "confirmed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "Cockney",
+      "gives": "INBOW",
+      "note": "a true Cockney is born within sound of Bow bells, so is in Bow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "INBOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A London artist confirmed a sacred pledge.",
+     "walkthrough": "A Cockney artist is an artist in Bow, the East London district. Bow is the traditional home of Cockneys.",
+     "definitionFit": "In Genesis God set the bow in the clouds as the sign of His covenant never again to flood the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cockney"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +519,54 @@
     "text": "Hear some tiny stones",
     "enumeration": "9"
    },
-   "solution": "AGGREGATE"
+   "solution": "AGGREGATE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "AGGREGATE",
+    "definitions": [
+     {
+      "text": "some",
+      "at": 5
+     },
+     {
+      "text": "tiny stones",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hear",
+      "for": "homophone",
+      "note": "hear says the next word is taken by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "SUM",
+      "soundsLike": "SOME",
+      "note": "first meaning: some is heard as sum, and a sum is a total"
+     },
+     {
+      "clueFragment": "tiny stones",
+      "note": "second meaning: small stones and gravel mixed into concrete"
+     }
+    ],
+    "explanation": {
+     "surface": "Listen to a handful of pebbles rattle.",
+     "walkthrough": "'Some' is heard as 'sum', and a sum is a total, which is the first sense.",
+     "definitionFit": "The word means a total formed by adding things together, and also the crushed stone used in building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +580,59 @@
     "text": "Girl's outfit, tatty at the edges",
     "enumeration": "5"
    },
-   "solution": "KITTY"
+   "solution": "KITTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KITTY",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the edges",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outfit",
+      "gives": "KIT",
+      "note": "kit is clothing or gear"
+     },
+     {
+      "clueFragment": "tatty",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the edge letters of tatty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's clothes are shabby around the hems.",
+     "walkthrough": "The 's is read as 'is', not as possession.",
+     "definitionFit": "Kitty is a girl's name, a pet form of Katherine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outfit"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +646,43 @@
     "text": "Uncivilised, like Rousseau?",
     "enumeration": "9"
    },
-   "solution": "PRIMITIVE"
+   "solution": "PRIMITIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIMITIVE",
+    "definitions": [
+     {
+      "text": "Uncivilised",
+      "at": 0
+     },
+     {
+      "text": "like Rousseau",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncivilised",
+      "note": "first meaning: crude, at an early stage of development"
+     },
+     {
+      "clueFragment": "like Rousseau",
+      "note": "second meaning: in the naive style of the painter Henri Rousseau"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rousseau suggests the philosopher of the noble savage, which fits 'uncivilised'; the second sense is Henri Rousseau, the self-taught painter of the naive school.",
+     "definitionFit": "Henri Rousseau is the classic example of a primitive painter, untrained and naive in style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rousseau"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +696,52 @@
     "text": "Effected entry back to front in the block",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "INGOT",
+    "definitions": [
+     {
+      "text": "block",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "back to front says the rear part of the phrase is moved round to lead"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Effected entry",
+      "gives": "GOTIN",
+      "note": "to effect entry is to get in, past tense got in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "GOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar's report: forced their way in through the back of the building.",
+     "walkthrough": "'Back to front' here swaps two whole words rather than reversing letters, and 'block' means a cast bar of metal, not a building.",
+     "definitionFit": "An ingot is a cast bar or block of metal, typically gold or silver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +755,56 @@
     "text": "Overcharging made a crime, after a clear interval",
     "enumeration": "15"
    },
-   "solution": "DAYLIGHTROBBERY"
+   "solution": "DAYLIGHTROBBERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAYLIGHTROBBERY",
+    "definitions": [
+     {
+      "text": "Overcharging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the following piece comes second, behind the other"
+     }
+    ],
+    "linkWords": [
+     "made"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a clear interval",
+      "gives": "DAYLIGHT",
+      "note": "daylight is a clear gap between two things"
+     },
+     {
+      "clueFragment": "a crime",
+      "gives": "ROBBERY",
+      "note": "robbery is a crime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAYLIGHT",
+      "ROBBERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentencing note: charging too much became an offence after a gap.",
+     "definitionFit": "The idiom for a blatant rip-off price is calling it open theft committed in broad light of day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "interval"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +818,39 @@
     "text": "Cruise, say, for a week on the river",
     "enumeration": "6"
    },
-   "solution": "EIGHTS"
+   "solution": "EIGHTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EIGHTS",
+    "definitions": [
+     {
+      "text": "Cruise, say, for a week on the river",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruise, say, for a week on the river",
+      "note": "surface reading: a holiday sailing trip lasting a week"
+     },
+     {
+      "clueFragment": "for a week on the river",
+      "note": "setter's reading: the Oxford college rowing races held over one week, named after the crews"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Eights Week is the summer bumping races at Oxford, rowed by crews of eight; a cruise is the opposite of a race, which is the joke.",
+     "definitionFit": "Racing boats with eight oarsmen are called eights, and the Oxford races between them last a week."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +864,58 @@
     "text": "Board here see workers over principal item of policy",
     "enumeration": "9"
    },
-   "solution": "GANGPLANK"
+   "solution": "GANGPLANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GANGPLANK",
+    "definitions": [
+     {
+      "text": "Board here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue over means the piece sits on top, coming first"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers",
+      "gives": "GANG",
+      "note": "a gang is a team of labourers"
+     },
+     {
+      "clueFragment": "principal item of policy",
+      "gives": "PLANK",
+      "note": "a plank is a main item in a party's platform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "PLANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A company board considers workers above the main point of its policy.",
+     "walkthrough": "Board looks like a committee, but it is the verb, to get on a ship.",
+     "definitionFit": "A gangplank is the movable walkway by which passengers board or leave a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +929,47 @@
     "text": "Pig leaving farm to grow rapidly",
     "enumeration": "8"
    },
-   "solution": "SNOWBALL"
+   "solution": "SNOWBALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNOWBALL",
+    "definitions": [
+     {
+      "text": "Pig leaving farm",
+      "at": 0
+     },
+     {
+      "text": "grow rapidly",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pig leaving farm",
+      "note": "first meaning: the pig driven out in Orwell's Animal Farm"
+     },
+     {
+      "clueFragment": "grow rapidly",
+      "note": "second meaning: to increase faster and faster, like a rolling ball of snow"
+     }
+    ],
+    "explanation": {
+     "surface": "A pig escapes from the farm and quickly gets bigger.",
+     "walkthrough": "The farm is Orwell's Animal Farm, where the pig Snowball is chased away by Napoleon.",
+     "definitionFit": "Orwell's exiled pig bears this name, and the verb means to accumulate at an accelerating rate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "farm"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,10 +980,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Glasses held up but abandoned again, we bear",
+    "text": "Glasses held up but abandoned again, we hear",
     "enumeration": "9"
    },
-   "solution": "LORGNETTE"
+   "solution": "LORGNETTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LORGNETTE",
+    "definitions": [
+     {
+      "text": "Glasses held up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the words are taken by their sound when spoken"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abandoned again",
+      "gives": "LORGNETTE",
+      "soundsLike": "LORN YET",
+      "note": "lorn is abandoned and yet is again, as in yet again"
+     }
+    ],
+    "explanation": {
+     "surface": "Spectacles were raised but then left behind once more.",
+     "walkthrough": "The OCR shows 'we bear', but the homophone needs 'we hear'.",
+     "definitionFit": "A lorgnette is a pair of glasses on a long handle, held up to the eyes rather than worn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1037,64 @@
     "text": "Illness - one leaving a girl pale and giddy",
     "enumeration": "8"
    },
-   "solution": "PELLAGRA"
+   "solution": "PELLAGRA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PELLAGRA",
+    "definitions": [
+     {
+      "text": "Illness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means going away, so this letter is taken out"
+     },
+     {
+      "text": "giddy",
+      "for": "anagram",
+      "note": "giddy means dizzy and reeling, so the letters spin into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "a girl pale",
+      "gives": "AGIRLPALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PELLAGRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGRLPALE",
+       "gives": "PELLAGRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sick girl is pale and dizzy.",
+     "definitionFit": "Pellagra is a disease caused by niacin deficiency, with dermatitis and diarrhoea among its symptoms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "giddy"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1108,58 @@
     "text": "Strength of war-poem (new edition)",
     "enumeration": "8"
    },
-   "solution": "MANPOWER"
+   "solution": "MANPOWER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANPOWER",
+    "definitions": [
+     {
+      "text": "Strength",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edition",
+      "for": "anagram",
+      "note": "a new edition of a text is a reworked version of it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war-poem",
+      "gives": "WARPOEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WARPOEM N",
+       "gives": "MANPOWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A literary note on the power of a war poem in its new edition.",
+     "definitionFit": "Manpower is strength measured in available workers or troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edition"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1173,69 @@
     "text": "Tire out the eye first, finding the spacecraft",
     "enumeration": "7"
    },
-   "solution": "ORBITER"
+   "solution": "ORBITER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ORBITER",
+    "definitions": [
+     {
+      "text": "spacecraft",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means wrong or disordered, so the letters before it are rearranged"
+     },
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first places this piece at the front of the answer"
+     }
+    ],
+    "linkWords": [
+     "finding the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the eye",
+      "gives": "ORB",
+      "note": "orb is a poetic word for eye"
+     },
+     {
+      "clueFragment": "Tire",
+      "gives": "TIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORB",
+      "ITER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIRE",
+       "gives": "ITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tiring the eyes before spotting a spaceship in the sky.",
+     "walkthrough": "'Tire out' looks like exhaust, but out is the signal to rearrange.",
+     "definitionFit": "An orbiter is a spacecraft designed to circle a planet or moon rather than land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1249,45 @@
     "text": "Swift course as a way of making a livelihood",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "Swift course",
+      "at": 0
+     },
+     {
+      "text": "a way of making a livelihood",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swift course",
+      "note": "first meaning: a headlong rush"
+     },
+     {
+      "clueFragment": "a way of making a livelihood",
+      "note": "second meaning: a profession or working life"
+     }
+    ],
+    "explanation": {
+     "surface": "A quick training course offered as a route into paid work.",
+     "definitionFit": "The word means both a fast uncontrolled rush and an occupation pursued over one's working life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1301,66 @@
     "text": "Saint led exceptional uprising behind Iron Curtain",
     "enumeration": "7"
    },
-   "solution": "ALBANIA"
+   "solution": "ALBANIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALBANIA",
+    "definitions": [
+     {
+      "text": "behind Iron Curtain",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "led",
+      "for": "charade",
+      "note": "led means went in front, so this piece comes first"
+     },
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down clue an uprising reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ALBAN",
+      "note": "St Alban is the first British martyr"
+     },
+     {
+      "clueFragment": "exceptional",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALBAN",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man headed an extraordinary revolt in the Soviet bloc.",
+     "walkthrough": "A1 is a classic grade for excellent; the 1 is read as letter I.",
+     "definitionFit": "In 1990 this Balkan state was a communist country, cut off behind the line dividing East and West Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1374,47 @@
     "text": "He may catch a crab for pet",
     "enumeration": "6"
    },
-   "solution": "STROKE"
+   "solution": "STROKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STROKE",
+    "definitions": [
+     {
+      "text": "He may catch a crab",
+      "at": 0
+     },
+     {
+      "text": "pet",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He may catch a crab",
+      "note": "first meaning: the oarsman setting the pace in a racing boat"
+     },
+     {
+      "clueFragment": "pet",
+      "note": "second meaning: to caress or pat affectionately"
+     }
+    ],
+    "explanation": {
+     "surface": "A fisherman might catch a crab to keep as a pet.",
+     "walkthrough": "To catch a crab is a rowing term for a bungled stroke where the oar jams in the water.",
+     "definitionFit": "The rower nearest the stern who sets the rhythm has this title, and the verb also means caress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crab"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1434,49 @@
      }
     ]
    },
-   "solution": "CAPABILITYBROWN"
+   "solution": "CAPABILITYBROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPABILITY BROWN",
+    "definitions": [
+     {
+      "text": "Gardener Lancelot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "CAPABILITY",
+      "note": "capability is skill or ability"
+     },
+     {
+      "clueFragment": "24",
+      "gives": "BROWN",
+      "note": "the answer to 24 across is a word meaning to brown under heat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPABILITY",
+      "BROWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener named Lancelot shows his talent with something from another clue.",
+     "walkthrough": "24 across is TOAST, and to toast bread is to brown it. Lancelot Brown was the great 18th-century English landscape gardener.",
+     "definitionFit": "Lancelot Brown earned his nickname by telling clients their estates had capability for improvement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1496,44 @@
      }
     ]
    },
-   "solution": "CUTUP"
+   "solution": "CUTUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CUT UP",
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     },
+     {
+      "text": "slice",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upset",
+      "note": "first meaning: distressed"
+     },
+     {
+      "clueFragment": "slice",
+      "note": "second meaning: to chop into pieces"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrasal verb means to chop into pieces, and as an adjective it means emotionally distressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1547,44 @@
     "text": "Paper requiring much manual labour?",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Paper",
+      "at": 0
+     },
+     {
+      "text": "requiring much manual labour",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paper",
+      "note": "first meaning: a newspaper serving as a party's mouthpiece"
+     },
+     {
+      "clueFragment": "requiring much manual labour",
+      "note": "second meaning: a keyboard instrument with several manuals, the hand keyboards, to play"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper that needs a lot of hand work to produce.",
+     "walkthrough": "Manual looks like physical work, but manuals are the hand keyboards of the church instrument.",
+     "definitionFit": "A party's official paper is called its organ, and the pipe instrument is played on several hand keyboards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "manual"
+    }
+   }
   },
   {
    "number": 24,
@@ -420,10 +1595,50 @@
    },
    "length": 5,
    "clue": {
-    "text": "Bread and wine may be used for i",
+    "text": "Bread and wine may be used for it",
     "enumeration": "5"
    },
-   "solution": "TOAST"
+   "solution": "TOAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOAST",
+    "definitions": [
+     {
+      "text": "Bread",
+      "at": 0
+     },
+     {
+      "text": "wine may be used for it",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bread",
+      "note": "first meaning: bread browned under a grill"
+     },
+     {
+      "clueFragment": "wine may be used for it",
+      "note": "second meaning: a drink raised in someone's honour"
+     }
+    ],
+    "explanation": {
+     "surface": "Bread and wine, as at communion, may be used for something.",
+     "walkthrough": "'Bread and wine' looks like one phrase about the Eucharist, but it splits into two separate senses.",
+     "definitionFit": "The word names browned sliced bread and also the act of drinking to someone's health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wine"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1658,66 @@
      }
     ]
    },
-   "solution": "GOODNIGHT"
+   "solution": "GOODNIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GOOD NIGHT",
+    "definitions": [
+     {
+      "text": "say on retirement",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "anagram",
+      "note": "original means new and novel, so the letters take a fresh order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind",
+      "gives": "GOOD",
+      "note": "kind and good are synonyms"
+     },
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOD",
+      "NIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farewell speech at someone's retirement party should be kind and original.",
+     "walkthrough": "Retirement here is going to bed, not leaving work.",
+     "definitionFit": "This is the customary parting phrase spoken when someone goes off to bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1731,55 @@
     "text": "Fellow in game with the highest card has an impassive look",
     "enumeration": "9"
    },
-   "solution": "POKERFACE"
+   "solution": "POKERFACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POKERFACE",
+    "definitions": [
+     {
+      "text": "impassive look",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "has an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "POKER",
+      "note": "poker is a card game"
+     },
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "the highest card",
+      "gives": "ACE",
+      "note": "the ace is the top card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POKER",
+      "F",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player holding the top card keeps a blank expression.",
+     "walkthrough": "'In game' places the fellow after the game here, since the pieces just run on in order.",
+     "definitionFit": "A poker face is a deliberately expressionless look that gives nothing away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1793,64 @@
     "text": "Miss Oakley writing article about a German",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Miss Oakley",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so these letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "writing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "ein is German for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "NIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIN",
+       "to": "NIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Miss Oakley writes a piece about a German person.",
+     "walkthrough": "A German is not a person but the German word for 'a'.",
+     "definitionFit": "Annie Oakley was the famous American sharpshooter of Buffalo Bill's Wild West show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   }
  ]
 }
