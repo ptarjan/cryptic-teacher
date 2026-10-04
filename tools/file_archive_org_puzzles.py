@@ -104,7 +104,6 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
-import puzzle_integrity
 import reconstruct_grid as rg
 import scan_queue
 import series as series_meta
@@ -1877,7 +1876,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 if mended is not None:
                     verdict["mended"] = mended[1]
                     if write:
-                        file_puzzle(write_puzzle_file, held_path, mended[0], verdict)
+                        scan_queue.file_puzzle(write_puzzle_file, TOOL, held_path, mended[0], verdict)
                     verdicts.append(verdict)
                     continue
                 dest = destination(puzzles, complete(puzzle))
@@ -1890,8 +1889,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 better = path.exists() and improves(puzzle, path)
                 if hit_number in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
-                elif write and (better or not path.exists()) and file_puzzle(write_puzzle_file, path, puzzle,
-                                                                             verdict):
+                elif write and (better or not path.exists()) and scan_queue.file_puzzle(
+                        write_puzzle_file, TOOL, path, puzzle, verdict):
                     held.add(hit_number)
             verdicts.append(verdict)
         known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h, "scanKey": scan_key(),
@@ -1915,23 +1914,6 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
-
-
-def file_puzzle(write_puzzle_file, path, puzzle, verdict):
-    """Write `puzzle` to `path`, noting the outcome on `verdict`; True when
-    written. A write puzzle_integrity refuses is a refusedWrite; any other
-    raise is a writeFailed, logged with its traceback: one puzzle that cannot
-    be written never stops a run."""
-    try:
-        write_puzzle_file(path, puzzle, generator=TOOL)
-    except puzzle_integrity.RefusedWrite as e:
-        verdict["refusedWrite"] = str(e)
-    except Exception as e:  # noqa: BLE001 -- one bad puzzle is a verdict, not a crash
-        verdict["writeFailed"] = scan_queue.failure((puzzle.get("id"),), e)
-    else:
-        verdict["wrote"] = True
-        return True
-    return False
 
 
 _SOLUTIONS = {}

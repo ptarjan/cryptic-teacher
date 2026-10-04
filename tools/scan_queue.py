@@ -87,6 +87,24 @@ def failure(item, e):
     return f"{type(e).__name__}: {e}"
 
 
+def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
+    """Write `puzzle` to `path`, noting the outcome on `verdict`; True when
+    written. A write puzzle_integrity refuses is a refusedWrite; any other
+    raise is a writeFailed, logged with its traceback: one puzzle that cannot
+    be written never stops a run."""
+    import puzzle_integrity  # it imports the write path, so not at the top
+    try:
+        write_puzzle_file(path, puzzle, generator=generator)
+    except puzzle_integrity.RefusedWrite as e:
+        verdict["refusedWrite"] = str(e)
+    except Exception as e:  # noqa: BLE001 -- one bad puzzle is a verdict, not a crash
+        verdict["writeFailed"] = failure((puzzle.get("id"),), e)
+    else:
+        verdict["wrote"] = True
+        return True
+    return False
+
+
 def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed=None):
     """Yields (item, fn(*item)) as each finishes, at most `workers` at once
     (1: in this process, in order). `init(*initargs)` runs first in each
