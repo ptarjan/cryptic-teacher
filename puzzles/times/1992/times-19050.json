@@ -45,6 +45,9 @@
    "27-across": "ASSEMBLED"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -58,7 +61,62 @@
     "text": "Concerned with finance, girl packs one shirt",
     "enumeration": "8"
    },
-   "solution": "MONETARY"
+   "solution": "MONETARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MONETARY",
+    "definitions": [
+     {
+      "text": "Concerned with finance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packs",
+      "for": "container",
+      "note": "to pack something is to stuff it inside, so the girl's name holds the other letters within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MARY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shirt",
+      "gives": "T",
+      "note": "T as in T-shirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ONE",
+      "T",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A financially minded girl squeezes a single shirt into her luggage.",
+     "walkthrough": "MARY packs ONE and T: M(ONE T)ARY.",
+     "definitionFit": "Monetary describes anything relating to money, currency and the economy, so it is a matching adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shirt"
+    }
+   }
   },
   {
    "number": 1,
@@ -72,7 +130,45 @@
     "text": "Political group takes part in musical work",
     "enumeration": "8"
    },
-   "solution": "MOVEMENT"
+   "solution": "MOVEMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOVEMENT",
+    "definitions": [
+     {
+      "text": "Political group",
+      "at": 0
+     },
+     {
+      "text": "part in musical work",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Political group",
+      "note": "first meaning: a campaigning organisation"
+     },
+     {
+      "clueFragment": "part in musical work",
+      "note": "second meaning: a section of a symphony"
+     }
+    ],
+    "explanation": {
+     "surface": "A political party joins in a piece of music.",
+     "definitionFit": "A movement is both an organised campaign of people and a self-contained section of a symphony or concerto."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 2,
@@ -86,7 +182,41 @@
     "text": "Requirement that knows no law, they say",
     "enumeration": "9"
    },
-   "solution": "NECESSITY"
+   "solution": "NECESSITY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NECESSITY",
+    "definitions": [
+     {
+      "text": "Requirement",
+      "at": 0
+     },
+     {
+      "text": "that knows no law, they say",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Requirement",
+      "note": "first meaning: something that is needed"
+     },
+     {
+      "clueFragment": "that knows no law, they say",
+      "note": "second meaning: the subject of an old proverb about need excusing lawbreaking"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The proverb 'necessity knows no law' means that real need excuses breaking the rules; 'they say' flags the saying.",
+     "definitionFit": "A necessity is an essential need, and the old saying names the same word as the thing that ignores all law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -100,7 +230,53 @@
     "text": "Thora turns to the Pentateuch",
     "enumeration": "5"
    },
-   "solution": "TORAH"
+   "solution": "TORAH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TORAH",
+    "definitions": [
+     {
+      "text": "the Pentateuch",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "anagram",
+      "note": "turning shifts things round, so the given letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thora",
+      "gives": "THORA",
+      "note": "a woman's name, used for its letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THORA",
+       "gives": "TORAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Thora takes up reading the first five books of the Bible.",
+     "definitionFit": "The Torah is the Jewish name for the five books of Moses, which Christians call the Pentateuch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 4,
@@ -114,7 +290,49 @@
     "text": "Tale of two churches",
     "enumeration": "7"
    },
-   "solution": "ROMANCE"
+   "solution": "ROMANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROMANCE",
+    "definitions": [
+     {
+      "text": "Tale",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two churches",
+      "gives": "ROMAN",
+      "note": "the Roman church is one church"
+     },
+     {
+      "clueFragment": "two churches",
+      "gives": "CE",
+      "note": "CE is the Church of England, the second church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROMAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A story about a pair of churches.",
+     "definitionFit": "A romance is a story of adventure or love, such as a medieval tale of chivalry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "churches"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +346,49 @@
     "text": "Containers the Spanish find showy",
     "enumeration": "6"
    },
-   "solution": "TINSEL"
+   "solution": "TINSEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TINSEL",
+    "definitions": [
+     {
+      "text": "showy",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Containers",
+      "gives": "TINS",
+      "note": "tins are containers"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TINS",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Spaniards judge certain receptacles to be flashy.",
+     "definitionFit": "Tinsel as an adjective means gaudy, glittering but cheap, like the sparkly strands hung on Christmas trees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Containers"
+    }
+   }
   },
   {
    "number": 6,
@@ -142,7 +402,37 @@
     "text": "They are thought to have leanings towards perfection",
     "enumeration": "9"
    },
-   "solution": "IDEALISTS"
+   "solution": "IDEALISTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IDEALISTS",
+    "definitions": [
+     {
+      "text": "They are thought to have leanings towards perfection",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They are thought to have leanings",
+      "note": "surface reading: people suspected of some tendency"
+     },
+     {
+      "clueFragment": "towards perfection",
+      "note": "setter's reading: people whose whole outlook aims at the perfect"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Idealists are people who pursue lofty ideals and perfect standards, often impractically."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thought"
+    }
+   }
   },
   {
    "number": 7,
@@ -156,7 +446,60 @@
     "text": "Artist not quite making a mark",
     "enumeration": "5"
    },
-   "solution": "STRIA"
+   "solution": "STRIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STRIA",
+    "definitions": [
+     {
+      "text": "a mark",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite all of something means its last letter is cut off"
+     },
+     {
+      "text": "making",
+      "for": "anagram",
+      "note": "making something from raw material reshapes it, so the remaining letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "ARTIST",
+      "note": "taken as written, then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTIS",
+       "gives": "STRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter almost manages to make an impression.",
+     "walkthrough": "ARTIST without its last letter is ARTIS, which rearranges.",
+     "definitionFit": "A stria is a narrow stripe, groove or streak, a technical word for a linear mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 8,
@@ -170,7 +513,59 @@
     "text": "Learner, a cockney, aspiring to be making progress",
     "enumeration": "6"
    },
-   "solution": "LOPING"
+   "solution": "LOPING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOPING",
+    "definitions": [
+     {
+      "text": "making progress",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a cockney",
+      "for": "deletion",
+      "note": "a cockney traditionally drops the opening H sound, so the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L for learner, as on L-plates"
+     },
+     {
+      "clueFragment": "aspiring",
+      "gives": "HOPING",
+      "note": "to aspire is to hope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner, a Londoner, hopes to get on.",
+     "walkthrough": "A cockney says 'oping' for hoping. 'Aspiring' also puns on aspirating an H, which the cockney does not do.",
+     "definitionFit": "Loping is running with long, easy strides, so moving along and making headway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aspiring"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,7 +579,64 @@
     "text": "Difficulty arising over water in the office",
     "enumeration": "6"
    },
-   "solution": "BUREAU"
+   "solution": "BUREAU",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BUREAU",
+    "definitions": [
+     {
+      "text": "office",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arising",
+      "for": "reversal",
+      "note": "in a down clue, arising means going up the column, so the word reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficulty",
+      "gives": "RUB",
+      "note": "'there's the rub': a rub is a difficulty"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "EAU",
+      "note": "eau is French for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "EAU"
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A problem crops up with a leak in the workplace.",
+     "definitionFit": "A bureau is an office or agency, such as a government department or an information bureau."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +650,53 @@
     "text": "Priest delegated to take out promissory notes",
     "enumeration": "5"
    },
-   "solution": "VICAR"
+   "solution": "VICAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VICAR",
+    "definitions": [
+     {
+      "text": "Priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take out",
+      "for": "deletion",
+      "note": "taking something out removes it, so these letters are dropped from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delegated",
+      "gives": "VICARIOUS",
+      "note": "vicarious power is power delegated to another"
+     },
+     {
+      "clueFragment": "promissory notes",
+      "gives": "IOUS",
+      "note": "an IOU is a written promise to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VICAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman is sent off to withdraw some debt papers.",
+     "walkthrough": "VICARIOUS loses IOUS, leaving VICAR.",
+     "definitionFit": "A vicar is a Church of England clergyman in charge of a parish, so a type of priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delegated"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +710,66 @@
     "text": "Coward put the role back in the show",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "the show",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "putting something back here means setting it down backwards, so the word for role is read from its end"
+     }
+    ],
+    "linkWords": [
+     "put",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coward",
+      "gives": "MOUSE",
+      "note": "a timid person is a mouse"
+     },
+     {
+      "clueFragment": "the role",
+      "gives": "PART",
+      "note": "a role is a part in a play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUSE",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noël Coward reinstates a character in his stage production.",
+     "walkthrough": "Coward looks like the playwright Noël Coward but is just a timid person. The Mousetrap is Agatha Christie's long-running London play.",
+     "definitionFit": "The Mousetrap is the famous Agatha Christie play running in London's West End since 1952, the archetypal show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Coward"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +783,52 @@
     "text": "Fail, say, to take an opportunity —hard luck!",
     "enumeration": "9"
    },
-   "solution": "MISCHANCE"
+   "solution": "MISCHANCE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "MISCHANCE",
+    "definitions": [
+     {
+      "text": "hard luck",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "'say' asks for the spoken form, so only the sound of the word for fail counts"
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail",
+      "gives": "MIS",
+      "soundsLike": "MISS",
+      "note": "to fail to hit is to miss; the spoken word is spelt with one S here"
+     },
+     {
+      "clueFragment": "an opportunity",
+      "gives": "CHANCE",
+      "note": "a chance is an opportunity"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone groans at their bad luck after missing their moment.",
+     "definitionFit": "A mischance is a piece of bad luck or an unlucky accident, the same as hard luck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,10 +839,53 @@
    },
    "length": 5,
    "clue": {
-    "text": "Get to know the monarch name by name",
+    "text": "Get to know the monarch by name",
     "enumeration": "5"
    },
-   "solution": "LEARN"
+   "solution": "LEARN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEARN",
+    "definitions": [
+     {
+      "text": "Get to know",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the monarch",
+      "gives": "LEAR",
+      "note": "King Lear, Shakespeare's monarch"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to find out what the king is called.",
+     "walkthrough": "LEAR is placed by N, giving LEARN.",
+     "definitionFit": "To learn something is to come to know it, through study or by finding it out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "monarch"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +899,58 @@
     "text": "Sounds out of order — could be offensive",
     "enumeration": "7"
    },
-   "solution": "NOISOME"
+   "solution": "NOISOME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOISOME",
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "container",
+      "note": "the sounds spread out around something, so they sit outside the other letters"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sounds",
+      "gives": "NOISE",
+      "note": "noise is sounds"
+     },
+     {
+      "clueFragment": "of order",
+      "gives": "OM",
+      "note": "the OM is the Order of Merit, a British honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOIS",
+      "OM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Noises coming from a malfunctioning machine might upset someone.",
+     "walkthrough": "'Out of order' reads as broken, but 'out' and 'of order' have separate jobs. The answer has nothing to do with noise in meaning.",
+     "definitionFit": "Noisome means unpleasant or disgusting, especially of smells, so it fits offensive; it has nothing to do with noise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +964,39 @@
     "text": "Was Mary's William a fruiterer?",
     "enumeration": "9"
    },
-   "solution": "ORANGEMAN"
+   "solution": "ORANGEMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORANGEMAN",
+    "definitions": [
+     {
+      "text": "Was Mary's William a fruiterer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mary's William",
+      "note": "surface reading: William of Orange, who reigned with Mary II"
+     },
+     {
+      "clueFragment": "a fruiterer",
+      "note": "setter's reading: someone who sells a citrus fruit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "William III was William of Orange, joint monarch with Mary II. The answer names a member of the Protestant Orange Order, founded in his memory, and punningly a seller of oranges.",
+     "definitionFit": "Members of the Orange Order honour William of Orange, and a man selling citrus fruit could jokingly bear the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fruiterer"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1010,58 @@
     "text": "Throw out of international body and alliance, losing nothing",
     "enumeration": "6"
    },
-   "solution": "UNSEAT"
+   "solution": "UNSEAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "UNSEAT",
+    "definitions": [
+     {
+      "text": "Throw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing nothing",
+      "for": "deletion",
+      "note": "losing a zero-shaped nothing means that round character is dropped from the alliance"
+     }
+    ],
+    "linkWords": [
+     "out of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international body",
+      "gives": "UN",
+      "note": "the United Nations"
+     },
+     {
+      "clueFragment": "alliance",
+      "gives": "SEATO",
+      "note": "SEATO was the South-East Asia Treaty Organization"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A country is expelled from a world body and a treaty organisation without loss.",
+     "walkthrough": "SEATO without its O (nothing) gives SEAT. 'Throw out' wants to be the definition, but 'out of' is the link and 'Throw' alone is the definition, as a horse throws a rider.",
+     "definitionFit": "To unseat a rider is to throw them from the saddle, as a bucking horse does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Throw"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1075,56 @@
     "text": "A warning uttered and now apparently repeated",
     "enumeration": "9"
    },
-   "solution": "AFORESAID"
+   "solution": "AFORESAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFORESAID",
+    "definitions": [
+     {
+      "text": "now apparently repeated",
+      "at": 22,
+      "note": "said before, so repeated now"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "warning",
+      "gives": "FORE",
+      "note": "golfers shout 'fore' as a warning"
+     },
+     {
+      "clueFragment": "uttered",
+      "gives": "SAID",
+      "note": "said means uttered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FORE",
+      "SAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of caution is spoken and then seemingly said again.",
+     "definitionFit": "Aforesaid means mentioned earlier, so anything so described is being referred to again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "warning"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1138,50 @@
     "text": "The lute rather than the sword used by Highlanders",
     "enumeration": "8"
    },
-   "solution": "CLAYMORE"
+   "solution": "CLAYMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAYMORE",
+    "definitions": [
+     {
+      "text": "the sword used by Highlanders",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "than"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The lute",
+      "gives": "CLAY",
+      "note": "lute is clay or cement used to seal joints"
+     },
+     {
+      "clueFragment": "rather",
+      "gives": "MORE",
+      "note": "more is rather, to a greater degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAY",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Scots soldiers preferred the stringed instrument to their blades.",
+     "walkthrough": "'Lute' looks like the instrument but is the sealing clay.",
+     "definitionFit": "The claymore is the large two-edged broadsword of the Scottish Highlanders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lute"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1195,46 @@
     "text": "Go round with permission",
     "enumeration": "6"
    },
-   "solution": "BYPASS"
+   "solution": "BYPASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BYPASS",
+    "definitions": [
+     {
+      "text": "Go round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "BY",
+      "note": "by means with, as in 'by car'"
+     },
+     {
+      "clueFragment": "permission",
+      "gives": "PASS",
+      "note": "a pass is a permit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is allowed to take a detour.",
+     "definitionFit": "To bypass something is to avoid it by taking a route around it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1248,52 @@
     "text": "Detailed piece of embroidery, for instance",
     "enumeration": "6"
    },
-   "solution": "SAMPLE"
+   "solution": "SAMPLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAMPLE",
+    "definitions": [
+     {
+      "text": "instance",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Detailed",
+      "for": "deletion",
+      "note": "read as de-tailed, it means having had the tail removed, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of embroidery",
+      "gives": "SAMPLER",
+      "note": "a sampler is a piece of embroidery showing a range of stitches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An intricate needlework panel is given as an example.",
+     "walkthrough": "'Detailed' reads as intricate but splits as de-tailed.",
+     "definitionFit": "A sample is a specimen or example taken to show what the whole is like, so an instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Detailed"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1307,50 @@
     "text": "Steal old pies for making into mince",
     "enumeration": "7"
    },
-   "solution": "DESPOIL"
+   "solution": "DESPOIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPOIL",
+    "definitions": [
+     {
+      "text": "Steal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for making into mince",
+      "for": "anagram",
+      "note": "mincing chops something up into small pieces, so these letters are broken up and reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old pies",
+      "gives": "OLDPIES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLDPIES",
+       "gives": "DESPOIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief pinches stale pastries to turn into mincemeat.",
+     "definitionFit": "To despoil is to plunder or strip of valuables, a loose sense of steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mince"
+    }
+   }
   },
   {
    "number": 21,
@@ -366,7 +1364,70 @@
     "text": "Gamble when in debt coming up to the final",
     "enumeration": "7"
    },
-   "solution": "DECIDER"
+   "solution": "DECIDER",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DECIDER",
+    "definitions": [
+     {
+      "text": "the final",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so the gamble goes within the debt"
+     },
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means rising from the bottom, so the result is read upwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debt",
+      "gives": "RED",
+      "note": "in the red means in debt"
+     },
+     {
+      "clueFragment": "Gamble",
+      "gives": "DICE",
+      "note": "to dice is to gamble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECID",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REDICED",
+       "to": "DECIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indebted gambler bets on reaching the final.",
+     "walkthrough": "Being 'in the red' means owing money, which is why debt stands for the colour.",
+     "definitionFit": "A decider is the deciding game or match, which is what a final is in a competition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 22,
@@ -380,7 +1441,67 @@
     "text": "Unfortunately many invested in the same source of energy",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DYNAMO",
+    "definitions": [
+     {
+      "text": "source of energy",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfortunately",
+      "for": "anagram",
+      "note": "something gone wrong is in disorder, so these letters are scrambled"
+     },
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "to invest money is to put it into something, so these letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "the same",
+      "gives": "DO",
+      "note": "do, short for ditto, means the same"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "YNAM",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MANY",
+       "gives": "YNAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sadly lots of people put money into one power supplier.",
+     "walkthrough": "'Do' is short for ditto, the mark written to mean the same as above.",
+     "definitionFit": "A dynamo is a generator that turns motion into electricity, so a source of power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1515,42 @@
     "text": "Mormon in an early state of development",
     "enumeration": "5"
    },
-   "solution": "YOUNG"
+   "solution": "YOUNG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YOUNG",
+    "definitions": [
+     {
+      "text": "Mormon",
+      "at": 0
+     },
+     {
+      "text": "in an early state of development",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mormon",
+      "note": "first meaning: Brigham ..., the Mormon leader"
+     },
+     {
+      "clueFragment": "in an early state of development",
+      "note": "second meaning: not yet grown up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a description of a Mormon child; the leader who took the Mormons to Utah was Brigham Young.",
+     "definitionFit": "Brigham Young led the Mormon church to Utah, and anything youthful or immature is at an early stage of growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mormon"
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1564,45 @@
     "text": "Knocked over by indisposition",
     "enumeration": "5"
    },
-   "solution": "UPSET"
+   "solution": "UPSET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UPSET",
+    "definitions": [
+     {
+      "text": "Knocked over",
+      "at": 0
+     },
+     {
+      "text": "indisposition",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knocked over",
+      "note": "first meaning: overturned"
+     },
+     {
+      "clueFragment": "indisposition",
+      "note": "second meaning: a mild illness"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is laid low by a bout of illness.",
+     "definitionFit": "Upset means overturned, as a spilt cup is, and also a minor ailment such as a stomach upset."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knocked"
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1616,66 @@
     "text": "Plant in deep ravine by river, covered in blossom",
     "enumeration": "9"
    },
-   "solution": "MACHINERY"
+   "solution": "MACHINERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MACHINERY",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "being covered by something means being wrapped in it, so the blossom goes around the rest"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blossom",
+      "gives": "MAY",
+      "note": "may is hawthorn blossom"
+     },
+     {
+      "clueFragment": "deep ravine",
+      "gives": "CHINE",
+      "note": "a chine is a deep narrow ravine on the south coast of England"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CHINE",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorge beside a stream is blanketed in flowers.",
+     "walkthrough": "'Plant' looks botanical beside blossom, but it means factory equipment. May is the hawthorn, named for the month it flowers.",
+     "definitionFit": "Plant in its industrial sense is the machinery and equipment used in a factory or works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1689,56 @@
     "text": "I have a little business on a Spanish island",
     "enumeration": "5"
    },
-   "solution": "IBIZA"
+   "solution": "IBIZA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IBIZA",
+    "definitions": [
+     {
+      "text": "Spanish island",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "have",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a little business",
+      "gives": "BIZ",
+      "note": "biz is a short informal form of business"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIZ",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A small trader runs a modest venture on a Balearic island.",
+     "definitionFit": "Ibiza is one of Spain's Balearic Islands in the Mediterranean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,10 +1749,72 @@
    },
    "length": 9,
    "clue": {
-    "text": "The blessed man almost col-",
+    "text": "The blessed man almost collapsed when summoned",
     "enumeration": "9"
    },
-   "solution": "ASSEMBLED"
+   "solution": "ASSEMBLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ASSEMBLED",
+    "definitions": [
+     {
+      "text": "summoned",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the word before is cut"
+     },
+     {
+      "text": "collapsed",
+      "for": "anagram",
+      "note": "something collapsed has fallen apart, so its pieces are put back in another order"
+     }
+    ],
+    "linkWords": [
+     "The",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blessed",
+      "gives": "BLESSED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written, then cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSEMBLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLESSEDMA",
+       "gives": "ASSEMBLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man faints when called for.",
+     "walkthrough": "MAN almost is MA; with BLESSED it rearranges into ASSEMBLED.",
+     "definitionFit": "Summoned, in the sense of convened, means gathered together, as when a meeting is assembled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collapsed"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1828,50 @@
     "text": "Princess with a house in America",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "in America",
+      "at": 22,
+      "note": "the answer is a state in America"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "IDA",
+      "note": "Princess Ida, the Gilbert and Sullivan opera and Tennyson poem"
+     },
+     {
+      "clueFragment": "a house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDA",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal owns a home in the United States.",
+     "definitionFit": "Idaho is a north-western US state, so it is a place located in America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Princess"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +1885,57 @@
     "text": "No way to finish the port",
     "enumeration": "6"
    },
-   "solution": "OSTEND"
+   "solution": "OSTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSTEND",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "O",
+      "note": "O is nothing or nought"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is street, a way"
+     },
+     {
+      "clueFragment": "to finish",
+      "gives": "END",
+      "note": "to end is to finish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ST",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says there is no possible way to drink up the fortified wine.",
+     "walkthrough": "'Port' reads as the drink in the surface, but it is the harbour town.",
+     "definitionFit": "Ostend is a Belgian ferry and fishing harbour on the North Sea coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 30,
@@ -492,7 +1949,51 @@
     "text": "Thin stuff for the instrument to fade out on",
     "enumeration": "8"
    },
-   "solution": "ORGANDIE"
+   "solution": "ORGANDIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORGANDIE",
+    "definitions": [
+     {
+      "text": "Thin stuff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the instrument",
+      "gives": "ORGAN",
+      "note": "an organ is a musical instrument"
+     },
+     {
+      "clueFragment": "to fade out",
+      "gives": "DIE",
+      "note": "a sound dies when it fades out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "DIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music is scored so the organ fades away at the end.",
+     "walkthrough": "'Stuff' is the old word for cloth, and 'on' places the second piece after the first.",
+     "definitionFit": "Organdie is a fine, sheer, stiffened cotton fabric, the sort of thin material used for dresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   }
  ]
 }
