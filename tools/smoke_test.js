@@ -7052,9 +7052,10 @@ global.realSetTimeout(() => {
     "yesterday and the day before are a live streak of two, nothing finished today yet");
   assert(/<strong>2<\/strong>-day streak/.test(reg["streak"].innerHTML),
     "and the streak shows beside the scorebar, outside the panel: " + reg["streak"].innerHTML);
+  const shown = [...html.matchAll(/<li class="(reached|ahead)">/g)].map((m) => m[1]);
   assert(/<li class="reached">First puzzle with no hints/.test(html)
-    && /<li class="reached">First clue solved/.test(html),
-    "milestones reached are listed with their day");
+    && shown.filter((c) => c === "reached").length <= 3 && shown.filter((c) => c === "ahead").length === 2,
+    "the last three milestones reached are listed with their day, then the next two: " + shown);
   assert(!/\b(seconds?|minutes?|hours?|time|speed|fast)\b/i.test(html.replace(/<[^>]*>/g, " ")),
     "the stats never mention time or speed: the score counts hints");
   // By clue type: each solved clue under every type its annotation names, the
