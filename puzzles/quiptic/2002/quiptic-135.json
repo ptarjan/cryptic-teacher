@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Rose, half hidden in the trunk, is deep in anxious thought",
     "enumeration": "6"
    },
-   "solution": "BROODY"
+   "solution": "BROODY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BROODY",
+    "definitions": [
+     {
+      "text": "deep in anxious thought",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half of the flower's name is kept, the rest dropped"
+     },
+     {
+      "text": "hidden in",
+      "for": "container",
+      "note": "something hidden in another thing sits inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rose",
+      "gives": "RO",
+      "note": "the first half of the flower's name"
+     },
+     {
+      "clueFragment": "the trunk",
+      "gives": "BODY",
+      "note": "the trunk is the main part of the human body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RO",
+      "ODY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rose is half buried in a tree trunk, while someone nearby frets.",
+     "walkthrough": "'Rose' looks like the definition or a verb; it is a flower cut in half, sitting inside the trunk.",
+     "definitionFit": "Broody describes someone sullenly preoccupied, brooding over worries in gloomy reflection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,56 @@
     "text": "Heavy drinker found lying in bed and embarrassed",
     "enumeration": "7"
    },
-   "solution": "BLUSHED"
+   "solution": "BLUSHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLUSHED",
+    "definitions": [
+     {
+      "text": "embarrassed",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found lying in",
+      "for": "container",
+      "note": "a person lying in a place is inside it, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavy drinker",
+      "gives": "LUSH",
+      "note": "a lush is a slang word for an alcoholic"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUSH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk is discovered sprawled in someone's bed, to everyone's embarrassment.",
+     "definitionFit": "To blush is to redden with shame, so a person who blushed was visibly embarrassed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,42 @@
     "text": "Partly concoct a logical numbering system",
     "enumeration": "5"
    },
-   "solution": "OCTAL"
+   "solution": "OCTAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OCTAL",
+    "definitions": [
+     {
+      "text": "numbering system",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Partly",
+      "for": "hidden_word",
+      "note": "only part of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concoct a logical",
+      "gives": "OCTAL",
+      "note": "the letters run across the end of concoct, the word a and the start of logical"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone devises a sensible way of numbering things.",
+     "definitionFit": "Octal is the base-eight counting scheme used in computing, a system of writing numbers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concoct"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,59 @@
     "text": "Breed is unsound for these classic races",
     "enumeration": "7"
    },
-   "solution": "DERBIES"
+   "solution": "DERBIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DERBIES",
+    "definitions": [
+     {
+      "text": "classic races",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is unsound",
+      "for": "anagram",
+      "note": "something unsound is broken or faulty, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for these"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Breed",
+      "gives": "BREED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BREEDIS",
+       "gives": "DERBIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racehorse's bloodline is too weak for the great flat races.",
+     "walkthrough": "'is' belongs to the fodder rather than being a link word. The Derby is one of England's five Classic horse races, run at Epsom.",
+     "definitionFit": "Derbies are famous horse races, the Epsom original and its many imitators, counted among the classics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unsound"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +285,47 @@
     "text": "The masseur's kind of bridge?",
     "enumeration": "6"
    },
-   "solution": "RUBBER"
+   "solution": "RUBBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUBBER",
+    "definitions": [
+     {
+      "text": "masseur",
+      "at": 4
+     },
+     {
+      "text": "kind of bridge",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "masseur",
+      "note": "first meaning: one who rubs, a person giving a massage"
+     },
+     {
+      "clueFragment": "kind of bridge",
+      "note": "second meaning: the card game played in sets of games, as opposed to duplicate"
+     }
+    ],
+    "explanation": {
+     "surface": "It asks what sort of bridge a massage therapist would play.",
+     "walkthrough": "The possessive glues the two meanings into one phrase; rubber bridge is the standard form of the card game, scored over a set of three games.",
+     "definitionFit": "A masseur works by rubbing muscles, and rubber bridge is a recognised variety of the card game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +339,49 @@
     "text": "Arrogant person gets out of bed with a jump",
     "enumeration": "7"
    },
-   "solution": "UPSTART"
+   "solution": "UPSTART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSTART",
+    "definitions": [
+     {
+      "text": "Arrogant person",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out of bed",
+      "gives": "UP",
+      "note": "someone out of bed is up"
+     },
+     {
+      "clueFragment": "a jump",
+      "gives": "START",
+      "note": "a start is a sudden jump of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "START"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important type leaps out of bed with a jolt.",
+     "definitionFit": "An upstart is someone newly risen who behaves with presumptuous self-importance toward their betters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +401,48 @@
      }
     ]
    },
-   "solution": "BIRDSNEST"
+   "solution": "BIRDSNEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIRDS NEST",
+    "definitions": [
+     {
+      "text": "place built for the young",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girls",
+      "gives": "BIRDS",
+      "note": "birds is British slang for young women"
+     },
+     {
+      "clueFragment": "take shelter",
+      "gives": "NEST",
+      "note": "to nest is to settle in a sheltered home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRDS",
+      "NEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Young women find refuge in a building meant for children.",
+     "walkthrough": "The young are chicks, not children: the place is built by a bird for its brood.",
+     "definitionFit": "A bird's nest is the structure a bird constructs to house its eggs and hatchlings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "young"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +462,48 @@
      }
     ]
    },
-   "solution": "RAKEOFF"
+   "solution": "RAKEOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAKE-OFF",
+    "definitions": [
+     {
+      "text": "dishonest profits",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dissolute man",
+      "gives": "RAKE",
+      "note": "a rake is a man of loose morals"
+     },
+     {
+      "clueFragment": "no longer attracted",
+      "gives": "OFF",
+      "note": "to go off someone is to stop liking them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAKE",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A libertine has lost interest, put off by crooked gains.",
+     "definitionFit": "A rake-off is a share of money taken illicitly, a cut skimmed from a deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +517,55 @@
     "text": "Ostentatious pilot circles tree",
     "enumeration": "6"
    },
-   "solution": "FLASHY"
+   "solution": "FLASHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLASHY",
+    "definitions": [
+     {
+      "text": "Ostentatious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circles",
+      "for": "container",
+      "note": "to circle something is to go all round it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pilot",
+      "gives": "FLY",
+      "note": "to fly a plane is to pilot it"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "ASH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A show-off airman loops round a tree.",
+     "walkthrough": "'pilot' looks like a noun but is read as the verb.",
+     "definitionFit": "Flashy and ostentatious both describe a showy display meant to impress onlookers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pilot"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +585,58 @@
      }
     ]
    },
-   "solution": "BUTTERFLYSTROKE"
+   "solution": "BUTTERFLYSTROKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTERFLY STROKE",
+    "definitions": [
+     {
+      "text": "when exhibited in the baths",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind says this word comes after the other one in the answer"
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frivolous person",
+      "gives": "BUTTERFLY",
+      "note": "a butterfly is a flighty, superficial person"
+     },
+     {
+      "clueFragment": "touch",
+      "gives": "STROKE",
+      "note": "to stroke is to touch gently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTERFLY",
+      "STROKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A flighty swimmer gropes someone's bottom at the public pool.",
+     "walkthrough": "'touch behind' reads as touching a bottom; behind just places the second word after the first. Baths is British for a public swimming pool.",
+     "definitionFit": "The butterfly stroke is a swimming style, the sort of thing seen performed in a swimming pool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +650,51 @@
     "text": "One hot spice and a cold one",
     "enumeration": "6"
    },
-   "solution": "CHILLI"
+   "solution": "CHILLI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHILLI",
+    "definitions": [
+     {
+      "text": "One hot spice",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cold",
+      "gives": "CHILL",
+      "note": "a chill is a mild cold"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHILL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "It contrasts a fiery spice with a cold one.",
+     "walkthrough": "'hot' and 'cold' look like a pair of opposites; 'a cold' is the illness.",
+     "definitionFit": "A chilli is a fiery pepper pod used to season food, so one such pod is a hot spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +708,48 @@
     "text": "Loses one's self-control when getting stolen photograph",
     "enumeration": "8"
    },
-   "solution": "SNAPSHOT"
+   "solution": "SNAPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAPSHOT",
+    "definitions": [
+     {
+      "text": "photograph",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "when getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loses one's self-control",
+      "gives": "SNAPS",
+      "note": "someone who snaps suddenly loses their temper"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "hot is slang for stolen goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flies into a rage on getting a purloined picture.",
+     "definitionFit": "A snapshot is a quick informal photo, taken casually with a camera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +763,67 @@
     "text": "Reverse the Party promise with cunning, in a yucky way",
     "enumeration": "8"
    },
-   "solution": "ODIOUSLY"
+   "solution": "ODIOUSLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ODIOUSLY",
+    "definitions": [
+     {
+      "text": "in a yucky way",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reverse",
+      "for": "reversal",
+      "note": "to reverse something is to turn it round, so the word for a party is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "promise",
+      "gives": "IOU",
+      "note": "an IOU is a written promise to pay"
+     },
+     {
+      "clueFragment": "with cunning",
+      "gives": "SLY",
+      "note": "sly means cunning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "IOU",
+      "SLY"
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician cynically breaks a party pledge in a nasty manner.",
+     "walkthrough": "The capital P makes Party look political; it is just a do.",
+     "definitionFit": "Odiously means in a hateful, repugnant manner, which is what yucky conveys colloquially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +847,42 @@
      }
     ]
    },
-   "solution": "ONTHESPOT"
+   "solution": "ONTHESPOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE SPOT",
+    "definitions": [
+     {
+      "text": "Where to put the pimple ointment",
+      "at": 0
+     },
+     {
+      "text": "immediately",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where to put the pimple ointment",
+      "note": "first meaning: on the blemish itself"
+     },
+     {
+      "clueFragment": "immediately",
+      "note": "second meaning: at once, without delay"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A spot is a pimple, so the cream goes there; the same phrase is an idiom for doing something there and then.",
+     "definitionFit": "The phrase literally places cream on a blemish, and idiomatically means acting at once, without any delay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +902,56 @@
      }
     ]
    },
-   "solution": "THEOFF"
+   "solution": "THEOFF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THE OFF",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "a word that interrupts another breaks into the middle of it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a dandy",
+      "gives": "TOFF",
+      "note": "a toff is British slang for a smart upper-class man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A man butts in on a fop just as something begins.",
+     "definitionFit": "The off is the beginning of a race, the moment the runners set out, hence a start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +965,46 @@
     "text": "Was Edward emaciated?",
     "enumeration": "6"
    },
-   "solution": "WASTED"
+   "solution": "WASTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WASTED",
+    "definitions": [
+     {
+      "text": "emaciated",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was",
+      "gives": "WAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAS",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a man named Edward was skeletally thin.",
+     "definitionFit": "Wasted describes a body that has become thin and weak through illness or starvation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edward"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1018,53 @@
     "text": "Sea legs at sea for the perpetually young",
     "enumeration": "7"
    },
-   "solution": "AGELESS"
+   "solution": "AGELESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGELESS",
+    "definitions": [
+     {
+      "text": "perpetually young",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused or all over the place, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sea legs",
+      "gives": "SEALEGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEALEGS",
+       "gives": "AGELESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steadiness on a ship's deck suits the young at heart.",
+     "definitionFit": "Something ageless never seems to grow old, staying forever youthful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1078,46 @@
     "text": "Conscientious, but beautiful in rhyme",
     "enumeration": "7"
    },
-   "solution": "DUTIFUL"
+   "solution": "DUTIFUL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUTIFUL",
+    "definitions": [
+     {
+      "text": "Conscientious",
+      "at": 0
+     },
+     {
+      "text": "beautiful in rhyme",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conscientious",
+      "note": "first meaning: careful to do one's duty"
+     },
+     {
+      "clueFragment": "beautiful in rhyme",
+      "note": "second sense: a word that partners beautiful at the end of a line of verse"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is diligent, though only lovely when put into verse.",
+     "walkthrough": "The second half is a hint by sound rather than meaning: the answer rhymes with beautiful.",
+     "definitionFit": "A dutiful person reliably does what is required of them, which is being conscientious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rhyme"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1131,64 @@
     "text": "Answer given by troubled soul? Not I!",
     "enumeration": "8"
    },
-   "solution": "SOLUTION"
+   "solution": "SOLUTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLUTION",
+    "definitions": [
+     {
+      "text": "Answer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "something troubled is disturbed, so the letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soul",
+      "gives": "SOUL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOULNOTI",
+       "gives": "SOLUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tormented person denies having the answer.",
+     "walkthrough": "'Not I!' sounds like a disclaimer, but those words are part of the fodder.",
+     "definitionFit": "A plain synonym: whatever resolves a puzzle or problem, the correct reply to a question, is its solution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Not"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1202,54 @@
     "text": "Priest converted a fairy",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPRITE",
+    "definitions": [
+     {
+      "text": "fairy",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "something converted has been changed into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "PRIEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "SPRITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman wins a fairy over to his faith.",
+     "definitionFit": "A sprite is an elf or small supernatural being, the same as a fairy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1263,44 @@
     "text": "Quadrille for the cavalry?",
     "enumeration": "7"
    },
-   "solution": "LANCERS"
+   "solution": "LANCERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANCERS",
+    "definitions": [
+     {
+      "text": "Quadrille",
+      "at": 0
+     },
+     {
+      "text": "cavalry",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quadrille",
+      "note": "first meaning: a nineteenth-century square dance for four couples"
+     },
+     {
+      "clueFragment": "cavalry",
+      "note": "second meaning: mounted soldiers armed with lances"
+     }
+    ],
+    "explanation": {
+     "surface": "It suggests a formal dance laid on for mounted troops.",
+     "definitionFit": "The lancers was a popular ballroom quadrille, and lancers are horse soldiers bearing long spears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1314,58 @@
     "text": "Poetry written in Old English is direct",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "direct",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "words written in a book sit inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     },
+     {
+      "clueFragment": "Old English",
+      "gives": "OE",
+      "note": "the standard abbreviation for Old English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERSE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "It claims that poetry composed in Anglo-Saxon is plain-spoken.",
+     "walkthrough": "'direct' looks like an adjective, plain-spoken, but it is the verb.",
+     "definitionFit": "To oversee is to supervise or manage, which is what directing work or people means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "direct"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1379,57 @@
     "text": "Father is better outside, for example",
     "enumeration": "8"
    },
-   "solution": "BEGETTER"
+   "solution": "BEGETTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEGETTER",
+    "definitions": [
+     {
+      "text": "Father",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a word placed outside another wraps around it on both sides"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "better",
+      "gives": "BETTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EG",
+      "ETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "It claims a dad is improved by being out of doors, as an illustration.",
+     "definitionFit": "A begetter is one who sires a child, so a father; the word is old-fashioned and biblical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1443,44 @@
     "text": "Claw for a little boy or girl",
     "enumeration": "6"
    },
-   "solution": "NIPPER"
+   "solution": "NIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIPPER",
+    "definitions": [
+     {
+      "text": "Claw",
+      "at": 0
+     },
+     {
+      "text": "little boy or girl",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claw",
+      "note": "first meaning: a pincer, as on a crab"
+     },
+     {
+      "clueFragment": "little boy or girl",
+      "note": "second meaning: British slang for a small child"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a pincer being given to a small child.",
+     "definitionFit": "A crab's pincer is one that nips, and nipper is informal British for a young kid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1494,56 @@
     "text": "Dad takes Mum to this Italian city",
     "enumeration": "5"
    },
-   "solution": "PARMA"
+   "solution": "PARMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARMA",
+    "definitions": [
+     {
+      "text": "Italian city",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is a familiar word for father"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, Latin for take, as on prescriptions"
+     },
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is a familiar word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "R",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A father brings his mother on a trip to an Italian city.",
+     "walkthrough": "'takes' looks like a link word joining the parents, but it supplies a letter of its own.",
+     "definitionFit": "Parma is a city in northern Italy, famous for its ham and cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1571,47 @@
      }
     ]
    },
-   "solution": "KEEPOFFTHEGRASS"
+   "solution": "KEEPOFFTHEGRASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEP OFF THE GRASS",
+    "definitions": [
+     {
+      "text": "Don't leave the path",
+      "at": 0
+     },
+     {
+      "text": "stay away from the informer",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't leave the path",
+      "note": "first meaning: the sign forbidding walkers on the lawn"
+     },
+     {
+      "clueFragment": "stay away from the informer",
+      "note": "second meaning: avoid the police snitch, a grass in British slang"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to walkers doubles as advice to steer clear of a snitch.",
+     "walkthrough": "A grass is British slang for a police informer, and keep off means avoid.",
+     "definitionFit": "The familiar lawn notice tells people to stay on paths, and read literally it warns against the snitch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "informer"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1625,42 @@
     "text": "Fix a wooden bench",
     "enumeration": "6"
    },
-   "solution": "SETTLE"
+   "solution": "SETTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTLE",
+    "definitions": [
+     {
+      "text": "Fix",
+      "at": 0
+     },
+     {
+      "text": "a wooden bench",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fix",
+      "note": "first meaning: to decide or arrange finally"
+     },
+     {
+      "clueFragment": "a wooden bench",
+      "note": "second meaning: a long wooden seat with a high back"
+     }
+    ],
+    "explanation": {
+     "surface": "Mend a timber seat.",
+     "definitionFit": "To settle a date is to fix it, and a settle is a high-backed wooden seat for several people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fix"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1674,42 @@
     "text": "Run away in Holmes' cape",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Run away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holmes' cape",
+      "gives": "ESCAPE",
+      "note": "the letters span the end of Holmes and the whole of cape"
+     }
+    ],
+    "explanation": {
+     "surface": "The fugitive slips off wearing Sherlock Holmes's cloak.",
+     "definitionFit": "To escape is to flee or get away from confinement or danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Holmes"
+    }
+   }
   }
  ]
 }
