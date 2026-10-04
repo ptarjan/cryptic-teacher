@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "The favourite's certain to win a little bit",
     "enumeration": "7"
    },
-   "solution": "SNIPPET"
+   "solution": "SNIPPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNIPPET",
+    "definitions": [
+     {
+      "text": "a little bit",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to win"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "SNIP",
+      "note": "a snip is a dead cert, something sure to succeed"
+     },
+     {
+      "clueFragment": "The favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNIP",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipster says the favourite is sure to win, and recommends a small flutter.",
+     "walkthrough": "The favourite's piece comes after the certainty piece. A snip, in British slang, is a bargain or a sure thing.",
+     "definitionFit": "A snippet is a small piece or fragment cut from something larger, such as a scrap of news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "certain"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,59 @@
     "text": "Almost 108 gallons of sherry in old brass",
     "enumeration": "7"
    },
-   "solution": "SACKBUT"
+   "solution": "SACKBUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SACKBUT",
+    "definitions": [
+     {
+      "text": "old brass",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the measure is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sherry",
+      "gives": "SACK",
+      "note": "sack is an old name for a dry white wine such as sherry"
+     },
+     {
+      "clueFragment": "108 gallons",
+      "gives": "BUTT",
+      "note": "a butt is a large cask, traditionally holding 108 gallons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SACK",
+      "BUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge cask of sherry is stored in an antique brass vessel.",
+     "walkthrough": "'of' joins the cask to its contents, which come first in the answer; 'old brass' is not metal but an instrument.",
+     "definitionFit": "The sackbut is the Renaissance ancestor of the trombone, an early instrument of the brass family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brass"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +170,75 @@
      }
     ]
    },
-   "solution": "ISNOTHINGSACRED"
+   "solution": "ISNOTHINGSACRED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "IS NOTHING SACRED",
+    "definitions": [
+     {
+      "text": "Shocked query",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so these letters are put together in a fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unhinged",
+      "gives": "NOTHINGED",
+      "note": "unhinged read literally is not hinged"
+     },
+     {
+      "clueFragment": "cars",
+      "gives": "CARS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "NOTHING",
+      "SACR",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARS",
+       "gives": "SACR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone appalled by the latest models of car exclaims that the world has gone mad.",
+     "walkthrough": "'unhinged' read literally means not hinged, and the cars, shuffled, are parked inside the word for hinged.",
+     "definitionFit": "Is nothing sacred? is the exclamation of someone outraged that cherished things are being disrespected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unhinged"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +252,44 @@
     "text": "He claimed the place of the steam locomotive",
     "enumeration": "9"
    },
-   "solution": "PRETENDER"
+   "solution": "PRETENDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRETENDER",
+    "definitions": [
+     {
+      "text": "He claimed",
+      "at": 0
+     },
+     {
+      "text": "the place of the steam locomotive",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He claimed",
+      "note": "first meaning: one who lays claim to a throne"
+     },
+     {
+      "clueFragment": "the place of the steam locomotive",
+      "note": "second meaning, split in two: the engine runs in front of its coal wagon, the tender"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone boasted of having once stood where the old steam engine stood.",
+     "walkthrough": "Read the second meaning as PRE-TENDER: a steam locomotive is coupled ahead of its tender, the wagon carrying coal and water.",
+     "definitionFit": "A pretender is a claimant, especially one asserting a right to a throne held by someone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "claimed"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +303,46 @@
     "text": "Chief island's headgear",
     "enumeration": "5"
    },
-   "solution": "TOPIS"
+   "solution": "TOPIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOPIS",
+    "definitions": [
+     {
+      "text": "headgear",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief",
+      "gives": "TOP",
+      "note": "top means chief or foremost"
+     },
+     {
+      "clueFragment": "island's",
+      "gives": "IS",
+      "note": "I is the abbreviation for island, plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "The headdress worn by the leading man of an island.",
+     "definitionFit": "Topis are pith helmets, lightweight sun hats worn in the tropics, so they count as headgear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chief"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +366,60 @@
    "group": [
     "5-across",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TROUBLE-SHOOTER",
+    "definitions": [
+     {
+      "text": "I can fix it",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being off",
+      "for": "anagram",
+      "note": "being off means gone wrong or out of place, so these letters must be put right in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rue bolt",
+      "gives": "RUEBOLT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "SHOOTER",
+      "note": "a shooter is slang for a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROUBLE",
+      "SHOOTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUEBOLT",
+       "gives": "TROUBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets that a bolt has come off a gun, and a handyman offers to mend it.",
+     "definitionFit": "A troubleshooter is a person called in to diagnose and solve problems, who might well say these words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rue"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +433,60 @@
     "text": "Short pants shortened at either end available in Northants.",
     "enumeration": "9"
    },
-   "solution": "THRAPSTON"
+   "solution": "THRAPSTON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THRAPSTON",
+    "definitions": [
+     {
+      "text": "in Northants.",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened at either end",
+      "for": "deletion",
+      "note": "shortened means one letter is lost, and with the same letter at each end it does not matter which end goes"
+     },
+     {
+      "text": "available",
+      "for": "anagram",
+      "note": "available suggests the letters are free to be used in any order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short pants",
+      "gives": "SHORTPANTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THRAPSTON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHORTPANT",
+       "gives": "THRAPSTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop advertises abbreviated shorts on sale in a Northamptonshire town.",
+     "walkthrough": "Drop one S from SHORTPANTS and rearrange the rest. Thrapston is a small market town in Northamptonshire, an English county abbreviated Northants.",
+     "definitionFit": "Thrapston is a market town located within the county of Northamptonshire in the English Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +500,60 @@
     "text": "He has now upset the Queen",
     "enumeration": "5"
    },
-   "solution": "OWNER"
+   "solution": "OWNER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OWNER",
+    "definitions": [
+     {
+      "text": "He has",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters fall into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "now",
+      "gives": "NOW",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWN",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOW",
+       "gives": "OWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man has just offended the monarch.",
+     "definitionFit": "An owner is a person who has or possesses something, so the phrase describes him exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +573,84 @@
      }
     ]
    },
-   "solution": "BIOLOGICALCLOCK"
+   "solution": "BIOLOGICALCLOCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "BIOLOGICAL CLOCK",
+    "definitions": [
+     {
+      "text": "factor in jet lag",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "deletion",
+      "note": "some means only part of the following word is used, its opening stretch with the tail cut off"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the bracketed material inside the word for an obstruction"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "IO",
+      "note": "the number ten written with the digits read as letters, I and O"
+     },
+     {
+      "clueFragment": "logarithm",
+      "gives": "LOG",
+      "note": "log is the usual abbreviation for logarithm"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the digit one looks like the letter I"
+     },
+     {
+      "clueFragment": "calculate",
+      "gives": "CALCULATE",
+      "note": "taken as written, then cut down to its first four letters"
+     },
+     {
+      "clueFragment": "obstruction",
+      "gives": "BLOCK",
+      "note": "a block is an obstruction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "IO",
+      "LOG",
+      "I",
+      "CALC",
+      "LOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A mock-mathematical formula in brackets claims to describe what causes jet lag.",
+     "walkthrough": "The bracketed sum looks like real maths, but each item just supplies letters, and the whole lot sits inside the obstruction after its first letter.",
+     "definitionFit": "The body's internal clock governs sleep cycles, and its disruption by crossing time zones is what causes jet lag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "logarithm"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +664,51 @@
     "text": "Greek character piles on the agony",
     "enumeration": "7"
    },
-   "solution": "EPSILON"
+   "solution": "EPSILON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPSILON",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the agony",
+      "for": "anagram",
+      "note": "something in agony writhes and twists, so these letters are contorted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piles on",
+      "gives": "PILESON",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PILESON",
+       "gives": "EPSILON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A melodramatic Greek figure exaggerates their suffering.",
+     "walkthrough": "'piles on the agony' is a set phrase for exaggerating, which disguises where the fodder ends and the signal begins.",
+     "definitionFit": "Epsilon is the fifth letter of the Greek alphabet, and a letter is a character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piles"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +722,65 @@
     "text": "Most European characters need Tory leadership to come alive with",
     "enumeration": "15"
    },
-   "solution": "CONTEMPORANEOUS"
+   "solution": "CONTEMPORANEOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONTEMPORANEOUS",
+    "definitions": [
+     {
+      "text": "alive with",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters",
+      "for": "anagram",
+      "note": "characters means letters, here taken as loose letters to be set out afresh"
+     }
+    ],
+    "linkWords": [
+     "need",
+     "to come"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory leadership",
+      "gives": "CON",
+      "note": "Con is short for Conservative, a Tory; leadership puts it at the front"
+     },
+     {
+      "clueFragment": "Most European",
+      "gives": "MOSTEUROPEAN",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TEMPORANEOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOSTEUROPEAN",
+       "gives": "TEMPORANEOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Euro politics: most of Europe's leaders must have a Conservative at their head to come to life.",
+     "walkthrough": "'Most European' looks like a superlative, but both words are the letters to rearrange.",
+     "definitionFit": "Things contemporaneous with each other exist at the same period, so one is alive at the same time as the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Most"
+    }
+   }
   },
   {
    "number": 10,
@@ -213,7 +794,45 @@
     "text": "Night flier, male, to take to the water",
     "enumeration": "5"
    },
-   "solution": "BATHE"
+   "solution": "BATHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BATHE",
+    "definitions": [
+     {
+      "text": "to take to the water",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night flier",
+      "gives": "BAT",
+      "note": "a bat flies by night"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nocturnal male creature takes a dip.",
+     "definitionFit": "To bathe is to swim or go into the sea or a river for pleasure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +846,48 @@
     "text": "Magnificent night flier in sporting contest",
     "enumeration": "9"
    },
-   "solution": "SUPERBOWL"
+   "solution": "SUPERBOWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPER BOWL",
+    "definitions": [
+     {
+      "text": "sporting contest",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnificent",
+      "gives": "SUPERB",
+      "note": "superb means magnificent"
+     },
+     {
+      "clueFragment": "night flier",
+      "gives": "OWL",
+      "note": "an owl hunts by night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPERB",
+      "OWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A splendid owl takes part in a competition.",
+     "definitionFit": "The Super Bowl is the annual championship game of American professional football."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +907,48 @@
      }
     ]
    },
-   "solution": "THIRDPART"
+   "solution": "THIRDPART",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIRD PART",
+    "definitions": [
+     {
+      "text": "fraction",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the last letter is never reached and so is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not a principal",
+      "gives": "THIRDPARTY",
+      "note": "a third party is someone involved who is not one of the main parties to an agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIRD",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor share in a deal, still incomplete.",
+     "definitionFit": "A third part is one of three equal portions of a whole, which is a fraction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +962,73 @@
     "text": "Home provided for a pound for quiet creature about to be so!",
     "enumeration": "9"
    },
-   "solution": "ALMSHOUSE"
+   "solution": "ALMSHOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALMSHOUSE",
+    "definitions": [
+     {
+      "text": "Home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the creature wraps around the call for silence"
+     }
+    ],
+    "linkWords": [
+     "provided for",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L, from Latin libra, is the symbol for a pound"
+     },
+     {
+      "clueFragment": "quiet creature",
+      "gives": "MOUSE",
+      "note": "quiet as a mouse"
+     },
+     {
+      "clueFragment": "to be so",
+      "gives": "SH",
+      "note": "sh is what you say to tell someone to be quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "M",
+      "SH",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A charity provides a pound to house a timid little animal, asking it to keep its voice down.",
+     "walkthrough": "'so' points back to 'quiet', so 'to be so' means 'be quiet!', which is SH.",
+     "definitionFit": "An almshouse is a charitable dwelling provided for poor or elderly people to live in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1042,48 @@
     "text": "Sound of waterfall as a rule  ...",
     "enumeration": "5"
    },
-   "solution": "REIGN"
+   "solution": "REIGN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REIGN",
+    "definitions": [
+     {
+      "text": "rule",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "sound of means we want a word that is said the same as another"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waterfall",
+      "gives": "REIGN",
+      "soundsLike": "RAIN",
+      "note": "rain is literally water falling from the sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A waterfall makes a noise, as it always does; the dots run on into the next clue.",
+     "walkthrough": "'waterfall' is not a cascade but water falling as rain.",
+     "definitionFit": "A monarch's sovereign authority over a kingdom, or the period it lasts, is what the noun means; the verb is the governing itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "waterfall"
+    }
+   }
   },
   {
    "number": 14,
@@ -295,7 +1103,40 @@
      }
     ]
    },
-   "solution": "ROYALBLUE"
+   "solution": "ROYALBLUE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYAL BLUE",
+    "definitions": [
+     {
+      "text": "Prince playing for Oxford or Cambridge?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince playing for Oxford or Cambridge?",
+      "note": "surface reading: a young royal turning out for one of the two ancient universities"
+     },
+     {
+      "clueFragment": "Oxford or Cambridge",
+      "note": "setter's reading: a sportsman picked for either university earns a Blue, and Oxford and Cambridge are also names of shades of that colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A prince representing his university in sport.",
+     "walkthrough": "At Oxford and Cambridge a sportsman who represents the university against the other is called a Blue; a prince who did so would be a royal one.",
+     "definitionFit": "Royal blue is a deep bright shade of the colour, sitting alongside Oxford blue and Cambridge blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 15,
@@ -309,7 +1150,45 @@
     "text": "...  from land and water in Africa",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIGER",
+    "definitions": [
+     {
+      "text": "land",
+      "at": 10
+     },
+     {
+      "text": "water in Africa",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land",
+      "note": "first meaning: a West African country"
+     },
+     {
+      "clueFragment": "water in Africa",
+      "note": "second meaning: the great West African river that gives the country its name"
+     }
+    ],
+    "explanation": {
+     "surface": "Continuing the previous clue, rain falls on the land and water of an African nation.",
+     "definitionFit": "The name belongs both to a landlocked republic of West Africa and to the major river flowing through it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -323,7 +1202,64 @@
     "text": "Russian girl with some facial hair in North America",
     "enumeration": "7"
    },
-   "solution": "NATASHA"
+   "solution": "NATASHA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NATASHA",
+    "definitions": [
+     {
+      "text": "Russian girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means the facial hair is placed inside the abbreviation for the continent"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "A",
+      "note": "a, meaning some or one"
+     },
+     {
+      "clueFragment": "facial hair",
+      "gives": "TASH",
+      "note": "tash is British slang for a moustache"
+     },
+     {
+      "clueFragment": "North America",
+      "gives": "NA",
+      "note": "NA is the abbreviation for North America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "TASH",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian girl sporting a slight moustache is living in the USA or Canada.",
+     "definitionFit": "Natasha is a common Russian female first name, a pet form of Natalya."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 16,
@@ -337,7 +1273,66 @@
     "text": "Dives with French soldier and graduate among cats",
     "enumeration": "9"
    },
-   "solution": "MONEYBAGS"
+   "solution": "MONEYBAGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MONEYBAGS",
+    "definitions": [
+     {
+      "text": "Dives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among means in the midst of, so the soldier and graduate go inside the word for cats"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French soldier",
+      "gives": "NEY",
+      "note": "Michel Ney was one of Napoleon's marshals"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA is a Bachelor of Arts"
+     },
+     {
+      "clueFragment": "cats",
+      "gives": "MOGS",
+      "note": "mog is British slang for a cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NEY",
+      "BA",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plunges in among cats with a French soldier and a graduate.",
+     "walkthrough": "'Dives' looks like a verb but is the rich man of the Bible parable of Dives and Lazarus.",
+     "definitionFit": "Dives is the traditional name of the rich man in Luke's parable, and moneybags is slang for a wealthy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dives"
+    }
+   }
   },
   {
    "number": 17,
@@ -365,7 +1360,66 @@
     "text": "Rubbish on the front page about Poles having to change vessels",
     "enumeration": "9"
    },
-   "solution": "TRANSSHIP"
+   "solution": "TRANSSHIP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRANSSHIP",
+    "definitions": [
+     {
+      "text": "change vessels",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rubbish goes round the poles"
+     }
+    ],
+    "linkWords": [
+     "having to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "TRASH",
+      "note": "trash is rubbish"
+     },
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "N and S are the north and south poles"
+     },
+     {
+      "clueFragment": "on the front page",
+      "gives": "IP",
+      "note": "the front page is page i, the first roman numeral page, with P for page"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "NS",
+      "SH",
+      "IP"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper splashes a rubbish story about Polish people having to switch ships.",
+     "walkthrough": "'Poles' are not Polish people but the two compass poles; preliminary pages of a book are numbered in roman numerals, so i is the front page.",
+     "definitionFit": "To transship is to transfer cargo or passengers from one ship or vehicle to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 19,
@@ -385,7 +1439,60 @@
      }
     ]
    },
-   "solution": "SAYON"
+   "solution": "SAYON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SAY ON",
+    "definitions": [
+     {
+      "text": "Proceed with your remarks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the boy goes round the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     },
+     {
+      "clueFragment": "my boy",
+      "gives": "SON",
+      "note": "a son is one's boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "Y",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent invites their son to carry on speaking about a year of his life.",
+     "definitionFit": "Say on is an old-fashioned imperative inviting a speaker to continue talking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -399,7 +1506,49 @@
     "text": "Make an assumption from 4",
     "enumeration": "5"
    },
-   "solution": "POSIT"
+   "solution": "POSIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POSIT",
+    "definitions": [
+     {
+      "text": "Make an assumption",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "anagram",
+      "note": "from means made out of, so the new word is built from the letters of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4",
+      "gives": "TOPIS",
+      "note": "the answer to 4 down, its letters then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPIS",
+       "gives": "POSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Draw a conclusion based on another clue.",
+     "definitionFit": "To posit is to put forward a proposition as a basis for argument, to assume it as true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1562,68 @@
     "text": "Fantastic Shakespearean copper in a painting the wrong way round",
     "enumeration": "5"
    },
-   "solution": "LUCIO"
+   "solution": "LUCIO",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "LUCIO",
+    "definitions": [
+     {
+      "text": "Fantastic Shakespearean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the metal inside the word for a painting"
+     },
+     {
+      "text": "the wrong way round",
+      "for": "reversal",
+      "note": "the wrong way round means read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a painting",
+      "gives": "OIL",
+      "note": "an oil is a painting in oils"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UC",
+      "IO"
+     ],
+     "reversals": [
+      {
+       "from": "OICUL",
+       "to": "LUCIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wonderful Shakespearean policeman appears upside down in a picture.",
+     "walkthrough": "CU goes between OI and L, then the whole is read backwards. The cast list of Measure for Measure describes Lucio as 'a fantastic', meaning a fop.",
+     "definitionFit": "In the play's list of characters, Lucio is labelled 'a fantastic', an old word for an extravagant, foppish man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 22,
@@ -437,7 +1647,57 @@
      }
     ]
    },
-   "solution": "SORTYOURSELFOUT"
+   "solution": "SORTYOURSELFOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SORT YOURSELF OUT",
+    "definitions": [
+     {
+      "text": "recommendation of DIY psychiatry",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind",
+      "gives": "SORT",
+      "note": "a sort is a kind"
+     },
+     {
+      "clueFragment": "solver (who else?)",
+      "gives": "YOURSELF",
+      "note": "the solver of this clue is none other than you"
+     },
+     {
+      "clueFragment": "striking",
+      "gives": "OUT",
+      "note": "workers on strike are out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SORT",
+      "YOURSELF",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly reader sets about solving with a dramatic piece of self-help advice.",
+     "walkthrough": "'(who else?)' nudges the solver to see that the solver is the reader.",
+     "definitionFit": "Telling someone to sort themselves out is advising them to fix their own mental or emotional problems unaided."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 23,
@@ -451,7 +1711,45 @@
     "text": "An Italian writer in no hurry",
     "enumeration": "7"
    },
-   "solution": "ANDANTE"
+   "solution": "ANDANTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANDANTE",
+    "definitions": [
+     {
+      "text": "in no hurry",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italian writer",
+      "gives": "DANTE",
+      "note": "Dante Alighieri, author of the Divine Comedy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DANTE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian author takes his time.",
+     "definitionFit": "Andante is the musical direction for a moderately slow, walking tempo, so it is unhurried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -465,7 +1763,58 @@
     "text": "Journeyman taking tea instead of usual start to breakfast?",
     "enumeration": "7"
    },
-   "solution": "TREKKER"
+   "solution": "TREKKER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TREKKER",
+    "definitions": [
+     {
+      "text": "Journeyman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "instead of usual start",
+      "for": "substitution",
+      "note": "instead of usual start means the first letter is swapped out for a different one"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "T",
+      "note": "tea is pronounced like the letter T"
+     },
+     {
+      "clueFragment": "breakfast",
+      "gives": "BREKKER",
+      "note": "brekker is jokey British slang for breakfast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REKKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling worker drinks tea rather than eating his usual morning meal.",
+     "walkthrough": "'Journeyman' suggests a qualified tradesman, but here it is read literally as a man on a journey.",
+     "definitionFit": "A trekker is someone who makes a long, arduous journey on foot, literally a man on a journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Journeyman"
+    }
+   }
   }
  ]
 }
