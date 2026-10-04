@@ -1739,6 +1739,18 @@ SETTER_ERROR = load_source_table("setter_error")
 SETTER_ERROR_LETTERS = 2
 
 
+def check_anagram_has_fodder(tag, ann, warnings):
+    """A clue typed anagram names its shuffle in `assembly.anagrams`: the
+    anagram ring on the blocks rung deals that fodder, so a clue without it
+    shows the solver no ring at all ("This should give me the anagram wheel").
+    apply_annotations derives it wherever the blocks rebuild the answer, so one
+    still missing is a shuffle the blocks cannot show and has to be written."""
+    if "anagram" in types_of(ann) and not assembly(ann).get("anagrams"):
+        warnings.append(f"{tag}: typed anagram but no assembly.anagrams — write "
+                        f"{{\"fodder\": every letter shuffled, \"gives\": what they become}} "
+                        f"so the solver gets the anagram ring")
+
+
 def check_anagram_letters(pid, eid, tag, ann, errors):
     """Each anagram's fodder holds exactly the letters it gives, unless
     SETTER_ERROR names this light's fodder and gives letter for letter; such a
@@ -2830,6 +2842,7 @@ def validate_puzzle(puzzle, corpus=False):
         # Letter mechanics.
         build = assembly(ann)
         check_anagram_letters(puzzle.get("id"), entry_id(e), tag, ann, errors)
+        check_anagram_has_fodder(tag, ann, warnings)
         for r in build.get("reversals", []):
             if letters(r["from"])[::-1] != letters(r["to"]):
                 errors.append(f"{tag}: reversal {r['from']} reversed != {r['to']}")
@@ -2999,6 +3012,7 @@ BACKLOG_MARKERS = {
     "indicators.for": ("lack `for`",),
     "features": ("no features",),
     "explanation.surface": ("no explanation.surface",),
+    "assembly.anagrams": ("no assembly.anagrams",),
 }
 
 

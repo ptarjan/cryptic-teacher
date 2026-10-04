@@ -102,7 +102,8 @@ reversal or rotation, in the order the pieces are assembled before that step.
 insertions and anagrams `type` names, rebuilds the answer; leave it out then. Write it
 only for a step the blocks cannot show, such as a deletion: `pieces` the final chunks in
 answer order, `anagrams` each shuffle's fodder (every letter, added ones included) and
-what it becomes, `reversals` each reversal. Leave out any key with nothing in it.
+what it becomes, `reversals` each reversal. Leave out any key with nothing in it. A clue
+typed anagram always ends up with `anagrams`: it is what the solver's anagram ring deals.
 
 An entry with an `alteration` goes into the grid changed, as its puzzle's preamble says.
 Write `alteration` (`{"from": "...", "steps": [{"op": "reversal"}]}`) in its object here and

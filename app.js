@@ -3419,13 +3419,23 @@
     return (ann.answer || "") + "|" + ringFodder(ann);
   }
 
-  // The fodder of the anagram whose gives is the whole answer, as bare letters.
+  // The anagram the ring deals: the one whose gives is the whole answer, else
+  // the longest one. A part-anagram is still the step a solver gets stuck
+  // rearranging (CHOMPED is CHO(MP)ED, and the work is turning COD HE into
+  // CHOED), so a clue typed anagram gets a ring whichever piece the shuffle
+  // makes. ringPins compares letter sets, so only a whole-answer fodder pins.
+  const bareLetters = (s) => String(s || "").toUpperCase().replace(/[^A-Z]/g, "");
+  function ringAnagram(ann) {
+    const want = bareLetters((ann || {}).answer);
+    const all = (((ann || {}).assembly) || {}).anagrams || [];
+    return all.find((a) => want && bareLetters(a.gives) === want) ||
+      all.reduce((best, a) => (!best || bareLetters(a.fodder).length >
+        bareLetters(best.fodder).length ? a : best), null);
+  }
+
   function ringFodder(ann) {
-    const bare = (s) => String(s || "").toUpperCase().replace(/[^A-Z]/g, "");
-    const want = bare((ann || {}).answer);
-    const whole = ((((ann || {}).assembly) || {}).anagrams || [])
-      .find((a) => want && bare(a.gives) === want);
-    return bare(whole && whole.fodder);
+    const a = ringAnagram(ann);
+    return bareLetters(a && a.fodder);
   }
 
   // The answer's words, one ring each. A ring reads clockwise from the top as
@@ -3492,7 +3502,7 @@
     if (fodder.length < 4) return "";
     if (!ring || ring.key !== key) {
       const letters = fodder.split("");
-      const forbidden = [fodder, ann.answer];
+      const forbidden = [fodder, ann.answer, (ringAnagram(ann) || {}).gives];
       ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
     }
     // Letters and order are read off `ring` from here on, not off the fresh
