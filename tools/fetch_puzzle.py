@@ -1906,6 +1906,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18252", "17-down"): (
+        "Metal in a lump, possibly",
+        "Metal tin a lump, possibly",
+        "OCR misread: the anagram fodder needs TIN A LUMP for all eight letters"),
     ("times-18251", "4-across"): (
         "The other side of the coin, so 10 speak",
         "The other side of the coin, so to speak",
