@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Press for identity documents?",
     "enumeration": "6"
    },
-   "solution": "PAPERS"
+   "solution": "PAPERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAPERS",
+    "definitions": [
+     {
+      "text": "Press",
+      "at": 0
+     },
+     {
+      "text": "identity documents",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press",
+      "note": "first meaning: the newspapers collectively"
+     },
+     {
+      "clueFragment": "identity documents",
+      "note": "second meaning: the official documents that prove who you are"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether to press a passport or ID card.",
+     "walkthrough": "'Press' reads as a verb to apply pressure, but here it is the noun for the newspaper trade.",
+     "definitionFit": "The newspapers collectively are called the press, and official identification such as passports are called one's papers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Press"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,60 @@
     "text": "Paul brewed tea in a high-rise flat",
     "enumeration": "7"
    },
-   "solution": "PLATEAU"
+   "solution": "PLATEAU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLATEAU",
+    "definitions": [
+     {
+      "text": "a high-rise flat",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients together, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paul",
+      "gives": "PAUL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAULTEA",
+       "gives": "PLATEAU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paul made a pot of tea in his tower-block apartment.",
+     "walkthrough": "'Flat' pretends to be an apartment; it is level ground, raised high.",
+     "definitionFit": "An area of level land at high altitude is a raised flat stretch of terrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,55 @@
     "text": "Sort of dish of cooked tripe",
     "enumeration": "5"
    },
-   "solution": "PETRI"
+   "solution": "PETRI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PETRI",
+    "definitions": [
+     {
+      "text": "Sort of dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are worked into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tripe",
+      "gives": "TRIPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIPE",
+       "gives": "PETRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of dish made from cooked tripe.",
+     "walkthrough": "The surface is about food; the dish is a laboratory one, a shallow glass for growing cultures.",
+     "definitionFit": "A shallow lidded laboratory plate used for growing bacterial cultures is named after Julius Petri."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,68 @@
     "text": "Copy original recipe, cooking plaice",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "REPLICA",
+    "definitions": [
+     {
+      "text": "Copy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "original means first or at the origin, so only the opening letter is kept"
+     },
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters of the fish are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of recipe"
+     },
+     {
+      "clueFragment": "plaice",
+      "gives": "PLAICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EPLICA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLAICE",
+       "gives": "EPLICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook copies an original recipe while preparing a fish dish.",
+     "walkthrough": "Plaice is a flatfish common in Britain.",
+     "definitionFit": "A replica is an exact reproduction of an object, a duplicate made to resemble it closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "original"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +294,47 @@
     "text": "Was abusive, yet guarded",
     "enumeration": "6"
    },
-   "solution": "RAILED"
+   "solution": "RAILED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAILED",
+    "definitions": [
+     {
+      "text": "Was abusive",
+      "at": 0
+     },
+     {
+      "text": "guarded",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "yet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was abusive",
+      "note": "first meaning: ranted or complained bitterly"
+     },
+     {
+      "clueFragment": "guarded",
+      "note": "second meaning: protected with a fence of bars"
+     }
+    ],
+    "explanation": {
+     "surface": "A person was rude yet cautious in what they said.",
+     "walkthrough": "'Guarded' suggests a careful manner of speaking, but it means physically fenced off.",
+     "definitionFit": "To rail at someone is to complain angrily; a railed area is enclosed by protective bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guarded"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +348,56 @@
     "text": "Jack's posh way appears ridiculous",
     "enumeration": "6"
    },
-   "solution": "ABSURD"
+   "solution": "ABSURD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSURD",
+    "definitions": [
+     {
+      "text": "ridiculous",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack's",
+      "gives": "ABS",
+      "note": "a jack is a sailor, abbreviated AB (able seaman), plus the S"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class, as in U and non-U"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "U",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's upper-class manner looks silly.",
+     "walkthrough": "Jack Tar is an old name for a sailor, whence AB. 'Jack' looks like a man's name.",
+     "definitionFit": "Something absurd is wildly unreasonable or laughable, which matches ridiculous as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack's"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +411,40 @@
     "text": "One who shelves his or her responsibilities",
     "enumeration": "9"
    },
-   "solution": "LIBRARIAN"
+   "solution": "LIBRARIAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIBRARIAN",
+    "definitions": [
+     {
+      "text": "One who shelves his or her responsibilities",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who shelves his or her responsibilities",
+      "note": "surface reading: someone who neglects their duties"
+     },
+     {
+      "clueFragment": "shelves",
+      "note": "setter's reading: puts things on shelves literally, the books in their care"
+     }
+    ],
+    "explanation": {
+     "surface": "A shirker who puts off their duties.",
+     "walkthrough": "To shelve normally means to postpone; here it is the literal job of placing books on shelves.",
+     "definitionFit": "This person looks after a collection of books, and putting volumes back on the shelves is literally part of the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shelves"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +458,50 @@
     "text": "They drive to and from market; a doctor taking the deliveries",
     "enumeration": "7"
    },
-   "solution": "DROVERS"
+   "solution": "DROVERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROVERS",
+    "definitions": [
+     {
+      "text": "They drive to and from market",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "the deliveries",
+      "gives": "OVERS",
+      "note": "in cricket an over is a set of six deliveries by a bowler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OVERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Traders go to market while a doctor is delivering babies.",
+     "walkthrough": "'Deliveries' suggests births or parcels; in cricket each ball bowled is a delivery and six make an over.",
+     "definitionFit": "Cattle and sheep herders on foot took livestock along roads between farm and market."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +521,40 @@
      }
     ]
    },
-   "solution": "GRAPPLINGIRON"
+   "solution": "GRAPPLINGIRON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRAPPLING IRON",
+    "definitions": [
+     {
+      "text": "Device that should catch on, if handled properly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Device that should catch on, if handled properly",
+      "note": "surface reading: an invention that will become popular if marketed well"
+     },
+     {
+      "clueFragment": "catch on",
+      "note": "setter's reading: literally hook onto something when thrown correctly"
+     }
+    ],
+    "explanation": {
+     "surface": "An inventor hopes a new gadget will take off with good marketing.",
+     "walkthrough": "'Catch on' means become popular in the surface; it means physically hook onto a ledge or ship.",
+     "definitionFit": "A hooked tool thrown on a rope to snag a wall or ship's side is designed to latch firmly onto something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +568,43 @@
     "text": "Company project",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     },
+     {
+      "text": "project",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "note": "first meaning: the actors in a play"
+     },
+     {
+      "clueFragment": "project",
+      "note": "second meaning: to throw or fling out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a business venture; really the theatre troupe and a verb for throwing.",
+     "definitionFit": "A theatrical company is its set of performers, and to fling something outward, like a fishing line, is to throw it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "project"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +624,40 @@
      }
     ]
    },
-   "solution": "PHRASEBOOK"
+   "solution": "PHRASEBOOK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PHRASE BOOK",
+    "definitions": [
+     {
+      "text": "Small volume of overseas tourism",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small volume of overseas tourism",
+      "note": "surface reading: a modest number of foreign holidaymakers"
+     },
+     {
+      "clueFragment": "Small volume",
+      "note": "setter's reading: a little book, carried by tourists abroad"
+     }
+    ],
+    "explanation": {
+     "surface": "A report that few people are travelling abroad.",
+     "walkthrough": "'Volume' pretends to mean amount of traffic; it is a book, one pocket-sized and used by travellers.",
+     "definitionFit": "A traveller's pocket guide lists useful foreign expressions for tourists visiting another country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +671,61 @@
     "text": "Twins, for example, reversed the car",
     "enumeration": "6"
    },
-   "solution": "GEMINI"
+   "solution": "GEMINI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GEMINI",
+    "definitions": [
+     {
+      "text": "Twins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "turned the other way round, so the preceding abbreviation is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the usual abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "the car",
+      "gives": "MINI",
+      "note": "the classic small British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "MINI"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Twin siblings backed the family car out of the drive.",
+     "walkthrough": "The Mini is the famous small British car. 'Twins' is the zodiac sign's name in English.",
+     "definitionFit": "The star sign and constellation named after Castor and Pollux is known in English as the Twins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversed"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +739,43 @@
     "text": "Shared a perfect round of golf?",
     "enumeration": "8"
    },
-   "solution": "PARTAKEN"
+   "solution": "PARTAKEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARTAKEN",
+    "definitions": [
+     {
+      "text": "Shared",
+      "at": 0
+     },
+     {
+      "text": "a perfect round of golf?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shared",
+      "note": "first meaning: took part in, had a portion of"
+     },
+     {
+      "clueFragment": "a perfect round of golf?",
+      "note": "second, punning meaning: a round in which par was taken on every hole"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as PAR TAKEN, the word describes a round played exactly to the expected score; the question mark flags this whimsical reading.",
+     "definitionFit": "Having partaken of a meal or activity means having had a share in it alongside others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "perfect"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +795,40 @@
      }
     ]
    },
-   "solution": "AUNTSALLY"
+   "solution": "AUNTSALLY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AUNT SALLY",
+    "definitions": [
+     {
+      "text": "She's a relatively fair target",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She's a relatively fair target",
+      "note": "surface reading: a woman who is a reasonably justified object of criticism"
+     },
+     {
+      "clueFragment": "relatively fair target",
+      "note": "setter's reading: a relative who is the target at a funfair"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman is said to be a fairly reasonable person to blame.",
+     "walkthrough": "An Aunt Sally is an old British fairground game: a wooden figure at which balls are thrown. 'Relatively' hints at the aunt, 'fair' at the fairground.",
+     "definitionFit": "The fairground dummy pelted with sticks gave its name to anyone set up as an easy object of criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +852,40 @@
      }
     ]
    },
-   "solution": "TETEATETE"
+   "solution": "TETEATETE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TETE-A-TETE",
+    "definitions": [
+     {
+      "text": "Paris summit conference",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris summit conference",
+      "note": "surface reading: an international summit held in the French capital"
+     },
+     {
+      "clueFragment": "Paris summit conference",
+      "note": "setter's reading: a French head-to-head, a summit being a head"
+     }
+    ],
+    "explanation": {
+     "surface": "World leaders meet for talks in Paris.",
+     "walkthrough": "The French phrase literally means head-to-head, and a summit is a top or head, so a private chat is the Parisian summit.",
+     "definitionFit": "The French expression denotes a private conversation between two people, literally one head facing another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +899,43 @@
     "text": "Appreciates one's accommodation",
     "enumeration": "4"
    },
-   "solution": "DIGS"
+   "solution": "DIGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIGS",
+    "definitions": [
+     {
+      "text": "Appreciates",
+      "at": 0
+     },
+     {
+      "text": "one's accommodation",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appreciates",
+      "note": "first meaning: likes, in slang"
+     },
+     {
+      "clueFragment": "one's accommodation",
+      "note": "second meaning: rented lodgings"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is fond of the place where they live.",
+     "walkthrough": "Digs is British informal for rented rooms, typically a student's lodgings; to dig something is slang for liking it.",
+     "definitionFit": "Slang uses the verb for enjoying something, and British usage the plural noun for a rented room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +949,44 @@
     "text": "Punish student spectators",
     "enumeration": "4"
    },
-   "solution": "GATE"
+   "solution": "GATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GATE",
+    "definitions": [
+     {
+      "text": "Punish student",
+      "at": 0
+     },
+     {
+      "text": "spectators",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punish student",
+      "note": "first meaning: confine a student to college as a penalty"
+     },
+     {
+      "clueFragment": "spectators",
+      "note": "second meaning: the number attending a match"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher disciplines a pupil in front of onlookers.",
+     "walkthrough": "At British schools and colleges, to gate someone is to forbid them leaving the grounds; a football club's gate is its attendance.",
+     "definitionFit": "Grounding a pupil inside the premises is one sense; the crowd counted at a sporting fixture is the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spectators"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1000,40 @@
     "text": "His work is often framed",
     "enumeration": "7"
    },
-   "solution": "GLAZIER"
+   "solution": "GLAZIER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GLAZIER",
+    "definitions": [
+     {
+      "text": "His work is often framed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His work is often framed",
+      "note": "surface reading: an artist whose pictures hang in frames"
+     },
+     {
+      "clueFragment": "framed",
+      "note": "setter's reading: set into window frames"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist whose work is regularly hung on walls.",
+     "walkthrough": "'Framed' points to paintings; the work is panes of glass fitted into window frames.",
+     "definitionFit": "A tradesperson who cuts and fits panes of glass into windows and doors does this job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "framed"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1047,41 @@
     "text": "French private",
     "enumeration": "9"
    },
-   "solution": "ENTRENOUS"
+   "solution": "ENTRENOUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENTRENOUS",
+    "definitions": [
+     {
+      "text": "French private",
+      "at": 0,
+      "note": "an adverbial phrase meaning privately"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French private",
+      "note": "surface reading: a soldier of the lowest rank in the French army"
+     },
+     {
+      "clueFragment": "French private",
+      "note": "setter's reading: a French phrase meaning 'in confidence'"
+     }
+    ],
+    "explanation": {
+     "surface": "A low-ranking soldier in the French army.",
+     "walkthrough": "'Private' wants to be the military rank; it is the sense of confidential, expressed in a French phrase borrowed into English.",
+     "definitionFit": "The borrowed phrase literally means 'between us', used to mark a remark as confidential."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1095,42 @@
     "text": "Edited version of the Bible",
     "enumeration": "7"
    },
-   "solution": "REVISED"
+   "solution": "REVISED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REVISED",
+    "definitions": [
+     {
+      "text": "Edited",
+      "at": 0
+     },
+     {
+      "text": "version of the Bible",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edited",
+      "note": "first meaning: amended or corrected"
+     },
+     {
+      "clueFragment": "version of the Bible",
+      "note": "second meaning: the ... Version, an 1880s English translation"
+     }
+    ],
+    "explanation": {
+     "surface": "An edited text of the Bible.",
+     "walkthrough": "The Revised Version was the late-Victorian update of the King James Bible.",
+     "definitionFit": "A corrected text has been amended, and the famous Victorian scriptural translation bears this adjective in its title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1144,48 @@
     "text": "Part of one's goal at university? Correct!",
     "enumeration": "7"
    },
-   "solution": "UPRIGHT"
+   "solution": "UPRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPRIGHT",
+    "definitions": [
+     {
+      "text": "Part of one's goal",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "in British usage a student is up at university"
+     },
+     {
+      "clueFragment": "Correct",
+      "gives": "RIGHT",
+      "note": "a synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A student asks whether reaching university is part of their ambition, and is told yes.",
+     "walkthrough": "'Goal' reads as an ambition; it is the goalposts of a football or rugby goal.",
+     "definitionFit": "Each vertical post of a goal frame is called an upright, standing at either side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1199,40 @@
     "text": "This by itself is only a gradual process",
     "enumeration": "6"
    },
-   "solution": "LITTLE"
+   "solution": "LITTLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LITTLE",
+    "definitions": [
+     {
+      "text": "This by itself is only a gradual process",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This by itself",
+      "note": "surface reading: this thing alone"
+     },
+     {
+      "clueFragment": "This by itself",
+      "note": "setter's reading: the word placed either side of 'by', i.e. word by word repeated"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that something on its own makes only slow progress.",
+     "walkthrough": "Put the word either side of 'by' and you get a phrase meaning step by step, gradually.",
+     "definitionFit": "The phrase formed by repeating the small word around 'by' means bit by bit, gradually over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "itself"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1252,39 @@
      }
     ]
    },
-   "solution": "HARAKIRI"
+   "solution": "HARAKIRI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HARA-KIRI",
+    "definitions": [
+     {
+      "text": "Japanese ceremonial departure",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese ceremonial departure",
+      "note": "surface reading: a formal leave-taking, as at a farewell ceremony"
+     },
+     {
+      "clueFragment": "departure",
+      "note": "setter's reading: departure from life, by ritual suicide"
+     }
+    ],
+    "explanation": {
+     "surface": "A formal Japanese farewell, with bows all round.",
+     "walkthrough": "'Departure' sounds like leaving a room; it is leaving this life.",
+     "definitionFit": "Ritual suicide by disembowelment was the honourable death of the samurai in feudal Japan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "departure"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1298,56 @@
     "text": "Extremely good man in church",
     "enumeration": "6"
    },
-   "solution": "VESTRY"
+   "solution": "VESTRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VESTRY",
+    "definitions": [
+     {
+      "text": "church",
+      "at": 22,
+      "note": "a noun for the whole building defining one room in it, fair because the vestry is part of the church and the word also names the parish's governing body"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside another, so the second word is placed within the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "gives": "VERY",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "good man",
+      "gives": "ST",
+      "note": "a saint, abbreviated ST, is the crossword's good man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "ST",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A very virtuous man is found in church.",
+     "walkthrough": "The definition is loose: the answer is a room in a church where clergy robe and vestments are kept.",
+     "definitionFit": "This is the room attached to a church where vestments are stored and the clergy dress for services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1361,53 @@
     "text": "Loves an anagram to work out",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLVE",
+    "definitions": [
+     {
+      "text": "work out",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "an anagram",
+      "for": "anagram",
+      "note": "the setter openly announces that these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loves",
+      "gives": "LOVES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOVES",
+       "gives": "SOLVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzler loves working out a jumbled word.",
+     "walkthrough": "Rufus simply tells the solver what to do, which suits a clue about solving.",
+     "definitionFit": "To find the answer to a problem or puzzle is to figure it out by reasoning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1421,61 @@
     "text": "Profligate client settled debts",
     "enumeration": "10"
    },
-   "solution": "LICENTIOUS"
+   "solution": "LICENTIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LICENTIOUS",
+    "definitions": [
+     {
+      "text": "Profligate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "settled",
+      "for": "anagram",
+      "note": "settled means sorted out or arranged, so the letters of client are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "client",
+      "gives": "CLIENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "debts",
+      "gives": "IOUS",
+      "note": "IOUs are written acknowledgements of debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LICENT",
+      "IOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLIENT",
+       "gives": "LICENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wasteful customer has finally paid off what they owed.",
+     "walkthrough": "'Settled debts' reads as paid bills, but 'settled' works on client and the debts stay as IOUs.",
+     "definitionFit": "Both words describe someone given to dissolute, unrestrained, immoral living and indulgence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "settled"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1489,43 @@
     "text": "Mathematical aids may finish up on the fire",
     "enumeration": "4"
    },
-   "solution": "LOGS"
+   "solution": "LOGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOGS",
+    "definitions": [
+     {
+      "text": "Mathematical aids",
+      "at": 0
+     },
+     {
+      "text": "may finish up on the fire",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mathematical aids",
+      "note": "first meaning: logarithms, used in calculation"
+     },
+     {
+      "clueFragment": "may finish up on the fire",
+      "note": "second meaning: chopped wood burnt in a hearth"
+     }
+    ],
+    "explanation": {
+     "surface": "Maths tools may end up burnt, perhaps by a frustrated student.",
+     "walkthrough": "The short form of logarithms, once looked up in tables for calculation, doubles as firewood.",
+     "definitionFit": "Logarithm tables helped with multiplication before calculators; cut tree trunks are burnt for warmth in a grate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1539,47 @@
     "text": "Danced and swam",
     "enumeration": "6"
    },
-   "solution": "REELED"
+   "solution": "REELED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REELED",
+    "definitions": [
+     {
+      "text": "Danced",
+      "at": 0
+     },
+     {
+      "text": "swam",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Danced",
+      "note": "first meaning: performed a reel, a lively Scottish dance"
+     },
+     {
+      "clueFragment": "swam",
+      "note": "second meaning: spun dizzily, as a head swims"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone danced and then went swimming.",
+     "walkthrough": "'Swam' is not swimming but the giddy sense, as when your head swims.",
+     "definitionFit": "A reel is a brisk Scottish dance, and staggering giddily is what a dizzy person's head feels like doing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swam"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1593,39 @@
     "text": "The coming of the Christian faith",
     "enumeration": "6"
    },
-   "solution": "ADVENT"
+   "solution": "ADVENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADVENT",
+    "definitions": [
+     {
+      "text": "The coming of the Christian faith",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The coming of the Christian faith",
+      "note": "surface reading: the arrival of Christianity in a land"
+     },
+     {
+      "clueFragment": "The coming",
+      "note": "setter's reading: the arrival of Christ, marked as a season of the Christian year"
+     }
+    ],
+    "explanation": {
+     "surface": "The arrival of Christianity in some new country.",
+     "walkthrough": "It reads like a history of missionaries; the word means an arrival and names the church season before Christmas.",
+     "definitionFit": "The word means an arrival, especially of Christ, and names the four weeks of preparation before Christmas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "faith"
+    }
+   }
   }
  ]
 }
