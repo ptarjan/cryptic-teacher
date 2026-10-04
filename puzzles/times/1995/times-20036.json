@@ -37,6 +37,9 @@
    "25-across": "EPISODIC"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,40 @@
     "text": "Main conclusion of space mission",
     "enumeration": "10"
    },
-   "solution": "SPLASHDOWN"
+   "solution": "SPLASHDOWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPLASHDOWN",
+    "definitions": [
+     {
+      "text": "Main conclusion of space mission",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Main conclusion",
+      "note": "surface reading: the principal finding drawn from a space mission"
+     },
+     {
+      "clueFragment": "Main",
+      "note": "setter's reading: the main is the sea, where an old-style capsule ends its flight by dropping into the ocean"
+     }
+    ],
+    "explanation": {
+     "surface": "A report summing up the chief finding of a space mission.",
+     "walkthrough": "'Main' is the old poetic word for the open sea, so the 'conclusion' is literally the capsule's landing in the water.",
+     "definitionFit": "Early American capsules returned by parachuting into the ocean, and that watery landing ended each flight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +100,45 @@
     "text": "Stop in America for a spell",
     "enumeration": "6"
    },
-   "solution": "PERIOD"
+   "solution": "PERIOD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERIOD",
+    "definitions": [
+     {
+      "text": "Stop in America",
+      "at": 0
+     },
+     {
+      "text": "spell",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop in America",
+      "note": "first meaning: what Americans call a full stop in punctuation"
+     },
+     {
+      "clueFragment": "spell",
+      "note": "second meaning: a stretch of time"
+     }
+    ],
+    "explanation": {
+     "surface": "Stopping over in the USA for a while.",
+     "definitionFit": "The US punctuation term replaces British full stop, and a spell is likewise an interval of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +152,72 @@
     "text": "Disturbed French actor turned up in old set",
     "enumeration": "8"
    },
-   "solution": "AGITATED"
+   "solution": "AGITATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AGITATED",
+    "definitions": [
+     {
+      "text": "Disturbed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from bottom to top, so the name runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means the actor's name goes inside the word for old"
+     },
+     {
+      "text": "set",
+      "for": "container",
+      "note": "set means placed, confirming the actor is put into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French actor",
+      "gives": "TATI",
+      "note": "Jacques Tati, French comic actor of Monsieur Hulot fame"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "AGED",
+      "note": "aged means old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "ITAT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "TATI",
+       "to": "ITAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled French actor shows up on an ageing film set.",
+     "walkthrough": "Jacques Tati is the setters' favourite French actor; his name reversed sits inside AGED.",
+     "definitionFit": "Someone agitated is nervously stirred up or upset, the same adjective sense as disturbed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +231,56 @@
     "text": "Commotion in port — a bear appears",
     "enumeration": "10"
    },
-   "solution": "HULLABALOO"
+   "solution": "HULLABALOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HULLABALOO",
+    "definitions": [
+     {
+      "text": "Commotion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "HULL",
+      "note": "Hull is a port city on the Humber in north-east England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "BALOO",
+      "note": "Baloo is the bear in Kipling's The Jungle Book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HULL",
+      "A",
+      "BALOO"
+     ]
+    },
+    "explanation": {
+     "surface": "Uproar in a harbour town when a bear turns up.",
+     "walkthrough": "Hull is an English port on the Humber estuary; Baloo is the bear from The Jungle Book.",
+     "definitionFit": "A hullabaloo is a noisy uproar or fuss, a lively informal synonym for a commotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +294,66 @@
     "text": "Well-organized leftist showing up in Paris suburb",
     "enumeration": "7"
    },
-   "solution": "ORDERLY"
+   "solution": "ORDERLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ORDERLY",
+    "definitions": [
+     {
+      "text": "Well-organized",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing up",
+      "for": "reversal",
+      "note": "showing up in a down clue means rising, so the word is read bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reversed word inside the suburb's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leftist",
+      "gives": "RED",
+      "note": "a red is a socialist or communist"
+     },
+     {
+      "clueFragment": "Paris suburb",
+      "gives": "ORLY",
+      "note": "Orly, south of Paris, home to the airport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "DER",
+      "LY"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy-minded left-winger appears in a Parisian suburb.",
+     "definitionFit": "An orderly room or crowd is neat, methodical and well arranged, the same adjective meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "showing"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +367,43 @@
     "text": "Head employed in one's school",
     "enumeration": "4"
    },
-   "solution": "NESS"
+   "solution": "NESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NESS",
+    "definitions": [
+     {
+      "text": "Head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "employed in",
+      "for": "hidden_word",
+      "note": "letters employed in a phrase are used from within it, so the answer sits inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's school",
+      "gives": "NESS",
+      "note": "the letters run across the apostrophe and into the second word"
+     }
+    ],
+    "explanation": {
+     "surface": "A head teacher working at your school.",
+     "walkthrough": "'Head' looks like a headteacher, but it is a headland.",
+     "definitionFit": "A ness is a headland or promontory jutting into the sea, as in Orford Ness on the Suffolk coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +417,49 @@
     "text": "Musical work to repeat at random",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPERETTA",
+    "definitions": [
+     {
+      "text": "Musical work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at random",
+      "for": "anagram",
+      "note": "at random means in no particular order, so the letters can be rearranged freely"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to repeat",
+      "gives": "TOREPEAT",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOREPEAT",
+       "gives": "OPERETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of music to be played again in any order.",
+     "definitionFit": "An operetta is a light comic opera with spoken dialogue, a kind of musical stage work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +479,66 @@
      }
     ]
    },
-   "solution": "SEASERPENT"
+   "solution": "SEASERPENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SEA SERPENT",
+    "definitions": [
+     {
+      "text": "Monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means spanning, so the word for finished goes either side of the rest"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with joins the two pieces that go inside, one after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "SPENT",
+      "note": "spent means used up, finished"
+     },
+     {
+      "clueFragment": "ease",
+      "gives": "EASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EASE",
+      "R",
+      "PENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A beast that has crossed a river without effort.",
+     "definitionFit": "Sea serpents are legendary giant snake-like creatures of the ocean, a classic monster of sailors' tales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +552,54 @@
     "text": "Pass keys, drinks being kept inside",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being kept inside",
+      "for": "container",
+      "note": "whatever is kept inside something sits within its walls, so one item goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keys",
+      "gives": "EE",
+      "note": "E is a musical key; two of them, one either side"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "LAPS",
+      "note": "a cat laps, or drinks, its milk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A host passes round keys while drinks are kept indoors.",
+     "definitionFit": "Time that elapses simply passes or goes by, a straightforward verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keys"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +613,50 @@
     "text": "Leader, possibly, with daughter serving apprenticeship",
     "enumeration": "8"
    },
-   "solution": "ARTICLED"
+   "solution": "ARTICLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARTICLED",
+    "definitions": [
+     {
+      "text": "serving apprenticeship",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leader, possibly",
+      "gives": "ARTICLE",
+      "note": "a newspaper's leader is its leading article, the editorial"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTICLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss who takes on a daughter as a trainee.",
+     "walkthrough": "'Leader' suggests a person in charge, but here it is the newspaper editorial.",
+     "definitionFit": "An articled clerk is bound by written articles to a solicitor or accountant while training in the profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Leader"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +670,54 @@
     "text": "Traps are visible in various directions",
     "enumeration": "8"
    },
-   "solution": "ENSNARES"
+   "solution": "ENSNARES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENSNARES",
+    "definitions": [
+     {
+      "text": "Traps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visible in",
+      "for": "container",
+      "note": "something visible in a scene appears inside it, so one group of letters sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "various directions",
+      "gives": "ENSNS",
+      "note": "five compass points: east, north, south, north, south"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSN",
+      "ARE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Snares set for animals can be seen pointing every which way.",
+     "definitionFit": "To ensnare is to catch in a snare, so as a verb it matches catches or traps exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "directions"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +731,58 @@
     "text": "Many in island wanted access to mine",
     "enumeration": "4"
    },
-   "solution": "ADIT"
+   "solution": "ADIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADIT",
+    "definitions": [
+     {
+      "text": "access to mine",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the word in places one item inside another, here a numeral within a word for land"
+     }
+    ],
+    "linkWords": [
+     "wanted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "AIT",
+      "note": "an ait (or eyot) is a small river island"
+     },
+     {
+      "clueFragment": "Many",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500, a large number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds on an island want a way into the mine.",
+     "walkthrough": "'Many' standing for a Roman numeral is a crossword convention; an ait is a little island in a river such as the Thames.",
+     "definitionFit": "An adit is a near-horizontal tunnel driven into a hillside to enter or drain a mine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Many"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +796,53 @@
     "text": "Vigorous exercises to include at flying displays",
     "enumeration": "10"
    },
-   "solution": "AEROBATICS"
+   "solution": "AEROBATICS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AEROBATICS",
+    "definitions": [
+     {
+      "text": "flying displays",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to take it in, so the short word goes inside the longer one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vigorous exercises",
+      "gives": "AEROBICS",
+      "note": "aerobics is vigorous exercise for heart and lungs"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AEROB",
+      "AT",
+      "ICS"
+     ]
+    },
+    "explanation": {
+     "surface": "Energetic workouts on show at air shows.",
+     "definitionFit": "Aerobatics are stunts like loops and rolls performed by aircraft at air shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +856,43 @@
     "text": "Advertiser's employee who mails accounts?",
     "enumeration": "10"
    },
-   "solution": "BILLPOSTER"
+   "solution": "BILLPOSTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BILLPOSTER",
+    "definitions": [
+     {
+      "text": "Advertiser's employee",
+      "at": 0
+     },
+     {
+      "text": "who mails accounts?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advertiser's employee",
+      "note": "first meaning: a worker who pastes notices on walls and hoardings"
+     },
+     {
+      "clueFragment": "who mails accounts?",
+      "note": "second meaning, whimsical: someone who sends invoices through the post"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the punning second reading, where a bill is an invoice and posting it means mailing it.",
+     "definitionFit": "The person paid to stick up posters is literally one who posts bills, and so is anyone mailing invoices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accounts"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +912,58 @@
      }
     ]
    },
-   "solution": "PUERTORICO"
+   "solution": "PUERTORICO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PUERTO RICO",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revised",
+      "for": "anagram",
+      "note": "a revised version has been reworked, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour price",
+      "gives": "TOURPRICE",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOURPRICEO",
+       "gives": "PUERTORICO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday firm changes the cost of a trip to an old island.",
+     "definitionFit": "Puerto Rico is a Caribbean island, a US territory east of Hispaniola."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +977,63 @@
     "text": "Quarrel with cleaner, chucking article like a lout",
     "enumeration": "7"
    },
-   "solution": "ROWDILY"
+   "solution": "ROWDILY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ROWDILY",
+    "definitions": [
+     {
+      "text": "like a lout",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chucking",
+      "for": "deletion",
+      "note": "chucking means throwing away, so a piece is dropped from what precedes it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quarrel",
+      "gives": "ROW",
+      "note": "a row is a noisy argument"
+     },
+     {
+      "clueFragment": "cleaner",
+      "gives": "DAILY",
+      "note": "a daily is a British term for a cleaner who comes in each day"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROW",
+      "DILY"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner throws things around in a row, behaving like a hooligan.",
+     "walkthrough": "In Britain a daily is a domestic cleaner who comes in each day; 'cleaner' does not mean a cleaning product here.",
+     "definitionFit": "A lout behaves in a noisy, rough and disorderly way, which is the adverb's meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1047,69 @@
     "text": "Sectarian's field featured in a news broadcast",
     "enumeration": "8"
    },
-   "solution": "WESLEYAN"
+   "solution": "WESLEYAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WESLEYAN",
+    "definitions": [
+     {
+      "text": "Sectarian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in a programme appears within it, so one word sits inside another"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field",
+      "gives": "LEY",
+      "note": "a ley is grassland or arable land put down to grass"
+     },
+     {
+      "clueFragment": "a news",
+      "gives": "ANEWS",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WES",
+      "LEY",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANEWS",
+       "gives": "WESAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A religious group's field appears on a news programme.",
+     "definitionFit": "A Wesleyan is a Methodist following John Wesley, a member of a Protestant denomination or sect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1123,46 @@
     "text": "Sell excellent fish",
     "enumeration": "7"
    },
-   "solution": "VENDACE"
+   "solution": "VENDACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VENDACE",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sell",
+      "gives": "VEND",
+      "note": "to vend is to sell, as from a machine"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace means first-rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEND",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger's boast: selling superb fish.",
+     "walkthrough": "The vendace is a rare freshwater whitefish found in a few lakes in Britain.",
+     "definitionFit": "It is a small species of whitefish, so it is one example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1176,61 @@
     "text": "Reveal leader of demo lives nearby",
     "enumeration": "8"
    },
-   "solution": "DISCLOSE"
+   "solution": "DISCLOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISCLOSE",
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demo",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of demo"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "is, as in exists or lives"
+     },
+     {
+      "clueFragment": "nearby",
+      "gives": "CLOSE",
+      "note": "close means near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "CLOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Exposing the organiser of a protest who lives just round the corner.",
+     "definitionFit": "To disclose is to make known or expose, the same verb as reveal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1244,60 @@
     "text": "Genuine ungodliness about to overwhelm church",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to overwhelm",
+      "for": "container",
+      "note": "to overwhelm is to engulf, so the first pair of words swallows the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ungodliness",
+      "gives": "SIN",
+      "note": "sin is wickedness against God"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "CE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wickedness threatens to swamp a church, a heartfelt warning.",
+     "walkthrough": "'Ungodliness about' is read as one unit, the sin followed by the word for about, and that pair swallows the church abbreviation.",
+     "definitionFit": "A sincere feeling is honestly meant and not feigned, so it is genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1311,74 @@
     "text": "Player early in ground before start of test",
     "enumeration": "10"
    },
-   "solution": "BASSOONIST"
+   "solution": "BASSOONIST",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BASSOONIST",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for early inside the word for ground"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is only its opening letter"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before tells us one part comes ahead of the next in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "BASIS",
+      "note": "a basis is the grounds or foundation for something"
+     },
+     {
+      "clueFragment": "early",
+      "gives": "SOON",
+      "note": "soon as in early, before long"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAS",
+      "SOON",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer arrives at the ground early ahead of a Test match.",
+     "walkthrough": "'Player' and 'ground' suggest sport, but the player is a musician.",
+     "definitionFit": "Someone who plays the bassoon, a deep woodwind instrument, is an orchestral player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1392,44 @@
     "text": "Constituency's country mansion",
     "enumeration": "4"
    },
-   "solution": "SEAT"
+   "solution": "SEAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEAT",
+    "definitions": [
+     {
+      "text": "Constituency",
+      "at": 0
+     },
+     {
+      "text": "country mansion",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Constituency",
+      "note": "first meaning: a parliamentary ... is the district an MP represents"
+     },
+     {
+      "clueFragment": "country mansion",
+      "note": "second meaning: a country ... is an aristocrat's rural house"
+     }
+    ],
+    "explanation": {
+     "surface": "An electoral district's grand country house.",
+     "definitionFit": "In British politics an MP wins a seat, and a landed family's estate home is called its seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1443,63 @@
     "text": "About a day required to go over this land mass?",
     "enumeration": "6"
    },
-   "solution": "AFRICA"
+   "solution": "AFRICA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFRICA",
+    "definitions": [
+     {
+      "text": "this land mass?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go over",
+      "for": "charade",
+      "note": "in a down entry, going over means sitting above, so that piece is written first"
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "FRI",
+      "note": "Fri is the short form of Friday"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "CA",
+      "note": "ca is circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FRI",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "It takes roughly a day to fly across this continent.",
+     "walkthrough": "In a down entry the day piece sits over the abbreviation for about; the question mark admits the definition is a hint rather than a name.",
+     "definitionFit": "Africa is one of the great continents, and a continent is a vast land mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1513,70 @@
     "text": "Soldiers rejected by those people in charge of exercises",
     "enumeration": "8"
    },
-   "solution": "THEMATIC"
+   "solution": "THEMATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "THEMATIC",
+    "definitions": [
+     {
+      "text": "of exercises",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected means sent back, so the soldiers are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those people",
+      "gives": "THEM",
+      "note": "them as a pronoun for those people"
+     },
+     {
+      "clueFragment": "Soldiers",
+      "gives": "TA",
+      "note": "the TA is the Territorial Army, Britain's volunteer reserve"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEM",
+      "AT",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops turned away by the officers running military manoeuvres.",
+     "walkthrough": "'Exercises' looks military, but here it means school themes, the essays set as exercises.",
+     "definitionFit": "A theme is a school composition exercise, so thematic is the adjective relating to such set pieces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1590,58 @@
     "text": "Rise in duty demanded for gin",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "gin",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rise in",
+      "for": "reversal",
+      "note": "a rise in a down entry goes upward, so the word is written from the bottom"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duty demanded",
+      "gives": "PART",
+      "note": "one's part is the role or share of work expected of one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tax increase imposed on spirits.",
+     "walkthrough": "'Duty' and 'gin' suggest excise on spirits, but gin here is a snare for catching animals.",
+     "definitionFit": "A gin is a trap for game, short for engine, so the two nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1655,67 @@
     "text": "Disjointed blockbuster is extremely odd in the middle",
     "enumeration": "8"
    },
-   "solution": "EPISODIC"
+   "solution": "EPISODIC",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "EPISODIC",
+    "definitions": [
+     {
+      "text": "Disjointed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     },
+     {
+      "text": "in the middle",
+      "for": "container",
+      "note": "in the middle places the short words at the centre of the film word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blockbuster",
+      "gives": "EPIC",
+      "note": "an epic is a big, sweeping film"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "odd",
+      "gives": "OD",
+      "select": "outer",
+      "note": "the two outside letters of odd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "IS",
+      "OD",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic complains that a big film is badly put together, with a strange middle section.",
+     "definitionFit": "Something episodic comes in loosely connected separate episodes rather than a smooth whole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1735,48 @@
      }
     ]
    },
-   "solution": "CHACHA"
+   "solution": "CHACHA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHA-CHA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without ends, so each word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blokes",
+      "gives": "CHAPCHAP",
+      "note": "two chaps, chap being British slang for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "CHA"
+     ]
+    },
+    "explanation": {
+     "surface": "Men dancing on and on without stopping.",
+     "definitionFit": "The cha-cha is a lively Latin American ballroom dance of Cuban origin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 27,
@@ -446,7 +1790,66 @@
     "text": "Remarkable new name in disinfectant",
     "enumeration": "10"
    },
-   "solution": "PHENOMENAL"
+   "solution": "PHENOMENAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PHENOMENAL",
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters of name are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the rearranged letters inside the cleaning chemical"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disinfectant",
+      "gives": "PHENOL",
+      "note": "phenol, or carbolic acid, is a disinfectant"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "NAME",
+      "note": "taken as written before rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHENO",
+      "MENA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAME",
+       "gives": "MENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remarkable new brand name for a disinfectant.",
+     "definitionFit": "Something phenomenal is extraordinary, like a phenomenon, so it means remarkable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   }
  ]
 }
