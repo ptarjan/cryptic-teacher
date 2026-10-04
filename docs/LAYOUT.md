@@ -1385,5 +1385,9 @@ tools/scan_crop.py                           the printed clues of an archive.org
                                              for the annotator
 tools/test_scan_crop.sh                      does the annotator get the printed clues of a
                                              puzzle filed off a scan?
+tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare every reader
+                                             model a read can load, and send back an edition
+                                             whose read on the desktop opened a file it was not
+                                             sent?
 ```
 <!-- LAYOUT-END -->

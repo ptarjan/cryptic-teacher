@@ -1249,13 +1249,24 @@ def issues_between(a, b):
     return weeks * 6 + sum((a + datetime.timedelta(days=i)).weekday() != 6 for i in range(1, rest + 1))
 
 
+#: {path: ((mtime_ns, size), date or None)} of each puzzle file held_dates
+#: has read: a file is read again only when its stat moves, so a worker's
+#: every title costs a stat of the series, not a parse of it.
+_DATES = {}
+
+
 def held_dates(series):
     """{number: date} of every dated puzzle filed in a series."""
     out = {}
     for p in (ROOT / "puzzles" / series).glob("*/*.json"):
-        date = json.loads(p.read_text()).get("date")
-        if date:
-            out[int(p.stem.split("-")[1])] = datetime.date.fromisoformat(date[:10])
+        st = p.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+        seen = _DATES.get(p)
+        if seen is None or seen[0] != stamp:
+            date = json.loads(p.read_text()).get("date")
+            seen = _DATES[p] = (stamp, date and datetime.date.fromisoformat(date[:10]))
+        if seen[1]:
+            out[int(p.stem.split("-")[1])] = seen[1]
     return out
 
 
@@ -1286,17 +1297,25 @@ def issue_day(day, n, numbers):
     return day
 
 
+def filed_number(d, found, hit):
+    """(number, day, None) that a title files as, or (None, day, why) it is
+    refused."""
+    n = hit["number"]
+    paper = paper_of(d)
+    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
+    if abs(n - paper.expected(day)) > NUMBER_SLACK:
+        return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
+                           f"{day} implies: the item's date is wrong")
+    number, why = placed(n, day, held_dates(paper.series))
+    return number, day, why
+
+
 def read_puzzle(d, found, hit, solutions):
     """(verdict, puzzle or None) for one title on one page."""
     n, leaf = hit["number"], hit["leaf"]
     verdict = {"number": n, "leaf": leaf}
     paper = paper_of(d)
-    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
-    if abs(n - paper.expected(day)) > NUMBER_SLACK:
-        verdict["refused"] = (f"No {n} is not near the {paper.expected(day)} the date "
-                              f"{day} implies: the item's date is wrong")
-        return verdict, None
-    number, why = placed(n, day, held_dates(paper.series))
+    number, day, why = filed_number(d, found, hit)
     if why:
         verdict["refused"] = why
         return verdict, None
@@ -1825,6 +1844,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         for s in scans[rels[d]]["solutions"]:
             solutions.setdefault(s["number"], {**s, "dir": d})
     held = held_numbers(paper.series)
+    held_dates(paper.series)  # read once here: the forked workers start with it
     due = {}
     for d in dirs:
         rel = rels[d]
@@ -1914,7 +1934,12 @@ def set_solutions(solutions):
 
 def read_edition(d, found):
     """([(verdict, puzzle or None)] for each title in an edition, whether the
-    VLM still answers after it)."""
+    VLM still answers after it): read on the desktop when tools/ocr_remote.py
+    can, the same reading as here."""
+    import ocr_remote
+    got = ocr_remote.edition(d, found, _SOLUTIONS)
+    if got is not None:
+        return got
     results = []
     for hit in found["puzzles"]:
         try:
