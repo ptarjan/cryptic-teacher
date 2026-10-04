@@ -357,7 +357,7 @@
   // charges nothing. What is left in the row by then is the full walkthrough,
   // which charges, so the light leaves the ladder and the grid takes it.
   function nuxTypeIt(e) {
-    if (!nuxPointsAtRung() || !e || isEntrySolved(e)) return false;
+    if (jigsaw || !nuxPointsAtRung() || !e || isEntrySolved(e)) return false;
     const steps = ladderSteps(annOf(e), clueText(e));
     if (!steps.length) return false;
     // A rung taken in pieces is not finished until its last piece is out.
@@ -851,6 +851,14 @@
   let unclued = [];      // per P.unclued light, its cells in reading order
   let leaderOf = {};     // continuation id -> its linked group's leader id (buildLeaderOf)
   let cur = { x: 0, y: 0, dir: "across" };
+  // A jigsaw (tools/puzzle_tags.is_jigsaw) withholds where each answer goes, so
+  // the clue chosen off the list is held apart from the cursor: `pick` is the
+  // clue the hint panel teaches, `cur` the square being typed into, and nothing
+  // on screen ties one to the other until a reveal writes the answer in.
+  let jigsaw = false;
+  const isJigsaw = (m) => ((m && m.tags) || []).some((t) => t === "jigsaw" || t === "numbered-jigsaw");
+  let gridNumbers = true;  // false where the paper printed the grid unnumbered
+  let pick = null;
   // The clue the LINK asked for, read once and spent once.
   //
   // Read at load because opening a puzzle rewrites the address bar before it
@@ -1838,7 +1846,7 @@
           div.className = "cell block";
         } else {
           div.className = "cell" + (c.unclued ? " unclued" : "") + (c.printed ? " printed" : "");
-          if (c.num) div.innerHTML = `<span class="num">${c.num}</span>`;
+          if (c.num && gridNumbers) div.innerHTML = `<span class="num">${c.num}</span>`;
           const span = document.createElement("span");
           span.className = "letter";
           div.appendChild(span);
@@ -1892,8 +1900,8 @@
   }
 
   function refreshGrid() {
-    const e = currentEntry();
-    const typeIt = nuxTypeIt(e);
+    const e = gridEntry();
+    const typeIt = !jigsaw && nuxTypeIt(e);
     const light = currentLight();
     forEachCell((c) => {
       const el = c.el;
@@ -1927,15 +1935,24 @@
     const now = Date.now();
     return now - clueTouchAt < CLUE_TAP_GUARD_MS && now - lastClueTap < CLUE_TAP_GUARD_MS;
   };
+  // A jigsaw's clues are one list in their answers' alphabetical order, as the
+  // paper printed them: no number, no direction, nothing that says where.
+  const jigsawOrder = (list) => list.slice().sort((a, b) =>
+    String(a.solution || "").localeCompare(String(b.solution || ""))
+    || clueText(a).localeCompare(clueText(b)));
   function renderClues() {
+    $("clues-across-h").textContent = jigsaw ? "Clues" : "Across";
+    $("clues-down-section").classList.toggle("hidden", jigsaw);
     ["across", "down"].forEach((dir) => {
       const ol = $(dir === "across" ? "clues-across" : "clues-down");
       ol.innerHTML = "";
-      entries.filter((e) => e.direction === dir).forEach((e) => {
+      const list = jigsaw ? (dir === "across" ? jigsawOrder(entries) : [])
+        : entries.filter((e) => e.direction === dir);
+      list.forEach((e) => {
         const li = document.createElement("li");
         li.id = "clue-" + entryId(e);
-        li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>` +
-          `<span class="checkers"></span>`;
+        li.innerHTML = (jigsaw ? "" : `<span class="clue-num">${e.number}</span>`) +
+          `<span class="clue-text"></span><span class="checkers"></span>`;
         // No focusKbd: picking a clue off the list is not a decision to type,
         // so it must not raise a keyboard over half the screen. See the
         // mousedown handler on these lists for the other half of that rule.
@@ -2197,7 +2214,7 @@
       const solved = isEntrySolved(e);
       // Nothing to tell you about a clue you have finished — the row greys out
       // and a full row of dots would just be noise on every solved line.
-      li.querySelector(".checkers").innerHTML = solved ? "" : checkerDots(e);
+      li.querySelector(".checkers").innerHTML = (solved || jigsaw) ? "" : checkerDots(e);
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", solved);
       // The gold star is a standing fact about how this clue was solved, not a
@@ -2209,7 +2226,11 @@
   }
 
   // ---------- selection & movement ----------
-  function currentEntry() {
+  // The clue being worked on: in a jigsaw the one picked off the list, anywhere
+  // else the light under the cursor.
+  function currentEntry() { return jigsaw ? pick : gridEntry(); }
+  // The light under the cursor, which typing, checking and clearing act on.
+  function gridEntry() {
     const c = cells[cur.y] && cells[cur.y][cur.x];
     if (!c) return null;
     const id = c[cur.dir] || c[cur.dir === "across" ? "down" : "across"];
@@ -2530,13 +2551,23 @@
     // question you answer by tapping, and a keyboard over the bottom half of
     // the screen buries it. The letter strip under the clue
     // is where typing starts now, and it is the only thing that summons one.
-    keepKbd();
-    hintFocus = null;
+    // A jigsaw's square picks no clue, so tapping one is a decision to type.
+    if (jigsaw) focusKbd(); else keepKbd();
+    hintFocus = jigsaw ? hintFocus : null;
     refreshAll();
-    if (currentEntry()) scrollToHintPanel();
+    if (!jigsaw && currentEntry()) scrollToHintPanel();
   }
 
+  // Picking a clue off the list. A jigsaw's clue stays off the grid.
   function selectEntry(e, jumpToStart) {
+    if (!jigsaw) { moveToEntry(e, jumpToStart); return; }
+    hintFocus = null;
+    pick = e;
+    refreshAll();
+    scrollToHintPanel();
+  }
+
+  function moveToEntry(e, jumpToStart) {
     hintFocus = null;
     cur.dir = e.direction;
     if (jumpToStart || !cellInEntry(cur.x, cur.y, e)) {
@@ -2559,7 +2590,7 @@
     (e.direction === "down" && x === e.position.x && y >= e.position.y && y < e.position.y + e.length);
 
   function moveInEntry(delta) {
-    const e = currentEntry();
+    const e = gridEntry();
     if (!e) { stepLight(delta); return; }
     const i = e.direction === "across" ? cur.x - e.position.x : cur.y - e.position.y;
     const j = Math.min(e.length - 1, Math.max(0, i + delta));
@@ -2587,7 +2618,7 @@
   // ahead is filled, fall back to a plain one-square step so the cursor still
   // moves (and typing over a letter stays possible).
   function advanceToGap() {
-    const e = currentEntry();
+    const e = gridEntry();
     if (!e) {
       const light = currentLight();
       const i = light ? light.findIndex((c) => c.x === cur.x && c.y === cur.y) : -1;
@@ -2604,10 +2635,10 @@
   }
 
   function stepEntry(delta) {
-    const e = currentEntry();
+    const e = gridEntry();
     let i = entries.indexOf(e);
     i = (i + delta + entries.length) % entries.length;
-    selectEntry(entries[i], true);
+    moveToEntry(entries[i], true);
   }
 
   // ---------- typing ----------
@@ -3424,7 +3455,7 @@
   function ringPins(letters, key) {
     const pins = {};
     const e = currentEntry();
-    if (!e || !e.solution) return pins;
+    if (!e || !e.solution || jigsaw) return pins;
     const ann = annOf(e);
     if (!ann || ringKey(ann) !== key) return pins;
     const sol = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
@@ -5130,14 +5161,16 @@
     // nothing bought gets the gold star, anything else the green check — the
     // same glyph and the same two tiers the clue list uses, so one mark means
     // one thing wherever it is drawn.
-    let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
+    let clueLine = jigsaw ? "" : `<span class="entry-tag">${tag(e)}</span>`;
     if (solved) {
       const clean = noHintsSolve(e);
       clueLine += `<span class="clue-done${clean ? " clean" : ""}" title="${
         clean ? "Solved with no hints at all" : "Solved"}">${clean ? "★" : "✓"}</span>`;
     }
-    if (holder !== e) clueLine += `<span class="muted">(one answer whose letters are divided between ${tag(e)} and ${tag(holder)}; its clue is printed at ${tag(holder)} and shown here) </span>`;
-    setHTML($("hint-pattern"), patternHTML(e));
+    if (holder !== e && !jigsaw) clueLine += `<span class="muted">(one answer whose letters are divided between ${tag(e)} and ${tag(holder)}; its clue is printed at ${tag(holder)} and shown here) </span>`;
+    // The strip shows the grid's letters in the clue's squares: in a jigsaw,
+    // where the answer goes.
+    setHTML($("hint-pattern"), jigsaw ? "" : patternHTML(e));
     // On paper the panel is the clue and its letters, and nothing that could
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
@@ -5695,7 +5728,8 @@
         const head = legs[key].find((e) => entryId(e) === key) || legs[key][0];
         const types = ((head.annotation || head.blog || {}).type || []).filter((t) => TYPES[t]);
         if (!solved) {
-          if (head.solution && types.length) open.push({ id, ref: tag(head), types, started: !!saves[id] });
+          // A practice link opens on its clue, which a jigsaw cannot do.
+          if (head.solution && types.length && !isJigsaw(BY_ID[id])) open.push({ id, ref: tag(head), types, started: !!saves[id] });
           return;
         }
         const hints = frozenCharge(s.solvedWith || {}, legs[key].map(entryId));
@@ -6860,6 +6894,9 @@
     }
     P = puzzle;
     meta = BY_ID[id] || { annotated: false };
+    jigsaw = isJigsaw(meta);
+    gridNumbers = !(meta.tags || []).includes("jigsaw");
+    pick = null;
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
@@ -7162,7 +7199,7 @@
   let urlClue = null;
   function syncClueUrl() {
     const e = currentEntry();
-    const ref = e ? tag(e) : null;
+    const ref = e && !jigsaw ? tag(e) : null;
     if (ref === urlClue) return;
     urlClue = ref;
     if (!urlNamesPuzzle || !ref || !meta || !meta.id) return;
@@ -7330,7 +7367,7 @@
 
     $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
     $("chk-entry").onclick = () => {
-      const e = currentEntry(), light = !e && currentLight();
+      const e = gridEntry(), light = !e && currentLight();
       if (e || light) checkCells(e ? entryCells(e) : light, "word");
     };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
@@ -7338,7 +7375,7 @@
     $("paper-toggle").checked = !!paper.on;
     $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);
     $("clear-entry").onclick = () => {
-      const e = currentEntry();
+      const e = gridEntry();
       const light = !e && currentLight();
       if (light) light.forEach(clearCell);
       if (light) { refreshAll(); saveState(); }

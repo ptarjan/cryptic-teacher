@@ -7149,3 +7149,22 @@ global.realSetTimeout(() => {
   type(q2);
   assert(note.classList.contains("hidden"), "and the next solve, reaching none, clears it: " + note.innerHTML);
 }
+
+// --- a jigsaw's clue list and clue picks say nothing about where answers go ---
+{
+  const ID = "cryptic-24331";   // "fit them into the diagram jigsaw-wise"
+  const d = require("./fake_dom.js").boot({ query: "?p=" + ID });
+  const reg = d.registry;
+  const J = global.window.CRYPTIC_PUZZLES[ID];
+  const list = reg["clues-across"].children;
+  assert(list.length === J.entries.length && reg["clues-down"].children.length === 0,
+    "a jigsaw's clues are one list, with no Down section");
+  assert(!list.some((li) => /clue-num/.test(li.innerHTML)), "a jigsaw's clue list carries no clue numbers");
+  assert(!reg["grid"].children.some((el) => /class="num"/.test(el.innerHTML)), "a jigsaw's grid carries no numbers");
+  const lit = () => reg["grid"].children.map((el) => (el.classList.contains("hl") || el.classList.contains("sel") ? 1 : 0)).join("");
+  const before = lit();
+  list[list.length - 1].listeners.click[0]();
+  assert(lit() === before, "picking a jigsaw clue lights no square of the grid");
+  assert(!/entry-tag/.test(reg["hint-clue"].innerHTML) && reg["hint-pattern"].innerHTML === "",
+    "a picked jigsaw clue's panel names no number and draws no letter strip of its squares");
+}

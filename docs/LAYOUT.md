@@ -668,6 +668,10 @@ tools/test_puzzle_tag_badges.js              does a tagged puzzle's title badge 
                                              does the picker's feature menu list exactly the
                                              puzzles with that tag, the double pangrams under
                                              pangram?
+tools/test_jigsaw.js                         does a jigsaw (tools/puzzle_tags.is_jigsaw) list
+                                             its clues alphabetically with no numbers, and does
+                                             picking one leave the grid unlit, so nothing says
+                                             where an answer goes?
 tools/smoke_test.js                          the whole app driven headless against the real
                                              corpus
 tools/fake_dom.js                            the fake DOM that boots the real app.js under
