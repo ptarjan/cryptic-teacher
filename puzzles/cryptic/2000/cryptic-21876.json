@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Provide food having inserted the medical tube",
     "enumeration": "8"
    },
-   "solution": "CATHETER"
+   "solution": "CATHETER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CATHETER",
+    "definitions": [
+     {
+      "text": "the medical tube",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having inserted",
+      "for": "container",
+      "note": "the word for providing food takes another word put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provide food",
+      "gives": "CATER",
+      "note": "to cater is to supply food"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "THE",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital patient is fed through a tube put in for the purpose.",
+     "walkthrough": "'the' is both part of the definition's phrasing and the inserted word: CA(THE)TER.",
+     "definitionFit": "A catheter is a thin flexible tube passed into the body to drain or deliver fluids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,55 @@
     "text": "Private school includes curriculum subject",
     "enumeration": "6"
    },
-   "solution": "SECRET"
+   "solution": "SECRET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECRET",
+    "definitions": [
+     {
+      "text": "Private",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "one word holds another within it, so the school word wraps the subject"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SECT",
+      "note": "a school of thought is a sect"
+     },
+     {
+      "clueFragment": "curriculum subject",
+      "gives": "RE",
+      "note": "RE is Religious Education, a subject on British school timetables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An independent school's timetable includes some particular subject.",
+     "walkthrough": "'Private school' reads as one phrase, but 'Private' is the definition and 'school' means a sect: SEC(RE)T.",
+     "definitionFit": "Something private is kept hidden from others, the adjective sense of secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +160,75 @@
     "text": "May need irons released to participate in exercise, right?",
     "enumeration": "8"
    },
-   "solution": "PRISONER"
+   "solution": "PRISONER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "PRISONER",
+    "definitions": [
+     {
+      "text": "May need irons released to participate in exercise, right?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "released",
+      "for": "anagram",
+      "note": "freed letters are let loose and fall into a new order"
+     },
+     {
+      "text": "to participate in",
+      "for": "container",
+      "note": "joining in means going inside the exercise word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     },
+     {
+      "clueFragment": "irons",
+      "gives": "RISON",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RISON",
+      "E",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRONS",
+       "gives": "RISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shackled asks whether they may have the leg irons off to join in the exercise period.",
+     "walkthrough": "The whole clue describes a shackled inmate wanting to join the exercise yard, while the wordplay puts rearranged IRONS inside PE and adds R.",
+     "definitionFit": "A convict in fetters would need them taken off before joining in exercise, so the whole clue paints a jailed person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "released"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +242,49 @@
     "text": "Tomorrow fruit topping will be changed",
     "enumeration": "6"
    },
-   "solution": "MANANA"
+   "solution": "MANANA",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MANANA",
+    "definitions": [
+     {
+      "text": "Tomorrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topping will be changed",
+      "for": "substitution",
+      "note": "the top letter of the word is swapped for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "BANANA",
+      "note": "a common fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ANANA"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that the fruit decoration on a dessert will be swapped tomorrow.",
+     "walkthrough": "Change the first letter of BANANA to M. The clue does not supply the M; crossing letters and the definition settle it.",
+     "definitionFit": "Mañana is Spanish for tomorrow, borrowed into English, often implying some vague later time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +298,60 @@
     "text": "Wine gives a sign of something lacking when litre is bottled",
     "enumeration": "6"
    },
-   "solution": "CLARET"
+   "solution": "CLARET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLARET",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is bottled",
+      "for": "container",
+      "note": "being bottled means being enclosed, so the litre goes inside the sign"
+     }
+    ],
+    "linkWords": [
+     "gives",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sign of something lacking",
+      "gives": "CARET",
+      "note": "a caret is the proofreader's mark showing where something is missing"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L is the abbreviation for litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "ARET"
+     ]
+    },
+    "explanation": {
+     "surface": "Bottling wine by the litre seems to leave a shortfall.",
+     "walkthrough": "A caret (^) marks the spot where text has been left out; put L inside to get C(L)ARET.",
+     "definitionFit": "Claret is the British name for red wine from Bordeaux."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +365,55 @@
     "text": "Repeated first half of American country dance",
     "enumeration": "6"
    },
-   "solution": "CANCAN"
+   "solution": "CANCAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANCAN",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first half of",
+      "for": "deletion",
+      "note": "only the opening half of the word is kept, the rest dropped"
+     },
+     {
+      "text": "Repeated",
+      "for": "charade",
+      "note": "the kept chunk is written twice in a row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American country",
+      "gives": "CANADA",
+      "note": "a country in North America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "CAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A country dance from America, done over and over.",
+     "walkthrough": "'country dance' looks like one phrase, but 'country' belongs to the wordplay: half of CANADA, twice.",
+     "definitionFit": "The cancan is a high-kicking dance made famous in Parisian music halls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +427,58 @@
     "text": "Branch of army occupying city for a brief time",
     "enumeration": "6"
    },
-   "solution": "BREATH"
+   "solution": "BREATH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BREATH",
+    "definitions": [
+     {
+      "text": "a brief time",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "an army occupying a place sits inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "BATH",
+      "note": "Bath is a city in Somerset, England"
+     },
+     {
+      "clueFragment": "Branch of army",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a branch of the British Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RE",
+      "ATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A unit of the army holds a city for a short spell.",
+     "walkthrough": "Bath is a historic spa city in the west of England; 'for' just links the definition.",
+     "definitionFit": "A breath, as in a pause for breath, is a very short moment of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "occupying"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +492,64 @@
     "text": "Impression made by house overlooking lake - unfavourable!",
     "enumeration": "6"
    },
-   "solution": "HOLLOW"
+   "solution": "HOLLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOLLOW",
+    "definitions": [
+     {
+      "text": "Impression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "charade",
+      "note": "in a down entry, being above something means coming before it"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "unfavourable",
+      "gives": "LOW",
+      "note": "a low opinion is an unfavourable one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "L",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent complains that a lakeside house creates a bad impression.",
+     "walkthrough": "'Impression' sounds like an opinion, but here it is a dent in a surface.",
+     "definitionFit": "A hollow is a depression or dip, the kind of mark pressed into a soft surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Impression"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +563,63 @@
     "text": "US philanthropist is tower of strength taking English bloke in tow",
     "enumeration": "11"
    },
-   "solution": "ROCKEFELLER"
+   "solution": "ROCKEFELLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROCKEFELLER",
+    "definitions": [
+     {
+      "text": "US philanthropist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "charade",
+      "note": "having something in tow means it follows on behind"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "in tow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tower of strength",
+      "gives": "ROCK",
+      "note": "a dependable person is a rock"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "bloke",
+      "gives": "FELLER",
+      "note": "informal spelling of fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "E",
+      "FELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy benefactor is a pillar of support, with an Englishman tagging along.",
+     "definitionFit": "John D. Rockefeller was an American oil tycoon famed for giving away vast sums to charitable causes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tower"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +633,48 @@
     "text": "'ave a yearning, we hear, for something secure",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ANCHOR",
+    "definitions": [
+     {
+      "text": "something secure",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the word is matched by its sound"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'ave a yearning",
+      "gives": "ANCHOR",
+      "soundsLike": "ANKER",
+      "note": "hanker, with the h dropped as the apostrophe in 'ave signals"
+     }
+    ],
+    "explanation": {
+     "surface": "A dropped-aitch speaker longs for stability.",
+     "walkthrough": "The apostrophe in 'ave tells you to drop the H, so 'hanker' becomes 'anker', which says the same as the answer.",
+     "definitionFit": "An anchor holds a ship firmly in place, and figuratively is anything that gives stability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "'ave"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +688,66 @@
     "text": "Snag with ends of two cables knotted",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "Snag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends of",
+      "for": "letter_selection",
+      "note": "the two end letters of the word are kept"
+     },
+     {
+      "text": "knotted",
+      "for": "anagram",
+      "note": "knotted things are twisted out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two",
+      "gives": "TO",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "cables",
+      "gives": "CABLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOCABLES",
+       "gives": "OBSTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A problem arises when the ends of two cables get tangled.",
+     "walkthrough": "'ends of two cables' reads as the cable ends, but the ends belong to the word 'two'.",
+     "definitionFit": "A snag is an unexpected difficulty or hindrance that stands in the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +761,47 @@
     "text": "Philosopher's humbug listened to",
     "enumeration": "4"
    },
-   "solution": "KANT"
+   "solution": "KANT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KANT",
+    "definitions": [
+     {
+      "text": "Philosopher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listened to",
+      "for": "homophone",
+      "note": "something listened to is heard, not read"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humbug",
+      "gives": "KANT",
+      "soundsLike": "CANT",
+      "note": "cant is hypocritical, sanctimonious talk"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dismisses a thinker's ideas as nonsense they have been made to hear.",
+     "definitionFit": "Immanuel Kant was the eighteenth-century German thinker behind the Critique of Pure Reason."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "humbug"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +825,43 @@
      }
     ]
    },
-   "solution": "TAKINGABOW"
+   "solution": "TAKINGABOW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKING A BOW",
+    "definitions": [
+     {
+      "text": "Accepting applause",
+      "at": 0
+     },
+     {
+      "text": "as a toxophilite?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accepting applause",
+      "note": "first meaning: bending forward to acknowledge clapping"
+     },
+     {
+      "clueFragment": "as a toxophilite?",
+      "note": "second meaning: what an archer does, picking up the weapon"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A toxophilite is an archer; the question mark flags the playful literal reading.",
+     "definitionFit": "Performers bend at the waist to acknowledge an audience, while an archer literally picks up the weapon that shoots arrows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toxophilite"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +875,49 @@
     "text": "Anti-abortion judge to flourish",
     "enumeration": "11"
    },
-   "solution": "PROLIFERATE"
+   "solution": "PROLIFERATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROLIFERATE",
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anti-abortion",
+      "gives": "PROLIFE",
+      "note": "pro-life is the label of the anti-abortion movement"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate is to assess or judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROLIFE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An anti-abortion judge is set to thrive.",
+     "definitionFit": "To proliferate is to multiply rapidly and thrive, spreading in great numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +931,49 @@
     "text": "Line that's golden, befitting top poet",
     "enumeration": "8"
    },
-   "solution": "LAUREATE"
+   "solution": "LAUREATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAUREATE",
+    "definitions": [
+     {
+      "text": "befitting top poet",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "golden",
+      "gives": "AUREATE",
+      "note": "aureate is a literary word for gold-coloured"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AUREATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A golden line of verse is worthy of the nation's leading poet.",
+     "walkthrough": "The Poet Laureate is the official national poet in Britain; as an adjective laureate means crowned with laurel, worthy of honour.",
+     "definitionFit": "As an adjective the word describes someone crowned with laurels, worthy of distinction as the foremost poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +987,62 @@
     "text": "Heavy metal cask gents manoeuvred",
     "enumeration": "8"
    },
-   "solution": "TUNGSTEN"
+   "solution": "TUNGSTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TUNGSTEN",
+    "definitions": [
+     {
+      "text": "Heavy metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvred",
+      "for": "anagram",
+      "note": "things manoeuvred are moved about into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cask",
+      "gives": "TUN",
+      "note": "a tun is a large barrel"
+     },
+     {
+      "clueFragment": "gents",
+      "gives": "GSTEN",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUN",
+      "GSTEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENTS",
+       "gives": "GSTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men struggle to shift a heavy barrel.",
+     "walkthrough": "'Heavy metal' suggests rock music, but it means a dense chemical element.",
+     "definitionFit": "Tungsten is a very dense metallic element, used in light filaments and hard alloys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heavy"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1056,46 @@
     "text": "Second attractive girl in the current fashion",
     "enumeration": "6"
    },
-   "solution": "MODISH"
+   "solution": "MODISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODISH",
+    "definitions": [
+     {
+      "text": "in the current fashion",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, an informal second"
+     },
+     {
+      "clueFragment": "attractive girl",
+      "gives": "DISH",
+      "note": "dish is slang for an attractive person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A second pretty girl is dressed in the latest style.",
+     "definitionFit": "Modish describes something stylish and up to date, conforming to what is popular now."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1109,51 @@
     "text": "Spittle allowed to get into cup",
     "enumeration": "6"
    },
-   "solution": "GOBLET"
+   "solution": "GOBLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOBLET",
+    "definitions": [
+     {
+      "text": "cup",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to get into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spittle",
+      "gives": "GOB",
+      "note": "gob is British slang for a lump of spit"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "to let is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOB",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone permits saliva to land in a drinking vessel.",
+     "walkthrough": "'to get into' suggests putting one piece inside another, but the pieces are simply placed side by side.",
+     "definitionFit": "A goblet is a drinking vessel with a stem and a foot, a type of cup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1167,54 @@
     "text": "Wine reduction process is grating",
     "enumeration": "10"
    },
-   "solution": "PORTCULLIS"
+   "solution": "PORTCULLIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTCULLIS",
+    "definitions": [
+     {
+      "text": "grating",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "PORT",
+      "note": "port is a fortified Portuguese wine"
+     },
+     {
+      "clueFragment": "reduction process",
+      "gives": "CULL",
+      "note": "a cull is a selective killing to reduce numbers"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "CULL",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine-making step that reduces the liquid sounds harsh.",
+     "walkthrough": "'grating' looks like an adjective meaning irritating, but it is the noun for a lattice of bars.",
+     "definitionFit": "A portcullis is the heavy iron lattice dropped to seal a castle gateway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grating"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1228,54 @@
     "text": "Interception upends two quadrupeds",
     "enumeration": "6"
    },
-   "solution": "TACKLE"
+   "solution": "TACKLE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TACKLE",
+    "definitions": [
+     {
+      "text": "Interception",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upends",
+      "for": "reversal",
+      "note": "turning something upside down in a down entry reads it from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two quadrupeds",
+      "gives": "ELKCAT",
+      "note": "an elk and a cat, two four-legged animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACKLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELKCAT",
+       "to": "TACKLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting intercept sends two four-legged animals flying.",
+     "definitionFit": "In football or rugby, a tackle is a move to take the ball from an opponent, an interception of play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "upends"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1289,41 @@
     "text": "Temporarily relocate help",
     "enumeration": "6"
    },
-   "solution": "SECOND"
+   "solution": "SECOND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SECOND",
+    "definitions": [
+     {
+      "text": "Temporarily relocate",
+      "at": 0
+     },
+     {
+      "text": "help",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temporarily relocate",
+      "note": "first meaning: to transfer a worker to another post for a time"
+     },
+     {
+      "clueFragment": "help",
+      "note": "to assist or back someone, as a supporter does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is stressed on the second syllable (se-COND); the second is the usual pronunciation.",
+     "definitionFit": "Staff can be moved to another department for a spell, and a backer supports a duellist or a motion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1337,50 @@
     "text": "Recess will accommodate limited number all right",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "Recess",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "will accommodate"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "limited number",
+      "gives": "NO",
+      "note": "NO is the shortened form of number"
+     },
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "note": "OK means all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "An alcove will hold a small number of people, which is fine.",
+     "walkthrough": "'limited' signals the abbreviation of 'number'; 'will accommodate' just links the alcove to its pieces.",
+     "definitionFit": "A nook is a small sheltered corner or alcove in a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodate"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1394,47 @@
     "text": "Unattached little girl's holiday island",
     "enumeration": "8"
    },
-   "solution": "DISCRETE"
+   "solution": "DISCRETE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCRETE",
+    "definitions": [
+     {
+      "text": "Unattached",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little girl's",
+      "gives": "DIS",
+      "note": "Di is short for Diana, so a little girl's name with the possessive"
+     },
+     {
+      "clueFragment": "holiday island",
+      "gives": "CRETE",
+      "note": "Crete is a Greek island popular with tourists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "CRETE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman's vacation spot in the Mediterranean.",
+     "walkthrough": "Don't confuse with discreet: discrete means separate.",
+     "definitionFit": "Discrete means separate and distinct, not joined to other parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unattached"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1448,46 @@
     "text": "Man initially occupying a corner in magnificent house",
     "enumeration": "6"
    },
-   "solution": "CASTLE"
+   "solution": "CASTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASTLE",
+    "definitions": [
+     {
+      "text": "Man initially occupying a corner",
+      "at": 0
+     },
+     {
+      "text": "magnificent house",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man initially occupying a corner",
+      "note": "first meaning: a chess piece that starts the game in a corner square"
+     },
+     {
+      "clueFragment": "magnificent house",
+      "note": "second meaning: a grand fortified residence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Man' is a chess piece, and 'initially' means at the start of the game: the rook begins in a corner. 'Man initially' looks like an M.",
+     "definitionFit": "The rook is also called by this name in chess, and the same word names a lord's fortified stately home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1501,48 @@
     "text": "Title for important official with many slaves",
     "enumeration": "6"
    },
-   "solution": "HELOTS"
+   "solution": "HELOTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HELOTS",
+    "definitions": [
+     {
+      "text": "slaves",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Title for important official",
+      "gives": "HE",
+      "note": "HE is His Excellency, a form of address for ambassadors and governors"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "LOTS",
+      "note": "lots means a great many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "LOTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grandee with an honorific owns a large number of servants.",
+     "definitionFit": "Helots were the serf class of ancient Sparta, and the word now means any enslaved or downtrodden people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1556,43 @@
     "text": "Eager camper may settle here",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "Eager",
+      "at": 0
+     },
+     {
+      "text": "camper may settle here",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eager",
+      "note": "first meaning: keen and resolved"
+     },
+     {
+      "clueFragment": "camper may settle here",
+      "note": "second meaning, split into two words: where someone camping beds down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading splits the answer into IN TENT, where a camper settles.",
+     "definitionFit": "Someone intent on a goal is keenly focused on it, while canvas shelter is literally where campers rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "settle"
+    }
+   }
   }
  ]
 }
