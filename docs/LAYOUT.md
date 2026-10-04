@@ -529,6 +529,11 @@ tools/test_selector_indicator.sh             a letter selector ("capital of", "i
                                              the words it selects from
 tools/test_anagram_fodder.sh                 an anagram's fodder is drawn from the clue's
                                              wordplay and its blocks' letters
+tools/test_setter_error.sh                   a clue the setter printed wrong is annotated as
+                                             printed: the anagram mismatch
+                                             tools/data/setter_error.json names for that light
+                                             passes, with a walkthrough saying so, and every
+                                             other mismatch still fails
 tools/test_indicator_straddle.sh             an indicator may sit inside a definition but not
                                              across its edge
 tools/test_indicator_repeats.sh              an indicator may repeat in `indicators` only as
@@ -1142,6 +1147,12 @@ tools/data/source_clue_wrong.json            clues a source serves or OCRs wrong
                                              id/entry id: how the served text opens, the clue
                                              as printed, the evidence; read as
                                              fetch_puzzle.SOURCE_CLUE_WRONG, merged per key
+tools/data/setter_error.json                 clues the setter printed wrong, keyed puzzle
+                                             id/entry id: the anagram fodder as printed, the
+                                             letters the answer needs, the evidence;
+                                             validate_annotations.SETTER_ERROR lets that one
+                                             mismatch pass with a walkthrough saying so; merged
+                                             per key
 tools/test_source_tables_merge.sh            do two writers adding different rows to the
                                              source-correction tables merge without a conflict?
 tools/test_json_merge.sh                     do the keyed JSON data files merge per key in a

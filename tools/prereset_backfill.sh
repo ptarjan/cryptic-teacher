@@ -442,7 +442,7 @@ discard_puzzle() {
 # the next puzzle's commit cannot carry this one.
 stage_puzzle() {
   git add -A -- "$(puzzle_spec "$1")" && python3 tools/own_rows.py stage "$1" && return 0
-  git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
+  git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py tools/data/setter_error.json tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
   return 1
 }
 

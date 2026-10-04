@@ -26,9 +26,12 @@ trap 'rm -rf "$tree"' EXIT
 mkdir -p "$tree/tools" "$tree/puzzles/times/1984"
 cp "$REPO"/tools/*.py "$tree/tools/"
 mkdir -p "$tree/tools/data"
+# The tables own_rows splices are real files, since git stores a symlink's
+# target; the rest are linked.
+owned=$(cd "$REPO/tools" && python3 -c 'import own_rows; print(" ".join(own_rows.DATA_RELS))')
 for f in "$REPO"/tools/data/*; do
-  case "$f" in
-    */source_answer_wrong.json|*/source_clue_wrong.json) cp "$f" "$tree/tools/data/" ;;
+  case " $owned " in
+    *" tools/data/${f##*/} "*) cp "$f" "$tree/tools/data/" ;;
     *) ln -s "$f" "$tree/tools/data/" ;;
   esac
 done

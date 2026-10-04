@@ -7,7 +7,9 @@ gets bought again at full price. So each failure is recorded along with a hash o
 the puzzle it failed on: its clues, answers and grid. The item is skipped while
 that hash still matches, and becomes eligible again by itself when the puzzle
 changes: a corrected answer, a re-fetched clue. The code is not part of the
-hash: whoever changes a prompt, a validator or an applier and wants old failures
+hash, with one exception: a row of tools/data/setter_error.json (a clue the
+setter printed wrong) is an input of its puzzle. Whoever changes a prompt, a
+validator or an applier and wants old failures
 retried clears them once with `clear`, by id or by the words of their reason.
 There is no timer.
 
@@ -50,6 +52,7 @@ from groups import entry_id  # noqa: E402
 if os.environ.get("FAILED_INPUTS_PUZZLES"):
     puzzle_paths.PUZZLE_DIR = Path(os.environ["FAILED_INPUTS_PUZZLES"])
 BLIND_STASH = ROOT / ".blind"
+SETTER_ERROR = ROOT / "tools" / "data" / "setter_error.json"
 
 KINDS = ("annotate", "solve")
 
@@ -92,7 +95,14 @@ def puzzle_inputs(pid):
         if entry_id(e) in key:
             row["solution"] = key[entry_id(e)]
         entries.append(row)
-    return {"dimensions": puzzle.get("dimensions"), "entries": entries}
+    inputs = {"dimensions": puzzle.get("dimensions"), "entries": entries}
+    # A setter's slip filed since the failure is what lets its clue validate,
+    # so the row is an input; absent, the hash is what it always was.
+    slips = {k: v for k, v in json.loads(SETTER_ERROR.read_text(encoding="utf-8")).items()
+             if k.split("/", 1)[0] == pid}
+    if slips:
+        inputs["setterErrors"] = slips
+    return inputs
 
 
 def input_hash(pid):
