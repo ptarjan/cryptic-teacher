@@ -1797,9 +1797,15 @@ SOURCE_CLUE_WRONG = load_source_table("source_clue_wrong")
 def source_clue(pid, eid, text):
     """The clue as printed for light `eid` of puzzle `pid`, given the text the
     source served: SOURCE_CLUE_WRONG's correction when the served text opens
-    as the table says, else `text` itself."""
+    as the table says, or when the table's served text is empty and the
+    source served none (a clue OCR lost, read off the scan), else `text`
+    itself."""
     served, printed, _why = SOURCE_CLUE_WRONG.get((pid, eid), (None, None, None))
-    return printed if served and (text or "").startswith(served) else text
+    if served is None:
+        return text
+    if not served.strip():
+        return printed if not (text or "").strip() else text
+    return printed if (text or "").startswith(served) else text
 
 
 def corrected_clue(pid, eid):

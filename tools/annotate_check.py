@@ -124,13 +124,18 @@ VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "preamble
 def to_write(puzzle, before):
     """The ids a run on this puzzle annotates: the clues that lack a hint,
     plus `before`, the list the run started with, so a clue the run has since
-    written stays its own to fix. Every other annotation is fixed context.
+    written stays its own to fix, and on an OCR'd puzzle the clues it shows
+    blank. Every other annotation is fixed context.
 
     None, at the start of a run on a puzzle with no hints yet or none
     missing: the run takes the whole puzzle."""
     continuations = groups.leader_of(puzzle["entries"])
     clues = [e for e in puzzle["entries"] if entry_id(e) not in continuations]
     readable = {entry_id(e) for e in clued(clues)}
+    if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
+        # A clue the OCR lost is the run's too: the scan may print it, and
+        # a source_clue_wrong.json row with "" served restores it.
+        readable |= {entry_id(e) for e in clues if validate_annotations.is_blank_clue(e["clue"].get("text", ""))}
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
             or (not e.get("annotation") and entry_id(e) in readable)]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):

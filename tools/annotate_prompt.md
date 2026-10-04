@@ -40,7 +40,8 @@ missing, or shown on two lights, is lost, not misread: make that entry `null`.
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
 for any clue that looks cut short, garbled or wrong for its answer, and file the
 clue exactly as the page prints it, evidence `"Scan reads: <what the page shows>"`.
-A clue read off the scan may differ by any number of letters.
+A clue read off the scan may differ by any number of letters. A clue shown blank that
+the scan prints is filed the same way, with `""` as the clue as shown.
 
 ## Order of work
 

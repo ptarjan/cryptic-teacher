@@ -404,14 +404,16 @@ def unglued(out):
     """`out` with a clue whose count OCR lost split from the next one glued
     to it: inside its text, one number before a capitalised word that falls
     between its own number and the next clue's ("... actually 11 Where new
-    jobs" between 9 and 12) starts the next clue, which keeps the count; a
-    reference ("2 Down") does not."""
-    for i in reversed(range(len(out) - 1)):
-        clue, after = out[i], out[i + 1]
+    jobs" between 9 and 12, or after the list's last clue's own number)
+    starts the next clue, which keeps the count; a reference ("2 Down")
+    does not."""
+    for i in reversed(range(len(out))):
+        clue, after = out[i], out[i + 1] if i + 1 < len(out) else None
         if clue["see"] is not None or len(clue["tokens"]) != 1 or not clue["tokens"][0] \
-                or not after["tokens"][0]:
+                or (after is not None and not after["tokens"][0]):
             continue
-        lo, hi = max(clue["tokens"][0]), min(after["tokens"][0])
+        # The list's last clue runs on to the highest number a list prints.
+        lo, hi = max(clue["tokens"][0]), min(after["tokens"][0]) if after else TOP_NUMBER + 1
         cut = [m for m in re.finditer(r"(?<=\s)(\d{1,2})[.,]?\s+(?=[A-Z][a-z]|[\"'][A-Z])(?!(?i:across|down|ac|dn)\b)", clue["text"])
                if lo < int(m[1]) < hi]
         if len(cut) != 1:

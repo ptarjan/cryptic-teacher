@@ -99,6 +99,82 @@ check("a number lost after the heading marked", "ACROSS\n? Nymph (8)", f.tidy("A
 check("a wrapped line is not marked", "10 Nurse holding\nNote (7)", f.tidy("10 Nurse holding\nNote (7)"))
 check("a count with a broken close read as one", "19 Stole pig (3)", f.tidy("19 Stole pig off3j".replace(" off", "")))
 
+# Page text after the list's last count: a speck after the count ("(5). _")
+# is no text, so the footer after it is dropped, not read as a clue.
+check("a speck after a count is dropped and the footer with it",
+      "DOWN\n24 Realism is the beauty of Keats\n(5)",
+      f.tidy("DOWN\n24 Realism is the beauty of Keats\n(5). _\nConte crossword, base 22"))
+check("a pointer to another page's puzzle ends the column",
+      [True, True, True, False, False],
+      [bool(f.STOP.match(t)) for t in ("Conte crossword, base 22", "Coacise crosswurd, page 22",
+                                       "The solution to the Collins Competition", "Cross words about 22",
+                                       "Crossed words, quite 2")])
+# The list's last clue holding the next one (its count lost) is split.
+p, _ = f.parse("ACROSS\n1 Walpole nominated as poet (6)\nDOWN\n22 No good having female in group\n"
+               "24 Realism is the beauty of Keats\n(5)")
+check("the last clue's run-on clue is split off",
+      [({22}, "No good having female in group", set()), ({24}, "Realism is the beauty of Keats", {"5"})],
+      [(c["tokens"][0], c["text"], c["enums"]) for c in p["down"]])
+p, _ = f.parse("ACROSS\n1 Walpole nominated as poet (6)\nDOWN\n22 Rest at 2 Downing Street (5)")
+check("a reference in the last clue is not split", ["Rest at 2 Downing Street"], [c["text"] for c in p["down"]])
+# The columns under the grid split at their gutter, not the grid's middle:
+# a right-hand clue whose number starts left of the middle is the right
+# column's, never run into the left column's row (ftcryptic-9091).
+grid = (2270, 3000, 2905, 3400)
+words = [[(2253, 3462, 2565, 3486, "28 Take part of case for leisure")],
+         [(2577, 3462, 2886, 3484, "22 Affected by American univer-")],
+         [(2581, 3419, 2889, 3442, "20 Corrects sexually innocent")],
+         [(2270, 3415, 2569, 3435, "1 Graduate teachers object to")]]
+split = f.under_gutter(words, grid)
+cols = f.columns(words, grid, split=split)
+check("the gutter lies between the columns", True, 2569 < split < 2577)
+check("a right-hand clue left of the grid's middle stays in its column",
+      ["1 Graduate teachers object to", "28 Take part of case for leisure"], [l[4] for l in cols[0]])
+
+# fault(): what the filer refuses to file, and what the print really has.
+for text, enum, cells, want in [
+        ("Corrects sexually innocent Poles 22 Affected by American", "8", 8, "holds a clue number"),
+        ("The solution of Saturday's Prize Puzzle No 18,178 will appear next Saturday 26 The point is", "9", 9,
+         "holds a clue number"),
+        ("Conte crossword, page 22", "5", 5, "holds the page's text"),
+        ("Untie reef knots (41. Times Two Crossword, page 44", "4", 4, "holds the page's text"),
+        ("The solution to the Collins Competition will now Qualifier puzzle", "4", 4, "holds the page's text"),
+        ("None", "5", 5, "the text is the word None"),
+        ("Fine island, jolly compact", "5", 4, "its count"),
+        ("Laugh immoderately as Jack gets into quarrel", "4,5", 9, None),
+        ("3 3 on the watch", "5", 5, None),
+        ("under twenty-one", "5", 5, None),
+        ("Clumsy and old-fashioned in hack work", "11", 11, None),
+        ("Mournful supporter in English lac", "7", 7, None),
+        ("Basic material for 9 or Junius?", "9", 9, None),
+        ("Making notes to phone about the 18", "9", 9, None),
+        ("Removal of 25 I notice in distress outside", "8", 8, None),
+        ("See 9 Across", None, 5, None),
+        ("Market town supplying meat on 24 and 31 December?", "5", 5, None),
+        ('"Hollow pamper\'d Jades of - (2 Hen. IV)', "4", 4, None),
+        ('Thomas Huxley\'s 73 "organized common sense', "7", 7, None)]:
+    got = ocr_clues.fault(text, enum, cells)
+    check(f"fault {text[:30]!r}", want, got and got[:len(want)] if want else got)
+laid, blank = f.unfit_blanked({"22-down": ("Poles 22 Affected by it", "6", None), "1-across": ("Fine", "6", None),
+                               "3-across": ("Too long", "9", None)}, {}, {"22-down": 6, "1-across": 6, "3-across": 6})
+check("an unfit clue is filed blank, its count kept when it fills the light",
+      ({"22-down": ("", "6", None), "1-across": ("Fine", "6", None), "3-across": ("", None, None)},
+       ["22-down", "3-across"]), (laid, sorted(blank)))
+puz = {"entries": [{"number": 1, "direction": "across", "length": 6, "clue": {"text": "Fine", "enumeration": "6"}},
+                   {"number": 2, "direction": "down", "length": 4, "group": ["2-down", "3-down"],
+                    "clue": {"text": "Long 2 Joined", "enumeration": "4,3"}},
+                   {"number": 3, "direction": "down", "length": 3, "clue": {"text": "See 2"}}]}
+check("faults() counts a linked clue's lights together", ["2-down"], sorted(f.faults(puz)))
+check("a puzzle with a fault is not complete", False, f.complete(puz))
+
+# A word two other readings share that is no word goes in mended.
+others = [ocr_clues.tokens("This lener may be umsigned it should be remembered"),
+          ocr_clues.tokens("This ietter may be umsigned it should be remnembered"),
+          ocr_clues.tokens("This letter be 14")]
+check("a word lost from this reading goes in as the known word the others misread",
+      "This letter may be unsigned it should be remembered",
+      ocr_clues.agree("This letter may be it should be remembered", others)[0])
+
 # agree(): only what both readings say, or what the dictionary settles.
 stream = ocr_clues.tokens("8 Hope created this exalted 9 Bottom of a ship (3) 10 Nurse hoiding note (7) 11 Prinz Ahdk (5)")
 check("both readings agree", ("Bottom of a ship", "agree"), ocr_clues.agree("Bottom of a ship", stream))
@@ -391,8 +467,8 @@ in the Health Service ? f9>*
 16 Doctor Border's bed-clearing
 operations (9)."""
 p, why = f.parse(times_13686)
-check("both headings lost: across runs 1 to 28 (read '2s'), down from 1 (16 runs into 14, whose count reads 'f9>*')",
-      ([{1}, {25, 28}], [{1}, {14}]),
+check("both headings lost: across runs 1 to 28 (read '2s'), down from 1 to 16 (split from 14, whose count reads 'f9>*')",
+      ([{1}, {25, 28}], [{1}, {16}]),
       p and ([p["across"][0]["tokens"][0], p["across"][-1]["tokens"][0]],
              [p["down"][0]["tokens"][0], p["down"][-1]["tokens"][0]]) or why)
 # The Times, 1974-05-04, archive.org's reading: ACROSS kept, DOWN lost
@@ -827,19 +903,25 @@ def held_13998(texts):
 occasional = "Occasional raid cops turn out for"
 path = Path(os.environ["TMP"]) / "times-13998.json"
 path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
-mended, now = f.mend_duplicates(held_13998(["A man's man", "An Athenian acted in any element", occasional]), path)
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", occasional]), path)
 check("a held clue on two lights takes this reading's clue for each, answers kept",
       (["A man's man", "An Athenian acted in any element", occasional], {"15-across": "An Athenian acted in any element", "18-across": occasional}, "ANTIMONY"),
       ([e["clue"]["text"] for e in mended["entries"]], now, mended["entries"][1]["solution"]))
-mended, now = f.mend_duplicates(held_13998(["A man's man", "", occasional]), path)
+mended, now = f.mend_held(held_13998(["A man's man", "", occasional]), path)
 check("a light this reading has no clue for is filed blank", ("", True),
       (mended["entries"][1]["clue"]["text"], mended["entries"][1]["clue"].get("missing")))
 path.write_text(json.dumps(held_13998(["A man's man", occasional, occasional])))
-mended, now = f.mend_duplicates(None, path)
+mended, now = f.mend_held(None, path)
 check("with no reading, each light a held clue sits on twice is blank", {"15-across": "", "18-across": ""}, now)
 check("a held filing with no clue on two lights is left alone", None,
-      f.mend_duplicates(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
+      f.mend_held(held_13998(["A man's man", "x", "y"]), path.write_text(json.dumps(
           held_13998(["A man's man", "An Athenian", occasional]))) and path))
+
+path.write_text(json.dumps(held_13998(["A man's man", "Occasional raid 18 Cops turn out", "Sporadic"])))
+mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
+check("a held clue the filer now refuses takes this reading's clue", {"15-across": "An Athenian acted in any element"}, now)
+mended, now = f.mend_held(None, path)
+check("with no reading, a held clue the filer now refuses is blank", {"15-across": ""}, now)
 
 check("a one read as l before a digit, and the space lost after a question mark, mended",
       "Worried? Pulse for a 19th-century school", ocr_clues.clean("Worried?Pulse for a l9th-century school"))
