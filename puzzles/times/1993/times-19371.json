@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "32 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,51 @@
     "text": "What commands attendance as one pub that's free?",
     "enumeration": "8"
    },
-   "solution": "SUBPOENA"
+   "solution": "SUBPOENA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBPOENA",
+    "definitions": [
+     {
+      "text": "What commands attendance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's free",
+      "for": "anagram",
+      "note": "letters set free are released from their order and can fall into a new one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as one pub",
+      "gives": "ASONEPUB",
+      "note": "the three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASONEPUB",
+       "gives": "SUBPOENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about a free pub that somehow compels people to turn up.",
+     "walkthrough": "SUBPOENA is a legal writ ordering someone to appear in court.",
+     "definitionFit": "A subpoena is the court order that legally obliges a witness to appear, so it is literally the thing requiring presence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +96,48 @@
     "text": "Take what's yours in secret",
     "enumeration": "8"
    },
-   "solution": "STEALTHY"
+   "solution": "STEALTHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEALTHY",
+    "definitions": [
+     {
+      "text": "in secret",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "STEAL",
+      "note": "to steal is to take"
+     },
+     {
+      "clueFragment": "what's yours",
+      "gives": "THY",
+      "note": "thy is the old word for your"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEAL",
+      "THY"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to claim what you are owed, quietly.",
+     "walkthrough": "'Take what's yours' sounds like one instruction, but splits into steal plus the archaic word for your.",
+     "definitionFit": "Stealthy means done secretly and quietly so as to avoid notice, matching furtive action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +151,47 @@
     "text": "Haggler getting extra drink from the landlord?",
     "enumeration": "9"
    },
-   "solution": "BARGAINER"
+   "solution": "BARGAINER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARGAINER",
+    "definitions": [
+     {
+      "text": "Haggler",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink from the landlord",
+      "gives": "BAR",
+      "note": "the bar is where a landlord serves drink"
+     },
+     {
+      "clueFragment": "getting extra",
+      "gives": "GAINER",
+      "note": "one getting extra is a gainer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "GAINER"
+     ]
+    },
+    "explanation": {
+     "surface": "A customer haggling for a bonus round from the pub owner.",
+     "walkthrough": "A landlord in Britain is a publican, so his drink comes over the bar; the pieces swap clue order.",
+     "definitionFit": "A haggler argues over price, as does a bargainer negotiating terms of a deal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "landlord"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +205,69 @@
     "text": "Work for more than one company rising to top positions in the executive tree",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "Work for more than one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down clue means reading upwards, from bottom to top"
+     },
+     {
+      "text": "top positions in",
+      "for": "letter_selection",
+      "note": "the top position of each word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "the executive tree",
+      "gives": "TET",
+      "select": "first",
+      "note": "the initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TET"
+     ],
+     "reversals": [
+      {
+       "from": "CO",
+       "to": "OC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holding jobs at several firms climbs the corporate ladder.",
+     "walkthrough": "An octet is a piece of music written for eight players, so more than one indeed.",
+     "definitionFit": "An octet is a composition scored for eight instruments or voices, so a musical work for a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +281,56 @@
     "text": "Strong drink's put round watery trifle",
     "enumeration": "7"
    },
-   "solution": "NOTHING"
+   "solution": "NOTHING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTHING",
+    "definitions": [
+     {
+      "text": "trifle",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put round",
+      "for": "container",
+      "note": "one thing put round another encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong drink's",
+      "gives": "NOG",
+      "note": "nog is a strong ale"
+     },
+     {
+      "clueFragment": "watery",
+      "gives": "THIN",
+      "note": "watery drink is thin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "THIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert of soaked sponge and custard laced with spirits.",
+     "walkthrough": "A trifle is a British pudding of sponge, custard and cream, but here it means something of no importance; the strong ale opens up to hold the second word.",
+     "definitionFit": "A trifle is a thing of little value, and nothing can mean a mere trifle, as in 'a thing of nothing'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trifle"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +344,39 @@
     "text": "Such friends may have toast at dinner",
     "enumeration": "6"
    },
-   "solution": "ABSENT"
+   "solution": "ABSENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABSENT",
+    "definitions": [
+     {
+      "text": "Such friends may have toast at dinner",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Such friends may have toast at dinner",
+      "note": "surface reading: friends sitting at a dinner table eating toast"
+     },
+     {
+      "clueFragment": "toast",
+      "note": "setter's reading: a toast is drunk to friends who are not there"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The traditional toast 'Absent friends' is raised at dinners for those who cannot attend; 'have toast' means are honoured with one, not eat bread.",
+     "definitionFit": "The phrase describes the adjective by the well-known dinner toast honouring people missing from the gathering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +390,51 @@
     "text": "China's not good in this game",
     "enumeration": "9"
    },
-   "solution": "BADMINTON"
+   "solution": "BADMINTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BADMINTON",
+    "definitions": [
+     {
+      "text": "this game",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not good",
+      "gives": "BAD",
+      "note": "bad is the opposite of good"
+     },
+     {
+      "clueFragment": "China's",
+      "gives": "MINTON",
+      "note": "Minton is a famous English make of porcelain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "MINTON"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the porcelain or the country is poor at some sport.",
+     "walkthrough": "China here is crockery, not the country, and the pieces run in reverse of clue order.",
+     "definitionFit": "Badminton is a racket sport played with a shuttlecock over a high net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "China's"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +448,58 @@
     "text": "Not a married country girl",
     "enumeration": "5"
    },
-   "solution": "ERICA"
+   "solution": "ERICA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERICA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "not tells us to leave out the letters it names"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "AMERICA",
+      "note": "a country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A single girl from the countryside.",
+     "walkthrough": "'Country girl' reads as rural lass; the country is the United States, losing its opening A and M.",
+     "definitionFit": "Erica is a woman's first name, and a girl's name is a standard crossword definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,10 +510,60 @@
    },
    "length": 6,
    "clue": {
-    "text": "Agreement to lake food during trial",
+    "text": "Agreement to take food during trial",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREATY",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another takes place within its span"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take food",
+      "gives": "EAT",
+      "note": "to take food is to eat"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TRY",
+      "note": "a try is an attempt or trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A deal letting a defendant have meals while in court.",
+     "definitionFit": "A treaty is a formal agreement between states, a pact or accord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +577,64 @@
     "text": "When skin scales, it's dead",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "dead",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scales",
+      "for": "reversal",
+      "note": "to scale is to climb, and in a down entry climbing means reading upwards"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "skin",
+      "gives": "PEEL",
+      "note": "peel is the skin of fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEL",
+       "to": "LEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile shedding its scaly skin, or a corpse whose skin flakes.",
+     "walkthrough": "'Scales' looks like a noun about fish skin, but it is a verb.",
+     "definitionFit": "A limb that has gone dead, numb from pressure, is said to be asleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scales"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +648,50 @@
     "text": "Bird growing white trapped in overturned detergent",
     "enumeration": "5"
    },
-   "solution": "EGRET"
+   "solution": "EGRET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EGRET",
+    "definitions": [
+     {
+      "text": "Bird growing white",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "hidden_word",
+      "note": "what is trapped in something sits wholly inside it, so the answer lies within the next word"
+     },
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned is upside down, so the letters are read from the far end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detergent",
+      "gives": "TERGE",
+      "note": "the run of letters inside this word, before turning"
+     }
+    ],
+    "explanation": {
+     "surface": "Talk of a bird turning white after being caught in an upset tub of washing powder.",
+     "walkthrough": "Read detergent backwards, TNEGRETED, and EGRET is inside it.",
+     "definitionFit": "The egret is a heron whose plumage is white, growing showy white plumes in the breeding season."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "detergent"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +711,48 @@
      }
     ]
    },
-   "solution": "TESTDRIVE"
+   "solution": "TESTDRIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEST-DRIVE",
+    "definitions": [
+     {
+      "text": "Try a run",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First class cricket",
+      "gives": "TEST",
+      "note": "a Test match is the top level of international cricket"
+     },
+     {
+      "clueFragment": "stroke",
+      "gives": "DRIVE",
+      "note": "a drive is a batting stroke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "DRIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer at the highest level is urged to hit out and take a run.",
+     "walkthrough": "In cricket a run is a point scored by running between wickets; here 'run' is a trial outing, as in a car.",
+     "definitionFit": "To test-drive is to try out a vehicle or product on a trial run before deciding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +766,44 @@
     "text": "There's none more stupid, however",
     "enumeration": "9"
    },
-   "solution": "LEASTWISE"
+   "solution": "LEASTWISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEASTWISE",
+    "definitions": [
+     {
+      "text": "There's none more stupid",
+      "at": 0
+     },
+     {
+      "text": "however",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "There's none more stupid",
+      "note": "first meaning, split in two: the most foolish, having the smallest share of sense"
+     },
+     {
+      "clueFragment": "however",
+      "note": "second meaning: a dated adverb meaning at any rate"
+     }
+    ],
+    "explanation": {
+     "surface": "A sweeping verdict on someone's foolishness, tailed by a grudging qualification.",
+     "walkthrough": "Split as LEAST WISE it means nobody is more foolish; as one word it is an old adverb.",
+     "definitionFit": "Leastwise is an old-fashioned adverb meaning at least or anyway, used like however to qualify a statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "however"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +817,57 @@
     "text": "Unfit to sleep in the thing",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INAPT",
+    "definitions": [
+     {
+      "text": "Unfit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits wholly within its letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleep",
+      "gives": "NAP",
+      "note": "a nap is a short sleep"
+     },
+     {
+      "clueFragment": "the thing",
+      "gives": "IT",
+      "note": "it stands for the thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NAP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declared not fit to doze off in some object.",
+     "definitionFit": "Inapt means unsuitable or inappropriate, so something inapt is not fitted to its purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +881,51 @@
     "text": "Worker getting sack at closure of renowned Bracknell line?",
     "enumeration": "7"
    },
-   "solution": "HANDBAG"
+   "solution": "HANDBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDBAG",
+    "definitions": [
+     {
+      "text": "closure of renowned Bracknell line",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "getting sack",
+      "gives": "BAG",
+      "note": "a sack is a bag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee is fired at the shutting of a railway line in Bracknell, a Berkshire town.",
+     "walkthrough": "Lady Bracknell, in Wilde's The Importance of Being Earnest, famously exclaims 'A handbag?', so the word ends her best-known line; Bracknell is not the town.",
+     "definitionFit": "The last word of Lady Bracknell's celebrated outburst is the handbag in which the baby was found, a literary allusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bracknell"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +945,44 @@
      }
     ]
    },
-   "solution": "BATTLEAXE"
+   "solution": "BATTLEAXE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATTLE-AXE",
+    "definitions": [
+     {
+      "text": "Formidable woman",
+      "at": 0
+     },
+     {
+      "text": "could make cuts in defence",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formidable woman",
+      "note": "first meaning: an overbearing, aggressive older woman"
+     },
+     {
+      "clueFragment": "could make cuts in defence",
+      "note": "second meaning: a broad-bladed weapon for hacking in combat"
+     }
+    ],
+    "explanation": {
+     "surface": "A tough female minister might slash the military budget.",
+     "walkthrough": "'Cuts in defence' suggests spending cuts; read literally, it is a weapon chopping foes in a fight.",
+     "definitionFit": "The word is informal for a domineering woman and also names a medieval war axe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +996,55 @@
     "text": "Lemur eating a vegetable",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POTATO",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "a creature eating something takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lemur",
+      "gives": "POTTO",
+      "note": "the potto is a small lemur-like primate of Africa"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "A",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A lemur munching on some vegetable.",
+     "walkthrough": "The potto is an African primate related to lemurs, more often met in crosswords than in zoos.",
+     "definitionFit": "The potato is a starchy tuber eaten as a staple vegetable worldwide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lemur"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1064,56 @@
      }
     ]
    },
-   "solution": "TASTEBUDS"
+   "solution": "TASTEBUDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TASTE BUDS",
+    "definitions": [
+     {
+      "text": "Sensitive cells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests being knocked out of shape, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Territorial Army's",
+      "gives": "TAS",
+      "note": "TA is the Territorial Army, Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "busted",
+      "gives": "BUSTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TASBUSTED",
+       "gives": "TASTEBUDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reservist soldiers break out of their prison cells.",
+     "definitionFit": "Taste buds are clusters of receptor cells on the tongue that respond to flavour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cells"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1127,39 @@
     "text": "Soundly support with 'eadgear? She does",
     "enumeration": "8"
    },
-   "solution": "CARYATID"
+   "solution": "CARYATID",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CARYATID",
+    "definitions": [
+     {
+      "text": "Soundly support with 'eadgear? She does",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soundly support with 'eadgear?",
+      "note": "surface reading: a Cockney question about holding up a hat"
+     },
+     {
+      "clueFragment": "She does",
+      "note": "setter's reading: a carved woman holds up a building on her head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Said aloud in a Cockney accent, 'carry 'at' roughly gives the start; a caryatid is a column sculpted as a woman bearing the roof on her head.",
+     "definitionFit": "In Greek architecture this draped female statue takes the place of a column, supporting the load above on her head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Soundly"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1173,55 @@
     "text": "Large lorry's cold inside, very cold",
     "enumeration": "6"
    },
-   "solution": "ARCTIC"
+   "solution": "ARCTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARCTIC",
+    "definitions": [
+     {
+      "text": "very cold",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "a word placed inside another sits within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large lorry's",
+      "gives": "ARTIC",
+      "note": "an artic is an articulated lorry, a big truck in British usage"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "C",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A big truck's refrigerated interior is freezing.",
+     "walkthrough": "The first 'cold' is wordplay and the second belongs to the definition; the setter repeats the word on purpose.",
+     "definitionFit": "Arctic is used loosely of weather or rooms that are extremely chilly, like the polar region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1235,59 @@
     "text": "Set of bells in church is flatter",
     "enumeration": "6"
    },
-   "solution": "CRINGE"
+   "solution": "CRINGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRINGE",
+    "definitions": [
+     {
+      "text": "flatter",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits wholly within its letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set of bells",
+      "gives": "RING",
+      "note": "a ring is a set of church bells"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RING",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The bells in a church tower are pitched too low.",
+     "walkthrough": "'Flatter' reads as an adjective about musical pitch; it is a verb for fawning.",
+     "definitionFit": "To cringe is to behave obsequiously, which is to fawn on or flatter someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flatter"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1301,59 @@
     "text": "Result of Lethe's water mixing in main and sea",
     "enumeration": "7"
    },
-   "solution": "AMNESIA"
+   "solution": "AMNESIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNESIA",
+    "definitions": [
+     {
+      "text": "Result of Lethe's water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing",
+      "for": "anagram",
+      "note": "things mixing are stirred together, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "MAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINSEA",
+       "gives": "AMNESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The waters of the mythical river mingle with the open ocean.",
+     "walkthrough": "Lethe was the river of the Greek underworld whose water made the dead forget their lives.",
+     "definitionFit": "Drinking from Lethe brought forgetfulness, and amnesia is loss of memory, so it is that draught's effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1367,50 @@
     "text": "I lament suffering affliction",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "affliction",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering letters are in distress and bent out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I lament",
+      "gives": "ILAMENT",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILAMENT",
+       "gives": "AILMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mourning their own illness.",
+     "definitionFit": "An ailment is an illness, usually minor, which is a kind of affliction troubling the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1430,46 @@
      }
     ]
    },
-   "solution": "KEYPAD"
+   "solution": "KEYPAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEY-PAD",
+    "definitions": [
+     {
+      "text": "control unit",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vital",
+      "gives": "KEY",
+      "note": "key means crucial or vital"
+     },
+     {
+      "clueFragment": "rocket platform's",
+      "gives": "PAD",
+      "note": "a launch pad is the platform a rocket lifts off from"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEY",
+      "PAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A crucial launch site's control system.",
+     "definitionFit": "A keypad is a small panel of buttons used to operate a device, so a control unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocket"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1483,59 @@
     "text": "Relax with Lang's first supporting picture",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "supporting picture",
+      "at": 24,
+      "note": "a phrase for the stand that holds a painting"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the name before it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relax",
+      "gives": "EASE",
+      "note": "to ease is to relax"
+     },
+     {
+      "clueFragment": "Lang's",
+      "gives": "L",
+      "select": "first",
+      "note": "the initial of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter named Lang unwinds, holding up a canvas.",
+     "definitionFit": "An easel is the wooden frame on which an artist rests a painting, the thing holding it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lang's"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1549,68 @@
     "text": "Nothing short of reason, perhaps, can make one more sensible",
     "enumeration": "5"
    },
-   "solution": "SANER"
+   "solution": "SANER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SANER",
+    "definitions": [
+     {
+      "text": "more sensible",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "falling short of means lacking, so a letter is taken away"
+     },
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps signals the letters may be put another way"
+     }
+    ],
+    "linkWords": [
+     "can make one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O is a zero, nothing"
+     },
+     {
+      "clueFragment": "reason",
+      "gives": "REASON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REASN",
+       "gives": "SANER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pure logic is the only thing that makes a person more level-headed.",
+     "walkthrough": "'Nothing short of' reads as an idiom for only; it means O removed. REASON less O leaves REASN to rearrange.",
+     "definitionFit": "Saner is the comparative of sane, so more rational and sound in mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nothing"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1634,51 @@
      }
     ]
    },
-   "solution": "ISLEOFELY"
+   "solution": "ISLEOFELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISLE OF ELY",
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters are got into shape by some unstated method"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feels oily",
+      "gives": "FEELSOILY",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEELSOILY",
+       "gives": "ISLEOFELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chair with a greasy feel to it.",
+     "walkthrough": "The Isle of Ely is a district of Cambridgeshire in eastern England, once its own county and a parliamentary constituency.",
+     "definitionFit": "A seat can be a parliamentary constituency or a cathedral see, and the Isle of Ely has been both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Seat"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,10 +1689,62 @@
    },
    "length": 5,
    "clue": {
-    "text": "( Companion is in a state, becoming yellow",
+    "text": "Companion is in a state, becoming yellow",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OCHRE",
+    "definitions": [
+     {
+      "text": "yellow",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is in",
+      "for": "container",
+      "note": "one item placed in another sits wholly within its letters"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Companion",
+      "gives": "CH",
+      "note": "CH is a Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "a state",
+      "gives": "ORE",
+      "note": "Ore is the abbreviation for Oregon, a US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CH",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An agitated friend turns pale with fear or sickness.",
+     "walkthrough": "'In a state' reads as upset; here it is CH inside an abbreviated state.",
+     "definitionFit": "Ochre is an earthy pigment ranging from pale yellow to brown, used as a colour name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1758,50 @@
     "text": "Star figure's involvement with writer",
     "enumeration": "9"
    },
-   "solution": "PENTANGLE"
+   "solution": "PENTANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENTANGLE",
+    "definitions": [
+     {
+      "text": "Star figure's",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "involvement",
+      "gives": "TANGLE",
+      "note": "a tangle is an entanglement or involvement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "TANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity's romantic entanglement with an author.",
+     "walkthrough": "The pieces go in reverse of clue order: writer comes first. 'Star figure's' is the definition plus the verb 'is'.",
+     "definitionFit": "A pentangle is a five-pointed star drawn as one continuous line, a geometric figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1815,42 @@
     "text": "Hang around a resort",
     "enumeration": "5"
    },
-   "solution": "HAUNT"
+   "solution": "HAUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAUNT",
+    "definitions": [
+     {
+      "text": "Hang around",
+      "at": 0
+     },
+     {
+      "text": "a resort",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hang around",
+      "note": "first meaning, a verb: to frequent a place persistently"
+     },
+     {
+      "clueFragment": "a resort",
+      "note": "second meaning, a noun: a place one often visits"
+     }
+    ],
+    "explanation": {
+     "surface": "Loitering at a holiday destination.",
+     "definitionFit": "As a verb it means to frequent a place, as ghosts do; as a noun it is a favourite spot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +1864,39 @@
     "text": "Stout party was at his peak here",
     "enumeration": "6"
    },
-   "solution": "DARIEN"
+   "solution": "DARIEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DARIEN",
+    "definitions": [
+     {
+      "text": "Stout party was at his peak here",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stout party was at his peak here",
+      "note": "surface reading: a fat man was at the height of his powers somewhere"
+     },
+     {
+      "clueFragment": "Stout",
+      "note": "setter's reading: Keats's 'stout Cortez' stood silent on a peak in this place"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Keats's sonnet on Chapman's Homer has 'stout Cortez' staring at the Pacific 'Silent, upon a peak in Darien', the Panama isthmus.",
+     "definitionFit": "Darien is the region of Panama named in Keats's poem as the mountain viewpoint of the explorer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peak"
+    }
+   }
   },
   {
    "number": 30,
@@ -503,7 +1910,61 @@
     "text": "Under pressure, second's backing final course",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "Under pressure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing is moving backwards, so the letters are taken from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "final course",
+      "gives": "DESSERT",
+      "note": "dessert is the last course of a meal"
+     },
+     {
+      "clueFragment": "second's",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tense as the pudding arrives.",
+     "walkthrough": "DESSERT plus S makes DESSERTS, which turned round is the answer.",
+     "definitionFit": "Stressed describes someone suffering mental strain from demands placed on them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   }
  ]
 }
