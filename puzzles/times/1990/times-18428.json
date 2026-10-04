@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "32 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "In a state of stupor, pet needs a restorative",
     "enumeration": "9"
    },
-   "solution": "CATATONIC"
+   "solution": "CATATONIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATATONIC",
+    "definitions": [
+     {
+      "text": "In a state of stupor",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a cat is a household pet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "restorative",
+      "gives": "TONIC",
+      "note": "a tonic is a medicine that restores strength"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "A",
+      "TONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A dazed animal needs a pick-me-up to bring it round.",
+     "definitionFit": "Catatonic describes someone rigid and unresponsive, which is a medical form of stupor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +100,46 @@
     "text": "Miraculous place rented by artist",
     "enumeration": "9"
    },
-   "solution": "CANALETTO"
+   "solution": "CANALETTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANALETTO",
+    "definitions": [
+     {
+      "text": "artist",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miraculous place",
+      "gives": "CANA",
+      "note": "Cana is where Jesus turned water into wine, his first miracle"
+     },
+     {
+      "clueFragment": "rented by",
+      "gives": "LETTO",
+      "note": "property let to a tenant is rented by that tenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANA",
+      "LETTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter leases a house in a place famed for miracles.",
+     "definitionFit": "Canaletto was the eighteenth-century Venetian painter famous for his views of Venice and London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rented"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +153,57 @@
     "text": "Historian, no longer with us, is taken for granted",
     "enumeration": "5"
    },
-   "solution": "TACIT"
+   "solution": "TACIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TACIT",
+    "definitions": [
+     {
+      "text": "taken for granted",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no longer with",
+      "for": "deletion",
+      "note": "what is no longer with something has left it, so those letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Historian",
+      "gives": "TACITUS",
+      "note": "Tacitus was the Roman historian of the early empire"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian who has died is now simply assumed knowledge.",
+     "walkthrough": "'No longer with us' reads as dead, but it tells you to take US off the historian.",
+     "definitionFit": "Tacit means understood or implied without being stated, so it is something assumed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "longer"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +217,61 @@
     "text": "Use right rate to convert gold say",
     "enumeration": "8"
    },
-   "solution": "TREASURE"
+   "solution": "TREASURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREASURE",
+    "definitions": [
+     {
+      "text": "gold say",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to convert",
+      "for": "anagram",
+      "note": "to convert something is to change its form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use",
+      "gives": "USE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USE R RATE",
+       "gives": "TREASURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to apply the correct exchange rate when changing gold into cash.",
+     "walkthrough": "'Say' marks gold as an example of the definition, not a synonym.",
+     "definitionFit": "Gold is a typical example of treasure, valuable metal hoarded or buried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convert"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +291,49 @@
      }
     ]
    },
-   "solution": "NONEVENT"
+   "solution": "NONEVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NON-EVENT",
+    "definitions": [
+     {
+      "text": "A sad disappointment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nobody",
+      "gives": "NONE",
+      "note": "none means not one person"
+     },
+     {
+      "clueFragment": "an opening",
+      "gives": "VENT",
+      "note": "a vent is an opening that lets air out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONE",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dismal flop where no one gets a chance or a job opening.",
+     "definitionFit": "A non-event is an occasion that was hyped but turned out to be dull and anticlimactic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +347,58 @@
     "text": "Crack and show emotion about girl",
     "enumeration": "6"
    },
-   "solution": "CRANNY"
+   "solution": "CRANNY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRANNY",
+    "definitions": [
+     {
+      "text": "Crack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one part wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show emotion",
+      "gives": "CRY",
+      "note": "crying shows emotion"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ANN",
+      "note": "Ann is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "ANN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone breaks down and gets emotional over a girl.",
+     "walkthrough": "'Crack' looks like a verb, breaking down in tears, but it is the noun, a narrow gap.",
+     "definitionFit": "A cranny is a small narrow opening, as in nook and cranny, so it is a gap or fissure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crack"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,10 +409,55 @@
    },
    "length": 5,
    "clue": {
-    "text": "Backchat by> workers in plant",
+    "text": "Backchat by workers in plant",
     "enumeration": "5"
    },
-   "solution": "TULIP"
+   "solution": "TULIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TULIP",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers",
+      "gives": "TU",
+      "note": "TU stands for trade union, a body of workers"
+     },
+     {
+      "clueFragment": "Backchat",
+      "gives": "LIP",
+      "note": "lip is cheeky answering back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff at a factory give the bosses cheek.",
+     "walkthrough": "Plant looks like a factory where the workers are, but it is the flower; 'by' puts the backchat beside the workers.",
+     "definitionFit": "The tulip is a bulb-grown flowering species, so it is one example of a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +471,65 @@
     "text": "Muddy track dug up with a couple of spades, maybe",
     "enumeration": "6"
    },
-   "solution": "TURBID"
+   "solution": "TURBID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TURBID",
+    "definitions": [
+     {
+      "text": "Muddy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dug up",
+      "for": "reversal",
+      "note": "in a down answer, something dug up is brought upwards, so the word is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "track",
+      "gives": "RUT",
+      "note": "a rut is a track worn by wheels"
+     },
+     {
+      "clueFragment": "a couple of spades, maybe",
+      "gives": "BID",
+      "note": "two spades is an example of a bid at bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUR",
+      "BID"
+     ],
+     "reversals": [
+      {
+       "from": "RUT",
+       "to": "TUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty track has been dug over with a pair of spades.",
+     "walkthrough": "The spades look like garden tools, but they are the playing-card suit, as in a call at bridge.",
+     "definitionFit": "Turbid describes water that is cloudy or thick with stirred-up mud and sediment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,10 +540,61 @@
    },
    "length": 9,
    "clue": {
-    "text": "Priest beheads Solomon's anointer - what a monster 9.",
+    "text": "Priest beheads Solomon's anointer - what a monster",
     "enumeration": "9"
    },
-   "solution": "LEVIATHAN"
+   "solution": "LEVIATHAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LEVIATHAN",
+    "definitions": [
+     {
+      "text": "monster",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheads",
+      "for": "deletion",
+      "note": "to behead something is to cut off its top, so the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "what a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Priest",
+      "gives": "LEVI",
+      "note": "Levi was the ancestor of the Israelite priestly tribe"
+     },
+     {
+      "clueFragment": "Solomon's anointer",
+      "gives": "NATHAN",
+      "note": "Nathan the prophet anointed Solomon king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVI",
+      "ATHAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest decapitates the man who anointed King Solomon, a monstrous act.",
+     "walkthrough": "'Beheads' looks like the priest's violent act but only cuts the first letter off the prophet's name.",
+     "definitionFit": "Leviathan is the enormous sea creature of the Old Testament, now used for any huge monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beheads"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +608,55 @@
     "text": "Vegetable, sounds like beet",
     "enumeration": "5"
    },
-   "solution": "PULSE"
+   "solution": "PULSE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "PULSE",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     },
+     {
+      "text": "beet",
+      "at": 23,
+      "note": "the second meaning is beat, reached through the sound of beet"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds like",
+      "for": "homophone",
+      "note": "sounds like tells us to hear the next word rather than read its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vegetable",
+      "note": "first meaning: edible seeds such as peas, beans and lentils"
+     },
+     {
+      "clueFragment": "beet",
+      "gives": "PULSE",
+      "soundsLike": "BEAT",
+      "note": "second meaning: spoken as beat, the rhythmic throb of the heart"
+     }
+    ],
+    "explanation": {
+     "surface": "A vegetable whose name sounds like the beetroot.",
+     "walkthrough": "'Beet' looks like the vegetable that defines the answer, but it is spoken as beat, the heart's throb.",
+     "definitionFit": "Pulses are edible seeds such as lentils, and a pulse is also the regular beating of the heart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beet"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,10 +667,55 @@
    },
    "length": 7,
    "clue": {
-    "text": "Part of an atomic ring rescued from Uncle'.'? No",
+    "text": "Part of an atomic ring rescued from Uncle? No",
     "enumeration": "7"
    },
-   "solution": "NUCLEON"
+   "solution": "NUCLEON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUCLEON",
+    "definitions": [
+     {
+      "text": "Part of an atomic ring",
+      "at": 0,
+      "note": "loose: a nucleon sits in the atom's nucleus"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rescued from",
+      "for": "anagram",
+      "note": "what is rescued from a wreck is recovered in a new state, so the letters that follow come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncle? No",
+      "gives": "UNCLENO",
+      "note": "all the letters of both words are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNCLENO",
+       "gives": "NUCLEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to save part of a ring from an uncle.",
+     "walkthrough": "UNCLE plus NO, rearranged, gives NUCLEON.",
+     "definitionFit": "A nucleon is a proton or neutron, the particles that make up the core of every atom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rescued"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +729,53 @@
     "text": "Baby - a royal one causing jealousy",
     "enumeration": "7"
    },
-   "solution": "ARRIVAL"
+   "solution": "ARRIVAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARRIVAL",
+    "definitions": [
+     {
+      "text": "Baby",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R is the abbreviation for royal, as in RN"
+     },
+     {
+      "clueFragment": "one causing jealousy",
+      "gives": "RIVAL",
+      "note": "a rival in love is someone who makes another jealous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RIVAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A newborn prince or princess makes an older sibling jealous.",
+     "walkthrough": "'Baby' and 'royal' read as one royal baby; the definition is the single word at the front.",
+     "definitionFit": "A new arrival is the usual way of announcing a newborn child to family and friends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "royal"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +789,48 @@
     "text": "Why don't we say we're Soviet citizens?",
     "enumeration": "5"
    },
-   "solution": "LETTS"
+   "solution": "LETTS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LETTS",
+    "definitions": [
+     {
+      "text": "Soviet citizens",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the phrase and listen to what it sounds like"
+     }
+    ],
+    "linkWords": [
+     "we're"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why don't we",
+      "gives": "LETTS",
+      "soundsLike": "LET'S",
+      "note": "let's is the contraction for a suggestion like why don't we"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about why people do not just admit to being Soviet citizens.",
+     "walkthrough": "In 1990 Latvia was still part of the Soviet Union, so its people counted as Soviet citizens.",
+     "definitionFit": "Letts are the people of Latvia, which was then one of the republics within the USSR."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +844,48 @@
     "text": "See show free of charge",
     "enumeration": "9"
    },
-   "solution": "VINDICATE"
+   "solution": "VINDICATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VINDICATE",
+    "definitions": [
+     {
+      "text": "free of charge",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "V",
+      "note": "v stands for vide, Latin for see, as in footnotes"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "INDICATE",
+      "note": "to indicate is to show or point out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "INDICATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An offer to watch a performance without paying for a ticket.",
+     "walkthrough": "'Free of charge' means without payment in the surface, but here it means cleared of an accusation.",
+     "definitionFit": "To vindicate someone is to clear them of blame or suspicion, freeing them from a criminal charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,10 +896,72 @@
    },
    "length": 8,
    "clue": {
-    "text": "Shrub has a protective pad round the bark S",
+    "text": "Shrub has a protective pad round the bark",
     "enumeration": "8"
    },
-   "solution": "TAMARIND"
+   "solution": "TAMARIND",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TAMARIND",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so these words are read backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "protective pad",
+      "gives": "MAT",
+      "note": "a mat protects a table or floor"
+     },
+     {
+      "clueFragment": "the bark",
+      "gives": "RIND",
+      "note": "rind is the bark of a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAMA",
+      "RIND"
+     ],
+     "reversals": [
+      {
+       "from": "AMAT",
+       "to": "TAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bush has padding wrapped around its trunk for protection.",
+     "walkthrough": "'Round' looks like a container signal wrapping the pad around the bark, but it only turns the first part back to front.",
+     "definitionFit": "The tamarind is a tropical tree grown for its pods, here loosely called a bushy plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +975,59 @@
     "text": "No sediment when disturbed is wet",
     "enumeration": "9"
    },
-   "solution": "MOISTENED"
+   "solution": "MOISTENED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOISTENED",
+    "definitions": [
+     {
+      "text": "wet",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when disturbed",
+      "for": "anagram",
+      "note": "anything disturbed is thrown out of its proper order, so these letters get mixed"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "O",
+      "note": "O, nought, stands for no amount at all"
+     },
+     {
+      "clueFragment": "sediment",
+      "gives": "SEDIMENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "O SEDIMENT",
+       "gives": "MOISTENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Water with no silt in it, when stirred up, is simply wet.",
+     "walkthrough": "The anagram is of O plus SEDIMENT; 'No' is not used whole, since its N would be one letter too many.",
+     "definitionFit": "Wet in the past participle, as in having wet something, means dampened, the same as moistened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1041,46 @@
     "text": "Quiet silver bird",
     "enumeration": "4"
    },
-   "solution": "SHAG"
+   "solution": "SHAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAG",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a quiet, silver-coloured bird.",
+     "definitionFit": "The shag is a seabird, a smaller relative of the cormorant found on rocky coasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,10 +1091,55 @@
    },
    "length": 9,
    "clue": {
-    "text": "It's thrust on some people, read Malvolio, the (bighead",
+    "text": "It's thrust on some people, read Malvolio, the bighead",
     "enumeration": "9"
    },
-   "solution": "GREATNESS"
+   "solution": "GREATNESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREATNESS",
+    "definitions": [
+     {
+      "text": "It's thrust on some people, read Malvolio",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "the",
+     "bighead"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big",
+      "gives": "GREAT",
+      "note": "great means big"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness or Sheerness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREAT",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A conceited Malvolio reads out a letter about what is thrust on some people.",
+     "walkthrough": "In Twelfth Night Malvolio reads 'some have greatness thrust upon 'em'; 'bighead' fits his vanity but splits into big and head.",
+     "definitionFit": "Shakespeare's line says some are born great, some achieve greatness and some have it thrust upon them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bighead"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1153,49 @@
     "text": "Generous applause given to a few people",
     "enumeration": "8"
    },
-   "solution": "HANDSOME"
+   "solution": "HANDSOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDSOME",
+    "definitions": [
+     {
+      "text": "Generous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "applause",
+      "gives": "HAND",
+      "note": "to give someone a hand is to applaud"
+     },
+     {
+      "clueFragment": "a few people",
+      "gives": "SOME",
+      "note": "some means a few"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A small audience gives a generous round of applause.",
+     "definitionFit": "A handsome sum or gift is a generous, ample one, a sense of the word beyond good looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Generous"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1215,51 @@
      }
     ]
    },
-   "solution": "PINTABLE"
+   "solution": "PINTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIN-TABLE",
+    "definitions": [
+     {
+      "text": "to provide amusement",
+      "at": 21,
+      "note": "loose: a pintable is a machine for providing amusement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "PINT",
+      "note": "a pint is a glass of beer"
+     },
+     {
+      "clueFragment": "the power",
+      "gives": "ABLE",
+      "note": "having the power to do something is being able"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink that has the power to cheer people up.",
+     "walkthrough": "A pintable is a pinball machine, the arcade game played in British pubs and amusement halls.",
+     "definitionFit": "A pintable, or pinball machine, is an arcade game whose whole purpose is entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1273,39 @@
     "text": "God of Peace?",
     "enumeration": "4"
    },
-   "solution": "ODIN"
+   "solution": "ODIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ODIN",
+    "definitions": [
+     {
+      "text": "God of Peace?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God of Peace?",
+      "note": "surface reading: the deity who looks after peace, like a Roman god"
+     },
+     {
+      "clueFragment": "Peace?",
+      "note": "setter's reading: peace is a ring for nothing followed by the word for noise, giving the god's name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "ODIN split as O DIN is nought noise, which is peace; yet Odin is a Norse war god, so the question mark flags the joke.",
+     "definitionFit": "Odin is the chief deity of Norse mythology, father of Thor and ruler of Asgard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Peace"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1319,47 @@
     "text": "In which we hear Gilbert's words of resignation",
     "enumeration": "8"
    },
-   "solution": "PATIENCE"
+   "solution": "PATIENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PATIENCE",
+    "definitions": [
+     {
+      "text": "In which we hear Gilbert's words",
+      "at": 0
+     },
+     {
+      "text": "resignation",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In which we hear Gilbert's words",
+      "note": "first meaning: a Gilbert and Sullivan operetta, with a libretto by W S Gilbert"
+     },
+     {
+      "clueFragment": "resignation",
+      "note": "second meaning: calm acceptance of what cannot be changed"
+     }
+    ],
+    "explanation": {
+     "surface": "Gilbert is heard announcing that he is quitting his job.",
+     "walkthrough": "'Words of resignation' looks like a resignation speech; resignation here is meek acceptance.",
+     "definitionFit": "Patience is an 1881 comic opera by Gilbert and Sullivan, and the word also means calm forbearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resignation"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1373,46 @@
     "text": "Information to put in the dock the squire's family",
     "enumeration": "6"
    },
-   "solution": "GENTRY"
+   "solution": "GENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENTRY",
+    "definitions": [
+     {
+      "text": "the squire's family",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "to put in the dock",
+      "gives": "TRY",
+      "note": "a defendant in the dock is being tried"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Evidence that could put the squire's relatives on trial.",
+     "definitionFit": "The gentry are the landed class below the nobility, the social rank of country squires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,10 +1423,50 @@
    },
    "length": 6,
    "clue": {
-    "text": "Suck to the grass",
+    "text": "Stick to the grass",
     "enumeration": "6"
    },
-   "solution": "FESCUE"
+   "solution": "FESCUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FESCUE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     },
+     {
+      "text": "the grass",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "note": "first meaning: a pointer used to show children letters when teaching reading"
+     },
+     {
+      "clueFragment": "the grass",
+      "note": "second meaning: a fine-leaved meadow and lawn plant"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to keep to the lawn.",
+     "walkthrough": "'Stick to' reads as stay on, but stick is a noun: a teacher's pointer.",
+     "definitionFit": "Fescue is a genus of tufted grasses, and the word is also an old name for a teacher's pointer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1486,39 @@
      }
     ]
    },
-   "solution": "BITTEREND"
+   "solution": "BITTEREND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BITTER END",
+    "definitions": [
+     {
+      "text": "The last dregs of an unpalatable pint?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The last dregs of an unpalatable pint?",
+      "note": "surface reading: the sour leftovers at the bottom of a nasty glass of beer"
+     },
+     {
+      "clueFragment": "unpalatable pint",
+      "note": "setter's reading: a pint of the English beer style named for its sharp taste, and its final part"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bitter is a British pale ale; the end of a pint of it is the BITTER END, the phrase for the very last point.",
+     "definitionFit": "To the bitter end means continuing right to the final conclusion, however unpleasant it becomes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unpalatable"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1532,65 @@
     "text": "Suit - it takes a few weeks to come up with",
     "enumeration": "5"
    },
-   "solution": "BEFIT"
+   "solution": "BEFIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BEFIT",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to come up",
+      "for": "reversal",
+      "note": "in a down answer, coming up means rising from the bottom, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a few weeks",
+      "gives": "FEB",
+      "note": "Feb is February, a month of a few weeks"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEF",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "FEB",
+       "to": "BEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It takes weeks to make a tailored suit.",
+     "walkthrough": "'Suit' looks like the tailored garment, but it is the verb, to be right for.",
+     "definitionFit": "To befit something is to be appropriate or suitable for it, as to suit means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suit"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1604,49 @@
     "text": "Square account of dead man's life in holy book",
     "enumeration": "5"
    },
-   "solution": "TOBIT"
+   "solution": "TOBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOBIT",
+    "definitions": [
+     {
+      "text": "holy book",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Square",
+      "gives": "T",
+      "note": "a T-square is a drawing instrument, so T can mean square"
+     },
+     {
+      "clueFragment": "account of dead man's life",
+      "gives": "OBIT",
+      "note": "an obit, short for obituary, is a newspaper account of someone's life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OBIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman reads a fair account of a dead man's life in the Bible.",
+     "definitionFit": "Tobit is a book of the Apocrypha, included in Catholic and Orthodox Bibles as scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1660,48 @@
     "text": "Brooke's said to be a poet",
     "enumeration": "5"
    },
-   "solution": "BURNS"
+   "solution": "BURNS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BURNS",
+    "definitions": [
+     {
+      "text": "a poet",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said tells us to listen to how the name is pronounced"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brooke's",
+      "gives": "BURNS",
+      "soundsLike": "BROOKS",
+      "note": "brooks are small streams"
+     }
+    ],
+    "explanation": {
+     "surface": "Rupert Brooke is said to have been a poet.",
+     "walkthrough": "Spoken aloud, Brooke's is brooks, and a burn is the Scots word for a brook; Robert Burns is Scotland's national poet.",
+     "definitionFit": "Robert Burns, author of Auld Lang Syne, is the best-known poet in the Scots language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brooke's"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,10 +1712,57 @@
    },
    "length": 7,
    "clue": {
-    "text": "Zealot produces cant it a revolutionary",
+    "text": "Zealot produces cant if a revolutionary",
     "enumeration": "7"
    },
-   "solution": "FANATIC"
+   "solution": "FANATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FANATIC",
+    "definitions": [
+     {
+      "text": "Zealot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolutionary overturns the existing order, so these letters are turned over into a new one"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cant if a",
+      "gives": "CANTIFA",
+      "note": "all the letters of the three words are used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANTIFA",
+       "gives": "FANATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An extremist spouts hypocritical jargon if he is a political rebel.",
+     "walkthrough": "'Revolutionary' sounds like a second zealot, but it only tells you to rearrange CANT IF A.",
+     "definitionFit": "A zealot is someone with an extreme, uncompromising devotion to a cause, which is what a fanatic is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1776,50 @@
     "text": "House on island is too big to be kept up",
     "enumeration": "7"
    },
-   "solution": "OSBORNE"
+   "solution": "OSBORNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSBORNE",
+    "definitions": [
+     {
+      "text": "House on island",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too big",
+      "gives": "OS",
+      "note": "OS is short for outsize, a clothing size for the larger figure"
+     },
+     {
+      "clueFragment": "to be kept up",
+      "gives": "BORNE",
+      "note": "something borne is held up or carried"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "BORNE"
+     ]
+    },
+    "explanation": {
+     "surface": "A mansion on an island is too large to maintain.",
+     "walkthrough": "Osborne House, on the Isle of Wight, was Queen Victoria's seaside home.",
+     "definitionFit": "Osborne House is the royal residence built for Queen Victoria on the Isle of Wight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1833,55 @@
     "text": "In trifle, divine alcohol",
     "enumeration": "5"
    },
-   "solution": "TODDY"
+   "solution": "TODDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TODDY",
+    "definitions": [
+     {
+      "text": "alcohol",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in tells us one part sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trifle",
+      "gives": "TOY",
+      "note": "to toy with is to trifle with"
+     },
+     {
+      "clueFragment": "divine",
+      "gives": "DD",
+      "note": "DD is Doctor of Divinity, so a divine or clergyman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "DD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert of sponge and custard tastes wonderfully of booze.",
+     "walkthrough": "Trifle is a British pudding in the surface; here it is a verb. Divine looks like an adjective but is the noun, a clergyman.",
+     "definitionFit": "A toddy is a hot drink of spirits, usually whisky, mixed with sugar and water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "divine"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1895,60 @@
     "text": "Before the middle of Test, teams get refreshments",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELEVENSES",
+    "definitions": [
+     {
+      "text": "refreshments",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word keeps only its central letters"
+     }
+    ],
+    "linkWords": [
+     "Before",
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teams",
+      "gives": "ELEVENS",
+      "note": "a cricket or football team is an eleven"
+     },
+     {
+      "clueFragment": "Test",
+      "gives": "ES",
+      "select": "middle",
+      "note": "the two central letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEVENS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Cricketers take refreshments before halfway through a Test match.",
+     "walkthrough": "A Test is an international cricket match; elevenses is a British mid-morning snack, taken around eleven o'clock.",
+     "definitionFit": "Elevenses is a light snack and drink taken in the middle of the morning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Test"
+    }
+   }
   }
  ]
 }
