@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Dicky Roe, natty lawyer",
     "enumeration": "8"
    },
-   "solution": "ATTORNEY"
+   "solution": "ATTORNEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATTORNEY",
+    "definitions": [
+     {
+      "text": "lawyer",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for shaky or unsound, so the letters that follow are in poor order and must be rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roe",
+      "gives": "ROE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "natty",
+      "gives": "NATTY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROENATTY",
+       "gives": "ATTORNEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smartly dressed lawyer named Dicky Roe, introduced like a character in a story.",
+     "walkthrough": "Dicky reads as a first name, but it is the slang word for wobbly or unreliable, telling you to rearrange the next two words.",
+     "definitionFit": "An attorney is a legal professional acting for clients, the American term for a solicitor or barrister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,53 @@
     "text": "Chap returns letters",
     "enumeration": "4"
    },
-   "solution": "MAIL"
+   "solution": "MAIL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MAIL",
+    "definitions": [
+     {
+      "text": "letters",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns comes back the way it went, so the name is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "LIAM",
+      "note": "a chap is a man, here a man's name, Liam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIAM",
+       "to": "MAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man sends some correspondence back to its sender.",
+     "definitionFit": "Mail is the collective word for letters and parcels delivered by the post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +159,60 @@
     "text": "After operation I took analgesic",
     "enumeration": "6"
    },
-   "solution": "OPIATE"
+   "solution": "OPIATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPIATE",
+    "definitions": [
+     {
+      "text": "analgesic",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the surgical abbreviation in front, with the rest following it in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "OP is the standard short form of operation"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "took",
+      "gives": "ATE",
+      "note": "to take food is to eat it, past tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient recalls taking a painkiller after surgery.",
+     "walkthrough": "Took is read in its eating sense, as in took dinner.",
+     "definitionFit": "Opiates such as morphine are powerful painkilling drugs derived from opium, so they serve as analgesics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +226,72 @@
     "text": "Classless editor, previously a bit radical and ungentlemanly",
     "enumeration": "8"
    },
-   "solution": "UNGRADED"
+   "solution": "UNGRADED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNGRADED",
+    "definitions": [
+     {
+      "text": "Classless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "letter_selection",
+      "note": "a bit means only a small opening portion of each following word is used"
+     },
+     {
+      "text": "previously",
+      "for": "charade",
+      "note": "previously says the selected portions come before the abbreviation for editor"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ungentlemanly",
+      "gives": "UNG",
+      "select": "first",
+      "note": "the opening three letters of this word"
+     },
+     {
+      "clueFragment": "radical",
+      "gives": "RAD",
+      "select": "first",
+      "note": "the opening three letters of this word"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the usual abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNG",
+      "RAD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor described as a classless, slightly radical and rather boorish man.",
+     "walkthrough": "The bits are taken in reverse of clue order: the start of ungentlemanly, then of radical, then ED, giving UNGRADED.",
+     "definitionFit": "Something ungraded has not been sorted into classes or grades, so it is literally without class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Classless"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +305,59 @@
     "text": "Medley of Berg and Mingus is overwhelming!",
     "enumeration": "10"
    },
-   "solution": "SUBMERGING"
+   "solution": "SUBMERGING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBMERGING",
+    "definitions": [
+     {
+      "text": "overwhelming",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Medley of",
+      "for": "anagram",
+      "note": "a medley jumbles pieces together, so the composers' names are mixed into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Berg",
+      "gives": "BERG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mingus",
+      "gives": "MINGUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BERGMINGUS",
+       "gives": "SUBMERGING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical medley combining Alban Berg and jazz bassist Charles Mingus is an overwhelming experience.",
+     "walkthrough": "Medley sounds musical, which suits the two composers, but it is the mixing signal.",
+     "definitionFit": "Submerging means flooding or swamping something completely, which is what overwhelming does in its literal watery sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Medley"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +371,53 @@
     "text": "Clergyman concealing new gun",
     "enumeration": "6"
    },
-   "solution": "CANNON"
+   "solution": "CANNON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANNON",
+    "definitions": [
+     {
+      "text": "gun",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "concealing means the churchman holds the next letter hidden within him"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "CANON",
+      "note": "a canon is a clergyman attached to a cathedral"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "N",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest secretly carrying a brand-new firearm.",
+     "definitionFit": "A cannon is a large heavy gun, typically mounted on wheels or a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +431,47 @@
     "text": "Son caught short",
     "enumeration": "8"
    },
-   "solution": "STRAPPED"
+   "solution": "STRAPPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAPPED",
+    "definitions": [
+     {
+      "text": "short",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "TRAPPED",
+      "note": "caught as in snared"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy is caught out while short of something.",
+     "walkthrough": "Short here means short of cash, not small in height.",
+     "definitionFit": "Strapped is informal for lacking money, as in strapped for cash, which is being financially short."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +485,66 @@
     "text": "Terribly snide about good intention",
     "enumeration": "6"
    },
-   "solution": "DESIGN"
+   "solution": "DESIGN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DESIGN",
+    "definitions": [
+     {
+      "text": "intention",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "terribly suggests something done badly, so the letters of the unkind word are thrown out of order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the rearranged letters go around the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snide",
+      "gives": "SNIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESI",
+      "G",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SNIDE",
+       "gives": "DESIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneering remark made about someone's good intentions.",
+     "definitionFit": "A design is a plan or purpose held in mind, as in having designs on something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Terribly"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +558,56 @@
     "text": "Lauren is upset and nervous",
     "enumeration": "6"
    },
-   "solution": "NEURAL"
+   "solution": "NEURAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEURAL",
+    "definitions": [
+     {
+      "text": "nervous",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "to upset something is to knock it over, so the woman's name is overturned into a new order"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lauren",
+      "gives": "LAUREN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAUREN",
+       "gives": "NEURAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Lauren is distressed and anxious.",
+     "walkthrough": "Nervous looks like anxious, but here it means relating to nerves.",
+     "definitionFit": "Neural means relating to the nerves or nervous system, the technical sense of nervous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nervous"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +621,54 @@
     "text": "Run away from bizarre toy",
     "enumeration": "4"
    },
-   "solution": "DOLL"
+   "solution": "DOLL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DOLL",
+    "definitions": [
+     {
+      "text": "toy",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "running away from a word means the letter for run leaves it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     },
+     {
+      "clueFragment": "bizarre",
+      "gives": "DROLL",
+      "note": "droll means oddly amusing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OLL"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to flee from a strange plaything.",
+     "walkthrough": "DROLL loses its R to leave DOLL.",
+     "definitionFit": "A doll is a small model of a person that children play with, a classic toy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +682,51 @@
     "text": "Doctor starts me on mixture",
     "enumeration": "10"
    },
-   "solution": "ASSORTMENT"
+   "solution": "ASSORTMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSORTMENT",
+    "definitions": [
+     {
+      "text": "mixture",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the following letters are falsified into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starts me on",
+      "gives": "STARTSMEON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARTSMEON",
+       "gives": "ASSORTMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient says the doctor has put them on a medicinal mixture.",
+     "walkthrough": "Doctor looks like the noun for a physician, but it is the verb meaning tamper with.",
+     "definitionFit": "An assortment is a varied collection of different things, a mixed selection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +740,60 @@
     "text": "Urge Italy to confront new Fascist leader",
     "enumeration": "6"
    },
-   "solution": "INDUCE"
+   "solution": "INDUCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDUCE",
+    "definitions": [
+     {
+      "text": "Urge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to confront",
+      "for": "charade",
+      "note": "to confront is to stand face to face in front, so the country's code goes before the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "Fascist leader",
+      "gives": "DUCE",
+      "note": "Il Duce was the title of Mussolini, Italy's Fascist dictator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "DUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A call for Italy to stand up to a new Fascist dictator.",
+     "walkthrough": "Fascist leader looks like a first-letter instruction, but it means Mussolini's title.",
+     "definitionFit": "To induce is to persuade or prevail upon someone to act, a close synonym of urging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +807,64 @@
     "text": "Raised laughs about promise to pay: it's very funny!",
     "enumeration": "10"
    },
-   "solution": "UPROARIOUS"
+   "solution": "UPROARIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UPROARIOUS",
+    "definitions": [
+     {
+      "text": "very funny",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the guffaws wrap around the written promise"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raised",
+      "gives": "UP",
+      "note": "raised means up, as in the blinds are up"
+     },
+     {
+      "clueFragment": "laughs",
+      "gives": "ROARS",
+      "note": "roars of laughter"
+     },
+     {
+      "clueFragment": "promise to pay",
+      "gives": "IOU",
+      "note": "an IOU is a written acknowledgement of debt, short for I owe you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "ROAR",
+      "IOU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a debt note hilarious and laughs out loud.",
+     "definitionFit": "Uproarious describes something so hilarious it provokes loud, unrestrained laughter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +878,55 @@
     "text": "German girl and French boy, rushing headlong to disaster",
     "enumeration": "8"
    },
-   "solution": "GADARENE"
+   "solution": "GADARENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GADARENE",
+    "definitions": [
+     {
+      "text": "rushing headlong to disaster",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard abbreviation for German"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ADA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "French boy",
+      "gives": "RENE",
+      "note": "a typical French boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ADA",
+      "RENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A German girl and a French boy, apparently eloping recklessly towards ruin.",
+     "walkthrough": "The word comes from the Gospel story of the Gadarene swine, possessed by demons, which rushed down a slope into the sea.",
+     "definitionFit": "Gadarene describes headlong, mass movement towards catastrophe, after the biblical pigs that stampeded to their drowning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +940,62 @@
     "text": "Police HQ starts to investigate elusive Jamaican criminal",
     "enumeration": "6"
    },
-   "solution": "YARDIE"
+   "solution": "YARDIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "YARDIE",
+    "definitions": [
+     {
+      "text": "Jamaican criminal",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each of the two words after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police HQ",
+      "gives": "YARD",
+      "note": "the Yard is Scotland Yard, London's Metropolitan Police headquarters"
+     },
+     {
+      "clueFragment": "investigate",
+      "gives": "I",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "elusive",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARD",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives at headquarters begin investigating a slippery Jamaican gangster.",
+     "walkthrough": "Elusive reads as part of the description of the criminal, but it only supplies its first letter.",
+     "definitionFit": "A Yardie is a member of a Jamaican or Jamaican-British criminal gang, named from Jamaican slang for home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +1009,45 @@
     "text": "Had in mind a fiance",
     "enumeration": "8"
    },
-   "solution": "INTENDED"
+   "solution": "INTENDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENDED",
+    "definitions": [
+     {
+      "text": "Had in mind",
+      "at": 0
+     },
+     {
+      "text": "fiance",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had in mind",
+      "note": "first meaning: planned or meant"
+     },
+     {
+      "clueFragment": "fiance",
+      "note": "second meaning: the person one is engaged to"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as one phrase it suggests thinking of a future husband; the two parts are separate meanings.",
+     "definitionFit": "The word is the past tense of mean to do, and also a noun for a betrothed partner, as in my intended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1061,56 @@
     "text": "Rather curious, extremely old plate",
     "enumeration": "6"
    },
-   "solution": "ODDISH"
+   "solution": "ODDISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ODDISH",
+    "definitions": [
+     {
+      "text": "Rather curious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremities, the first and last letters of the word after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "OD",
+      "select": "outer",
+      "note": "the two end letters"
+     },
+     {
+      "clueFragment": "plate",
+      "gives": "DISH",
+      "note": "a dish is a plate for serving food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "DISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks that an ancient plate is a bit of a curiosity.",
+     "walkthrough": "Extremely looks like it intensifies old, but it asks for that word's ends.",
+     "definitionFit": "The suffix -ish softens odd, so oddish means somewhat strange or peculiar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1124,42 @@
     "text": "Decapitated missing leader",
     "enumeration": "8"
    },
-   "solution": "HEADLESS"
+   "solution": "HEADLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEADLESS",
+    "definitions": [
+     {
+      "text": "Decapitated",
+      "at": 0
+     },
+     {
+      "text": "missing leader",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decapitated",
+      "note": "first meaning: with the head cut off"
+     },
+     {
+      "clueFragment": "missing leader",
+      "note": "second meaning: lacking a chief, figuratively without a boss"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is the literal loss of a head; the second is an organisation with nobody in charge.",
+     "definitionFit": "The word describes a body without its head and an organisation without its chief person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1173,57 @@
     "text": "Start to reconstruct stomach and part of the alimentary canal",
     "enumeration": "6"
    },
-   "solution": "RECTUM"
+   "solution": "RECTUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RECTUM",
+    "definitions": [
+     {
+      "text": "part of the alimentary canal",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening, here its first three letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reconstruct",
+      "gives": "REC",
+      "select": "first",
+      "note": "the opening three letters"
+     },
+     {
+      "clueFragment": "stomach",
+      "gives": "TUM",
+      "note": "tum is a childish word for stomach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "TUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon is about to rebuild a patient's stomach and gut.",
+     "definitionFit": "The rectum is the final section of the large intestine, the end of the digestive tract."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1237,58 @@
     "text": "English male going to Sussex town to prepare for war",
     "enumeration": "8"
    },
-   "solution": "EMBATTLE"
+   "solution": "EMBATTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBATTLE",
+    "definitions": [
+     {
+      "text": "prepare for war",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going to",
+      "for": "charade",
+      "note": "going to means the first parts move on and are followed by the town's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "Sussex town",
+      "gives": "BATTLE",
+      "note": "Battle is a town in East Sussex, site of the 1066 Battle of Hastings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "BATTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman travels to a Sussex town to get ready for fighting.",
+     "definitionFit": "To embattle is to draw up troops or fortify a place ready for combat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1302,43 @@
     "text": "Girl heard someone grumbling",
     "enumeration": "6"
    },
-   "solution": "MOANER"
+   "solution": "MOANER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MOANER",
+    "definitions": [
+     {
+      "text": "someone grumbling",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means the girl's name is spoken rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "MOANER",
+      "soundsLike": "MONA",
+      "note": "a girl's name, which in a non-rhotic British accent sounds like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl is overheard complaining.",
+     "walkthrough": "The homophone relies on a British accent that drops the final r.",
+     "definitionFit": "A moaner is a person who constantly complains, so the word names someone grumbling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1352,45 @@
     "text": "Closely follow mother's beliefs",
     "enumeration": "6"
    },
-   "solution": "DOGMAS"
+   "solution": "DOGMAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOGMAS",
+    "definitions": [
+     {
+      "text": "beliefs",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Closely follow",
+      "gives": "DOG",
+      "note": "to dog someone is to tail them"
+     },
+     {
+      "clueFragment": "mother's",
+      "gives": "MAS",
+      "note": "ma is mother, with the possessive s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "MAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A child is told to stick closely to their mother's convictions.",
+     "definitionFit": "Dogmas are firmly held doctrines or principles laid down as true, so they are beliefs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1404,41 @@
     "text": "Dismal part of neglected rear yard",
     "enumeration": "6"
    },
-   "solution": "DREARY"
+   "solution": "DREARY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DREARY",
+    "definitions": [
+     {
+      "text": "Dismal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of says the letters run inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neglected rear yard",
+      "gives": "DREARY",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A dismal patch of an overgrown back garden.",
+     "definitionFit": "Dreary means dull, gloomy and depressing, a straightforward synonym of dismal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1452,66 @@
     "text": "\"Terminator\" almost entirely destroyed oriental puppet",
     "enumeration": "10"
    },
-   "solution": "MARIONETTE"
+   "solution": "MARIONETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "anagram"
+    ],
+    "answer": "MARIONETTE",
+    "definitions": [
+     {
+      "text": "puppet",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost entirely",
+      "for": "deletion",
+      "note": "almost entirely means all but the final letter of the film title is used"
+     },
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "destroyed means the letters are wrecked and rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"Terminator\"",
+      "gives": "TERMINATOR",
+      "note": "the film title, taken as written"
+     },
+     {
+      "clueFragment": "oriental",
+      "gives": "E",
+      "note": "E is eastern, and oriental means eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARIONETTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TERMINATOE",
+       "gives": "MARIONETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Terminator robot nearly wrecked an Asian puppet.",
+     "walkthrough": "TERMINATO, dropping the last R, plus E are rearranged.",
+     "definitionFit": "A marionette is a puppet worked from above by strings attached to its limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oriental"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1525,41 @@
     "text": "Summon some local luminaries",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CALL",
+    "definitions": [
+     {
+      "text": "Summon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local luminaries",
+      "gives": "CALL",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to gather a few neighbourhood worthies.",
+     "definitionFit": "To call someone is to summon them, ordering or asking them to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1573,48 @@
     "text": "Colonel has a drink",
     "enumeration": "4"
    },
-   "solution": "COLA"
+   "solution": "COLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colonel",
+      "gives": "COL",
+      "note": "COL is the military abbreviation for colonel"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An army officer is having a drink.",
+     "definitionFit": "Cola is a sweet fizzy soft drink flavoured originally with kola nut extract."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1628,41 @@
     "text": "Recommence summary",
     "enumeration": "6"
    },
-   "solution": "RESUME"
+   "solution": "RESUME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESUME",
+    "definitions": [
+     {
+      "text": "Recommence",
+      "at": 0
+     },
+     {
+      "text": "summary",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recommence",
+      "note": "first meaning: to start again after a pause"
+     },
+     {
+      "clueFragment": "summary",
+      "note": "second meaning: a brief account, from the French résumé"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two senses are spelled the same in English crosswords, ignoring the French accents.",
+     "definitionFit": "As a verb it means carry on after a break; as a noun it is a short outline of something longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1676,50 @@
     "text": "Altruism unsettled painter",
     "enumeration": "8"
    },
-   "solution": "MURALIST"
+   "solution": "MURALIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MURALIST",
+    "definitions": [
+     {
+      "text": "painter",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsettled",
+      "for": "anagram",
+      "note": "unsettled means disturbed from its position, so the word's letters are shifted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Altruism",
+      "gives": "ALTRUISM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTRUISM",
+       "gives": "MURALIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's selflessness has been shaken.",
+     "definitionFit": "A muralist is an artist who paints murals, large pictures applied directly to walls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unsettled"
+    }
+   }
   }
  ]
 }
