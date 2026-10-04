@@ -27,26 +27,23 @@ plainly gives another word, set `answer` to that word. The check accepts it only
 it agrees with every crossing and printed answer; correct a crossing `(MODEL)`
 answer the same way if its clue gives that letter.
 
-The clue text is the source's, with one exception. When the puzzle's
+The clue text is the source's, with one exception. When your copy's
 `source.retrievedFrom` is `newspaper` or `book`, its clues are OCR of a scan, and a
 letter can be misread ("judge" for "fudge"). When the answer and wordplay need a word
-a letter or two from the one shown, add the printed clue as one new line of
-`tools/data/source_clue_wrong.json` (a flat JSON object, one row per line, keys
-sorted; put the new line where its key sorts, with a comma after it unless it is last):
-`"<ID>/<entry id>": ["<clue as shown>", "<clue as printed, no count>", "OCR misread: <what the wordplay or answer needs>"]`.
-The check applies it, and refuses it if more than 3 letters change. A clue that is
+a letter or two from the one shown, give that entry
+`"printedClue": ["<clue as printed, no count>", "OCR misread: <what the wordplay or answer needs>"]`;
+the check files it and refuses it if more than 3 letters change. A clue that is
 missing, or shown on two lights, is lost, not misread: make that entry `null`.
 
 A clue the source shows exactly as printed whose anagram still cannot give the
 answer is the setter's slip: annotate it as printed, say what is wrong in its
-`explanation.walkthrough`, and file it in `tools/data/setter_error.json` (same layout):
-`"<ID>/<entry id>": ["<fodder words as printed>", "<answer letters>", "<evidence>"]`.
+`explanation.walkthrough`, and give the entry
+`"setterError": ["<fodder words as printed>", "<answer letters>", "<evidence>"]`.
 
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
-for any clue that looks cut short, garbled or wrong for its answer, and file the
-clue exactly as the page prints it, evidence `"Scan reads: <what the page shows>"`.
-A clue read off the scan may differ by any number of letters. A clue shown blank that
-the scan prints is filed the same way, with `""` as the clue as shown.
+for any clue that looks cut short, garbled, blank or wrong for its answer, and give
+the entry `printedClue` as the page prints it, evidence `"Scan reads: <what the page shows>"`;
+a clue read off the scan may differ by any number of letters.
 
 ## Order of work
 
