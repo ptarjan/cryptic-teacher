@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,69 @@
     "text": "Missing article - Greek vase, first century: it could have been mothballed",
     "enumeration": "7"
    },
-   "solution": "CAMPHOR"
+   "solution": "CAMPHOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAMPHOR",
+    "definitions": [
+     {
+      "text": "it could have been mothballed",
+      "at": 45,
+      "note": "a clause describing the substance rather than a bare noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word century"
+     },
+     {
+      "text": "Missing article",
+      "for": "deletion",
+      "note": "an article is a word like a or the, and missing says it has been dropped from the vase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "century",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of century"
+     },
+     {
+      "clueFragment": "Greek vase",
+      "gives": "AMPHORA",
+      "note": "a two-handled jar of ancient Greece"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article, here dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AMPHOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A museum label notes an ancient Greek vase gone missing, perhaps packed away in storage.",
+     "walkthrough": "The clue reads backwards to the build: C first, then AMPHORA without its final A. 'Mothballed' looks like storage jargon but is literal.",
+     "definitionFit": "Mothballs were traditionally made from this aromatic waxy compound, so it is something that could have kept clothes protected from moths."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mothballed"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +112,54 @@
     "text": "Apt clue, maybe, for feuding family",
     "enumeration": "7"
    },
-   "solution": "CAPULET"
+   "solution": "CAPULET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAPULET",
+    "definitions": [
+     {
+      "text": "feuding family",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe hints that the preceding words could be arranged some other way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apt clue",
+      "gives": "APTCLUE",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APTCLUE",
+       "gives": "CAPULET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter boasts that this is a fitting clue for a family locked in a feud.",
+     "walkthrough": "The clue talks about itself: 'Apt clue' is both the boast and the letters to rearrange into CAPULET.",
+     "definitionFit": "Juliet's household in Shakespeare's Romeo and Juliet are at bitter war with the Montagues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Apt"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +179,75 @@
      }
     ]
    },
-   "solution": "MANICDEPRESSIVE"
+   "solution": "MANICDEPRESSIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MANIC DEPRESSIVE",
+    "definitions": [
+     {
+      "text": "has his ups and downs",
+      "at": 58,
+      "note": "a clause describing the person rather than a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the English newspapers inside the word for a downward movement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "the standard abbreviation i/c"
+     },
+     {
+      "clueFragment": "downward movement",
+      "gives": "DIVE",
+      "note": "a plunge downwards, the outer piece"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "newspapers",
+      "gives": "PRESS",
+      "note": "the press, collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "IC",
+      "D",
+      "EPRESS",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper boss in a falling market finds his fortunes swinging up and down.",
+     "walkthrough": "'Ups and downs' sounds like business cycles but describes mood swings; i/c is the usual abbreviation for in charge.",
+     "definitionFit": "Someone with this condition, now usually called bipolar disorder, swings between elated highs and despairing lows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "downward"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +267,63 @@
      }
     ]
    },
-   "solution": "HALFTRUTH"
+   "solution": "HALFTRUTH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HALF TRUTH",
+    "definitions": [
+     {
+      "text": "is not altogether correct",
+      "at": 37,
+      "note": "a verb phrase; the answer is a statement that is only partly true"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interruption to",
+      "for": "container",
+      "note": "an interruption breaks into something, so the loud letter goes inside the word for stop"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "HALT",
+      "note": "to halt is to stop; the outer piece"
+     },
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f, forte, the musical mark for loud"
+     },
+     {
+      "clueFragment": "compassion",
+      "gives": "RUTH",
+      "note": "an old word for pity, as in ruthless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "F",
+      "T",
+      "RUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shouts to cut off a show of compassion, which turns out to be not quite right.",
+     "walkthrough": "Ruth, meaning pity, survives mainly in 'ruthless'; f is the musical mark forte.",
+     "definitionFit": "A half truth is a statement containing only part of the truth, so it is accurate in some respects but misleading overall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Loud"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +337,61 @@
     "text": "Rising of the people or of the crown",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROYAL",
+    "definitions": [
+     {
+      "text": "of the crown",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down entry rising means the letters are read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the people",
+      "gives": "LAY",
+      "note": "lay means belonging to ordinary people rather than clergy or experts"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "YAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAYOR",
+       "to": "ROYAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular uprising is set against the crown, the people versus the monarch.",
+     "walkthrough": "LAY OR, read upwards, becomes ROYAL. 'Rising' looks like a revolt, which suits the people-or-crown picture.",
+     "definitionFit": "Royal means belonging to the monarch, and the crown is the usual shorthand for monarchy itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rising"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +405,52 @@
     "text": "Trophy for railway used in theatre",
     "enumeration": "7"
    },
-   "solution": "SCALPEL"
+   "solution": "SCALPEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCALPEL",
+    "definitions": [
+     {
+      "text": "used in theatre",
+      "at": 19,
+      "note": "a description of the thing rather than a noun"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trophy",
+      "gives": "SCALP",
+      "note": "a scalp taken as a trophy of victory"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "EL",
+      "note": "el is the American word for an elevated railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCALP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway company wins an award that it then displays in a playhouse.",
+     "walkthrough": "'Theatre' suggests a stage, but it is the operating theatre, where surgeons work.",
+     "definitionFit": "A surgeon's small sharp knife is a basic instrument in the operating theatre of a hospital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +464,61 @@
     "text": "Muscle inclined to pinch with rest - stopped up",
     "enumeration": "9"
    },
-   "solution": "SPHINCTER"
+   "solution": "SPHINCTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPHINCTER",
+    "definitions": [
+     {
+      "text": "Muscle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inclined",
+      "for": "anagram",
+      "note": "inclined means tilted out of line, so the letters that follow are knocked out of order"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with",
+     "stopped up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pinch",
+      "gives": "PINCH",
+      "note": "first part of the letters to rearrange"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "second part of the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINCHREST",
+       "gives": "SPHINCTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muscle tends to clench and relax in turn, leaving a passage closed.",
+     "walkthrough": "'Stopped up' adds to the definition rather than the wordplay: this ring of muscle closes an opening, and it does indeed pinch.",
+     "definitionFit": "A sphincter is a ring-shaped muscle that contracts to close a bodily opening or passage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inclined"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +538,49 @@
      }
     ]
    },
-   "solution": "ABOVO"
+   "solution": "ABOVO",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "AB OVO",
+    "definitions": [
+     {
+      "text": "Originally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with new end",
+      "for": "substitution",
+      "note": "a new end means the last letter is swapped out for a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on top",
+      "gives": "ABOVE",
+      "note": "above means on top of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOV",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Something original is placed uppermost and given a fresh finish.",
+     "walkthrough": "ABOVE has its final E replaced by O, giving AB OVO; the new end is an O, the shape of an egg, which fits a Latin phrase meaning from the egg.",
+     "definitionFit": "The Latin phrase means from the egg, that is from the very beginning, so it is used for going back to origins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +600,52 @@
      }
     ]
    },
-   "solution": "PROCESSEDCHEESE"
+   "solution": "PROCESSEDCHEESE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROCESSED CHEESE",
+    "definitions": [
+     {
+      "text": "treated food",
+      "at": 53
+     }
+    ],
+    "linkWords": [
+     "in front of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walked solemnly",
+      "gives": "PROCESSED",
+      "note": "to process is to walk in a procession"
+     },
+     {
+      "clueFragment": "important personage",
+      "gives": "CHEESE",
+      "note": "a big cheese is an important person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROCESSED",
+      "CHEESE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dignitary leads a solemn parade while carrying some prepared dish.",
+     "walkthrough": "Process with the stress on the second syllable means to walk in procession, which is the sense needed here.",
+     "definitionFit": "Processed cheese is cheese that has been industrially treated, blended and emulsified, a manufactured food product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "personage"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +659,64 @@
     "text": "Gamble with fate - have a go at keeping direction",
     "enumeration": "7"
    },
-   "solution": "LOTTERY"
+   "solution": "LOTTERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOTTERY",
+    "definitions": [
+     {
+      "text": "Gamble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding something within, so the direction goes inside the attempt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fate",
+      "gives": "LOT",
+      "note": "one's lot is one's fate"
+     },
+     {
+      "clueFragment": "have a go",
+      "gives": "TRY",
+      "note": "to try is to have a go"
+     },
+     {
+      "clueFragment": "direction",
+      "gives": "E",
+      "note": "east, a compass direction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOT",
+      "T",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A daring person takes a chance with destiny and tries their luck while staying on course.",
+     "walkthrough": "Direction is one of the four compass points, here east.",
+     "definitionFit": "A lottery is a game of chance where prizes go by random draw, so entering one is a gamble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +736,77 @@
      }
     ]
    },
-   "solution": "PENALTYSHOOTOUT"
+   "solution": "PENALTYSHOOTOUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "PENALTY SHOOTOUT",
+    "definitions": [
+     {
+      "text": "Decider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reactionary",
+      "for": "reversal",
+      "note": "a reactionary wants to go back, so the word too is read in the opposite direction"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the cry goes around the other piece"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "PENALTY",
+      "note": "a fine is a monetary penalty"
+     },
+     {
+      "clueFragment": "cry",
+      "gives": "SHOUT",
+      "note": "to cry out is to shout; the outer piece"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "OOT",
+      "note": "the word written backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PENALTY",
+      "SH",
+      "OOT",
+      "OUT"
+     ],
+     "reversals": [
+      {
+       "from": "TOO",
+       "to": "OOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that a fine is too backward-looking to be worth shouting about.",
+     "walkthrough": "'Fine' looks like approval but is the punishment, and 'reactionary' turns only the word too.",
+     "definitionFit": "A drawn football or hockey match can be settled by a series of spot kicks, the tiebreaker that decides the winner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 10,
@@ -217,7 +820,53 @@
     "text": "Student I quoted OK?",
     "enumeration": "5"
    },
-   "solution": "LICIT"
+   "solution": "LICIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LICIT",
+    "definitions": [
+     {
+      "text": "OK",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quoted",
+      "gives": "CIT",
+      "note": "cit. is the abbreviation for cited, used in references"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "CIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A student asks whether it is acceptable to have quoted from a source.",
+     "walkthrough": "The surface is a worry about plagiarism; L is the learner plate on British cars, and cit. is the scholarly shorthand for cited.",
+     "definitionFit": "Licit means allowed or lawful, so something licit is permitted and acceptable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quoted"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +886,72 @@
      }
     ]
    },
-   "solution": "LONDONEYE"
+   "solution": "LONDONEYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "LONDON EYE",
+    "definitions": [
+     {
+      "text": "Wheel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is only its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the word for solitary"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solitary",
+      "gives": "LONE",
+      "note": "alone, the outer piece"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "DONE",
+      "note": "finished means done"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DONE",
+      "Y",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentence of solitary confinement ends just before the new year begins.",
+     "walkthrough": "'Solitary' suggests a prison cell; the answer is the giant observation wheel on London's South Bank.",
+     "definitionFit": "The London Eye is a huge Ferris-style observation wheel beside the Thames, opened for the millennium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solitary"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +965,78 @@
     "text": "Vibrator made of aluminium partly put back in river",
     "enumeration": "9"
    },
-   "solution": "TREMULANT"
+   "solution": "TREMULANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "TREMULANT",
+    "definitions": [
+     {
+      "text": "Vibrator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "partly says only a portion of the metal's name is wanted, the rest cut away"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "put back means the portion is turned round to read the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the portion inside the river"
+     }
+    ],
+    "linkWords": [
+     "made of",
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "an English river through Nottingham; the outer piece"
+     },
+     {
+      "clueFragment": "aluminium",
+      "gives": "ALUMINIUM",
+      "note": "only its first four letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "MULA",
+      "NT"
+     ],
+     "reversals": [
+      {
+       "from": "ALUM",
+       "to": "MULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vibrating gadget built partly of aluminium has been dropped back into a river.",
+     "walkthrough": "'Vibrator' wants to be something racier; it is an organ stop. The Trent is a major river of the English Midlands.",
+     "definitionFit": "A tremulant is an organ device that makes the notes waver, a mechanical vibrato producing a trembling effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vibrator"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +1050,67 @@
     "text": "Tune up in real term connected with insurance",
     "enumeration": "9"
    },
-   "solution": "ACTUARIAL"
+   "solution": "ACTUARIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ACTUARIAL",
+    "definitions": [
+     {
+      "text": "term connected with insurance",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry up means the word is read from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the tune inside the word for real"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real",
+      "gives": "ACTUAL",
+      "note": "real means actual; the outer piece"
+     },
+     {
+      "clueFragment": "Tune",
+      "gives": "AIR",
+      "note": "an air is a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTUA",
+      "RIA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician tunes up during a real school term.",
+     "walkthrough": "'Tune up' looks like adjusting an instrument; 'term' looks like a school term but belongs to the definition, a word used by insurers.",
+     "definitionFit": "Actuaries calculate risks and premiums for insurers, so actuarial describes insurance statistics and the vocabulary around them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1124,51 @@
     "text": "Copper reserved for what's no trouble",
     "enumeration": "5"
    },
-   "solution": "CUSHY"
+   "solution": "CUSHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUSHY",
+    "definitions": [
+     {
+      "text": "what's no trouble",
+      "at": 20,
+      "note": "a noun clause standing for an adjective meaning easy"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "reserved",
+      "gives": "SHY",
+      "note": "shy and reserved both mean diffident"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "SHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet police officer is kept back for a job that should cause no trouble.",
+     "walkthrough": "'Copper' suggests a police officer, but it is the metal's chemical symbol.",
+     "definitionFit": "Cushy is informal for easy and comfortable, so a cushy job gives its holder no trouble at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 14,
@@ -293,7 +1182,53 @@
     "text": "Visit with Queen in central Scotland",
     "enumeration": "9"
    },
-   "solution": "CALLANDER"
+   "solution": "CALLANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALLANDER",
+    "definitions": [
+     {
+      "text": "in central Scotland",
+      "at": 17,
+      "note": "a description of a place rather than a place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Visit",
+      "gives": "CALL",
+      "note": "to call on someone is to visit"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALL",
+      "AND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip in the company of the monarch to the heart of Scotland.",
+     "walkthrough": "ER, Elizabeth Regina, is the usual crossword monarch.",
+     "definitionFit": "Callander is a small town in Stirlingshire on the edge of the Trossachs, a place lying in the middle of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1242,50 @@
     "text": "Chat show hostess's work gets a cheer",
     "enumeration": "5"
    },
-   "solution": "OPRAH"
+   "solution": "OPRAH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPRAH",
+    "definitions": [
+     {
+      "text": "Chat show hostess",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a work"
+     },
+     {
+      "clueFragment": "a cheer",
+      "gives": "RAH",
+      "note": "a shout of encouragement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "RAH"
+     ]
+    },
+    "explanation": {
+     "surface": "A television presenter's efforts are greeted with applause from the studio audience.",
+     "walkthrough": "The 's is read as 'is', linking the hostess to her wordplay.",
+     "definitionFit": "Oprah Winfrey hosted one of the most famous American daytime television talk programmes for twenty-five years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -321,7 +1299,66 @@
     "text": "Slash brains? There's nothing Tory about that",
     "enumeration": "7"
    },
-   "solution": "OBLIQUE"
+   "solution": "OBLIQUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBLIQUE",
+    "definitions": [
+     {
+      "text": "Slash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the political colour goes around the brains"
+     }
+    ],
+    "linkWords": [
+     "There's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like O"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "BLUE",
+      "note": "blue is the Conservative party colour; the outer piece"
+     },
+     {
+      "clueFragment": "brains",
+      "gives": "IQ",
+      "note": "intelligence quotient, a measure of brainpower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BL",
+      "IQ",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at cutting intelligence: there is nothing Conservative about such slashing.",
+     "walkthrough": "Blue is the colour of Britain's Conservative (Tory) party. 'Slash' looks like a cut but is the punctuation mark.",
+     "definitionFit": "The forward slash character is also called an oblique or oblique stroke in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slash"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1372,71 @@
     "text": "Time everyone died, kept by uncle in slavery",
     "enumeration": "9"
    },
-   "solution": "THRALLDOM"
+   "solution": "THRALLDOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THRALLDOM",
+    "definitions": [
+     {
+      "text": "slavery",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept by",
+      "for": "container",
+      "note": "kept by means held inside, so the uncle's name surrounds the preceding pieces"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncle",
+      "gives": "TOM",
+      "note": "Uncle Tom, from the Stowe novel; the outer piece"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "HR",
+      "note": "hr, the abbreviation for hour"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone means all"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d. is the genealogical abbreviation for died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HR",
+      "ALL",
+      "D",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone died in captivity while held by an uncle, a grim family saga.",
+     "walkthrough": "'Time' looks like T but here is HR. The uncle is Uncle Tom of Uncle Tom's Cabin, a novel about slavery, which suits the definition.",
+     "definitionFit": "Thralldom is the state of being a thrall, a bondsman or serf, so it means bondage or servitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uncle"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1450,47 @@
     "text": "Objects to extraterrestrial attitude",
     "enumeration": "7"
    },
-   "solution": "MINDSET"
+   "solution": "MINDSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINDSET",
+    "definitions": [
+     {
+      "text": "attitude",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Objects to",
+      "gives": "MINDS",
+      "note": "if one minds something, one objects to it"
+     },
+     {
+      "clueFragment": "extraterrestrial",
+      "gives": "ET",
+      "note": "the film alien"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINDS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resents having to adopt an alien's point of view.",
+     "walkthrough": "'Objects' looks like a noun but is the verb.",
+     "definitionFit": "A mindset is a habitual way of thinking, an established outlook that shapes how one responds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Objects"
+    }
+   }
   },
   {
    "number": 18,
@@ -369,7 +1510,67 @@
      }
     ]
    },
-   "solution": "LOSETRACK"
+   "solution": "LOSETRACK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOSE TRACK",
+    "definitions": [
+     {
+      "text": "fail to follow",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly says the word tears may appear in some other order"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so security wraps around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Security",
+      "gives": "LOCK",
+      "note": "a lock gives security; the outer piece"
+     },
+     {
+      "clueFragment": "tears",
+      "gives": "TEARS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "SETRA",
+      "CK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEARS",
+       "gives": "SETRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling safe without crying, perhaps, means missing what is going on.",
+     "walkthrough": "'Without' looks like not having, but here it is the old sense of outside.",
+     "definitionFit": "To lose track of something is to stop keeping up with it, failing to keep following its progress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1584,51 @@
     "text": "Excuse for not doing things thoroughly, addressed to London mayor",
     "enumeration": "5"
    },
-   "solution": "TOKEN"
+   "solution": "TOKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOKEN",
+    "definitions": [
+     {
+      "text": "Excuse for not doing things thoroughly",
+      "at": 0,
+      "note": "a phrase describing a token effort, standing for the adjective"
+     }
+    ],
+    "linkWords": [
+     "addressed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "London mayor",
+      "gives": "KEN",
+      "note": "Ken Livingstone, Mayor of London from 2000"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about half-hearted work is sent to the Mayor of London.",
+     "walkthrough": "Ken Livingstone was London's first elected mayor when this puzzle appeared.",
+     "definitionFit": "A token gesture is a minimal one made for show, standing in for real, thorough effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "addressed"
+    }
+   }
   },
   {
    "number": 20,
@@ -397,7 +1642,45 @@
     "text": "Executioner's boat",
     "enumeration": "5"
    },
-   "solution": "KETCH"
+   "solution": "KETCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KETCH",
+    "definitions": [
+     {
+      "text": "Executioner",
+      "at": 0
+     },
+     {
+      "text": "boat",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Executioner",
+      "note": "Jack ..., the notorious seventeenth-century English hangman"
+     },
+     {
+      "clueFragment": "boat",
+      "note": "a two-masted sailing vessel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive pretends the vessel belongs to a hangman; the two words are separate meanings.",
+     "definitionFit": "Jack Ketch's name became a byword for the hangman, and a two-masted sailing craft shares the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Executioner's"
+    }
+   }
   },
   {
    "number": 21,
@@ -411,7 +1694,46 @@
     "text": "Grey as a bird",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "Grey",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a bird",
+      "gives": "HEN",
+      "note": "a hen is a bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "HEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A simile: something is as grey as a bird.",
+     "walkthrough": "The clue reads like a comparison, but 'as' and 'a bird' simply join.",
+     "definitionFit": "Ashen means pale grey like ash, typically describing a face drained of colour by shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1753,65 @@
      }
     ]
    },
-   "solution": "QUICKWITTEDNESS"
+   "solution": "QUICKWITTEDNESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "QUICK WITTEDNESS",
+    "definitions": [
+     {
+      "text": "acuity",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the little boy inside the word for testimony"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "living",
+      "gives": "QUICK",
+      "note": "as in the quick and the dead"
+     },
+     {
+      "clueFragment": "testimony",
+      "gives": "WITNESS",
+      "note": "to bear witness is to testify; the outer piece"
+     },
+     {
+      "clueFragment": "Little boy",
+      "gives": "TED",
+      "note": "short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUICK",
+      "WIT",
+      "TED",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A small child stands as living proof of sharpness of mind.",
+     "walkthrough": "Quick in the old sense of alive survives in 'the quick and the dead'.",
+     "definitionFit": "Acuity is keenness of perception or thought, the same as being sharp and fast in mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1825,67 @@
     "text": "Little boy in late return going on and on",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "going on and on",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so late is read the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the little boy inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "LATE",
+      "note": "taken as written; the outer piece"
+     },
+     {
+      "clueFragment": "Little boy",
+      "gives": "ERN",
+      "note": "Ernie cut short, a little Ernest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "ERN",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LATE",
+       "to": "ETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small boy comes home late yet again, and the scolding never ends.",
+     "walkthrough": "Compare 22-across, where the same phrase 'little boy' gave a different short name.",
+     "definitionFit": "Eternal means lasting forever without end, something that continues endlessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 24,
@@ -459,7 +1899,65 @@
     "text": "Runners coming about five - time to yield",
     "enumeration": "7"
    },
-   "solution": "HARVEST"
+   "solution": "HARVEST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HARVEST",
+    "definitions": [
+     {
+      "text": "yield",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming about",
+      "for": "container",
+      "note": "coming about means turning around something, so the runners surround the five"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runners",
+      "gives": "HARES",
+      "note": "hares are fast runners; the outer piece"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "V",
+      "ES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Runners arrive around five o'clock and it is time to give way.",
+     "walkthrough": "'Yield' looks like a verb meaning give in; it is the noun, a crop.",
+     "definitionFit": "A harvest is the crop gathered in a season, the amount the land produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yield"
+    }
+   }
   }
  ]
 }
