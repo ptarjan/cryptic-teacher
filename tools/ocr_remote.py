@@ -94,11 +94,29 @@ def versions():
 # ------------------------------------------------------------ the desktop side
 
 
+def full_speed():
+    """Opt this process out of Windows power throttling (EcoQoS): a
+    windowless process started by sshd counts as background, and Windows
+    keeps those on the efficiency cores, so 20 sessions shared 12 of the
+    28 threads and took six times as long a crop."""
+    import ctypes
+
+    class State(ctypes.Structure):
+        _fields_ = [("Version", ctypes.c_ulong), ("ControlMask", ctypes.c_ulong), ("StateMask", ctypes.c_ulong)]
+    # PROCESS_POWER_THROTTLING_CURRENT_VERSION, _EXECUTION_SPEED on, state
+    # off: ProcessPowerThrottling (4).
+    state = State(1, 1, 0)
+    k32 = ctypes.windll.kernel32
+    if not k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(state), ctypes.sizeof(state)):
+        print(f"SetProcessInformation failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
+
+
 def serve():
     """Read crops on stdin, words on stdout: after a "ready" line with
     versions(), each request is a JSON line {"which", "bytes"} and that many
     bytes of PNG; each answer a JSON line {"words"} or {"error"}."""
     os.environ["PATH"] = str(Path(HOME) / "tess" / "Library" / "bin") + os.pathsep + os.environ["PATH"]
+    full_speed()
     # The full pass's 20 sessions share the 28-thread box: two threads each.
     os.environ.setdefault("OCR_THREADS", "2")
     import io
