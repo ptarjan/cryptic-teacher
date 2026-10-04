@@ -672,12 +672,12 @@ tools/showcase.py                            the puzzles /showcase/ picks out an
 tools/test_showcase.sh                       is each showcase detector on a real puzzle that
                                              has the feature and off the look-alike (hidden in
                                              the clue is not hidden in the grid, a book's year
-                                             is not a print date), does a puzzle show only
-                                             once, are only annotated puzzles shown, does every
-                                             filter feature have a section named, explained and
-                                             picked by its tag (or a stated reason it has
-                                             none), and does no reader page link a puzzle's
-                                             answer page?
+                                             is not a print date), is each section on
+                                             /showcase/ the head of its own page, are only
+                                             annotated puzzles shown, does every filter feature
+                                             have a section named, explained and picked by its
+                                             tag (or a stated reason it has none), and does no
+                                             reader page link a puzzle's answer page?
 tools/test_puzzle_tag_badges.js              does a tagged puzzle's title badge its tag, and
                                              does the picker's feature menu list exactly the
                                              puzzles with that tag, the double pangrams under
