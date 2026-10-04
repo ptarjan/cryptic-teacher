@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "32 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "Refuse to recognise one's in Irish county",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Refuse to recognise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the first piece inside the county name that follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one's read as 'one is', so I (one) plus S"
+     },
+     {
+      "clueFragment": "Irish county",
+      "gives": "DOWN",
+      "note": "County Down is in Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone denies their family ties to a particular county in Ireland.",
+     "walkthrough": "'One's' is the contraction of 'one is'. County Down is one of the six counties of Northern Ireland.",
+     "definitionFit": "To disown a relative is to refuse any acknowledgement of a connection with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +100,64 @@
     "text": "Frozen up, beaten and largely destroyed",
     "enumeration": "9"
    },
-   "solution": "DECIMATED"
+   "solution": "DECIMATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DECIMATED",
+    "definitions": [
+     {
+      "text": "largely destroyed",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, 'up' means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frozen",
+      "gives": "ICED",
+      "note": "iced means frozen"
+     },
+     {
+      "clueFragment": "beaten",
+      "gives": "MATED",
+      "note": "beaten at chess by checkmate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECI",
+      "MATED"
+     ],
+     "reversals": [
+      {
+       "from": "ICED",
+       "to": "DECI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something frozen solid, smashed, and mostly wrecked.",
+     "walkthrough": "ICED reversed gives DECI, then MATED.",
+     "definitionFit": "Decimate originally meant killing one in ten, but now means destroying a large proportion of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +171,43 @@
     "text": "Presumably he makes parting harder to bear",
     "enumeration": "7"
    },
-   "solution": "SEVERER"
+   "solution": "SEVERER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEVERER",
+    "definitions": [
+     {
+      "text": "Presumably he makes parting",
+      "at": 0
+     },
+     {
+      "text": "harder to bear",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Presumably he makes parting",
+      "note": "first meaning: one who severs, i.e. cuts things apart"
+     },
+     {
+      "clueFragment": "harder to bear",
+      "note": "second meaning: more severe, harsher"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests sad farewells; 'presumably' flags an invented word for one who severs.",
+     "definitionFit": "One who severs would be a 'severer', and as a comparative adjective it means harsher or more strict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parting"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +227,54 @@
      }
     ]
    },
-   "solution": "WITCHHAZEL"
+   "solution": "WITCHHAZEL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "WITCH-HAZEL",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some say",
+      "for": "homophone",
+      "note": "'some say' points to what people speak rather than how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "of medicinal value"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which",
+      "gives": "WITCH",
+      "soundsLike": "WHICH",
+      "note": "the pronoun spoken aloud matches a sorceress"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "HAZEL",
+      "note": "the hazel tree bears hazelnuts"
+     }
+    ],
+    "explanation": {
+     "surface": "A plant which people say carries a nut with healing properties.",
+     "walkthrough": "'Of medicinal value' describes the shrub: witch hazel extract is used to soothe skin.",
+     "definitionFit": "Witch hazel is a flowering shrub whose bark and leaves yield an astringent lotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +288,47 @@
     "text": "Is a woman to desert a stylish designer?",
     "enumeration": "8"
    },
-   "solution": "SHERATON"
+   "solution": "SHERATON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHERATON",
+    "definitions": [
+     {
+      "text": "a stylish designer",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is a woman",
+      "gives": "SHE",
+      "note": "the pronoun for a woman"
+     },
+     {
+      "clueFragment": "to desert",
+      "gives": "RAT ON",
+      "note": "to rat on someone is to abandon or betray them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "RATON"
+     ]
+    },
+    "explanation": {
+     "surface": "A question asking whether a woman would abandon a fashionable designer.",
+     "walkthrough": "Thomas Sheraton was an eighteenth-century English furniture designer, known for elegant, refined pieces.",
+     "definitionFit": "Sheraton was a celebrated Georgian furniture maker whose elegant pieces gave his name to a whole style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +342,51 @@
     "text": "Dynasty to retain these troops",
     "enumeration": "9"
    },
-   "solution": "HOUSEHOLD"
+   "solution": "HOUSEHOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOUSEHOLD",
+    "definitions": [
+     {
+      "text": "these troops",
+      "at": 18,
+      "note": "the answer is the adjective in Household troops"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dynasty",
+      "gives": "HOUSE",
+      "note": "a royal house is a dynasty"
+     },
+     {
+      "clueFragment": "retain",
+      "gives": "HOLD",
+      "note": "to hold is to keep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUSE",
+      "HOLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A ruling family keeps hold of its soldiers.",
+     "walkthrough": "The Household troops are the British army regiments that guard the monarch.",
+     "definitionFit": "The Household Division comprises the Guards regiments responsible for the sovereign's protection and ceremonial duties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dynasty"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +400,43 @@
     "text": "Pause for silence at the end of Hamlet",
     "enumeration": "4"
    },
-   "solution": "REST"
+   "solution": "REST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REST",
+    "definitions": [
+     {
+      "text": "Pause",
+      "at": 0
+     },
+     {
+      "text": "for silence at the end of Hamlet",
+      "at": 6,
+      "note": "Hamlet's dying words are 'The rest is silence'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pause",
+      "note": "first meaning: a break or a musical silence"
+     },
+     {
+      "clueFragment": "for silence at the end of Hamlet",
+      "note": "second meaning: the word that equals silence in Hamlet's dying line"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hamlet dies saying 'The rest is silence', so in that line the answer stands for silence.",
+     "definitionFit": "A rest is a break from activity, and also a notated silence in music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hamlet"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +450,51 @@
     "text": "Playwright, follower of Ben, getting almost cross",
     "enumeration": "7"
    },
-   "solution": "TRAVERS"
+   "solution": "TRAVERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRAVERS",
+    "definitions": [
+     {
+      "text": "Playwright, follower of Ben",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "'almost' means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cross",
+      "gives": "TRAVERSE",
+      "note": "to traverse is to cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAVERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist who comes after someone called Ben is getting rather annoyed.",
+     "walkthrough": "Ben Travers wrote the Aldwych farces; his surname follows Ben. 'Cross' looks like angry but means go across.",
+     "definitionFit": "Ben Travers was an English writer of popular stage farces such as Rookery Nook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +514,41 @@
      }
     ]
    },
-   "solution": "NOEND"
+   "solution": "NOEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO END",
+    "definitions": [
+     {
+      "text": "Very much",
+      "at": 0
+     },
+     {
+      "text": "without purpose",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very much",
+      "note": "first meaning: as in 'it pleased him ...'"
+     },
+     {
+      "clueFragment": "without purpose",
+      "note": "second meaning: having no aim or goal"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The idiom means enormously, and read literally an end is an aim, so having none means aimless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,10 +559,53 @@
    },
    "length": 4,
    "clue": {
-    "text": "Unpopular doctor went down bill",
+    "text": "Unpopular doctor went down hill",
     "enumeration": "4"
    },
-   "solution": "FELL"
+   "solution": "FELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FELL",
+    "definitions": [
+     {
+      "text": "Unpopular doctor",
+      "at": 0
+     },
+     {
+      "text": "went down",
+      "at": 17
+     },
+     {
+      "text": "hill",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpopular doctor",
+      "note": "first meaning: Dr ... of the rhyme 'I do not like thee, Dr ...'"
+     },
+     {
+      "clueFragment": "went down",
+      "note": "second meaning: dropped or toppled"
+     },
+     {
+      "clueFragment": "hill",
+      "note": "third meaning: a northern English mountain or moor"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A triple definition. The rhyme 'I do not like thee, Doctor Fell' is about an unexplained dislike; a fell is a hill in the Lake District.",
+     "definitionFit": "Doctor Fell is the proverbially disliked figure, fell is the past tense of fall, and northern English hills are fells."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +619,55 @@
     "text": "Examine outstanding attractive dish",
     "enumeration": "7"
    },
-   "solution": "CUVETTE"
+   "solution": "CUVETTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CUVETTE",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outstanding",
+      "for": "container",
+      "note": "read as 'out-standing': the second word stands outside the first, wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examine",
+      "gives": "VET",
+      "note": "to vet is to check over carefully"
+     },
+     {
+      "clueFragment": "attractive",
+      "gives": "CUTE",
+      "note": "cute means pretty or appealing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "VET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspects a remarkably good-looking serving dish.",
+     "walkthrough": "'Outstanding' looks like praise for the dish, but it signals one word standing outside another.",
+     "definitionFit": "A cuvette is a small shallow vessel or basin, the kind used in laboratories to hold samples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +681,47 @@
     "text": "Going to London theatre to steal the limelight",
     "enumeration": "7"
    },
-   "solution": "UPSTAGE"
+   "solution": "UPSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSTAGE",
+    "definitions": [
+     {
+      "text": "to steal the limelight",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going to London",
+      "gives": "UP",
+      "note": "one traditionally goes up to London, the capital"
+     },
+     {
+      "clueFragment": "theatre",
+      "gives": "STAGE",
+      "note": "the stage stands for the theatre profession"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "STAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer heads for the West End hoping to outshine everybody.",
+     "walkthrough": "In British usage you go 'up' to London from anywhere else in the country, so UP means heading for the capital.",
+     "definitionFit": "To upstage a colleague is to draw attention away from them onto yourself, originally by standing further back on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Going"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +735,80 @@
     "text": "Old jug obtained from jumble sale with broken arm",
     "enumeration": "10"
    },
-   "solution": "MARSHALSEA"
+   "solution": "MARSHALSEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MARSHALSEA",
+    "definitions": [
+     {
+      "text": "Old jug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed out of its proper shape, so its letters are rearranged"
+     },
+     {
+      "text": "jumble",
+      "for": "anagram",
+      "note": "to jumble is to mix things up into disorder, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arm",
+      "gives": "ARM",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "obtained",
+      "gives": "HAS",
+      "note": "one who has obtained something has it"
+     },
+     {
+      "clueFragment": "sale",
+      "gives": "SALE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "SHALSEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARM",
+       "gives": "MAR"
+      },
+      {
+       "fodder": "HASSALE",
+       "gives": "SHALSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An antique jug picked up at a charity jumble sale, damaged with a broken handle.",
+     "walkthrough": "'Jug' is slang for prison: the Marshalsea was a notorious London debtors' prison, closed in 1842. 'Jumble sale' looks like a single phrase but 'jumble' works on HAS and SALE; OBTAINED for HAS is loose.",
+     "definitionFit": "The Marshalsea was a historic Southwark gaol, and jug is old slang for a prison, so it is literally an old jug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jug"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +822,55 @@
     "text": "\"Drink me\" notice offering reward, say",
     "enumeration": "4"
    },
-   "solution": "MEAD"
+   "solution": "MEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEAD",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 1
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is an advertisement or notice"
+     },
+     {
+      "clueFragment": "reward, say",
+      "note": "a further hint, not letters: the answer is pronounced like MEED, an archaic word for a reward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Like the bottle in Alice in Wonderland, a label saying 'Drink me', with a notice promising a reward.",
+     "walkthrough": "'Reward, say' adds a second hint: the answer sounds like MEED, an old word for a reward.",
+     "definitionFit": "Mead is an alcoholic beverage made by fermenting honey with water, a drink since ancient times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +890,48 @@
      }
     ]
    },
-   "solution": "BETTERHALF"
+   "solution": "BETTERHALF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BETTER HALF",
+    "definitions": [
+     {
+      "text": "Wife",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to a gambler",
+      "gives": "BETTER",
+      "note": "a better is one who bets"
+     },
+     {
+      "clueFragment": "school term",
+      "gives": "HALF",
+      "note": "a half is a term at some British schools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETTER",
+      "HALF"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler's wife, apparently, is a term at school.",
+     "walkthrough": "At some British public schools a term is called a half.",
+     "definitionFit": "'My better half' is a jocular idiom for one's spouse, especially a husband speaking of his partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gambler"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +945,58 @@
     "text": "Wait about, thank you, for a place in Asia",
     "enumeration": "7"
    },
-   "solution": "TARTARY"
+   "solution": "TARTARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TARTARY",
+    "definitions": [
+     {
+      "text": "a place in Asia",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means going around, so the wait word encircles the thanks"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wait",
+      "gives": "TARRY",
+      "note": "to tarry is to linger or wait"
+     },
+     {
+      "clueFragment": "thank you",
+      "gives": "TA",
+      "note": "ta is informal British for thank you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "TA",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A polite request to hang around, with thanks, for a seat somewhere in Asia.",
+     "walkthrough": "TA is informal British English for thank you.",
+     "definitionFit": "Tartary was the old European name for the vast region of central and northern Asia ruled by Turkic and Mongol peoples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1010,39 @@
     "text": "Innocent's date of birth?",
     "enumeration": "9"
    },
-   "solution": "YESTERDAY"
+   "solution": "YESTERDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YESTERDAY",
+    "definitions": [
+     {
+      "text": "Innocent's date of birth?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Innocent's date of birth?",
+      "note": "surface reading: the birthday of a guiltless person or of a pope called Innocent"
+     },
+     {
+      "clueFragment": "Innocent's",
+      "note": "setter's reading: a naive person, who was proverbially 'not born' only recently"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Plays on the saying 'I wasn't born yesterday', said by someone who is not naive.",
+     "definitionFit": "A gullible person is said to have been born the day before today, hence the idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Innocent's"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1056,47 @@
     "text": "Look after, in addition, the bishop's office",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Look after",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in addition",
+      "gives": "OVER",
+      "note": "over can mean extra or in addition"
+     },
+     {
+      "clueFragment": "the bishop's office",
+      "gives": "SEE",
+      "note": "a see is a bishop's seat or diocese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "SEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to also take care of the bishop's office.",
+     "walkthrough": "A bishop's see is his diocese or seat of authority.",
+     "definitionFit": "To oversee is to supervise and manage something, taking charge of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1110,54 @@
     "text": "There can't possibly be such a cross-legged leap",
     "enumeration": "9"
    },
-   "solution": "ENTRECHAT"
+   "solution": "ENTRECHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTRECHAT",
+    "definitions": [
+     {
+      "text": "such a cross-legged leap",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' suggests one of several ways the letters might go"
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "There can't",
+      "gives": "THERECANT",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THERECANT",
+       "gives": "ENTRECHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer insists no such leg-crossing jump could exist.",
+     "walkthrough": "A ballet jump in which the dancer crosses the legs rapidly in the air.",
+     "definitionFit": "The entrechat is a classical ballet jump during which the feet beat and cross repeatedly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can't"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1171,44 @@
     "text": "Sharp-pointed obelisks?",
     "enumeration": "7"
    },
-   "solution": "DAGGERS"
+   "solution": "DAGGERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DAGGERS",
+    "definitions": [
+     {
+      "text": "Sharp-pointed",
+      "at": 0,
+      "note": "adjective standing for sharp-pointed things"
+     },
+     {
+      "text": "obelisks",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sharp-pointed",
+      "note": "first meaning: short stabbing blades"
+     },
+     {
+      "clueFragment": "obelisks",
+      "note": "second meaning: the printer's obelisk is the dagger mark used for footnotes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In printing, an obelisk is the dagger symbol used for footnotes, and a real dagger is sharp-pointed too.",
+     "definitionFit": "Printers call the footnote reference mark an obelisk or dagger, and actual daggers are sharp-pointed stabbing weapons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "obelisks"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1222,42 @@
     "text": "Shone, like Byron's Assyrian warriors",
     "enumeration": "7"
    },
-   "solution": "GLEAMED"
+   "solution": "GLEAMED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GLEAMED",
+    "definitions": [
+     {
+      "text": "Shone",
+      "at": 0
+     },
+     {
+      "text": "like Byron's Assyrian warriors",
+      "at": 7,
+      "note": "an allusion: the answer is how Byron's cohorts looked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shone",
+      "note": "first meaning: glowed or glittered"
+     },
+     {
+      "clueFragment": "like Byron's Assyrian warriors",
+      "note": "second meaning: Byron's 'his cohorts were gleaming in purple and gold'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Byron's poem The Destruction of Sennacherib describes the Assyrian cohorts 'gleaming in purple and gold'.",
+     "definitionFit": "To glint or glow brightly is to give out a radiant reflection of light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1271,47 @@
     "text": "Lower value of French region",
     "enumeration": "7"
    },
-   "solution": "DETRACT"
+   "solution": "DETRACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETRACT",
+    "definitions": [
+     {
+      "text": "Lower value",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for 'of'"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "TRACT",
+      "note": "a tract is an area of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TRACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of devaluing some region of France.",
+     "walkthrough": "'French' looks like it describes the region, but it goes with 'of' to make DE.",
+     "definitionFit": "To detract from something is to diminish its worth or reduce how highly it is rated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1325,59 @@
     "text": "Change Harry Champion's order for salt",
     "enumeration": "7"
    },
-   "solution": "ACETATE"
+   "solution": "ACETATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACETATE",
+    "definitions": [
+     {
+      "text": "salt",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change",
+      "note": "with 'order', an instruction to swap the two names that follow"
+     },
+     {
+      "clueFragment": "Champion",
+      "gives": "ACE",
+      "note": "an ace is a champion or expert"
+     },
+     {
+      "clueFragment": "Harry",
+      "gives": "TATE",
+      "note": "Harry Tate was a famous music-hall comedian"
+     },
+     {
+      "clueFragment": "order",
+      "note": "with 'Change', says the two names are taken the other way round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to swap the running order of a variety bill.",
+     "walkthrough": "'Change Harry Champion's order' says swap the two names: Harry Champion was a real music-hall singer, but ACE then TATE is the order wanted.",
+     "definitionFit": "An acetate is a salt or ester of acetic acid, as chemists name such compounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1391,59 @@
     "text": "Skin fish after initially poaching",
     "enumeration": "4"
    },
-   "solution": "PEEL"
+   "solution": "PEEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEEL",
+    "definitions": [
+     {
+      "text": "Skin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' means at the start, so only the first letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poaching",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of poaching"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "the eel is a long snakelike fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook skins a fish after first poaching it.",
+     "walkthrough": "'After' puts the fish behind the first letter.",
+     "definitionFit": "To peel is to strip off the outer covering or rind of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poaching"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1457,41 @@
     "text": "Capital judge of beauty contest",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     },
+     {
+      "text": "judge of beauty contest",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital",
+      "note": "first meaning: the capital city of France"
+     },
+     {
+      "clueFragment": "judge of beauty contest",
+      "note": "second meaning: the Trojan prince who awarded the golden apple"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Greek myth Paris judged which of three goddesses was fairest, choosing Aphrodite.",
+     "definitionFit": "Paris is the French capital and also the Trojan prince who judged the goddesses' contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1511,45 @@
      }
     ]
    },
-   "solution": "DEEPFREEZE"
+   "solution": "DEEPFREEZE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEEP-FREEZE",
+    "definitions": [
+     {
+      "text": "Food preservative",
+      "at": 0
+     },
+     {
+      "text": "suspension of activity",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food preservative",
+      "note": "first meaning: a freezer that keeps food very cold"
+     },
+     {
+      "clueFragment": "suspension of activity",
+      "note": "second meaning: a halt or indefinite postponement"
+     }
+    ],
+    "explanation": {
+     "surface": "A freezer is blamed for bringing everything to a halt.",
+     "definitionFit": "The appliance keeps food frozen for months, and figuratively the phrase means putting plans on indefinite hold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspension"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1563,53 @@
     "text": "Forwards set of cards for hunting association. . .",
     "enumeration": "4"
    },
-   "solution": "PACK"
+   "solution": "PACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PACK",
+    "definitions": [
+     {
+      "text": "Forwards",
+      "at": 0
+     },
+     {
+      "text": "set of cards",
+      "at": 9
+     },
+     {
+      "text": "hunting association",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forwards",
+      "note": "first meaning: the forwards in a rugby team"
+     },
+     {
+      "clueFragment": "set of cards",
+      "note": "second meaning: a deck of playing cards"
+     },
+     {
+      "clueFragment": "hunting association",
+      "note": "third meaning: a group of hounds or wolves"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A triple definition; the ellipsis leads into the next clue, where a member of this group appears.",
+     "definitionFit": "Rugby forwards, a deck of cards and hunting hounds are all called by the same four-letter collective word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forwards"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1623,58 @@
     "text": "... for rising member to circulate",
     "enumeration": "4"
    },
-   "solution": "FLOW"
+   "solution": "FLOW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "FLOW",
+    "definitions": [
+     {
+      "text": "circulate",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, 'rising' means read upwards, from last letter to first"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member",
+      "gives": "WOLF",
+      "note": "following on from the previous clue, a member of a pack is a wolf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOW"
+     ],
+     "reversals": [
+      {
+       "from": "WOLF",
+       "to": "FLOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continues the previous clue: a member of a hunting group moves around.",
+     "walkthrough": "The ellipsis borrows 'pack' from 25: a member of a pack is a WOLF, reversed upwards.",
+     "definitionFit": "To flow is to move along steadily in a stream, as blood moves round the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1688,65 @@
     "text": "Saw through odd start to bidding and went ahead",
     "enumeration": "7"
    },
-   "solution": "RUMBLED"
+   "solution": "RUMBLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RUMBLED",
+    "definitions": [
+     {
+      "text": "Saw through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odd",
+      "gives": "RUM",
+      "note": "rum is British slang for strange"
+     },
+     {
+      "clueFragment": "bidding",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of bidding"
+     },
+     {
+      "clueFragment": "went ahead",
+      "gives": "LED",
+      "note": "to have led is to have gone in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "B",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "An auction where someone noticed a strange opening bid and pressed on anyway.",
+     "walkthrough": "'Saw through' means saw through a deception; rumbled is British slang for discovered someone's game.",
+     "definitionFit": "To rumble someone in British slang is to see through their deceit and find them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1760,57 @@
     "text": "Fishy measure leads to an award for German artist",
     "enumeration": "7"
    },
-   "solution": "CRANACH"
+   "solution": "CRANACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRANACH",
+    "definitions": [
+     {
+      "text": "German artist",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "leads to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fishy measure",
+      "gives": "CRAN",
+      "note": "a cran is a measure of fresh herrings"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "CH",
+      "note": "CH is the Companion of Honour, a British award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAN",
+      "A",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy measurement leads to a prize being given to a painter from Germany.",
+     "walkthrough": "A cran is an old Scottish measure of herrings; Lucas Cranach was a German Renaissance painter.",
+     "definitionFit": "Lucas Cranach the Elder was a leading painter of the German Renaissance and a friend of Luther."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fishy"
+    }
+   }
   },
   {
    "number": 29,
@@ -476,10 +1821,42 @@
    },
    "length": 8,
    "clue": {
-    "text": "Crabby manner-of going on",
+    "text": "Crabby manner of going on",
     "enumeration": "8"
    },
-   "solution": "SIDEWAYS"
+   "solution": "SIDEWAYS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SIDEWAYS",
+    "definitions": [
+     {
+      "text": "Crabby manner of going on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crabby manner",
+      "note": "surface reading: a bad-tempered way of carrying on"
+     },
+     {
+      "clueFragment": "Crabby manner of going on",
+      "note": "setter's reading: the way a crab moves along"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crabby looks like grumpy, but it means crab-like: crabs scuttle at an angle rather than forwards.",
+     "definitionFit": "Crabs famously walk laterally, moving to one side rather than straight ahead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crabby"
+    }
+   }
   },
   {
    "number": 30,
@@ -493,7 +1870,56 @@
     "text": "Achieve result I've wanted in a fit soldier",
     "enumeration": "6"
    },
-   "solution": "EFFECT"
+   "solution": "EFFECT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EFFECT",
+    "definitions": [
+     {
+      "text": "Achieve result",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanted",
+      "for": "deletion",
+      "note": "'wanted' means lacking, so the words before it are missing from what follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "a fit soldier",
+      "gives": "EFFECTIVE",
+      "note": "an effective is a soldier fit for service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EFFECT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares that getting a healthy soldier was what they wanted.",
+     "walkthrough": "EFFECTIVE without I'VE leaves EFFECT. An 'effective' is a military term for a soldier fit for duty.",
+     "definitionFit": "To effect something is to bring it about, making a desired outcome happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanted"
+    }
+   }
   }
  ]
 }
