@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 64 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,56 @@
     "text": "100.000 rupees, say, deposited in soldier's bank for protection",
     "enumeration": "6"
    },
-   "solution": "GLACIS"
+   "solution": "GLACIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLACIS",
+    "definitions": [
+     {
+      "text": "bank for protection",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deposited in",
+      "for": "container",
+      "note": "money deposited in an account sits inside it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100.000 rupees, say",
+      "gives": "LAC",
+      "note": "a lac (lakh) is a hundred thousand, typically of rupees; 'say' marks rupees as just an example"
+     },
+     {
+      "clueFragment": "soldier's",
+      "gives": "GIS",
+      "note": "a GI is an American soldier; the possessive adds S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LAC",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier pays a large sum of rupees into his bank to keep it safe.",
+     "walkthrough": "'Bank' looks financial, sitting next to 'deposited' and rupees, but it is an earthwork. The OCR shows a point where the page has the comma of 100,000.",
+     "definitionFit": "A glacis is the sloping earthen embankment in front of a fortification, built to expose attackers and shield defenders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +101,53 @@
     "text": "Illegally transfer several articles from abroad",
     "enumeration": "7"
    },
-   "solution": "LAUNDER"
+   "solution": "LAUNDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAUNDER",
+    "definitions": [
+     {
+      "text": "Illegally transfer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "several articles from abroad",
+      "gives": "LA",
+      "note": "la is a French definite article; 'several' asks for more than one foreign article"
+     },
+     {
+      "clueFragment": "articles from abroad",
+      "gives": "UN",
+      "note": "un is a French indefinite article"
+     },
+     {
+      "clueFragment": "articles from abroad",
+      "gives": "DER",
+      "note": "der is a German definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UN",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "Smuggling a number of goods into the country from overseas.",
+     "walkthrough": "'Several' tells you to string together more than one foreign word for 'the' or 'a'.",
+     "definitionFit": "To launder money is to move illicit funds through legitimate channels to disguise where they came from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +161,66 @@
     "text": "Associates in business given short change",
     "enumeration": "7"
    },
-   "solution": "COHORTS"
+   "solution": "COHORTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "COHORTS",
+    "definitions": [
+     {
+      "text": "Associates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change something is to alter its form, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "SHORT",
+      "note": "fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "HORTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHORT",
+       "gives": "HORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Business partners handed too little money back at the till.",
+     "walkthrough": "'Short change' looks like a single phrase about cheating, but 'short' is the fodder and 'change' the signal.",
+     "definitionFit": "Cohorts are companions or supporters, people who keep company with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,10 +231,50 @@
    },
    "length": 7,
    "clue": {
-    "text": "Do climb up track",
+    "text": "Do climb up crack",
     "enumeration": "7"
    },
-   "solution": "SHINDIG"
+   "solution": "SHINDIG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHINDIG",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climb up",
+      "gives": "SHIN",
+      "note": "to shin up is to climb using arms and legs"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "DIG",
+      "note": "a wisecrack or gibe, a dig at someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHIN",
+      "DIG"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to clamber up a fissure in a rock face.",
+     "walkthrough": "'Do' reads as a verb, but it is the noun meaning a party.",
+     "definitionFit": "A shindig is an informal word for a lively party or celebration, as is a do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +288,55 @@
     "text": "One police force operating within the law – that's taken for granted",
     "enumeration": "8"
    },
-   "solution": "IMPLICIT"
+   "solution": "IMPLICIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPLICIT",
+    "definitions": [
+     {
+      "text": "taken for granted",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "– that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "police force",
+      "gives": "MP",
+      "note": "the Military Police"
+     },
+     {
+      "clueFragment": "operating within the law",
+      "gives": "LICIT",
+      "note": "lawful, permitted by law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "LICIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A police force acting legally is something the public assumes as a matter of course.",
+     "definitionFit": "Something implicit is understood or assumed without being stated outright, which is what goes unquestioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +350,52 @@
     "text": "Thin gloom could be dispelled in this",
     "enumeration": "9"
    },
-   "solution": "MOONLIGHT"
+   "solution": "MOONLIGHT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MOONLIGHT",
+    "definitions": [
+     {
+      "text": "Thin gloom could be dispelled in this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be dispelled",
+      "for": "anagram",
+      "note": "dispelling scatters something, so these letters are scattered and regrouped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thin gloom",
+      "gives": "THINGLOOM",
+      "note": "fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THINGLOOM",
+       "gives": "MOONLIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faint darkness lifts under a night sky's pale light.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the light that relieves a weak darkness.",
+     "definitionFit": "Light from the moon is exactly what eases a faint night-time darkness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dispelled"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +409,70 @@
     "text": "As a rule, women going crazy over right gardening equipment",
     "enumeration": "9"
    },
-   "solution": "LAWNMOWER"
+   "solution": "LAWNMOWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LAWNMOWER",
+    "definitions": [
+     {
+      "text": "gardening equipment",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going crazy",
+      "for": "anagram",
+      "note": "going crazy means losing order, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "LAW",
+      "note": "a law is a rule"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "WOMEN",
+      "note": "fodder taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAW",
+      "NMOWE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WOMEN",
+       "gives": "NMOWE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Women typically go wild about the proper tool for the garden.",
+     "walkthrough": "'As a' is padding that makes the surface read as 'as a rule', meaning generally; only 'rule' gives letters. In a down clue 'over' puts the earlier pieces above R.",
+     "definitionFit": "A lawnmower is the machine used to cut grass, a standard piece of garden kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 8,
@@ -133,7 +486,62 @@
     "text": "Bed - I will get one immediately after the dance",
     "enumeration": "9"
    },
-   "solution": "COTILLION"
+   "solution": "COTILLION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COTILLION",
+    "definitions": [
+     {
+      "text": "the dance",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "I will",
+      "gives": "ILL",
+      "note": "the contraction I'll"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "immediately after",
+      "gives": "ON",
+      "note": "on as in 'on arrival', at once after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COT",
+      "ILL",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows to go straight to bed once the ball is over.",
+     "walkthrough": "'Immediately after' reads as timing for the whole sentence but supplies a small word itself.",
+     "definitionFit": "The cotillion was a lively French-origin ballroom dance for couples, popular in the eighteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 9,
@@ -153,7 +561,43 @@
      }
     ]
    },
-   "solution": "TURKSHEAD"
+   "solution": "TURKSHEAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURKS HEAD",
+    "definitions": [
+     {
+      "text": "Ottoman's topped by this",
+      "at": 0
+     },
+     {
+      "text": "ornamental ropework",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ottoman's topped by this",
+      "note": "first meaning, cryptic: the head of a Turkish subject sits on top of him"
+     },
+     {
+      "clueFragment": "ornamental ropework",
+      "note": "second meaning: a decorative knot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An Ottoman here is a Turk, not the footstool the surface suggests; what tops a Turk is his head.",
+     "definitionFit": "A Turk's head is a decorative knot woven round a rope or rail, resembling a turban."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ottoman's"
+    }
+   }
   },
   {
    "number": 10,
@@ -167,7 +611,53 @@
     "text": "Drunk? Turn red, not black",
     "enumeration": "4"
    },
-   "solution": "LUSH"
+   "solution": "LUSH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUSH",
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not black' asks for the letter standing for black to be left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn red",
+      "gives": "BLUSH",
+      "note": "to go red in the face"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUSH"
+     ]
+    },
+    "explanation": {
+     "surface": "Is someone tipsy? Their face flushes, though it is not a black mood.",
+     "walkthrough": "'Drunk' reads as an adjective, but the answer is the slang noun for a heavy drinker.",
+     "definitionFit": "A lush is informal slang for a habitual heavy drinker, an alcoholic person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +681,43 @@
      }
     ]
    },
-   "solution": "INHOTWATER"
+   "solution": "INHOTWATER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN HOT WATER",
+    "definitions": [
+     {
+      "text": "Where eggs may be cooked",
+      "at": 0
+     },
+     {
+      "text": "for it",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where eggs may be cooked",
+      "note": "literal meaning: in a pan of boiling liquid"
+     },
+     {
+      "clueFragment": "for it",
+      "note": "second meaning: in trouble, as in 'you'll be for it'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'For it' is British slang for being due a telling-off or punishment.",
+     "definitionFit": "The phrase is both a literal place to boil eggs and an idiom for being in serious trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +731,52 @@
     "text": "A party Socialist was devoted to",
     "enumeration": "6"
    },
-   "solution": "ADORED"
+   "solution": "ADORED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORED",
+    "definitions": [
+     {
+      "text": "was devoted to",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or celebration"
+     },
+     {
+      "clueFragment": "Socialist",
+      "gives": "RED",
+      "note": "red is the colour of the left, so a Red is a socialist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who loyally served a left-wing party in their younger days.",
+     "definitionFit": "To have adored someone is to have loved them deeply, the same as having been devoted to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +790,60 @@
     "text": "Positive about animal being put down",
     "enumeration": "8"
    },
-   "solution": "PLUMULES"
+   "solution": "PLUMULES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLUMULES",
+    "definitions": [
+     {
+      "text": "down",
+      "at": 32,
+      "note": "plural noun answer for a mass noun: soft feathers"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "being put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Positive",
+      "gives": "PLUS",
+      "note": "the plus sign is the positive sign"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "MULE",
+      "note": "a mule is a horse-donkey cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLU",
+      "MULE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sure about an animal having to be humanely destroyed by the vet.",
+     "walkthrough": "'Put down' suggests putting an animal to sleep, but 'down' alone is the definition: fluffy feathers.",
+     "definitionFit": "Plumules are the small soft feathers of a bird, collectively its down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +863,47 @@
      }
     ]
    },
-   "solution": "PRESSGANG"
+   "solution": "PRESSGANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS-GANG",
+    "definitions": [
+     {
+      "text": "Force to join",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "PRESS",
+      "note": "a press is a dense crowd or throng"
+     },
+     {
+      "clueFragment": "go north of the border",
+      "gives": "GANG",
+      "note": "gang is the Scots word for go; north of the border means in Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "GANG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is pressured to join a throng and travel up into Scotland.",
+     "walkthrough": "'North of the border' is Scotland, whose dialect uses 'gang' for 'go'.",
+     "definitionFit": "To press-gang is to coerce someone into service, as navy crews once seized men to serve at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +923,44 @@
      }
     ]
    },
-   "solution": "PUTACROSS"
+   "solution": "PUTACROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUT ACROSS",
+    "definitions": [
+     {
+      "text": "Get over",
+      "at": 0
+     },
+     {
+      "text": "to vote",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get over",
+      "note": "first meaning: to communicate an idea successfully"
+     },
+     {
+      "clueFragment": "to vote",
+      "note": "second meaning, split into three words: mark an X on a ballot paper"
+     }
+    ],
+    "explanation": {
+     "surface": "Persuade someone to go and cast their ballot.",
+     "walkthrough": "Read as three words, the phrase describes marking an X, which is how British voters fill in a ballot.",
+     "definitionFit": "To put something across is to convey it clearly; marking an X is the act of voting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +974,40 @@
     "text": "He and I could be so described",
     "enumeration": "9"
    },
-   "solution": "ELEMENTAL"
+   "solution": "ELEMENTAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELEMENTAL",
+    "definitions": [
+     {
+      "text": "He and I could be so described",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He and I",
+      "note": "surface reading: two people, a man and the speaker"
+     },
+     {
+      "clueFragment": "He and I",
+      "note": "setter's reading: the chemical symbols for helium and iodine"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describing themselves and a male friend.",
+     "walkthrough": "The pronouns are chemical symbols; both substances appear in the periodic table.",
+     "definitionFit": "Helium and iodine are chemical elements, so the adjective relating to elements fits them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 16,
@@ -284,10 +1018,61 @@
    },
    "length": 9,
    "clue": {
-    "text": "Yearns to be beset by bribes and stush",
+    "text": "Yearns to be beset by bribes and slush",
     "enumeration": "9"
    },
-   "solution": "SOPPINESS"
+   "solution": "SOPPINESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOPPINESS",
+    "definitions": [
+     {
+      "text": "slush",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be beset by",
+      "for": "container",
+      "note": "being beset means being surrounded on all sides, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bribes",
+      "gives": "SOPS",
+      "note": "a sop is something given to pacify or buy off"
+     },
+     {
+      "clueFragment": "Yearns",
+      "gives": "PINES",
+      "note": "pines means longs or yearns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOP",
+      "PINES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longing for things is surrounded by backhanders and melting snow.",
+     "walkthrough": "'Slush' suggests half-melted snow, but here it means mawkish sentimentality.",
+     "definitionFit": "Soppiness is excessive sentimentality, the cloying quality called slush or mush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slush"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1086,44 @@
     "text": "Star group firmly attached to rock",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Star group",
+      "at": 0
+     },
+     {
+      "text": "firmly attached to rock",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star group",
+      "note": "first meaning: a constellation in the northern sky"
+     },
+     {
+      "clueFragment": "firmly attached to rock",
+      "note": "second meaning: the princess of Greek myth chained to a sea cliff"
+     }
+    ],
+    "explanation": {
+     "surface": "A band of celebrities holds firmly to rock music.",
+     "walkthrough": "'Star group' and 'rock' suggest a band and its music; the clue is about astronomy and myth.",
+     "definitionFit": "The constellation is named after the mythical princess who was chained to a rock as an offering to a sea monster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1137,45 @@
     "text": "Record sound acoustically",
     "enumeration": "5"
    },
-   "solution": "WRITE"
+   "solution": "WRITE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRITE",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acoustically",
+      "for": "homophone",
+      "note": "acoustics concern hearing, so the word is taken as heard rather than as spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound",
+      "gives": "WRITE",
+      "soundsLike": "RIGHT",
+      "note": "sound in the sense of correct, valid"
+     }
+    ],
+    "explanation": {
+     "surface": "An engineer is told to capture audio in good acoustic conditions.",
+     "walkthrough": "'Record sound' looks like a studio instruction, but 'sound' means correct here.",
+     "definitionFit": "To write something down is to record it in permanent written form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1189,52 @@
     "text": "Port abandoned by an idiot",
     "enumeration": "5"
    },
-   "solution": "TWERP"
+   "solution": "TWERP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TWERP",
+    "definitions": [
+     {
+      "text": "idiot",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned by",
+      "for": "deletion",
+      "note": "the port's name is left by the following word, which drops away from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Port",
+      "gives": "ANTWERP",
+      "note": "the Belgian port"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWERP"
+     ]
+    },
+    "explanation": {
+     "surface": "A harbour town has been deserted by some fool.",
+     "definitionFit": "Twerp is an informal insult for a silly or contemptible person, a fool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Port"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1248,67 @@
     "text": "Unseated - in fact, unseated after losing weight",
     "enumeration": "9"
    },
-   "solution": "DETHRONED"
+   "solution": "DETHRONED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DETHRONED",
+    "definitions": [
+     {
+      "text": "Unseated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after losing",
+      "for": "deletion",
+      "note": "a letter is shed from the second 'unseated' word, as one sheds pounds"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the trimmed word inside the word for fact"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unseated",
+      "gives": "THROWN",
+      "note": "as a rider thrown by a horse"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     },
+     {
+      "clueFragment": "fact",
+      "gives": "DEED",
+      "note": "deed as in 'in deed', a fact or actual act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "THRON",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A deposed ruler, literally thrown from the saddle, having slimmed down.",
+     "walkthrough": "'In fact' reads as a filler phrase, but 'in' is the container signal and 'fact' gives DEED.",
+     "definitionFit": "A dethroned monarch has been removed from power, unseated from their throne."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fact"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1322,50 @@
     "text": "Unscrupulous character hurtles madly around",
     "enumeration": "7"
    },
-   "solution": "HUSTLER"
+   "solution": "HUSTLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HUSTLER",
+    "definitions": [
+     {
+      "text": "Unscrupulous character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "madly around",
+      "for": "anagram",
+      "note": "moving madly around is chaotic, so the word's letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurtles",
+      "gives": "HURTLES",
+      "note": "fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HURTLES",
+       "gives": "HUSTLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady crook races about at reckless speed.",
+     "definitionFit": "A hustler is a swindler or con artist who makes money by dishonest, aggressive means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hurtles"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1379,54 @@
     "text": "Casual worker not working at first",
     "enumeration": "7"
    },
-   "solution": "OFFHAND"
+   "solution": "OFFHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFHAND",
+    "definitions": [
+     {
+      "text": "Casual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "charade",
+      "note": "'at first' puts the idle description in front, ahead of the labourer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not working",
+      "gives": "OFF",
+      "note": "off as in off duty or switched off"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as a farmhand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A temporary employee who was idle at the start of the shift.",
+     "walkthrough": "'Casual worker' reads as one phrase for a temp, but 'Casual' alone is the definition.",
+     "definitionFit": "Offhand describes a careless, nonchalant manner, which is to say casual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1440,66 @@
     "text": "In road, steep climbs going on for ever",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "going on for ever",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "'In' places the soaking word inside the word for a road"
+     },
+     {
+      "text": "climbs",
+      "for": "reversal",
+      "note": "in a down entry, climbing means going upward, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "LANE",
+      "note": "a lane is a narrow road"
+     },
+     {
+      "clueFragment": "steep",
+      "gives": "RET",
+      "note": "to ret is to soak flax in water, so steep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETERNAL"
+     ],
+     "reversals": [
+      {
+       "from": "LANRETE",
+       "to": "ETERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A steep hill on a road that seems to climb forever.",
+     "walkthrough": "'Steep' looks like an adjective for a hill; it is the verb meaning soak, and RET is that verb in flax processing.",
+     "definitionFit": "Eternal means lasting without end, continuing for all time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "steep"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1513,51 @@
     "text": "Poor director to whom money is owing",
     "enumeration": "8"
    },
-   "solution": "CREDITOR"
+   "solution": "CREDITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREDITOR",
+    "definitions": [
+     {
+      "text": "to whom money is owing",
+      "at": 14,
+      "note": "a relative clause standing for 'one to whom money is owing'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the following word is in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "director",
+      "gives": "DIRECTOR",
+      "note": "fodder taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRECTOR",
+       "gives": "CREDITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A struggling company boss who is still owed money.",
+     "definitionFit": "A creditor is a person or firm that has lent money and is waiting to be repaid by a debtor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1571,50 @@
     "text": "Son frequently exhibiting temper",
     "enumeration": "6"
    },
-   "solution": "SOFTEN"
+   "solution": "SOFTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOFTEN",
+    "definitions": [
+     {
+      "text": "temper",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "exhibiting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFTEN",
+      "note": "a direct synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OFTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy who regularly throws tantrums.",
+     "walkthrough": "'Temper' reads as a noun, a bad mood; it is the verb meaning to moderate.",
+     "definitionFit": "To soften something is to make it less harsh, which is to temper or tone it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temper"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1638,46 @@
      }
     ]
    },
-   "solution": "ONTHELEVEL"
+   "solution": "ONTHELEVEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE LEVEL",
+    "definitions": [
+     {
+      "text": "Above board",
+      "at": 0
+     },
+     {
+      "text": "not uneven",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Above board",
+      "note": "first meaning: honest, legitimate"
+     },
+     {
+      "clueFragment": "not uneven",
+      "note": "second meaning: flat, horizontal"
+     }
+    ],
+    "explanation": {
+     "surface": "A flat surface sitting over a plank.",
+     "definitionFit": "The idiom means honest and genuine, while literally it describes something lying perfectly flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1691,65 @@
     "text": "Composer learned when guided around",
     "enumeration": "4"
    },
-   "solution": "ARNE"
+   "solution": "ARNE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ARNE",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when guided",
+      "for": "deletion",
+      "note": "the word for guided is to be found and stripped from the outside of the word learned"
+     },
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "'around' also tells us to turn the remaining letters about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learned",
+      "gives": "LEARNED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "guided",
+      "gives": "LED",
+      "note": "led means guided; it wraps round the other letters in learned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARNE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EARN",
+       "gives": "ARNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer who picked up his craft by being shown the ropes.",
+     "walkthrough": "LEARNED is L-EARN-ED, the word for guided placed around EARN; taking that away leaves EARN to be rearranged. Thomas Arne wrote Rule, Britannia!",
+     "definitionFit": "Thomas Arne was an eighteenth-century English composer, best known for the patriotic song Rule, Britannia!"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guided"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1763,68 @@
     "text": "Drummer in US takes drink aboard ship with crew",
     "enumeration": "8"
    },
-   "solution": "SALESMAN"
+   "solution": "SALESMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SALESMAN",
+    "definitions": [
+     {
+      "text": "Drummer in US",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "a ship that takes something on holds it, so the drink goes inside the vessel"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "being aboard means being on and within a vessel, enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "a type of beer"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MAN",
+      "note": "to man a vessel is to crew it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALE",
+      "S",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An American percussionist drinks on board a ship among the crew.",
+     "walkthrough": "In American usage a drummer is a travelling salesman, one who drums up trade.",
+     "definitionFit": "Drummer is old American slang for a commercial traveller who drums up business for a firm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drummer"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +1838,62 @@
     "text": "Put out about extremely delayed puzzle",
     "enumeration": "6"
    },
-   "solution": "RIDDLE"
+   "solution": "RIDDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RIDDLE",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "'extremely' points to the extremities, the first and last letters of the next word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the annoyance word goes round the selected letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put out",
+      "gives": "RILE",
+      "note": "to annoy, to put someone out"
+     },
+     {
+      "clueFragment": "delayed",
+      "gives": "DD",
+      "select": "outer",
+      "note": "the first and last letters of delayed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is annoyed by a puzzle that arrived very late.",
+     "walkthrough": "'Put out' could mean extinguished; here it means annoyed.",
+     "definitionFit": "A riddle is a puzzling question or conundrum posed as a test of wit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   }
  ]
 }
