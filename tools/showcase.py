@@ -4,6 +4,10 @@ build_seo_pages.puzzle_page_job() calls facts() on every listed, solved puzzle a
 it renders that puzzle's page, so the showcase costs no second pass over the
 corpus; sections() then picks each section's puzzles from all of them.
 
+Only puzzles with our hints are shown: a reader who opens a pick to solve it
+gets help. wanted() names the unhinted puzzles a section would show, and the
+pre-reset burn (tools/prereset_plan.py) annotates those first.
+
 Every section is a fact the file or the index states. A message hidden in the
 grid counts only when the note above the clues says where to look: any edge
 spells something if you hunt for words in it (see tools/puzzle_tags.py), so a
@@ -12,6 +16,7 @@ grid search would fill the section with accidents.
 
 import re
 
+import parallel
 import puzzle_tags
 import series as series_meta
 
@@ -84,6 +89,7 @@ def facts(puz, meta):
         "message": bool(MESSAGE.search(preamble)),
         "jigsaw": bool(JIGSAW.search(preamble)),
         "difficulty": diff.get("index") if diff.get("band") else None,
+        "annotated": bool((meta or {}).get("annotated")),
         # A round issue number means something only where the number counts
         # issues: not a date (Metro), not a book's volume * 1000 + position.
         "counted": not (series_meta.is_book(series)
@@ -114,11 +120,12 @@ def pangram_times(f):
     return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=1)
 
 
-def sections(all_facts):
+def sections(all_facts, hinted=True):
     """[(slug, heading, blurb, [(fact dict, card note)])], in page order. A
-    puzzle shows once, in the first section that wants it."""
+    puzzle shows once, in the first section that wants it; with hinted, only
+    the puzzles we have annotated are candidates."""
     used = set()
-    fs = list(all_facts)
+    fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
 
     def add(slug, heading, blurb, picked, note):
@@ -182,3 +189,34 @@ def sections(all_facts):
         pick([f for f in fs if f["dated"]], lambda f: f["day"], used, per_series=3),
         lambda f: "")
     return out
+
+
+def wanted(all_facts):
+    """Ids of the unannotated puzzles the showcase would pick if it took any
+    puzzle: what annotating first would put on the page."""
+    return [f["id"] for _, _, _, cards in sections(all_facts, hinted=False)
+            for f, _ in cards if not f["annotated"]]
+
+
+_META = {}
+
+
+def _file_facts(path):
+    from fetch_puzzle import read_puzzle_file
+    puz = read_puzzle_file(path)
+    row = _META.get(puz["id"])
+    if row is None or not row.get("hasSolutions"):
+        return None
+    return facts(puz, row)
+
+
+def corpus_facts(index):
+    """facts() for every listed puzzle with all its answers (the index's
+    hasSolutions), which build_seo_pages gathers as it renders their pages."""
+    from puzzle_paths import puzzle_files
+    global _META
+    _META = {p["id"]: p for p in index["puzzles"]}
+    try:
+        return [f for f in parallel.pmap(_file_facts, puzzle_files()) if f]
+    finally:
+        _META = {}

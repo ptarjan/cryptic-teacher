@@ -52,7 +52,7 @@ check("a date-keyed number is not an issue", not facts("metro-20260902")["counte
 def fake(i, series, **kw):
     f = {"id": f"{series}-{i}", "series": series, "number": i, "day": i, "dated": True,
          "answers": 28, "longest": None, "tags": [], "message": False, "jigsaw": False,
-         "difficulty": None, "counted": True}
+         "difficulty": None, "counted": True, "annotated": True}
     f.update(kw)
     return f
 pool = ([fake(i, "cryptic", message=True, jigsaw=True) for i in range(1, 9)]
@@ -65,6 +65,42 @@ check("no series takes more than its share of a section",
       sum(f["series"] == "cryptic" for f, _ in msg) == 3, [f["id"] for f, _ in msg])
 check("a section with nothing to show is left out",
       "pangrams" not in [slug for slug, *_ in got])
+
+# --- only hinted puzzles; the burn is told which unhinted ones to do first ---
+pool = [fake(i, "cryptic", message=True, annotated=i % 2 == 0) for i in range(1, 9)]
+shown = [f["id"] for _, _, _, cards in sc.sections(pool) for f, _ in cards]
+check("the showcase shows only annotated puzzles",
+      shown and all(int(i.split("-")[1]) % 2 == 0 for i in shown), shown)
+check("wanted() names the unhinted puzzles it would have shown",
+      sorted(sc.wanted(pool)) == ["cryptic-1", "cryptic-3", "cryptic-5", "cryptic-7"],
+      sc.wanted(pool))
+
+# --- a pick opens the solver, and no reader page may link an answer page ---
+import pathlib
+import build_seo_pages as B
+meta = {f["id"]: {"id": f["id"], "series": "cryptic", "number": f["number"],
+                  "date": "2020-01-01", "annotated": True} for f in pool}
+page = B.showcase_page(pool, meta)
+check("a showcase row opens the puzzle in the app",
+      f'href="{B.BASE}/?p=cryptic-8"' in page and "/puzzles/cryptic-8/" not in page)
+check("a clue link opens the app on that clue",
+      B.solve_url("cryptic-8", "21-across") == f"{B.BASE}/?p=cryptic-8&amp;c=21A")
+def refused(rel, text):
+    try:
+        B.assert_no_answer_links(B.ROOT / rel, text)
+    except SystemExit:
+        return True
+    return False
+answer = f'<a href="{B.BASE}/puzzles/cryptic-8/#21-across">x</a>'
+for rel in ("showcase", "abbreviations", "indicators", "learn", "difficulty"):
+    check(f"/{rel}/ may not link an answer page", refused(f"{rel}/index.html", answer))
+check("a relative answer link is refused too",
+      refused("indicators/index.html", '<a href="../puzzles/cryptic-8/">x</a>'))
+check("the hub and series links are not answer pages",
+      not refused("showcase/index.html", f'<a href="{B.BASE}/puzzles/">x</a>'
+                  f'<a href="{B.BASE}/puzzles/series/cryptic/">y</a>'))
+check("the archive listings link answer pages, their crawl path",
+      not refused("puzzles/series/cryptic/2020/index.html", answer))
 
 print("\n%d failure(s)" % fails)
 raise SystemExit(fails > 0)

@@ -509,6 +509,18 @@ def clue_html(e, blog_note=True):
     return "".join(bits)
 
 
+def solve_url(pid, eid=None):
+    """The app with this puzzle open, on clue eid ("21-across") when given: where
+    every puzzle link a reader follows goes. /puzzles/<id>/ shows every answer;
+    it is for search engines, and a reader is sent there only from the archive
+    listings, which are its crawl path (homepage_nav)."""
+    url = f"{BASE}/?p={pid}"
+    if eid:
+        number, direction = eid.split("-")
+        url += f"&amp;c={number}{direction[0].upper()}"
+    return url
+
+
 def app_return(pid):
     """Send a reload back into the app when this tab was solving the puzzle there.
 
@@ -637,7 +649,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "<main class=\"static-main\">",
         f"<h1>{pk} Crossword" + (f", {dw}" if day else f" No {pretty}") + "</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
-        f'<p class="s-cta"><a class="cta" href="{BASE}/?p={puz["id"]}">Solve it yourself, '
+        f'<p class="s-cta"><a class="cta" href="{solve_url(puz["id"])}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',
     ]
     # A page that prints answers has to say where the answers came from. For a
@@ -676,7 +688,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
             body.append("<p>The clue types in this puzzle:</p><ul class=\"s-types\">"
                         + "".join(f"<li>{esc(t)}</li>" for t in types) + "</ul>")
         body.append(
-            f'<p>Want to solve it first? <a href="{BASE}/?p={puz["id"]}">Open it in the '
+            f'<p>Want to solve it first? <a href="{solve_url(puz["id"])}">Open it in the '
             "solver</a>: it gives the same explanation one hint at a time, so you see only "
             "as much as you need.</p>")
     else:
@@ -739,7 +751,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
 def hub_row(p, note=None):
     """One archive row. Every listing page is made of these and nothing else.
     With `note` it is a showcase row: what is unusual about the puzzle takes
-    the place of the hints badges, which say nothing about why it was picked."""
+    the place of the hints badges, which say nothing about why it was picked,
+    and the row opens the puzzle in the app rather than on its answer page."""
     d = p.get("difficulty") or {}
     when = datestr(p)
     badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
@@ -760,7 +773,8 @@ def hub_row(p, note=None):
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
     series = (f'<span class="badge series">'
               f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
-    return (f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
+    href = solve_url(p["id"]) if note is not None else f"{BASE}/puzzles/{p['id']}/"
+    return (f'<li><a href="{href}">'
             f'<span class="p-num">{display_number(p)}</span>'
             f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
@@ -1047,7 +1061,7 @@ def series_page(series, years, today):
         body += [
             f"<h2>{'Today' if day == today else 'Latest'}: {esc(named(latest))}</h2>",
             f'<ul class="s-index">{hub_row(latest)}</ul>',
-            f'<p class="s-cta"><a class="cta" href="{BASE}/?p={latest["id"]}">Solve it yourself, '
+            f'<p class="s-cta"><a class="cta" href="{solve_url(latest["id"])}">Solve it yourself, '
             "with hints one step at a time &rarr;</a></p>",
             *([f"<p>{esc(blurb)}</p>"] if blurb else []),
             difficulty_strip(name, every),
@@ -1379,8 +1393,7 @@ def showcase_page(facts, meta):
     body = [masthead(crumbs), '<main class="static-main">',
             "<h1>Unusual puzzles</h1>",
             "<p>Most cryptic crosswords follow the same pattern. These break it, or set "
-            "a record. Each one opens on its page with every answer; from there you can "
-            "solve it with hints.</p>",
+            "a record. Each one opens ready to solve, with hints one step at a time.</p>",
             '<p class="s-years">' + " &middot; ".join(
                 f'<a href="#{slug}">{esc(heading)}</a>' for slug, heading, _, _ in secs)
             + "</p>"]
@@ -1463,7 +1476,7 @@ def clue_links(senses, blocks):
         _, _, _, pid, eid = min(found, key=lambda c: (used.get(c[3], 0), -c[1], -c[2],
                                                       c[3], c[4]))
         used[pid] = used.get(pid, 0) + 1
-        out[word] = f"{BASE}/puzzles/{pid}/#{eid}"
+        out[word] = solve_url(pid, eid)
     return out
 
 
@@ -1656,7 +1669,7 @@ def indicators_page(found):
         label = esc(indicator_label(k))
         if (t, k) in found:
             _, pid, eid = found[(t, k)]
-            label = f'<a href="{BASE}/puzzles/{pid}/#{esc(eid)}">{label}</a>'
+            label = f'<a href="{solve_url(pid, eid)}">{label}</a>'
         return f'{label} <span class="muted">{n:,}</span>'
 
     title = f"Cryptic crossword indicators — {total:,} words, by type"
@@ -1980,6 +1993,7 @@ def puzzle_page_job(i):
 def write_output(p, text, check):
     """Check one generated file and write it if it changed; whether it did."""
     assert_no_root_relative(p, text)
+    assert_no_answer_links(p, text)
     if p.exists() and p.read_text(encoding="utf-8") == text:
         return False
     if not check:
@@ -2091,6 +2105,24 @@ def assert_no_root_relative(path, text):
     if bad:
         raise SystemExit(f"root-relative links in {path.relative_to(ROOT)} (the site lives "
                          f"at {BASE}/, so these 404):\n  " + "\n  ".join(bad[:20]))
+
+
+# The pages a reader browses for puzzles to try. Their puzzle links open the
+# app (solve_url); the answer pages are for search engines.
+READER_PAGES = ("learn", "abbreviations", "indicators", "difficulty", "showcase")
+ANSWER_LINK = re.compile(r'href="[^"]*\bpuzzles/(?!series/)[^/"?#]+/[^"]*"')
+
+
+def assert_no_answer_links(path, text):
+    """No reader page links a puzzle's answer page."""
+    if path.name != "index.html" or path.parent.name not in READER_PAGES \
+            or path.parent.parent != ROOT:
+        return
+    bad = ANSWER_LINK.findall(text)
+    if bad:
+        raise SystemExit(f"{path.relative_to(ROOT)} links puzzles to their answer pages; "
+                         "a reader's puzzle link opens the app (solve_url):\n  "
+                         + "\n  ".join(bad[:20]))
 
 
 def orphans(files):

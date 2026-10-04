@@ -349,7 +349,9 @@ const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(ht
   // carry is the page telling a solver about a thing that is not there.
   const glossary = page.split('<dl class="glossary">').slice(1)
     .map((s) => s.split("</dl>")[0]).join("\n");
-  const clueLinks = [...glossary.matchAll(/href="[^"]*\/puzzles\/([^/"]+)\/#([^"]+)"/g)];
+  // Each opens the clue in the app (solve_url): ?p=<id>&c=21A is 21-across.
+  const clueLinks = [...glossary.matchAll(/href="[^"]*\?p=([^&"]+)&amp;c=(\d+)([AD])"/g)]
+    .map(([m, id, n, d]) => [m, id, `${n}-${d === "A" ? "across" : "down"}`]);
   assert(clueLinks.length > 0,
     "the glossary links its words into the clues that use them "
       + "(run tools/build_seo_pages.py)");
