@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Country that produced Murray's first  dictionary",
     "enumeration": "6"
    },
-   "solution": "MEXICO"
+   "solution": "MEXICO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "deletion"
+    ],
+    "answer": "MEXICO",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of the Scotsman's name is its opening initial, so only that letter is kept"
+     },
+     {
+      "text": "that produced",
+      "for": "substitution",
+      "note": "the dictionary word is made to produce a different opening letter, swapped in for its own initial"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murray's",
+      "gives": "M",
+      "select": "first",
+      "note": "the initial letter of the name Murray"
+     },
+     {
+      "clueFragment": "dictionary",
+      "gives": "LEXICON",
+      "note": "a lexicon is a dictionary, especially of an ancient language"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EXICO"
+     ]
+    },
+    "explanation": {
+     "surface": "A quip about which nation gave the world James Murray's first dictionary, he being the founding editor of the Oxford English Dictionary.",
+     "walkthrough": "M replaces the L of LEXICON, and the final N also has to go to leave MEXICO; nothing in the clue as given signals that loss, and the double space suggests a word may be missing.",
+     "definitionFit": "Mexico is a nation of Central America, the southern neighbour of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Murray's"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +111,61 @@
      }
     ]
    },
-   "solution": "TOOTINGBEC"
+   "solution": "TOOTINGBEC",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TOOTING BEC",
+    "definitions": [
+     {
+      "text": "part of south London",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "the Reverend Spooner famously swapped the opening sounds of pairs of words, so the initial sounds here change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kicking",
+      "gives": "BOOTING",
+      "note": "booting a ball is kicking it"
+     },
+     {
+      "clueFragment": "Dick",
+      "gives": "TEC",
+      "note": "dick and tec are both slang for a detective"
+     },
+     {
+      "clueFragment": "Spooner's kicking Dick",
+      "gives": "TOOTINGBEC",
+      "soundsLike": "BOOTING TEC",
+      "note": "say the phrase with its opening sounds swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOOTING",
+      "BEC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Spooner is kicking a man named Dick in a London street.",
+     "walkthrough": "Swap the B and T at the fronts of BOOTING TEC. Tooting Bec is a district (and Tube station) in the London borough of Wandsworth.",
+     "definitionFit": "Tooting Bec is a residential neighbourhood south of the Thames, with a common and a lido."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Dick"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +179,63 @@
     "text": "Saint grasping rudiment of electric organ",
     "enumeration": "8"
    },
-   "solution": "PANCREAS"
+   "solution": "PANCREAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PANCREAS",
+    "definitions": [
+     {
+      "text": "organ",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grasping",
+      "for": "container",
+      "note": "to grasp something is to hold it in your hand, so the saint's name closes around the extra letter"
+     },
+     {
+      "text": "rudiment of",
+      "for": "letter_selection",
+      "note": "a rudiment is a first principle or beginning, so only the opening letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "PANCRAS",
+      "note": "St Pancras, the Roman martyr who gives his name to the London station"
+     },
+     {
+      "clueFragment": "electric",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of electric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANCR",
+      "E",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy figure clutching the basics of an electrical organ, as if in a church music lesson.",
+     "walkthrough": "'Electric organ' reads as one musical instrument; the organ is the definition alone, and the saint has to be named, not just abbreviated to ST.",
+     "definitionFit": "The pancreas is a gland behind the stomach producing insulin and digestive enzymes, so it is a bodily organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "electric"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +249,59 @@
     "text": "Glasgow's back with Forest's keeper",
     "enumeration": "6"
    },
-   "solution": "WARDEN"
+   "solution": "WARDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WARDEN",
+    "definitions": [
+     {
+      "text": "keeper",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the end of the city's name is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glasgow's",
+      "gives": "W",
+      "select": "last",
+      "note": "the final letter of Glasgow"
+     },
+     {
+      "clueFragment": "Forest's",
+      "gives": "ARDEN",
+      "note": "the Forest of Arden, setting of As You Like It"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ARDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: a Glasgow defender is back in the side alongside the Nottingham Forest goalkeeper.",
+     "walkthrough": "Forest suggests Nottingham Forest football club, which fits 'keeper', but here it is the Forest of Arden in Warwickshire.",
+     "definitionFit": "A warden is a guardian or custodian put in charge of a place or people, such as a game park or prison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Forest's"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +315,57 @@
     "text": "Swot and cram, revising evidence of underground activity",
     "enumeration": "8"
    },
-   "solution": "WORMCAST"
+   "solution": "WORMCAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORMCAST",
+    "definitions": [
+     {
+      "text": "evidence of underground activity",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revising",
+      "for": "anagram",
+      "note": "revising means altering and reworking, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swot",
+      "gives": "SWOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cram",
+      "gives": "CRAM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SWOTCRAM",
+       "gives": "WORMCAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exam preparation: students swotting and cramming as they revise for a test.",
+     "walkthrough": "Revising looks like part of the study scene, but it is the anagram signal; underground activity sounds like espionage or resistance, not earthworms.",
+     "definitionFit": "A wormcast is the coil of soil an earthworm leaves on the surface, a sign of its burrowing beneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revising"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +379,58 @@
     "text": "What's left after dropping a hint",
     "enumeration": "8"
    },
-   "solution": "REMINDER"
+   "solution": "REMINDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REMINDER",
+    "definitions": [
+     {
+      "text": "hint",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so the letter named next is taken out"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's left",
+      "gives": "REMAINDER",
+      "note": "what is left over is the remainder"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "INDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry line about what remains once someone has dropped a hint.",
+     "walkthrough": "'Dropping a hint' is a stock phrase, but it splits: dropping a (from the remainder) and hint as the definition.",
+     "definitionFit": "A reminder is a prompt or nudge that brings something to mind, as a hint does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +444,58 @@
     "text": "Consider taking degree in perfume provision",
     "enumeration": "8"
    },
-   "solution": "POMANDER"
+   "solution": "POMANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POMANDER",
+    "definitions": [
+     {
+      "text": "perfume provision",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "to take something in is to receive it inside, so the verb holds the qualification"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consider",
+      "gives": "PONDER",
+      "note": "to ponder is to consider"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "MA",
+      "note": "Master of Arts, a university degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "MA",
+      "NDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A careers adviser suggests thinking about a degree course in perfumery.",
+     "walkthrough": "'Degree in perfume' looks like a course of study; 'in' is just a link word here.",
+     "definitionFit": "A pomander is a ball of scented substances, or a perforated container for them, carried or hung to give fragrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +509,47 @@
     "text": "Like too much and mark the wrong vowel?",
     "enumeration": "4"
    },
-   "solution": "DOTE"
+   "solution": "DOTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOTE",
+    "definitions": [
+     {
+      "text": "Like too much",
+      "at": 0
+     },
+     {
+      "text": "mark the wrong vowel",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like too much",
+      "note": "first meaning: to be excessively fond of someone"
+     },
+     {
+      "clueFragment": "mark the wrong vowel",
+      "note": "second meaning, read as two words: put a dot over E rather than I"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher's grumble about a pupil who is too keen and also sloppy with accents.",
+     "walkthrough": "We are told to dot our i's; split the answer as DOT E and you have dotted the wrong vowel. The question mark flags the whimsy.",
+     "definitionFit": "To dote on someone is to be foolishly or excessively fond of them, liking them more than is sensible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Like"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +563,48 @@
     "text": "Unsavoury oddball going topless",
     "enumeration": "4"
    },
-   "solution": "RANK"
+   "solution": "RANK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RANK",
+    "definitions": [
+     {
+      "text": "Unsavoury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going topless",
+      "for": "deletion",
+      "note": "losing the top of a word in a down entry means dropping its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oddball",
+      "gives": "CRANK",
+      "note": "a crank is an eccentric person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANK"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid image of a disreputable eccentric stripping off.",
+     "definitionFit": "Rank means foul-smelling or offensive, as an unsavoury thing is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +618,63 @@
     "text": "Continue to get Amerindian more than half confused",
     "enumeration": "6"
    },
-   "solution": "REMAIN"
+   "solution": "REMAIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REMAIN",
+    "definitions": [
+     {
+      "text": "Continue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than half",
+      "for": "deletion",
+      "note": "only a portion above fifty per cent of the word is used, so its tail is cut"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are muddled up, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amerindian",
+      "gives": "AMERINDIAN",
+      "note": "taken as written; six of its ten letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMAIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMERIN",
+       "gives": "REMAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps trying to get a Native American thoroughly bewildered.",
+     "walkthrough": "Six letters out of ten is 'more than half', leaving AMERIN to be rearranged.",
+     "definitionFit": "To remain is to stay or carry on, the intransitive sense of continue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Continue"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +688,47 @@
     "text": "Supplies at high speed railway's starting point",
     "enumeration": "8"
    },
-   "solution": "STOCKTON"
+   "solution": "STOCKTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCKTON",
+    "definitions": [
+     {
+      "text": "railway's starting point",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supplies",
+      "gives": "STOCK",
+      "note": "stock is goods held in supply"
+     },
+     {
+      "clueFragment": "at high speed",
+      "gives": "TON",
+      "note": "the ton is slang for a hundred miles an hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "Goods dispatched on a high-speed railway from its terminus.",
+     "walkthrough": "Stockton-on-Tees, in north-east England, was one end of the Stockton and Darlington Railway of 1825, the first public steam railway; 'doing the ton' is British slang for 100 mph.",
+     "definitionFit": "The pioneering 1825 steam line ran between Stockton and Darlington, so the town is where that historic line began."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Supplies"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +742,71 @@
     "text": "Aid to Biblical Studies with chapter formerly including New and Old Testament books",
     "enumeration": "11"
    },
-   "solution": "CONCORDANCE"
+   "solution": "CONCORDANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONCORDANCE",
+    "definitions": [
+     {
+      "text": "Aid to Biblical Studies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include is to take in as a part, so the books sit inside the adverb"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is the abbreviation for chapter"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "ONCE",
+      "note": "once means at a former time"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "COR",
+      "note": "Cor, short for Corinthians, a New Testament book"
+     },
+     {
+      "clueFragment": "Old Testament books",
+      "gives": "DAN",
+      "note": "Dan, short for Daniel, an Old Testament book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "COR",
+      "DAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A study aid for Bible scholars, with chapter references, covering both Testaments.",
+     "walkthrough": "'New and Old Testament books' means a book of each: Corinthians and Daniel, in their usual abbreviations, go inside ONCE after C.",
+     "definitionFit": "A concordance is an alphabetical index of every word in a text, the classic tool for finding verses in the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +820,71 @@
     "text": "Legal case involving space experts' reversal and undoing",
     "enumeration": "10"
    },
-   "solution": "DEFEASANCE"
+   "solution": "DEFEASANCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "deletion"
+    ],
+    "answer": "DEFEASANCE",
+    "definitions": [
+     {
+      "text": "undoing",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversal",
+      "for": "reversal",
+      "note": "a reversal turns something back the other way, so the agency name is read right to left"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to wrap up or enclose, so the legal word goes round the other letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space experts'",
+      "gives": "NASA",
+      "note": "the US National Aeronautics and Space Administration"
+     },
+     {
+      "clueFragment": "Legal case",
+      "gives": "DEFENCE",
+      "note": "the defence is the case put for the accused in a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFE",
+      "ASAN",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "NASA",
+       "to": "ASAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawsuit about space scientists reversing a decision and undoing it.",
+     "walkthrough": "The grid has room for only one N: the setter lets the N that closes the turned-round agency name stand in for the one in the legal word, so one of the two is dropped.",
+     "definitionFit": "In law, defeasance is the rendering of a deed or contract null and void, its annulment or undoing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversal"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +898,68 @@
     "text": "Seaside plant - was MP holding two in either hand?",
     "enumeration": "8"
    },
-   "solution": "SALTWORT"
+   "solution": "SALTWORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALTWORT",
+    "definitions": [
+     {
+      "text": "Seaside plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "to hold something is to keep it inside your grasp, so the verb goes round the rest"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the number inside the pair of hand letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was MP",
+      "gives": "SAT",
+      "note": "a Member of Parliament sits in the House, so one who was an MP sat"
+     },
+     {
+      "clueFragment": "either hand",
+      "gives": "LR",
+      "note": "L and R, left and right, one for each hand"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "TWO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "TWO",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A former MP at the beach, gripping two of something in each hand.",
+     "walkthrough": "Read 'either hand' as left and right flanking the number; MPs are said to sit in Parliament, so one who was an MP sat.",
+     "definitionFit": "Saltwort is a name for several salt-tolerant plants, such as glasswort, that grow on beaches and salt marshes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +973,71 @@
     "text": "Corrupt dean getting gold sovereign from the old chancellor",
     "enumeration": "8"
    },
-   "solution": "ADENAUER"
+   "solution": "ADENAUER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADENAUER",
+    "definitions": [
+     {
+      "text": "old chancellor",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Corrupt",
+      "for": "anagram",
+      "note": "something corrupt is spoiled and altered from its proper form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "from the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dean",
+      "gives": "DEAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "sovereign",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the sovereign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADEN",
+      "AU",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEAN",
+       "gives": "ADEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked church dean accepting a gold coin from a former Chancellor of the Exchequer.",
+     "walkthrough": "A sovereign is also a gold coin, which suits the bribe story, but here it gives ER. The chancellor is German, not a British finance minister.",
+     "definitionFit": "Konrad Adenauer was the first Chancellor of West Germany, leading the country from 1949 to 1963."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sovereign"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1051,68 @@
     "text": "Reversed charges, ringing female prophet's descendant",
     "enumeration": "7"
    },
-   "solution": "SHEREEF"
+   "solution": "SHEREEF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SHEREEF",
+    "definitions": [
+     {
+      "text": "prophet's descendant",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reversed",
+      "for": "reversal",
+      "note": "something reversed faces the opposite way, so the word is read backwards"
+     },
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "to ring something is to encircle it, so the reversed word surrounds the pronoun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charges",
+      "gives": "FEES",
+      "note": "fees are charges for a service"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "HER",
+      "note": "her is the female pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HER",
+      "EEF"
+     ],
+     "reversals": [
+      {
+       "from": "FEES",
+       "to": "SEEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telephone talk: making a reverse-charge call to a woman.",
+     "walkthrough": "'Reversed charges' recalls a collect call, and 'ringing' a phone; both are wordplay signals.",
+     "definitionFit": "A shereef (or sharif) is a title for a descendant of Muhammad through his daughter Fatima."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1126,56 @@
     "text": "Find new home for good in 15's fiefdom?",
     "enumeration": "8"
    },
-   "solution": "EMIGRATE"
+   "solution": "EMIGRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMIGRATE",
+    "definitions": [
+     {
+      "text": "Find new home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the abbreviation inside the territory word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "15's fiefdom",
+      "gives": "EMIRATE",
+      "note": "an emirate is the domain of an emir, a Muslim ruler like the 15 across title-holder"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMI",
+      "G",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Moving abroad for good to a sheikh's realm.",
+     "walkthrough": "'For good' reads as 'permanently', which suits emigrating, but 'for' is part of the definition's phrasing and 'good' is just G; 15 is SHEREEF, whose fiefdom might be an emirate.",
+     "definitionFit": "To emigrate is to leave your country to settle permanently in another, finding a new home there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1189,68 @@
     "text": "High-flier to call back about celebrity",
     "enumeration": "7"
    },
-   "solution": "BUSTARD"
+   "solution": "BUSTARD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BUSTARD",
+    "definitions": [
+     {
+      "text": "High-flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back turns the word round, so it reads right to left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the reversed word goes round the famous person"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to call",
+      "gives": "DUB",
+      "note": "to dub someone is to call or name them"
+     },
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a star is a celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "STAR",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DUB",
+       "to": "BUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A high-achiever must ring back about a famous person.",
+     "walkthrough": "High-flier suggests an ambitious person, but it is a large bird.",
+     "definitionFit": "The great bustard is among the heaviest flying birds, so calling it a flier of note is a playful bird definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "High-flier"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1270,64 @@
      }
     ]
    },
-   "solution": "ISAACNEWTON"
+   "solution": "ISAACNEWTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISAAC NEWTON",
+    "definitions": [
+     {
+      "text": "a great mind",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the district surrounds the adjective"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is a",
+      "gives": "ISA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "London district",
+      "gives": "ACTON",
+      "note": "Acton is an area of west London"
+     },
+     {
+      "clueFragment": "modern",
+      "gives": "NEW",
+      "note": "new means modern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISA",
+      "AC",
+      "NEW",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a fashionable part of London is about to generate a genius.",
+     "definitionFit": "Newton, who formulated the laws of motion and gravitation, is a byword for scientific genius."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "modern"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1341,49 @@
     "text": "Yellowish stuff making some corn grow",
     "enumeration": "6"
    },
-   "solution": "EARWAX"
+   "solution": "EARWAX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARWAX",
+    "definitions": [
+     {
+      "text": "Yellowish stuff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some corn",
+      "gives": "EAR",
+      "note": "an ear is the seed-bearing head of a cereal plant"
+     },
+     {
+      "clueFragment": "grow",
+      "gives": "WAX",
+      "note": "to wax is to grow, as the moon does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "WAX"
+     ]
+    },
+    "explanation": {
+     "surface": "Some yellowish substance that makes corn grow, like a fertiliser.",
+     "definitionFit": "Earwax, or cerumen, is the yellowish waxy secretion in the ear canal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corn"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1397,47 @@
     "text": "Unused to the flavouring",
     "enumeration": "4"
    },
-   "solution": "MINT"
+   "solution": "MINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINT",
+    "definitions": [
+     {
+      "text": "Unused",
+      "at": 0
+     },
+     {
+      "text": "flavouring",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unused",
+      "note": "first meaning: in perfect, as-new condition"
+     },
+     {
+      "clueFragment": "flavouring",
+      "note": "second meaning: an aromatic herb used to flavour food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who isn't accustomed to a particular taste.",
+     "walkthrough": "'Unused to' reads as 'unaccustomed to'; split it, and the two words are separate meanings.",
+     "definitionFit": "Collectors call an untouched item in mint condition, and the herb is a common flavouring for sauces and sweets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Unused"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1451,50 @@
     "text": "Gamble on half the range",
     "enumeration": "4"
    },
-   "solution": "SPEC"
+   "solution": "SPEC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPEC",
+    "definitions": [
+     {
+      "text": "Gamble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only part is kept, so the back portion of the word is cut"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the range",
+      "gives": "SPECTRUM",
+      "note": "a spectrum is a full range"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEC"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting on a horse to finish halfway down the field, or on a mid-range option.",
+     "definitionFit": "Spec is short for speculation, so buying on spec is taking a risky venture or bet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1508,55 @@
     "text": "Threaten to incorporate a college",
     "enumeration": "8"
    },
-   "solution": "IMPERIAL"
+   "solution": "IMPERIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMPERIAL",
+    "definitions": [
+     {
+      "text": "college",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to incorporate",
+      "for": "container",
+      "note": "to incorporate is to take into a body, so the verb absorbs the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Threaten",
+      "gives": "IMPERIL",
+      "note": "to imperil is to threaten or endanger"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPERI",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A threat to absorb a college, as in a hostile university merger.",
+     "walkthrough": "Imperial College London is a leading science university.",
+     "definitionFit": "Imperial is the short name by which Imperial College London, a university institution, is usually known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incorporate"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1570,58 @@
     "text": "Covering the part of Trinculo, Mr Outrageous makes a comeback",
     "enumeration": "6"
    },
-   "solution": "ORMOLU"
+   "solution": "ORMOLU",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ORMOLU",
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the part of",
+      "for": "hidden_word",
+      "note": "a part of the phrase is a stretch of its letters, so the result lies inside these words"
+     },
+     {
+      "text": "makes a comeback",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trinculo, Mr Outrageous",
+      "gives": "ULOMRO",
+      "note": "found running across the end of the first name and the start of the last word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ULOMRO",
+       "to": "ORMOLU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor understudying Trinculo, the jester in The Tempest, in a flamboyant comeback performance.",
+     "walkthrough": "'The part of Trinculo' sounds like a theatre role; it only marks letters taken from the words.",
+     "definitionFit": "Ormolu is gilded bronze or a gold-coloured alloy used as a decorative coating on furniture and clocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1641,62 @@
      }
     ]
    },
-   "solution": "TICKTOCK"
+   "solution": "TICKTOCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TICK-TOCK",
+    "definitions": [
+     {
+      "text": "timepiece for baby",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast within, so the credit word goes around the titles"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Credit",
+      "gives": "TICK",
+      "note": "buying on tick is buying on credit"
+     },
+     {
+      "clueFragment": "Knight",
+      "gives": "KT",
+      "note": "Kt is the abbreviation for knight"
+     },
+     {
+      "clueFragment": "Commander's",
+      "gives": "OC",
+      "note": "OC, officer commanding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIC",
+      "KT",
+      "OC",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior knight's credit is enough to buy a clock for an infant.",
+     "walkthrough": "'On tick' is British slang for on credit. 'Knight Commander' looks like a single title; it splits into two abbreviations.",
+     "definitionFit": "Tick-tock imitates a clock's sound, so it is the nursery word a small child uses for a clock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Commander's"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1710,56 @@
     "text": "Expert bridge player interrupting successful chess player?",
     "enumeration": "6"
    },
-   "solution": "MASTER"
+   "solution": "MASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MASTER",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so the player's letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "successful chess player?",
+      "gives": "MATER",
+      "note": "one who mates an opponent, whimsically, hence the question mark"
+     },
+     {
+      "clueFragment": "bridge player",
+      "gives": "S",
+      "note": "South, one of the four seats at the bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player cutting in on a winning chess player.",
+     "walkthrough": "Bridge players are named by compass points: North, South, East and West.",
+     "definitionFit": "A master is someone highly skilled in a field, as in a chess grandmaster or master craftsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "successful"
+    }
+   }
   }
  ]
 }
