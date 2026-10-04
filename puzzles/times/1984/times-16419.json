@@ -21,10 +21,21 @@
   "model": "opus",
   "date": "2026-10-03",
   "check": "32 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "4-down",
+    "was": "SIDE",
+    "now": "SUDS",
+    "date": "2026-10-03"
+   }
+  ],
   "reopened": {
    "8-down": "NONET"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +49,44 @@
     "text": "Women could be this silent of old",
     "enumeration": "5"
    },
-   "solution": "WHIST"
+   "solution": "WHIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WHIST",
+    "definitions": [
+     {
+      "text": "Women could be this",
+      "at": 0
+     },
+     {
+      "text": "silent of old",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women could be this",
+      "note": "first meaning: the card game women might be playing at a ... drive"
+     },
+     {
+      "clueFragment": "silent of old",
+      "note": "second meaning: an archaic adjective for hushed or quiet"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe that women could once be made to keep quiet.",
+     "walkthrough": "A whist drive is a social evening of the card game, long popular with British women's groups.",
+     "definitionFit": "The card game shares its name with an old English word meaning hushed, still or making no sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Women"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +100,54 @@
     "text": "The will -- ah, possibly this is the way' of it",
     "enumeration": "9"
    },
-   "solution": "WHITEHALL"
+   "solution": "WHITEHALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHITEHALL",
+    "definitions": [
+     {
+      "text": "the way' of it",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly says the words are only one of the forms their letters could take"
+     }
+    ],
+    "linkWords": [
+     "this is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The will -- ah",
+      "gives": "THEWILLAH",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEWILLAH",
+       "gives": "WHITEHALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bureaucrat sighing that a will is simply how things are done.",
+     "walkthrough": "Whitehall is the London street of government ministries, and by extension the civil service.",
+     "definitionFit": "The street name stands for the British civil service, whose procedures are how things get done in government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +161,61 @@
     "text": "Ruin, ruin - a point to take effect",
     "enumeration": "5"
    },
-   "solution": "INURE"
+   "solution": "INURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INURE",
+    "definitions": [
+     {
+      "text": "to take effect",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruin",
+      "for": "anagram",
+      "note": "to ruin a word is to wreck it, so its letters are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruin",
+      "gives": "RUIN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a point",
+      "gives": "E",
+      "note": "E for east, one of the compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INUR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUIN",
+       "gives": "INUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry of despair at ruin finally coming to pass.",
+     "walkthrough": "The first Ruin is the material and the second tells you to wreck it.",
+     "definitionFit": "In legal usage, to inure (also enure) means to come into operation or benefit someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruin"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +229,57 @@
     "text": "Slight, including deception that's cheap",
     "enumeration": "8"
    },
-   "solution": "TINSELLY"
+   "solution": "TINSELLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TINSELLY",
+    "definitions": [
+     {
+      "text": "cheap",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "one thing including another holds it within its bounds"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slight",
+      "gives": "TINY",
+      "note": "very small"
+     },
+     {
+      "clueFragment": "deception",
+      "gives": "SELL",
+      "note": "a sell is a hoax or swindle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "SELL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A small trick that costs little.",
+     "definitionFit": "Tinselly things are showy but worthless, like tinsel itself, so they are cheap and gaudy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +293,64 @@
     "text": "Mad to return with mistress, a horsy type",
     "enumeration": "9"
    },
-   "solution": "STABLEMAN"
+   "solution": "STABLEMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STABLEMAN",
+    "definitions": [
+     {
+      "text": "a horsy type",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "to return is to go back the way you came, so the letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad",
+      "gives": "BATS",
+      "note": "bats is slang for crazy"
+     },
+     {
+      "clueFragment": "mistress",
+      "gives": "LEMAN",
+      "note": "leman is an old word for a lover or mistress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAB",
+      "LEMAN"
+     ],
+     "reversals": [
+      {
+       "from": "BATS",
+       "to": "STAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone driven mad, returning home with his mistress.",
+     "walkthrough": "Bats is everyday slang for mad; leman is an archaic word found mostly in old ballads and crosswords.",
+     "definitionFit": "A stableman works looking after horses, so he is literally a person whose job revolves around horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +364,38 @@
     "text": "Surface that may be put on ivory",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SUDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUDS",
+    "definitions": [
+     {
+      "text": "Surface that may be put on ivory",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surface that may be put on ivory",
+      "note": "surface reading: a coating applied to piano keys or carvings"
+     },
+     {
+      "clueFragment": "put on ivory",
+      "note": "setter's reading: Ivory is a brand of soap, so this is the froth that forms on top of soapy water"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Lather from soap sits on top of the water as froth, so it is a foamy surface a soap gives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ivory"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +409,50 @@
     "text": "Nuns lament wretched invalid declarations",
     "enumeration": "10"
    },
-   "solution": "ANNULMENTS"
+   "solution": "ANNULMENTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANNULMENTS",
+    "definitions": [
+     {
+      "text": "invalid declarations",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wretched",
+      "for": "anagram",
+      "note": "wretched means in a miserable state, so the words are knocked into poor order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nuns lament",
+      "gives": "NUNSLAMENT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUNSLAMENT",
+       "gives": "ANNULMENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nuns mourning wretched pronouncements that their vows are void.",
+     "definitionFit": "An annulment is an official ruling that a marriage or contract was never valid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lament"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +466,56 @@
     "text": "Military boss seen in backward place",
     "enumeration": "6"
    },
-   "solution": "LOCATE"
+   "solution": "LOCATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOCATE",
+    "definitions": [
+     {
+      "text": "place",
+      "at": 31,
+      "note": "a verb: to place is to locate"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a thing is visible inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backward",
+      "gives": "LATE",
+      "note": "a backward season or child is behind time, so late"
+     },
+     {
+      "clueFragment": "Military boss",
+      "gives": "OC",
+      "note": "OC is Officer Commanding, the head of a military unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OC",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A commanding officer spotted somewhere remote and behind the times.",
+     "walkthrough": "Backward reads like a reversal signal, but it means late, as in a backward spring; OC goes inside it.",
+     "definitionFit": "To place something is to find or fix its position, which is exactly what locating it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +529,50 @@
     "text": "Model farm in pieces, having bad structure",
     "enumeration": "9"
    },
-   "solution": "MALFORMED"
+   "solution": "MALFORMED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MALFORMED",
+    "definitions": [
+     {
+      "text": "having bad structure",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in pieces",
+      "for": "anagram",
+      "note": "a thing in pieces has been broken and can be reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model farm",
+      "gives": "MODELFARM",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MODELFARM",
+       "gives": "MALFORMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model farm falling apart because it was badly built.",
+     "definitionFit": "Malformed describes something shaped abnormally or wrongly formed, as a deformed limb or faulty build."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +586,48 @@
     "text": "OT musical work",
     "enumeration": "5"
    },
-   "solution": "NONET"
+   "solution": "NONET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NONET",
+    "definitions": [
+     {
+      "text": "musical work",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "O",
+      "gives": "NONE",
+      "note": "the letter O looks like a zero, standing for nothing at all"
+     },
+     {
+      "clueFragment": "T",
+      "gives": "T",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An Old Testament piece of music, such as a setting of the psalms.",
+     "walkthrough": "OT looks like the Old Testament, but the two letters are read separately: O is the round nought, read as none, and T stays put, giving NONE + T.",
+     "definitionFit": "A nonet is a composition written for nine instruments or voices, like a quartet scaled up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "OT"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +641,56 @@
     "text": "Dinosaur gives us one fertiliser to put on",
     "enumeration": "9"
    },
-   "solution": "IGUANODON"
+   "solution": "IGUANODON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IGUANODON",
+    "definitions": [
+     {
+      "text": "Dinosaur",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gives us"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "fertiliser",
+      "gives": "GUANO",
+      "note": "guano is bird or bat droppings used as manure"
+     },
+     {
+      "clueFragment": "to put on",
+      "gives": "DON",
+      "note": "to don clothes is to put them on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GUANO",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A prehistoric beast hands us manure to spread.",
+     "definitionFit": "The iguanodon was a large plant-eating reptile of the Cretaceous period, one of the first dinosaurs ever named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +704,55 @@
     "text": "Stop sly fellow swallowing a litre",
     "enumeration": "5"
    },
-   "solution": "COLON"
+   "solution": "COLON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COLON",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "whatever swallows something holds it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sly fellow",
+      "gives": "COON",
+      "note": "an old dictionary sense of coon is a sly, knowing fellow"
+     },
+     {
+      "clueFragment": "a litre",
+      "gives": "L",
+      "note": "L is the abbreviation for litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "L",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling a crafty man to stop gulping down his drink.",
+     "walkthrough": "The L goes inside after CO, giving CO-L-ON; the sly-fellow sense is old slang now best avoided, found in older dictionaries.",
+     "definitionFit": "A colon is a punctuation mark, and punctuation marks are called stops in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Stop"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +766,51 @@
     "text": "Loophole with watch stoppage",
     "enumeration": "6"
    },
-   "solution": "EYELET"
+   "solution": "EYELET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYELET",
+    "definitions": [
+     {
+      "text": "Loophole",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watch",
+      "gives": "EYE",
+      "note": "to eye something is to watch it"
+     },
+     {
+      "clueFragment": "stoppage",
+      "gives": "LET",
+      "note": "a let is a hindrance, as in 'without let or hindrance'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal loophole involving a watch that stops.",
+     "walkthrough": "Loophole looks legal, but here it is the literal small hole for a lace or cord.",
+     "definitionFit": "An eyelet is a small hole for threading a cord, just as a loophole is a narrow slit in a wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Loophole"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +824,50 @@
     "text": "Bobby's even tread",
     "enumeration": "8"
    },
-   "solution": "FLATFOOT"
+   "solution": "FLATFOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLATFOOT",
+    "definitions": [
+     {
+      "text": "Bobby",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "gives": "FLAT",
+      "note": "level or smooth"
+     },
+     {
+      "clueFragment": "tread",
+      "gives": "FOOT",
+      "note": "to foot it is to tread or walk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAT",
+      "FOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman's steady walk on the beat.",
+     "walkthrough": "A bobby is a British police officer; the 's stands for 'is'.",
+     "definitionFit": "Flatfoot is slang for a police officer, especially a patrolling constable, so it matches the British slang bobby."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tread"
+    }
+   }
   },
   {
    "number": 13,
@@ -240,7 +887,39 @@
      }
     ]
    },
-   "solution": "FANNYADAMS"
+   "solution": "FANNYADAMS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FANNY ADAMS",
+    "definitions": [
+     {
+      "text": "Nothing at all",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing at all sweet",
+      "note": "surface reading: something with no sugar in it whatsoever"
+     },
+     {
+      "clueFragment": "sweet",
+      "note": "setter's reading: the slang phrase for nothing is normally preceded by this word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The full British slang phrase starts with sweet, often shortened to sweet FA; it means absolutely nothing.",
+     "definitionFit": "The phrase is British slang for nothing whatsoever, as in 'he knows sweet all about it'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +933,70 @@
     "text": "Adopted particular condition the Football Association backed",
     "enumeration": "10"
    },
-   "solution": "AFFILIATED"
+   "solution": "AFFILIATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AFFILIATED",
+    "definitions": [
+     {
+      "text": "Adopted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means moved backwards, so the whole string of words is read from its far end"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "particular",
+      "gives": "DETAIL",
+      "note": "a particular is an individual item or point"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     },
+     {
+      "clueFragment": "Football Association",
+      "gives": "FA",
+      "note": "the usual abbreviation for England's football governing body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AF",
+      "FI",
+      "LIATED"
+     ],
+     "reversals": [
+      {
+       "from": "DETAILIFFA",
+       "to": "AFFILIATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rule the football authorities adopted and supported.",
+     "walkthrough": "Backed looks like support from the FA, but it reverses everything before it, the FA included.",
+     "definitionFit": "To affiliate originally meant to take in as a son, so an affiliated member has been taken into a body as one of its own."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1016,52 @@
      }
     ]
    },
-   "solution": "FROGMARCH"
+   "solution": "FROGMARCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FROG-MARCH",
+    "definitions": [
+     {
+      "text": "uncomfortable carriage",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "FROG",
+      "note": "Frog is an old, rude British nickname for a French person"
+     },
+     {
+      "clueFragment": "go steadily",
+      "gives": "MARCH",
+      "note": "to walk in a steady rhythm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FROG",
+      "MARCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman setting off at a steady pace in a cramped coach.",
+     "walkthrough": "Carriage suggests a vehicle, but it means the way someone is carried.",
+     "definitionFit": "A frogmarch carries someone by force, arms pinned behind, a rough and unpleasant way of being transported."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carriage"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1075,56 @@
     "text": "Hudson female rejected by this prince",
     "enumeration": "4"
    },
-   "solution": "AMIR"
+   "solution": "AMIR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "AMIR",
+    "definitions": [
+     {
+      "text": "prince",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is thrown back, so the name is turned round"
+     }
+    ],
+    "linkWords": [
+     "by this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hudson female",
+      "gives": "RIMA",
+      "note": "Rima is the bird-girl heroine of W. H. Hudson's novel Green Mansions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIMA",
+       "to": "AMIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman spurned by a prince, as in a romance.",
+     "definitionFit": "An amir, also spelt emir, is a Muslim ruler or prince, a title used across the Arab world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hudson"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1138,59 @@
     "text": "Radicals see little money in pigs",
     "enumeration": "9"
    },
-   "solution": "RUDIMENTS"
+   "solution": "RUDIMENTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RUDIMENTS",
+    "definitions": [
+     {
+      "text": "Radicals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pigs",
+      "gives": "RUNTS",
+      "note": "runts are the smallest pigs of a litter"
+     },
+     {
+      "clueFragment": "little money",
+      "gives": "DIME",
+      "note": "a dime is a ten-cent coin, a small sum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "DIME",
+      "NTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Political radicals finding only small change in pig farming.",
+     "walkthrough": "Radicals looks political, but radical means root, the basic starting point.",
+     "definitionFit": "Rudiments are the basic first principles of a subject, its roots, which is the original sense of radical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Radicals"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1204,38 @@
     "text": "One who hasn't said \"I will\"",
     "enumeration": "8"
    },
-   "solution": "CELIBATE"
+   "solution": "CELIBATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CELIBATE",
+    "definitions": [
+     {
+      "text": "One who hasn't said \"I will\"",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who hasn't said \"I will\"",
+      "note": "surface reading: someone who has refused to agree to something"
+     },
+     {
+      "clueFragment": "\"I will\"",
+      "note": "setter's reading: the words of the wedding vow, so this person has never married"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Celibate originally meant unmarried, from Latin caelebs, someone who has never taken marriage vows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1249,48 @@
     "text": "Weaver may appear in threatening form",
     "enumeration": "4"
    },
-   "solution": "LOOM"
+   "solution": "LOOM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOM",
+    "definitions": [
+     {
+      "text": "Weaver",
+      "at": 0,
+      "note": "the machine that weaves, not the person"
+     },
+     {
+      "text": "appear in threatening form",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "may"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weaver",
+      "note": "first meaning: the frame on which cloth is woven"
+     },
+     {
+      "clueFragment": "appear in threatening form",
+      "note": "second meaning: to rise up large and menacing"
+     }
+    ],
+    "explanation": {
+     "surface": "A weaver who might turn up looking menacing.",
+     "walkthrough": "Weaver reads as a person, but here it is the machine doing the weaving.",
+     "definitionFit": "One word names the weaving frame and also a verb for a shape rising up menacingly, as storm clouds do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Weaver"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1304,52 @@
     "text": "Girl, a dry one, finished alone",
     "enumeration": "10"
    },
-   "solution": "UNATTENDED"
+   "solution": "UNATTENDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNATTENDED",
+    "definitions": [
+     {
+      "text": "alone",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "UNA",
+      "note": "Una is a girl's name"
+     },
+     {
+      "clueFragment": "a dry one",
+      "gives": "TT",
+      "note": "TT is teetotal, someone who does not drink"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "ENDED",
+      "note": "completed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNA",
+      "TT",
+      "ENDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotal girl, her evening over, left by herself.",
+     "definitionFit": "Someone left unattended has nobody with them, which is what being alone means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1363,54 @@
     "text": "A Western cad in the saddle",
     "enumeration": "6"
    },
-   "solution": "AWHEEL"
+   "solution": "AWHEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWHEEL",
+    "definitions": [
+     {
+      "text": "in the saddle",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     },
+     {
+      "clueFragment": "cad",
+      "gives": "HEEL",
+      "note": "a heel is a contemptible man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "HEEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A villain in a cowboy film riding on horseback.",
+     "walkthrough": "The saddle is a bicycle's, not a horse's.",
+     "definitionFit": "Awheel means riding a bicycle, and a cyclist sits on the bike's saddle while riding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1424,50 @@
     "text": "？ Drunken Tom - he was, rather",
     "enumeration": "8"
    },
-   "solution": "SOMEWHAT"
+   "solution": "SOMEWHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOMEWHAT",
+    "definitions": [
+     {
+      "text": "rather",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about out of order, so the words that follow are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom - he was",
+      "gives": "TOMHEWAS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOMHEWAS",
+       "gives": "SOMEWHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tom was rather tipsy.",
+     "definitionFit": "Somewhat and rather are both adverbs meaning to some degree or fairly, so each can replace the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rather"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1481,48 @@
     "text": "Took industrial action for the smooth stuff",
     "enumeration": "5"
    },
-   "solution": "SATIN"
+   "solution": "SATIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SATIN",
+    "definitions": [
+     {
+      "text": "Took industrial action",
+      "at": 0,
+      "note": "a verb phrase cluing the answer split as two words"
+     },
+     {
+      "text": "the smooth stuff",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took industrial action",
+      "note": "first meaning: staged a sit-in, read as two words"
+     },
+     {
+      "clueFragment": "the smooth stuff",
+      "note": "second meaning: a glossy fabric"
+     }
+    ],
+    "explanation": {
+     "surface": "Workers striking over smooth working conditions.",
+     "walkthrough": "A sit-in is a protest where workers occupy their workplace.",
+     "definitionFit": "Satin is a glossy woven fabric, and stuff is an old word for cloth, so smooth stuff is silky material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1536,39 @@
     "text": "Genuine Australian",
     "enumeration": "6"
    },
-   "solution": "DINKUM"
+   "solution": "DINKUM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DINKUM",
+    "definitions": [
+     {
+      "text": "Genuine Australian",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genuine Australian",
+      "note": "surface reading: a true-blue Aussie"
+     },
+     {
+      "clueFragment": "Genuine Australian",
+      "note": "setter's reading: the Australian slang word for genuine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a person, but Australian qualifies a word: the clue asks for how Australians say genuine.",
+     "definitionFit": "Dinkum, as in fair dinkum, is Australian and New Zealand slang meaning honest, true or authentic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1582,44 @@
     "text": "Cut what may be said quickly",
     "enumeration": "5"
    },
-   "solution": "KNIFE"
+   "solution": "KNIFE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNIFE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0,
+      "note": "a verb, matching the answer used as a verb"
+     },
+     {
+      "text": "what may be said quickly",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "note": "first meaning: to stab or slash with a blade"
+     },
+     {
+      "clueFragment": "what may be said quickly",
+      "note": "second meaning: the word in the idiom 'before you could say ...', meaning very fast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Before you could say knife' is an old British idiom for something happening instantly.",
+     "definitionFit": "To knife is to cut with a blade, and the word is famously the thing said in a phrase about speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quickly"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1633,45 @@
     "text": "Stud in a mess",
     "enumeration": "4"
    },
-   "solution": "BOSS"
+   "solution": "BOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOSS",
+    "definitions": [
+     {
+      "text": "Stud",
+      "at": 0
+     },
+     {
+      "text": "a mess",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stud",
+      "note": "first meaning: a raised knob or ornament"
+     },
+     {
+      "clueFragment": "a mess",
+      "note": "second meaning: British slang for a bungle"
+     }
+    ],
+    "explanation": {
+     "surface": "A stud horse in a messy state.",
+     "definitionFit": "A boss is a round ornamental knob, like a stud, and in old slang a botched job or blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stud"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1685,43 @@
     "text": "Short cut out of battersea",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "Short",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut out of",
+      "for": "hidden_word",
+      "note": "a piece cut out of a longer word is lifted straight from inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battersea",
+      "gives": "TERSE",
+      "note": "the letters sit inside this place name"
+     }
+    ],
+    "explanation": {
+     "surface": "A shortcut through Battersea, a district of south London.",
+     "walkthrough": "'Short cut' reads as one phrase, but Short is the definition and cut begins the signal.",
+     "definitionFit": "Terse describes speech or writing that is brief and curt, using few words, which is what short means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,7 +1735,74 @@
     "text": "A Mrs Copperfield - maybe not one for worship",
     "enumeration": "9"
    },
-   "solution": "ADORATION"
+   "solution": "ADORATION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADORATION",
+    "definitions": [
+     {
+      "text": "worship",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe says the next words are only one possible arrangement of their letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mrs Copperfield",
+      "gives": "DORA",
+      "note": "Dora Spenlow is David Copperfield's first wife in Dickens"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DORA",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTI",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dickens's child-wife Dora, perhaps not someone to idolise.",
+     "definitionFit": "Adoration is deep love or reverence, the feeling of worship directed at a god or idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maybe"
+    }
+   }
   },
   {
    "number": 28,
@@ -470,7 +1816,37 @@
     "text": "Revolutionaries who were certainly not believers",
     "enumeration": "9"
    },
-   "solution": "NIHILISTS"
+   "solution": "NIHILISTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NIHILISTS",
+    "definitions": [
+     {
+      "text": "Revolutionaries who were certainly not believers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionaries who were certainly not believers",
+      "note": "surface reading: radicals who were atheists"
+     },
+     {
+      "clueFragment": "certainly not believers",
+      "note": "setter's reading: a creed of believing in nothing at all, named from Latin nihil"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The nineteenth-century Russian revolutionary movement took its name from believing in nothing.",
+     "definitionFit": "These Russian radicals rejected all authority, religion and tradition, so they held no beliefs whatever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -484,7 +1860,51 @@
     "text": "50-50, new style, follows late PM",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "50-50",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "follows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late PM",
+      "gives": "EVE",
+      "note": "late in the post meridiem hours is evening, shortened to eve"
+     },
+     {
+      "clueFragment": "new style",
+      "gives": "NS",
+      "note": "NS is the abbreviation for New Style, the Gregorian calendar dating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "A new approach succeeds a late Prime Minister, with odds even.",
+     "walkthrough": "PM looks like a Prime Minister, but it is afternoon and evening time.",
+     "definitionFit": "Evens are betting odds where you win what you stake, an equal chance either way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   }
  ]
 }
