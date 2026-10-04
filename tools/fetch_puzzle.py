@@ -1915,6 +1915,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18742", "27-across"): (
+        "In short, the skill needed 10 make a cocktail",
+        "In short, the skill needed to make a cocktail",
+        "OCR misread: the clue needs the word to (needed to make), not 10"),
     ("times-18732", "1-across"): (
         "Composer changes ending 10 a short narrative",
         "Composer changes ending to a short narrative",
