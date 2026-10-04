@@ -1736,6 +1736,10 @@ def bare_letters(solution):
 # which marks a whole puzzle's fill unofficial. This table is the opposite case:
 # an official key, published, with a known error in two of its letters.
 SOURCE_ANSWER_WRONG = {
+    ("times-18732", "9-across"): (
+        "THEAM", "THERM",
+        '"Run in the mile heat" is R (run) inside THE M (mile), which spells '
+        "THERM, a unit of heat; THEAM is not a word; the fourth cell is unchecked"),
     ("times-16427", "27-across"): (
         "AESPERUS", "HESPERUS",
         '"Star pianist covers the country" is HESS (Myra Hess, pianist) around '
@@ -1911,6 +1915,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18732", "1-across"): (
+        "Composer changes ending 10 a short narrative",
+        "Composer changes ending to a short narrative",
+        "OCR misread: the wordplay needs to (the ending changes to A), not 10"),
+    ("times-18732", "24-down"): (
+        "Outstanding victory obtained in miscalculation by team male",
+        "Outstanding victory obtained in miscalculation by team-mate",
+        "OCR misread: an own goal is a miscalculation by a team-mate, not a team male"),
+    ("times-18732", "28-across"): (
+        "“Such sweet_ more maketh me*' (Jonson)",
+        "“Such sweet ... more taketh me” (Jonson)",
+        "OCR misread: Jonson's line is 'Such sweet neglect more taketh me'"),
     ("times-18734", "1-across"): (
         "Traps not big enough for growl-era?",
         "Traps not big enough for growlers?",
