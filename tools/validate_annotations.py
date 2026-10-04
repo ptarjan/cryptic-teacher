@@ -1726,8 +1726,9 @@ def multiset_diff(a, b):
 
 #: Clues whose printed wordplay is the SETTER's slip: the paper printed these
 #: words, and they cannot give the answer. Keyed "puzzle id/entry id", each row
-#: holds the anagram fodder as printed, the letters the answer needs, and the
-#: evidence that the print says so (the source page read, not a guess). Unlike
+#: holds the anagram fodder as printed, the letters it should give, and the
+#: evidence that the print says so (the source page read, not a guess);
+#: setter_error_problems says which rows fit. Unlike
 #: tools/data/source_clue_wrong.json nothing is corrected: the clue stays as
 #: printed, the annotation explains it as printed, and its walkthrough tells the
 #: solver what is wrong with it.
@@ -1737,6 +1738,51 @@ SETTER_ERROR = load_source_table("setter_error")
 #: one wrong letter (quiptic-32 13-down, ELF OIL for KISS OF LIFE's FF and one L).
 #: A parse further out than that is a wrong parse, not a slip.
 SETTER_ERROR_LETTERS = 2
+
+
+def setter_error_problems(puzzle, eid, row, ann=None):
+    """What stops `row`, a setter_error row ["<fodder>", "<gives>", "<evidence>"],
+    being filed for light `eid` of `puzzle` annotated as `ann` (default: the
+    light's own annotation); [] when it may be. Each problem says what to write
+    instead.
+
+    A row is checkable from the page: each fodder word is one the clue prints
+    or a block's `gives` read off words it prints (CLUB for "group"), its
+    gives is the answer (a linked answer's every light) or the part of it the
+    anagram supplies (UNANT of UNGALLANT), and fodder and gives are at most
+    SETTER_ERROR_LETTERS apart. Anything else is a wrong parse, not a slip."""
+    fodder, gives, why = (list(row) + ["", "", ""])[:3]
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    e = by_id[eid]
+    ann = e.get("annotation") if ann is None else ann
+    answer = "".join(letters(s or "") for s in light_solutions(e, by_id)) or letters(e["solution"])
+    clue = e["clue"].get("text") or ""
+    printed = {letters(w) for w in re.split(r"[\s\-\u2013\u2014/]+", clue)}
+    derived = {letters(b.get("gives") or "") for b in (ann or {}).get("blocks") or ()
+               if isinstance(b, dict) and letters(b.get("clueFragment") or "")
+               and letters(b.get("clueFragment") or "") in letters(clue)}
+    out = []
+    unprinted = [w for w in fodder.split() if letters(w) not in printed | derived]
+    if unprinted:
+        out.append(f"setterError fodder {' '.join(unprinted)!r} is neither words the clue "
+                   f"prints ({clue!r}) nor a block's gives: write each fodder word as the "
+                   f"clue prints it, or as the gives of the block that reads it off the clue")
+    extra_over_answer, _ = multiset_diff(letters(gives), answer)
+    if not letters(gives) or extra_over_answer:
+        out.append(f"setterError gives {letters(gives) or '-'}, but the answer is {answer} "
+                   f"({extra_over_answer or 'nothing'} not in it): write the letters the "
+                   f"anagram supplies, the whole answer [\"<fodder>\", \"{answer}\", "
+                   f"\"<evidence>\"] or the part of it the anagram gives")
+    elif not unprinted:
+        extra, missing = multiset_diff(letters(fodder), letters(gives))
+        if len(extra) + len(missing) > SETTER_ERROR_LETTERS:
+            out.append(f"setterError fodder {letters(fodder)} is {len(extra) + len(missing)} "
+                       f"letters from {letters(gives)} (extra: {extra or '-'}, missing: "
+                       f"{missing or '-'}); a slip is at most {SETTER_ERROR_LETTERS}, so "
+                       f"this is a wrong parse: drop setterError and re-parse")
+    if not why.strip():
+        out.append("setterError needs its evidence: what the source page prints")
+    return out
 
 
 def check_anagram_has_fodder(tag, ann, warnings):
@@ -1774,7 +1820,7 @@ def check_anagram_letters(pid, eid, tag, ann, errors):
                ". If the clue as the paper printed it truly cannot give these letters "
                "(the setter's slip, checked against the source page, not an OCR "
                "misread), give its _ann entry \"setterError\": [\"<fodder words as "
-               "printed>\", \"<answer letters>\", \"<evidence>\"]"))
+               "printed>\", \"<letters the anagram should give>\", \"<evidence>\"]"))
     if not row:
         return
     extra, missing = multiset_diff(*declared)
@@ -2843,6 +2889,10 @@ def validate_puzzle(puzzle, corpus=False):
         # Letter mechanics.
         build = assembly(ann)
         check_anagram_letters(puzzle.get("id"), entry_id(e), tag, ann, errors)
+        row = SETTER_ERROR.get((puzzle.get("id"), entry_id(e)))
+        if row:
+            errors += [f"{tag}: tools/data/setter_error.json's row: {p}"
+                       for p in setter_error_problems(puzzle, entry_id(e), row, ann)]
         check_anagram_has_fodder(tag, ann, warnings)
         for r in build.get("reversals", []):
             if letters(r["from"])[::-1] != letters(r["to"]):

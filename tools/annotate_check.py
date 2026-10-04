@@ -347,8 +347,8 @@ DATA = TOOLS / "data"
 FILED = {
     "printedClue": ("source_clue_wrong", '["<clue as printed, no count>", "<evidence>"]',
                     '["Fudge the issue", "OCR misread: the anagram needs fudge"]'),
-    "setterError": ("setter_error", '["<fodder words as printed>", "<answer letters>", "<evidence>"]',
-                    '["taunt", "UNANT", "TAUNT has two Ts where the answer needs one"]'),
+    "setterError": ("setter_error", '["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]',
+                    '["skis Elf oil", "KISSOFLIFE", "the page prints Elf oil: one F short, one L over"]'),
 }
 
 
@@ -381,6 +381,11 @@ def file_rows(path, pending, data=DATA):
     unknown = sorted({eid for _, eid, _ in wants} - set(by_id))
     if unknown:
         return [], f"{', '.join(unknown)}: not an entry of {puzzle['id']}, so nothing to file"
+    for field, eid, v in wants:
+        if field == "setterError":
+            problems = validate_annotations.setter_error_problems(puzzle, eid, v, ann[eid])
+            if problems:
+                return [], f"{eid}: " + "; ".join(problems)
     tables = {}
     for field, eid, v in wants:
         name = FILED[field][0]

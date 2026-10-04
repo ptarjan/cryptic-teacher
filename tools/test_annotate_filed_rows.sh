@@ -41,7 +41,9 @@ try:
     pending = A.default_input(path)
     pending.write_text(json.dumps({
         a: {"answer": "X", "printedClue": ["Printed words", "OCR misread: test"]},
-        b: {"answer": "Y", "setterError": ["taunt", "UNANT", "test"]}}))
+        b: {"answer": "Y", "blocks": [{"clueFragment": "Father", "gives": "FR"},
+                                      {"clueFragment": "like Uriah", "gives": "UMBLE"}],
+            "setterError": ["FR UMBLE", "FUMBLER", "test"]}}))
     filed, err = AC.file_rows(path, pending, data)
     check("both fields are filed", err is None and sorted(filed) == sorted(
         [f"printedClue {a}", f"setterError {b}"]))
@@ -50,14 +52,14 @@ try:
           clue_rows[f"times-18749/{a}"] == [shown, "Printed words", "OCR misread: test"])
     check("setterError's row is as given",
           json.loads((data / "setter_error.json").read_text())[f"times-18749/{b}"]
-          == ["taunt", "UNANT", "test"])
+          == ["FR UMBLE", "FUMBLER", "test"])
     text = (data / "source_clue_wrong.json").read_text()
     keys = [l.split('"')[1] for l in text.splitlines()[1:-1]]
     check("the table stays one sorted row per line", keys == sorted(keys) and len(keys) == len(clue_rows))
     ann = json.loads(pending.read_text())
     check("the fields leave the entries", "printedClue" not in ann[a] and "setterError" not in ann[b])
     check("this process sees the rows", F.corrected_clue("times-18749", a) == "Printed words"
-          and V.SETTER_ERROR[("times-18749", b)][1] == "UNANT")
+          and V.SETTER_ERROR[("times-18749", b)][1] == "FUMBLER")
 
     # A re-run keeps what the source served, not the mended text.
     ann[a]["printedClue"] = ["Printed words again", "OCR misread: test"]
@@ -72,6 +74,18 @@ try:
     filed, err = AC.file_rows(path, pending, data)
     check("a bare string stops with the shape to write",
           not filed and err and "printedClue must be" in err and "<evidence>" in err)
+
+    ann = json.loads(pending.read_text())
+    ann[a].pop("printedClue", None)
+    ann[b]["setterError"] = ["taunt", "UNANT", "test"]
+    pending.write_text(json.dumps(ann))
+    before = (data / "setter_error.json").read_text()
+    filed, err = AC.file_rows(path, pending, data)
+    check("a setterError no shape fits stops with what to write, and files nothing",
+          not filed and err and "neither words the clue" in err and "FUMBLER" in err
+          and (data / "setter_error.json").read_text() == before)
+    del ann[b]["setterError"]
+    pending.write_text(json.dumps(ann))
 
     view = json.loads(AC.write_view(path).read_text())
     check("the view says where the clues came from",
