@@ -110,6 +110,30 @@ try:
         check("whole mode still needs every key", False)
     except SystemExit as err:
         check("whole mode still needs every key", "every entry needs a key" in str(err))
+    # A clue OCR lost is the run's on an OCR'd puzzle: its scan may print
+    # it, and a "" served row restores it; elsewhere a blank clue is the setter's.
+    def entry(n, text, ann=None):
+        e = {"number": n, "direction": "across", "length": 5, "position": {"x": 0, "y": n},
+             "clue": {"text": text, "enumeration": "5"}}
+        if ann:
+            e["annotation"] = ann
+        return e
+    ents = [entry(1, "Fine words", {"x": 1}), entry(3, ""), entry(5, "Late ones")]
+    check("an OCR'd puzzle's blank clue is written by the run",
+          AC.to_write({"source": {"retrievedFrom": "newspaper"}, "entries": copy.deepcopy(ents)}, [])
+          == ["3-across", "5-across"])
+    check("a fetched puzzle's blank clue is not",
+          AC.to_write({"source": {"retrievedFrom": "api"}, "entries": copy.deepcopy(ents)}, []) == ["5-across"])
+    pid = "times-1"
+    F.SOURCE_CLUE_WRONG[(pid, "3-across")] = ("", "Restored from the scan", "Scan reads: Restored from the scan (5)")
+    check("a blank clue takes a row whose served text is empty",
+          F.source_clue(pid, "3-across", "") == "Restored from the scan")
+    check("and a served clue keeps its text against that row",
+          F.source_clue(pid, "3-across", "Something served") == "Something served")
+    F.SOURCE_CLUE_WRONG[(pid, "3-across")] = ("Somethin", "Something else", "OCR misread: test")
+    check("a served opening still corrects", F.source_clue(pid, "3-across", "Something served") == "Something else")
+    check("and a blank clue is not mistaken for that opening", F.source_clue(pid, "3-across", "") == "")
+    del F.SOURCE_CLUE_WRONG[(pid, "3-across")]
 finally:
     shutil.rmtree(tmp)
 sys.exit(fails)

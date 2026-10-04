@@ -598,11 +598,17 @@ def agree(clue, others, keep_known=False):
                 if j is not None:
                     seen[i][k] = theirs[j]
     # A word or mark that two other readings have where this one has nothing
-    # (a word lost, two run together, a comma missed) is put in.
+    # (a word lost, two run together, a comma missed) is put in; a word they
+    # share that is no word goes in as the known word a letter from it
+    # ("umsigned"), when one wins (mend).
     # A lone I is put in only when every reading has it: RapidOCR's two
     # recognisers share one detector and read the same speck as a "1".
-    adds = {g: [w for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
-                and (w in MARKS or is_word(w)) and (w != "i" or len(ks) == len(others))]
+    def put_in(w, g):
+        if w in MARKS or is_word(w):
+            return w
+        return mend([w], low[g - 1] if g else None, low[g] if g < len(low) else None) if len(w) > 3 else None
+    adds = {g: [p for w, ks in e.items() if len(ks) >= 2 and len(ks) * 2 > len(others)
+                and (w != "i" or len(ks) == len(others)) and (p := put_in(w, g))]
             for g, e in enumerate(extra)}
     # Words other readings have between the clue's number and its first word,
     # or between its last word and its count, were lost from this reading:
@@ -976,6 +982,46 @@ def merged(text):
     exclamation mark ("Where everybody goes in to sweep around the floor? 2
     Seek fresh increases"), or two counts."""
     return "two clues run together" if RUN_TOGETHER.search(text or "") else None
+
+
+#: A clue number opening a capitalised clue anywhere in a filed clue's
+#: text: another clue, or the page's text, read into this one ("Poles 22
+#: Affected by", "Saturday 26 The point is"). A cross-reference names its
+#: list ("9 Across", "17 Down") and a date its month ("5 November").
+NUMBERED_IN = re.compile(
+    r"(?:^|\s)\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn|Up|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+    r"[a-z]*\b)(?:[A-Z][a-z]|[\"'\u201c\u2018][A-Z])")
+
+
+#: The page's own words read into a clue: a pointer to another page's
+#: puzzle ("Concise crossword, page 22"), a notice of a solution ("The
+#: solution to the Collins Competition", "Prize Puzzle No 18,178"), or a
+#: count with text after it ("(41. Times Two", "(5 _ Concise"), not an
+#: aside the clue closes ("(2 Hen. IV)").
+PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
+                       r"|\bpuzzle\s+no\W{0,2}\s*\d"
+                       r"|\bsolution\s+(?:to|of)\s+(?:\S+\s+){0,4}(?:puzzle|competition)\b"
+                       r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.I)
+
+
+def fault(text, enum, cells):
+    """Why a clue OCR read is not fit to file, or None: `text` holds a clue
+    number opening a capitalised clue (NUMBERED_IN) or the page's own words
+    (PAGE_TEXT), is the word None (a lost text printed), or its count
+    `enum` does not fill its `cells` (the light's, or its linked lights'
+    together)."""
+    text = text or ""
+    if text.strip() == "None":
+        return "the text is the word None: a lost text printed"
+    m = NUMBERED_IN.search(text)
+    if m:
+        return f"holds a clue number and text: {text[m.start():m.end() + 12].strip()!r}"
+    m = PAGE_TEXT.search(text)
+    if m:
+        return f"holds the page's text: {text[max(0, m.start() - 8):m.end() + 8].strip()!r}"
+    if enum and cells and sum(int(n) for n in re.findall(r"\d+", enum)) != cells:
+        return f"its count ({enum}) does not fill its {cells} squares"
+    return None
 
 
 def trimmed(text, lid, voted=True):

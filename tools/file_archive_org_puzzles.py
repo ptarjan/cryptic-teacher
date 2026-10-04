@@ -5,6 +5,7 @@
     python3 tools/file_archive_org_puzzles.py --dry-run     # count, write nothing
     python3 tools/file_archive_org_puzzles.py --limit 40    # read at most 40 new editions
     python3 tools/file_archive_org_puzzles.py --show NewsUK1990UKEnglish/1990-01-02_63592
+    python3 tools/file_archive_org_puzzles.py --check-filed  # list filed puzzles with a clue it refuses now
 
 Reads what tools/fetch_archive_org_editions.py leaves in
 ~/.cache/archive_org_editions/<item>/<date>_<issue>/ (djvu.xml.gz with word
@@ -146,8 +147,9 @@ TITLE = re.compile(r"^\W*(?:\w{1,3}\s*)?times\W{1,3}crossword\s+(?:puzzle\s+)?n[
 #: The previous puzzle's solution, printed under the clues.
 SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
 #: A column line that ends the clues.
-STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword"
-                  r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by)\b", re.I)
+STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
+                  r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"
+                  r"|\S+\s+cr[o0]s+w[o0u]r?d\W+\w{2,5}\s+\d+)\b", re.I)
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
 GAP = 80
 #: How far, in pixels, a line must start left of the split between two
@@ -382,7 +384,7 @@ def gutter(lines, grid, top, lo=None, hi=None):
     return best[1]
 
 
-def windows(grid, third=None, margin=40, above=None, left=None):
+def windows(grid, third=None, margin=40, above=None, left=None, split=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
@@ -392,7 +394,8 @@ def windows(grid, third=None, margin=40, above=None, left=None):
     instead, from `top` down, split at the gutter, the right one ending at
     `right` (it may overhang the grid). With `left`, (x0, gutter), they are
     left of the grid from x0, split at the gutter, from LEFT_RISE over the
-    grid's top down."""
+    grid's top down. Under the grid, the columns split at `split`
+    (under_gutter()), by default the grid's middle."""
     gx0, gy0, gx1, gy1 = grid
     if left:
         x0, split = left
@@ -400,21 +403,21 @@ def windows(grid, third=None, margin=40, above=None, left=None):
     if above:
         top, split, right = above
         return [(gx0 - margin, split, split, top), (split, right, right, top)]
-    mid = gx0 + (gx1 - gx0) / 2 - 10
+    mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if third:
         out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
     return out
 
 
-def columns(lines, grid, third=None, margin=40, above=None, left=None):
+def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; see windows()): [[(y0, y1, x0,
     x1, text) per line] per column, left to right], each cut where the clues
     stop."""
     gx0, gy0, gx1, gy1 = grid
     bottom = gy0 - 3 if above else left_bottom(grid) if left else gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin, above, left)
+    wins = windows(grid, third, margin, above, left, split)
     cols = [[] for _ in wins]
     for ws in lines:
         for side, (x0, x1, right, top) in enumerate(wins):
@@ -457,6 +460,22 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None):
         out.append(kept)
     return out
 
+
+
+#: How far either side of the grid's middle, as a share of its width, the
+#: gutter between the two clue columns under the grid may lie.
+UNDER_SPAN = 0.1
+
+
+def under_gutter(lines, grid):
+    """The x between the two clue columns under the grid: where the fewest
+    words (`lines`, every reading's) cross near the grid's middle. A paper's
+    columns need not split at the grid's middle, and a right-hand clue
+    whose number starts left of it is read into the left column's row."""
+    gx0, _, gx1, gy1 = grid
+    mid, span = gx0 + (gx1 - gx0) / 2 - 10, UNDER_SPAN * (gx1 - gx0)
+    bottom = gy1 + 1.8 * (gx1 - gx0)
+    return gutter(lines, (gx0, bottom, gx1, bottom), gy1, mid - span, mid + span)
 
 
 #: How far over the grid's top, and under its foot as a share of its height,
@@ -537,8 +556,8 @@ def tidy(text):
                 if e != glued.group(2)):
             line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
-        # Specks after a clue's count ("(8)'", "(5).·") end nothing.
-        line = re.sub(r"(\(\s*[\dSIl,.\- ]{1,9}\))[^\w(]{1,3}$", r"\1", line)
+        # Specks after a clue's count ("(8)'", "(5).·", "(5). _") end nothing.
+        line = re.sub(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$", r"\1", line)
         if (re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev)
                 or re.fullmatch(r"\W*(across|down)\W*", prev, re.I)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
@@ -1309,11 +1328,12 @@ def read_puzzle(d, found, hit, solutions):
         above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
     if beside:
         left = left_columns(every, gbox)
-    cols = {"djvu": columns(lines, gbox, third, m, above, left)}
+    split = under_gutter(every, gbox) if above is None and left is None else None
+    cols = {"djvu": columns(lines, gbox, third, m, above, left, split)}
     for which in READERS:
-        cols[which] = columns(rapid[which], gbox, third, m, above, left)
+        cols[which] = columns(rapid[which], gbox, third, m, above, left, split)
     texts = {k: column_text(c) for k, c in cols.items()}
-    wins = windows(gbox, third, m, above, left)
+    wins = windows(gbox, third, m, above, left, split)
     # The desktop's VLM, when it answers, is one more reading.
     if vlm.reachable():
         try:
@@ -1432,6 +1452,7 @@ def read_puzzle(d, found, hit, solutions):
         except RuntimeError:
             pass
     laid, blank = one_light_each(laid, blank, fits)
+    laid, blank = unfit_blanked(laid, blank, lengths)
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
@@ -1654,9 +1675,62 @@ def destination(puzzles, complete=True):
 
 def complete(puzzle):
     """Whether every clue of a puzzle has text, none with a word OCR made
-    up (ocr_clues.suspect)."""
+    up (ocr_clues.suspect) or unfit to file (faults)."""
     return filled(puzzle)[0] == len(puzzle["entries"]) and not any(
-        suspect((e.get("clue") or {}).get("text", "")) for e in puzzle["entries"])
+        suspect((e.get("clue") or {}).get("text", "")) for e in puzzle["entries"]) and not faults(puzzle)
+
+
+def unfit_blanked(laid, blank, lengths):
+    """(laid, blank) with each clue ocr_clues.fault refuses filed blank, its
+    count kept when it fills the light, and why in `blank`."""
+    laid, blank = dict(laid), dict(blank)
+    for lid, (text, enum, group) in list(laid.items()):
+        why = ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid]))
+        if why:
+            laid[lid] = ("", None if why.startswith("its count") else enum, group)
+            blank[lid] = why
+    return laid, blank
+
+
+def faults(puzzle):
+    """{entry id: why} of each clue of a filed puzzle ocr_clues.fault refuses."""
+    def lid(e):
+        return f"{e.get('number')}-{e.get('direction')}"
+    length = {lid(e): e.get("length") for e in puzzle["entries"]}
+    out = {}
+    for e in puzzle["entries"]:
+        clue = e.get("clue") or {}
+        cells = sum(length.get(i) or 0 for i in e.get("group") or [lid(e)])
+        why = ocr_clues.fault(clue.get("text"), clue.get("enumeration"), cells)
+        if why:
+            out[lid(e)] = why
+    return out
+
+
+def check_filed(out=sys.stdout):
+    """List every puzzle this tool filed whose clues faults() refuses, by
+    class; returns the count of failing puzzles."""
+    from fetch_puzzle import read_puzzle_file
+    bad, classes = 0, {}
+    for path in sorted((ROOT / "puzzles").glob("*/*/*.json")):
+        try:
+            puzzle = read_puzzle_file(path)
+        except (OSError, ValueError):
+            continue
+        if (puzzle.get("source") or {}).get("acquiredBy") != TOOL:
+            continue
+        found = faults(puzzle)
+        if not found:
+            continue
+        bad += 1
+        for lid, why in found.items():
+            kind = why.split(":")[0].split(" (")[0]
+            classes.setdefault(kind, set()).add(puzzle["id"])
+            print(f"{puzzle['id']} {lid}: {why}", file=out)
+    for kind, ids in sorted(classes.items()):
+        print(f"{len(ids)} puzzles: {kind}", file=out)
+    print(f"{bad} puzzles filed by {TOOL} fail the clue check", file=out)
+    return bad
 
 
 def progress(line):
@@ -1777,7 +1851,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                     source.mkdir(parents=True, exist_ok=True)
                     (source / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
                 held_path = puzzle_path(paper.series, puzzle["number"])
-                mended = mend_duplicates(puzzle, held_path) if held_path.exists() else None
+                mended = mend_held(puzzle, held_path) if held_path.exists() else None
                 if mended is not None:
                     verdict["mended"] = mended[1]
                     if write:
@@ -1885,21 +1959,22 @@ def improves(puzzle, path):
     return filled(puzzle) != filled(old)
 
 
-def mend_duplicates(puzzle, path):
+def mend_held(puzzle, path):
     """(the held file at `path` mended, {light: its clue now}), or None: each
     light the file gives a clue it gives another light too
-    (fetch_puzzle.duplicated_clues) takes this reading's clue for it, which
-    one_light_each left on one light at most, else blank, for the blank-clue
-    re-read. None when the file holds no such clue, is not this tool's, or
-    lies on another grid than this reading. With no reading (`puzzle`
-    None: its scan now reads as another number), every such light is blank."""
+    (fetch_puzzle.duplicated_clues), or a clue faults() refuses, takes this
+    reading's clue for it, which one_light_each left on one light at most
+    and unfit_blanked let stand, else blank, for the blank-clue re-read.
+    None when the file holds no such clue, is not this tool's, or lies on
+    another grid than this reading. With no reading (`puzzle` None: its
+    scan now reads as another number), every such light is blank."""
     from fetch_puzzle import duplicated_clues
     old = json.loads(path.read_text())
     puzzle = puzzle or {"entries": []}
     if (old.get("source") or {}).get("acquiredBy") != TOOL \
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
-    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids}
+    lost = {i for ids in duplicated_clues(old["entries"]) for i in ids} | set(faults(old))
     if not lost:
         return None
     now = {entry_id(e): e["clue"] for e in puzzle["entries"]}
@@ -2028,15 +2103,19 @@ def main(argv=None):
     ap.add_argument("--edition", action="append", metavar="ITEM/EDITION",
                     help="read this edition again, and no other (repeatable)")
     ap.add_argument("--mend-held", nargs="+", metavar="ID",
-                    help="blank each clue these held filings give two lights, with no reading")
+                    help="blank each clue these held filings give two lights, or that faults() refuses, with no reading")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
                     help="whose editions to file: the Times (times-N), the FT (ftcryptic-N), the Guardian "
                          "(cryptic-N) or the Telegraph (telegraph-N)")
+    ap.add_argument("--check-filed", action="store_true",
+                    help="list every puzzle this tool filed with a clue it would refuse now; write nothing")
     ap.add_argument("--match-canberra", action="store_true",
                     help="only name the Times puzzle each canberra file reprints")
     args = ap.parse_args(argv)
+    if args.check_filed:
+        return 1 if check_filed() else 0
     if args.match_canberra:
         match_canberra(args.source, write=not args.dry_run)
         return 0
@@ -2044,7 +2123,7 @@ def main(argv=None):
         from fetch_puzzle import puzzle_paths, write_puzzle_file
         for pid in args.mend_held:
             path = puzzle_paths.find(pid)
-            mended = path and mend_duplicates(None, path)
+            mended = path and mend_held(None, path)
             print(pid, mended[1] if mended else "nothing to mend")
             if mended and not args.dry_run:
                 write_puzzle_file(path, mended[0], generator=TOOL)
