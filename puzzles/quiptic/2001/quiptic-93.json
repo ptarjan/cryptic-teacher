@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "About to fit into shoe, which is an outrage",
     "enumeration": "7"
    },
-   "solution": "SCANDAL"
+   "solution": "SCANDAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCANDAL",
+    "definitions": [
+     {
+      "text": "outrage",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to fit into",
+      "for": "container",
+      "note": "one thing made to fit into another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "which is an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoe",
+      "gives": "SANDAL",
+      "note": "a sandal is a kind of open shoe"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "C",
+      "note": "C is short for circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ANDAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is scandalised that a shoe has been squeezed onto a foot it does not fit.",
+     "definitionFit": "A scandal is a public disgrace or affront that provokes general indignation, which is what an outrage is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "About"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,61 @@
     "text": "Footballers otherwise featured in endless chat",
     "enumeration": "7"
    },
-   "solution": "CHELSEA"
+   "solution": "CHELSEA",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "CHELSEA",
+    "definitions": [
+     {
+      "text": "Footballers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in a thing appears within it"
+     },
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chat",
+      "gives": "CHAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "ELSE",
+      "note": "or else means otherwise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ELSE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Players crop up as the topic of some idle talk that never stops.",
+     "walkthrough": "'Footballers' names a team rather than players in general: Chelsea is a London football club.",
+     "definitionFit": "Chelsea FC is a Premier League club, so its players can be named collectively by the club's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,41 @@
     "text": "Blue-blooded brave",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "Blue-blooded",
+      "at": 0
+     },
+     {
+      "text": "brave",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue-blooded",
+      "note": "first meaning: of aristocratic birth"
+     },
+     {
+      "clueFragment": "brave",
+      "note": "second meaning: showing fine, courageous character"
+     }
+    ],
+    "explanation": {
+     "surface": "An aristocrat with courage, described in two words.",
+     "definitionFit": "The adjective covers both high-born aristocratic rank and lofty, courageous qualities of character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,55 @@
     "text": "Recklessness gets a group functioning",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDON",
+    "definitions": [
+     {
+      "text": "Recklessness",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group, of musicians for instance"
+     },
+     {
+      "clueFragment": "functioning",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A band starts playing with wild, careless energy.",
+     "definitionFit": "As a noun, abandon means a complete lack of inhibition or restraint, as in dancing with wild abandon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +278,68 @@
     "text": "Margie holds a penny back: that's witty",
     "enumeration": "7"
    },
-   "solution": "EPIGRAM"
+   "solution": "EPIGRAM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EPIGRAM",
+    "definitions": [
+     {
+      "text": "that's witty",
+      "at": 27,
+      "note": "a description standing for a noun: something that is witty"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "one word holding another keeps it inside"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the result is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Margie",
+      "gives": "MARGIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a penny",
+      "gives": "P",
+      "note": "P is the abbreviation for a penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "P",
+      "IGRAM"
+     ],
+     "reversals": [
+      {
+       "from": "MARGIPE",
+       "to": "EPIGRAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Margie pockets a coin and keeps it, which someone finds amusing.",
+     "walkthrough": "P goes between MARGI and E, and the whole is then turned round.",
+     "definitionFit": "An epigram is a short, clever, pointed saying, so it is a thing whose essence is its wit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +353,55 @@
     "text": "Supple one cutting plant",
     "enumeration": "6"
    },
-   "solution": "PLIANT"
+   "solution": "PLIANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLIANT",
+    "definitions": [
+     {
+      "text": "Supple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into a word splits it and sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "PLANT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "I",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener takes a cutting from a bendy plant.",
+     "definitionFit": "Both words describe something flexible that bends easily without breaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +415,47 @@
     "text": "The blouse that took the biscuit!",
     "enumeration": "9"
    },
-   "solution": "GARIBALDI"
+   "solution": "GARIBALDI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GARIBALDI",
+    "definitions": [
+     {
+      "text": "The blouse",
+      "at": 0
+     },
+     {
+      "text": "the biscuit",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "that took"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The blouse",
+      "note": "first meaning: a loose red shirt like those of the Italian patriot's Redshirts"
+     },
+     {
+      "clueFragment": "the biscuit",
+      "note": "second meaning: a flat biscuit with a layer of squashed currants"
+     }
+    ],
+    "explanation": {
+     "surface": "An outrageous blouse that beat everything for awfulness.",
+     "walkthrough": "To take the biscuit is a British idiom meaning to be the most outrageous; here it literally joins a blouse and a biscuit sharing one name, both from the Italian general.",
+     "definitionFit": "Both the women's red blouse and the currant biscuit were named after the Italian nationalist leader Giuseppe Garibaldi."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +469,55 @@
     "text": "Embassy official has a dry ache",
     "enumeration": "7"
    },
-   "solution": "ATTACHE"
+   "solution": "ATTACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTACHE",
+    "definitions": [
+     {
+      "text": "Embassy official",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT means teetotal, someone who stays dry"
+     },
+     {
+      "clueFragment": "ache",
+      "gives": "ACHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat complains of a dull pain.",
+     "definitionFit": "An attaché is a member of an ambassador's staff with a particular area of responsibility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +549,54 @@
      }
     ]
    },
-   "solution": "REDRAGTOABULL"
+   "solution": "REDRAGTOABULL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED RAG TO A BULL",
+    "definitions": [
+     {
+      "text": "Annoyance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "something false is not genuine, so these letters are not in their true order"
+     }
+    ],
+    "linkWords": [
+     "caused by",
+     "yet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brutal dog, real",
+      "gives": "BRUTALDOGREAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRUTALDOGREAL",
+       "gives": "REDRAGTOABULL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage dog causes irritation, though its fierceness is somehow fake.",
+     "definitionFit": "The idiom names anything that provokes fury, from the cloth supposedly enraging a charging animal in the ring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +610,47 @@
     "text": "British Broadcasting Corporation looking both ways",
     "enumeration": "4"
    },
-   "solution": "BEEB"
+   "solution": "BEEB",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "BEEB",
+    "definitions": [
+     {
+      "text": "British Broadcasting Corporation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking both ways",
+      "for": "palindrome",
+      "note": "something that looks the same both ways reads identically forwards and backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British Broadcasting Corporation",
+      "gives": "BEEB",
+      "note": "the informal British nickname for the broadcaster, from its initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEEB"
+     ]
+    },
+    "explanation": {
+     "surface": "The national broadcaster checks left and right before crossing the road.",
+     "walkthrough": "The Beeb is the informal British nickname for the BBC, and it reads the same in either direction.",
+     "definitionFit": "Beeb is a colloquial nickname for the national public broadcaster, formed from the initials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +664,53 @@
     "text": "Elite aroma stirred up to become better",
     "enumeration": "10"
    },
-   "solution": "AMELIORATE"
+   "solution": "AMELIORATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMELIORATE",
+    "definitions": [
+     {
+      "text": "become better",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred up",
+      "for": "anagram",
+      "note": "a mixture stirred up is churned into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite aroma",
+      "gives": "ELITEAROMA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELITEAROMA",
+       "gives": "AMELIORATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine scent is whisked about so that it improves.",
+     "definitionFit": "To ameliorate is to improve, either making something better or growing better oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stirred"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +724,47 @@
     "text": "Very large nurse in north-west Belgium",
     "enumeration": "6"
    },
-   "solution": "OSTEND"
+   "solution": "OSTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSTEND",
+    "definitions": [
+     {
+      "text": "in north-west Belgium",
+      "at": 17,
+      "note": "a location standing for the place found there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very large",
+      "gives": "OS",
+      "note": "OS stands for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse is to look after or tend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge nurse is working somewhere in Belgium.",
+     "definitionFit": "Ostend is a port city on the Belgian coast, in the north-western province of West Flanders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +784,49 @@
      }
     ]
    },
-   "solution": "RINGBACK"
+   "solution": "RINGBACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RING BACK",
+    "definitions": [
+     {
+      "text": "return a phone call",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Syndicate",
+      "gives": "RING",
+      "note": "a ring is a group working together, such as a criminal syndicate"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "BACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A business syndicate offers backing in order to call someone again.",
+     "definitionFit": "To ring back is British phrasing for calling a person who has phoned you earlier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Syndicate"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +840,57 @@
     "text": "Clergyman's residence keeps crime concealed by messenger",
     "enumeration": "9"
    },
-   "solution": "PARSONAGE"
+   "solution": "PARSONAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARSONAGE",
+    "definitions": [
+     {
+      "text": "Clergyman's residence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed by",
+      "for": "container",
+      "note": "something concealed by another thing is hidden inside it"
+     }
+    ],
+    "linkWords": [
+     "keeps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "messenger",
+      "gives": "PAGE",
+      "note": "a page is a boy who carries messages"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "ARSON",
+      "note": "arson is the crime of setting fires"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARSON",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's house hides a crime that a messenger is covering up.",
+     "definitionFit": "A parsonage is the house provided for a parish priest, the parson, to live in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "messenger"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +904,73 @@
     "text": "Shocked to see spur used wildly on frenzied rides",
     "enumeration": "9"
    },
-   "solution": "SURPRISED"
+   "solution": "SURPRISED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SURPRISED",
+    "definitions": [
+     {
+      "text": "Shocked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used wildly",
+      "for": "anagram",
+      "note": "something used wildly is thrown about without order"
+     },
+     {
+      "text": "frenzied",
+      "for": "anagram",
+      "note": "a frenzied thing is wildly agitated, so its letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "to see",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spur",
+      "gives": "SPUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rides",
+      "gives": "RIDES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURP",
+      "RISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPUR",
+       "gives": "SURP"
+      },
+      {
+       "fodder": "RIDES",
+       "gives": "RISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An onlooker is appalled at a rider spurring a horse hard on frantic gallops.",
+     "definitionFit": "Being taken aback or astonished by something unexpected is a milder form of shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spur"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +984,49 @@
     "text": "Armada to beat a retreat on time",
     "enumeration": "5"
    },
-   "solution": "FLEET"
+   "solution": "FLEET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLEET",
+    "definitions": [
+     {
+      "text": "Armada",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to beat a retreat",
+      "gives": "FLEE",
+      "note": "to beat a retreat is to run away"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The Spanish Armada turning tail in good time.",
+     "definitionFit": "An armada is a large group of warships, which is what a navy's fleet is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Armada"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1040,53 @@
     "text": "Cherish the playful oread",
     "enumeration": "5"
    },
-   "solution": "ADORE"
+   "solution": "ADORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADORE",
+    "definitions": [
+     {
+      "text": "Cherish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playful",
+      "for": "anagram",
+      "note": "something playful frolics about, so the letters move around"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oread",
+      "gives": "OREAD",
+      "note": "an oread is a mountain nymph in Greek myth"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OREAD",
+       "gives": "ADORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dotes on a frolicking mountain nymph.",
+     "definitionFit": "To cherish someone is to love and hold them dear, which is to worship or love deeply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playful"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1106,58 @@
      }
     ]
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROP OUT",
+    "definitions": [
+     {
+      "text": "leave",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "What makes",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dr",
+      "gives": "DR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Round",
+      "gives": "O",
+      "note": "the letter O is round in shape"
+     },
+     {
+      "clueFragment": "pout",
+      "gives": "POUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "O",
+      "POUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician called Dr Round sulks and walks off.",
+     "walkthrough": "Round looks like the doctor's surname but is the round letter.",
+     "definitionFit": "To drop out is to withdraw from a course or activity before finishing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Round"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1171,51 @@
     "text": "Cold train crash, so it is believed",
     "enumeration": "9"
    },
-   "solution": "DOCTRINAL"
+   "solution": "DOCTRINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOCTRINAL",
+    "definitions": [
+     {
+      "text": "so it is believed",
+      "at": 18,
+      "note": "a phrase standing for the adjective: relating to what is believed"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crash",
+      "for": "anagram",
+      "note": "in a crash things are smashed and end up in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold train",
+      "gives": "COLDTRAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COLDTRAIN",
+       "gives": "DOCTRINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of a rail accident in freezing weather, according to rumour.",
+     "definitionFit": "Doctrinal concerns a doctrine, a body of teachings held as creed or faith by a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1229,65 @@
     "text": "MP kept in right time to the instrument",
     "enumeration": "7"
    },
-   "solution": "TRUMPET"
+   "solution": "TRUMPET",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRUMPET",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in a container is held inside it"
+     }
+    ],
+    "linkWords": [
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "TRUE",
+      "note": "true means right or correct"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "MP",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician is held in custody until the band strikes up.",
+     "walkthrough": "'Right' looks like the abbreviation R, but here it is TRUE, which holds MP.",
+     "definitionFit": "The trumpet is a brass wind instrument played by buzzing the lips into a cup mouthpiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kept"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1301,63 @@
     "text": "Fat Ida turns up to act",
     "enumeration": "7"
    },
-   "solution": "ADIPOSE"
+   "solution": "ADIPOSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADIPOSE",
+    "definitions": [
+     {
+      "text": "Fat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ida",
+      "gives": "IDA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "POSE",
+      "note": "to pose is to put on an act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADI",
+      "POSE"
+     ],
+     "reversals": [
+      {
+       "from": "IDA",
+       "to": "ADI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight woman named Ida arrives ready to perform.",
+     "definitionFit": "Adipose is the technical adjective for animal fat, as in adipose tissue stored under the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fat"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1377,60 @@
      }
     ]
    },
-   "solution": "INVAIN"
+   "solution": "INVAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IN VAIN",
+    "definitions": [
+     {
+      "text": "without success",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "something that enters goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is a vehicle"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone climbs into a car but gets nowhere.",
+     "definitionFit": "Doing something in vain means doing it fruitlessly, with no useful result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vehicle"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1444,49 @@
     "text": "Opening ball used to enter",
     "enumeration": "8"
    },
-   "solution": "DOORKNOB"
+   "solution": "DOORKNOB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOORKNOB",
+    "definitions": [
+     {
+      "text": "used to enter",
+      "at": 13,
+      "note": "a description standing for the noun: a thing used for entering"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opening",
+      "gives": "DOOR",
+      "note": "a door is an opening into a room or building"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "KNOB",
+      "note": "a knob is a round, ball-shaped lump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOOR",
+      "KNOB"
+     ]
+    },
+    "explanation": {
+     "surface": "At the start of a dance, guests are let in.",
+     "walkthrough": "'Opening ball' looks like the first dance of a season; it is two words read separately.",
+     "definitionFit": "A doorknob is the round handle you turn to open a door and go through it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ball"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1500,51 @@
     "text": "The funfair hasn't started, which is not just",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "not just",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't started",
+      "for": "deletion",
+      "note": "something that has not started is missing its beginning, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "The",
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funfair",
+      "gives": "FUNFAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNFAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains it is a shame that the fair is not yet open.",
+     "definitionFit": "Unjust treatment is treatment that is unfair, lacking equity or fairness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1558,63 @@
     "text": "Little Alfred put up with taxman's skill",
     "enumeration": "5"
    },
-   "solution": "FLAIR"
+   "solution": "FLAIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FLAIR",
+    "definitions": [
+     {
+      "text": "skill",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up means reading it from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Alfred",
+      "gives": "ALF",
+      "note": "Alf is a short form of the name Alfred"
+     },
+     {
+      "clueFragment": "taxman's",
+      "gives": "IR",
+      "note": "IR stands for Inland Revenue, the former British tax authority"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "IR"
+     ],
+     "reversals": [
+      {
+       "from": "ALF",
+       "to": "FLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy named Alfred has to tolerate the tax inspector's talent.",
+     "definitionFit": "Flair is a natural aptitude or talent for doing something well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1628,65 @@
     "text": "Fish to swallow most quietly, which is rubbish",
     "enumeration": "10"
    },
-   "solution": "CODSWALLOP"
+   "solution": "CODSWALLOP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CODSWALLOP",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most",
+      "for": "deletion",
+      "note": "most of a word is all but its final letter"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "COD",
+      "note": "a cod is a fish"
+     },
+     {
+      "clueFragment": "swallow",
+      "gives": "SWALLOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "P is piano, the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "SWALLO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to gulp down a fish silently is dismissed as nonsense.",
+     "walkthrough": "'Most' looks like an intensifier for quietly, but it trims the last letter of swallow.",
+     "definitionFit": "Codswallop is a British colloquialism for nonsense or foolish talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "most"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1700,63 @@
     "text": "Mother returns OK, but in a frenzy",
     "enumeration": "4"
    },
-   "solution": "AMOK"
+   "solution": "AMOK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AMOK",
+    "definitions": [
+     {
+      "text": "in a frenzy",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns comes back the way it went, so read backwards"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "Ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "OK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "OK"
+     ],
+     "reversals": [
+      {
+       "from": "MA",
+       "to": "AM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mum comes home safe but in a wild state.",
+     "definitionFit": "Running amok means behaving wildly and uncontrollably, out of all restraint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1770,63 @@
     "text": "Pupil becoming half-deaf in stunt",
     "enumeration": "7"
    },
-   "solution": "STUDENT"
+   "solution": "STUDENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STUDENT",
+    "definitions": [
+     {
+      "text": "Pupil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half of a word keeps only one of its two halves"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stunt",
+      "gives": "STUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "deaf",
+      "gives": "DEAF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STU",
+      "DE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolchild loses some hearing while performing a daredevil feat.",
+     "definitionFit": "A pupil is someone being taught, at school or by a tutor, as a learner is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pupil"
+    }
+   }
   },
   {
    "number": 29,
@@ -461,7 +1840,46 @@
     "text": "Big name, Edward, kicked off",
     "enumeration": "7"
    },
-   "solution": "STARTED"
+   "solution": "STARTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARTED",
+    "definitions": [
+     {
+      "text": "kicked off",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big name",
+      "gives": "STAR",
+      "note": "a star is a celebrity, a big name"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "TED",
+      "note": "Ted is a short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous figure called Edward began the football match.",
+     "definitionFit": "To kick off is an idiom for beginning something, from the start of a football match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edward"
+    }
+   }
   }
  ]
 }
