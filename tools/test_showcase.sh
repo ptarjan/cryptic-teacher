@@ -22,16 +22,16 @@ def facts(pid):
 
 # --- a hidden message counts only when the note says where to look ---
 for pid in ("quiptic-733", "cyclops-820", "cryptic-23113"):
-    check(f"{pid}'s note announces a hidden message", facts(pid)["message"])
+    check(f"{pid}'s note announces a hidden message", "hidden-message" in facts(pid)["tags"])
 # "hidden in the clue" is wordplay, and an erratum mentions no grid at all.
 for pid in ("cryptic-22863", "cryptic-25416", "cryptic-24355"):
-    check(f"{pid} is no hidden message", not facts(pid)["message"])
+    check(f"{pid} is no hidden message", "hidden-message" not in facts(pid)["tags"])
 
 # --- jigsaws ---
-check("an alphabetical jigsaw is a jigsaw", facts("cryptic-24331")["jigsaw"])
+check("an alphabetical jigsaw is a jigsaw", sc.puzzle_tags.has_tag(facts("cryptic-24331")["tags"], "jigsaw"))
 check("an A-to-Z of 27 answers is in the alphabet section",
-      "cryptic-24331" in [f["id"] for f in dict((x[0], x[3]) for x in sc.specs([facts("cryptic-24331")]))["alphabet"]])
-check("a theme note is not a jigsaw", not facts("cryptic-22863")["jigsaw"])
+      "cryptic-24331" in [f["id"] for f in dict((x[0], x[3]) for x in sc.specs([facts("cryptic-24331")]))["alphabetical"]])
+check("a theme note is not a jigsaw", not sc.puzzle_tags.has_tag(facts("cryptic-22863")["tags"], "jigsaw"))
 
 # --- records ---
 quote = real("cryptic-23801")
@@ -53,12 +53,12 @@ check("a date-keyed number is not an issue", not facts("metro-20260902")["counte
 # --- selection ---
 def fake(i, series, **kw):
     f = {"id": f"{series}-{i}", "series": series, "number": i, "day": i, "dated": True,
-         "answers": 28, "longest": None, "tags": [], "message": False, "jigsaw": False,
+         "answers": 28, "longest": None, "tags": [],
          "difficulty": None, "counted": True, "annotated": True}
     f.update(kw)
     return f
-pool = ([fake(i, "cryptic", message=True, jigsaw=True) for i in range(1, 9)]
-        + [fake(i, "cyclops", message=True) for i in range(1, 3)])
+pool = ([fake(i, "cryptic", tags=["hidden-message", "jigsaw"]) for i in range(1, 9)]
+        + [fake(i, "cyclops", tags=["hidden-message"]) for i in range(1, 3)])
 got = sc.sections(pool)
 ids = [f["id"] for _, _, _, cards, _ in got for f, _ in cards]
 check("a puzzle shows in one section only", len(ids) == len(set(ids)), ids)
@@ -66,10 +66,10 @@ msg = next(cards for slug, _, _, cards, _ in got if slug == "hidden-message")
 check("no series takes more than its share of a section",
       sum(f["series"] == "cryptic" for f, _ in msg) == 3, [f["id"] for f, _ in msg])
 check("a section with nothing to show is left out",
-      "pangrams" not in [slug for slug, *_ in got])
+      "pangram" not in [slug for slug, *_ in got])
 
 # --- only hinted puzzles; the burn is told which unhinted ones to do first ---
-pool = [fake(i, "cryptic", message=True, annotated=i % 2 == 0) for i in range(1, 9)]
+pool = [fake(i, "cryptic", tags=["hidden-message"], annotated=i % 2 == 0) for i in range(1, 9)]
 shown = [f["id"] for _, _, _, cards, _ in sc.sections(pool) for f, _ in cards]
 check("the showcase shows only annotated puzzles",
       shown and all(int(i.split("-")[1]) % 2 == 0 for i in shown), shown)
@@ -152,7 +152,7 @@ check("the sitemap lists the list pages",
 
 # --- the oldest section: one puzzle per paper, oldest first ---
 mk = lambda i, series, day, dated=True: {"id": i, "series": series, "day": day,
-    "dated": dated, "annotated": True, "tags": [], "message": False, "jigsaw": False,
+    "dated": dated, "annotated": True, "tags": [],
     "answers": 1, "longest": None, "difficulty": None, "number": 1, "counted": False}
 old = sc.oldest_per_paper([mk("a2", "cryptic", 200), mk("a1", "cryptic", 100),
                            mk("t1", "times", 50), mk("b1", "cryptic", 10, False)])
@@ -167,15 +167,40 @@ pool += [fake(1, "cryptic", tags=["pangram"], dated=False),
          fake(3, "times", tags=["double-pangram"], dated=False),
          fake(4, "times", dated=False)]
 got = {slug: cards for slug, _, _, cards, _ in sc.sections(pool)}
-pg = [(f["id"], note) for f, note in got.get("pangrams", [])]
-check("every pangram shows, most repeats first, then newest",
-      pg == [("times-3", "double pangram"), ("cryptic-2", "pangram"), ("cryptic-1", "pangram")], pg)
+pg = [(f["id"], note) for f, note in got.get("pangram", [])]
+check("every pangram shows, most repeats first, then newest, each noting its own tag",
+      pg == [("times-3", "every letter twice in the grid"), ("cryptic-2", "every letter in the grid"),
+             ("cryptic-1", "every letter in the grid")], pg)
 order = [slug for slug, *_ in sc.specs([])]
 check("the rankings lead, before the features",
       order[:4] == ["longest", "hardest", "easiest", "most-clues"], order)
 old = [note for slug, _, _, cards, _ in sc.sections([fake(1, "cryptic")])
        if slug == "oldest" for _, note in cards]
 check("the oldest cards carry no note beside the series badge", old == [""], old)
+
+# --- one definition per feature: the app's filter and /showcase/ cannot drift ---
+import puzzle_tags as pt
+top = {t for t, info in pt.TAGS.items() if "implies" not in info}
+feature_secs = {s[0]: s for s in sc.specs([]) if s[0] in pt.TAGS}
+check("every filter feature has a showcase section or a stated reason it has none",
+      set(feature_secs) | set(sc.NOT_SHOWCASED) == top
+      and not set(feature_secs) & set(sc.NOT_SHOWCASED), sorted(top ^ set(feature_secs)))
+check("every reason a feature is not showcased is stated",
+      all(isinstance(r, str) and r.strip() for r in sc.NOT_SHOWCASED.values()), sc.NOT_SHOWCASED)
+rankings = {"longest", "hardest", "easiest", "most-clues", "round-numbers"}
+check("every other showcase section is a ranking, not a feature the filter lacks",
+      {s[0] for s in sc.specs([])} - set(feature_secs) == rankings,
+      {s[0] for s in sc.specs([])} - set(feature_secs))
+check("a feature section's heading and blurb are its tag's label and blurb",
+      all(h.lower() == pt.TAGS[t]["label"].lower() and b == pt.TAGS[t]["blurb"]
+          for t, h, b, *_ in feature_secs.values()))
+mixed = [fake(1, "a", tags=["numbered-jigsaw"]), fake(2, "b", tags=["jigsaw"]),
+         fake(3, "c", tags=["quintuple-pangram"]), fake(4, "d", tags=["barred"])]
+check("a feature section takes exactly the puzzles the filter's tag test does",
+      all([f["id"] for f in s[3]] == [f["id"] for f in mixed if pt.has_tag(f["tags"], s[0])]
+          for s in sc.specs(mixed) if s[0] in pt.TAGS))
+check("the first-letters and in-the-grid features say which in their names",
+      "first letters" in pt.TAGS["alphabetical"]["label"] and "grid" in pt.TAGS["pangram"]["label"])
 
 print("\n%d failure(s)" % fails)
 raise SystemExit(fails > 0)

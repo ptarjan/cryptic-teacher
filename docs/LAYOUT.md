@@ -652,25 +652,32 @@ tools/make_icons.py                          renders every favicon and PWA icon 
 tools/stamp_assets.py                        cache-busting ?v= stamps; the smoke test fails on
                                              a stale one
 tools/puzzle_tags.py                         what is unusual about each puzzle (pangram, barred
-                                             grid, special rules…), read off its file; reindex
-                                             writes the tags into the index, and the app badges
-                                             them and filters the picker by them
+                                             grid, special rules…), read off its file: TAGS
+                                             defines each feature once, its name, blurb and
+                                             test; reindex writes the tags into the index, the
+                                             app badges them and filters the picker by them,
+                                             and /showcase/ gives each a section
 tools/test_puzzle_tags.sh                    is each tag on a real puzzle that has it and off
                                              the look-alike that does not (a feed that lost its
                                              clues is not unclued, an erratum is not special
                                              rules, a model's solve is never a pangram)?
-tools/showcase.py                            the puzzles /showcase/ picks out and why (a
-                                             message hidden in the grid, a jigsaw, a record),
-                                             from facts build_seo_pages reads off each file as
-                                             it renders its page; only annotated puzzles are
-                                             shown, and wanted() tells the burn which to
-                                             annotate first
+tools/showcase.py                            the puzzles /showcase/ picks out and why: a
+                                             section per feature in puzzle_tags.TAGS, with its
+                                             label, blurb and tag test, so the showcase and the
+                                             app's feature filter cannot drift, then rankings
+                                             (longest, hardest, most clues…); facts come from
+                                             build_seo_pages as it renders each page; only
+                                             annotated puzzles are shown, and wanted() tells
+                                             the burn which to annotate first
 tools/test_showcase.sh                       is each showcase detector on a real puzzle that
                                              has the feature and off the look-alike (hidden in
                                              the clue is not hidden in the grid, a book's year
                                              is not a print date), does a puzzle show only
-                                             once, are only annotated puzzles shown, and does
-                                             no reader page link a puzzle's answer page?
+                                             once, are only annotated puzzles shown, does every
+                                             filter feature have a section named, explained and
+                                             picked by its tag (or a stated reason it has
+                                             none), and does no reader page link a puzzle's
+                                             answer page?
 tools/test_puzzle_tag_badges.js              does a tagged puzzle's title badge its tag, and
                                              does the picker's feature menu list exactly the
                                              puzzles with that tag, the double pangrams under

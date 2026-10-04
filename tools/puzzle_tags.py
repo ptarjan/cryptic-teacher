@@ -1,14 +1,16 @@
 """What is unusual about each puzzle (pangram, barred grid, special rules…), read off its file.
 
-fetch_puzzle.reindex() writes each puzzle's tags into the index, and the app
-badges them and filters the picker by them.
+TAGS is the one definition of each feature: its name, what it means, and (via
+tags()) which puzzles have it. fetch_puzzle.reindex() writes each puzzle's tags
+and TAGS itself into the index, and the app badges them and filters the picker
+by them; tools/showcase.py gives every feature a section on /showcase/ from the
+same name, blurb and tags.
 
 Every tag is a fact the file states, never a judgement: a pangram is 26 letters
 counted in the grid, not a guess that the setter meant one. A feature with no
-such fact behind it gets no tag. A nina (a message hidden along the edge or a
-diagonal) is the usual case: any edge spells something if you look for words in
-it, and the puzzles that announce one already say so in a preamble, which tags
-them "special rules".
+such fact behind it gets no tag. A message hidden in the grid counts only when
+the note above the clues says where to look: any edge spells something if you
+look for words in it, so a search of the grid would tag accidents.
 """
 
 import re
@@ -29,15 +31,22 @@ def pangram_key(times):
     return MULTIPLES[min(times, len(MULTIPLES) + 1) - 2][0] + "-pangram"
 
 
-# Label and blurb per tag, in the order the app shows them. `implies` names a
-# weaker tag this one includes, so filtering by "pangram" finds the doubles too
-# while a double carries one badge, not two.
+def times_word(n):
+    return "twice" if n == "two" else f"{n} times"
+
+
+# Label and blurb per tag, in the order the app shows them and /showcase/ lists
+# them: the broad "special rules" last, so the specific features take their
+# puzzles first. The label is the feature's name everywhere, so it says what
+# the feature is about (first letters, or letters in the grid). `implies` names
+# a weaker tag this one includes, so filtering by "pangram" finds the doubles
+# too while a double carries one badge, not two.
 TAGS = {
-    "special-rules": {
-        "label": "special rules",
-        "blurb": "The note above the clues changes how the puzzle works: some "
-                 "answers share a theme and have no definition, or go into the "
-                 "grid altered or jigsaw-wise.",
+    "hidden-message": {
+        "label": "hidden message",
+        "blurb": "Words run round the edge of the finished grid, along a diagonal "
+                 "or through marked squares, and the note above the clues says "
+                 "where to look.",
     },
     "numbered-jigsaw": {
         "label": "numbered jigsaw",
@@ -48,8 +57,8 @@ TAGS = {
     },
     "jigsaw": {
         "label": "jigsaw",
-        "blurb": "The clues do not say where their answers go: fit each one into "
-                 "the grid wherever it will go.",
+        "blurb": "Some or all of the clues come without grid numbers: solve them, "
+                 "then fit each answer into the grid wherever it will go.",
     },
     "unclued": {
         "label": "unclued answers",
@@ -57,25 +66,26 @@ TAGS = {
                  "above the clues or the crossing letters give them.",
     },
     "alphabetical": {
-        "label": "alphabetical",
-        "blurb": "Every letter of the alphabet starts at least one answer.",
+        "label": "first letters A to Z",
+        "blurb": "Every letter of the alphabet starts at least one answer. With "
+                 "more than twenty-six answers, a letter or two starts more than one.",
     },
     **{f"{word}-pangram": {
-        "label": f"{word} pangram",
+        "label": f"every letter {times_word(n)} in the grid",
         "blurb": f"Every letter of the alphabet appears at least {n} times in "
                  "the completed grid.",
         "implies": "pangram",
     } for word, n in reversed(MULTIPLES)},
     "pangram": {
-        "label": "pangram",
-        "blurb": "Every letter of the alphabet appears somewhere in the completed "
-                 "grid. When Q, X or Z is still missing, the answer you are stuck "
-                 "on may hold it.",
+        "label": "every letter in the grid",
+        "blurb": "Every letter of the alphabet, Q, X and Z included, appears "
+                 "somewhere in the completed grid (a pangram). When one is still "
+                 "missing, the answer you are stuck on may hold it.",
     },
     "barred": {
         "label": "barred grid",
         "blurb": "Bars between squares end the answers instead of black squares, "
-                 "so almost every letter is crossed by a second answer.",
+                 "so almost every letter is shared by two answers.",
     },
     "asymmetric": {
         "label": "asymmetric grid",
@@ -90,7 +100,29 @@ TAGS = {
         "label": "letters given",
         "blurb": "Some letters are printed in the grid before you start.",
     },
+    "special-rules": {
+        "label": "special rules",
+        "blurb": "The note above the clues changes how the puzzle works: some "
+                 "answers share a theme and have no definition, or go into the "
+                 "grid altered or jigsaw-wise.",
+    },
 }
+
+
+def has_tag(tags, tag):
+    """A puzzle with `tags` has `tag`, or a stronger one that implies it: a
+    double pangram is a pangram. app.js hasTag() is the same test."""
+    return any(k == tag or TAGS[k].get("implies") == tag for k in tags)
+
+
+# A note above the clues that tells the solver words are hidden in the grid
+# itself, and where. Every preamble in the corpus that matches was read and
+# says so; the jigsaw one (cryptic-21963) puts the compass points on the edge.
+MESSAGE = re.compile(
+    r"(?:round|around) (?:the )?(?:perimeter|edge|shaded squares)"
+    r"|perimeter[^.]{0,60}(?:clockwise|spell|reads?\b)|perimeter letters spell"
+    r"|in the diagonals|displays [^.]* on the perimeter|\(see perimeter\)",
+    re.IGNORECASE)
 
 # A preamble that sets a rule, as opposed to one that corrects a clue, thanks a
 # sponsor or links a PDF. Phrases only a rule-setting note uses: every one of
@@ -250,6 +282,7 @@ def tags(puzzle):
     puzzle with the rest of its series, so reindex() adds it (big_grids)."""
     found = {
         "special-rules": bool(RULE_PHRASES.search(puzzle.get("preamble", ""))),
+        "hidden-message": bool(MESSAGE.search(puzzle.get("preamble", ""))),
         "unclued": has_unclued(puzzle),
         "alphabetical": is_alphabetical(puzzle),
         "barred": "bars" in puzzle,

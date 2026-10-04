@@ -6106,6 +6106,7 @@
       `<span class="badge feature" title="${esc(info[k].blurb)}">${esc(info[k].label)}</span>`).join("");
   }
   // A tag includes the weaker one it `implies`: a double pangram is a pangram.
+  // tools/puzzle_tags.has_tag is the same test, which /showcase/ picks by.
   function hasTag(p, t) {
     const info = INDEX.tags || {};
     return (p.tags || []).some((k) => k === t || (info[k] && info[k].implies === t));
@@ -6507,12 +6508,14 @@
       + pickerBandList().map((b) => `<option value="${esc(b)}">${esc(titleCase(b))}</option>`).join("");
   }
   // Only the tags some listed puzzle carries, in the index's order: an option
-  // that matches nothing is a dead end.
+  // that matches nothing is a dead end. Each reads as its /showcase/ heading
+  // does (tools/showcase.feature_spec): the label with a capital first letter.
   function tagMenuHTML() {
     const info = INDEX.tags || {};
     const used = Object.keys(info).filter((t) => INDEX.puzzles.some((p) => hasTag(p, t)));
+    const name = (s) => s[0].toUpperCase() + s.slice(1);
     return `<option value="">Any feature</option>`
-      + used.map((t) => `<option value="${esc(t)}">${esc(titleCase(info[t].label))}</option>`).join("");
+      + used.map((t) => `<option value="${esc(t)}">${esc(name(info[t].label))}</option>`).join("");
   }
   // The rows the three menus allow, or null when all say "all".
   function pickerFilter() {

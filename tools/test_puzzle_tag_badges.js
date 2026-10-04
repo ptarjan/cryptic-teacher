@@ -19,7 +19,8 @@ const PLAIN = "cryptic-30066";
 {
   const d = boot({ query: "?p=" + TAGGED });
   const title = d.registry["puzzle-title"].innerHTML;
-  check(/class="badge feature"[^>]*>quintuple pangram</.test(title),
+  const label = global.window.CRYPTIC_INDEX.tags["quintuple-pangram"].label;
+  check(title.includes(`>${label}</span>`) && /class="badge feature"/.test(title),
     "a tagged puzzle's title badges its tag: " + title.slice(0, 200));
 }
 {
@@ -38,6 +39,9 @@ const PLAIN = "cryptic-30066";
   check(menu[0] === "" && menu.length > 1, "the feature menu is 'any' then the tags: " + menu.join("|"));
   check(menu.slice(1).every((t) => index.puzzles.some((p) => has(p, t))),
     "every tag offered matches some listed puzzle");
+  const named = [...reg["picker-tag"].innerHTML.matchAll(/value="([^"]+)">([^<]*)</g)];
+  check(named.every(([, t, text]) => text === info[t].label[0].toUpperCase() + info[t].label.slice(1)),
+    "each feature reads as its /showcase/ heading, the label with a capital first letter");
   check(!menu.includes("octuple-pangram") || index.puzzles.some((p) => has(p, "octuple-pangram")),
     "(mirror) a tag no puzzle carries is not offered");
   const matched = () => reg["picker-list"].children.length

@@ -8,10 +8,11 @@ Only puzzles with our hints are shown: a reader who opens a pick to solve it
 gets help. wanted() names the unhinted puzzles a section would show, and the
 pre-reset burn (tools/prereset_plan.py) annotates those first.
 
-Every section is a fact the file or the index states. A message hidden in the
-grid counts only when the note above the clues says where to look: any edge
-spells something if you hunt for words in it (see tools/puzzle_tags.py), so a
-grid search would fill the section with accidents.
+Every section is a fact the file or the index states. A feature section is
+one of tools/puzzle_tags.py's TAGS, with that tag's label for its heading, its
+blurb, and the puzzles the tag is on, so /showcase/ and the app's feature
+filter name and pick the same features. The rest are rankings, which no filter
+offers.
 """
 
 import re
@@ -20,20 +21,13 @@ import parallel
 import puzzle_tags
 import series as series_meta
 
-# A note above the clues that tells the solver words are hidden in the grid
-# itself, and where. Every preamble in the corpus that matches was read and
-# says so; the jigsaw one (cryptic-21963) puts the compass points on the edge.
-MESSAGE = re.compile(
-    r"(?:round|around) (?:the )?(?:perimeter|edge|shaded squares)"
-    r"|perimeter[^.]{0,60}(?:clockwise|spell|reads?\b)|perimeter letters spell"
-    r"|in the diagonals|displays [^.]* on the perimeter|\(see perimeter\)",
-    re.IGNORECASE)
+# Top-level features (no `implies`) /showcase/ gives no section, each with why.
+# A tag that implies another shows in that one's section, by its own label.
+NOT_SHOWCASED = {}
 
-# The n of an n-fold pangram for each pangram tag of tools/puzzle_tags.py,
-# and the card note that names it.
-PANGRAM_TIMES = {"pangram": 1, **{f"{word}-pangram": i + 2
-                                  for i, (word, _) in enumerate(puzzle_tags.MULTIPLES)}}
-PANGRAM_NOTE = {n: tag.replace("-", " ") for tag, n in PANGRAM_TIMES.items()}
+# At most this many puzzles of one series in a feature's section on /showcase/.
+FEATURE_PER_SERIES = {"hidden-message": 3, "asymmetric": 2, "barred": 3, "big-grid": 2,
+                      "unclued": 3, "letters-given": 3, "special-rules": 3}
 
 PER_SECTION = 6
 
@@ -70,7 +64,6 @@ def facts(puz, meta):
     ents = puz["entries"]
     cont = puzzle_tags.continuations(ents)
     tags = puzzle_tags.tags(puz)
-    preamble = puz.get("preamble", "")
     day = series_meta.puzzle_day(puz)
     series = puz.get("series") or "cryptic"
     diff = (meta or {}).get("difficulty") or {}
@@ -82,9 +75,9 @@ def facts(puz, meta):
         "answers": sum(1 for e in ents if puzzle_tags.entry_id(e) not in cont
                        and not e["clue"].get("missing")),
         "longest": longest_answer(puz),
-        "tags": tags,
-        "message": bool(MESSAGE.search(preamble)),
-        "jigsaw": puzzle_tags.is_jigsaw(puz),
+        # big-grid compares the puzzle with its series, so only the index has it.
+        "tags": [k for k in puzzle_tags.TAGS if k in tags
+                 or (k == "big-grid" and k in (meta or {}).get("tags", ()))],
         "difficulty": diff.get("index") if diff.get("band") else None,
         "annotated": bool((meta or {}).get("annotated")),
         # A round issue number means something only where the number counts
@@ -125,13 +118,29 @@ def oldest_per_paper(fs):
     return sorted(best.values(), key=lambda f: (f["day"], f["id"]))
 
 
-def pangram_times(f):
-    """n for an n-fold pangram, 0 for a grid that is no pangram."""
-    return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=0)
+def features():
+    """The top-level tags /showcase/ gives a section, in TAGS order."""
+    return [t for t, info in puzzle_tags.TAGS.items()
+            if "implies" not in info and t not in NOT_SHOWCASED]
+
+
+def feature_spec(fs, tag):
+    """A feature's section: the puzzles with the tag, a stronger one first
+    (the most repeats of a pangram), each noting its own tag's label."""
+    variants = [k for k, info in puzzle_tags.TAGS.items() if k == tag or info.get("implies") == tag]
+
+    def own(f):
+        return next(k for k in f["tags"] if k in variants)
+    key = (lambda f: (variants.index(own(f)), newest_first(f))) if len(variants) > 1 else newest_first
+    info = puzzle_tags.TAGS[tag]
+    return (tag, info["label"][0].upper() + info["label"][1:], info["blurb"],
+            [f for f in fs if puzzle_tags.has_tag(f["tags"], tag)], key,
+            lambda f: puzzle_tags.TAGS[own(f)]["label"], FEATURE_PER_SERIES.get(tag))
 
 
 # Each list as (slug, heading, blurb, which puzzles, ranking, card note,
-# per_series). /showcase/ shows the first PER_SECTION of each, a puzzle once
+# per_series): the rankings, every feature, then the round numbers.
+# /showcase/ shows the first PER_SECTION of each, a puzzle once
 # and at most per_series from one series; its own page /showcase/<slug>/
 # lists every candidate in the same order: all of them, or the top FULL of a
 # ranking (a key other than newest_first), which can run to thousands. A
@@ -155,35 +164,7 @@ def specs(fs):
         ("most-clues", "The most clues", "The puzzles with the most clues.",
          fs, lambda f: (-f["answers"], newest_first(f)),
          lambda f: f"{f['answers']} clues", 1),
-        ("hidden-message", "A message hidden in the grid",
-         ("Words run round the edge of the finished grid, along a diagonal or through "
-          "marked squares, and the note above the clues says where to look."),
-         [f for f in fs if f["message"]], newest_first, lambda f: "hidden message", 3),
-        ("jigsaw", "Answers that go wherever they fit",
-         ("Some or all of the clues come without grid numbers. You solve them, then "
-          "work out where each answer goes, like a jigsaw."),
-         [f for f in fs if f["jigsaw"]], newest_first, lambda f: "jigsaw", None),
-        ("alphabet", "A to Z: an answer starting with each letter",
-         ("Every letter of the alphabet starts an answer, A to Z. With more than "
-          "twenty-six answers, a letter or two starts more than one."),
-         [f for f in fs if "alphabetical" in f["tags"]],
-         newest_first, lambda f: "A to Z", None),
-        ("pangrams", "Every letter somewhere in the grid",
-         ("Every letter, Q, X and Z included, appears in the finished grid. In a double "
-          "pangram every letter appears at least twice, in a triple three times, and so "
-          "on. The most repeats come first."),
-         [f for f in fs if pangram_times(f)],
-         lambda f: (-pangram_times(f), newest_first(f)),
-         lambda f: PANGRAM_NOTE[pangram_times(f)], None),
-        ("asymmetric", "Grids that are not symmetrical",
-         "Nearly every published grid looks the same turned upside down. These do not.",
-         [f for f in fs if "asymmetric" in f["tags"]], newest_first,
-         lambda f: "not symmetrical", 2),
-        ("barred", "Bars instead of black squares",
-         ("Thick lines between squares end the answers, so almost every letter is "
-          "shared by two answers."),
-         [f for f in fs if "barred" in f["tags"]], newest_first,
-         lambda f: "barred grid", 3),
+        *(feature_spec(fs, t) for t in features()),
         ("round-numbers", "Round numbers", "Milestone issues, numbered in round thousands.",
          [f for f in fs if f["counted"] and f["number"] >= 1000
           and f["number"] % 1000 == 0], newest_first, lambda f: "", 1),
