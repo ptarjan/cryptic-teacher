@@ -49,6 +49,9 @@
    "29-across": "STAID"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -59,10 +62,56 @@
    },
    "length": 5,
    "clue": {
-    "text": "Goes over photographs in retire ment",
+    "text": "Goes over photographs in retirement",
     "enumeration": "5"
    },
-   "solution": "SPANS"
+   "solution": "SPANS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPANS",
+    "definitions": [
+     {
+      "text": "Goes over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the word for photographs is taken backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photographs",
+      "gives": "SNAPS",
+      "note": "snaps are casual photographs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPANS"
+     ],
+     "reversals": [
+      {
+       "from": "SNAPS",
+       "to": "SPANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner spends retirement leafing through old holiday photographs.",
+     "definitionFit": "A bridge spans a river, crossing from one side to the other, so the verb means covers or crosses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 1,
@@ -76,7 +125,55 @@
     "text": "Agents had arranged for someone to move flats",
     "enumeration": "9"
    },
-   "solution": "STAGEHAND"
+   "solution": "STAGEHAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAGEHAND",
+    "definitions": [
+     {
+      "text": "someone to move flats",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranging puts things in a fresh order, so the preceding words' letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agents had",
+      "gives": "AGENTSHAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGENTSHAD",
+       "gives": "STAGEHAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Estate agents fixed up a removal man for tenants changing apartments.",
+     "walkthrough": "Flats are not apartments but painted scenery panels in a theatre.",
+     "definitionFit": "A stagehand shifts scenery in a theatre, and the painted canvas panels of a set are called flats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flats"
+    }
+   }
   },
   {
    "number": 2,
@@ -90,7 +187,44 @@
     "text": "Virtuous person as guardian, perhaps",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "Virtuous person",
+      "at": 0
+     },
+     {
+      "text": "guardian, perhaps",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virtuous person",
+      "note": "first meaning: a kind, saintly person"
+     },
+     {
+      "clueFragment": "guardian, perhaps",
+      "note": "second meaning: a guardian spirit is one kind of heavenly being"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Perhaps' marks an example: a guardian angel is one sort.",
+     "definitionFit": "The word means both a heavenly messenger, such as a protecting guardian spirit, and figuratively an especially good-hearted person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -104,7 +238,56 @@
     "text": "Trade unionist, elected to intervene on the left",
     "enumeration": "8"
    },
-   "solution": "SINISTER"
+   "solution": "SINISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINISTER",
+    "definitions": [
+     {
+      "text": "on the left",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to intervene",
+      "for": "container",
+      "note": "to intervene is to come between, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trade unionist",
+      "gives": "SISTER",
+      "note": "union members call one another brother and sister"
+     },
+     {
+      "clueFragment": "elected",
+      "gives": "IN",
+      "note": "a candidate elected is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "ISTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A union official, just voted in, steps into a dispute on the political left.",
+     "walkthrough": "The left here is not politics but a side: a union member is a brother or sister to the rest.",
+     "definitionFit": "Sinister is Latin for left, and in heraldry it still means the left-hand side of a shield."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +301,62 @@
     "text": "Prohibition leads to dry, empty, taverns, without liquor suppliers",
     "enumeration": "9"
    },
-   "solution": "DEBARMENT"
+   "solution": "DEBARMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DEBARMENT",
+    "definitions": [
+     {
+      "text": "Prohibition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leads of words are their opening letters, so only the start of each of the next three words is used"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the opening letters sit around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry, empty, taverns",
+      "gives": "DET",
+      "select": "first",
+      "note": "the opening letters of the three words"
+     },
+     {
+      "clueFragment": "liquor suppliers",
+      "gives": "BARMEN",
+      "note": "barmen serve drinks over a pub counter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BARMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Prohibition-era America: dry laws, empty bars and no one left to pour.",
+     "walkthrough": "The surface reads 'without' as lacking, but here it means outside: D and E come before BARMEN and T after, giving DEBARMENT.",
+     "definitionFit": "Debarment is the act of excluding or shutting someone out from a right or place, a formal ban."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 4,
@@ -132,7 +370,48 @@
     "text": "Foreign house journal, last to come out",
     "enumeration": "4"
    },
-   "solution": "DAIL"
+   "solution": "DAIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DAIL",
+    "definitions": [
+     {
+      "text": "Foreign house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last to come out",
+      "for": "deletion",
+      "note": "the final letter is told to leave, so the word is cut short at its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journal",
+      "gives": "DAILY",
+      "note": "a daily is a newspaper published every day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper abroad about to publish its final edition.",
+     "walkthrough": "Removing the last letter of DAILY leaves DAIL.",
+     "definitionFit": "The Dáil is the lower chamber of the Irish parliament, a legislative house outside Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 5,
@@ -152,7 +431,39 @@
      }
     ]
    },
-   "solution": "BRAINDRAIN"
+   "solution": "BRAINDRAIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRAIN DRAIN",
+    "definitions": [
+     {
+      "text": "Expert transplantation?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert transplantation?",
+      "note": "surface reading: a specialist carrying out an organ transplant"
+     },
+     {
+      "clueFragment": "Expert transplantation?",
+      "note": "setter's reading: skilled people uprooted and moved abroad"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The transplant surgery picture invites thoughts of the grey matter itself; really it is clever people emigrating.",
+     "definitionFit": "The phrase names the emigration of highly qualified scientists and professionals to other countries offering better pay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "transplantation"
+    }
+   }
   },
   {
    "number": 6,
@@ -166,7 +477,55 @@
     "text": "Directions to make ready to surround city",
     "enumeration": "6"
    },
-   "solution": "RECIPE"
+   "solution": "RECIPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECIPE",
+    "definitions": [
+     {
+      "text": "Directions to make",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to surround",
+      "for": "container",
+      "note": "surrounding something means wrapping around it, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ready",
+      "gives": "RIPE",
+      "note": "ripe fruit is ready to eat"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "EC",
+      "note": "EC is the postcode for the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EC",
+      "IPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for getting troops ready to encircle a city.",
+     "walkthrough": "The City is London's financial district, whose postcode letters are the usual crossword stand-in.",
+     "definitionFit": "A recipe is a set of instructions for preparing a dish, so it tells you how to make something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surround"
+    }
+   }
   },
   {
    "number": 7,
@@ -180,7 +539,50 @@
     "text": "Modern language translation of ten operas",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "Modern language",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translation of",
+      "for": "anagram",
+      "note": "translating turns text into a different form, so the following words' letters are recast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten operas",
+      "gives": "TENOPERAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENOPERAS",
+       "gives": "ESPERANTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ten operas rendered into a contemporary tongue for a new audience.",
+     "definitionFit": "Esperanto is an invented international language devised in the 1880s, recent compared with natural tongues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 8,
@@ -194,7 +596,45 @@
     "text": "Free lunch, say, for nurse",
     "enumeration": "5"
    },
-   "solution": "TREAT"
+   "solution": "TREAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREAT",
+    "definitions": [
+     {
+      "text": "Free lunch, say",
+      "at": 0
+     },
+     {
+      "text": "nurse",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free lunch, say",
+      "note": "first meaning: something paid for by someone else"
+     },
+     {
+      "clueFragment": "nurse",
+      "note": "second meaning: to give medical care to"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a lunch laid on for a nurse; 'say' marks a free lunch as one example of the first sense.",
+     "definitionFit": "The word is a noun for something enjoyable paid for by another, and a verb for giving medical care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 9,
@@ -208,7 +648,62 @@
     "text": "Monarch detained by force in a republic",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "republic",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detained by",
+      "for": "container",
+      "note": "someone detained is held inside, so the monarch's letter is held within the word for force"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch",
+      "gives": "R",
+      "note": "R for rex or regina, king or queen"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "AGENT",
+      "note": "an agent is a force or cause that produces an effect"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "INA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GENT",
+      "INA"
+     ]
+    },
+    "explanation": {
+     "surface": "A king held captive by armed forces inside some republic.",
+     "walkthrough": "R goes inside AGENT to make ARGENT, then IN A follows: ARGENTINA.",
+     "definitionFit": "Argentina is a South American country governed as a republic, so it is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 10,
@@ -222,7 +717,45 @@
     "text": "State police not out of the woods here",
     "enumeration": "5"
    },
-   "solution": "COPSE"
+   "solution": "COPSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COPSE",
+    "definitions": [
+     {
+      "text": "not out of the woods here",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "State",
+      "for": "homophone",
+      "note": "to state is to say out loud, so the next word is heard rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "COPSE",
+      "soundsLike": "COPS",
+      "note": "cops is slang for police officers"
+     }
+    ],
+    "explanation": {
+     "surface": "State police warn that a fugitive hunt in the forest is not over yet.",
+     "walkthrough": "'State police' looks like a single American force, but State is the signal to say the next word out loud. The definition plays on the idiom 'not out of the woods', still in danger.",
+     "definitionFit": "A copse is a small thicket of trees, so standing in one you are literally still among the woods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +769,50 @@
     "text": "Silent torture for recruit",
     "enumeration": "6"
    },
-   "solution": "ENLIST"
+   "solution": "ENLIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENLIST",
+    "definitions": [
+     {
+      "text": "recruit",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torture",
+      "for": "anagram",
+      "note": "torture twists and distorts, so the letters of the first word are wrenched into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silent",
+      "gives": "SILENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SILENT",
+       "gives": "ENLIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A captured recruit stays silent under torture.",
+     "definitionFit": "Both verbs mean to sign up or take someone on for the armed forces, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "torture"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +826,48 @@
     "text": "Fire in Geneva, say",
     "enumeration": "8"
    },
-   "solution": "INSPIRIT"
+   "solution": "INSPIRIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSPIRIT",
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Geneva, say",
+      "gives": "SPIRIT",
+      "note": "geneva is an old name for gin, a strong spirit; 'say' marks it as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SPIRIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A news report of a blaze in the Swiss city of Geneva.",
+     "walkthrough": "Geneva looks like the Swiss city, but it is also the Dutch word for gin (from juniper), which gave English the word gin.",
+     "definitionFit": "To fire someone up is to animate or encourage them, which is what inspirit means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Geneva"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +881,49 @@
     "text": "Excellent excuse for finishing up at the highest level",
     "enumeration": "10"
    },
-   "solution": "TOPPINGOUT"
+   "solution": "TOPPINGOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOPPINGOUT",
+    "definitions": [
+     {
+      "text": "finishing up at the highest level",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "TOPPING",
+      "note": "topping is old-fashioned British slang for excellent"
+     },
+     {
+      "clueFragment": "excuse",
+      "gives": "OUT",
+      "note": "an out is a way of escape, an excuse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOPPING",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine reason for bowing out at the peak of a career.",
+     "definitionFit": "Builders mark topping out with a ceremony when a structure's top storey or highest point is completed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "excuse"
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +943,58 @@
      }
     ]
    },
-   "solution": "ABOVEBOARD"
+   "solution": "ABOVEBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOVE-BOARD",
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that succeeds",
+      "for": "charade",
+      "note": "to succeed is to come after, so the deal piece follows the more-than piece"
+     }
+    ],
+    "linkWords": [
+     "Is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more than",
+      "gives": "ABOVE",
+      "note": "above in the sense of in excess of"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "BOARD",
+      "note": "deal is pine or fir timber, sawn into planks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOVE",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a business deal that comes off was anything better than merely fair.",
+     "walkthrough": "Deal looks like a business agreement, but it is pine or fir timber; 'that succeeds' means comes after.",
+     "definitionFit": "Above board is an idiom for honest and open dealing, with nothing hidden, which is fair play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,10 +1005,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Bad temper when business is slack -6",
+    "text": "Bad temper when business is slack",
     "enumeration": "9"
    },
-   "solution": "OFFSEASON"
+   "solution": "OFFSEASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSEASON",
+    "definitions": [
+     {
+      "text": "when business is slack",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad",
+      "gives": "OFF",
+      "note": "food that is bad has gone off"
+     },
+     {
+      "clueFragment": "temper",
+      "gives": "SEASON",
+      "note": "to season is to temper or moderate, and timber is seasoned like steel is tempered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SEASON"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper loses his temper when trade is quiet.",
+     "walkthrough": "'Bad temper' reads as a mood; split it into two words, each with its own synonym.",
+     "definitionFit": "The off-season is the quiet part of the year for a trade such as tourism, when demand drops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temper"
+    }
+   }
   },
   {
    "number": 16,
@@ -312,7 +1062,42 @@
     "text": "Formerly seen in concert",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ONCE",
+    "definitions": [
+     {
+      "text": "Formerly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "the answer can be seen sitting inside the next word, spelt out within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concert",
+      "gives": "ONCE",
+      "note": "the second to fifth letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who used to appear on stage at concerts.",
+     "definitionFit": "Once in the sense of at one time in the past is an adverb synonym for formerly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concert"
+    }
+   }
   },
   {
    "number": 17,
@@ -326,7 +1111,67 @@
     "text": "Did fish under net, wriggling, become this?",
     "enumeration": "9"
    },
-   "solution": "ENTANGLED"
+   "solution": "ENTANGLED",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENTANGLED",
+    "definitions": [
+     {
+      "text": "Did fish under net, wriggling, become this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wriggling",
+      "for": "anagram",
+      "note": "wriggling twists about, so that short word's letters squirm into another order"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so the fishing piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "net",
+      "gives": "NET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Did fish",
+      "gives": "ANGLED",
+      "note": "to angle is to fish with rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "ANGLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NET",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what happened to a fish that thrashed about below the fisherman's net.",
+     "walkthrough": "The whole clue describes a caught fish while the wordplay builds the answer: ENT from net above ANGLED.",
+     "definitionFit": "A fish wriggling in a net ends up caught and twisted in the mesh, which is being entangled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "under"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1185,47 @@
     "text": "City church's spirits",
     "enumeration": "8"
    },
-   "solution": "ESSENCES"
+   "solution": "ESSENCES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESSENCES",
+    "definitions": [
+     {
+      "text": "spirits",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "ESSEN",
+      "note": "Essen is a German city in the Ruhr"
+     },
+     {
+      "clueFragment": "church's",
+      "gives": "CES",
+      "note": "CE is the Church of England, plus S for the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSEN",
+      "CES"
+     ]
+    },
+    "explanation": {
+     "surface": "The spiritual life of a city's church.",
+     "definitionFit": "An essence is the concentrated extract of a substance, and spirits are likewise distilled extracts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirits"
+    }
+   }
   },
   {
    "number": 19,
@@ -354,7 +1239,75 @@
     "text": "Brave English filly hemmed in by outsiders in Derby",
     "enumeration": "4"
    },
-   "solution": "DEFY"
+   "solution": "DEFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DEFY",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outsiders in",
+      "for": "letter_selection",
+      "note": "the outsiders of a word are its first and last letters, the ones on the edges"
+     },
+     {
+      "text": "hemmed in by",
+      "for": "container",
+      "note": "something hemmed in is enclosed on both sides, so the pair goes between the edge letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Derby",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening outer letter"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "filly",
+      "gives": "F",
+      "note": "F is the abbreviation for filly in racing form"
+     },
+     {
+      "clueFragment": "Derby",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing outer letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A plucky English filly boxed in by rivals running wide in the Derby.",
+     "walkthrough": "The Derby is England's most famous flat horse race, run at Epsom. E and F sit between D and Y.",
+     "definitionFit": "To brave a danger is to face it boldly, which is to defy it; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1321,47 @@
     "text": "One determined to ruin the party turns left",
     "enumeration": "10"
    },
-   "solution": "SPOILSPORT"
+   "solution": "SPOILSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPOILSPORT",
+    "definitions": [
+     {
+      "text": "One determined to ruin the party",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turns",
+      "gives": "SPOILS",
+      "note": "milk that turns goes off, that is, it spoils"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOILS",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A party guest set on ruining things storms off.",
+     "walkthrough": "'Turns left' reads like a direction; turns means goes sour, and left is the nautical side.",
+     "definitionFit": "A spoilsport is a person who deliberately dampens other people's fun or enjoyment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1375,66 @@
     "text": "Old editor finally gets what's been produced by boring author",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it is attached to"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "what's been produced by boring",
+      "gives": "WELL",
+      "note": "drilling into the ground produces a well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "R",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired editor at last receives a dull writer's manuscript.",
+     "walkthrough": "Boring here means drilling, not tedious.",
+     "definitionFit": "George Orwell was the English author of Animal Farm and Nineteen Eighty-Four."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,10 +1445,58 @@
    },
    "length": 8,
    "clue": {
-    "text": "Unorthodox as a bishop, travel ling in search of adventure",
+    "text": "Unorthodox as a bishop, travelling in search of adventure",
     "enumeration": "8"
    },
-   "solution": "ABERRANT"
+   "solution": "ABERRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABERRANT",
+    "definitions": [
+     {
+      "text": "Unorthodox",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "travelling in search of adventure",
+      "gives": "ERRANT",
+      "note": "a knight errant roams seeking adventures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "ERRANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop with heretical views who wanders about seeking adventure.",
+     "definitionFit": "Aberrant means straying from the normal or accepted course, a fair synonym for unconventional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1510,62 @@
     "text": "A royal, perhaps, turning up under a pseudonym",
     "enumeration": "5"
    },
-   "solution": "ALIAS"
+   "solution": "ALIAS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ALIAS",
+    "definitions": [
+     {
+      "text": "under a pseudonym",
+      "at": 29,
+      "note": "adverbial, as in 'Smith, alias Jones'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "royal, perhaps",
+      "gives": "SAIL",
+      "note": "a royal is a small sail set high on a mast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAIL",
+       "to": "LIAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A member of a royal family turning up somewhere incognito.",
+     "walkthrough": "A royal is a sail above the topgallant on a square-rigged ship.",
+     "definitionFit": "Alias means otherwise known as, introducing an assumed name, so it describes going under a false name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "royal"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1579,51 @@
     "text": "Vacation course that's useful if one wants a rise",
     "enumeration": "6"
    },
-   "solution": "LEAVEN"
+   "solution": "LEAVEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAVEN",
+    "definitions": [
+     {
+      "text": "useful if one wants a rise",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vacation",
+      "gives": "LEAVE",
+      "note": "leave is time off work, a holiday"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "N",
+      "note": "north is a compass course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday training course that will help you get a pay rise.",
+     "walkthrough": "The rise is not pay but dough rising.",
+     "definitionFit": "Leaven is yeast or another raising agent that makes bread dough swell up as it proves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,10 +1634,50 @@
    },
    "length": 5,
    "clue": {
-    "text": "Player taking a bow for part in Twelfth Nigh!",
+    "text": "Player taking a bow for part in Twelfth Night",
     "enumeration": "5"
    },
-   "solution": "VIOLA"
+   "solution": "VIOLA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIOLA",
+    "definitions": [
+     {
+      "text": "Player taking a bow",
+      "at": 0,
+      "note": "the instrument stands for its player"
+     },
+     {
+      "text": "part in Twelfth Night",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Player taking a bow",
+      "note": "first meaning: a stringed instrument played with a bow, and the musician in the string section"
+     },
+     {
+      "clueFragment": "part in Twelfth Night",
+      "note": "second meaning: the heroine of Shakespeare's comedy"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Taking a bow' looks like an actor at curtain call, but the bow is the one drawn across strings.",
+     "definitionFit": "The word names a stringed instrument bowed like a violin, and the shipwrecked heroine of Shakespeare's comedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1691,56 @@
     "text": "God's love — before Babel",
     "enumeration": "4"
    },
-   "solution": "ODIN"
+   "solution": "ODIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODIN",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means placed in front, so the love piece leads"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "Babel",
+      "gives": "DIN",
+      "note": "babel is a confused noise, a din"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DIN"
+     ]
+    },
+    "explanation": {
+     "surface": "God's love existed before the Tower of Babel.",
+     "definitionFit": "Odin is the chief deity of Norse mythology, father of Thor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Babel"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1754,43 @@
     "text": "Publication for children",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Publication",
+      "at": 0
+     },
+     {
+      "text": "children",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publication",
+      "note": "first meaning: an edition of a magazine or newspaper"
+     },
+     {
+      "clueFragment": "children",
+      "note": "second meaning: a person's offspring, as in 'died without'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It looks like a magazine aimed at youngsters; the two words are separate meanings.",
+     "definitionFit": "The noun covers both one printed number of a periodical and, in legal language, descendants or offspring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "children"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,10 +1801,50 @@
    },
    "length": 9,
    "clue": {
-    "text": "Conservatives' traditional discipline 6",
+    "text": "Conservatives' traditional discipline",
     "enumeration": "9"
    },
-   "solution": "OLDSCHOOL"
+   "solution": "OLDSCHOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLDSCHOOL",
+    "definitions": [
+     {
+      "text": "Conservatives'",
+      "at": 0,
+      "note": "possessive, matching the attributive use as in 'old-school values'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traditional",
+      "gives": "OLD",
+      "note": "old in the sense of long-established"
+     },
+     {
+      "clueFragment": "discipline",
+      "gives": "SCHOOL",
+      "note": "to school is to train or discipline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "SCHOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "Tory politicians believe in old-fashioned discipline.",
+     "definitionFit": "The old school are people who hold traditional, conservative views, so old-school values belong to such people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservatives'"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1858,54 @@
     "text": "The only one to spill the beans twice!",
     "enumeration": "9"
    },
-   "solution": "SINGLETON"
+   "solution": "SINGLETON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLETON",
+    "definitions": [
+     {
+      "text": "The only one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twice",
+      "for": "charade",
+      "note": "the following phrase must be rendered two separate ways, one after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to spill the beans",
+      "gives": "SING",
+      "note": "a criminal who sings informs to the police"
+     },
+     {
+      "clueFragment": "to spill the beans",
+      "gives": "LETON",
+      "note": "let on means reveal a secret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SING",
+      "LETON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who alone keeps blurting out secrets.",
+     "walkthrough": "One phrase is used twice: SING and LET ON, both slang for giving away a secret.",
+     "definitionFit": "A singleton is a single individual thing, the only one of its kind present, as in a card suit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beans"
+    }
+   }
   },
   {
    "number": 29,
@@ -508,7 +1919,68 @@
     "text": "A bit sad when Jack says “goodbye\" — drunk or sober",
     "enumeration": "5"
    },
-   "solution": "STAID"
+   "solution": "STAID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STAID",
+    "definitions": [
+     {
+      "text": "sober",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "says “goodbye\"",
+      "for": "deletion",
+      "note": "the sailor taking his leave means his letters depart from the phrase"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the remaining letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bit sad",
+      "gives": "ABITSAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "AB",
+      "note": "Jack is a sailor, as is AB, an able seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSAD",
+       "gives": "STAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's farewell leaves people a little tearful, whether drunk or sober.",
+     "walkthrough": "Removing AB from A BIT SAD leaves ITSAD, which drunk then rearranges.",
+     "definitionFit": "Staid describes someone steady, serious and restrained, a close synonym of sober in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   }
  ]
 }
