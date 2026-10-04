@@ -1746,8 +1746,9 @@ def setter_error_problems(puzzle, eid, row, ann=None):
     light's own annotation); [] when it may be. Each problem says what to write
     instead.
 
-    A row is checkable from the page: each fodder word is one the clue prints
-    or a block's `gives` read off words it prints (CLUB for "group"), its
+    A row is checkable from the page: each fodder word is one the clue prints,
+    a block's fragment of it (PAPER out of "Notepaper"), or a block's `gives`
+    read off words it prints (CLUB for "group"), its
     gives is the answer (a linked answer's every light) or the part of it the
     anagram supplies (UNANT of UNGALLANT), and fodder and gives are at most
     SETTER_ERROR_LETTERS apart. Anything else is a wrong parse, not a slip."""
@@ -1758,9 +1759,10 @@ def setter_error_problems(puzzle, eid, row, ann=None):
     answer = "".join(letters(s or "") for s in light_solutions(e, by_id)) or letters(e["solution"])
     clue = e["clue"].get("text") or ""
     printed = {letters(w) for w in re.split(r"[\s\-\u2013\u2014/]+", clue)}
-    derived = {letters(b.get("gives") or "") for b in (ann or {}).get("blocks") or ()
-               if isinstance(b, dict) and letters(b.get("clueFragment") or "")
-               and letters(b.get("clueFragment") or "") in letters(clue)}
+    read = [b for b in (ann or {}).get("blocks") or ()
+            if isinstance(b, dict) and letters(b.get("clueFragment") or "")
+            and letters(b.get("clueFragment") or "") in letters(clue)]
+    derived = {letters(b.get(k) or "") for b in read for k in ("clueFragment", "gives")}
     out = []
     unprinted = [w for w in fodder.split() if letters(w) not in printed | derived]
     if unprinted:

@@ -46,6 +46,8 @@ PUZ = {"id": "p-1", "entries": [
      "clue": {"text": "Discourteous bitterness in crude taunt"}},
     {"number": 5, "direction": "across", "solution": "BLUECOLLAR",
      "clue": {"text": "Unskilled group circulating changed locale"}},
+    {"number": 6, "direction": "down", "solution": "REAPPEAR",
+     "clue": {"text": "Notepaper ordered has become available again"}},
     {"number": 1, "direction": "across", "solution": "WHO", "group": ["1-across", "9-across"],
      "clue": {"text": "Ow, ho, I am! Television show"}},
     {"number": 9, "direction": "across", "solution": "AMI", "clue": {"text": "See 1"}}]}
@@ -55,6 +57,11 @@ P = lambda eid, row, ann={}: len(v.setter_error_problems(PUZ, eid, row, ann))
 check("whole answer from printed words is filed", 0, P("13-down", ["skis Elf oil", "KISSOFLIFE", "e"]))
 check("a partial anagram's own letters are filed", 0, P("3-across", ["taunt", "UNANT", "e"], GALL))
 check("fodder may be a block's gives", 0, P("5-across", ["club locale", "BLUECOLLAR", "e"], CLUB))
+check("fodder may be a block's fragment of one printed word", 0,
+      P("6-down", ["paper", "APPEAR", "e"], {"blocks": [{"clueFragment": "Note", "gives": "RE"},
+                                                     {"clueFragment": "paper", "gives": "PAPERA"}]}))
+check("part of a printed word with no block reading it off is refused", 1,
+      P("6-down", ["paper", "APPEAR", "e"]))
 check("a linked answer is every light's letters", 0, P("1-across", ["ow ho I am", "WHOAMI", "e"]))
 check("fodder neither printed nor a block's gives is refused", 1,
       P("5-across", ["club locale", "BLUECOLLAR", "e"]))
