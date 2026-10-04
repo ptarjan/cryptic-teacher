@@ -62,5 +62,11 @@ check("one instruction worded twice: the note's wording", fp.merge_preamble(own,
     "six solutions featuring seven", "five solutions featuring six")) == own)
 check("no note: the instructions", fp.merge_preamble(None, "Jigsaw.") == "Jigsaw.")
 check("no clue page: the note", fp.merge_preamble("Jigsaw.", None) == "Jigsaw.")
+PAGE_23598 = ('<TD><B>Method</B><BR>Solve the clues and enter solutions in the grid jigsaw-wise, wherever '
+              'they will go. <br><a href="http://x/y">Click here</b> to go back to the Prize crossword.</TD>'
+              '<TD><b>A</b>\tA profit (5)<br><b>B</b>\tVoid (7)')
+got = fp.clue_page_instructions(PAGE_23598)
+check("a stray </b> in the note is not the title", got == "Solve the clues and enter solutions in the grid "
+      "jigsaw-wise, wherever they will go.", got)
 raise SystemExit(fails)
 PY
