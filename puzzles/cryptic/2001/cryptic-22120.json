@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Hold up the picnic basket",
     "enumeration": "6"
    },
-   "solution": "HAMPER"
+   "solution": "HAMPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMPER",
+    "definitions": [
+     {
+      "text": "Hold up",
+      "at": 0
+     },
+     {
+      "text": "picnic basket",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold up",
+      "note": "first meaning: to obstruct or impede"
+     },
+     {
+      "clueFragment": "picnic basket",
+      "note": "second meaning: a lidded wicker basket for food"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to lift up the picnic basket.",
+     "walkthrough": "'Hold up' reads as lifting the basket, but it is a verb meaning obstruct, a separate definition.",
+     "definitionFit": "The word is both a verb for obstructing progress and a noun for a wicker container packed with food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hold"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,58 @@
     "text": "Restraint shown by worker on strike",
     "enumeration": "8"
    },
-   "solution": "HANDCUFF"
+   "solution": "HANDCUFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDCUFF",
+    "definitions": [
+     {
+      "text": "Restraint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one piece on another sits above it, so comes first"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "CUFF",
+      "note": "to cuff is to strike with the open hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "CUFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A striking worker shows restraint on the picket line.",
+     "walkthrough": "On strike suggests industrial action, but strike is a verb for a blow.",
+     "definitionFit": "Handcuffs are a pair of locked metal rings that restrain a prisoner's wrists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,63 @@
     "text": "Food for team replacement at dinner-dance",
     "enumeration": "8"
    },
-   "solution": "MEATBALL"
+   "solution": "MEATBALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MEATBALL",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacement",
+      "for": "anagram",
+      "note": "a replacement swaps things around, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "TEAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dinner-dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance, often with dinner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAT",
+      "BALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAM",
+       "gives": "MEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A substitute player is offered dinner at a formal dance.",
+     "definitionFit": "A meatball is a small ball of minced meat, served as a dish, so an item of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "replacement"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +224,55 @@
     "text": "Number three is confused",
     "enumeration": "5"
    },
-   "solution": "ETHER"
+   "solution": "ETHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHER",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are muddled into a different order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three",
+      "gives": "THREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THREE",
+       "gives": "ETHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muddles the number three.",
+     "walkthrough": "Number is read as numb-er, something that numbs, not a figure.",
+     "definitionFit": "Ether was an early anaesthetic gas that deadens feeling, so it is a numbing agent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +286,57 @@
     "text": "Aim to put charged particle on circuit",
     "enumeration": "8"
    },
-   "solution": "AMBITION"
+   "solution": "AMBITION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMBITION",
+    "definitions": [
+     {
+      "text": "Aim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put",
+      "for": "charade",
+      "note": "to put one thing on another here means placing it after the other in an across entry"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circuit",
+      "gives": "AMBIT",
+      "note": "an ambit is a circuit or bounds"
+     },
+     {
+      "clueFragment": "charged particle",
+      "gives": "ION",
+      "note": "an ion is an atom carrying an electric charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBIT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction from a physics lab about sending a charged particle around a circuit.",
+     "walkthrough": "In an across clue, A 'on' B puts A after B.",
+     "definitionFit": "An ambition is a goal one strives toward, the same as an aim held in life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circuit"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,76 @@
      }
     ]
    },
-   "solution": "MINORITYGROUP"
+   "solution": "MINORITYGROUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MINORITY GROUP",
+    "definitions": [
+     {
+      "text": "faction",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry something upset is turned upside down, so read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young person",
+      "gives": "MINOR",
+      "note": "a minor is someone under the age of majority"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "orgy",
+      "gives": "ORGY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "higher",
+      "gives": "UP",
+      "note": "up means higher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINOR",
+      "IT",
+      "YGRO",
+      "UP"
+     ],
+     "reversals": [
+      {
+       "from": "ORGY",
+       "to": "YGRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager at a wild party upsets a more senior group.",
+     "definitionFit": "A minority group is a smaller faction within a population, set apart by politics, race or belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +445,57 @@
      }
     ]
    },
-   "solution": "ILLHEALTH"
+   "solution": "ILLHEALTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ILL HEALTH",
+    "definitions": [
+     {
+      "text": "affliction",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In part",
+      "for": "hidden_word",
+      "note": "in part means only a portion of the following words is taken"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time will heal",
+      "gives": "ILLHEAL",
+      "note": "the letters run across the words from will into heal"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the start of the next word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILLHEAL",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A proverb-like comfort that time will partly heal suffering.",
+     "walkthrough": "The answer runs through wILL HEAL THe.",
+     "definitionFit": "Ill health is a state of sickness or poor physical condition, which is an affliction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +515,69 @@
      }
     ]
    },
-   "solution": "INTRAY"
+   "solution": "INTRAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "IN TRAY",
+    "definitions": [
+     {
+      "text": "where immediate  action is required",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Damaged",
+      "for": "anagram",
+      "note": "something damaged is broken up, so its letters are reordered"
+     },
+     {
+      "text": "terminal",
+      "for": "letter_selection",
+      "note": "a terminal is the end point, so take the final letter only"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "train",
+      "gives": "TRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "Y",
+      "select": "last",
+      "note": "the end of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTRA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAIN",
+       "gives": "INTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A damaged train at the end of the line needs urgent attention.",
+     "definitionFit": "An in-tray holds incoming papers on a desk, waiting for someone to deal with them promptly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "terminal"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +591,66 @@
     "text": "Odd inclusion in study set-up - agreed?",
     "enumeration": "6"
    },
-   "solution": "NODDED"
+   "solution": "NODDED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NODDED",
+    "definitions": [
+     {
+      "text": "agreed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set-up",
+      "for": "reversal",
+      "note": "in a down entry set up means raised, so the word is read bottom to top"
+     },
+     {
+      "text": "inclusion",
+      "for": "container",
+      "note": "an inclusion is something held inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study room"
+     },
+     {
+      "clueFragment": "Odd",
+      "gives": "ODD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ODD",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DEN",
+       "to": "NED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether everyone agrees to an odd addition in the study arrangement.",
+     "definitionFit": "To nod is to signal yes with the head, so someone who nodded indicated assent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set-up"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +664,44 @@
     "text": "Down under in Wales",
     "enumeration": "5"
    },
-   "solution": "NEATH"
+   "solution": "NEATH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEATH",
+    "definitions": [
+     {
+      "text": "Down under",
+      "at": 0
+     },
+     {
+      "text": "in Wales",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Down under",
+      "note": "first meaning: poetic short form of beneath, below"
+     },
+     {
+      "clueFragment": "in Wales",
+      "note": "second meaning: a town in south Wales"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone from Australia turns up in Wales.",
+     "walkthrough": "'Down under' suggests Australia; here it just means beneath. Neath is a town near Swansea in south Wales.",
+     "definitionFit": "The poetic word 'neath, short for beneath, means below, and Neath is also a Welsh town name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +715,58 @@
     "text": "Developing tendril, for example, is tightly curled",
     "enumeration": "9"
    },
-   "solution": "RINGLETED"
+   "solution": "RINGLETED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RINGLETED",
+    "definitions": [
+     {
+      "text": "tightly curled",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Developing",
+      "for": "anagram",
+      "note": "something developing changes its form, so the letters take a new shape"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tendril",
+      "gives": "TENDRIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates the Latin exempli gratia"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENDRILEG",
+       "gives": "RINGLETED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A botanical note that a growing tendril, for instance, coils tightly.",
+     "definitionFit": "Ringlets are tight curls of hair, so something ringleted is formed into such close coils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Developing"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +786,47 @@
      }
     ]
    },
-   "solution": "REVERSECHARGE"
+   "solution": "REVERSECHARGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVERSE CHARGE",
+    "definitions": [
+     {
+      "text": "Let the other guy pay",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "REVERSE",
+      "note": "to back a car is to reverse it"
+     },
+     {
+      "clueFragment": "the fee",
+      "gives": "CHARGE",
+      "note": "a charge is a fee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVERSE",
+      "CHARGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to let another person cover the cost and repay the fee.",
+     "walkthrough": "A reverse-charge call is a phone call billed to the person receiving it, called collect in America.",
+     "definitionFit": "To reverse the charge on a call makes the receiver, not the caller, pay for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +846,40 @@
      }
     ]
    },
-   "solution": "CABDRIVER"
+   "solution": "CABDRIVER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAB DRIVER",
+    "definitions": [
+     {
+      "text": "He takes the stand to get a fair deal, they say",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He takes the stand to get a fair deal, they say",
+      "note": "surface reading: a witness going into the box in court hoping for justice"
+     },
+     {
+      "clueFragment": "takes the stand to get a fair deal, they say",
+      "note": "setter's reading: someone who waits at a taxi rank to pick up a fare, which sounds like fair"
+     }
+    ],
+    "explanation": {
+     "surface": "A witness goes into the box hoping for justice.",
+     "walkthrough": "The stand is a taxi rank, not the witness box, and 'they say' tells you fair is heard as fare, a passenger's payment.",
+     "definitionFit": "A taxi driver queues at a rank waiting to collect passengers who pay a fare for the ride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stand"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +893,54 @@
     "text": "Scrub article written in Gaelic",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Scrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "something written in a language sits inside that language, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gaelic",
+      "gives": "ERSE",
+      "note": "Erse is an old name for Scottish or Irish Gaelic"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "A",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar item from a Gaelic text gets deleted.",
+     "definitionFit": "To scrub a plan or record informally means to cancel or wipe it out, as to erase does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +960,40 @@
      }
     ]
    },
-   "solution": "FULLTHROTTLE"
+   "solution": "FULLTHROTTLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FULL THROTTLE",
+    "definitions": [
+     {
+      "text": "All choked up?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All choked up?",
+      "note": "surface reading: overcome with emotion, tearful"
+     },
+     {
+      "clueFragment": "choked up",
+      "note": "setter's reading: a car engine with the choke or throttle opened all the way"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is overcome with emotion.",
+     "walkthrough": "Choked suggests tears, but the choke and throttle are engine controls, and 'all' says the valve is fully open.",
+     "definitionFit": "Full throttle means maximum engine power with the fuel valve open completely, hence top speed or maximum effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "choked"
+    }
+   }
   },
   {
    "number": 14,
@@ -289,7 +1017,74 @@
      }
     ]
    },
-   "solution": "TOTHISDAY"
+   "solution": "TOTHISDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "TO THIS DAY",
+    "definitions": [
+     {
+      "text": "Until now",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly means the word is one possible arrangement of its letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mite",
+      "gives": "TOT",
+      "note": "a tot is a small child, like a mite"
+     },
+     {
+      "clueFragment": "shady",
+      "gives": "SHADY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "H",
+      "I",
+      "SDAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHADY",
+       "gives": "HSDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child has seemed somewhat dubious up to the present.",
+     "walkthrough": "'A mite' reads as 'slightly', modifying shady; it is a noun for a small child.",
+     "definitionFit": "The phrase means up to the present time, still continuing now, which is the sense of until now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mite"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +1098,55 @@
     "text": "Not rephrased, tune died out",
     "enumeration": "8"
    },
-   "solution": "UNIDITED"
+   "solution": "UNEDITED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNEDITED",
+    "definitions": [
+     {
+      "text": "Not rephrased",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means wrong or disordered, so the letters are not in their right order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tune",
+      "gives": "TUNE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "DIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TUNEDIED",
+       "gives": "UNEDITED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song fades away without its words being reworked.",
+     "definitionFit": "Unedited text has not been revised or reworded by an editor, so it remains not rephrased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 16,
@@ -323,7 +1166,64 @@
      }
     ]
    },
-   "solution": "PRIMECUT"
+   "solution": "PRIMECUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PRIME CUT",
+    "definitions": [
+     {
+      "text": "the best of the meat",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort",
+      "for": "anagram",
+      "note": "to sort is to rearrange into a different order"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fussy",
+      "gives": "PRIM",
+      "note": "prim means fussily proper"
+     },
+     {
+      "clueFragment": "cute",
+      "gives": "CUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "ECUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUTE",
+       "gives": "ECUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A finicky, pretty type of person gets the choicest meat.",
+     "walkthrough": "'Cute sort' reads as a cute kind of person; sort is a verb to rearrange.",
+     "definitionFit": "A prime cut is a top-quality piece from a butchered carcass, the choicest portion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 17,
@@ -337,7 +1237,63 @@
     "text": "Power changed Rene into a strong supporter",
     "enumeration": "12"
    },
-   "solution": "STRENGTHENER"
+   "solution": "STRENGTHENER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "STRENGTHENER",
+    "definitions": [
+     {
+      "text": "a strong supporter",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "a name that is changed has its letters rearranged"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "STRENGTH",
+      "note": "power and strength are synonyms"
+     },
+     {
+      "clueFragment": "Rene",
+      "gives": "RENE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRENGTH",
+      "ENER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RENE",
+       "gives": "ENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Power transforms a man called Rene into a sturdy champion.",
+     "definitionFit": "A strengthener is a brace or reinforcement, something that supports a structure and makes it stronger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rene"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1307,73 @@
     "text": "Top-up has modified a chemical compound",
     "enumeration": "6"
    },
-   "solution": "POTASH"
+   "solution": "POTASH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "POTASH",
+    "definitions": [
+     {
+      "text": "a chemical compound",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry up means the word is read from the bottom"
+     },
+     {
+      "text": "modified",
+      "for": "anagram",
+      "note": "modified means altered, so the letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "TOP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POT",
+      "ASH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "ASH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TOP",
+       "to": "POT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A refill has altered a chemical.",
+     "walkthrough": "Top-up reads as a refill; split it into top and up.",
+     "definitionFit": "Potash is potassium carbonate or a related potassium salt, a compound used in fertilisers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top-up"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1387,44 @@
     "text": "A red desert?",
     "enumeration": "6"
    },
-   "solution": "MAROON"
+   "solution": "MAROON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAROON",
+    "definitions": [
+     {
+      "text": "A red",
+      "at": 0
+     },
+     {
+      "text": "desert",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A red",
+      "note": "first meaning: a dark brownish-red colour"
+     },
+     {
+      "clueFragment": "desert",
+      "note": "second meaning: to abandon someone on an island"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks if a desert is red, like the outback.",
+     "walkthrough": "Desert reads as a noun for sandy wastes; it is the verb to abandon.",
+     "definitionFit": "Maroon is a shade of red, and to maroon someone is to abandon them somewhere isolated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1438,55 @@
     "text": "Beast is all right and sounds happy",
     "enumeration": "5"
    },
-   "solution": "OKAPI"
+   "solution": "OKAPI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OKAPI",
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds tells us to go by how the words are spoken, not spelt"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "soundsLike": "OKAY",
+      "note": "all right is okay, written OK"
+     },
+     {
+      "clueFragment": "happy",
+      "gives": "API",
+      "soundsLike": "'APPY",
+      "note": "happy said with the h dropped, as in a Cockney accent"
+     }
+    ],
+    "explanation": {
+     "surface": "An animal is said to be fine and content.",
+     "walkthrough": "Say 'okay 'appy' quickly, dropping the h, and you hear the name of the animal.",
+     "definitionFit": "The okapi is a forest animal of central Africa related to the giraffe, a beast in the general sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sounds"
+    }
+   }
   },
   {
    "number": 21,
@@ -399,7 +1506,58 @@
      }
     ]
    },
-   "solution": "HOOVERDAM"
+   "solution": "HOOVERDAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOOVER DAM",
+    "definitions": [
+     {
+      "text": "Monumental barrage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front",
+      "for": "charade",
+      "note": "in front says one piece goes before the other in the answer"
+     }
+    ],
+    "linkWords": [
+     "put up by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vacuum cleaner",
+      "gives": "HOOVER",
+      "note": "Hoover is a brand name used in Britain for any vacuum cleaner"
+     },
+     {
+      "clueFragment": "Mother",
+      "gives": "DAM",
+      "note": "a dam is the mother of an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOVER",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum builds a huge wall with the help of her vacuum cleaner.",
+     "walkthrough": "Barrage is the French-derived word for a dam across a river, not gunfire.",
+     "definitionFit": "The Hoover Dam is a vast concrete barrier on the Colorado River, a famous engineering monument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "barrage"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1571,50 @@
     "text": "Get ready for battle - Marne, maybe",
     "enumeration": "5"
    },
-   "solution": "ENARM"
+   "solution": "ENARM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENARM",
+    "definitions": [
+     {
+      "text": "Get ready for battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe signals that the word may be rearranged into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marne",
+      "gives": "MARNE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARNE",
+       "gives": "ENARM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops prepare to fight at the Marne, the river of two great First World War battles.",
+     "definitionFit": "Enarm is an archaic verb meaning to arm or equip with weapons, hence to prepare for fighting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Marne"
+    }
+   }
   },
   {
    "number": 23,
@@ -437,7 +1638,47 @@
      }
     ]
    },
-   "solution": "AGOODDROP"
+   "solution": "AGOODDROP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A GOOD DROP",
+    "definitions": [
+     {
+      "text": "A long way down",
+      "at": 0
+     },
+     {
+      "text": "an acceptable drink",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A long way down",
+      "note": "first meaning: a long fall"
+     },
+     {
+      "clueFragment": "an acceptable drink",
+      "note": "second meaning: a wine worth drinking, in a connoisseur's phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone travels far to find something decent to drink.",
+     "walkthrough": "Drop means both a fall and a small amount of drink.",
+     "definitionFit": "The phrase describes a considerable fall from a height, and is also the idiom for a pleasant glass of wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 24,
@@ -451,7 +1692,47 @@
     "text": "\"Room at the Top\" showing in Athens",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "Room at the Top",
+      "at": 1
+     },
+     {
+      "text": "in Athens",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Room at the Top",
+      "note": "first meaning: a room under the roof of a house"
+     },
+     {
+      "clueFragment": "in Athens",
+      "note": "second meaning: of Attica, the region around Athens"
+     }
+    ],
+    "explanation": {
+     "surface": "The film Room at the Top is being screened in Athens.",
+     "walkthrough": "Room at the Top is a 1959 British film, but here the words just describe a loft room. Attic as an adjective means Athenian.",
+     "definitionFit": "An attic is the uppermost room under a roof, and Attic describes things of ancient Attica or Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "showing"
+    }
+   }
   },
   {
    "number": 25,
@@ -471,7 +1752,39 @@
      }
     ]
    },
-   "solution": "HONEYBEE"
+   "solution": "HONEYBEE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HONEY BEE",
+    "definitions": [
+     {
+      "text": "Collector equipped with buzzer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collector equipped with buzzer",
+      "note": "surface reading: a debt or ticket collector carrying a doorbell or alarm"
+     },
+     {
+      "clueFragment": "Collector",
+      "note": "setter's reading: an insect that gathers nectar and makes a buzzing sound"
+     }
+    ],
+    "explanation": {
+     "surface": "A rent collector arrives carrying an electric buzzer.",
+     "definitionFit": "This insect gathers nectar and pollen from flowers and buzzes as it flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "buzzer"
+    }
+   }
   },
   {
    "number": 26,
@@ -485,7 +1798,55 @@
     "text": "Dicky admits being in the thick of it",
     "enumeration": "6"
    },
-   "solution": "AMIDST"
+   "solution": "AMIDST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMIDST",
+    "definitions": [
+     {
+      "text": "in the thick of it",
+      "at": 19,
+      "note": "a preposition with its object; the answer stands for 'in the thick of'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dicky",
+      "for": "anagram",
+      "note": "dicky is British slang for faulty or shaky, so the letters are unsound and rearranged"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admits",
+      "gives": "ADMITS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADMITS",
+       "gives": "AMIDST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Dicky confesses he is caught up in the action.",
+     "walkthrough": "Dicky looks like a name; it is the British word for unreliable or weak, as in a dicky heart.",
+     "definitionFit": "Amidst means surrounded by, among, which is being in the middle or busiest part of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   }
  ]
 }
