@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "A representative is admitted back in the old country",
     "enumeration": "6"
    },
-   "solution": "PERSIA"
+   "solution": "PERSIA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "PERSIA",
+    "definitions": [
+     {
+      "text": "the old country",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is admitted",
+      "for": "container",
+      "note": "being admitted means being let inside, so the word is goes within the other pieces"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the whole assembled string is read from its end to its start"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "representative",
+      "gives": "REP",
+      "note": "REP is the usual short form of representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSIA"
+     ],
+     "reversals": [
+      {
+       "from": "AISREP",
+       "to": "PERSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy is welcomed home in the land of his ancestors.",
+     "walkthrough": "The insertion happens before the turn: the word is goes between the other two pieces, then the whole string is read backwards.",
+     "definitionFit": "Persia was the historic name of the country now called Iran, used until 1935."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +116,45 @@
     "text": "Languishing nymph needs some more chocolate",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Languishing nymph",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a part of their run of letters is taken"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more chocolate",
+      "gives": "ECHO",
+      "note": "found inside the letters running across these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A pining nymph wants another helping of chocolate to cheer herself up.",
+     "definitionFit": "In Greek myth the nymph Echo pined away for love of Narcissus until only her voice remained."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "needs"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,62 @@
     "text": "Pick boundaries for lake district environs",
     "enumeration": "9"
    },
-   "solution": "SELECTION"
+   "solution": "SELECTION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SELECTION",
+    "definitions": [
+     {
+      "text": "Pick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boundaries for",
+      "for": "letter_selection",
+      "note": "the boundaries of a word are its edge letters, so only the outer pair is kept"
+     },
+     {
+      "text": "environs",
+      "for": "container",
+      "note": "environs are surroundings, so the district wraps around the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "district",
+      "gives": "SECTION",
+      "note": "a section is a district or division of an area"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "LE",
+      "CTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing which borders to draw around the Lake District.",
+     "walkthrough": "'Lake District' looks like the English national park, but the two words do separate jobs.",
+     "definitionFit": "A pick, as a noun, is a choice made from several options, which is what a selection is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "district"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +237,50 @@
     "text": "A craftsman heard correctly",
     "enumeration": "6"
    },
-   "solution": "ARIGHT"
+   "solution": "ARIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ARIGHT",
+    "definitions": [
+     {
+      "text": "correctly",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "something heard is taken by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "craftsman",
+      "gives": "RIGHT",
+      "soundsLike": "WRIGHT",
+      "note": "a wright is a maker or craftsman, as in wheelwright"
+     }
+    ],
+    "explanation": {
+     "surface": "An artisan has listened properly to his instructions.",
+     "definitionFit": "Doing something aright means doing it properly or in the proper way, without error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heard"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +294,58 @@
     "text": "Place containing microwave emitter, or place containing monks",
     "enumeration": "8"
    },
-   "solution": "LAMASERY"
+   "solution": "LAMASERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMASERY",
+    "definitions": [
+     {
+      "text": "place containing monks",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the first place holds the emitter inside it, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "LAY",
+      "note": "to lay something is to place it down"
+     },
+     {
+      "clueFragment": "microwave emitter",
+      "gives": "MASER",
+      "note": "a maser is the microwave counterpart of a laser"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "MASER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Two parallel descriptions of buildings: a lab with a beam device, or a home for monks.",
+     "walkthrough": "The first 'Place' is a verb, to put down; the setter repeats the word so its noun sense can begin the definition.",
+     "definitionFit": "A lamasery is a monastery of lamas, the Buddhist monks of Tibet and Mongolia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Place"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +373,60 @@
      }
     ]
    },
-   "solution": "LASTBUTNOTLEAST"
+   "solution": "LASTBUTNOTLEAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAST BUT NOT LEAST",
+    "definitions": [
+     {
+      "text": "non-minimal after all",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tortured",
+      "for": "anagram",
+      "note": "something tortured is twisted and wrenched out of its shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tantalus",
+      "gives": "TANTALUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bottles",
+      "gives": "BOTTLES",
+      "note": "taken as written; with joins the two words of fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TANTALUS BOTTLES",
+       "gives": "LASTBUTNOTLEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tantalus suffering beside drinks he can never reach, in the myth of eternal temptation.",
+     "walkthrough": "Tantalus was punished in the underworld by food and drink always just out of reach; a tantalus is also a locked stand for decanters, hence the bottles.",
+     "definitionFit": "The phrase is said of something mentioned at the end that is still important, so it comes finally but is not least."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tantalus"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +440,59 @@
     "text": "Bully Cretan, making child carry first letter from Tartarus",
     "enumeration": "8"
    },
-   "solution": "MINOTAUR"
+   "solution": "MINOTAUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINOTAUR",
+    "definitions": [
+     {
+      "text": "Bully Cretan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carry",
+      "for": "container",
+      "note": "to carry something is to hold it within, so the child's word holds the letter inside"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "MINOR",
+      "note": "a minor is someone not yet of age"
+     },
+     {
+      "clueFragment": "first letter from Tartarus",
+      "gives": "TAU",
+      "note": "the letter T as named in the Greek alphabet, fitting for a Greek underworld"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINO",
+      "TAU",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cretan thug forcing a youngster to carry a letter from the underworld.",
+     "walkthrough": "'Bully' is read as bull-y, bull-like: the Minotaur was half bull, kept on Crete. The letter is named in Greek, TAU, not just T.",
+     "definitionFit": "The Minotaur was the bull-headed monster of Cretan legend, kept in the labyrinth of King Minos."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bully"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +506,46 @@
     "text": "Unhappy with Arab leader",
     "enumeration": "5"
    },
-   "solution": "SADAT"
+   "solution": "SADAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SADAT",
+    "definitions": [
+     {
+      "text": "Arab leader",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unhappy",
+      "gives": "SAD",
+      "note": "a direct synonym"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AT",
+      "note": "as in angry with or angry at someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAD",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is displeased with the head of an Arab state.",
+     "definitionFit": "Anwar Sadat was President of Egypt from 1970 until his assassination in 1981."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +559,53 @@
     "text": "Getting off sandbank, possibly, or other flat region",
     "enumeration": "10"
    },
-   "solution": "REFLOATING"
+   "solution": "REFLOATING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REFLOATING",
+    "definitions": [
+     {
+      "text": "Getting off sandbank, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "other",
+      "for": "anagram",
+      "note": "other means in a different form, so these letters take a new order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat region",
+      "gives": "FLATREGION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLATREGION",
+       "gives": "REFLOATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat stuck on a sandbank, or else some other stretch of low flat land.",
+     "definitionFit": "A grounded ship that is floated again is being lifted clear, and a sandbank is one example of where it might be stuck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +619,65 @@
     "text": "They are hot and cold - that is the start of something",
     "enumeration": "8"
    },
-   "solution": "CHILLIES"
+   "solution": "CHILLIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHILLIES",
+    "definitions": [
+     {
+      "text": "They are hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "CHILL",
+      "note": "a chill is a coldness"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     },
+     {
+      "clueFragment": "something",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHILL",
+      "IE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that runs hot and cold, the start of a puzzle about temperature.",
+     "walkthrough": "'hot and cold' reads as one phrase, but the definition stops at 'hot'.",
+     "definitionFit": "Chillies are peppers prized for their fiery spiciness, the sense of hot used of food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +697,64 @@
      }
     ]
    },
-   "solution": "NODOFF"
+   "solution": "NODOFF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOD OFF",
+    "definitions": [
+     {
+      "text": "fall asleep",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning round",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of a college"
+     },
+     {
+      "clueFragment": "on the way",
+      "gives": "OFF",
+      "note": "to be off is to be departing, on one's way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOD",
+      "OFF"
+     ],
+     "reversals": [
+      {
+       "from": "DON",
+       "to": "NOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man turns round partway through a journey before dozing.",
+     "walkthrough": "A don is a fellow, a senior member of an Oxford or Cambridge college.",
+     "definitionFit": "To nod off is an idiom for dropping into sleep, often unintentionally while sitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +768,71 @@
     "text": "Living together in love abode I read about",
     "enumeration": "12"
    },
-   "solution": "COHABITATION"
+   "solution": "COHABITATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COHABITATION",
+    "definitions": [
+     {
+      "text": "Living together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for read goes round the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read",
+      "gives": "CON",
+      "note": "to con is to study or read carefully"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "abode",
+      "gives": "HABITAT",
+      "note": "a habitat is the place where something lives"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "HABITAT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Sharing a home in a loving dwelling, as described in something I read.",
+     "walkthrough": "To con, meaning to study or learn by heart, is an old sense that crosswords keep alive.",
+     "definitionFit": "Cohabitation is two people sharing a home, usually as an unmarried couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +846,61 @@
     "text": "Insecure beloved clutching a Romeo",
     "enumeration": "10"
    },
-   "solution": "PRECARIOUS"
+   "solution": "PRECARIOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PRECARIOUS",
+    "definitions": [
+     {
+      "text": "Insecure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "to clutch is to grip and hold within, so the beloved's word holds the others inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beloved",
+      "gives": "PRECIOUS",
+      "note": "precious is a term for someone dearly loved"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREC",
+      "A",
+      "R",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious sweetheart holding tight to her Romeo.",
+     "definitionFit": "Something precarious is unstable and liable to fall, so not securely held in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +914,52 @@
     "text": "Dire misprint: Three of a Kind?",
     "enumeration": "4"
    },
-   "solution": "DREI"
+   "solution": "DREI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREI",
+    "definitions": [
+     {
+      "text": "Three of a Kind?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misprint",
+      "for": "anagram",
+      "note": "a misprint gets letters in the wrong places, so the word's letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dire",
+      "gives": "DIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DIRE",
+       "gives": "DREI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful typo turns up three of a kind, like a poker hand.",
+     "walkthrough": "Kind is the German word for child, so the question mark asks for three as a German child would say it.",
+     "definitionFit": "Drei is German for three, the number a German child, or Kind, would count with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +973,58 @@
     "text": "Instruments playing fanfare for alien in best suit",
     "enumeration": "8"
    },
-   "solution": "TRUMPETS"
+   "solution": "TRUMPETS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRUMPETS",
+    "definitions": [
+     {
+      "text": "Instruments playing fanfare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best suit",
+      "gives": "TRUMPS",
+      "note": "trumps is the suit that beats all others in a card game"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "E.T. is the alien of the Spielberg film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUMP",
+      "ET",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A band plays a fanfare to greet a visiting alien who is wearing his finest suit.",
+     "walkthrough": "'best suit' suggests clothing, but it is the card suit that outranks the others.",
+     "definitionFit": "Trumpets are brass instruments, and a fanfare is the flourish they typically sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1044,63 @@
      }
     ]
    },
-   "solution": "PASODOBLE"
+   "solution": "PASODOBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PASO DOBLE",
+    "definitions": [
+     {
+      "text": "bullfight music",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fit",
+      "for": "anagram",
+      "note": "a fit is a sudden convulsion, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bold",
+      "gives": "BOLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pose",
+      "gives": "POSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "A BOLD POSE",
+       "gives": "PASODOBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A matador's daring stance, ideal for the music of the bullring.",
+     "definitionFit": "The paso doble is a quick Spanish march played at bullfights, and a ballroom dance modelled on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1114,76 @@
     "text": "Most salt water I would return to South Island seaport",
     "enumeration": "8"
    },
-   "solution": "BRINDISI"
+   "solution": "BRINDISI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "BRINDISI",
+    "definitions": [
+     {
+      "text": "seaport",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most",
+      "for": "deletion",
+      "note": "most of a word is all but its last letter, so one letter is dropped"
+     },
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to come back, so the short form is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salt water",
+      "gives": "BRINE",
+      "note": "brine is salty water"
+     },
+     {
+      "clueFragment": "I would",
+      "gives": "ID",
+      "note": "I'd is the contraction of I would"
+     },
+     {
+      "clueFragment": "South Island",
+      "gives": "SI",
+      "note": "S for South and I for Island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIN",
+      "DI",
+      "SI"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Briny water returning to a port on New Zealand's South Island.",
+     "walkthrough": "'Most salt' looks like a superlative, saltiest, but 'Most' trims the brine; South Island is a real place, broken into S and I.",
+     "definitionFit": "Brindisi is a port city on the Adriatic coast in Apulia, southern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Most"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1197,56 @@
     "text": "Score in a motion picture script",
     "enumeration": "8"
    },
-   "solution": "SCENARIO"
+   "solution": "SCENARIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCENARIO",
+    "definitions": [
+     {
+      "text": "picture script",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "motion",
+      "for": "anagram",
+      "note": "motion means the letters are set moving into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Score",
+      "gives": "SCORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "INA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCORE INA",
+       "gives": "SCENARIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The soundtrack of a film, as found in its screenplay.",
+     "walkthrough": "'motion picture' looks like one phrase; split it, with 'motion' stirring the letters and 'picture script' as the definition.",
+     "definitionFit": "A scenario is the written outline or screenplay of a film, giving its scenes and plot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "motion"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1260,42 @@
     "text": "Celebrated Chinese dynasty",
     "enumeration": "4"
    },
-   "solution": "SUNG"
+   "solution": "SUNG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUNG",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     },
+     {
+      "text": "Chinese dynasty",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrated",
+      "note": "first meaning: praised in song, as a hero's deeds are"
+     },
+     {
+      "clueFragment": "Chinese dynasty",
+      "note": "second meaning: the imperial house that ruled China from 960 to 1279"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Celebrated' looks like an adjective describing the dynasty; it is a separate definition, in the sense of praises being sung.",
+     "definitionFit": "Heroes are sung when their praises are told in verse, and Sung is an older spelling of the Song dynasty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Celebrated"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1309,51 @@
     "text": "In Rome it is consumed - or what you will",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "what you will",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Rome it is",
+      "gives": "EST",
+      "note": "est is Latin for it is, the language of ancient Rome"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "ate is a past form of eat, to consume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman meal is eaten, or whatever you wish, echoing Twelfth Night's subtitle.",
+     "walkthrough": "'what you will' sounds like a shrug, but will is a verb here: an estate is what you leave by will.",
+     "definitionFit": "A person's estate is the property and money they bequeath to heirs in a will."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1367,63 @@
     "text": "In Islam, cider manufacture is made illegal",
     "enumeration": "12"
    },
-   "solution": "CRIMINALISED"
+   "solution": "CRIMINALISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRIMINALISED",
+    "definitions": [
+     {
+      "text": "made illegal",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manufacture",
+      "for": "anagram",
+      "note": "to manufacture is to make something new from raw material, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Islam",
+      "gives": "ISLAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cider",
+      "gives": "CIDER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IN ISLAM CIDER",
+       "gives": "CRIMINALISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Islamic law bans the brewing of alcoholic cider.",
+     "definitionFit": "To criminalise an act is to pass a law that turns it into an offence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manufacture"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1437,45 @@
     "text": "Characters from Los Alamos, Ulan Bator or a city on the Tigris",
     "enumeration": "5"
    },
-   "solution": "MOSUL"
+   "solution": "MOSUL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MOSUL",
+    "definitions": [
+     {
+      "text": "a city on the Tigris",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Characters from",
+      "for": "hidden_word",
+      "note": "characters taken from the following words are a run of their letters"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Alamos, Ulan Bator",
+      "gives": "MOSUL",
+      "note": "found across the end of Alamos and the start of Ulan"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of far-flung places: a New Mexico town, the Mongolian capital, or a river city.",
+     "walkthrough": "Los Alamos is the New Mexico town of the atom bomb; Ulan Bator is the capital of Mongolia.",
+     "definitionFit": "Mosul is a major city in northern Iraq standing on the banks of the Tigris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1489,58 @@
     "text": "Vow by Liverpool's first pop star?",
     "enumeration": "4"
    },
-   "solution": "IDOL"
+   "solution": "IDOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IDOL",
+    "definitions": [
+     {
+      "text": "pop star?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means the opening letter of the city name is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vow",
+      "gives": "IDO",
+      "note": "I do is the vow said at a wedding"
+     },
+     {
+      "clueFragment": "Liverpool's",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of Liverpool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A promise made by a famous Liverpool musician, a nod to the Beatles.",
+     "definitionFit": "A pop idol is a hugely admired singer; the question mark flags that a star is only one kind of idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liverpool's"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1554,66 @@
     "text": "Growing trees for a stunt makes one a snob? Just the reverse!",
     "enumeration": "6"
    },
-   "solution": "BONSAI"
+   "solution": "BONSAI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BONSAI",
+    "definitions": [
+     {
+      "text": "Growing trees for a stunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "makes",
+      "for": "anagram",
+      "note": "the clue says the letters make a new word; turned round as asked, the snob letters are made into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "snob",
+      "gives": "SNOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Just the reverse",
+      "note": "surface padding that flips the sentence round, so the letters make the answer rather than the answer making them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "I A SNOB",
+       "gives": "BONSAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Does cultivating dwarf trees for show turn a person into a snob? The opposite.",
+     "walkthrough": "'Just the reverse' flips the claim: it is I with A SNOB that makes the answer, by rearranging.",
+     "definitionFit": "Bonsai is the Japanese art of keeping trees tiny by pruning, so a stunt here means stunting their size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stunt"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1633,67 @@
      }
     ]
    },
-   "solution": "ADAMBEDE"
+   "solution": "ADAMBEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ADAM BEDE",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution is a turn right round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "A",
+      "note": "a. is short for about, as in circa"
+     },
+     {
+      "clueFragment": "furious",
+      "gives": "MAD",
+      "note": "mad means very angry"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "BEDE",
+      "note": "the Venerable Bede, English monk and historian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM",
+      "BEDE"
+     ],
+     "reversals": [
+      {
+       "from": "MAD",
+       "to": "DAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book about an enraged saint who led a revolt.",
+     "walkthrough": "'revolutionary' reads as describing the saint, but it turns the word for furious round.",
+     "definitionFit": "Adam Bede is the first full-length novel by George Eliot, published in 1859."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1707,62 @@
     "text": "David Jason's heart is captured by a fortune-teller",
     "enumeration": "8"
    },
-   "solution": "PSALMIST"
+   "solution": "PSALMIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PSALMIST",
+    "definitions": [
+     {
+      "text": "David",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "a heart is the centre, so only the middle letter of the name is kept"
+     },
+     {
+      "text": "is captured by",
+      "for": "container",
+      "note": "being captured means being held inside, so the fortune-teller wraps around the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune-teller",
+      "gives": "PALMIST",
+      "note": "a palmist reads fortunes in the lines of the hand"
+     },
+     {
+      "clueFragment": "Jason's",
+      "gives": "S",
+      "select": "middle",
+      "note": "the centre letter of Jason"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "S",
+      "ALMIST"
+     ]
+    },
+    "explanation": {
+     "surface": "The actor David Jason is won over by a clairvoyant.",
+     "walkthrough": "'David Jason' looks like the British comic actor; the definition is David alone, the biblical king. PALMIST takes S after its P.",
+     "definitionFit": "King David is traditionally credited with writing the biblical Psalms, so he is the Psalmist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Jason's"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1776,63 @@
     "text": "The First Lady left in New York without hiccups",
     "enumeration": "6"
    },
-   "solution": "EVENLY"
+   "solution": "EVENLY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EVENLY",
+    "definitions": [
+     {
+      "text": "without hiccups",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The First Lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in Genesis"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is short for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "N",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The President's wife departed New York with everything going smoothly.",
+     "walkthrough": "'The First Lady' suggests a President's wife; here it is Eve, the first woman. L sits inside NY: N-L-Y.",
+     "definitionFit": "Something done evenly proceeds smoothly and steadily, with no jerks or interruptions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lady"
+    }
+   }
   }
  ]
 }
