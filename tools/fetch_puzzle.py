@@ -3312,6 +3312,18 @@ SOURCE_CLUE_WRONG = {
         "Freed from anxiety, as was, in a word., Lady Smith",
         "Freed from anxiety, as was, in a word, Lady Smith",
         "OCR misread: a stray full stop after word"),
+    ("times-18726", "4-down"): (
+        "Pier blown 'up after prisoners hatch a plot",
+        "Pier blown up after prisoners hatch a plot",
+        "OCR misread: a stray apostrophe before up"),
+    ("times-18726", "8-down"): (
+        "\"Love goes toward love, as from their books\" (R &3.)",
+        "\"Love goes toward love, as from their books\" (R & J)",
+        "OCR misread: the quotation is from Romeo and Juliet, R & J"),
+    ("times-18726", "14-down"): (
+        "POsh blighter in farewell entertainment",
+        "Posh blighter in farewell entertainment",
+        "OCR misread: Posh with one capital"),
 }
 
 
