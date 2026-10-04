@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "29 entries, 54 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,46 @@
     "text": "A Dickensian in the box",
     "enumeration": "6"
    },
-   "solution": "CARTON"
+   "solution": "CARTON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARTON",
+    "definitions": [
+     {
+      "text": "A Dickensian",
+      "at": 0
+     },
+     {
+      "text": "box",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Dickensian",
+      "note": "first meaning: Sydney ..., hero of A Tale of Two Cities"
+     },
+     {
+      "clueFragment": "box",
+      "note": "second meaning: a cardboard container"
+     }
+    ],
+    "explanation": {
+     "surface": "A character from Dickens is found shut inside a box.",
+     "walkthrough": "'in the' sounds like a location but only links the two meanings.",
+     "definitionFit": "Sydney Carton is a Dickens character, and a carton is a cardboard container for goods such as milk or eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +91,49 @@
     "text": "Pythagoras seen in the market place? On the contrary",
     "enumeration": "5"
    },
-   "solution": "AGORA"
+   "solution": "AGORA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGORA",
+    "definitions": [
+     {
+      "text": "the market place",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a word sits inside its spelling, so look within the name"
+     },
+     {
+      "text": "On the contrary",
+      "for": "hidden_word",
+      "note": "this flips the stated relation, so the market place is inside the mathematician rather than the other way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pythagoras",
+      "gives": "AGORA",
+      "note": "the letters run on inside the Greek name"
+     }
+    ],
+    "explanation": {
+     "surface": "Was the Greek mathematician spotted in the market square? The reverse is true.",
+     "walkthrough": "As written, Pythagoras is in the market place; 'On the contrary' flips that, so the market place is found in Pythagoras.",
+     "definitionFit": "The agora was the open public square of an ancient Greek city, used for trade and assembly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +153,39 @@
      }
     ]
    },
-   "solution": "TALLSTORY"
+   "solution": "TALLSTORY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TALL STORY",
+    "definitions": [
+     {
+      "text": "A relation of Munchausen?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A relation of Munchausen",
+      "note": "surface reading: a relative of the famous baron"
+     },
+     {
+      "clueFragment": "relation",
+      "note": "setter's reading: something related, i.e. a story told by the baron"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'relation' suggests family, but it also means an account told. Baron Munchausen is the fictional teller of outrageous boasts.",
+     "definitionFit": "The baron's adventures are famously wildly exaggerated narratives that no listener could believe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relation"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +199,55 @@
     "text": "One consumed by morally unacceptable idea",
     "enumeration": "6"
    },
-   "solution": "NOTION"
+   "solution": "NOTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTION",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "what is consumed is taken inside, so the first piece goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "morally unacceptable",
+      "gives": "NOTON",
+      "note": "not on, as in 'that's just not on'"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A single person is eaten up by an immoral thought.",
+     "walkthrough": "'not on' is British idiom for not acceptable.",
+     "definitionFit": "A notion is a concept or belief held in the mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,10 +258,51 @@
    },
    "length": 8,
    "clue": {
-    "text": "Attempt on records made Bottom, perhaps",
+    "text": "Attempt on records made by Bottom, perhaps",
     "enumeration": "8"
    },
-   "solution": "TAPESTRY"
+   "solution": "TAPESTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAPESTRY",
+    "definitions": [
+     {
+      "text": "made by Bottom, perhaps",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "TAPES",
+      "note": "recordings on tape"
+     },
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAPES",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts to break records while making something at the bottom of a pile.",
+     "walkthrough": "'on' puts the attempt after the records. Bottom is the weaver in A Midsummer Night's Dream, so a woven thing is something he might make.",
+     "definitionFit": "A tapestry is a woven wall hanging, exactly the kind of work a weaver like Shakespeare's Nick Bottom produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +326,75 @@
      }
     ]
    },
-   "solution": "THREELEGGEDRACE"
+   "solution": "THREELEGGEDRACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THREE-LEGGED RACE",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following",
+      "for": "charade",
+      "note": "following means coming after, so the urging piece comes after the winding piece"
+     },
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter is to go inside, so the words before it are placed within the short word after it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TH",
+      "note": "the word as written; its final E is the one shared with the start of the next-but-one piece"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "REEL",
+      "note": "to reel in a fishing line is to wind it"
+     },
+     {
+      "clueFragment": "encouraged drivers",
+      "gives": "EGGED",
+      "note": "drivers were egged on, urged forward"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "RACE",
+      "note": "a race is run over a course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "REEL",
+      "EGGED",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tail wind spurs on racing drivers as they join an event on the circuit.",
+     "walkthrough": "The fit is loose: the final E of 'the' has to double as the first letter of the urging piece, or the pieces give one E too many. 'drivers' suggests motorsport, but it means people being urged on.",
+     "definitionFit": "This sports-day contest has pairs of runners with one leg each strapped to a partner's, hobbling along together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drivers"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +408,58 @@
     "text": "Column featuring one in cast",
     "enumeration": "8"
    },
-   "solution": "PILASTER"
+   "solution": "PILASTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PILASTER",
+    "definitions": [
+     {
+      "text": "Column",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the numeral inside the word for the cast"
+     }
+    ],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cast",
+      "gives": "PLASTER",
+      "note": "a plaster cast for a broken limb"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "LASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column about one member of a play's cast.",
+     "walkthrough": "'Column' and 'cast' suggest journalism and theatre; one is an architectural pillar and the other a plaster mould.",
+     "definitionFit": "A pilaster is a flat rectangular pillar set into a wall, an architectural feature resembling a support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +473,51 @@
     "text": "Old statesman's endless goodbye",
     "enumeration": "5"
    },
-   "solution": "SOLON"
+   "solution": "SOLON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLON",
+    "definitions": [
+     {
+      "text": "Old statesman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goodbye",
+      "gives": "SOLONG",
+      "note": "so long is an informal farewell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLON"
+     ]
+    },
+    "explanation": {
+     "surface": "An elder politician takes forever to say farewell.",
+     "definitionFit": "Solon was the Athenian lawgiver and statesman of the sixth century BC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +531,74 @@
     "text": "Opinion polls point to a support for freer movement",
     "enumeration": "9"
    },
-   "solution": "REFERENDA"
+   "solution": "REFERENDA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REFERENDA",
+    "definitions": [
+     {
+      "text": "Opinion polls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "movement",
+      "for": "anagram",
+      "note": "movement here means the letters move about out of their order"
+     },
+     {
+      "text": "support for",
+      "for": "charade",
+      "note": "in a down answer a support sits below, so these come after the rearranged word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freer",
+      "gives": "REFER",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "END",
+      "note": "an end is a point"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFER",
+      "END",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FREER",
+       "gives": "REFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Polls show support for liberalising travel.",
+     "definitionFit": "Referenda are public votes on a single question, a direct way of sampling what the electorate thinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +612,63 @@
     "text": "Pass in due course required before a student gets loan guarantee",
     "enumeration": "10"
    },
-   "solution": "COLLATERAL"
+   "solution": "COLLATERAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLATERAL",
+    "definitions": [
+     {
+      "text": "loan guarantee",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "required before",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     },
+     {
+      "clueFragment": "in due course",
+      "gives": "LATER",
+      "note": "eventually, at a later time"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, the student"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "LATER",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A student must pass an exam eventually before being granted a loan.",
+     "walkthrough": "'Pass' looks like passing an exam; it is a gap through mountains. L, the learner plate, stands for a student.",
+     "definitionFit": "Collateral is property pledged as security, which a lender holds against repayment of borrowed money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +682,54 @@
     "text": "Biography provided in the French",
     "enumeration": "4"
    },
-   "solution": "LIFE"
+   "solution": "LIFE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIFE",
+    "definitions": [
+     {
+      "text": "Biography",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the article that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "if means provided that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IF",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A biography supplied in French translation.",
+     "definitionFit": "A life is a written account of someone's history, as in a published Life of Johnson or similar work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +743,57 @@
     "text": "Gangster divided about the way to the top",
     "enumeration": "8"
    },
-   "solution": "CAPSTONE"
+   "solution": "CAPSTONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAPSTONE",
+    "definitions": [
+     {
+      "text": "the top",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "divided about",
+      "for": "container",
+      "note": "the gangster's name is split open and wrapped around the next piece"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gangster",
+      "gives": "CAPONE",
+      "note": "Al Capone, the Chicago gangster"
+     },
+     {
+      "clueFragment": "the way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAP",
+      "ST",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster split over which route leads to the top.",
+     "definitionFit": "A capstone is the stone set on the summit of a wall or structure, so it crowns it at its highest point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "divided"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +807,47 @@
     "text": "Excited railway guard",
     "enumeration": "6"
    },
-   "solution": "SENTRY"
+   "solution": "SENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENTRY",
+    "definitions": [
+     {
+      "text": "guard",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excited",
+      "gives": "SENT",
+      "note": "sent means thrilled or carried away"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENT",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway guard gets agitated.",
+     "walkthrough": "'railway guard' reads as one job, but railway is wordplay and guard alone is the definition.",
+     "definitionFit": "A sentry is a soldier posted to keep watch at a gate or post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "railway"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +861,51 @@
     "text": "City House securing sound return",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "sound return",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "securing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "EC",
+      "note": "EC is the postcode of the City of London"
+     },
+     {
+      "clueFragment": "House",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "A City house secures a safe return on investment.",
+     "walkthrough": "'sound return' looks financial, like a secure profit; it is a reflected noise. The City is London's financial district.",
+     "definitionFit": "An echo is a noise reflected back off a surface, heard again after a delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,10 +916,61 @@
    },
    "length": 9,
    "clue": {
-    "text": "Anxiety about contact with Cut tutankhamen relic, perhaps",
+    "text": "Anxiety about contact with Tutankhamen relic, perhaps",
     "enumeration": "9"
    },
-   "solution": "CARTOUCHE"
+   "solution": "CARTOUCHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARTOUCHE",
+    "definitions": [
+     {
+      "text": "Tutankhamen relic, perhaps",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word wraps the second"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anxiety",
+      "gives": "CARE",
+      "note": "care is worry"
+     },
+     {
+      "clueFragment": "contact",
+      "gives": "TOUCH",
+      "note": "touch is contact"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "TOUCH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fear of the pharaoh's curse when handling objects from his tomb.",
+     "walkthrough": "'perhaps' marks the definition as an example: such tablets turned up in many tombs, not only this one.",
+     "definitionFit": "A cartouche is the oval frame enclosing a pharaoh's name in hieroglyphs, found on objects from Egyptian tombs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Anxiety"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +984,58 @@
     "text": "Nevertheless no great leaders emerge from this service",
     "enumeration": "8"
    },
-   "solution": "EVENSONG"
+   "solution": "EVENSONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVENSONG",
+    "definitions": [
+     {
+      "text": "this service",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so only the opening letter of each word counts"
+     }
+    ],
+    "linkWords": [
+     "emerge from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nevertheless",
+      "gives": "EVENSO",
+      "note": "even so means nevertheless"
+     },
+     {
+      "clueFragment": "no great",
+      "gives": "NG",
+      "select": "first",
+      "note": "the initials of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENSO",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "Despite everything, no important figures come out of this church service.",
+     "definitionFit": "Evensong is the Anglican evening prayer service, sung in cathedrals and churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1049,56 @@
     "text": "Directions to doctor to operate, so it seems",
     "enumeration": "9"
    },
-   "solution": "SEMBLANCE"
+   "solution": "SEMBLANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEMBLANCE",
+    "definitions": [
+     {
+      "text": "so it seems",
+      "at": 33,
+      "note": "a phrase standing for a noun: an outward appearance"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Directions",
+      "gives": "SE",
+      "note": "two compass points, south and east"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "operate",
+      "gives": "LANCE",
+      "note": "to lance is to cut with a surgical blade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "MB",
+      "LANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to a doctor to perform surgery, apparently.",
+     "definitionFit": "Semblance is the outward look of something, what appears to be the case whether or not it is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Directions"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1118,65 @@
      }
     ]
    },
-   "solution": "FIELDGUN"
+   "solution": "FIELDGUN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FIELD GUN",
+    "definitions": [
+     {
+      "text": "Weapon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters",
+      "for": "anagram",
+      "note": "characters are letters, so only the letters are kept and their order is free"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among puts one letter inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feuding",
+      "gives": "FIEDGUN",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIEL",
+      "DGUN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEUDING",
+       "gives": "FIEDGUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weapon is left lying among people who are quarrelling.",
+     "definitionFit": "A field gun is a light artillery piece mounted on wheels for use in battle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1190,71 @@
     "text": "One fish or two after starter of grapefruit",
     "enumeration": "8"
    },
-   "solution": "GRAYLING"
+   "solution": "GRAYLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GRAYLING",
+    "definitions": [
+     {
+      "text": "One fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "a starter is what comes first, so just the opening letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the two fish behind the letter taken from the fruit"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grapefruit",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "RAY",
+      "note": "first of two fish: the ray"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "LING",
+      "note": "second of two fish: the ling, a cod-like sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAY",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu offers one fish or two, served after a grapefruit starter.",
+     "walkthrough": "'two' stands for two fish, a ray and a ling, joined behind the initial letter.",
+     "definitionFit": "The grayling is a freshwater game fish of the salmon family with a large dorsal fin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1268,42 @@
     "text": "Near average",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Near",
+      "at": 0
+     },
+     {
+      "text": "average",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Near",
+      "note": "stingy, tight-fisted"
+     },
+     {
+      "clueFragment": "average",
+      "note": "the arithmetic average"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Near' reads as close by, but here it is the old sense of miserly.",
+     "definitionFit": "The word means both miserly with money and the statistical average of a set of numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Near"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1317,57 @@
     "text": "Cover produced by fellow binding books",
     "enumeration": "6"
    },
-   "solution": "MANTLE"
+   "solution": "MANTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANTLE",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "binding",
+      "for": "container",
+      "note": "binding means wrapping round, so the first word encloses the second"
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "MALE",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "New Testament books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NT",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A book cover made by a man who binds books.",
+     "definitionFit": "A mantle is a cloak or covering layer, as in a mantle of snow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "binding"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1387,43 @@
      }
     ]
    },
-   "solution": "NOBALL"
+   "solution": "NOBALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO-BALL",
+    "definitions": [
+     {
+      "text": "An extra",
+      "at": 0
+     },
+     {
+      "text": "delivery",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An extra",
+      "note": "first meaning: in cricket, a run credited to the batting side that is not scored off the bat"
+     },
+     {
+      "clueFragment": "delivery",
+      "note": "second meaning: a ball bowled, here an illegal one that must be bowled again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'An extra delivery' reads as one more drop of post. In cricket an extra is a run not scored off the bat, and a delivery is a ball bowled.",
+     "definitionFit": "This cricket penalty is both a run awarded to the batting side and a ball the bowler has to repeat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1437,54 @@
     "text": "Leading article on Crown",
     "enumeration": "5"
    },
-   "solution": "AHEAD"
+   "solution": "AHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHEAD",
+    "definitions": [
+     {
+      "text": "Leading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer on means placed above, so the article comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "Crown",
+      "gives": "HEAD",
+      "note": "the crown is the top of the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's lead story about the monarchy.",
+     "walkthrough": "'Leading article' reads as an editorial; the first word is the definition.",
+     "definitionFit": "Ahead means in front, winning or in the lead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1498,64 @@
     "text": "Last opportunity to end deal. I suspect",
     "enumeration": "8"
    },
-   "solution": "DEADLINE"
+   "solution": "DEADLINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEADLINE",
+    "definitions": [
+     {
+      "text": "Last opportunity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dubious, so the letters before it are not in a trustworthy order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "end",
+      "gives": "END",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "DEAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENDDEALI",
+       "gives": "DEADLINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guesses this is the final chance to end a negotiation.",
+     "definitionFit": "A deadline is the latest time by which something must be done, after which the chance is gone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1569,49 @@
     "text": "Babble from Northern river",
     "enumeration": "5"
    },
-   "solution": "NOISE"
+   "solution": "NOISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOISE",
+    "definitions": [
+     {
+      "text": "Babble",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N for northern"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OISE",
+      "note": "the Oise, a French river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OISE"
+     ]
+    },
+    "explanation": {
+     "surface": "The burble of a northern river.",
+     "definitionFit": "Babble is confused talk or sound, a meaningless din."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Babble"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1625,47 @@
     "text": "Large measure of old port",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "Large measure",
+      "at": 0
+     },
+     {
+      "text": "old port",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large measure",
+      "note": "first meaning: a unit of land area, 4,840 square yards"
+     },
+     {
+      "clueFragment": "old port",
+      "note": "second meaning: the ancient harbour city in northern Israel, taken by the Crusaders"
+     }
+    ],
+    "explanation": {
+     "surface": "A generous glass of vintage port.",
+     "walkthrough": "'Large measure of old port' reads as a big drink; port is a harbour town instead.",
+     "definitionFit": "The word names both a land area unit and the historic Crusader harbour city on the coast of modern Israel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1689,56 @@
      }
     ]
    },
-   "solution": "GRANTINAID"
+   "solution": "GRANTINAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANT-IN-AID",
+    "definitions": [
+     {
+      "text": "official hand-out",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "from this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elderly relative",
+      "gives": "GRAN",
+      "note": "grandmother"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "benefit",
+      "gives": "AID",
+      "note": "aid is help or benefit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAN",
+      "TIN",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner might gain from a government payment.",
+     "walkthrough": "'can benefit' reads as a verb phrase; can and benefit are separate nouns.",
+     "definitionFit": "A grant-in-aid is money given by central government to a local authority or body for a set purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1758,53 @@
      }
     ]
    },
-   "solution": "TEADANCE"
+   "solution": "TEADANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEA DANCE",
+    "definitions": [
+     {
+      "text": "afternoon function",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "acting wildly means behaving without order, so the letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "at this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ena acted",
+      "gives": "ENAACTED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENAACTED",
+       "gives": "TEADANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Ena behaved outrageously at an afternoon social event.",
+     "definitionFit": "A tea dance is an afternoon social gathering with dancing and tea, popular in hotels between the wars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acted"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1818,49 @@
     "text": "View allowed by peep-hole",
     "enumeration": "6"
    },
-   "solution": "EYELET"
+   "solution": "EYELET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYELET",
+    "definitions": [
+     {
+      "text": "peep-hole",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "View",
+      "gives": "EYE",
+      "note": "to eye is to view"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A sight permitted through a spyhole.",
+     "definitionFit": "An eyelet is a small hole, often for a lace or cord, or one to look through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "View"
+    }
+   }
   }
  ]
 }
