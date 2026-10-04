@@ -40,6 +40,12 @@ answer is the setter's slip: annotate it as printed, say what is wrong in its
 `explanation.walkthrough`, and give the entry
 `"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`.
 
+When the wordplay plainly builds a real word a letter or two from a printed answer
+that is not one (MINUSCULE where the grid prints MINISCULE), the key is misprinted:
+annotate the real word and give the entry
+`"answerTypo": ["<letters the wordplay builds>", "<evidence>"]`; the check puts it in
+the grid, and refuses it if a crossing answer disagrees.
+
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
 for any clue that looks cut short, garbled, blank or wrong for its answer, and give
 the entry `printedClue` as the page prints it, evidence `"Scan reads: <what the page shows>"`;

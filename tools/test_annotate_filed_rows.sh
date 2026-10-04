@@ -5,7 +5,10 @@
 #
 # An entry's `printedClue` becomes its tools/data/source_clue_wrong.json row and
 # `setterError` its tools/data/setter_error.json row, each in key order, one row
-# per line, and both leave the entry. A malformed one stops the check with the
+# per line, and both leave the entry. `answerTypo` files a
+# tools/data/source_answer_wrong.json row and puts its letters in the grid,
+# refused when it is the wrong length, rewrites more than a slip, changes a cell
+# a crossing answer contradicts, or names a model's fill. A malformed one stops the check with the
 # shape to write. The run's view of an OCR'd, model-solved puzzle carries
 # `source.retrievedFrom` and the grid, so neither is read off the puzzle file.
 set -uo pipefail
@@ -30,7 +33,7 @@ A.TOOLS = tmp
 data = tmp / "data"
 data.mkdir()
 try:
-    for name in ("source_clue_wrong", "setter_error"):
+    for name in ("source_clue_wrong", "setter_error", "source_answer_wrong"):
         shutil.copy(AC.DATA / f"{name}.json", data / f"{name}.json")
     src = F.puzzle_paths.find("times-18749")
     path = tmp / src.name
@@ -96,6 +99,55 @@ try:
     check("the grid holds the answers where they sit",
           grid[y][x:x + across["length"]] == across["solution"].replace(" ", "").replace("-", "").upper()
           and len(grid) == puzzle["dimensions"]["rows"])
+
+    # The key's misprint: cryptic-22049 15D printed MINISCULE for MINUSCULE,
+    # its fourth cell unchecked. Unfiled here, so the file is as the paper served it.
+    rows = json.loads((data / "source_answer_wrong.json").read_text())
+    rows.pop("cryptic-22049/15-down", None)
+    (data / "source_answer_wrong.json").write_text(AC.dump_lines(rows))
+    F.SOURCE_ANSWER_WRONG.pop(("cryptic-22049", "15-down"), None)
+    src = F.puzzle_paths.find("cryptic-22049")
+    path = tmp / src.name
+    puzzle = F.read_puzzle_file(src)
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    by_id["15-down"]["solution"] = "MINISCULE"
+    F.write_puzzle_file(path, puzzle)
+    pending = A.default_input(path)
+    crossing = by_id["14-across"]["solution"]
+    def typo(letters):
+        pending.write_text(json.dumps({"15-down": {"answer": "MINUSCULE",
+                                                   "answerTypo": [letters, "the wordplay"]}}))
+        before = (data / "source_answer_wrong.json").read_text()
+        filed, err = AC.file_rows(path, pending, data)
+        return filed, err, (data / "source_answer_wrong.json").read_text() == before
+    filed, err, same = typo("MINUSCULES")
+    check("an answerTypo of another length is refused", not filed and same and "letters" in err)
+    filed, err, same = typo("MANASCALE")
+    check("an answerTypo rewriting more than a slip is refused",
+          not filed and same and "at most 2" in err)
+    wrong = "AINISCULE" if crossing[0] != "A" else "BINISCULE"
+    filed, err, same = typo(wrong)
+    check("an answerTypo a crossing contradicts is refused",
+          not filed and same and "crossing 14-across" in err)
+    filed, err, same = typo("minuscule")
+    check("an answerTypo is filed", err is None and filed == ["answerTypo 15-down"])
+    check("its row is [printed, corrected, evidence]",
+          json.loads((data / "source_answer_wrong.json").read_text())["cryptic-22049/15-down"]
+          == ["MINISCULE", "MINUSCULE", "the wordplay"]
+          and F.SOURCE_ANSWER_WRONG[("cryptic-22049", "15-down")][:2] == ("MINISCULE", "MINUSCULE"))
+    check("the grid carries the corrected letters, and the field leaves the entry",
+          {entry_id(e): e for e in F.read_puzzle_file(path)["entries"]}["15-down"]["solution"]
+          == "MINUSCULE" and "answerTypo" not in json.loads(pending.read_text())["15-down"])
+    filed, err, _ = typo("MINUSCULE")
+    check("a re-filed answerTypo keeps what the paper printed", err is None and json.loads(
+        (data / "source_answer_wrong.json").read_text())["cryptic-22049/15-down"][0] == "MINISCULE")
+
+    # times-18749's grid is a model's solve: no answer in it is the paper's.
+    path = tmp / "times-18749.json"
+    pending = A.default_input(path)
+    pending.write_text(json.dumps({"1-down": {"answerTypo": ["FUMBLES", "test"]}}))
+    filed, err = AC.file_rows(path, pending, data)
+    check("an answerTypo on a model's fill is refused", not filed and "never printed" in err)
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 sys.exit(1 if fails else 0)
