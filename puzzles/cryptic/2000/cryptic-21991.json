@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,92 @@
     "text": "Initially operate sand to receive invisible creature's head",
     "enumeration": "7"
    },
-   "solution": "OSTRICH"
+   "solution": "OSTRICH",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "OSTRICH",
+    "definitions": [
+     {
+      "text": "Initially operate sand to receive invisible creature's head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of each word that follows it in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operate",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "sand",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "receive",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "invisible",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "creature's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "S",
+      "T",
+      "R",
+      "I",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for burying a creature's head in sand so it cannot be seen.",
+     "walkthrough": "The first letters of all seven words spell OSTRICH, and the whole clue pictures the bird famed for hiding its head in the sand.",
+     "definitionFit": "Popular legend says this large flightless bird buries its head in sand to escape danger, so the whole clue describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Initially"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +141,65 @@
      }
     ]
    },
-   "solution": "SKIDROW"
+   "solution": "SKIDROW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SKID ROW",
+    "definitions": [
+     {
+      "text": "Where the fate of down-and-outs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means the letter for energy is left out of the words that follow"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "worked out suggests something solved or reshaped, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "is worked",
+      "gives": "ISWORKED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIDROW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISWORKD",
+       "gives": "SKIDROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where the destiny of the destitute gets decided.",
+     "walkthrough": "Remove E from IS WORKED and rearrange. 'Worked out' reads as decided, but 'out' alone is the anagram signal.",
+     "definitionFit": "Skid row is a run-down urban district where vagrants and alcoholics end up, the destination awaiting those who have fallen on hard times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +213,41 @@
     "text": "Was 23, having straight lines",
     "enumeration": "5"
    },
-   "solution": "RULED"
+   "solution": "RULED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RULED",
+    "definitions": [
+     {
+      "text": "Was 23",
+      "at": 0
+     },
+     {
+      "text": "having straight lines",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was 23",
+      "note": "first meaning: was at the top, i.e. governed"
+     },
+     {
+      "clueFragment": "having straight lines",
+      "note": "second meaning: marked with lines, like writing paper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "23 is AT THE TOP, so 'was 23' means held power over others.",
+     "definitionFit": "To rule is to govern from the highest position, and ruled paper carries printed parallel guide lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +261,57 @@
     "text": "Arrival includes physical education by an equal",
     "enumeration": "7"
    },
-   "solution": "COMPEER"
+   "solution": "COMPEER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMPEER",
+    "definitions": [
+     {
+      "text": "an equal",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "includes means the first word takes the next abbreviation inside itself"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrival",
+      "gives": "COMER",
+      "note": "an arrival is a comer, someone who comes"
+     },
+     {
+      "clueFragment": "physical education",
+      "gives": "PE",
+      "note": "PE is the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer brings a gym lesson along, courtesy of someone of the same rank.",
+     "definitionFit": "A compeer is an archaic or literary word for a peer, companion or person of the same standing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arrival"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +335,54 @@
    "group": [
     "5-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LUDGATE HILL",
+    "definitions": [
+     {
+      "text": "12's 19's situation",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bust",
+      "for": "anagram",
+      "note": "bust means broken apart, so the words before it are smashed and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laughed till",
+      "gives": "LAUGHEDTILL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAUGHEDTILL",
+       "gives": "LUDGATEHILL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laughed until they burst, linked to a bridge's cathedral.",
+     "walkthrough": "12 is the BRIDGE of 11 12, the Millennium Bridge, and 19 is CATHEDRAL: St Paul's, at the bridge's north end, stands on Ludgate Hill in the City of London.",
+     "definitionFit": "St Paul's Cathedral sits on top of this London hill, so it is the location of the cathedral linked to the Millennium Bridge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +396,40 @@
     "text": "Hard as the bed of the one 23?",
     "enumeration": "6"
    },
-   "solution": "UNEASY"
+   "solution": "UNEASY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNEASY",
+    "definitions": [
+     {
+      "text": "Hard as the bed of the one 23?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard as the bed",
+      "note": "surface reading: a mattress that offers no comfort"
+     },
+     {
+      "clueFragment": "the one 23",
+      "note": "setter's reading: the one at the top is a monarch, whose head lies troubled"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone complains that a bed is as hard as a monarch's.",
+     "walkthrough": "23 is AT THE TOP. Shakespeare's Henry IV says 'Uneasy lies the head that wears a crown', so the king's rest is the hard one.",
+     "definitionFit": "Uneasy means uncomfortable or troubled, describing both a hard bed and the restless sleep of a ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +443,55 @@
     "text": "Made like Parmesan, about three points",
     "enumeration": "9"
    },
-   "solution": "GENERATED"
+   "solution": "GENERATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENERATED",
+    "definitions": [
+     {
+      "text": "Made",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed around, so the cheese word wraps the compass letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like Parmesan",
+      "gives": "GRATED",
+      "note": "Parmesan cheese is usually served grated"
+     },
+     {
+      "clueFragment": "three points",
+      "gives": "ENE",
+      "note": "three compass points: east, north, east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ENE",
+      "RATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Something was made in the style of grated Italian cheese.",
+     "walkthrough": "'Made like Parmesan' runs together, but 'Made' is the definition alone.",
+     "definitionFit": "To generate something is to produce or create it, so generated works as a past-tense synonym for made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +505,36 @@
     "text": "Disclose your medieval sports",
     "enumeration": "7"
    },
-   "solution": "TOURNEY"
+   "solution": "TOURNEY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TOURNEY",
+    "definitions": [
+     {
+      "text": "medieval sports",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disclose your",
+      "gives": "TOURNEY",
+      "soundsLike": "TURN YE",
+      "note": "turn up a card to reveal it, plus ye, an old word for you"
+     }
+    ],
+    "explanation": {
+     "surface": "A request to reveal your medieval games.",
+     "walkthrough": "The wordplay is loose: to turn a card is to show it, and ye is the old form of you, together said like the answer.",
+     "definitionFit": "A tourney is a tournament, the jousting contest knights fought in during the Middle Ages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +554,57 @@
      }
     ]
    },
-   "solution": "FLINTKNAPPING"
+   "solution": "FLINTKNAPPING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLINT-KNAPPING",
+    "definitions": [
+     {
+      "text": "Hard labour",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pirate",
+      "gives": "FLINT",
+      "note": "Captain Flint is the dead pirate in Stevenson's Treasure Island"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the abbreviation for king in chess"
+     },
+     {
+      "clueFragment": "having forty winks",
+      "gives": "NAPPING",
+      "note": "forty winks is a short sleep, a nap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLINT",
+      "K",
+      "NAPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "A pirate king dozes when he should be doing hard labour.",
+     "walkthrough": "'Hard labour' looks like a prison sentence; here it is literally work on a hard stone.",
+     "definitionFit": "Flint-knapping is the craft of chipping flint into tools, heavy manual work on a very hard rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hard"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +642,84 @@
    "group": [
     "11-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "MILLENNIUM BRIDGE",
+    "definitions": [
+     {
+      "text": "whence",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried means shaken about, so the number word is jumbled"
+     },
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "eats means swallows, so the insect word takes everything after it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gnat",
+      "gives": "MIDGE",
+      "note": "a gnat is a midge, a small biting fly"
+     },
+     {
+      "clueFragment": "badly",
+      "gives": "ILL",
+      "note": "badly and ill both mean poorly"
+     },
+     {
+      "clueFragment": "nine",
+      "gives": "NINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "much umbrage",
+      "gives": "UMBR",
+      "note": "most of the word umbrage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILL",
+      "ENNI",
+      "UMBR",
+      "IDGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NINE",
+       "gives": "ENNI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fly takes offence over the number nine.",
+     "walkthrough": "The clue runs on from 5: the Millennium Bridge, a London footbridge, crosses the Thames from below St Paul's on Ludgate Hill. Its 'much umbrage' takes most of a word, not a synonym.",
+     "definitionFit": "Read after 5, 'whence' means the place from which one crosses: this footbridge starts beside St Paul's and spans the river southward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "gnat"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +753,39 @@
      }
     ]
    },
-   "solution": "NOSERING"
+   "solution": "NOSERING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOSE-RING",
+    "definitions": [
+     {
+      "text": "Bullish fashion statement?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bullish fashion statement",
+      "note": "surface reading: a confident, aggressive bit of style"
+     },
+     {
+      "clueFragment": "Bullish",
+      "note": "setter's reading: belonging to a bull, whose ring is worn on the face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bullish usually means confident; here it means of a bull. Piercings are a fashion statement for people, but bulls are fitted with one for handling.",
+     "definitionFit": "Farmers put a metal ring through a bull's nostrils to lead it, and people wear the same piercing as adornment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bullish"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +805,54 @@
      }
     ]
    },
-   "solution": "TWOSTROKE"
+   "solution": "TWOSTROKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TWO-STROKE",
+    "definitions": [
+     {
+      "text": "a cheaper engine",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make",
+      "for": "anagram",
+      "note": "make means build or construct, so the given letters are assembled into something new"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set to work",
+      "gives": "SETTOWORK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETTOWORK",
+       "gives": "TWOSTROKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mechanic gets busy building a budget motor.",
+     "walkthrough": "'Set to work' reads as an instruction to begin; all nine letters are the material.",
+     "definitionFit": "A two-stroke motor has fewer moving parts than a four-stroke one, making it simpler and less costly to build."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +872,50 @@
      }
     ]
    },
-   "solution": "SOUTHBANK"
+   "solution": "SOUTHBANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOUTH BANK",
+    "definitions": [
+     {
+      "text": "the end of the 11 12",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The poorer nations",
+      "gives": "SOUTH",
+      "note": "the global South is the poorer half of the world"
+     },
+     {
+      "clueFragment": "put their money",
+      "gives": "BANK",
+      "note": "to bank money is to deposit it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUTH",
+      "BANK"
+     ]
+    },
+    "explanation": {
+     "surface": "Developing countries invest their funds in the far end of a bridge.",
+     "walkthrough": "11 12 is MILLENNIUM BRIDGE, which reaches the Thames's South Bank, London's arts district, at its southern end.",
+     "definitionFit": "The London footbridge lands on the southern riverside district of the Thames, beside the Tate Modern gallery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "money"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +929,43 @@
     "text": "Supporters' visits?",
     "enumeration": "5"
    },
-   "solution": "STAYS"
+   "solution": "STAYS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAYS",
+    "definitions": [
+     {
+      "text": "Supporters'",
+      "at": 0
+     },
+     {
+      "text": "visits",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporters'",
+      "note": "first meaning: stiffening strips in a corset, or ropes holding a mast"
+     },
+     {
+      "clueFragment": "visits",
+      "note": "second meaning: periods spent as a guest somewhere"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Supporters' looks like fans' visits to an away match; the apostrophe is only surface dressing.",
+     "definitionFit": "Stays are corset bones and mast ropes that hold things up, and stays are also temporary visits or holidays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Supporters'"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +979,43 @@
     "text": "Supporters' goose step?",
     "enumeration": "5"
    },
-   "solution": "STRUT"
+   "solution": "STRUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRUT",
+    "definitions": [
+     {
+      "text": "Supporters'",
+      "at": 0
+     },
+     {
+      "text": "goose step",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporters'",
+      "note": "first meaning: a structural brace"
+     },
+     {
+      "clueFragment": "goose step",
+      "note": "second meaning: a proud, swaggering walk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A companion to 16 with the same opening word: 'supporters' again means things that hold up, not fans.",
+     "definitionFit": "A strut is a rigid brace in a framework, and to strut is to walk pompously, like a marching parade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Supporters'"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1029,57 @@
     "text": "Russian girl's farewell embrace of Scottish boy",
     "enumeration": "7"
    },
-   "solution": "TATIANA"
+   "solution": "TATIANA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TATIANA",
+    "definitions": [
+     {
+      "text": "Russian girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embrace of",
+      "for": "container",
+      "note": "an embrace hugs someone, so the goodbye word wraps round the name"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farewell",
+      "gives": "TATA",
+      "note": "ta-ta is an informal goodbye"
+     },
+     {
+      "clueFragment": "Scottish boy",
+      "gives": "IAN",
+      "note": "Ian is the Scottish form of John"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "IAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian girl hugs a Scottish lad goodbye.",
+     "definitionFit": "Tatiana is a common Russian feminine first name, borne by Pushkin's heroine in Eugene Onegin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "farewell"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1093,77 @@
     "text": "Cardinal ends holding a red hat awkwardly in his seat",
     "enumeration": "9"
    },
-   "solution": "CATHEDRAL"
+   "solution": "CATHEDRAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CATHEDRAL",
+    "definitions": [
+     {
+      "text": "his seat",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends picks only the outside letters of the churchman word"
+     },
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "awkwardly means clumsily, so the phrase is put in an untidy new order"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means clasping, so the outside letters go around the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cardinal",
+      "gives": "CL",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "a red hat",
+      "gives": "AREDHAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ATHEDRA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AREDHAT",
+       "gives": "ATHEDRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cardinal sits uncomfortably in his chair with his red hat on.",
+     "walkthrough": "A cardinal really does wear a red hat, but here only his outer letters count.",
+     "definitionFit": "A cathedral is the church holding a bishop's throne, the cathedra, so it is literally a prelate's seat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1177,64 @@
     "text": "Low sound that's real, not straight from the shoulder",
     "enumeration": "7"
    },
-   "solution": "HUMERAL"
+   "solution": "HUMERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HUMERAL",
+    "definitions": [
+     {
+      "text": "from the shoulder",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not straight",
+      "for": "anagram",
+      "note": "something not straight is bent or twisted, so the word before is twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low sound",
+      "gives": "HUM",
+      "note": "a hum is a low droning sound"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "ERAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "ERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genuine murmur that is not spoken straight from the shoulder, that is, not frankly.",
+     "walkthrough": "'Straight from the shoulder' is an idiom for frankly, but 'not straight' belongs to the wordplay and 'from the shoulder' is the definition.",
+     "definitionFit": "Humeral means relating to the humerus, the upper arm bone, or to the shoulder region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shoulder"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1248,51 @@
     "text": "Whence helicopters go off to Paris?",
     "enumeration": "7"
    },
-   "solution": "AIRSTOP"
+   "solution": "AIRSTOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIRSTOP",
+    "definitions": [
+     {
+      "text": "Whence helicopters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "go off",
+      "for": "anagram",
+      "note": "go off means explode, so the letters that follow are blown apart and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Paris",
+      "gives": "TOPARIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPARIS",
+       "gives": "AIRSTOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where do helicopters depart for a flight to Paris?",
+     "walkthrough": "'go off to Paris' reads as a journey; 'go off' is the explosion and Paris is the material.",
+     "definitionFit": "An air-stop is a landing place for helicopters, a stopping point from which such aircraft depart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paris"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1312,45 @@
      }
     ]
    },
-   "solution": "STPAUL"
+   "solution": "STPAUL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ST PAUL",
+    "definitions": [
+     {
+      "text": "Letter-writer",
+      "at": 0
+     },
+     {
+      "text": "twin city whose is opposite the 15",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter-writer",
+      "note": "first meaning: the apostle who wrote many New Testament epistles"
+     },
+     {
+      "clueFragment": "twin city whose is opposite the 15",
+      "note": "second meaning: Minnesota capital paired with Minneapolis, and the saint whose cathedral faces the South Bank"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Whose' means whose cathedral (19): St Paul's stands across the Thames from London's South Bank. Minneapolis and St Paul are the Twin Cities of Minnesota.",
+     "definitionFit": "The apostle wrote epistles to early churches, lends his name to a Minnesota city, and to London's great cathedral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Letter-writer"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1374,66 @@
      }
     ]
    },
-   "solution": "ATTHETOP"
+   "solution": "ATTHETOP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AT THE TOP",
+    "definitions": [
+     {
+      "text": "in novel room",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "deletion",
+      "note": "part means only a piece of the name is used, its outer letters dropped"
+     },
+     {
+      "text": "no amateur",
+      "for": "deletion",
+      "note": "no means remove, and a lay person is an amateur, so a matching chunk goes from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Matthew's",
+      "gives": "MATTHEW",
+      "note": "the apostle's name"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "PLAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTHE",
+      "TO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's role in Matthew's play, with professionals only, in a book-lined room.",
+     "walkthrough": "Lay means non-professional, so 'no amateur' strips that from the word for a drama. John Braine's 1957 novel is Room at the Top, so in that title the answer follows 'room'.",
+     "definitionFit": "The novel's title is Room at the Top, so these three words complete the phrase that begins with room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "amateur"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1461,48 @@
     "text": "Put off some French potatoes",
     "enumeration": "5"
    },
-   "solution": "DETER"
+   "solution": "DETER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DETER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "deletion",
+      "note": "some means only part of the phrase is kept, the rest dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French potatoes",
+      "gives": "POMMESDETERRE",
+      "note": "the French for potatoes is pommes de terre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is discouraged from ordering some French fries.",
+     "walkthrough": "Pommes de terre, literally apples of the earth, is French for potatoes; a chunk from its middle is the answer.",
+     "definitionFit": "To deter someone is to discourage or dissuade them, which is what putting them off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "potatoes"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1516,63 @@
     "text": "A vicar  forged dead queen's signature -- one for the road!",
     "enumeration": "10"
    },
-   "solution": "CARAVANNER"
+   "solution": "CARAVANNER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CARAVANNER",
+    "definitions": [
+     {
+      "text": "one for the road",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forged",
+      "for": "anagram",
+      "note": "forged means faked or hammered into shape, so the letters are remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A vicar",
+      "gives": "AVICAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dead queen's signature",
+      "gives": "ANNER",
+      "note": "Queen Anne signed herself Anne R, for Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARAV",
+      "ANNER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AVICAR",
+       "gives": "CARAV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman forges a long-dead monarch's signature, then hits the road.",
+     "walkthrough": "As shown, A VICAR has a spare I that nothing in the clue removes, so a word was probably lost where the clue has a double space. 'One for the road' usually means a last drink before driving.",
+     "definitionFit": "A caravanner travels and holidays in a towed caravan, so is literally someone who belongs on the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "road"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +1596,79 @@
    "group": [
     "27-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "TATE MODERN",
+    "definitions": [
+     {
+      "text": "on the 15",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "foolishly means in a silly way, so the chatter word is scrambled"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned round, so the feature word reads right to left"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the scrambled letters go around the turned word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Natter",
+      "gives": "NATTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "feature",
+      "gives": "DOME",
+      "note": "a dome is an architectural feature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "EMOD",
+      "ERN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NATTER",
+       "gives": "TATERN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DOME",
+       "to": "EMOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Silly chatter about some feature at the far end of the bridge.",
+     "walkthrough": "15 is SOUTH BANK, the riverside district opposite St Paul's in London.",
+     "definitionFit": "London's modern art gallery, housed in a converted power station, stands beside the Thames on that southern riverside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feature"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +1682,50 @@
     "text": "Victorian writer takes it from Labour politician",
     "enumeration": "7"
    },
-   "solution": "GASKELL"
+   "solution": "GASKELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GASKELL",
+    "definitions": [
+     {
+      "text": "Victorian writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes it from",
+      "for": "deletion",
+      "note": "takes it from means the two-letter word it is removed from what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour politician",
+      "gives": "GAITSKELL",
+      "note": "Hugh Gaitskell led the Labour Party from 1955 to 1963"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "SKELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Victorian author steals material from a Labour leader.",
+     "walkthrough": "The surface suggests plagiarism; the word 'it' is literally the letters removed.",
+     "definitionFit": "Elizabeth Gaskell wrote Cranford and North and South during Queen Victoria's reign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +1745,49 @@
      }
     ]
    },
-   "solution": "OLDROPE"
+   "solution": "OLDROPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD ROPE",
+    "definitions": [
+     {
+      "text": "provide easy money",
+      "at": 15,
+      "note": "money for old rope means easy money, so the answer is what provides it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antique",
+      "gives": "OLD",
+      "note": "antique things are old"
+     },
+     {
+      "clueFragment": "pearls",
+      "gives": "ROPE",
+      "note": "a rope of pearls is a long necklace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "ROPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Selling vintage pearls is a nice little earner.",
+     "walkthrough": "'Money for old rope' is a British idiom for money earned with no effort.",
+     "definitionFit": "The idiom money for old rope describes easy profit, so this phrase is what yields effortless earnings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pearls"
+    }
+   }
   }
  ]
 }
