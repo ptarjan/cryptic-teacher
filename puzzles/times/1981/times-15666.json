@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,44 @@
     "text": "Blonde type picked for Wimbledon",
     "enumeration": "10"
    },
-   "solution": "STRAWBERRY"
+   "solution": "STRAWBERRY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAWBERRY",
+    "definitions": [
+     {
+      "text": "Blonde type",
+      "at": 0
+     },
+     {
+      "text": "picked for Wimbledon",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blonde type",
+      "note": "first meaning: a ... blonde has reddish-gold hair"
+     },
+     {
+      "clueFragment": "picked for Wimbledon",
+      "note": "second meaning: the fruit gathered to be served with cream at the tennis championships"
+     }
+    ],
+    "explanation": {
+     "surface": "A fair-haired player is selected for the Wimbledon tennis tournament.",
+     "walkthrough": "'Picked' suggests a player chosen for a team, but it is fruit-picking: strawberries and cream are the traditional treat at Wimbledon, the London tennis championships.",
+     "definitionFit": "The fruit names a reddish shade of fair hair and is the famous snack eaten by spectators at the tennis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,10 +86,69 @@
    },
    "length": 6,
    "clue": {
-    "text": "Used in garden when drier, . about middle of March",
+    "text": "Used in garden when drier, about middle of March",
     "enumeration": "6"
    },
-   "solution": "TROWEL"
+   "solution": "TROWEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROWEL",
+    "definitions": [
+     {
+      "text": "Used in garden",
+      "at": 0,
+      "note": "a descriptive phrase, thing used in garden, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, so only that one is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drier",
+      "gives": "TOWEL",
+      "note": "a towel is something you dry yourself with"
+     },
+     {
+      "clueFragment": "March",
+      "gives": "R",
+      "select": "middle",
+      "note": "the central letter of the five-letter month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OWEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that a tool is used in the garden once the soil has dried, around mid-March.",
+     "walkthrough": "TOWEL wraps round R to give TROWEL. 'Drier' looks like a comparison of weather but is a thing that dries.",
+     "definitionFit": "A trowel is a small hand tool for digging, employed by gardeners when planting bulbs and seedlings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drier"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,10 +159,78 @@
    },
    "length": 8,
    "clue": {
-    "text": "Suspension of a governor can - trouble East",
+    "text": "Suspension of a governor can trouble East",
     "enumeration": "8"
    },
-   "solution": "ABEYANCE"
+   "solution": "ABEYANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABEYANCE",
+    "definitions": [
+     {
+      "text": "Suspension",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trouble",
+      "for": "anagram",
+      "note": "to trouble something is to disturb it, so these letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "governor",
+      "gives": "BEY",
+      "note": "a bey was a governor of a province in the Ottoman Empire"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written, to be mixed"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BEY",
+      "ANCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANE",
+       "gives": "ANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A regional governor is suspended because he could stir up trouble in the East.",
+     "walkthrough": "'Can trouble' reads as a verb phrase, could cause trouble, but 'can' is fodder and 'trouble' the instruction to shuffle it with E.",
+     "definitionFit": "Abeyance is a state of temporary disuse or postponement, so a matter held in abeyance is suspended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +244,50 @@
     "text": "Vital necessity to supply for best horses",
     "enumeration": "10"
    },
-   "solution": "BLOODSTOCK"
+   "solution": "BLOODSTOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLOODSTOCK",
+    "definitions": [
+     {
+      "text": "best horses",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vital necessity",
+      "gives": "BLOOD",
+      "note": "blood is the fluid without which no body can live"
+     },
+     {
+      "clueFragment": "to supply",
+      "gives": "STOCK",
+      "note": "to stock a shop is to supply it with goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOOD",
+      "STOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "Something essential must be provided for the finest racehorses.",
+     "walkthrough": "Bloodstock is the trade term for thoroughbred horses bred for racing.",
+     "definitionFit": "Bloodstock means thoroughbreds collectively, the pedigree animals bred for racing and sold at premium sales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vital"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,10 +298,68 @@
    },
    "length": 7,
    "clue": {
-    "text": "Arrange outfit round poles in - - putting washing out",
+    "text": "Arrange outfit round poles in putting washing out",
     "enumeration": "7"
    },
-   "solution": "RINSING"
+   "solution": "RINSING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RINSING",
+    "definitions": [
+     {
+      "text": "washing out",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the first piece is wrapped about what follows"
+     }
+    ],
+    "linkWords": [
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrange outfit",
+      "gives": "RIG",
+      "note": "to rig out is to dress or equip someone"
+     },
+     {
+      "clueFragment": "poles",
+      "gives": "NS",
+      "note": "the north and south poles, N and S"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "NS",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sorts clothes around the posts before hanging out the laundry.",
+     "walkthrough": "'Poles' suggests washing-line props, but they are the north and south poles; 'in' is taken literally and joins them inside the outfit word.",
+     "definitionFit": "Rinsing is clearing soap or dirt from something with clean water, which is washing it out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poles"
+    }
+   }
   },
   {
    "number": 6,
@@ -105,7 +373,44 @@
     "text": "Measure the main beam",
     "enumeration": "4"
    },
-   "solution": "YARD"
+   "solution": "YARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YARD",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     },
+     {
+      "text": "the main beam",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "note": "first meaning: a length of three feet"
+     },
+     {
+      "clueFragment": "the main beam",
+      "note": "second meaning: a spar hung from a ship's mast; the main is the sea"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to measure the principal beam of a building.",
+     "walkthrough": "'Main' looks like principal, but it is the old word for the open sea, so the beam belongs on a sailing ship.",
+     "definitionFit": "The word is both an imperial length unit and the horizontal spar that carries a ship's sail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +430,40 @@
      }
     ]
    },
-   "solution": "RACECARD"
+   "solution": "RACECARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RACE-CARD",
+    "definitions": [
+     {
+      "text": "Times read here to be better informed?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times read here",
+      "note": "surface: a place to read The Times newspaper; actually a list of race starting times"
+     },
+     {
+      "clueFragment": "better informed",
+      "note": "surface: more knowledgeable; actually a punter, one who bets, getting information"
+     }
+    ],
+    "explanation": {
+     "surface": "A reading room where people consult The Times to become more knowledgeable.",
+     "walkthrough": "The capital T of 'Times' points at this very newspaper, but the times are the starting times of races, and 'better' is someone placing bets.",
+     "definitionFit": "A racecard is the printed programme at a race meeting listing runners, riders and starting times for punters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +483,46 @@
      }
     ]
    },
-   "solution": "CHILDSPLAY"
+   "solution": "CHILDSPLAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHILD'S PLAY",
+    "definitions": [
+     {
+      "text": "Precocious literary effort",
+      "at": 0
+     },
+     {
+      "text": "very easy",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precocious literary effort",
+      "note": "first meaning: a drama written by a youngster"
+     },
+     {
+      "clueFragment": "very easy",
+      "note": "second meaning: a task needing no effort at all"
+     }
+    ],
+    "explanation": {
+     "surface": "A gifted youngster's writing turns out to be no trouble at all.",
+     "definitionFit": "The idiom describes a task so simple even a youngster could do it, and literally names a drama by a young author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "effort"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +536,70 @@
     "text": "A jolly peculiar hag, but county",
     "enumeration": "6"
    },
-   "solution": "ARMAGH"
+   "solution": "ARMAGH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ARMAGH",
+    "definitions": [
+     {
+      "text": "county",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peculiar",
+      "for": "anagram",
+      "note": "peculiar means odd, so these letters appear in an odd order"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "RM",
+      "note": "a jolly is old slang for a Royal Marine, abbreviated RM"
+     },
+     {
+      "clueFragment": "hag",
+      "gives": "HAG",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RM",
+      "AGH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAG",
+       "gives": "AGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old woman is described as very odd, yet thoroughly provincial.",
+     "walkthrough": "'Jolly peculiar' reads as 'very strange', but 'jolly' is a Royal Marine and only 'peculiar' acts on the hag.",
+     "definitionFit": "Armagh is one of the six counties of Northern Ireland, so it is an example of a county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +619,50 @@
      }
     ]
    },
-   "solution": "POPEJOAN"
+   "solution": "POPEJOAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPE JOAN",
+    "definitions": [
+     {
+      "text": "old card game",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and",
+     "named"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "POPE",
+      "note": "Alexander Pope, the eighteenth-century English poet"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "JOAN",
+      "note": "Saint Joan, Joan of Arc"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POPE",
+      "JOAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer and a holy figure lend their names to a game of cards from long ago.",
+     "walkthrough": "Pope Joan was also a legendary female pope, which gives the game its name.",
+     "definitionFit": "Pope Joan is a Victorian-era card game played with a special staking board, now rarely seen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +676,51 @@
     "text": "Concerning stars of team — Madrid one",
     "enumeration": "8"
    },
-   "solution": "SIDEREAL"
+   "solution": "SIDEREAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDEREAL",
+    "definitions": [
+     {
+      "text": "Concerning stars",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a sports team"
+     },
+     {
+      "clueFragment": "Madrid one",
+      "gives": "REAL",
+      "note": "Real Madrid, the Spanish football club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece about the star players of a team, namely Real Madrid.",
+     "walkthrough": "'Stars of team' sounds like celebrated footballers, but the definition is astronomical and 'team' is wordplay.",
+     "definitionFit": "Sidereal means relating to the fixed stars, as in a sidereal day measured against them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +734,42 @@
     "text": "A tribe, in poetic language",
     "enumeration": "4"
    },
-   "solution": "CLAN"
+   "solution": "CLAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CLAN",
+    "definitions": [
+     {
+      "text": "A tribe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poetic language",
+      "gives": "CLAN",
+      "note": "the last letter of the first word and the first three of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A tribal community described in the flowery words of verse.",
+     "definitionFit": "A clan is a group of families claiming common descent, the Scottish counterpart of a tribe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +789,64 @@
      }
     ]
    },
-   "solution": "CRAMPIRONS"
+   "solution": "CRAMPIRONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CRAMP-IRONS",
+    "definitions": [
+     {
+      "text": "restraints",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps says the word is only one possible ordering of its letters"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "CRAM",
+      "note": "to cram is to force or stuff something in"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "PRISON",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAM",
+      "PIRONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRISON",
+       "gives": "PIRONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inmates are forced into jail so that they can be held in restraints.",
+     "walkthrough": "'Prison, perhaps' looks like an example of a place of restraint, yet 'perhaps' is telling you to shuffle the word.",
+     "definitionFit": "Cramp-irons are iron bars with bent ends used to clamp stones or timbers together, holding them as restraints."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +860,57 @@
     "text": "Present manager, alas, can't reform us",
     "enumeration": "10"
    },
-   "solution": "SANTACLAUS"
+   "solution": "SANTACLAUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SANTA CLAUS",
+    "definitions": [
+     {
+      "text": "Present manager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reform",
+      "for": "anagram",
+      "note": "to reform is to form again in a new shape, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alas, can't",
+      "gives": "ALASCANT",
+      "note": "both words taken letter for letter, ignoring the comma and apostrophe"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALASCANTUS",
+       "gives": "SANTACLAUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frustrated employee laments that the current boss cannot change our ways.",
+     "walkthrough": "'Present' reads as current, as in the manager now in charge, but it is a noun: the gifts.",
+     "definitionFit": "The figure who organises and delivers Christmas gifts is jokingly called the one who manages presents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,10 +921,73 @@
    },
    "length": 10,
    "clue": {
-    "text": "Charged with holding 'tip MOT ' as usual",
+    "text": "Charged with holding up MOT as usual",
     "enumeration": "10"
    },
-   "solution": "ACCUSTOMED"
+   "solution": "ACCUSTOMED",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ACCUSTOMED",
+    "definitions": [
+     {
+      "text": "usual",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with holding",
+      "for": "container",
+      "note": "holding means keeping inside, so the first word wraps what follows"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means read from the bottom, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charged",
+      "gives": "ACCUSED",
+      "note": "charged with a crime is accused"
+     },
+     {
+      "clueFragment": "MOT",
+      "gives": "MOT",
+      "note": "the vehicle test, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCUS",
+      "TOM",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "MOT",
+       "to": "TOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist is charged for keeping an MOT certificate, as normally happens.",
+     "walkthrough": "An MOT is the UK's annual roadworthiness test for cars; 'holding up' looks like delaying it, but splits into a container and a reversal.",
+     "definitionFit": "Accustomed, in the sense of customary or habitual, describes what is usual, as in his accustomed seat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charged"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1001,39 @@
     "text": "Undercurrent?",
     "enumeration": "7"
    },
-   "solution": "ACHERON"
+   "solution": "ACHERON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ACHERON",
+    "definitions": [
+     {
+      "text": "Undercurrent?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Undercurrent?",
+      "note": "surface: a hidden flow beneath the surface of water or a hidden feeling"
+     },
+     {
+      "clueFragment": "Undercurrent?",
+      "note": "setter's reading: a current, that is a river, flowing in the underworld"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split it as under-current: in Greek myth this river of the underworld was crossed by the dead in Charon's boat.",
+     "definitionFit": "Acheron is the mythological river of woe in Hades, a flowing stream located beneath the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Undercurrent"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,10 +1044,50 @@
    },
    "length": 8,
    "clue": {
-    "text": "Bill's place for storing up . food, for example",
+    "text": "Bill's place for storing up food, for example",
     "enumeration": "8"
    },
-   "solution": "HOARDING"
+   "solution": "HOARDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOARDING",
+    "definitions": [
+     {
+      "text": "Bill's place",
+      "at": 0
+     },
+     {
+      "text": "storing up food, for example",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill's place",
+      "note": "first meaning: a billboard where posters, or bills, are pasted"
+     },
+     {
+      "clueFragment": "storing up food, for example",
+      "note": "second meaning: amassing supplies and keeping them hidden"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Bill has a larder where food is stockpiled.",
+     "walkthrough": "'Bill' looks like a man's name, but it is a poster.",
+     "definitionFit": "The word means both a large board for advertising posters and the act of stockpiling goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bill's"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1101,39 @@
     "text": "One in Bohemia involved the woman",
     "enumeration": "7"
    },
-   "solution": "SCANDAL"
+   "solution": "SCANDAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCANDAL",
+    "definitions": [
+     {
+      "text": "One in Bohemia involved the woman",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One in Bohemia involved the woman",
+      "note": "surface: an affair in central Europe with some lady"
+     },
+     {
+      "clueFragment": "the woman",
+      "note": "setter's reading: the italic phrase is Sherlock Holmes's name for Irene Adler, heroine of a Conan Doyle story set in Bohemia"
+     }
+    ],
+    "explanation": {
+     "surface": "A Bohemian man had an affair with a certain woman.",
+     "walkthrough": "The italics flag a quotation: Holmes always called Irene Adler 'the woman', and her story is titled A ___ in Bohemia.",
+     "definitionFit": "The Conan Doyle story concerns a disgraceful affair threatening a king, which is exactly a public outrage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1144,7 @@
    },
    "length": 8,
    "clue": {
-    "text": "One becoming active, now Hight is bad",
+    "text": "One becoming active, now light is bad",
     "enumeration": "5-3",
     "separators": [
      {
@@ -317,7 +1153,54 @@
      }
     ]
    },
-   "solution": "NIGHTOWL"
+   "solution": "NIGHTOWL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIGHT-OWL",
+    "definitions": [
+     {
+      "text": "One becoming active",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests the letters have gone wrong and need putting into a different order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "now light",
+      "gives": "NOWLIGHT",
+      "note": "both words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOWLIGHT",
+       "gives": "NIGHTOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stirs into action now that the daylight is poor.",
+     "walkthrough": "The definition needs the surface context: the person comes alive just as the light fails.",
+     "definitionFit": "A late-hours person is lively after dark, waking up when others go to bed, like the nocturnal bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 19,
@@ -328,10 +1211,50 @@
    },
    "length": 7,
    "clue": {
-    "text": "Place for fuel in sink?",
+    "text": "Place for fuel — in sink?",
     "enumeration": "7"
    },
-   "solution": "SCUTTLE"
+   "solution": "SCUTTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCUTTLE",
+    "definitions": [
+     {
+      "text": "Place for fuel",
+      "at": 0
+     },
+     {
+      "text": "sink",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place for fuel",
+      "note": "first meaning: a coal container by the fireplace"
+     },
+     {
+      "clueFragment": "sink",
+      "note": "second meaning: to sink a ship deliberately by holing it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether the kitchen sink is the spot to keep fuel.",
+     "walkthrough": "'Sink' looks like the kitchen basin, but it is a verb about ships.",
+     "definitionFit": "A coal scuttle is a bucket for fuel, and to scuttle a vessel is to send it to the bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1274,50 @@
      }
     ]
    },
-   "solution": "PLACEKICKS"
+   "solution": "PLACEKICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLACE-KICKS",
+    "definitions": [
+     {
+      "text": "Conversions, perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "bring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "job",
+      "gives": "PLACE",
+      "note": "a place is a position of employment"
+     },
+     {
+      "clueFragment": "satisfaction of exciting kind",
+      "gives": "KICKS",
+      "note": "getting your kicks is getting thrills"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLACE",
+      "KICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Religious conversions might give a thrilling sense of fulfilment at work.",
+     "walkthrough": "In rugby a conversion is the kick at goal after a try, taken with the ball resting on the ground; 'perhaps' marks it as one example.",
+     "definitionFit": "A rugby conversion is taken as a kick from a ball set on the ground, so conversions are examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Conversions"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1331,44 @@
     "text": "Pass the fish!",
     "enumeration": "4"
    },
-   "solution": "GOBY"
+   "solution": "GOBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO BY",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     },
+     {
+      "text": "the fish",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "note": "first meaning: to move past, as time does"
+     },
+     {
+      "clueFragment": "the fish",
+      "note": "second meaning: a small spiny-finned sea creature"
+     }
+    ],
+    "explanation": {
+     "surface": "A diner asks for the fish dish to be handed across the table.",
+     "walkthrough": "The exclamation reads as a table request, but 'Pass' is a verb meaning elapse and the fish is separate.",
+     "definitionFit": "The phrasal verb means to move past or elapse, and the single word names a small coastal fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,10 +1379,40 @@
    },
    "length": 6,
    "clue": {
-    "text": "“And the soul wears out the - ” (Byron)",
+    "text": "“And the soul wears out the —” (Byron)",
     "enumeration": "6"
    },
-   "solution": "BREAST"
+   "solution": "BREAST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BREAST",
+    "definitions": [
+     {
+      "text": "“And the soul wears out the —” (Byron)",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "And the soul wears out the",
+      "note": "a line from Byron's poem So We'll Go No More a Roving"
+     },
+     {
+      "clueFragment": "(Byron)",
+      "note": "the poet's name tells the solver to complete his line from memory"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A quotation clue: Byron wrote 'For the sword outwears its sheath, / And the soul wears out the breast', and the missing word completes it.",
+     "definitionFit": "The chest is the part of the body that houses the heart and, poetically, the soul, so it wears out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1432,48 @@
      }
     ]
    },
-   "solution": "REDGIANT"
+   "solution": "REDGIANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED GIANT",
+    "definitions": [
+     {
+      "text": "space traveller?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian",
+      "gives": "RED",
+      "note": "Red was the common label for a Soviet Russian"
+     },
+     {
+      "clueFragment": "Great",
+      "gives": "GIANT",
+      "note": "giant means very great in size"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "GIANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated Soviet cosmonaut is hailed as a great Russian in space.",
+     "walkthrough": "The surface suggests a cosmonaut; the question mark admits that calling a star a traveller in space is a stretch.",
+     "definitionFit": "A red giant is a large ageing star, a body moving through the heavens, playfully called a traveller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "traveller"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,10 +1484,54 @@
    },
    "length": 4,
    "clue": {
-    "text": "Assist offender as a -matter of course",
+    "text": "Assist offender as a matter of course",
     "enumeration": "4"
    },
-   "solution": "ABET"
+   "solution": "ABET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABET",
+    "definitions": [
+     {
+      "text": "Assist offender",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "matter of course",
+      "gives": "BET",
+      "note": "a wager is the business of the racecourse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BET"
+     ]
+    },
+    "explanation": {
+     "surface": "Helping a criminal is described as something routine.",
+     "walkthrough": "'As a matter of course' reads as an idiom meaning routinely; split it and the course is a racecourse, where a bet is the matter in hand.",
+     "definitionFit": "To abet is to help or encourage someone in wrongdoing, a legal term in aiding and abetting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1545,50 @@
     "text": "Sometime employee said to be worldly",
     "enumeration": "8"
    },
-   "solution": "TEMPORAL"
+   "solution": "TEMPORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPORAL",
+    "definitions": [
+     {
+      "text": "worldly",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sometime employee",
+      "gives": "TEMP",
+      "note": "a temp is a worker employed only now and then"
+     },
+     {
+      "clueFragment": "said",
+      "gives": "ORAL",
+      "note": "spoken rather than written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A former employee is reported to be sophisticated and experienced.",
+     "walkthrough": "'Sometime' usually means former, but here it means occasional, the way a temporary worker is.",
+     "definitionFit": "Temporal means of this world and its time, secular, as opposed to spiritual or eternal matters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sometime"
+    }
+   }
   },
   {
    "number": 26,
@@ -438,10 +1599,73 @@
    },
    "length": 6,
    "clue": {
-    "text": "Minority position of one . . eccentric about horse",
+    "text": "Minority position of one eccentric about horse",
     "enumeration": "6"
    },
-   "solution": "NONAGE"
+   "solution": "NONAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NONAGE",
+    "definitions": [
+     {
+      "text": "Minority position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd or off-centre, so the letters go out of order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled letters go round the next piece"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "NAG",
+      "note": "a nag is an old horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NAG",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes the awkward standing of an odd person regarding horses.",
+     "walkthrough": "'Minority' suggests a smaller group, but here it is the legal term for being under age.",
+     "definitionFit": "Nonage is the legal state of being under age, which lawyers call minority, a position held until adulthood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minority"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1679,69 @@
     "text": "Instrument used to survey the limestone round front of Downs",
     "enumeration": "10"
    },
-   "solution": "THEODOLITE"
+   "solution": "THEODOLITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "THEODOLITE",
+    "definitions": [
+     {
+      "text": "Instrument used to survey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the rock word goes about the next letter"
+     },
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "limestone",
+      "gives": "OOLITE",
+      "note": "oolite is a limestone made of tiny rounded grains"
+     },
+     {
+      "clueFragment": "Downs",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "O",
+      "D",
+      "OLITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Surveyors map limestone around the chalk hills of the South Downs with a measuring device.",
+     "walkthrough": "'Used to survey the limestone' looks like one phrase; the definition stops at 'survey'. Oolite is a geologist's word worth knowing for crosswords.",
+     "definitionFit": "A theodolite is a surveyor's optical instrument on a tripod for measuring horizontal and vertical angles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limestone"
+    }
+   }
   }
  ]
 }
