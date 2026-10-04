@@ -64,7 +64,7 @@ rc=$?
 # message it returns names the address to write to. So: silent for the first
 # couple of refusals, once at roughly a week of them, then roughly monthly
 # while it lasts, and once more when it clears. The thresholds count RUNS, so
-# they move whenever the schedule in the plugin manifest does — RUN_DAYS below
+# they move whenever the schedule in the plugin manifest does — RUN_HOURS below
 # is what turns a run count back into days, and it must agree with it.
 STREAK_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/cryptic-teacher/lending-refusals"
 streak="$(cat "$STREAK_FILE" 2>/dev/null || echo 0)"
@@ -73,9 +73,9 @@ streak_write() {
   mkdir -p "$(dirname "$STREAK_FILE")" 2>/dev/null || true
   printf '%s\n' "$1" > "$STREAK_FILE" 2>/dev/null || true
 }
-RUN_DAYS=3             # the plugin manifest asks every third day
-STREAK_ALERT_AT=3      # so: about a week and a half of refusals
-STREAK_ALERT_EVERY=10  # and about a month between reminders after that
+RUN_HOURS=12           # the plugin manifest asks twice a day
+STREAK_ALERT_AT=20     # so: about ten days of refusals
+STREAK_ALERT_EVERY=60  # and about a month between reminders after that
 
 if [ "$rc" = 3 ]; then
   streak=$((streak + 1))
@@ -85,7 +85,7 @@ if [ "$rc" = 3 ]; then
      { [ "$streak" -gt "$STREAK_ALERT_AT" ] &&
        [ $((streak % STREAK_ALERT_EVERY)) = 0 ]; }
   then
-    alert "archive.org has refused this account a loan $streak times in a row, so $(python3 tools/book_queue.py --count) registered books are still at zero puzzles and nothing here will change that. Every one of them reports a free copy — the block is on the account, not the books, and archive.org holds no loan of ours. Its own answer is \"Please try again later or contact info@archive.org\", and later has now been about $((streak * RUN_DAYS)) day(s). Write to them, or accept that the book shelf stops here."
+    alert "archive.org has refused this account a loan $streak times in a row, so $(python3 tools/book_queue.py --count) registered books are still at zero puzzles and nothing here will change that. Every one of them reports a free copy — the block is on the account, not the books, and archive.org holds no loan of ours. Its own answer is \"Please try again later or contact info@archive.org\", and later has now been about $((streak * RUN_HOURS / 24)) day(s). Write to them, or accept that the book shelf stops here."
   fi
   exit 0
 fi
