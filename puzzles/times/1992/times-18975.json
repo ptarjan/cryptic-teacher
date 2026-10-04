@@ -20,8 +20,25 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "32 entries, 64 crossings, 0 conflicts"
+  "check": "32 entries, 64 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "18-across",
+    "was": "FLORENT",
+    "now": "VIOLENT",
+    "date": "2026-10-04"
+   },
+   {
+    "entry": "1-down",
+    "was": "LEITMOTIF",
+    "now": "LEITMOTIV",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +52,71 @@
     "text": "Making a bloomer, phone back about one",
     "enumeration": "5"
    },
-   "solution": "LILAC"
+   "solution": "LILAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LILAC",
+    "definitions": [
+     {
+      "text": "a bloomer",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word for phoning is read from its last letter to its first"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the turned word wraps itself around the next piece"
+     }
+    ],
+    "linkWords": [
+     "Making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phone",
+      "gives": "CALL",
+      "note": "to phone someone is to call them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "LAC"
+     ],
+     "reversals": [
+      {
+       "from": "CALIL",
+       "to": "LILAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone making a blunder after phoning, a bloomer being a howler.",
+     "walkthrough": "A bloomer looks like a gaffe, but here it is something that blooms: a flowering shrub.",
+     "definitionFit": "The shrub is grown for its scented spring blossom, so it is literally a plant that flowers, a bloomer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +130,74 @@
     "text": "Lot four includes unusual item-an oft-repeated phrase!",
     "enumeration": "9"
    },
-   "solution": "LEITMOTIF"
+   "solution": "LEITMOTIV",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "LEITMOTIV",
+    "definitions": [
+     {
+      "text": "an oft-repeated phrase",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "one thing including another holds it inside, so the first word wraps the reworked item"
+     },
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of its normal form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lot",
+      "gives": "LOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "item",
+      "gives": "ITEM",
+      "note": "taken as written, four letters to rearrange"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "IV is the Roman numeral for four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EITM",
+      "OT",
+      "IV"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITEM",
+       "gives": "EITM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An auction listing: lot four contains an odd object, and the catalogue says the same thing over and over.",
+     "walkthrough": "IV gives the German spelling LEITMOTIV, not the English LEITMOTIF; the crossing 18 across, VIOLENT, confirms the V.",
+     "definitionFit": "A leitmotiv is a recurring musical theme tied to a character or idea, so loosely any oft-repeated phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lot"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +211,61 @@
     "text": "About sun-up he had to admit defeat",
     "enumeration": "5"
    },
-   "solution": "LOSER"
+   "solution": "LOSER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LOSER",
+    "definitions": [
+     {
+      "text": "he had to admit defeat",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "SOL",
+      "note": "Sol is the Latin name for the sun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOS",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RESOL",
+       "to": "LOSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man rising at dawn, forced to concede he was beaten.",
+     "walkthrough": "Sun-up looks like dawn, but the hyphen hides a reversal: the whole run of letters so far is read upward.",
+     "definitionFit": "A loser is someone beaten in a contest, the one who had to concede; the definition describes such a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sun-up"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +279,77 @@
     "text": "A woman's heartless article written after look into plan",
     "enumeration": "9"
    },
-   "solution": "CHARLOTTE"
+   "solution": "CHARLOTTE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHARLOTTE",
+    "definitions": [
+     {
+      "text": "A woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing put into another sits inside it, so the word for look goes within the plan"
+     },
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "without its heart a word loses its middle, keeping only its ends"
+     },
+     {
+      "text": "written after",
+      "for": "charade",
+      "note": "written after something means set down behind it, so the shortened article comes last"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan",
+      "gives": "CHART",
+      "note": "a chart is a map or plan"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word for look, as in lo and behold"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the definite article with its middle letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LO",
+      "T",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's cold-hearted piece of writing, composed after looking into a scheme.",
+     "walkthrough": "Written after just places the shortened article at the end. Charlotte is a woman's first name.",
+     "definitionFit": "Charlotte is a common female first name, so the answer names one particular woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +363,51 @@
     "text": "Quite happy just to read when camping",
     "enumeration": "9"
    },
-   "solution": "CONTENTED"
+   "solution": "CONTENTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTENTED",
+    "definitions": [
+     {
+      "text": "Quite happy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "just",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to read",
+      "gives": "CON",
+      "note": "to con is an old word meaning to study or read carefully"
+     },
+     {
+      "clueFragment": "camping",
+      "gives": "TENTED",
+      "note": "campers are tented, living under canvas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TENTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone on a camping trip happy simply to sit and read.",
+     "walkthrough": "CON for read or study is a crossword staple. The word just sits in the surface as filler between definition and wordplay.",
+     "definitionFit": "A contented person is satisfied with things as they are, which matches being fairly pleased."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +421,54 @@
     "text": "The person supplying essentials for the new terrace",
     "enumeration": "7"
    },
-   "solution": "CATERER"
+   "solution": "CATERER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATERER",
+    "definitions": [
+     {
+      "text": "The person supplying essentials",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the word is a remade one, so its letters come out in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrace",
+      "gives": "TERRACE",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TERRACE",
+       "gives": "CATERER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supplier bringing basics to a newly built row of houses.",
+     "walkthrough": "Terrace here is a row of joined houses, a common British street layout.",
+     "definitionFit": "A caterer supplies the food and drink, the essentials of a party or event, to the customer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terrace"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +482,64 @@
     "text": "Report ripped up with speed",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NARRATE",
+    "definitions": [
+     {
+      "text": "Report",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripped",
+      "gives": "RAN",
+      "note": "to rip along is to rush, so ripped means ran"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "rate is speed, as in a rate of knots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAR",
+      "RATE"
+     ],
+     "reversals": [
+      {
+       "from": "RAN",
+       "to": "NAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report torn to shreds in a hurry.",
+     "walkthrough": "Ripped up wants to mean torn, but ripped is the verb for rushing along, which is turned upward.",
+     "definitionFit": "To narrate is to tell or recount events, which is what one does when one reports them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ripped"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +553,43 @@
     "text": "Over-tipped",
     "enumeration": "5"
    },
-   "solution": "ENDED"
+   "solution": "ENDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENDED",
+    "definitions": [
+     {
+      "text": "Over",
+      "at": 0
+     },
+     {
+      "text": "tipped",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Over",
+      "note": "first meaning: finished, as when the game is over"
+     },
+     {
+      "clueFragment": "tipped",
+      "note": "second meaning: given an end or tip, as a filter-tipped cigarette"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The hyphen makes it look like tipping something over; split it, and each half is a separate meaning.",
+     "definitionFit": "Something finished has come to its close, and an object fitted with a tip has been given an end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tipped"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +603,66 @@
     "text": "Fruit putting real taste into filling before this",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TANGERINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "something filling another sits inside it, so the short word goes within the next"
+     }
+    ],
+    "linkWords": [
+     "putting",
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real taste",
+      "gives": "TANG",
+      "note": "a tang is a sharp, strong flavour"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "IN",
+      "note": "the preposition reduced to its first part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG",
+      "ER",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Adding genuine flavour to a pie filling before serving.",
+     "walkthrough": "Into and this sit awkwardly in this parse, so the printed clue may have lost a word; ERE for before is an old poetic form.",
+     "definitionFit": "A tangerine is a small, loose-skinned orange, a citrus fruit like the mandarin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +676,45 @@
     "text": "Put in order for outfit",
     "enumeration": "5"
    },
-   "solution": "DRESS"
+   "solution": "DRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESS",
+    "definitions": [
+     {
+      "text": "Put in order",
+      "at": 0
+     },
+     {
+      "text": "outfit",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put in order",
+      "note": "first meaning: to arrange, as soldiers ... their ranks into line"
+     },
+     {
+      "clueFragment": "outfit",
+      "note": "second meaning: a garment or set of clothes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Dressing ranks is the military term for straightening a line of troops, which is why the verb means arrange.",
+     "definitionFit": "The verb means to align or arrange neatly, while the noun names clothing, especially a frock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +728,54 @@
     "text": "Bringing transient change right away",
     "enumeration": "9"
    },
-   "solution": "INSTANTER"
+   "solution": "INSTANTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSTANTER",
+    "definitions": [
+     {
+      "text": "right away",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "a change in the word before it means its letters are rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "Bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transient",
+      "gives": "TRANSIENT",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRANSIENT",
+       "gives": "INSTANTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passing shift that takes effect at once.",
+     "walkthrough": "The answer is a rare, rather legal adverb from Latin, meaning at once.",
+     "definitionFit": "Instanter is a formal adverb meaning immediately, without delay, so it equals at once in any sentence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +789,42 @@
     "text": "Close compact",
     "enumeration": "5"
    },
-   "solution": "DENSE"
+   "solution": "DENSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DENSE",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     },
+     {
+      "text": "compact",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Close",
+      "note": "first meaning: thick or tightly packed, as close fog"
+     },
+     {
+      "clueFragment": "compact",
+      "note": "second meaning: pressed tightly together, solid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Close reads like a verb or a word about nearness, but here it is the adjective for something thick, like close or heavy fog.",
+     "definitionFit": "Both words describe matter packed tightly together with little space between its parts, like thick fog or solid crowds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +838,50 @@
     "text": "Married, and said to be virtuous",
     "enumeration": "5"
    },
-   "solution": "MORAL"
+   "solution": "MORAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MORAL",
+    "definitions": [
+     {
+      "text": "virtuous",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     },
+     {
+      "clueFragment": "said",
+      "gives": "ORAL",
+      "note": "something said is spoken rather than written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly married person reported to be of good character.",
+     "definitionFit": "A moral person behaves according to good principles, so the adjective matches upright or righteous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +895,58 @@
     "text": "Note advertisement on 8, being forward",
     "enumeration": "9"
    },
-   "solution": "READDRESS"
+   "solution": "READDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READDRESS",
+    "definitions": [
+     {
+      "text": "forward",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "on",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "advertisement",
+      "gives": "AD",
+      "note": "ad is the short form of advertisement"
+     },
+     {
+      "clueFragment": "8",
+      "gives": "DRESS",
+      "note": "the answer to 8 down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "AD",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A memo about an advert placed on page 8, seeming rather pushy.",
+     "walkthrough": "Being forward suggests boldness, but forward is the verb for sending post on to a new address.",
+     "definitionFit": "To readdress a letter is to change its address and send it on, just as one forwards mail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,10 +957,57 @@
    },
    "length": 7,
    "clue": {
-    "text": "The know-all can be pert - it's deplorable 97",
+    "text": "The know-all can be pert - it's deplorable",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "The know-all",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deplorable",
+      "for": "anagram",
+      "note": "something deplorable is in a bad state, so these letters are messed up into a new order"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pert - it's",
+      "gives": "PERTITS",
+      "note": "taken as written, seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERTITS",
+       "gives": "TIPSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cocky know-it-all whose cheek is regrettable.",
+     "walkthrough": "A tipster sells racing tips, claiming to know which horse will win; the know-all is a playful description of that trade.",
+     "definitionFit": "A racing tipster claims inside knowledge of winners, so he is presented as the one who knows everything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "deplorable"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +1021,54 @@
     "text": "Moving after professional encouragement",
     "enumeration": "9"
    },
-   "solution": "PROMOTION"
+   "solution": "PROMOTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROMOTION",
+    "definitions": [
+     {
+      "text": "encouragement",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something means following it, so the word for moving is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professional",
+      "gives": "PRO",
+      "note": "pro is short for professional"
+     },
+     {
+      "clueFragment": "Moving",
+      "gives": "MOTION",
+      "note": "motion is the act of moving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "MOTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Changing jobs after a word of support from an expert.",
+     "walkthrough": "After places the word for moving behind the short form of professional.",
+     "definitionFit": "Promotion of a cause or product is active support and furtherance of it, which is a kind of encouragement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Moving"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1088,39 @@
      }
     ]
    },
-   "solution": "EBBTIDE"
+   "solution": "EBBTIDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EBB-TIDE",
+    "definitions": [
+     {
+      "text": "Falling in the main",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Falling in the main",
+      "note": "surface reading: mostly falling, as prices falling for the most part"
+     },
+     {
+      "clueFragment": "the main",
+      "note": "setter's reading: the main is the open sea, and the falling is the water level dropping"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In the main usually means mostly; here the main is the old poetic word for the sea, and what falls in it is the receding water.",
+     "definitionFit": "The ebbing of the sea is the period when the water level drops between high and low water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1134,58 @@
     "text": "Striking and playing cricket without hesitation",
     "enumeration": "9"
    },
-   "solution": "BATTERING"
+   "solution": "BATTERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BATTERING",
+    "definitions": [
+     {
+      "text": "Striking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the cricket word goes around the pause"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playing cricket",
+      "gives": "BATTING",
+      "note": "a side playing cricket at the crease is batting"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATT",
+      "ER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman hitting out and playing without any pause.",
+     "walkthrough": "Without hesitation suggests decisiveness, but without means outside, so the cricket word surrounds the hesitation.",
+     "definitionFit": "Battering is hitting something hard and repeatedly, so it is the act of striking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1199,50 @@
     "text": "The canter forming part of a dancer's repertoire",
     "enumeration": "9"
    },
-   "solution": "ENTRECHAT"
+   "solution": "ENTRECHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTRECHAT",
+    "definitions": [
+     {
+      "text": "part of a dancer's repertoire",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forming",
+      "for": "anagram",
+      "note": "forming something new out of these words means remaking their letters into another shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The canter",
+      "gives": "THECANTER",
+      "note": "taken as written, nine letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THECANTER",
+       "gives": "ENTRECHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse's canter turned into a step in a show performance.",
+     "definitionFit": "An entrechat is a ballet leap in which the dancer crosses the feet several times, so it belongs to a dancer's repertoire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "canter"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1256,58 @@
     "text": "Wild flower spreading round the North",
     "enumeration": "7"
    },
-   "solution": "FLORENT"
+   "solution": "VIOLENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIOLENT",
+    "definitions": [
+     {
+      "text": "Wild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spreading round",
+      "for": "container",
+      "note": "something spreading round another thing encloses it, so the flower name wraps the next piece"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "VIOLET",
+      "note": "a small purple spring flower"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for North"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIOLE",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild plant whose growth is spreading around the north of the country.",
+     "walkthrough": "Wild flower reads as one phrase, but Wild is the definition and flower alone is the plant; the model's guess FLORENT is not a word.",
+     "definitionFit": "Violent and wild both describe uncontrolled, ferocious behaviour, as in a wild or violent storm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1321,44 @@
     "text": "A holiday-maker who's blundered?",
     "enumeration": "7"
    },
-   "solution": "TRIPPER"
+   "solution": "TRIPPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRIPPER",
+    "definitions": [
+     {
+      "text": "A holiday-maker",
+      "at": 0
+     },
+     {
+      "text": "who's blundered",
+      "at": 16,
+      "note": "a clause describing a person, standing for one who has blundered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A holiday-maker",
+      "note": "first meaning: a sightseer on a day out"
+     },
+     {
+      "clueFragment": "who's blundered",
+      "note": "second meaning: one who has stumbled or made a slip"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the word for a day-trip visitor also reads as one who trips up.",
+     "definitionFit": "A day trip makes a sightseer a tripper, and anyone who stumbles or slips has tripped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blundered"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1372,49 @@
     "text": "Appeal in French to doctor",
     "enumeration": "7"
    },
-   "solution": "ENTREAT"
+   "solution": "ENTREAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTREAT",
+    "definitions": [
+     {
+      "text": "Appeal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "en is French for in"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "TREAT",
+      "note": "to doctor a patient is to treat them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TREAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a plea, in French, to a physician.",
+     "definitionFit": "To entreat someone is to beg or plead earnestly with them, which matches the verb appeal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1428,43 @@
     "text": "Some appear confident it lends style",
     "enumeration": "7"
    },
-   "solution": "ENTITLE"
+   "solution": "ENTITLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTITLE",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some appear",
+      "for": "hidden_word",
+      "note": "only some letters of the words that follow appear in the answer, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confident it lends",
+      "gives": "ENTITLE",
+      "note": "the run of letters across these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Self-assurance said to lend a person an air of style.",
+     "walkthrough": "Style is the verb meaning to name or give a title to someone.",
+     "definitionFit": "To entitle someone is to give them a title or name, just as to style them is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "style"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1478,59 @@
     "text": "A game fighter-a good man a champion",
     "enumeration": "9"
    },
-   "solution": "APOLOGIST"
+   "solution": "APOLOGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APOLOGIST",
+    "definitions": [
+     {
+      "text": "a champion",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "polo is a game played on horseback"
+     },
+     {
+      "clueFragment": "fighter",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "a good man",
+      "gives": "ST",
+      "note": "a saint is a good man, abbreviated ST"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "GI",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of praise for a plucky boxer who is decent and a title holder.",
+     "walkthrough": "ST for saint, a good man, is a crossword convention. Champion here is the person who speaks up for a cause, not a winner.",
+     "definitionFit": "An apologist argues in defence of a belief or person, as a champion of that cause does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1544,47 @@
     "text": "Room will be found for the old Greek",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "Room",
+      "at": 0
+     },
+     {
+      "text": "the old Greek",
+      "at": 23,
+      "note": "adjective, of ancient Athens"
+     }
+    ],
+    "linkWords": [
+     "will be found for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Room",
+      "note": "first meaning: a space at the top of a house"
+     },
+     {
+      "clueFragment": "the old Greek",
+      "note": "second meaning: belonging to Attica, the region of ancient Athens"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests finding space for an elderly Greek guest, but the second meaning is the classical dialect and region of Athens.",
+     "definitionFit": "The top-floor room under the roof shares its name with Attica, the ancient Athenian region and its dialect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Room"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1598,42 @@
     "text": "Exceed expenditure",
     "enumeration": "5"
    },
-   "solution": "OUTGO"
+   "solution": "OUTGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTGO",
+    "definitions": [
+     {
+      "text": "Exceed",
+      "at": 0
+     },
+     {
+      "text": "expenditure",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exceed",
+      "note": "first meaning: to go further than, surpass"
+     },
+     {
+      "clueFragment": "expenditure",
+      "note": "second meaning: money spent, an outlay"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as overspending; as a verb the word means to surpass, and as a noun it means outlay.",
+     "definitionFit": "As a verb it means to outdo or surpass; as a noun it is spending, the opposite of income."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exceed"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,10 +1644,40 @@
    },
    "length": 5,
    "clue": {
-    "text": "\"A lover's eyes will gaze an blind\" (L.L.Lost)",
+    "text": "\"A lover's eyes will gaze an — blind\" (L.L.Lost)",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "\"A lover's eyes will gaze an — blind\" (L.L.Lost)",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"A lover's eyes will gaze an — blind\"",
+      "note": "surface reading: a line of verse with a word left out"
+     },
+     {
+      "clueFragment": "(L.L.Lost)",
+      "note": "setter's reading: fill the gap with the word Berowne uses in Love's Labour's Lost, Act 4 Scene 3"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A quotation with a gap: Berowne claims a lover's gaze could outstare the bird famed for looking straight into the sun.",
+     "definitionFit": "The bird was believed able to gaze at the sun undazzled, so a lover outstaring it would make it blind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1691,50 @@
     "text": "A great film star's dress-ring",
     "enumeration": "5"
    },
-   "solution": "GARBO"
+   "solution": "GARBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARBO",
+    "definitions": [
+     {
+      "text": "A great film star",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "GARB",
+      "note": "garb is clothing, dress"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is round like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A screen legend's gown worn with a ring.",
+     "walkthrough": "Dress-ring looks like one item of jewellery; the hyphen just joins two pieces.",
+     "definitionFit": "Greta Garbo was a Swedish Hollywood star of the 1920s and 30s, one of the screen greats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress-ring"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1748,45 @@
     "text": "Oliver's perverted bent",
     "enumeration": "5"
    },
-   "solution": "TWIST"
+   "solution": "TWIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWIST",
+    "definitions": [
+     {
+      "text": "Oliver's",
+      "at": 0,
+      "note": "the surname of the Dickens hero Oliver"
+     },
+     {
+      "text": "perverted bent",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oliver's",
+      "note": "first meaning: Oliver ... is the orphan hero of the Dickens novel"
+     },
+     {
+      "clueFragment": "perverted bent",
+      "note": "second meaning: a kink or warped inclination"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that someone called Oliver has a corrupt streak.",
+     "walkthrough": "Oliver's means the name that belongs to Oliver, his surname in the Dickens title.",
+     "definitionFit": "A twist in someone's character is a quirk or warped tendency, and the word also names the Dickens orphan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1800,39 @@
     "text": "The leading man",
     "enumeration": "9"
    },
-   "solution": "PATRIARCH"
+   "solution": "PATRIARCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PATRIARCH",
+    "definitions": [
+     {
+      "text": "The leading man",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The leading man",
+      "note": "surface reading: the male star of a play or film"
+     },
+     {
+      "clueFragment": "leading man",
+      "note": "setter's reading: the man who leads a family or tribe as its head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Leading man suggests the theatre; here it is the elder who leads his people, as Abraham did.",
+     "definitionFit": "A patriarch is the male head of a family, tribe or church, the man who leads the rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1846,47 @@
     "text": "A meeting about following the correct procedure",
     "enumeration": "9"
    },
-   "solution": "CONCOURSE"
+   "solution": "CONCOURSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONCOURSE",
+    "definitions": [
+     {
+      "text": "A meeting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "following the correct procedure",
+      "gives": "ON COURSE",
+      "note": "on course means proceeding as planned"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONCOURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering held to discuss proper procedure.",
+     "walkthrough": "C for circa, about, is a common abbreviation before a date.",
+     "definitionFit": "A concourse is a gathering or coming together of people or things, hence an assembly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +1900,52 @@
     "text": "Note a lot show spirit here",
     "enumeration": "5"
    },
-   "solution": "GHOST"
+   "solution": "GHOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GHOST",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "show",
+     "here"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "G",
+      "note": "G is a musical note"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "HOST",
+      "note": "a host is a great number, as a host of daffodils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOST"
+     ]
+    },
+    "explanation": {
+     "surface": "A rallying call: take note, plenty of you show some spirit here.",
+     "walkthrough": "Show spirit sounds like a call for courage; spirit is the definition, a phantom.",
+     "definitionFit": "A ghost is the spirit of a dead person, so the noun spirit in its supernatural sense matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spirit"
+    }
+   }
   }
  ]
 }
