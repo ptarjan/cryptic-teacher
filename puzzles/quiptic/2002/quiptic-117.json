@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Joint bought by direct debit in sale",
     "enumeration": "6"
    },
-   "solution": "SADDLE"
+   "solution": "SADDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SADDLE",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing bought in another sits inside it, so the payment method goes within the word for a cut-price event"
+     }
+    ],
+    "linkWords": [
+     "bought"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sale",
+      "gives": "SALE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "direct debit",
+      "gives": "DD",
+      "note": "DD is the standard abbreviation for direct debit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper picks up a cheap cut of meat in a sale and pays by bank mandate.",
+     "walkthrough": "SA(DD)LE: a direct debit is a British automatic bank payment, abbreviated DD.",
+     "definitionFit": "A saddle is a butcher's cut of meat taken from the back of lamb or mutton, eaten as a roasting piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bought"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,51 @@
     "text": "Fancied player wants smaller type of grapes",
     "enumeration": "8"
    },
-   "solution": "SEEDLESS"
+   "solution": "SEEDLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEEDLESS",
+    "definitions": [
+     {
+      "text": "type of grapes",
+      "at": 29,
+      "note": "the answer is an adjective describing that type of grape"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancied player",
+      "gives": "SEED",
+      "note": "a seed is a ranked player in a tennis tournament, expected to go far"
+     },
+     {
+      "clueFragment": "smaller",
+      "gives": "LESS",
+      "note": "less means smaller in amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEED",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A top tennis player wants a smaller bunch of grapes.",
+     "definitionFit": "Seedless grapes are a cultivated variety bred to have no pips, sold widely for eating fresh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fancied"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,51 @@
     "text": "Relaxed enough to swallow batter",
     "enumeration": "8"
    },
-   "solution": "DOWNBEAT"
+   "solution": "DOWNBEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNBEAT",
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "enough to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swallow",
+      "gives": "DOWN",
+      "note": "to down a drink is to swallow it"
+     },
+     {
+      "clueFragment": "batter",
+      "gives": "BEAT",
+      "note": "to batter is to beat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "BEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is calm enough to gulp down pancake mix.",
+     "walkthrough": "'Swallow' and 'batter' both look like nouns (bird, pancake mix) but are verbs here.",
+     "definitionFit": "Downbeat can mean low-key or casual in manner, an easygoing understated style that is unhurried and calm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "batter"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +217,60 @@
     "text": "Outsider in divorce city left going uphill",
     "enumeration": "5"
    },
-   "solution": "LONER"
+   "solution": "LONER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LONER",
+    "definitions": [
+     {
+      "text": "Outsider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going uphill",
+      "for": "reversal",
+      "note": "in a down clue, going uphill means the letters are read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "divorce city",
+      "gives": "RENO",
+      "note": "Reno, Nevada, was famous for quick, easy divorces"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ONER"
+     ],
+     "reversals": [
+      {
+       "from": "RENOL",
+       "to": "LONER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly divorced loner heads out of town up into the hills.",
+     "definitionFit": "A loner is a person who keeps apart from others, a social outsider by choice or temperament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +284,53 @@
     "text": "Submissive when wiggling toe in bed",
     "enumeration": "8"
    },
-   "solution": "OBEDIENT"
+   "solution": "OBEDIENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBEDIENT",
+    "definitions": [
+     {
+      "text": "Submissive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wiggling",
+      "for": "anagram",
+      "note": "something wiggling moves about, so these letters are shifted out of their order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toe in bed",
+      "gives": "TOEINBED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOEINBED",
+       "gives": "OBEDIENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lies meekly in bed, only twitching a toe.",
+     "definitionFit": "Obedient and submissive are near synonyms, both describing a person who readily does as they are told."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wiggling"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,39 @@
      }
     ]
    },
-   "solution": "BROTHERLYLOVE"
+   "solution": "BROTHERLYLOVE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BROTHERLY LOVE",
+    "definitions": [
+     {
+      "text": "Monk's desire?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monk's desire?",
+      "note": "surface reading: a monk's yearning, perhaps for something forbidden"
+     },
+     {
+      "clueFragment": "Monk's desire?",
+      "note": "setter's reading: a monk is addressed as Brother, so his kind of affection is that of a sibling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A monk is a brother of his order, so the fond care monks share is fraternal.",
+     "definitionFit": "Brotherly love is fraternal affection and goodwill between people, the kind of fellowship expected among members of a religious community."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "desire"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +396,55 @@
     "text": "Recipe functioning to our shame",
     "enumeration": "9"
    },
-   "solution": "DISHONOUR"
+   "solution": "DISHONOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISHONOUR",
+    "definitions": [
+     {
+      "text": "shame",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recipe",
+      "gives": "DISH",
+      "note": "a dish is a prepared recipe"
+     },
+     {
+      "clueFragment": "functioning",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "ON",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery mishap brings embarrassment on the family.",
+     "definitionFit": "Dishonour is loss of respect or reputation, a disgrace that causes shame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "functioning"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +458,67 @@
     "text": "Colourful name describing draught animal another way",
     "enumeration": "6"
    },
-   "solution": "EXOTIC"
+   "solution": "EXOTIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EXOTIC",
+    "definitions": [
+     {
+      "text": "Colourful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe can mean to draw around, so the verb for name goes round the animal"
+     },
+     {
+      "text": "another way",
+      "for": "reversal",
+      "note": "going another way means travelling in the opposite direction, so the whole is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "CITE",
+      "note": "to cite is to name or mention"
+     },
+     {
+      "clueFragment": "draught animal",
+      "gives": "OX",
+      "note": "an ox pulls a plough or cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XO",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITOXE",
+       "to": "EXOTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vivid nickname is given to a working beast in a different way.",
+     "walkthrough": "'Describing' here is the geometric sense, drawing a line around: CIT(OX)E, then read backwards.",
+     "definitionFit": "Exotic means strikingly unusual or foreign-looking, so vivid and colourful in an exciting way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +532,64 @@
     "text": "I'd go back into the bank, which is more businesslike",
     "enumeration": "6"
    },
-   "solution": "TIDIER"
+   "solution": "TIDIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIDIER",
+    "definitions": [
+     {
+      "text": "more businesslike",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "go back",
+      "for": "reversal",
+      "note": "going back means retracing the route, so the contraction is read backwards"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so the turned letters sit within the word for a bank"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bank",
+      "gives": "TIER",
+      "note": "a tier is a bank or row, as of seats"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "DI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone plans to return to the bank, the more professional option.",
+     "walkthrough": "'Bank' suggests money, but it is a tier, a raised row.",
+     "definitionFit": "Tidier means neater and more orderly, which is what a more efficient, organised approach looks like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +603,43 @@
     "text": "Man tucked into red wine",
     "enumeration": "5"
    },
-   "solution": "EDWIN"
+   "solution": "EDWIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDWIN",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "hidden_word",
+      "note": "something tucked into a phrase lies inside it, so the letters are read straight from the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red wine",
+      "gives": "EDWIN",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A fellow settles down to a bottle of claret.",
+     "definitionFit": "Edwin is a man's given name, so a crossword can define it simply by the word for a male person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tucked"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +653,51 @@
     "text": "Puzzle gives solver irritated expression",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gives solver"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritated",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     },
+     {
+      "clueFragment": "expression",
+      "gives": "WORD",
+      "note": "a word is an expression or term"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky puzzle leaves the person tackling it scowling.",
+     "walkthrough": "The clue is self-referential: the puzzle you are doing is the answer, and it may well make you cross.",
+     "definitionFit": "A crossword is a type of word puzzle with interlocking answers written into a grid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "solver"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +711,57 @@
     "text": "Denial made by Diana in grip of spasm",
     "enumeration": "13"
    },
-   "solution": "CONTRADICTION"
+   "solution": "CONTRADICTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONTRADICTION",
+    "definitions": [
+     {
+      "text": "Denial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in grip of",
+      "for": "container",
+      "note": "being in the grip of something means being held inside it, so the name sits within the word for spasm"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spasm",
+      "gives": "CONTRACTION",
+      "note": "a contraction is a muscular spasm"
+     },
+     {
+      "clueFragment": "Diana",
+      "gives": "DI",
+      "note": "Di is the short form of Diana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRA",
+      "DI",
+      "CTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A denial is issued by Diana while she is having a cramp.",
+     "definitionFit": "A contradiction is a statement that denies or asserts the opposite of another, so a denial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spasm"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +775,53 @@
     "text": "Tangle with fluttering bat in Rhyl",
     "enumeration": "9"
    },
-   "solution": "LABYRINTH"
+   "solution": "LABYRINTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LABYRINTH",
+    "definitions": [
+     {
+      "text": "Tangle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluttering",
+      "for": "anagram",
+      "note": "fluttering is flitting about erratically, so these letters are tossed into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bat in Rhyl",
+      "gives": "BATINRHYL",
+      "note": "taken as written; Rhyl is a seaside town in North Wales"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BATINRHYL",
+       "gives": "LABYRINTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bat flapping about in a Welsh seaside resort causes a commotion.",
+     "definitionFit": "A labyrinth is a maze, and figuratively any intricate, confusing tangle of paths or ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bat"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +835,51 @@
     "text": "Twist all but this fruit",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but",
+      "for": "deletion",
+      "note": "all but means everything except one piece, so the final letter of the name is dropped"
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twist",
+      "gives": "OLIVER",
+      "note": "Oliver Twist is the Dickens orphan, so Twist leads to his first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to wring out every fruit but one.",
+     "walkthrough": "'Twist' looks like a verb, but it is Dickens's Oliver Twist; OLIVER loses its last letter.",
+     "definitionFit": "The olive is the small oily stone fruit of the Mediterranean olive tree, eaten or pressed for oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +893,56 @@
     "text": "Tough and small man who sells headgear with demonstration",
     "enumeration": "12"
    },
-   "solution": "SHATTERPROOF"
+   "solution": "SHATTERPROOF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHATTERPROOF",
+    "definitions": [
+     {
+      "text": "Tough",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "man who sells headgear",
+      "gives": "HATTER",
+      "note": "a hatter makes or sells hats"
+     },
+     {
+      "clueFragment": "demonstration",
+      "gives": "PROOF",
+      "note": "a proof demonstrates that something is true"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HATTER",
+      "PROOF"
+     ]
+    },
+    "explanation": {
+     "surface": "A short hat seller shows off his wares and proves himself sturdy.",
+     "definitionFit": "Shatterproof glass or plastic is toughened so that it resists breaking into fragments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demonstration"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +956,47 @@
     "text": "Quick and on hand?",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     },
+     {
+      "text": "on hand?",
+      "at": 10,
+      "note": "a phrase for where the thing is found, not a synonym"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quick",
+      "note": "first meaning: brief and concise, as in a short sketch"
+     },
+     {
+      "clueFragment": "on hand?",
+      "note": "second meaning: literally something that is part of your hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Quick' also hints at the quick, the tender flesh under a nail; the question mark flags the literal reading of 'on hand'.",
+     "definitionFit": "A thumbnail sketch is a brief summary, and a thumbnail is the nail growing on the thumb of a hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Quick"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1010,60 @@
     "text": "Nation not starting to carry through the science of flying",
     "enumeration": "8"
    },
-   "solution": "AVIATION"
+   "solution": "AVIATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AVIATION",
+    "definitions": [
+     {
+      "text": "the science of flying",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "not starting means the word loses its opening letter"
+     },
+     {
+      "text": "to carry",
+      "for": "container",
+      "note": "to carry something is to hold it inside, so the shortened word wraps around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nation",
+      "gives": "NATION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "VIA",
+      "note": "via means by way of, through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VIA",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "A country cannot get its airline programme off the ground.",
+     "definitionFit": "Aviation is the design, development and operation of aircraft, the practical field of flight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1077,64 @@
     "text": "Penniless, having a pound in New York, with interruptions",
     "enumeration": "8"
    },
-   "solution": "BROKENLY"
+   "solution": "BROKENLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BROKENLY",
+    "definitions": [
+     {
+      "text": "with interruptions",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item in a place sits inside the abbreviation for that place"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penniless",
+      "gives": "BROKE",
+      "note": "broke means having no money"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "a pound",
+      "gives": "L",
+      "note": "L is the abbreviation for a pound sterling, from Latin libra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROKE",
+      "N",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A broke traveller in Manhattan, with one pound to their name, gets constantly interrupted.",
+     "definitionFit": "Brokenly means in fits and starts, haltingly, as speech is when it keeps being interrupted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1154,52 @@
      }
     ]
    },
-   "solution": "SUNDAYDRIVER"
+   "solution": "SUNDAYDRIVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDAY DRIVER",
+    "definitions": [
+     {
+      "text": "Amateurish motorist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "get",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "SUNDAY",
+      "note": "a Sunday is a newspaper published on that day"
+     },
+     {
+      "clueFragment": "the club",
+      "gives": "DRIVER",
+      "note": "a driver is a golf club used for long tee shots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNDAY",
+      "DRIVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy motorist picks up the paper at his club.",
+     "walkthrough": "'Club' suggests a members' club, but it is the golf club.",
+     "definitionFit": "A Sunday driver is a slow, timid or inexperienced motorist who drives as if on a leisurely weekend outing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1213,70 @@
     "text": "Bumps into Head of Eton, rising in admiration",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "admiration",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the opening of the school name is kept"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means the letters are read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bumps into",
+      "gives": "MEETS",
+      "note": "to bump into someone is to meet them by chance"
+     },
+     {
+      "clueFragment": "Eton",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Eton, the English public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEETSE",
+       "to": "ESTEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running into the Eton headmaster on his way up, someone is full of respect.",
+     "definitionFit": "Esteem is respect and high regard for someone, a near synonym of admiration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bumps"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1290,54 @@
     "text": "Famous headmaster who translated Roland",
     "enumeration": "6"
    },
-   "solution": "ARNOLD"
+   "solution": "ARNOLD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARNOLD",
+    "definitions": [
+     {
+      "text": "Famous headmaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating turns words into another form, so these letters are rendered in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "who"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roland",
+      "gives": "ROLAND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROLAND",
+       "gives": "ARNOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A renowned schoolmaster once translated the Song of Roland.",
+     "walkthrough": "Thomas Arnold was the reforming 19th-century headmaster of Rugby School in England.",
+     "definitionFit": "Thomas Arnold of Rugby School is the archetypal famous English headmaster, celebrated in Tom Brown's Schooldays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1351,54 @@
     "text": "Cancel credit invested in submarine",
     "enumeration": "5"
    },
-   "solution": "SCRUB"
+   "solution": "SCRUB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCRUB",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "something invested in a thing is placed within it, so one piece sits inside the vessel word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "submarine",
+      "gives": "SUB",
+      "note": "sub is short for submarine"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CR",
+      "UB"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial deal involving a submarine is called off.",
+     "definitionFit": "To scrub a plan is informal for to call it off or abandon it, the same as cancelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1412,66 @@
     "text": "Lettuce stalk outside river leading to witty conversation",
     "enumeration": "9"
    },
-   "solution": "CROSSTALK"
+   "solution": "CROSSTALK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CROSSTALK",
+    "definitions": [
+     {
+      "text": "witty conversation",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "a word outside another surrounds it, so the salad word wraps around the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lettuce",
+      "gives": "COS",
+      "note": "cos is a variety of long-leaved lettuce"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "stalk",
+      "gives": "STALK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "OS",
+      "STALK"
+     ]
+    },
+    "explanation": {
+     "surface": "A lettuce stem lying by a riverbank somehow sparks clever banter.",
+     "walkthrough": "Cos is a long-leaved lettuce (romaine); the river sits after its first letter before the stalk follows.",
+     "definitionFit": "Cross-talk is rapid exchange of repartee, especially between comedians on stage, so witty back-and-forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stalk"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1485,50 @@
     "text": "Good man meets everyone in market booth",
     "enumeration": "5"
    },
-   "solution": "STALL"
+   "solution": "STALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STALL",
+    "definitions": [
+     {
+      "text": "market booth",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "meets",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man",
+      "gives": "ST",
+      "note": "a saint is a good man, abbreviated ST"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly man greets all comers at his market pitch.",
+     "definitionFit": "A stall is a stand or booth from which goods are sold in a marketplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1542,65 @@
     "text": "Reminiscent of Evita with fellow on the rebound",
     "enumeration": "9"
    },
-   "solution": "EVOCATIVE"
+   "solution": "EVOCATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EVOCATIVE",
+    "definitions": [
+     {
+      "text": "Reminiscent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rebound",
+      "for": "reversal",
+      "note": "something on the rebound bounces back the way it came, so the combined letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evita",
+      "gives": "EVITA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "COVE",
+      "note": "cove is old British slang for a man or fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOC",
+      "ATIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITACOVE",
+       "to": "EVOCATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eva Perón takes up with a new man straight after a break-up.",
+     "walkthrough": "EVITA + COVE run backwards in one go gives EVOC ATIVE.",
+     "definitionFit": "Evocative means calling up memories or images, so a scene evocative of the past is reminiscent of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rebound"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1614,52 @@
     "text": "A story, number unknown",
     "enumeration": "5"
    },
-   "solution": "ALIEN"
+   "solution": "ALIEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALIEN",
+    "definitions": [
+     {
+      "text": "unknown",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story can mean a fib or falsehood"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale whose figures are not given.",
+     "definitionFit": "Alien means foreign or strange, something outside one's experience and therefore unfamiliar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1673,70 @@
     "text": "Return of stupid daughter with fish, which is only so-so",
     "enumeration": "8"
    },
-   "solution": "MIDDLING"
+   "solution": "MIDDLING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MIDDLING",
+    "definitions": [
+     {
+      "text": "only so-so",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word for dim-witted is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "DIM",
+      "note": "dim means slow-witted"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "ling is a long cod-like sea fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MID",
+      "D",
+      "LING"
+     ],
+     "reversals": [
+      {
+       "from": "DIM",
+       "to": "MID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull girl comes home with a mediocre catch.",
+     "definitionFit": "Middling means of moderate or average quality, neither good nor bad, which is what so-so describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Return"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1750,61 @@
     "text": "Lots provided in papal yearbook, initially",
     "enumeration": "6"
    },
-   "solution": "PLENTY"
+   "solution": "PLENTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLENTY",
+    "definitions": [
+     {
+      "text": "Lots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the two words just before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in a pair of letters sits between them, wrapped on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papal yearbook",
+      "gives": "PY",
+      "select": "first",
+      "note": "the first letters of these two words"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "LENT",
+      "note": "lent means provided on loan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LENT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A papal almanac has plenty in it, according to its opening pages.",
+     "definitionFit": "Plenty means a large quantity, more than enough, the same as having lots of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   }
  ]
 }
