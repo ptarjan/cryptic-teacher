@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "32 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "Royal I spotted in island — here for the regatta?",
     "enumeration": "5"
    },
-   "solution": "COWES"
+   "solution": "COWES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COWES",
+    "definitions": [
+     {
+      "text": "here for the regatta?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "container",
+      "note": "something spotted in a place is found inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal I",
+      "gives": "WE",
+      "note": "the royal 'we' is how a monarch says 'I'"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "COS",
+      "note": "Cos (Kos) is a Greek island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "WE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal visitor turns up on an island for a sailing regatta.",
+     "walkthrough": "COWES is the Isle of Wight town that hosts Cowes Week, the famous yachting regatta; the question mark marks the definition by example.",
+     "definitionFit": "The town is the home of a celebrated annual yachting festival, so it is the place one goes for that sailing event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Royal"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +100,43 @@
     "text": "Grasps an instrument for drawing",
     "enumeration": "9"
    },
-   "solution": "COMPASSES"
+   "solution": "COMPASSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMPASSES",
+    "definitions": [
+     {
+      "text": "Grasps",
+      "at": 0
+     },
+     {
+      "text": "an instrument for drawing",
+      "at": 7,
+      "note": "the plural noun names one instrument"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grasps",
+      "note": "first meaning: takes in or encircles, as a verb"
+     },
+     {
+      "clueFragment": "an instrument for drawing",
+      "note": "second meaning: a hinged tool for drawing circles"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone takes hold of a draughtsman's tool.",
+     "definitionFit": "To compass something is to understand or encircle it, and a pair of compasses draws arcs and circles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Grasps"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +150,58 @@
     "text": "Courted sweetheart in a club",
     "enumeration": "5"
    },
-   "solution": "WOOED"
+   "solution": "WOOED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WOOED",
+    "definitions": [
+     {
+      "text": "Courted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the club"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a club",
+      "gives": "WOOD",
+      "note": "a wood is a type of golf club"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "select": "middle",
+      "note": "read as sweet-heart: the heart, or middle letter, of sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor pursued his sweetheart at a nightclub.",
+     "walkthrough": "'Sweetheart' reads as a lover; it splits into the word sweet and its heart.",
+     "definitionFit": "To woo is to court someone romantically, so the past tense matches courted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +215,67 @@
     "text": "Specimen box daughter found in New Orleans",
     "enumeration": "8"
    },
-   "solution": "SOLANDER"
+   "solution": "SOLANDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SOLANDER",
+    "definitions": [
+     {
+      "text": "Specimen box",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "making something new reshapes it, so the letters are rearranged"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means sitting inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orleans",
+      "gives": "SOLANER",
+      "note": "the letters of Orleans rearranged"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLAN",
+      "D",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORLEANS",
+       "gives": "SOLANER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A collector's box is turned up by a daughter in New Orleans.",
+     "walkthrough": "'New Orleans' looks like the city; 'New' is the anagram signal working on Orleans.",
+     "definitionFit": "A solander is a book-shaped case for botanical specimens or prints, named after the botanist Daniel Solander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +295,55 @@
      }
     ]
    },
-   "solution": "MEANSTEST"
+   "solution": "MEANSTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEANS TEST",
+    "definitions": [
+     {
+      "text": "check on income",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken first",
+      "for": "charade",
+      "note": "taken first tells the solver to put the second-named piece at the front of the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imports",
+      "gives": "MEANS",
+      "note": "imports in the sense of signifies"
+     },
+     {
+      "clueFragment": "International",
+      "gives": "TEST",
+      "note": "a Test is an international cricket or rugby match"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEANS",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "An international trade measure, with imports checked first, set against national income.",
+     "walkthrough": "'Imports' looks like goods brought in, but here it is the verb meaning signifies.",
+     "definitionFit": "A means test is an official inquiry into someone's earnings and assets before granting state benefits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "imports"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +357,46 @@
     "text": "Mother fighting American priests",
     "enumeration": "4"
    },
-   "solution": "MAGI"
+   "solution": "MAGI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAGI",
+    "definitions": [
+     {
+      "text": "priests",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "an informal name for mother"
+     },
+     {
+      "clueFragment": "fighting American",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GI"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother takes on clergy from the United States.",
+     "definitionFit": "The Magi were the priestly caste of ancient Persia, and the wise men of the Nativity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +410,46 @@
     "text": "Those present some time before midnight take the floor",
     "enumeration": "10"
    },
-   "solution": "ATTENDANCE"
+   "solution": "ATTENDANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTENDANCE",
+    "definitions": [
+     {
+      "text": "Those present",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some time before midnight",
+      "gives": "ATTEN",
+      "note": "at ten, a time two hours before midnight"
+     },
+     {
+      "clueFragment": "take the floor",
+      "gives": "DANCE",
+      "note": "taking the floor means going out to dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTEN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Guests arriving shortly before midnight get up to dance.",
+     "definitionFit": "The attendance at an event is the group of people who turned up, as in a large attendance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +463,44 @@
     "text": "This is easy chair's occupant",
     "enumeration": "6"
    },
-   "solution": "SITTER"
+   "solution": "SITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SITTER",
+    "definitions": [
+     {
+      "text": "This is easy",
+      "at": 0
+     },
+     {
+      "text": "chair's occupant",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This is easy",
+      "note": "first meaning: an easy chance, such as a simple catch in cricket"
+     },
+     {
+      "clueFragment": "chair's occupant",
+      "note": "second meaning: one seated, as an artist's model"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a remark about whoever is sitting in an easy chair.",
+     "walkthrough": "'Easy chair' looks like a single phrase, but the clue breaks after 'easy'.",
+     "definitionFit": "A sitter is slang for an easy opportunity, and also someone who sits, especially for a portrait."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "easy"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +514,55 @@
     "text": "Old piece included by surviving performer",
     "enumeration": "9"
    },
-   "solution": "EXECUTANT"
+   "solution": "EXECUTANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXECUTANT",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included by",
+      "for": "container",
+      "note": "being included by means sitting inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surviving",
+      "gives": "EXTANT",
+      "note": "extant means still existing"
+     },
+     {
+      "clueFragment": "Old piece",
+      "gives": "ECU",
+      "note": "the ecu was an old French coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ECU",
+      "TANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An old work is kept in a surviving musician's repertoire.",
+     "walkthrough": "'Piece' suggests a work of music; it is a coin.",
+     "definitionFit": "An executant is someone who carries out or performs, especially a musician playing a work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +576,42 @@
     "text": "Experience discrimination",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "Experience",
+      "at": 0
+     },
+     {
+      "text": "discrimination",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Experience",
+      "note": "first meaning: a brief sampling"
+     },
+     {
+      "clueFragment": "discrimination",
+      "note": "second meaning: fine judgement in matters of style"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Discrimination' suggests prejudice; here it is the discerning sense.",
+     "definitionFit": "To taste something is to undergo it briefly, and good judgement in aesthetic matters is called taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discrimination"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +625,49 @@
     "text": "Do another job, needing a month to settle",
     "enumeration": "9"
    },
-   "solution": "MOONLIGHT"
+   "solution": "MOONLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONLIGHT",
+    "definitions": [
+     {
+      "text": "Do another job",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "MOON",
+      "note": "a lunar month is a moon"
+     },
+     {
+      "clueFragment": "to settle",
+      "gives": "LIGHT",
+      "note": "to light on something is to settle or land on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOON",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a second job and needs a month to settle into it.",
+     "definitionFit": "To moonlight is to work a second, often undeclared, job in addition to a regular one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +681,47 @@
     "text": "People who make connexions for banks",
     "enumeration": "5"
    },
-   "solution": "TIERS"
+   "solution": "TIERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIERS",
+    "definitions": [
+     {
+      "text": "People who make connexions",
+      "at": 0
+     },
+     {
+      "text": "banks",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People who make connexions",
+      "note": "first meaning: those who tie things together"
+     },
+     {
+      "clueFragment": "banks",
+      "note": "second meaning: rows placed one above another"
+     }
+    ],
+    "explanation": {
+     "surface": "Staff who arrange links and transfers for banks.",
+     "walkthrough": "'Banks' suggests money; here it means rows stacked one above another, as banks of seats.",
+     "definitionFit": "The word is both an agent noun for people who knot or fasten, and a noun for stacked rows or levels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +735,61 @@
     "text": "Heated discord's ending in a rift",
     "enumeration": "6"
    },
-   "solution": "ARDENT"
+   "solution": "ARDENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ARDENT",
+    "definitions": [
+     {
+      "text": "Heated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only the last one is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discord's",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of discord"
+     },
+     {
+      "clueFragment": "a rift",
+      "gives": "ARENT",
+      "note": "A plus RENT, a tear or split"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "D",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry quarrel ends in a split between the two sides.",
+     "definitionFit": "Ardent means passionate or fiery, a figurative sense close to burning or impassioned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heated"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +803,59 @@
     "text": "About a second to harden? That's not very fast",
     "enumeration": "8"
    },
-   "solution": "INSECURE"
+   "solution": "INSECURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INSECURE",
+    "definitions": [
+     {
+      "text": "not very fast",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means going round, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to harden",
+      "gives": "INURE",
+      "note": "to inure is to toughen or accustom to hardship"
+     },
+     {
+      "clueFragment": "a second",
+      "gives": "SEC",
+      "note": "sec is the short form of second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SEC",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick-setting glue takes about a second to harden, which hardly counts as fast.",
+     "walkthrough": "'Fast' looks like speed; the definition uses it in the sense of firmly fixed, as in stuck fast.",
+     "definitionFit": "Something insecure is loosely fixed or unstable, the opposite of being held fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +869,67 @@
     "text": "Instrumental expert keeps singer right in melody, mostly",
     "enumeration": "10"
    },
-   "solution": "STRADIVARI"
+   "solution": "STRADIVARI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "STRADIVARI",
+    "definitions": [
+     {
+      "text": "Instrumental expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all of it, so the final letter goes"
+     },
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "something that keeps another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in melody",
+      "gives": "STRAIN",
+      "note": "a strain is a melody or tune"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "DIVA",
+      "note": "a diva is a leading female opera singer"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "DIVA",
+      "R",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled player keeps the soprano in tune for most of the song.",
+     "walkthrough": "'Instrumental expert' reads as a player; it is the master maker of violins.",
+     "definitionFit": "Antonio Stradivari was the great violin maker of Cremona, the ultimate craftsman of stringed instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Instrumental"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +943,52 @@
     "text": "Quiet lanes put in order — particularly so",
     "enumeration": "10"
    },
-   "solution": "SEQUENTIAL"
+   "solution": "SEQUENTIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEQUENTIAL",
+    "definitions": [
+     {
+      "text": "particularly so",
+      "at": 27,
+      "note": "so stands for in order, so this means particularly orderly"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in order",
+      "for": "anagram",
+      "note": "putting things in order rearranges them, so these letters are sorted into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet lanes",
+      "gives": "QUIETLANES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUIETLANES",
+       "gives": "SEQUENTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peaceful country lanes are laid out especially neatly.",
+     "walkthrough": "The definition leans on the anagram signal: 'so' repeats 'in order', making the definition 'particularly in order'.",
+     "definitionFit": "Sequential means following one after another in a strict series, which is being in order in a pronounced way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Quiet"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1002,45 @@
     "text": "Having competence that's somehow limited",
     "enumeration": "9"
    },
-   "solution": "QUALIFIED"
+   "solution": "QUALIFIED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUALIFIED",
+    "definitions": [
+     {
+      "text": "Having competence",
+      "at": 0
+     },
+     {
+      "text": "somehow limited",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having competence",
+      "note": "first meaning: fit or certified to do a job"
+     },
+     {
+      "clueFragment": "somehow limited",
+      "note": "second meaning: restricted with reservations, as approval given with conditions"
+     }
+    ],
+    "explanation": {
+     "surface": "A skilled person whose abilities are oddly restricted.",
+     "definitionFit": "Qualified means certified as able, and also hedged with conditions, as in qualified praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "competence"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1054,54 @@
     "text": "After conflict, spy chief's close to finding hidden secret",
     "enumeration": "4"
    },
-   "solution": "WARM"
+   "solution": "WARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARM",
+    "definitions": [
+     {
+      "text": "close to finding hidden secret",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after says which piece comes first in the answer, with the spy chief following"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "war is armed conflict"
+     },
+     {
+      "clueFragment": "spy chief's",
+      "gives": "M",
+      "note": "M is the head of the Secret Service in the James Bond stories"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "After the war, the head of intelligence is near to uncovering a buried secret.",
+     "walkthrough": "The definition comes from the children's hiding game, where a seeker near the hidden object is told 'warm, warmer'.",
+     "definitionFit": "In hunt-the-thimble style games a seeker is told they are getting hot or cold depending on nearness to the hidden object."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1121,57 @@
      }
     ]
    },
-   "solution": "MARYTUDOR"
+   "solution": "MARYTUDOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARY TUDOR",
+    "definitions": [
+     {
+      "text": "The Queen",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "an informal name for mother"
+     },
+     {
+      "clueFragment": "a line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a rail line"
+     },
+     {
+      "clueFragment": "the House",
+      "gives": "TUDOR",
+      "note": "the royal House of Tudor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "RY",
+      "TUDOR"
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen Mother has a telephone line installed to Parliament.",
+     "walkthrough": "'Queen Mother' looks like one title; the definition stops at 'The Queen'.",
+     "definitionFit": "Mary I, daughter of Henry VIII, was the English monarch who reigned from 1553 to 1558."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mother"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1185,46 @@
     "text": "Judge is not the sort that relies on memory",
     "enumeration": "8"
    },
-   "solution": "RECORDER"
+   "solution": "RECORDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORDER",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     },
+     {
+      "text": "not the sort that relies on memory",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "note": "first meaning: a barrister sitting as a part-time judge in English courts"
+     },
+     {
+      "clueFragment": "not the sort that relies on memory",
+      "note": "second meaning: someone or something that writes things down or tapes them"
+     }
+    ],
+    "explanation": {
+     "surface": "A judge who keeps notes rather than trusting recall.",
+     "walkthrough": "In England and Wales a Recorder is a part-time judge in the Crown Court.",
+     "definitionFit": "A recorder sits as a judge, and one who records keeps a written or taped account instead of remembering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "memory"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1238,48 @@
     "text": "Celebrated characters preceding those in tubs",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters preceding those in",
+      "for": "substitution",
+      "note": "each letter is swapped for the one just before it in the alphabet"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tubs",
+      "gives": "TUBS",
+      "note": "taken as written; each of its four letters is moved back one place in the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Famous characters who used to live in tubs, like the philosopher Diogenes.",
+     "walkthrough": "T is preceded by S, U by T, B by A and S by R.",
+     "definitionFit": "Used before a noun, as in a star player, the word means outstanding or famous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,10 +1290,56 @@
    },
    "length": 10,
    "clue": {
-    "text": "Bishop, say, associated with one cathedral) city or another",
+    "text": "Bishop, say, associated with one cathedral city or another",
     "enumeration": "10"
    },
-   "solution": "MANCHESTER"
+   "solution": "MANCHESTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANCHESTER",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 51,
+      "note": "read with the clue: another cathedral city"
+     }
+    ],
+    "linkWords": [
+     "associated with",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop, say",
+      "gives": "MAN",
+      "note": "a bishop is one of the men in chess"
+     },
+     {
+      "clueFragment": "one cathedral city",
+      "gives": "CHESTER",
+      "note": "Chester is a cathedral city in Cheshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "CHESTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman is linked with one cathedral city or perhaps a different one.",
+     "walkthrough": "'Bishop' wants to be a clergyman; it is the chess piece. The definition borrows 'cathedral city' from the wordplay: the answer is another one.",
+     "definitionFit": "Manchester, the large north-west English city, has its own cathedral, so it is a second example of the kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1353,55 @@
     "text": "Escort organized for overseas flier",
     "enumeration": "6"
    },
-   "solution": "SCOTER"
+   "solution": "SCOTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCOTER",
+    "definitions": [
+     {
+      "text": "overseas flier",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organized",
+      "for": "anagram",
+      "note": "organized means arranged, so the letters are put in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escort",
+      "gives": "ESCORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCORT",
+       "gives": "SCOTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An escort is arranged for a passenger flying abroad.",
+     "walkthrough": "'Overseas flier' reads as an airline passenger; it is a bird over the sea.",
+     "definitionFit": "The scoter is a black sea duck that flies low over coastal waters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "overseas"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1412,7 @@
    },
    "length": 8,
    "clue": {
-    "text": "Coast is part of speech in Chinese",
+    "text": "Toast is part of speech in Chinese",
     "enumeration": "4-4",
     "separators": [
      {
@@ -375,7 +1421,43 @@
      }
     ]
    },
-   "solution": "CHINCHIN"
+   "solution": "CHINCHIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHIN-CHIN",
+    "definitions": [
+     {
+      "text": "Toast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is part of",
+      "for": "hidden_word",
+      "note": "being part of the following words means the letters lie inside them unchanged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speech in Chinese",
+      "gives": "CHINCHIN",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A drinking salute comes from the Chinese language.",
+     "walkthrough": "The toast does come from a Chinese greeting, which makes the surface true.",
+     "definitionFit": "Chin-chin is an informal British salutation said when raising glasses before drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,10 +1468,58 @@
    },
    "length": 5,
    "clue": {
-    "text": "Start off crossword, the papers best part",
+    "text": "Start off crossword, the paper's best part",
     "enumeration": "5"
    },
-   "solution": "CREAM"
+   "solution": "CREAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CREAM",
+    "definitions": [
+     {
+      "text": "best part",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start off",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossword",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of crossword"
+     },
+     {
+      "clueFragment": "the paper's",
+      "gives": "REAM",
+      "note": "a ream is 500 sheets of paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Begin with the crossword: it is the newspaper's finest feature.",
+     "definitionFit": "The cream of something is its finest portion, as cream rises to the top of milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper's"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1533,54 @@
     "text": "Sorted letters out for one part of the country",
     "enumeration": "6"
    },
-   "solution": "DORSET"
+   "solution": "DORSET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DORSET",
+    "definitions": [
+     {
+      "text": "one part of the country",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters set out afresh are laid down in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorted letters",
+      "gives": "SORTED",
+      "note": "the letters of sorted"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORTED",
+       "gives": "DORSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Letters are sorted for delivery to one region of the country.",
+     "walkthrough": "DORSET is a county on the south coast of England.",
+     "definitionFit": "A county is a division of England, so the shire is a region of the nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorted"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1594,55 @@
     "text": "Source of strength one found in competing partnerships",
     "enumeration": "5"
    },
-   "solution": "SINEW"
+   "solution": "SINEW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINEW",
+    "definitions": [
+     {
+      "text": "Source of strength",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means sitting inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "competing partnerships",
+      "gives": "SNEW",
+      "note": "in bridge the rival pairs are North-South and East-West"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "NEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's strength lies in one of its rival business partnerships.",
+     "walkthrough": "Bridge is played by two partnerships named by compass points.",
+     "definitionFit": "Sinew is tendon, and figuratively it means vigour or the thing that gives power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partnerships"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1656,56 @@
     "text": "Assured learner placed in academic stream",
     "enumeration": "4"
    },
-   "solution": "CALM"
+   "solution": "CALM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CALM",
+    "definitions": [
+     {
+      "text": "Assured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed in",
+      "for": "container",
+      "note": "placed in means put inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic stream",
+      "gives": "CAM",
+      "note": "the Cam is the river through Cambridge"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "L",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A confident student is put into a university set.",
+     "walkthrough": "'Stream' suggests a school ability group; it is a river.",
+     "definitionFit": "Calm and assured both describe composure, being untroubled and self-possessed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stream"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,10 +1716,61 @@
    },
    "length": 5,
    "clue": {
-    "text": "Material) backing for poet or novelist",
+    "text": "Material backing for poet or novelist",
     "enumeration": "5"
    },
-   "solution": "ELIOT"
+   "solution": "ELIOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ELIOT",
+    "definitions": [
+     {
+      "text": "poet or novelist",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "gives": "TOILE",
+      "note": "toile is a fine linen or cotton cloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOILE",
+       "to": "ELIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric used as the backing for a book of poems or a novel.",
+     "walkthrough": "The name fits both T. S. Eliot the poet and George Eliot the novelist.",
+     "definitionFit": "Two famous writers share this surname: one wrote The Waste Land, the other Middlemarch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 27,
@@ -456,10 +1781,68 @@
    },
    "length": 9,
    "clue": {
-    "text": "A restriction put on half heartedly is discontinued",
+    "text": "A restriction put on half-heartedly is discontinued",
     "enumeration": "9"
    },
-   "solution": "ABANDONED"
+   "solution": "ABANDONED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ABANDONED",
+    "definitions": [
+     {
+      "text": "discontinued",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "with half its heart gone, one of the two middle letters is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "restriction",
+      "gives": "BAN",
+      "note": "a ban restricts"
+     },
+     {
+      "clueFragment": "put on",
+      "gives": "DONNED",
+      "note": "donned clothes are put on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAN",
+      "DONED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rule half-heartedly enforced is soon dropped.",
+     "walkthrough": "'Half-heartedly' looks like an adverb for the surface; it means halve the heart, the doubled middle letter.",
+     "definitionFit": "Something abandoned has been given up or stopped, the same sense as discontinued."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-heartedly"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1856,52 @@
     "text": "It requires minds more open to change",
     "enumeration": "9"
    },
-   "solution": "MODERNISM"
+   "solution": "MODERNISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MODERNISM",
+    "definitions": [
+     {
+      "text": "It requires minds more open to change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "open to change",
+      "for": "anagram",
+      "note": "being open to change means able to be altered, so the letters can be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minds more",
+      "gives": "MINDSMORE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINDSMORE",
+       "gives": "MODERNISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Progress demands that people's minds are more willing to accept new ideas.",
+     "walkthrough": "The whole clue is the definition, and within it 'minds more' is shuffled as instructed by 'open to change'.",
+     "definitionFit": "Modernism is the movement that rejects tradition in favour of new forms, so it asks for receptiveness to novelty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1915,57 @@
     "text": "King on bank observed boatman",
     "enumeration": "5"
    },
-   "solution": "ROWER"
+   "solution": "ROWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROWER",
+    "definitions": [
+     {
+      "text": "boatman",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one thing on another comes after it"
+     }
+    ],
+    "linkWords": [
+     "observed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "ROW",
+      "note": "a bank of seats or keys is a row"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "ER",
+      "note": "ER is the royal cipher, as Edwardus Rex for King Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROW",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A king on a riverbank watches a boatman go by.",
+     "walkthrough": "ER usually signals the Queen, but it is equally the cipher of the Kings Edward.",
+     "definitionFit": "A rower propels a boat with oars, so he is a boatman in the plainest sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   }
  ]
 }
