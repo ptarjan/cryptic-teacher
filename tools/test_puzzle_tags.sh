@@ -51,6 +51,20 @@ check("a puzzle whose feed lost most of its clues is not",
       "unclued" not in tagged(real("cryptic-22917")))
 check("a blank with no count printed is not", "unclued" not in tagged(real("canberra-671014")))
 
+# --- jigsaw: the preamble withholds where the answers go ---
+check("a jigsaw-wise preamble is a jigsaw", "jigsaw" in tagged(real("cryptic-24331")))
+check("clues in their answers' alphabetical order are a jigsaw",
+      pt.is_jigsaw(real("cryptic-22297")))
+check("interchangeable acrosses and downs are a jigsaw", pt.is_jigsaw(real("cryptic-23269")))
+check("a theme note is not a jigsaw", not pt.is_jigsaw(real("cryptic-22863")))
+check("an alphabet puzzle with no such note is not", not pt.is_jigsaw(real("toughie-2768")))
+check("no preamble is no jigsaw", not pt.is_jigsaw({"preamble": None}))
+check("answers placed at atomic numbers keep the grid's numbers",
+      "numbered-jigsaw" in tagged(real("cryptic-22297")) and "jigsaw" not in tagged(real("cryptic-22297")))
+check("(mirror) a plain jigsaw-wise grid is unnumbered",
+      "numbered-jigsaw" not in tagged(real("cryptic-24331")))
+check("a numbered jigsaw is still a jigsaw", pt.TAGS["numbered-jigsaw"]["implies"] == "jigsaw")
+
 # --- alphabetical ---
 check("an alphabet jigsaw is alphabetical", "alphabetical" in tagged(real("cryptic-22387")))
 check("so is an alphabetical with two spare answers", "alphabetical" in tagged(real("toughie-2768")))

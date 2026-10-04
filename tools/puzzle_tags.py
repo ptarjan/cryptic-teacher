@@ -39,6 +39,18 @@ TAGS = {
                  "answers share a theme and have no definition, or go into the "
                  "grid altered or jigsaw-wise.",
     },
+    "numbered-jigsaw": {
+        "label": "numbered jigsaw",
+        "blurb": "The clues do not say where their answers go, but the grid's "
+                 "numbers are printed: the note above the clues places some "
+                 "answers by them.",
+        "implies": "jigsaw",
+    },
+    "jigsaw": {
+        "label": "jigsaw",
+        "blurb": "The clues do not say where their answers go: fit each one into "
+                 "the grid wherever it will go.",
+    },
     "unclued": {
         "label": "unclued answers",
         "blurb": "Some answers have no clue of their own. The theme, the note "
@@ -91,6 +103,35 @@ RULE_PHRASES = re.compile(
     r"|round the edge|in the diagonals|before (?:being )?entered|before entry|be entered"
     r"|thematic|themed|are linked|share a connection|something in common",
     re.IGNORECASE)
+
+# A preamble that withholds where the answers go: the clues are printed with no
+# grid numbers, in their answers' alphabetical order, or with acrosses and downs
+# left to the solver. Every match in the corpus was read and is one.
+JIGSAW_PHRASES = re.compile(
+    r"jigsaw|wherever they (?:will )?(?:go|fit)|(?:listed|printed|given) in alphabetical order"
+    r"|acrosses and downs (?:would be |are )?interchangeable|not assigned numbers",
+    re.IGNORECASE)
+
+
+# A jigsaw whose preamble places answers by the grid's numbers, so the grid
+# keeps them: at an element's atomic number, in the numbered squares.
+NUMBERED_SQUARES = re.compile(
+    r"at the (?:atomic )?numbers?\b|numbered (?:squares|list)", re.IGNORECASE)
+
+
+def is_jigsaw(puzzle):
+    """The solver is to work out where each answer goes, so the app must not
+    tie a clue to its light (no clue numbers, no highlighting its squares)."""
+    return bool(JIGSAW_PHRASES.search(puzzle.get("preamble") or ""))
+
+
+def jigsaw_tag(puzzle):
+    """"numbered-jigsaw" when the grid's numbers place answers, "jigsaw" when
+    the paper printed it unnumbered, None for a puzzle that says where."""
+    if not is_jigsaw(puzzle):
+        return None
+    return "numbered-jigsaw" if NUMBERED_SQUARES.search(puzzle["preamble"]) else "jigsaw"
+
 
 # More answers than this and covering every initial stops being a feature. The
 # corpus splits cleanly: no puzzle of 40 answers or fewer covers 22 to 24
@@ -215,6 +256,9 @@ def tags(puzzle):
         "asymmetric": is_asymmetric(puzzle),
         "letters-given": "printed" in puzzle,
     }
+    jigsaw = jigsaw_tag(puzzle)
+    if jigsaw:
+        found[jigsaw] = True
     pangram = pangram_tag(puzzle)
     if pangram:
         found[pangram] = True
