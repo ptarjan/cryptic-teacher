@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "29 entries, 54 crossings, 0 conflicts"
+  "check": "29 entries, 54 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "24-down",
+    "was": "TOUCH",
+    "now": "TRUTH",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,47 @@
     "text": "Walpole nominated as poet",
     "enumeration": "6"
    },
-   "solution": "HORACE"
+   "solution": "HORACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HORACE",
+    "definitions": [
+     {
+      "text": "Walpole nominated",
+      "at": 0
+     },
+     {
+      "text": "poet",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walpole nominated",
+      "note": "first meaning: the given name of Walpole, the eighteenth-century writer and son of the prime minister"
+     },
+     {
+      "clueFragment": "poet",
+      "note": "second meaning: the Roman lyric poet of the Odes"
+     }
+    ],
+    "explanation": {
+     "surface": "A man called Walpole has been put forward as a candidate for the post of poet.",
+     "walkthrough": "'Nominated' here means 'named': the forename that Horace Walpole, author of The Castle of Otranto, was given.",
+     "definitionFit": "The Latin lyric writer Quintus Horatius Flaccus is known in English by this single name, shared with the Gothic novelist Walpole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nominated"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +100,70 @@
     "text": "Reform due in order to set up concert hall",
     "enumeration": "5"
    },
-   "solution": "ODEUM"
+   "solution": "ODEUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ODEUM",
+    "definitions": [
+     {
+      "text": "concert hall",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reform",
+      "for": "anagram",
+      "note": "to reform something is to reshape it, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the reworked letters are placed inside the abbreviation for the honour"
+     }
+    ],
+    "linkWords": [
+     "to set up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "due",
+      "gives": "DEU",
+      "note": "the three letters of due, rearranged"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "OM is the Order of Merit, a British honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DEU",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "DEU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan to reorganise dues payments properly so a new concert hall can be built.",
+     "walkthrough": "The OM is the Order of Merit; the shuffled letters sit between its O and M.",
+     "definitionFit": "In ancient Greece and Rome an odeum was a roofed building for musical performances and recitals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 3,
@@ -62,7 +176,57 @@
    "clue": {
     "text": "Joiner appears before lunch, by George!"
    },
-   "solution": "AMPERSAND"
+   "solution": "AMPERSAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMPERSAND",
+    "definitions": [
+     {
+      "text": "Joiner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before lunch",
+      "gives": "AM",
+      "note": "AM, ante meridiem, is the morning, the time before lunch"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "PER",
+      "note": "per is Latin for by, as in per post"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "SAND",
+      "note": "George Sand was the pen name of the French novelist Aurore Dupin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "PER",
+      "SAND"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of surprise that a carpenter turns up before lunch.",
+     "walkthrough": "'By George!' sounds like an oath, but it splits into by and George, the novelist George Sand.",
+     "definitionFit": "The & sign links words together, as in Marks & Spencer, so it is literally something that joins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joiner"
+    }
+   }
   },
   {
    "number": 4,
@@ -76,7 +240,51 @@
     "text": "Failing by a point to pass",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "pass",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "by",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a point",
+      "gives": "E",
+      "note": "E, east, is one of the compass points"
+     },
+     {
+      "clueFragment": "Failing",
+      "gives": "LAPSE",
+      "note": "a lapse is a slip or failing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fails an exam by a single mark, just missing a pass.",
+     "walkthrough": "'By' only places the two pieces side by side; the compass point comes first.",
+     "definitionFit": "When time elapses it passes or goes by, so the verb matches 'pass' in the sense of time slipping away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 5,
@@ -90,7 +298,69 @@
     "text": "A raw quarter-back who tackled the Trojans",
     "enumeration": "8"
    },
-   "solution": "ACHILLES"
+   "solution": "ACHILLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ACHILLES",
+    "definitions": [
+     {
+      "text": "who tackled the Trojans",
+      "at": 19,
+      "note": "a descriptive phrase standing for the hero himself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the compass quarter is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "CHILL",
+      "note": "a raw day has a chill in the air"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "SE",
+      "note": "SE, south-east, is a quarter of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CHILL",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SE",
+       "to": "ES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inexperienced American football quarterback who took on a team called the Trojans.",
+     "walkthrough": "'Quarter-back' looks like the American football position; split it into a compass quarter and a reversal signal.",
+     "definitionFit": "The Greek warrior fought and killed Hector and many other defenders of Troy in Homer's Iliad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "quarter-back"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +380,40 @@
      }
     ]
    },
-   "solution": "ANIMALMAGNETISM"
+   "solution": "ANIMALMAGNETISM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANIMAL MAGNETISM",
+    "definitions": [
+     {
+      "text": "Is this the attraction of Polar bears?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attraction",
+      "note": "surface reading: what draws people to the polar bears at the zoo"
+     },
+     {
+      "clueFragment": "Polar bears",
+      "note": "setter's reading: 'Polar' points to magnetic poles, and bears are beasts, so a beast's magnetic pull"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering what makes polar bears so popular with visitors.",
+     "walkthrough": "The capital P makes 'Polar' look like part of the bears' name; read it instead as the poles of a magnet.",
+     "definitionFit": "The phrase means personal charisma or physical allure, and literally joins a creature with the force between magnetic poles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polar"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +427,51 @@
     "text": "Guide for worker going to work",
     "enumeration": "8"
    },
-   "solution": "HANDBOOK"
+   "solution": "HANDBOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDBOOK",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in a farmhand"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "BOOK",
+      "note": "a book is a written work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice for an employee heading off to the job.",
+     "walkthrough": "'Work' reads as a workplace, but it is a written work.",
+     "definitionFit": "A handbook is a manual or reference volume that guides its reader through a subject or procedure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +485,40 @@
     "text": "You need the right numbers for this children's game",
     "enumeration": "5"
    },
-   "solution": "LOTTO"
+   "solution": "LOTTO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LOTTO",
+    "definitions": [
+     {
+      "text": "You need the right numbers for this children's game",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You need the right numbers",
+      "note": "surface reading: a team game that needs the correct number of players"
+     },
+     {
+      "clueFragment": "children's game",
+      "note": "setter's reading: a game in which you win by having the numbers that are called out"
+     }
+    ],
+    "explanation": {
+     "surface": "A game for children that can only be played with enough players.",
+     "walkthrough": "'Right numbers' suggests enough players; in this game it means holding the numbers that are drawn.",
+     "definitionFit": "This is a nursery game like bingo, where players cover numbered squares on cards as numbers are drawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "numbers"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +532,40 @@
     "text": "Cut out of the middle of Hereford",
     "enumeration": "9"
    },
-   "solution": "ENTRECOTE"
+   "solution": "ENTRECOTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENTRECOTE",
+    "definitions": [
+     {
+      "text": "Cut out of the middle of Hereford",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut out of the middle of Hereford",
+      "note": "surface reading: something removed from the centre of the English city"
+     },
+     {
+      "clueFragment": "Hereford",
+      "note": "setter's reading: a Hereford is a breed of beef cattle, and a cut is a piece of meat from between its ribs"
+     }
+    ],
+    "explanation": {
+     "surface": "Something excised from the centre of the cathedral city of Hereford.",
+     "walkthrough": "Hereford is a city, but also a breed of beef cattle; 'cut' is a cut of meat, not a removal.",
+     "definitionFit": "The French name means between the ribs, describing a steak taken from the central rib section of a beef carcass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 9,
@@ -166,7 +579,54 @@
     "text": "Revolutionary time not apt for trial",
     "enumeration": "10"
    },
-   "solution": "TEMPTATION"
+   "solution": "TEMPTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEMPTATION",
+    "definitions": [
+     {
+      "text": "trial",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time not apt",
+      "gives": "TIMENOTAPT",
+      "note": "the letters of these three words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMENOTAPT",
+       "gives": "TEMPTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political uprising is badly timed for a court hearing.",
+     "walkthrough": "'Revolutionary time' reads like an era of uprising; 'Revolutionary' is only the signal to rearrange.",
+     "definitionFit": "A trial in the moral sense is a test of resolve, and being tempted is exactly such a testing ordeal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 10,
@@ -180,7 +640,44 @@
     "text": "Computer for better transport",
     "enumeration": "4"
    },
-   "solution": "TOTE"
+   "solution": "TOTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOTE",
+    "definitions": [
+     {
+      "text": "Computer for better",
+      "at": 0
+     },
+     {
+      "text": "transport",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer for better",
+      "note": "first meaning: the totalisator, the machine that works out odds and payouts for people who bet"
+     },
+     {
+      "clueFragment": "transport",
+      "note": "second meaning: to carry or lug something"
+     }
+    ],
+    "explanation": {
+     "surface": "A call for a better computer to run the transport system.",
+     "walkthrough": "'Better' is not 'improved' but one who bets; the tote is the betting machine at racecourses.",
+     "definitionFit": "The tote is short for totalisator, a pool-betting calculator, and to tote a bag is to carry it about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 11,
@@ -194,7 +691,40 @@
     "text": "Refreshment for the gallery",
     "enumeration": "8"
    },
-   "solution": "AMBROSIA"
+   "solution": "AMBROSIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AMBROSIA",
+    "definitions": [
+     {
+      "text": "Refreshment for the gallery",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refreshment for the gallery",
+      "note": "surface reading: snacks sold to the audience in the cheap upper seats of a theatre"
+     },
+     {
+      "clueFragment": "the gallery",
+      "note": "setter's reading: the gallery is nicknamed the gods, and this is the food of the gods in Greek myth"
+     }
+    ],
+    "explanation": {
+     "surface": "Interval snacks being sold to the people in the theatre gallery.",
+     "walkthrough": "The highest theatre gallery is called 'the gods', so the clue wants the legendary food of the gods.",
+     "definitionFit": "In Greek mythology the Olympian deities ate this substance, which conferred immortality, so it is their refreshment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gallery"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +738,59 @@
     "text": "Dutch settler carries little weight at the Bar",
     "enumeration": "6"
    },
-   "solution": "BOOZER"
+   "solution": "BOOZER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOOZER",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "container",
+      "note": "something that carries another thing holds it within itself"
+     }
+    ],
+    "linkWords": [
+     "at the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch settler",
+      "gives": "BOER",
+      "note": "a Boer is a South African settler of Dutch descent"
+     },
+     {
+      "clueFragment": "little weight",
+      "gives": "OZ",
+      "note": "oz, ounce, is a small unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "OZ",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A slim Dutch colonist at the Bar, as if practising law.",
+     "walkthrough": "'The Bar' looks like the legal profession; here it is a pub, and a boozer is British slang for one.",
+     "definitionFit": "In British slang a boozer is a pub, a place with a bar where drinks are served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +804,37 @@
     "text": "“Hollow pamper'd Jades of - (2 Hen. IV)",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "“Hollow pamper'd Jades of - (2 Hen. IV)",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "“Hollow pamper'd Jades of -",
+      "note": "surface reading: an incomplete line of verse with a gap to fill"
+     },
+     {
+      "clueFragment": "(2 Hen. IV)",
+      "note": "setter's reading: the line is Pistol's in Shakespeare's Henry IV Part 2, ending with a continent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pistol misquotes Marlowe's Tamburlaine, whose horses are the pampered jades of the East; the missing word is the continent.",
+     "definitionFit": "The quotation from Henry IV Part Two reads 'hollow pamper'd jades of Asia', so the continent completes the line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -236,7 +848,40 @@
     "text": "Powerboat with funnels?",
     "enumeration": "9"
    },
-   "solution": "STEAMSHIP"
+   "solution": "STEAMSHIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STEAMSHIP",
+    "definitions": [
+     {
+      "text": "Powerboat with funnels?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powerboat",
+      "note": "surface reading: a fast motorboat"
+     },
+     {
+      "clueFragment": "with funnels?",
+      "note": "setter's reading: a vessel powered by steam, so it has smokestacks"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a racing powerboat would have chimneys.",
+     "walkthrough": "A powerboat is normally a speedboat; read it as any boat driven by an engine, here a steam one.",
+     "definitionFit": "A vessel driven by steam engines typically has tall funnels for smoke, unlike a modern motor speedboat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Powerboat"
+    }
+   }
   },
   {
    "number": 15,
@@ -250,7 +895,50 @@
     "text": "Satellite winged for an Apollo mission",
     "enumeration": "8"
    },
-   "solution": "MOONSHOT"
+   "solution": "MOONSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONSHOT",
+    "definitions": [
+     {
+      "text": "an Apollo mission",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Satellite",
+      "gives": "MOON",
+      "note": "the Moon is Earth's natural satellite"
+     },
+     {
+      "clueFragment": "winged",
+      "gives": "SHOT",
+      "note": "a bird that is winged has been shot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOON",
+      "SHOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A satellite with wings designed for a NASA Apollo flight.",
+     "walkthrough": "'Winged' suggests having wings; it means wounded by a bullet in the wing.",
+     "definitionFit": "The Apollo programme's flights were launches aimed at the lunar surface, which is what the compound means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "winged"
+    }
+   }
   },
   {
    "number": 16,
@@ -264,7 +952,49 @@
     "text": "Greyish plant on the lawn",
     "enumeration": "9"
    },
-   "solution": "SAGEGREEN"
+   "solution": "SAGEGREEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAGE GREEN",
+    "definitions": [
+     {
+      "text": "Greyish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "SAGE",
+      "note": "sage is a herb"
+     },
+     {
+      "clueFragment": "the lawn",
+      "gives": "GREEN",
+      "note": "a green is a grassy lawn, as in a village green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAGE",
+      "GREEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A greyish plant growing on the grass.",
+     "walkthrough": "In a down clue 'on' places the first piece above the second.",
+     "definitionFit": "This colour is the soft grey-green of the herb's leaves, so it is a greyish shade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -278,7 +1008,50 @@
     "text": "Wrong river for this reptile",
     "enumeration": "8"
    },
-   "solution": "TORTOISE"
+   "solution": "TORTOISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORTOISE",
+    "definitions": [
+     {
+      "text": "this reptile",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong in law"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OISE",
+      "note": "the Oise is a river in northern France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORT",
+      "OISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reptile in the wrong river, as if a turtle had lost its way.",
+     "walkthrough": "A tort is the legal term for a civil wrong; the Oise is a tributary of the Seine.",
+     "definitionFit": "A slow-moving shelled land animal is a familiar example of a reptile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 18,
@@ -292,7 +1065,50 @@
     "text": "Master desire to be impetuous",
     "enumeration": "8"
    },
-   "solution": "HEADLONG"
+   "solution": "HEADLONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADLONG",
+    "definitions": [
+     {
+      "text": "impetuous",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master",
+      "gives": "HEAD",
+      "note": "a headmaster is the head of a school"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "LONG",
+      "note": "to long is to desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "LONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolmaster wanting to act on impulse.",
+     "walkthrough": "'Desire' is a verb here, matching long as in long for.",
+     "definitionFit": "Rushing ahead without thought is rash and hasty, so a headlong decision is an impetuous one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 19,
@@ -306,7 +1122,47 @@
     "text": "Female not quite county",
     "enumeration": "4"
    },
-   "solution": "GWEN"
+   "solution": "GWEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GWEN",
+    "definitions": [
+     {
+      "text": "Female",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "county",
+      "gives": "GWENT",
+      "note": "Gwent was a county in south-east Wales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GWEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who doesn't quite fit in with the county set.",
+     "walkthrough": "Gwent, a former Welsh county, loses its last letter.",
+     "definitionFit": "This is a woman's given name, Welsh in origin, so it stands for a female person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -320,7 +1176,50 @@
     "text": "Rustic skill producing capital port",
     "enumeration": "6"
    },
-   "solution": "HOBART"
+   "solution": "HOBART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOBART",
+    "definitions": [
+     {
+      "text": "capital port",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rustic",
+      "gives": "HOB",
+      "note": "a hob is an old word for a country yokel or clown"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is skill, as in the art of persuasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOB",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A country craft that makes something worthy of a capital port.",
+     "walkthrough": "A hob is an archaic word for a rustic, a country bumpkin.",
+     "definitionFit": "The city is the capital of the Australian state of Tasmania and a harbour on the Derwent estuary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rustic"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1233,47 @@
     "text": "Reckoning say the value of Richard's kingdom",
     "enumeration": "6"
    },
-   "solution": "AMOUNT"
+   "solution": "AMOUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMOUNT",
+    "definitions": [
+     {
+      "text": "Reckoning",
+      "at": 0
+     },
+     {
+      "text": "the value of Richard's kingdom",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "say"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reckoning",
+      "note": "first meaning: a total or sum"
+     },
+     {
+      "clueFragment": "the value of Richard's kingdom",
+      "note": "second meaning: Richard III offers his kingdom for a horse, so read as two words it is what the kingdom is worth"
+     }
+    ],
+    "explanation": {
+     "surface": "An estimate of what a king's realm is worth.",
+     "walkthrough": "Shakespeare's Richard III cries 'my kingdom for a horse!'; a horse, say, is a mount, so the answer splits as A MOUNT.",
+     "definitionFit": "A reckoning is a calculated sum or total, and that is what an amount is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "value"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1287,56 @@
     "text": "No good having female in group",
     "enumeration": "5"
    },
-   "solution": "UNFIT"
+   "solution": "UNFIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNFIT",
+    "definitions": [
+     {
+      "text": "No good",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the letter for female goes inside the word for group"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "UNIT",
+      "note": "a unit is a group, as in a military unit"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "F",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "It's no good having a woman in the team, a dated complaint.",
+     "definitionFit": "Something unsuitable or not in condition for its purpose is useless, which is what 'no good' means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -362,7 +1350,59 @@
     "text": "Spin out elegant composition above love",
     "enumeration": "8"
    },
-   "solution": "ELONGATE"
+   "solution": "ELONGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELONGATE",
+    "definitions": [
+     {
+      "text": "Spin out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composition",
+      "for": "anagram",
+      "note": "a composition is something put together, so the letters are arranged afresh"
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elegant",
+      "gives": "ELEGANT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELEGANTO",
+       "gives": "ELONGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing out a graceful piece of writing that is about romance.",
+     "walkthrough": "The letter for love joins the letters of elegant before they are rearranged.",
+     "definitionFit": "To spin out a story is to make it longer, and lengthening something is exactly what this verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1416,46 @@
     "text": "Realism is the beauty of Keats",
     "enumeration": "5"
    },
-   "solution": "TOUCH"
+   "solution": "TRUTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRUTH",
+    "definitions": [
+     {
+      "text": "Realism",
+      "at": 0
+     },
+     {
+      "text": "the beauty of Keats",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Realism",
+      "note": "first meaning: faithfulness to how things really are"
+     },
+     {
+      "clueFragment": "the beauty of Keats",
+      "note": "second meaning: what Keats equates with beauty at the close of his Ode on a Grecian Urn"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic claims that Keats's poetry is beautiful because it is true to life.",
+     "walkthrough": "Keats's Ode on a Grecian Urn ends 'Beauty is truth, truth beauty', so for Keats beauty is this very word; the grid's T, U and H crossings confirm it.",
+     "definitionFit": "Realism and fidelity to fact are close synonyms, and Keats's famous line makes the two words interchangeable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Realism"
+    }
+   }
   },
   {
    "number": 25,
@@ -390,7 +1469,58 @@
     "text": "Kitchener would have held one to be most important",
     "enumeration": "4"
    },
-   "solution": "CHEF"
+   "solution": "CHEF",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHEF",
+    "definitions": [
+     {
+      "text": "Kitchener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "would have held",
+      "for": "deletion",
+      "note": "the answer would once have held this letter, so it is the longer word with that letter now gone"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most important",
+      "gives": "CHIEF",
+      "note": "chief means most important, as in the chief reason"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EF"
+     ]
+    },
+    "explanation": {
+     "surface": "Lord Kitchener, the field marshal, thought one particular man was supreme.",
+     "walkthrough": "Kitchener looks like the famous field marshal; it is someone who works in a kitchen. Put the numeral back and the cook becomes the boss.",
+     "definitionFit": "A kitchener is literally a person working in a kitchen, and the cook who runs it is the obvious example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kitchener"
+    }
+   }
   },
   {
    "number": 26,
@@ -404,7 +1534,40 @@
     "text": "Relating to the order in which flags should be placed",
     "enumeration": "10"
    },
-   "solution": "IRIDACEOUS"
+   "solution": "IRIDACEOUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IRIDACEOUS",
+    "definitions": [
+     {
+      "text": "Relating to the order in which flags should be placed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the order in which flags should be placed",
+      "note": "surface reading: the protocol for arranging flags in a display"
+     },
+     {
+      "clueFragment": "order",
+      "note": "setter's reading: an order is a botanical grouping, and flags are wild irises, so the plant family that includes them"
+     }
+    ],
+    "explanation": {
+     "surface": "Something to do with the correct sequence for hanging national flags.",
+     "walkthrough": "A flag is also a name for the iris plant, and 'order' is a rank in plant classification.",
+     "definitionFit": "The adjective describes the iris family Iridaceae, the botanical group to which yellow flag irises belong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flags"
+    }
+   }
   },
   {
    "number": 27,
@@ -418,7 +1581,59 @@
     "text": "He got MP confused with a witty remark",
     "enumeration": "8"
    },
-   "solution": "APOTHEGM"
+   "solution": "APOTHEGM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOTHEGM",
+    "definitions": [
+     {
+      "text": "witty remark",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are jumbled up, so they need rearranging"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He got MP",
+      "gives": "HEGOTMP",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, joining the rearranged letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEGOTMPA",
+       "gives": "APOTHEGM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man got a politician muddled with a clever quip.",
+     "walkthrough": "The 'a' before 'witty remark' belongs to the letters being rearranged, not to the definition.",
+     "definitionFit": "An apothegm is a terse, pointed saying or maxim, a pithy and often clever remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "confused"
+    }
+   }
   },
   {
    "number": 28,
@@ -432,7 +1647,62 @@
     "text": "Divisions housed initially under canvas",
     "enumeration": "6"
    },
-   "solution": "TENTHS"
+   "solution": "TENTHS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TENTHS",
+    "definitions": [
+     {
+      "text": "Divisions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the preceding word"
+     },
+     {
+      "text": "under",
+      "for": "container",
+      "note": "being under canvas means sheltering inside a tent, so the letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canvas",
+      "gives": "TENTS",
+      "note": "tents are made of canvas, and to be under canvas is to be camping"
+     },
+     {
+      "clueFragment": "housed",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of housed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENT",
+      "H",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Army divisions billeted in tents in the field.",
+     "walkthrough": "'Under canvas' is the camping idiom for staying in tents.",
+     "definitionFit": "Tenths are the parts you get when something is divided into ten equal pieces, so they are divisions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Divisions"
+    }
+   }
   }
  ]
 }
