@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Air unwholesome, so I'm going back like mother",
     "enumeration": "6"
    },
-   "solution": "MIASMA"
+   "solution": "MIASMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MIASMA",
+    "definitions": [
+     {
+      "text": "Air unwholesome",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "something going back travels the other way, so the short word is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "like and as both mean in the manner of"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "familiar word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "AS",
+      "MA"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees a stinking atmosphere, retreating just as their mother did.",
+     "walkthrough": "MI (I'M backwards) + AS + MA gives MIASMA.",
+     "definitionFit": "A miasma is a foul or poisonous vapour, an unhealthy atmosphere hanging over a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,46 @@
     "text": "Murdoch is all but Irish",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRIS",
+    "definitions": [
+     {
+      "text": "Murdoch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all but",
+      "for": "deletion",
+      "note": "all but means everything except one piece, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish",
+      "gives": "IRISH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that the novelist Murdoch is very nearly Irish, which she was by birth.",
+     "definitionFit": "Iris Murdoch was the Dublin-born novelist, so her first name stands for her by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,51 @@
     "text": "Lawyer stitches up Clio's trio",
     "enumeration": "9"
    },
-   "solution": "SOLICITOR"
+   "solution": "SOLICITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLICITOR",
+    "definitions": [
+     {
+      "text": "Lawyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stitches up",
+      "for": "anagram",
+      "note": "to stitch someone up is to frame them, and a framed set of letters is rigged into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clio's trio",
+      "gives": "CLIOSTRIO",
+      "note": "the nine letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLIOSTRIO",
+       "gives": "SOLICITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked lawyer frames three people connected with Clio, muse of history.",
+     "definitionFit": "A solicitor is the kind of lawyer in Britain who advises clients and prepares legal documents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stitches"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +224,65 @@
     "text": "A poet keeps love in check on the train",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on the train",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so the poet's word wraps around the other letter"
+     }
+    ],
+    "linkWords": [
+     "in check"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "BARD",
+      "note": "a bard is a poet"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "O",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet riding the train restrains his romantic feelings.",
+     "walkthrough": "A + BARD holding O gives ABOARD.",
+     "definitionFit": "Being aboard means being on a vehicle such as a ship or train as a passenger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +296,57 @@
     "text": "Salad ingredients for male cat, one with toes",
     "enumeration": "8"
    },
-   "solution": "TOMATOES"
+   "solution": "TOMATOES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOMATOES",
+    "definitions": [
+     {
+      "text": "Salad ingredients",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "toes",
+      "gives": "TOES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "A",
+      "TOES"
+     ]
+    },
+    "explanation": {
+     "surface": "A silly menu note: salad items for a tomcat, the one with toes.",
+     "definitionFit": "Tomatoes are the red fruits most often sliced into a green salad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +374,52 @@
      }
     ]
    },
-   "solution": "TODICEWITHDEATH"
+   "solution": "TODICEWITHDEATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TO DICE WITH DEATH",
+    "definitions": [
+     {
+      "text": "take great risks",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "moved means shifted about, so the fodder's letters are set in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The cat who died, it",
+      "gives": "THECATWHODIEDIT",
+      "note": "the fifteen letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THECATWHODIEDIT",
+       "gives": "TODICEWITHDEATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pet cat died, and its death was very moving.",
+     "walkthrough": "The surface reads as an obituary; the cat is fodder, and the death was the risk the phrase warns of.",
+     "definitionFit": "To dice with death is an idiom for taking dangerous chances, as if gambling with one's life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +433,62 @@
     "text": "Like grown-ups needing carpet, purely without piano",
     "enumeration": "8"
    },
-   "solution": "MATURELY"
+   "solution": "MATURELY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MATURELY",
+    "definitions": [
+     {
+      "text": "Like grown-ups",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the musical letter is taken out of the word before it"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carpet",
+      "gives": "MAT",
+      "note": "a mat is a small carpet"
+     },
+     {
+      "clueFragment": "purely",
+      "gives": "PURELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT",
+      "URELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Adults who need a carpet but have no piano.",
+     "definitionFit": "Acting maturely means behaving in the sensible, adult way expected of grown-ups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +502,58 @@
     "text": "Sailor: dry, heartless and slow",
     "enumeration": "5"
    },
-   "solution": "TARDY"
+   "solution": "TARDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TARDY",
+    "definitions": [
+     {
+      "text": "slow",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "with its heart gone the word keeps only its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "tar is old slang for a sailor"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "DY",
+      "select": "outer",
+      "note": "the middle letter of dry is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAR",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "Description of an old sea dog: sober, unfeeling and sluggish.",
+     "definitionFit": "Tardy describes someone late or sluggish, so it is a synonym for slow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +567,84 @@
     "text": "Catch me up on motorway in Kent by side of river?",
     "enumeration": "10"
    },
-   "solution": "EMBANKMENT"
+   "solution": "EMBANKMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EMBANKMENT",
+    "definitions": [
+     {
+      "text": "side of river?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the words read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the road abbreviation inside the county name"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "NAB",
+      "note": "to nab is to catch"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the prefix of British motorway names, as in the M1"
+     },
+     {
+      "clueFragment": "Kent",
+      "gives": "KENT",
+      "note": "taken as written; Kent is a county in south-east England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BAN",
+      "K",
+      "M",
+      "ENT"
+     ],
+     "reversals": [
+      {
+       "from": "NABME",
+       "to": "EMBAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hitchhiker asks to be picked up on a Kent motorway near a river.",
+     "walkthrough": "Up reverses only the first two words, as this is a down clue. The question mark flags that side of river is a description, not a dictionary meaning.",
+     "definitionFit": "An embankment is a raised bank built along a river to stop flooding, so it lines the water's edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +658,68 @@
     "text": "I'm still keeping lines to Post Office in mind",
     "enumeration": "8"
    },
-   "solution": "MILLPOND"
+   "solution": "MILLPOND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MILLPOND",
+    "definitions": [
+     {
+      "text": "I'm still",
+      "at": 0,
+      "note": "the answer itself speaks: a noun described in the first person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "keeping",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for lines"
+     },
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "mind",
+      "gives": "MIND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "LL",
+      "PO",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone still thinking about writing a few lines to the Post Office.",
+     "walkthrough": "The definition is the answer talking about itself: a millpond is proverbially still, as in 'calm as a millpond'.",
+     "definitionFit": "A millpond is the dammed pool feeding a mill, famously calm and flat, so it could say it is still."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +733,55 @@
     "text": "Pulses and broth's stirred up",
     "enumeration": "6"
    },
-   "solution": "THROBS"
+   "solution": "THROBS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THROBS",
+    "definitions": [
+     {
+      "text": "Pulses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred up",
+      "for": "anagram",
+      "note": "stirring a pot mixes its contents, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broth's",
+      "gives": "BROTHS",
+      "note": "the letters of the word, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BROTHS",
+       "gives": "THROBS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook adds lentils and stirs the broth.",
+     "walkthrough": "Pulses looks like the lentils going into the soup; here it is a verb, beats rhythmically.",
+     "definitionFit": "To throb is to beat with a strong steady rhythm, as a pulse does, so throbs means pulses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pulses"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +801,46 @@
      }
     ]
    },
-   "solution": "CARDCARRYING"
+   "solution": "CARDCARRYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARD-CARRYING",
+    "definitions": [
+     {
+      "text": "like bona fide members",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An eccentric",
+      "gives": "CARD",
+      "note": "a card is an odd or amusing person"
+     },
+     {
+      "clueFragment": "holding up",
+      "gives": "CARRYING",
+      "note": "carrying means holding something up and bearing it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "CARRYING"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd character supports the genuine members of a club.",
+     "definitionFit": "Card-carrying describes a fully paid-up, committed member of a party or group, a genuine one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holding"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +860,46 @@
      }
     ]
    },
-   "solution": "COMMONROOM"
+   "solution": "COMMONROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMON ROOM",
+    "definitions": [
+     {
+      "text": "space shared by schoolteachers",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Familiar",
+      "gives": "COMMON",
+      "note": "common means familiar, ordinary"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "ROOM",
+      "note": "room means space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMON",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "The familiar staff area where teachers gather.",
+     "walkthrough": "The word space does double duty, giving ROOM and also belonging to the definition.",
+     "definitionFit": "A common room is a lounge in a school or college used by staff or students together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +913,57 @@
     "text": "Cat swallows nothing but fur",
     "enumeration": "4"
    },
-   "solution": "COAT"
+   "solution": "COAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COAT",
+    "definitions": [
+     {
+      "text": "fur",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "whatever swallows something takes it inside, so the animal holds the zero"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "CAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat eats nothing except its own fur, as in grooming hairballs.",
+     "definitionFit": "An animal's coat is its covering of hair or fur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +983,57 @@
      }
     ]
    },
-   "solution": "WALLGAME"
+   "solution": "WALLGAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WALL GAME",
+    "definitions": [
+     {
+      "text": "Eton sport",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wild birds",
+      "gives": "GAME",
+      "note": "game is wild birds and animals hunted for food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ALL",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman bags all the game birds at a shoot near Eton.",
+     "walkthrough": "Eton is the English public school; its wall game is a rough football-like contest played against a brick wall.",
+     "definitionFit": "The Eton wall game is a sport unique to Eton College, so the school names it by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1047,56 @@
     "text": "Little Georgia on the telephone, arranging a party",
     "enumeration": "9"
    },
-   "solution": "GATHERING"
+   "solution": "GATHERING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GATHERING",
+    "definitions": [
+     {
+      "text": "a party",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "on",
+     "arranging"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Georgia",
+      "gives": "GA",
+      "note": "GA is the abbreviation for the US state of Georgia"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "telephone",
+      "gives": "RING",
+      "note": "to ring someone is to telephone them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "THE",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Georgia is on the phone organising a party.",
+     "definitionFit": "A gathering is a social meeting of people, so it can be a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "telephone"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1110,62 @@
     "text": "At this, heron must circle the East, flying",
     "enumeration": "8"
    },
-   "solution": "HEREUPON"
+   "solution": "HEREUPON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEREUPON",
+    "definitions": [
+     {
+      "text": "At this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must circle",
+      "for": "container",
+      "note": "to circle something is to go all round it, so the bird's name surrounds the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heron",
+      "gives": "HERON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the East",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     },
+     {
+      "clueFragment": "flying",
+      "gives": "UP",
+      "note": "something flying is up in the air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "E",
+      "UP",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "On a signal, a heron has to circle eastward in flight.",
+     "walkthrough": "The heron in the surface is a real bird, but its name is simply the outer letters wrapping round the rest.",
+     "definitionFit": "Hereupon is a formal adverb meaning immediately after this or in consequence of this, so at this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1179,49 @@
     "text": "Greet men like this coming into being",
     "enumeration": "8"
    },
-   "solution": "EMERGENT"
+   "solution": "EMERGENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMERGENT",
+    "definitions": [
+     {
+      "text": "coming into being",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "like this",
+      "for": "anagram",
+      "note": "like this tells the solver to treat the words in a new arrangement, the way the answer shows them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greet men",
+      "gives": "GREETMEN",
+      "note": "the eight letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREETMEN",
+       "gives": "EMERGENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction on how to greet men as they arrive.",
+     "definitionFit": "Something emergent is in the process of appearing or developing, newly arising into existence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1235,58 @@
     "text": "Knock back fly to get this strong taste",
     "enumeration": "4"
    },
-   "solution": "TANG"
+   "solution": "TANG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TANG",
+    "definitions": [
+     {
+      "text": "strong taste",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Knock back",
+      "for": "reversal",
+      "note": "knocking something back sends it backwards, so the insect's name is read right to left"
+     }
+    ],
+    "linkWords": [
+     "to get this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fly",
+      "gives": "GNAT",
+      "note": "a gnat is a small fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANG"
+     ],
+     "reversals": [
+      {
+       "from": "GNAT",
+       "to": "TANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swallow a fly by accident and get a sharp flavour.",
+     "walkthrough": "Knock back looks like gulping a drink; here it turns the letters round.",
+     "definitionFit": "A tang is a sharp, distinctive flavour or smell, a strong taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1300,42 @@
     "text": "Dish detected in recent re-examination",
     "enumeration": "6"
    },
-   "solution": "ENTREE"
+   "solution": "ENTREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTREE",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detected in",
+      "for": "hidden_word",
+      "note": "detected in says the letters are found tucked inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recent re-examination",
+      "gives": "ENTREE",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A food inspector spots a particular dish on a second inspection.",
+     "definitionFit": "An entree is a dish served at a meal, in Britain a course before the main one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dish"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1349,43 @@
     "text": "Bachelorhood day commemorated on 4 July",
     "enumeration": "12"
    },
-   "solution": "INDEPENDENCE"
+   "solution": "INDEPENDENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INDEPENDENCE",
+    "definitions": [
+     {
+      "text": "Bachelorhood",
+      "at": 0
+     },
+     {
+      "text": "day commemorated on 4 July",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelorhood",
+      "note": "first meaning: freedom from ties, the single life"
+     },
+     {
+      "clueFragment": "day commemorated on 4 July",
+      "note": "second meaning: the American national holiday named for the 1776 declaration"
+     }
+    ],
+    "explanation": {
+     "surface": "A man celebrates his single status on the Fourth of July.",
+     "walkthrough": "The second definition is partial: the day is Independence Day, and the clue gives the first word of its name.",
+     "definitionFit": "Independence is freedom from others' control, as single life is, and the US marks it every Fourth of July."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1399,54 @@
     "text": "Hesitation disturbed by the upper air",
     "enumeration": "5"
    },
-   "solution": "ETHER"
+   "solution": "ETHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ETHER",
+    "definitions": [
+     {
+      "text": "upper air",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed by",
+      "for": "container",
+      "note": "something disturbed by an intruder has it pushed into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pause in speech interrupted by the sky above.",
+     "definitionFit": "The ether is the old poetic term for the clear sky or the upper regions of the atmosphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1460,40 @@
     "text": "Tobacco bird",
     "enumeration": "4"
    },
-   "solution": "SHAG"
+   "solution": "SHAG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHAG",
+    "definitions": [
+     {
+      "text": "Tobacco",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tobacco",
+      "note": "first meaning: coarse cut tobacco"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a seabird of the cormorant family"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Shag is both a strong, coarsely shredded pipe tobacco and a dark coastal seabird related to the cormorant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1513,50 @@
      }
     ]
    },
-   "solution": "NOSHUP"
+   "solution": "NOSHUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSH-UP",
+    "definitions": [
+     {
+      "text": "a large meal",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making",
+      "for": "anagram",
+      "note": "making means building, so these letters are built into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Push on",
+      "gives": "PUSHON",
+      "note": "the six letters of these words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUSHON",
+       "gives": "NOSHUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep going until you have cooked a big dinner.",
+     "definitionFit": "A nosh-up is British slang for a big, filling meal, nosh being food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Push"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1570,46 @@
     "text": "Look mean, having no weak points",
     "enumeration": "8"
    },
-   "solution": "AIRTIGHT"
+   "solution": "AIRTIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRTIGHT",
+    "definitions": [
+     {
+      "text": "having no weak points",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "AIR",
+      "note": "an air is a look or manner"
+     },
+     {
+      "clueFragment": "mean",
+      "gives": "TIGHT",
+      "note": "tight means stingy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "TIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who appears stingy but is beyond criticism.",
+     "definitionFit": "An airtight argument or case is one with no flaws or gaps that could be exploited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1623,42 @@
     "text": "Mama ran thither, concealing an imaginary flower",
     "enumeration": "8"
    },
-   "solution": "AMARANTH"
+   "solution": "AMARANTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMARANTH",
+    "definitions": [
+     {
+      "text": "an imaginary flower",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "hidden_word",
+      "note": "concealing means the words keep the letters tucked out of sight within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mama ran thither",
+      "gives": "AMARANTH",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Mother rushed over there, hiding a flower that does not exist.",
+     "definitionFit": "In poetry the amaranth is a legendary flower that never fades, though a real plant also bears the name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "concealing"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1672,43 @@
     "text": "Start battle with book",
     "enumeration": "6"
    },
-   "solution": "ENGAGE"
+   "solution": "ENGAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENGAGE",
+    "definitions": [
+     {
+      "text": "Start battle with",
+      "at": 0
+     },
+     {
+      "text": "book",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start battle with",
+      "note": "first meaning: to begin fighting an enemy"
+     },
+     {
+      "clueFragment": "book",
+      "note": "second meaning: to hire or reserve someone's services"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to begin a fight using a book as a weapon.",
+     "definitionFit": "To engage the enemy is to attack them, and to engage a performer or lawyer is to hire them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "with"
+    }
+   }
   }
  ]
 }
