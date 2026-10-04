@@ -344,7 +344,9 @@
    "solution": "STEVENSON",
    "annotation": {
     "type": [
-     "cryptic_definition"
+     "letter_selection",
+     "deletion",
+     "charade"
     ],
     "answer": "STEVENSON",
     "definitions": [
@@ -353,24 +355,49 @@
       "at": 0
      }
     ],
-    "blocks": [
+    "indicators": [
      {
-      "clueFragment": "Writer",
-      "note": "surface reading: an author who exposes the inner workings of an intelligence agency"
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are kept"
      },
      {
-      "clueFragment": "revealing extremes of Secret Service, almost",
-      "note": "setter's reading: unresolved; no standard device in these words yields the remaining letters, so only the definition is certain"
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
      }
     ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secret",
+      "gives": "ST",
+      "select": "outer",
+      "note": "first and last letters of Secret"
+     },
+     {
+      "clueFragment": "Service",
+      "gives": "EVENSONG",
+      "note": "evensong is the evening service of the Anglican church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EVENSON"
+     ]
+    },
     "explanation": {
-     "surface": "An author who nearly lays bare the outer edges of the Secret Service.",
-     "walkthrough": "UNPARSED: the answer fits every crossing, but no parse of the wordplay was found. Outer letters of Secret give ST at most; nothing accounts for the rest. Treat the wordplay as unexplained, not as a cryptic definition.",
-     "definitionFit": "Robert Louis Stevenson, Scottish novelist of Treasure Island and Kidnapped, is a famous author."
+     "surface": "A spy author exposing the shadowy fringes of the Secret Service, or nearly so.",
+     "walkthrough": "Secret Service looks like one unit, but the words work separately: the ends of Secret, then the church service EVENSONG without its G, give STEVENSON.",
+     "definitionFit": "Robert Louis Stevenson, the Scottish novelist of Treasure Island and Kidnapped, is a famous author."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Service"
     }
    }
   },
