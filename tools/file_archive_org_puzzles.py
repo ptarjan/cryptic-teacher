@@ -1875,12 +1875,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 if mended is not None:
                     verdict["mended"] = mended[1]
                     if write:
-                        try:
-                            write_puzzle_file(held_path, mended[0], generator=TOOL)
-                        except puzzle_integrity.RefusedWrite as e:
-                            verdict["refusedWrite"] = str(e)
-                        else:
-                            verdict["wrote"] = True
+                        file_puzzle(write_puzzle_file, held_path, mended[0], verdict)
                     verdicts.append(verdict)
                     continue
                 dest = destination(puzzles, complete(puzzle))
@@ -1893,14 +1888,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 better = path.exists() and improves(puzzle, path)
                 if hit_number in held and not dest and not better:
                     verdict["skip"] = "already held: the reading votes in cross_validate.py"
-                elif write and (better or not path.exists()):
-                    try:
-                        write_puzzle_file(path, puzzle, generator=TOOL)
-                    except puzzle_integrity.RefusedWrite as e:
-                        verdict["refusedWrite"] = str(e)
-                    else:
-                        verdict["wrote"] = True
-                        held.add(hit_number)
+                elif write and (better or not path.exists()) and file_puzzle(write_puzzle_file, path, puzzle,
+                                                                             verdict):
+                    held.add(hit_number)
             verdicts.append(verdict)
         known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h, "scanKey": scan_key(),
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
@@ -1910,7 +1900,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             save(ledger, known)
         progress(f"read {rel}: " + ("; ".join(
             f"{v['number']} " + ("wrote " + v["id"] if v.get("wrote") else
-                                 v.get("skip") or v.get("refused") or v.get("refusedWrite") or v.get("id") or "read")[:60]
+                                 v.get("skip") or v.get("refused") or v.get("refusedWrite")
+                                 or ("write failed: " + v["writeFailed"] if v.get("writeFailed") else None)
+                                 or v.get("id") or "read")[:60]
             for v in verdicts) or "nothing filed"))
     if write:
         save(ledger, known)
@@ -1921,6 +1913,23 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
+
+
+def file_puzzle(write_puzzle_file, path, puzzle, verdict):
+    """Write `puzzle` to `path`, noting the outcome on `verdict`; True when
+    written. A write puzzle_integrity refuses is a refusedWrite; any other
+    raise is a writeFailed, logged with its traceback: one puzzle that cannot
+    be written never stops a run."""
+    try:
+        write_puzzle_file(path, puzzle, generator=TOOL)
+    except puzzle_integrity.RefusedWrite as e:
+        verdict["refusedWrite"] = str(e)
+    except Exception as e:  # noqa: BLE001 -- one bad puzzle is a verdict, not a crash
+        verdict["writeFailed"] = scan_queue.failure((puzzle.get("id"),), e)
+    else:
+        verdict["wrote"] = True
+        return True
+    return False
 
 
 _SOLUTIONS = {}
@@ -2117,6 +2126,10 @@ def report(rows):
                 add("clues blank (readings disagree)", len(v.get("blank", {})))
             if v.get("wrote"):
                 add("written")
+            if v.get("refusedWrite"):
+                add("write refused")
+            if v.get("writeFailed"):
+                add(f"write failed: {v['writeFailed'].split(':')[0][:50]}")
             for k in ("refused", "pending"):
                 if v.get(k):
                     add(f"{k}: {v[k].split(':')[0][:50]}")
