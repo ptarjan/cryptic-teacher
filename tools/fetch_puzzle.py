@@ -1906,6 +1906,14 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18223", "1-across"): (
+        "It's police to provide notes fore arrival",
+        "It's polite to provide notes fore arrival",
+        "OCR misread: the definition needs polite, which BECOMING means"),
+    ("times-18223", "22-down"): (
+        "Spirit declared to customs by Wulde",
+        "Spirit declared to customs by Wilde",
+        "OCR misread: the second definition needs Oscar Wilde, who declared his genius at customs"),
     ("times-18198", "25-down"): (
         "Extra section for table lakes two pages",
         "Extra section for table takes two pages",
