@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Response in case of extreme dysfunction",
     "enumeration": "6"
    },
-   "solution": "REMEDY"
+   "solution": "REMEDY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REMEDY",
+    "definitions": [
+     {
+      "text": "Response",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in case of",
+      "for": "hidden_word",
+      "note": "a case holds its contents, so the answer is held inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extreme dysfunction",
+      "gives": "REMEDY",
+      "note": "the letters run across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describes what to do when a system badly malfunctions.",
+     "walkthrough": "'In case of' reads like a phrase from a safety notice; it is the signal that the answer sits inside the next two words.",
+     "definitionFit": "A remedy is a cure or corrective measure, the response made to an illness or problem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,64 @@
     "text": "Turn of the vicar to make love",
     "enumeration": "7"
    },
-   "solution": "REVOLVE"
+   "solution": "REVOLVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REVOLVE",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make",
+      "for": "anagram",
+      "note": "to make something is to form it anew, so the following word is rebuilt into a new order"
+     }
+    ],
+    "linkWords": [
+     "of the",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "Rev, short for Reverend, is the title of a vicar"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "OLVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVE",
+       "gives": "OLVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman's turn comes round to romance.",
+     "definitionFit": "To revolve is to rotate about an axis, so it is a synonym for the verb turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,53 @@
     "text": "Where I find a doctor in France?",
     "enumeration": "5"
    },
-   "solution": "MEDOC"
+   "solution": "MEDOC",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "MEDOC",
+    "definitions": [
+     {
+      "text": "Where I find a doctor in France?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "find",
+     "in France?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "ME",
+      "note": "the speaker refers to themself as me"
+     },
+     {
+      "clueFragment": "a doctor",
+      "gives": "DOC",
+      "note": "doc is a casual word for a doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "DOC"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller wonders where to seek medical help while in France.",
+     "walkthrough": "The French doctor is a médecin, which sounds close to the answer; in fact it is the Bordeaux wine region where 'me' finds a 'doc'.",
+     "definitionFit": "The Médoc is a wine-producing district of south-west France, north of Bordeaux, so it is a place in France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +217,55 @@
     "text": "A Syrian who could stop a quarrel",
     "enumeration": "9"
    },
-   "solution": "DAMASCENE"
+   "solution": "DAMASCENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMASCENE",
+    "definitions": [
+     {
+      "text": "A Syrian",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "who could"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "DAM",
+      "note": "to dam a flow is to stop it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "SCENE",
+      "note": "making a scene is having a noisy row"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "A",
+      "SCENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Syria is hoped to be a peacemaker in an argument.",
+     "definitionFit": "A Damascene is a native or inhabitant of Damascus, the capital city of Syria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,55 @@
     "text": "Figure no mature person prevaricates about",
     "enumeration": "7"
    },
-   "solution": "LITOTES"
+   "solution": "LITOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LITOTES",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the evasive word goes round the small one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prevaricates",
+      "gives": "LIES",
+      "note": "to prevaricate is to evade the truth, to lie"
+     },
+     {
+      "clueFragment": "no mature person",
+      "gives": "TOT",
+      "note": "a tot is a small child, someone far from mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "TOT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A childish, evasive person dodges the truth over some number.",
+     "walkthrough": "'Figure' suggests a number; here it is a figure of speech.",
+     "definitionFit": "Litotes is a figure of speech that makes understatement by denying the opposite, as in 'not bad'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +341,58 @@
     "text": "Sign of caution in an officer and gentleman, perhaps",
     "enumeration": "7"
    },
-   "solution": "LAMBERT"
+   "solution": "LAMBERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMBERT",
+    "definitions": [
+     {
+      "text": "gentleman, perhaps",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the warning signal inside the rank abbreviation"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     },
+     {
+      "clueFragment": "Sign of caution",
+      "gives": "AMBER",
+      "note": "an amber traffic light warns drivers to take care"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AMBER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cautious signal is spotted in a man who is both officer and gentleman.",
+     "walkthrough": "The phrase 'an officer and a gentleman' pulls the words together; split it after 'officer'.",
+     "definitionFit": "Lambert is a man's given name or surname, so a gentleman could be called this; the 'perhaps' flags an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gentleman"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +406,67 @@
     "text": "Apocryphal work - opening Bible gets into it",
     "enumeration": "5"
    },
-   "solution": "TOBIT"
+   "solution": "TOBIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TOBIT",
+    "definitions": [
+     {
+      "text": "Apocryphal work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its very start, so only its first letter is kept"
+     },
+     {
+      "text": "gets in",
+      "for": "container",
+      "note": "something that gets in goes inside whatever follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to it",
+      "gives": "TO",
+      "note": "first part of 'to it', taken as written"
+     },
+     {
+      "clueFragment": "Bible",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "to it",
+      "gives": "IT",
+      "note": "second part of 'to it', taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "B",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a non-canonical book gets started off with Bible text.",
+     "walkthrough": "Read 'gets into it' as 'gets in to it': the B goes inside the words 'to it'.",
+     "definitionFit": "The Book of Tobit is part of the Apocrypha, books outside the Hebrew canon but in some Christian Bibles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +480,65 @@
     "text": "Starting to study a philosopher can be a drudge",
     "enumeration": "9"
    },
-   "solution": "TREADMILL"
+   "solution": "TREADMILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TREADMILL",
+    "definitions": [
+     {
+      "text": "drudge",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starting",
+      "for": "letter_selection",
+      "note": "starting picks out where the next word begins, so only its first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "can be a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "to read a subject is to study it at university"
+     },
+     {
+      "clueFragment": "a philosopher",
+      "gives": "MILL",
+      "note": "John Stuart Mill was a British philosopher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "READ",
+      "MILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking up philosophy can turn into a grind.",
+     "walkthrough": "'Starting to study' looks like one phrase; 'Starting' acts on 'to' only.",
+     "definitionFit": "A treadmill is monotonous, wearisome routine work, the same idea as a drudge in its sense of dreary toil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Starting"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +552,52 @@
     "text": "Scornful comment on the Day of Wrath",
     "enumeration": "6"
    },
-   "solution": "SATIRE"
+   "solution": "SATIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATIRE",
+    "definitions": [
+     {
+      "text": "Scornful comment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on the",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "SAT",
+      "note": "Sat is short for Saturday, a day"
+     },
+     {
+      "clueFragment": "Wrath",
+      "gives": "IRE",
+      "note": "ire is anger or wrath"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneering remark about the Last Judgment, the Dies Irae.",
+     "walkthrough": "'Day of Wrath' is the Last Judgment (Dies Irae), but here a day and wrath are taken separately.",
+     "definitionFit": "Satire is mocking criticism that uses irony and ridicule, so it is scornful comment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Day"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +611,49 @@
     "text": "Agreement on current lead",
     "enumeration": "6"
    },
-   "solution": "ACCORD"
+   "solution": "ACCORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCORD",
+    "definitions": [
+     {
+      "text": "Agreement",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "AC",
+      "note": "AC is alternating current"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "CORD",
+      "note": "an electrical lead is a cord"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Agreement reached about which electrical lead carries the current.",
+     "definitionFit": "An accord is a formal agreement or treaty, or simply a state of harmony between parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +673,76 @@
      }
     ]
    },
-   "solution": "VADEMECUM"
+   "solution": "VADEMECUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "VADE MECUM",
+    "definitions": [
+     {
+      "text": "companion",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the name is knocked out of order"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "the mother takes something in, holding it within her"
+     }
+    ],
+    "linkWords": [
+     "round",
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dave",
+      "gives": "DAVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "his mother",
+      "gives": "MUM",
+      "note": "mum is a familiar word for mother"
+     },
+     {
+      "clueFragment": "the city",
+      "gives": "EC",
+      "note": "EC is the postcode area of the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VADE",
+      "MECUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DAVE",
+       "gives": "VADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hard-up Dave escorts his mum on a tour of the city for company.",
+     "walkthrough": "'The city' is the City of London, postcode EC. Mum goes around it.",
+     "definitionFit": "A vade mecum is a handbook carried constantly; from Latin 'go with me', it is a companion book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +756,54 @@
     "text": "Grumble about table service",
     "enumeration": "5"
    },
-   "solution": "BLEAT"
+   "solution": "BLEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLEAT",
+    "definitions": [
+     {
+      "text": "Grumble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning round, so the letters are turned into a new order"
+     }
+    ],
+    "linkWords": [
+     "service"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "table",
+      "gives": "TABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TABLE",
+       "gives": "BLEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner complains about the slow service at their table.",
+     "walkthrough": "'service' completes the restaurant picture but plays no part in the wordplay.",
+     "definitionFit": "To bleat is to complain in a whining, feeble way, so it is a synonym for grumble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +817,50 @@
     "text": "Path of an endless plague",
     "enumeration": "5"
    },
-   "solution": "LOCUS"
+   "solution": "LOCUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOCUS",
+    "definitions": [
+     {
+      "text": "Path",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter is cut away"
+     }
+    ],
+    "linkWords": [
+     "of an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plague",
+      "gives": "LOCUST",
+      "note": "a locust swarm is the classic plague"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOCUS"
+     ]
+    },
+    "explanation": {
+     "surface": "The track taken by a never-ending scourge.",
+     "definitionFit": "In geometry a locus is the path traced by a point moving under a given rule, a crossword-friendly technical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "plague"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +880,67 @@
      }
     ]
    },
-   "solution": "OWENTUDOR"
+   "solution": "OWENTUDOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OWEN TUDOR",
+    "definitions": [
+     {
+      "text": "Henry's grandfather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word before it inside the jumbled word after it"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "something bad is spoilt, so the letters are spoilt into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odour",
+      "gives": "ODOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "WENT",
+      "note": "someone who left went away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "WENT",
+      "UDOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ODOUR",
+       "gives": "OUDOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's ancestor fell into disgrace.",
+     "walkthrough": "'In bad odour' is an idiom for being out of favour, which ties the surface together; read it word by word instead.",
+     "definitionFit": "Owen Tudor, a Welsh courtier who married Henry V's widow, was the paternal grandfather of King Henry VII."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +954,77 @@
     "text": "Rifle designed with no initial recoil in the butt",
     "enumeration": "7"
    },
-   "solution": "ENFIELD"
+   "solution": "ENFIELD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "ENFIELD",
+    "definitions": [
+     {
+      "text": "Rifle designed with no initial recoil in the butt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no initial",
+      "for": "deletion",
+      "note": "having no initial means the word loses its first letter"
+     },
+     {
+      "text": "recoil",
+      "for": "anagram",
+      "note": "a recoil is a violent jolt that throws the letters about"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the word for the stock's end"
+     }
+    ],
+    "linkWords": [
+     "designed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rifle",
+      "gives": "RIFLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the butt",
+      "gives": "END",
+      "note": "the butt of something is its thick end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "FIEL",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IFLE",
+       "gives": "FIEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rifle engineered to cut the kick felt in its stock.",
+     "walkthrough": "The whole clue describes the gun and also builds it: the word rifle loses its R, is jumbled and set inside END.",
+     "definitionFit": "The Lee-Enfield was the British Army's service rifle, made at the Royal Small Arms Factory in Enfield."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recoil"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1038,50 @@
     "text": "Anticipate Ashdown, perhaps with everything",
     "enumeration": "9"
    },
-   "solution": "FORESTALL"
+   "solution": "FORESTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORESTALL",
+    "definitions": [
+     {
+      "text": "Anticipate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ashdown, perhaps",
+      "gives": "FOREST",
+      "note": "Ashdown Forest is a stretch of heathland in Sussex, the home of Winnie-the-Pooh"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all means everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOREST",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Predicting what the politician Paddy Ashdown would do with the lot.",
+     "walkthrough": "Ashdown suggests the Liberal Democrat leader Paddy Ashdown; here it is Ashdown Forest in Sussex.",
+     "definitionFit": "To forestall is to act in advance to prevent something, which is anticipating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ashdown"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1095,52 @@
     "text": "Manoeuvre of man on course swapping ends",
     "enumeration": "6"
    },
-   "solution": "TACTIC"
+   "solution": "TACTIC",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "TACTIC",
+    "definitions": [
+     {
+      "text": "Manoeuvre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping ends",
+      "for": "cycling",
+      "note": "swapping ends exchanges the front half of the word with the back half"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man on course",
+      "gives": "TICTAC",
+      "note": "a tic-tac man signals odds between bookmakers at a racecourse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A tactical move by someone at the racetrack or golf course.",
+     "walkthrough": "A tic-tac man used hand signals to pass betting odds on a British racecourse; swap his two halves.",
+     "definitionFit": "A tactic is a planned move to gain an advantage, the same as a manoeuvre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1154,66 @@
     "text": "In the beginning is my beginning and my end",
     "enumeration": "9"
    },
-   "solution": "CREMATION"
+   "solution": "CREMATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CREMATION",
+    "definitions": [
+     {
+      "text": "my end",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places what follows inside the term just before it"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the beginning",
+      "gives": "CREATION",
+      "note": "the Creation is the beginning of the world in Genesis"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "M",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "An echo of T S Eliot's 'In my beginning is my end', about the cycle of life.",
+     "walkthrough": "'In the beginning' recalls Genesis; the Creation takes M inside it.",
+     "definitionFit": "Cremation is the burning of a body after death, so for the speaker it is a final end."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1227,59 @@
     "text": "Eager to add a little tree to the forest",
     "enumeration": "6"
    },
-   "solution": "ARDENT"
+   "solution": "ARDENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ARDENT",
+    "definitions": [
+     {
+      "text": "Eager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "letter_selection",
+      "note": "a little of a word is just a small piece, here its first letter"
+     }
+    ],
+    "linkWords": [
+     "to add",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the forest",
+      "gives": "ARDEN",
+      "note": "the Forest of Arden is the setting of As You Like It"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARDEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Keen to plant a sapling in the woods.",
+     "definitionFit": "Ardent means passionate and enthusiastic, so an ardent person is keen or eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1293,53 @@
     "text": "Various letters of support",
     "enumeration": "7"
    },
-   "solution": "TRESTLE"
+   "solution": "TRESTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRESTLE",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Various",
+      "for": "anagram",
+      "note": "various suggests a varied arrangement, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters",
+      "gives": "LETTERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LETTERS",
+       "gives": "TRESTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several letters written in support of a cause.",
+     "definitionFit": "A trestle is a frame of a beam on splayed legs used to hold up a table top, so it is a support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1353,58 @@
     "text": "Presumably one simply looks round for a room in the States?",
     "enumeration": "7"
    },
-   "solution": "OCELLUS"
+   "solution": "OCELLUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCELLUS",
+    "definitions": [
+     {
+      "text": "Presumably one simply looks",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for a",
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "CELL",
+      "note": "a cell is a small room"
+     },
+     {
+      "clueFragment": "States",
+      "gives": "US",
+      "note": "US is the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CELL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone innocently looks about for a room to rent in America.",
+     "walkthrough": "'Simply' hides 'simple': an ocellus is a simple eye, so it looks in a simple way.",
+     "definitionFit": "An ocellus is the simple eye of an insect or other invertebrate, a single light-sensitive organ for seeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "simply"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1418,57 @@
     "text": "To ring telephones for custom is insensitive",
     "enumeration": "6"
    },
-   "solution": "OBTUSE"
+   "solution": "OBTUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBTUSE",
+    "definitions": [
+     {
+      "text": "insensitive",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "To",
+     "for",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "the letter O is ring-shaped"
+     },
+     {
+      "clueFragment": "telephones",
+      "gives": "BT",
+      "note": "BT, British Telecom, is the UK's main telephone company"
+     },
+     {
+      "clueFragment": "custom",
+      "gives": "USE",
+      "note": "use, as in usage, means custom or habit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BT",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A business that cold-calls customers is thought tactless.",
+     "definitionFit": "An obtuse person is slow to understand or notice others' feelings, which is being dull or insensitive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1482,55 @@
     "text": "Being unsteady, Roger went off course",
     "enumeration": "7"
    },
-   "solution": "STRAYED"
+   "solution": "STRAYED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRAYED",
+    "definitions": [
+     {
+      "text": "went off course",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsteady",
+      "for": "container",
+      "note": "made unsteady by something knocking into it, so another piece is pushed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Being",
+      "gives": "STAYED",
+      "note": "to stay is to go on being where one is"
+     },
+     {
+      "clueFragment": "Roger",
+      "gives": "R",
+      "note": "Roger is the radio code word for R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "AYED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wobbly man named Roger wandered off the route.",
+     "walkthrough": "Roger is radio code for R, which enters STAYED, so what stayed no longer does.",
+     "definitionFit": "To stray is to wander from the proper path, so someone who strayed went off course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roger"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1544,51 @@
     "text": "Fritz goes head over heels into the trough",
     "enumeration": "6"
    },
-   "solution": "MANGER"
+   "solution": "MANGER",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "MANGER",
+    "definitions": [
+     {
+      "text": "trough",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes head over heels",
+      "for": "cycling",
+      "note": "going head over heels brings the head part round behind the heel part"
+     }
+    ],
+    "linkWords": [
+     "into the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fritz",
+      "gives": "GERMAN",
+      "note": "Fritz is an old slang name for a German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German soldier tumbles over into a water trough.",
+     "definitionFit": "A manger is a long open box or trough from which horses and cattle eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fritz"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1602,54 @@
     "text": "Off round the world, soaking everything up",
     "enumeration": "9"
    },
-   "solution": "ABSORBENT"
+   "solution": "ABSORBENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSORBENT",
+    "definitions": [
+     {
+      "text": "soaking everything up",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the first word wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Off",
+      "gives": "ABSENT",
+      "note": "someone off work is absent"
+     },
+     {
+      "clueFragment": "the world",
+      "gives": "ORB",
+      "note": "an orb is a globe, the world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "ORB",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller heads off round the globe, taking it all in.",
+     "definitionFit": "Absorbent describes something that takes in liquid readily, like a sponge drawing everything into itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Off"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1663,39 @@
     "text": "Master of the Rolls",
     "enumeration": "5"
    },
-   "solution": "ROYCE"
+   "solution": "ROYCE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYCE",
+    "definitions": [
+     {
+      "text": "Master of the Rolls",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master of the Rolls",
+      "note": "surface reading: the senior English judge who presides over the Court of Appeal's civil division"
+     },
+     {
+      "clueFragment": "Rolls",
+      "note": "setter's reading: the Rolls of a famous luxury car maker, and the engineer who was its co-founder"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Master of the Rolls is a top English judge; here the Rolls is the car, and its master is engineer Henry Royce.",
+     "definitionFit": "Henry Royce was the engineer who co-founded Rolls-Royce with Charles Rolls, making him a master of that car company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rolls"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1709,51 @@
     "text": "Red Robin, a commercial broadcast",
     "enumeration": "5"
    },
-   "solution": "ADAIR"
+   "solution": "ADAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAIR",
+    "definitions": [
+     {
+      "text": "Red Robin",
+      "at": 0,
+      "note": "two given names that both go with this surname"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A red-breasted robin appears in a TV commercial.",
+     "walkthrough": "Red Adair was the American oil-well firefighter; Robin Adair is an old Scottish song.",
+     "definitionFit": "Both famous names share this surname: oil firefighter Red Adair and the title figure of the song Robin Adair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1767,73 @@
     "text": "Love - a queer turn about nothing",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "AMOUR",
+    "definitions": [
+     {
+      "text": "Love",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turn",
+      "for": "reversal",
+      "note": "to turn something is to send it the other way"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word goes around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queer",
+      "gives": "RUM",
+      "note": "rum is old British slang for odd or strange"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "O",
+      "UR"
+     ],
+     "reversals": [
+      {
+       "from": "RUM",
+       "to": "MUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Romance takes an odd twist over nothing at all.",
+     "definitionFit": "Amour is the French word for love, used in English for a love affair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queer"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1847,57 @@
     "text": "Excess profit and the seriousness of losing it",
     "enumeration": "5"
    },
-   "solution": "GRAVY"
+   "solution": "GRAVY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GRAVY",
+    "definitions": [
+     {
+      "text": "Excess profit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away from the word"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the seriousness",
+      "gives": "GRAVITY",
+      "note": "gravity is solemn seriousness"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAV",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Windfall gains, and how grave it would be to lose them.",
+     "definitionFit": "Gravy is slang for money or profit gained easily, beyond what was expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "losing"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1911,67 @@
     "text": "Blair swallows Times' garbled evidence",
     "enumeration": "9"
    },
-   "solution": "TESTIMONY"
+   "solution": "TESTIMONY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TESTIMONY",
+    "definitions": [
+     {
+      "text": "evidence",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "whatever swallows takes something inside itself"
+     },
+     {
+      "text": "garbled",
+      "for": "anagram",
+      "note": "a garbled message is jumbled, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blair",
+      "gives": "TONY",
+      "note": "Tony Blair, the British prime minister"
+     },
+     {
+      "clueFragment": "Times'",
+      "gives": "TIMES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ESTIM",
+      "ONY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIMES",
+       "gives": "ESTIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The prime minister dismisses the newspaper's muddled account.",
+     "walkthrough": "Blair is the prime minister Tony Blair; his first name wraps the jumbled TIMES.",
+     "definitionFit": "Testimony is a formal statement given in court, which is evidence offered by a witness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times'"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1985,52 @@
     "text": "Take the place of soldiers reportedly on furlough",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "Take the place of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as others say it, so the word is heard rather than seen"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE are the Royal Engineers"
+     },
+     {
+      "clueFragment": "furlough",
+      "gives": "LIEVE",
+      "soundsLike": "LEAVE",
+      "note": "furlough is leave of absence"
+     }
+    ],
+    "explanation": {
+     "surface": "Troops on leave are replaced by others.",
+     "definitionFit": "To relieve a sentry or worker is to take over their duty, so it means to replace them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "furlough"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +2044,39 @@
     "text": "Is she where power is to be found?",
     "enumeration": "6"
    },
-   "solution": "INGRID"
+   "solution": "INGRID",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INGRID",
+    "definitions": [
+     {
+      "text": "Is she where power is to be found?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is she where power is to be found?",
+      "note": "surface reading: asks whether some woman holds the real authority"
+     },
+     {
+      "clueFragment": "power",
+      "note": "setter's reading: electric power is found in the national grid, and a woman's name splits as in plus grid"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Power means electricity, which lives in the national grid; the woman's name breaks into IN GRID.",
+     "definitionFit": "Ingrid is a woman's given name, so it is a she, and in grid locates electric power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "power"
+    }
+   }
   }
  ]
 }
