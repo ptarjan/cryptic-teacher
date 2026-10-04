@@ -529,12 +529,16 @@ def app_return(pid):
     The app keeps /puzzles/<id>/ in the address bar, because that is what gets
     copied and what previews with this page's card, so a reload lands here. The
     app sets sessionStorage "ct:app:<id>" when it opens the puzzle; crawlers and
-    fresh visitors carry no flag and get this page. `../../` is the site root
-    from every /puzzles/<id>/ page, on any host.
+    fresh visitors carry no flag and get this page. Only a reload or back/forward
+    returns: following a link (an "answers" link from a listing) is a request
+    for the write-up, flag or not. `../../` is the site root from every
+    /puzzles/<id>/ page, on any host.
     """
     key = json.dumps(f"ct:app:{pid}")
     app = json.dumps(f"../../?p={pid}")
-    return ("<script>try{if(sessionStorage.getItem(" + key + ")){"
+    return ("<script>try{var n=performance.getEntriesByType(\"navigation\")[0];"
+            "if(n&&(n.type==\"reload\"||n.type==\"back_forward\"))"
+            "if(sessionStorage.getItem(" + key + ")){"
             "var c=new URLSearchParams(location.search).get(\"c\");"
             "location.replace(" + app + "+(c?\"&c=\"+encodeURIComponent(c):\"\"))}"
             "}catch(e){}</script>\n")

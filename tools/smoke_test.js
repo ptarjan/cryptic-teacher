@@ -2114,17 +2114,21 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   const inline = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1])
     .find((src) => src.includes("sessionStorage"));
   if (assert(inline, `puzzles/${autoPuzzle.id}/ should carry the reload-back script in <head>`)) {
-    const land = (flagged) => {
+    const land = (flagged, type = "reload") => {
       let to = null;
       const store = { getItem: (k) => (flagged && k === key ? "1" : null) };
       const loc = { search: "?c=3A", replace: (u) => { to = u; } };
-      new Function("sessionStorage", "location", "URLSearchParams", inline)(store, loc, URLSearchParams);
+      const perf = { getEntriesByType: (t) => (t === "navigation" ? [{ type }] : []) };
+      new Function("sessionStorage", "location", "URLSearchParams", "performance", inline)(store, loc, URLSearchParams, perf);
       return to;
     };
     const back = land(true);
     assert(back === `../../?p=${autoPuzzle.id}&c=3A`,
       `a flagged reload of puzzles/${autoPuzzle.id}/?c=3A should go to ../../?p=${autoPuzzle.id}&c=3A, got ${back}`);
+    assert(land(true, "back_forward") === back, "a flagged back/forward to the write-up should return to the app");
     assert(land(false) === null, "an unflagged visit must stay on the static write-up");
+    assert(land(true, "navigate") === null,
+      "following an answers link must show the write-up even when the tab solved that puzzle");
   }
 }
 
