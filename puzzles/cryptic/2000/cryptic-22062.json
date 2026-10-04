@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Instigate frolic in gym",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Instigate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means the first word's letters go inside the second's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gym",
+      "gives": "PT",
+      "note": "PT, physical training, is school gym"
+     },
+     {
+      "clueFragment": "frolic",
+      "gives": "ROMP",
+      "note": "to romp is to frolic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts horseplay in the school gym.",
+     "walkthrough": "PT, physical training, is the old British school name for gym lessons.",
+     "definitionFit": "To prompt something is to set it going or provoke it, a straightforward synonym of instigate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gym"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,48 @@
     "text": "Redevelopment in old town starts civil disorder",
     "enumeration": "4"
    },
-   "solution": "RIOT"
+   "solution": "RIOT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RIOT",
+    "definitions": [
+     {
+      "text": "civil disorder",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "the starts of words are their opening letters, so only the first of each is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Redevelopment in old town",
+      "gives": "RIOT",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rebuilding a historic town centre sparks unrest among residents.",
+     "definitionFit": "A riot is a violent public disturbance, the standard name for an outbreak of civil disorder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +153,70 @@
     "text": "Spread out Parmesan, lacking an inferior cheese",
     "enumeration": "9"
    },
-   "solution": "MOUSETRAP"
+   "solution": "MOUSETRAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MOUSETRAP",
+    "definitions": [
+     {
+      "text": "inferior cheese",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the next words are removed from the cheese name"
+     },
+     {
+      "text": "Spread",
+      "for": "anagram",
+      "note": "spread is read as a verb telling us to scatter and lay out the letters anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Parmesan",
+      "gives": "PARMESAN",
+      "note": "taken as written, the Italian hard cheese"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written; these two letters are dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUSETRAP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUTPARMES",
+       "gives": "MOUSETRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for spreading out some Parmesan, while dismissing another cheese as second-rate.",
+     "walkthrough": "'Spread out' looks like one phrase, but 'out' is part of the letters to rearrange. Remove AN from PARMESAN, then rearrange OUT + PARMES.",
+     "definitionFit": "Mousetrap is a jokey British name for cheap, poor-quality cheddar, the sort only fit for baiting traps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,58 @@
     "text": "Go round tree that's meretricious",
     "enumeration": "6"
    },
-   "solution": "TRASHY"
+   "solution": "TRASHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRASHY",
+    "definitions": [
+     {
+      "text": "meretricious",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one word going round another means it wraps around it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "TRY",
+      "note": "to have a go is to have a try"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "ASH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to walk round a tree that happens to be gaudy.",
+     "walkthrough": "'Go round' looks like a walking instruction, but 'Go' is a noun meaning an attempt, and it wraps the tree.",
+     "definitionFit": "Meretricious means showily attractive but cheap and tasteless, which is what something trashy is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +295,50 @@
     "text": "Chosen people get odd mixture of gold and silver",
     "enumeration": "8"
    },
-   "solution": "ELECTRUM"
+   "solution": "ELECTRUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRUM",
+    "definitions": [
+     {
+      "text": "mixture of gold and silver",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chosen people",
+      "gives": "ELECT",
+      "note": "the elect are those chosen, especially by God"
+     },
+     {
+      "clueFragment": "odd",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "The chosen ones are handed a peculiar blend of precious metals.",
+     "walkthrough": "'Odd' looks like an anagram signal for what follows, but it is simply RUM.",
+     "definitionFit": "Electrum is a natural or man-made alloy of these two precious metals, used for early coins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +358,51 @@
      }
     ]
    },
-   "solution": "EVERLASTINGFAME"
+   "solution": "EVERLASTINGFAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVERLASTING FAME",
+    "definitions": [
+     {
+      "text": "immortality",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "presenting a form of",
+      "for": "anagram",
+      "note": "giving a form of something means reshaping it into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evangelism after",
+      "gives": "EVANGELISMAFTER",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVANGELISMAFTER",
+       "gives": "EVERLASTINGFAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Preaching the gospel is offered as a route to eternal life.",
+     "walkthrough": "'After' looks like a positional instruction but is part of the letters to rearrange.",
+     "definitionFit": "Lasting renown that never dies is a kind of immortality, living on in memory rather than in body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +416,67 @@
     "text": "Compulsory measure for about a month",
     "enumeration": "8"
    },
-   "solution": "ENFORCED"
+   "solution": "ENFORCED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ENFORCED",
+    "definitions": [
+     {
+      "text": "Compulsory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned around, so the month's abbreviation is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "measure",
+      "gives": "EN",
+      "note": "an en is a printer's measure of width"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a month",
+      "gives": "DEC",
+      "note": "Dec is the abbreviation for December"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "FOR",
+      "CED"
+     ],
+     "reversals": [
+      {
+       "from": "DEC",
+       "to": "CED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rule is imposed as mandatory for a period of about a month.",
+     "walkthrough": "'About a month' reads like a duration of roughly four weeks; 'about' actually turns the month's abbreviation round.",
+     "definitionFit": "Something enforced is imposed and required by authority, so it is obligatory rather than optional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +490,41 @@
     "text": "Deal with entertainment paid for by another",
     "enumeration": "5"
    },
-   "solution": "TREAT"
+   "solution": "TREAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREAT",
+    "definitions": [
+     {
+      "text": "Deal with",
+      "at": 0
+     },
+     {
+      "text": "entertainment paid for by another",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal with",
+      "note": "first meaning: to handle or behave towards"
+     },
+     {
+      "clueFragment": "entertainment paid for by another",
+      "note": "second meaning: a meal or outing someone else pays for"
+     }
+    ],
+    "explanation": {
+     "surface": "Handling an outing that someone else is funding.",
+     "definitionFit": "As a verb the word means handle or act towards; as a noun it is something enjoyable that a host pays for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +538,52 @@
     "text": "Release a part? That's not generous",
     "enumeration": "10"
    },
-   "solution": "UNHANDSOME"
+   "solution": "UNHANDSOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNHANDSOME",
+    "definitions": [
+     {
+      "text": "not generous",
+      "at": 23,
+      "note": "the definition is 'That's not generous', an adjective phrase"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Release",
+      "gives": "UNHAND",
+      "note": "to unhand is to let go of someone"
+     },
+     {
+      "clueFragment": "a part",
+      "gives": "SOME",
+      "note": "some is a part of a whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNHAND",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor surrendering a role is thought mean-spirited.",
+     "walkthrough": "Handsome can mean generous, as in a handsome tip, so its opposite means mean.",
+     "definitionFit": "Handsome has an older sense of liberal or bountiful; adding the negative prefix gives stingy or ungracious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +597,66 @@
     "text": "Old man going to youth centre with material for the people",
     "enumeration": "8"
    },
-   "solution": "POPULACE"
+   "solution": "POPULACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POPULACE",
+    "definitions": [
+     {
+      "text": "the people",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, so only that one is used"
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "POP",
+      "note": "pop is an informal name for one's father"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "U",
+      "select": "middle",
+      "note": "the middle letter of the five-letter word"
+     },
+     {
+      "clueFragment": "material",
+      "gives": "LACE",
+      "note": "lace is an openwork fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "U",
+      "LACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Father heads to a youth club carrying fabric meant for the public.",
+     "definitionFit": "The populace is the general public or common people of a place, the mass of ordinary inhabitants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +670,64 @@
     "text": "Plump sprite, backward and certainly not forward",
     "enumeration": "6"
    },
-   "solution": "FLESHY"
+   "solution": "FLESHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FLESHY",
+    "definitions": [
+     {
+      "text": "Plump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "backward tells us to read the fairy's name from end to start"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sprite",
+      "gives": "ELF",
+      "note": "an elf is a sprite or fairy"
+     },
+     {
+      "clueFragment": "certainly not forward",
+      "gives": "SHY",
+      "note": "a shy person is the opposite of forward or bold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLE",
+      "SHY"
+     ],
+     "reversals": [
+      {
+       "from": "ELF",
+       "to": "FLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chubby fairy who is both slow to develop and timid.",
+     "walkthrough": "'Backward' and 'not forward' seem to say the same thing; one turns ELF to FLE, the other gives SHY.",
+     "definitionFit": "Fleshy describes a body carrying ample flesh, so it means plump or chubby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +741,77 @@
     "text": "Thrilling hail storm takes former sailor outside",
     "enumeration": "12"
    },
-   "solution": "EXHILARATING"
+   "solution": "EXHILARATING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXHILARATING",
+    "definitions": [
+     {
+      "text": "Thrilling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storm",
+      "for": "anagram",
+      "note": "a storm throws things into turmoil, so these letters are tossed into a new order"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something in is to hold it, with the sailor's word on either side"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside says the former sailor sits around the stormy letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex is a prefix meaning former"
+     },
+     {
+      "clueFragment": "hail",
+      "gives": "HAIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "RATING",
+      "note": "a rating is a non-commissioned sailor in the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HILA",
+      "RATING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAIL",
+       "gives": "HILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old seaman out in a hailstorm finds it thrilling.",
+     "walkthrough": "EXRATING, a former sailor, wraps around a rearranged HAIL.",
+     "definitionFit": "Exhilarating describes something that fills you with excitement and high spirits, a close synonym of thrilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +825,77 @@
     "text": "Astronomer given work in nuclear research centre is going round Cambridge University",
     "enumeration": "10"
    },
-   "solution": "COPERNICUS"
+   "solution": "COPERNICUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COPERNICUS",
+    "definitions": [
+     {
+      "text": "Astronomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "work placed in the research centre means its letters go inside that name"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means wrapping around, so the university's letters sit inside"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuclear research centre",
+      "gives": "CERN",
+      "note": "CERN is the European particle physics laboratory in Geneva"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op, short for opus, is a work"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Cambridge University",
+      "gives": "CU",
+      "note": "standard abbreviation for Cambridge University"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OP",
+      "ERN",
+      "I",
+      "CU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A stargazer lands a job at a particle physics lab while studying at Cambridge.",
+     "walkthrough": "Two separate insertions: the work goes into the Geneva lab's name, and the word 'is' is wrapped around the university.",
+     "definitionFit": "Copernicus was the Polish astronomer who put the sun, not the earth, at the centre of the solar system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +909,43 @@
     "text": "North African grouse may be found here",
     "enumeration": "4"
    },
-   "solution": "MOOR"
+   "solution": "MOOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOOR",
+    "definitions": [
+     {
+      "text": "North African",
+      "at": 0
+     },
+     {
+      "text": "grouse may be found here",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North African",
+      "note": "first meaning: a Muslim of north-west Africa, of the people who once ruled Spain"
+     },
+     {
+      "clueFragment": "grouse may be found here",
+      "note": "second meaning: open upland heath where game birds live"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Grouse' suggests a complaint by a North African; here it is the game bird.",
+     "definitionFit": "The word names a person from the Maghreb and also the heather-covered upland where red grouse breed and are shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grouse"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +959,58 @@
     "text": "Most severe novelist and story teller starts",
     "enumeration": "8"
    },
-   "solution": "STERNEST"
+   "solution": "STERNEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STERNEST",
+    "definitions": [
+     {
+      "text": "Most severe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are opening letters, so only the first of each word is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novelist",
+      "gives": "STERNE",
+      "note": "Laurence Sterne wrote Tristram Shandy"
+     },
+     {
+      "clueFragment": "story teller",
+      "gives": "ST",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STERNE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh critic judges a novelist and a storyteller as they begin.",
+     "definitionFit": "Stern means strict or harsh, so the superlative form means the harshest or most severe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1030,60 @@
      }
     ]
    },
-   "solution": "NUMBERONE"
+   "solution": "NUMBERONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUMBER ONE",
+    "definitions": [
+     {
+      "text": "First",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking in, so the drama's letters sit within the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anaesthetised",
+      "gives": "NUMB",
+      "note": "numb is without feeling, as under anaesthetic"
+     },
+     {
+      "clueFragment": "hospital drama",
+      "gives": "ER",
+      "note": "ER was a US television drama set in a hospital emergency room"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMB",
+      "ER",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "The first patient under anaesthetic is watching a medical TV series.",
+     "walkthrough": "The individual here is the two-word phrase anaesthetised individual, which takes in the drama at its join rather than the lone word individual.",
+     "definitionFit": "Number one means the first or top-ranking, as in the best-selling record in the charts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drama"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1097,55 @@
     "text": "Type of onion ring found in the promised land",
     "enumeration": "8"
    },
-   "solution": "SCALLION"
+   "solution": "SCALLION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCALLION",
+    "definitions": [
+     {
+      "text": "Type of onion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means located inside, so these letters go within the holy land's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "CALL",
+      "note": "to ring someone is to call them on the phone"
+     },
+     {
+      "clueFragment": "the promised land",
+      "gives": "SION",
+      "note": "Sion, or Zion, is the biblical promised land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CALL",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "An onion ring discovered in Israel.",
+     "walkthrough": "'Onion ring' reads as a fried snack, but 'ring' means telephone and goes inside the biblical name for the promised land.",
+     "definitionFit": "A scallion is a spring onion or shallot, so it is a kind of onion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1159,61 @@
     "text": "Hiccups evidently turned back some explorer",
     "enumeration": "8"
    },
-   "solution": "VESPUCCI"
+   "solution": "VESPUCCI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "VESPUCCI",
+    "definitions": [
+     {
+      "text": "explorer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the letters, sitting inside the words shown"
+     },
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "turned back means the run of letters is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hiccups evidently",
+      "gives": "ICCUPSEV",
+      "note": "a run of letters across the two words, skipping the opening H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VESPUCCI"
+     ],
+     "reversals": [
+      {
+       "from": "ICCUPSEV",
+       "to": "VESPUCCI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller's hiccups apparently made him retreat.",
+     "walkthrough": "The answer runs backwards through hICCUPS EVidently.",
+     "definitionFit": "Amerigo Vespucci was the Italian navigator whose first name gave the Americas theirs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Hiccups"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1227,51 @@
     "text": "Florida resort without a role for a soprano",
     "enumeration": "4"
    },
-   "solution": "MIMI"
+   "solution": "MIMI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MIMI",
+    "definitions": [
+     {
+      "text": "role for a soprano",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the next letter is taken out of the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida resort",
+      "gives": "MIAMI",
+      "note": "Miami is the Florida beach city"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunshine resort lacks a part for an opera singer.",
+     "definitionFit": "Mimi is the consumptive seamstress heroine of Puccini's La Bohème, sung by a soprano."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1285,70 @@
     "text": "Empower leaderless men on revolutionary island",
     "enumeration": "6"
    },
-   "solution": "ENABLE"
+   "solution": "ENABLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ENABLE",
+    "definitions": [
+     {
+      "text": "Empower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaderless",
+      "for": "deletion",
+      "note": "having no leader means the first letter is lost"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary suggests turning right round, so the island is read backwards"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "ELBA",
+      "note": "Elba is the Mediterranean island of Napoleon's exile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "ABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBA",
+       "to": "ABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel island's men, without a chief, are given power.",
+     "walkthrough": "MEN loses its M, then Elba turned round follows.",
+     "definitionFit": "To enable someone is to give them the means or authority to act, which is to empower them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1362,42 @@
     "text": "Faculty for understanding news",
     "enumeration": "12"
    },
-   "solution": "INTELLIGENCE"
+   "solution": "INTELLIGENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTELLIGENCE",
+    "definitions": [
+     {
+      "text": "Faculty for understanding",
+      "at": 0
+     },
+     {
+      "text": "news",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faculty for understanding",
+      "note": "first meaning: the mental capacity to learn and reason"
+     },
+     {
+      "clueFragment": "news",
+      "note": "second meaning: information, especially secret military or political information"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Faculty' may suggest a university department; here it is a mental power.",
+     "definitionFit": "The word means mental ability to grasp things, and also gathered information or tidings, as in military reports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Faculty"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1411,57 @@
     "text": "Name of man in tree by East River",
     "enumeration": "5"
    },
-   "solution": "ELMER"
+   "solution": "ELMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELMER",
+    "definitions": [
+     {
+      "text": "Name of man",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ELM",
+      "note": "the elm is a tree"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "standard abbreviation for East"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELM",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A man perched in a tree beside a river on the east side.",
+     "walkthrough": "'In' looks like a containment signal but simply links; the pieces sit side by side.",
+     "definitionFit": "Elmer is a male first name, as in the cartoon hunter Elmer Fudd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1475,63 @@
     "text": "Some petunias raised by indigenous Japanese people",
     "enumeration": "4"
    },
-   "solution": "AINU"
+   "solution": "AINU",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AINU",
+    "definitions": [
+     {
+      "text": "indigenous Japanese people",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means just part of the word shown, sitting inside it"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means the letters are read upwards, end to start"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petunias",
+      "gives": "UNIA",
+      "note": "letters inside the flower's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AINU"
+     ],
+     "reversals": [
+      {
+       "from": "UNIA",
+       "to": "AINU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Japan's native people grow a few garden flowers.",
+     "walkthrough": "The answer is in petUNIAs, written upwards.",
+     "definitionFit": "The Ainu are the native people of Hokkaido and northern Japan, distinct from the majority Japanese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1545,49 @@
     "text": "Seafood swindle requires private investigator",
     "enumeration": "6"
    },
-   "solution": "SCAMPI"
+   "solution": "SCAMPI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAMPI",
+    "definitions": [
+     {
+      "text": "Seafood",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swindle",
+      "gives": "SCAM",
+      "note": "a scam is a fraudulent scheme"
+     },
+     {
+      "clueFragment": "private investigator",
+      "gives": "PI",
+      "note": "PI is the abbreviation for private investigator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAM",
+      "PI"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafood fraud needs a detective to crack it.",
+     "definitionFit": "Scampi are langoustines or prawns, usually breaded and fried, a classic British seafood dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swindle"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1601,61 @@
     "text": "In the morning wild boar is heavenly food",
     "enumeration": "8"
    },
-   "solution": "AMBROSIA"
+   "solution": "AMBROSIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AMBROSIA",
+    "definitions": [
+     {
+      "text": "heavenly food",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means unruly, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "am means before noon"
+     },
+     {
+      "clueFragment": "boar is",
+      "gives": "BOARIS",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "BROSIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOARIS",
+       "gives": "BROSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild boar for breakfast is a divine meal.",
+     "walkthrough": "'In the' tempts a solver to insert something; it is just AM.",
+     "definitionFit": "Ambrosia is the food of the Greek gods, said to grant immortality, hence food of heaven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1669,52 @@
     "text": "Alienate sergeant in mess",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "Alienate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in mess",
+      "for": "anagram",
+      "note": "something in a mess is jumbled and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sergeant",
+      "gives": "SERGEANT",
+      "note": "the letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERGEANT",
+       "gives": "ESTRANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Upsetting the sergeant in the military dining hall.",
+     "walkthrough": "A mess is also where soldiers eat, which is the surface's picture.",
+     "definitionFit": "To estrange people is to make them hostile or distant from each other, which is to alienate them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mess"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1728,47 @@
     "text": "Underworld before Underground alternative",
     "enumeration": "6"
    },
-   "solution": "EREBUS"
+   "solution": "EREBUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EREBUS",
+    "definitions": [
+     {
+      "text": "Underworld",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "Underground alternative",
+      "gives": "BUS",
+      "note": "the Underground is London's Tube; a bus is another way to travel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERE",
+      "BUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a surface route before taking the Tube.",
+     "walkthrough": "'Underground' sits right by 'Underworld' to look like a gloss; it is London transport.",
+     "definitionFit": "In Greek myth Erebus is the dark region of Hades through which the dead pass, hence the underworld."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Underground"
+    }
+   }
   }
  ]
 }
