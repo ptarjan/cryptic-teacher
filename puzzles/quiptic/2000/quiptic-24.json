@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "US picnic where lamb is served in baked dough",
     "enumeration": "8"
    },
-   "solution": "CLAMBAKE"
+   "solution": "CLAMBAKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAMBAKE",
+    "definitions": [
+     {
+      "text": "US picnic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served in",
+      "for": "container",
+      "note": "food served in a pastry case sits inside it, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baked dough",
+      "gives": "CAKE",
+      "note": "cake is dough or batter that has been baked"
+     },
+     {
+      "clueFragment": "lamb",
+      "gives": "LAMB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAMB",
+      "AKE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American outdoor party where the lamb is baked in a pastry crust.",
+     "definitionFit": "A clambake is an American seaside party where clams and other food are cooked outdoors, a kind of picnic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,42 @@
     "text": "Customer glimpsed in trousers",
     "enumeration": "4"
    },
-   "solution": "USER"
+   "solution": "USER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "USER",
+    "definitions": [
+     {
+      "text": "Customer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "glimpsed in",
+      "for": "hidden_word",
+      "note": "something only glimpsed inside a word is partly seen, a run of letters sitting within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "USER",
+      "note": "the middle letters of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A shop customer spotted wearing trousers.",
+     "definitionFit": "A user is someone who buys or makes use of a service or product, like a customer of a company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glimpsed"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,65 @@
     "text": "Flier breaks a rib taking on you and me",
     "enumeration": "6"
    },
-   "solution": "AIRBUS"
+   "solution": "AIRBUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AIRBUS",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces that can be put back in a new order"
+     },
+     {
+      "text": "taking on",
+      "for": "charade",
+      "note": "taking something on means adding it to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a rib",
+      "gives": "AIRB",
+      "note": "the letters of these two words rearranged"
+     },
+     {
+      "clueFragment": "you and me",
+      "gives": "US",
+      "note": "us is the pronoun for you and me together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRB",
+      "US"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARIB",
+       "gives": "AIRB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot cracks a rib while adding two passengers.",
+     "definitionFit": "An Airbus is a passenger aircraft, and crosswords often call any aircraft a flier because it flies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flier"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +221,57 @@
     "text": "Hairdresser and fashionable journalist married",
     "enumeration": "8"
    },
-   "solution": "COMBINED"
+   "solution": "COMBINED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMBINED",
+    "definitions": [
+     {
+      "text": "married",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hairdresser",
+      "gives": "COMB",
+      "note": "a comb is the tool that dresses hair"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the standard crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMB",
+      "IN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A stylist and a trendy reporter have tied the knot.",
+     "walkthrough": "'Hairdresser' suggests a person, but here it is the object that dresses hair.",
+     "definitionFit": "Married in the sense of joined together or united, as two elements are blended into one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hairdresser"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +291,54 @@
      }
     ]
    },
-   "solution": "SEETHROUGH"
+   "solution": "SEETHROUGH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEE-THROUGH",
+    "definitions": [
+     {
+      "text": "Transparent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of a word means it stops short of its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boil",
+      "gives": "SEETHE",
+      "note": "to seethe is to boil or bubble"
+     },
+     {
+      "clueFragment": "coarse",
+      "gives": "ROUGH",
+      "note": "rough means coarse in texture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEETH",
+      "ROUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "A clear spot on the skin, almost rough to the touch.",
+     "definitionFit": "Something you can see through lets light pass, so it is clear or transparent like glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boil"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +352,64 @@
     "text": "Schedules drawn up by saint going round Elba",
     "enumeration": "6"
    },
-   "solution": "TABLES"
+   "solution": "TABLES",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TABLES",
+    "definitions": [
+     {
+      "text": "Schedules",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it on both sides"
+     },
+     {
+      "text": "drawn up",
+      "for": "reversal",
+      "note": "in a down entry, drawing a word up means it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "Elba",
+      "gives": "ELBA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLES"
+     ],
+     "reversals": [
+      {
+       "from": "SELBAT",
+       "to": "TABLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man sails round Napoleon's island of exile after timetables are prepared.",
+     "definitionFit": "Tables are lists of times or figures laid out in rows, such as timetables or schedules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawn"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +423,54 @@
     "text": "Have a fling round a tree, moving quickly",
     "enumeration": "8"
    },
-   "solution": "FLASHING"
+   "solution": "FLASHING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLASHING",
+    "definitions": [
+     {
+      "text": "moving quickly",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a fling",
+      "gives": "FLING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "ASH",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has a quick affair beneath a tree and rushes off.",
+     "definitionFit": "Flashing means darting or speeding past, like something moving too fast to see clearly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fling"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +484,69 @@
     "text": "Cowboy to go round church after gold",
     "enumeration": "6"
    },
-   "solution": "GAUCHO"
+   "solution": "GAUCHO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GAUCHO",
+    "definitions": [
+     {
+      "text": "Cowboy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it on both sides"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind another in the order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AU",
+      "CH",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy rides round the church after finding gold.",
+     "definitionFit": "A gaucho is a South American horseman herding cattle on the pampas, the local equivalent of a cowboy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +566,53 @@
      }
     ]
    },
-   "solution": "ONEWAY"
+   "solution": "ONEWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE-WAY",
+    "definitions": [
+     {
+      "text": "Street sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "following another piece means coming behind it in the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single person",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     },
+     {
+      "clueFragment": "means",
+      "gives": "WAY",
+      "note": "a way is a means of doing something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign in the street tells you to fall in behind one person.",
+     "definitionFit": "A one-way sign tells drivers that traffic may travel in only a single direction along that road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +626,46 @@
     "text": "See Muslim ruler in the mirror",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMIR",
+    "definitions": [
+     {
+      "text": "Muslim ruler",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the mirror",
+      "gives": "EMIR",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Look at the sultan reflected in a looking glass.",
+     "walkthrough": "'Mirror' suggests reading backwards, but the letters run forwards.",
+     "definitionFit": "An emir is a title for a prince, commander or governor in Muslim countries of the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mirror"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +679,49 @@
     "text": "Police officer, downhearted, needing courage",
     "enumeration": "10"
    },
-   "solution": "BLUEBOTTLE"
+   "solution": "BLUEBOTTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUEBOTTLE",
+    "definitions": [
+     {
+      "text": "Police officer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "downhearted",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "courage",
+      "gives": "BOTTLE",
+      "note": "bottle is British slang for nerve or courage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "BOTTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispirited constable needs to find his nerve.",
+     "walkthrough": "Bluebottle is old British slang for a policeman, from the blue uniform; bottle is British slang for nerve.",
+     "definitionFit": "Bluebottle is dated British slang for a uniformed constable, after the blue uniform worn on the beat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +735,54 @@
     "text": "Potash sprinkled around arouses pity",
     "enumeration": "6"
    },
-   "solution": "PATHOS"
+   "solution": "PATHOS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATHOS",
+    "definitions": [
+     {
+      "text": "pity",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sprinkled around",
+      "for": "anagram",
+      "note": "something sprinkled about is scattered, so its letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "arouses"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potash",
+      "gives": "POTASH",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POTASH",
+       "gives": "PATHOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fertiliser scattered over the garden stirs up sympathy.",
+     "definitionFit": "Pathos is a quality in writing or events that moves people to sorrow and compassion, so it stands for pity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sprinkled"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +802,64 @@
      }
     ]
    },
-   "solution": "HARDBOILED"
+   "solution": "HARDBOILED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HARD-BOILED",
+    "definitions": [
+     {
+      "text": "Unemotional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with oil in it",
+      "for": "container",
+      "note": "something with a thing in it holds that thing inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "HARD",
+      "note": "hard means firm or solid"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD",
+      "B",
+      "OIL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Lying unmoved on a firm, oily mattress.",
+     "definitionFit": "Hard-boiled describes a tough, cynical person who shows no feeling, like a hard-bitten detective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +873,55 @@
     "text": "Barbarian with lock of hair for Diana, perhaps",
     "enumeration": "8"
    },
-   "solution": "HUNTRESS"
+   "solution": "HUNTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUNTRESS",
+    "definitions": [
+     {
+      "text": "Diana, perhaps",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with puts one piece alongside another, joining them in order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barbarian",
+      "gives": "HUN",
+      "note": "the Huns were invading barbarians"
+     },
+     {
+      "clueFragment": "lock of hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUN",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A savage with a long curl is cast as a Roman goddess.",
+     "definitionFit": "Diana was the Roman goddess of the chase, an example of a female hunter; 'perhaps' marks her as one instance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +935,41 @@
     "text": "Like soil, crude and clumsy",
     "enumeration": "6"
    },
-   "solution": "EARTHY"
+   "solution": "EARTHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARTHY",
+    "definitions": [
+     {
+      "text": "Like soil",
+      "at": 0
+     },
+     {
+      "text": "crude and clumsy",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like soil",
+      "note": "first meaning: resembling ground or mud"
+     },
+     {
+      "clueFragment": "crude and clumsy",
+      "note": "second meaning: coarse and unrefined"
+     }
+    ],
+    "explanation": {
+     "surface": "A potter's work is earthy and rough.",
+     "definitionFit": "The adjective means both resembling dirt and, of humour or manners, coarse, unsophisticated and down-to-earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +983,57 @@
     "text": "Covered with grass is her bag, Edward added",
     "enumeration": "8"
    },
-   "solution": "HERBAGED"
+   "solution": "HERBAGED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERBAGED",
+    "definitions": [
+     {
+      "text": "Covered with grass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "added",
+      "for": "charade",
+      "note": "added says a further piece is joined on at the end"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her bag",
+      "gives": "HERBAG",
+      "note": "taken as written; that the letters also run on into the next word is a coincidence, since the setter says the name is added"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is the short form of the name Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERBAG",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Edward slips something into a woman's handbag, which is full of grass.",
+     "definitionFit": "Herbage is pasture plants and grass, so ground clothed in herbage is grassed over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bag"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1047,51 @@
     "text": "Notice on upright: \"Adapt oneself!\"",
     "enumeration": "6"
    },
-   "solution": "ADJUST"
+   "solution": "ADJUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADJUST",
+    "definitions": [
+     {
+      "text": "Adapt oneself",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice or advertisement"
+     },
+     {
+      "clueFragment": "upright",
+      "gives": "JUST",
+      "note": "a just person is upright and fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "JUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign on a post orders readers to get used to things.",
+     "walkthrough": "'Upright' suggests a post holding the notice; here it means honest.",
+     "definitionFit": "To adjust is to change your behaviour to suit new circumstances, which is adapting yourself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "upright"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1105,69 @@
     "text": "Octopus feeler found rising in the Spanish cat net",
     "enumeration": "8"
    },
-   "solution": "TENTACLE"
+   "solution": "TENTACLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENTACLE",
+    "definitions": [
+     {
+      "text": "Octopus feeler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "found",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "CAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "net",
+      "gives": "NET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENTACLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELCATNET",
+       "to": "TENTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An octopus arm turns up tangled in a Spanish fishing net along with a cat.",
+     "definitionFit": "A tentacle is one of the long flexible arms an octopus uses to touch and grasp things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1181,50 @@
     "text": "When is change fairly fresh?",
     "enumeration": "6"
    },
-   "solution": "NEWISH"
+   "solution": "NEWISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEWISH",
+    "definitions": [
+     {
+      "text": "fairly fresh",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change something is to alter it, here its letter order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When is",
+      "gives": "WHENIS",
+      "note": "the letters of these two words rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHENIS",
+       "gives": "NEWISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about when the change of season becomes properly new.",
+     "definitionFit": "The suffix -ish softens an adjective, so newish means somewhat recent rather than brand new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1238,64 @@
     "text": "Frolic for James nearly running round a hole",
     "enumeration": "8"
    },
-   "solution": "JAMBOREE"
+   "solution": "JAMBOREE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "JAMBOREE",
+    "definitions": [
+     {
+      "text": "Frolic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly the whole name means it stops one letter short of the end"
+     },
+     {
+      "text": "running round",
+      "for": "container",
+      "note": "running round something circles it, enclosing it inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "James",
+      "gives": "JAMES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a hole",
+      "gives": "BORE",
+      "note": "a bore is a drilled hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "BORE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy named James runs round a golf hole in high spirits.",
+     "walkthrough": "The name loses only its final letter, and what is left wraps around the hole like a drilled bore.",
+     "definitionFit": "A jamboree is a lively celebration or festive gathering, a spree of noisy fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1309,64 @@
     "text": "Early chaps see me interrupt a writer",
     "enumeration": "6"
    },
-   "solution": "APEMEN"
+   "solution": "APEMEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APEMEN",
+    "definitions": [
+     {
+      "text": "Early chaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupt",
+      "for": "container",
+      "note": "to interrupt is to break into something, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PE",
+      "ME",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Some early visitors watch me cut an author short.",
+     "definitionFit": "Apemen are prehistoric hominids, the primitive ancestors of humans, so they are the earliest men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1380,53 @@
     "text": "Hasten to restore the capital of Greece",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHENS",
+    "definitions": [
+     {
+      "text": "the capital of Greece",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restore",
+      "for": "anagram",
+      "note": "restoring something rebuilds it, so its letters are reassembled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hasten",
+      "gives": "HASTEN",
+      "note": "the letters of this word rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASTEN",
+       "gives": "ATHENS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hurry to rebuild the Greek capital's ruins.",
+     "definitionFit": "Athens is the largest city in Greece and has been the seat of its national government since 1834."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restore"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1440,51 @@
     "text": "Don't start yawning in shelter",
     "enumeration": "6"
    },
-   "solution": "AWNING"
+   "solution": "AWNING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "AWNING",
+    "definitions": [
+     {
+      "text": "shelter",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Don't start",
+      "for": "deletion",
+      "note": "not starting a word means leaving off its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yawning",
+      "gives": "WNING",
+      "select": "first",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWNING"
+     ]
+    },
+    "explanation": {
+     "surface": "An order not to yawn while sheltering.",
+     "definitionFit": "An awning is a canvas sheet stretched over a doorway or window to give cover from sun or rain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1498,63 @@
     "text": "He and I in the station, stammering",
     "enumeration": "10"
    },
-   "solution": "HESITATION"
+   "solution": "HESITATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HESITATION",
+    "definitions": [
+     {
+      "text": "stammering",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the station",
+      "gives": "STATION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "S",
+      "I",
+      "TATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people stutter nervously at the railway platform.",
+     "definitionFit": "Stammering is halting, faltering speech, which involves pausing and hesitating between words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1568,56 @@
     "text": "Small duck has meal by the lake",
     "enumeration": "4"
    },
-   "solution": "TEAL"
+   "solution": "TEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEAL",
+    "definitions": [
+     {
+      "text": "Small duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by sets one piece next to another"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "tea is a light afternoon or evening meal in Britain"
+     },
+     {
+      "clueFragment": "the lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A little duck eats its supper beside the water.",
+     "definitionFit": "The teal is one of the smallest freshwater ducks, with a green patch on its wing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meal"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1631,53 @@
     "text": "Musical instrument, one found beneath the bath",
     "enumeration": "4"
    },
-   "solution": "TUBA"
+   "solution": "TUBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUBA",
+    "definitions": [
+     {
+      "text": "Musical instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found beneath",
+      "for": "charade",
+      "note": "in a down entry, beneath means coming lower, so after the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bath",
+      "gives": "TUB",
+      "note": "a tub is a bath"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUB",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A brass instrument turns up under the bathtub.",
+     "definitionFit": "The tuba is the largest and lowest-pitched brass instrument in a band or orchestra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1691,56 @@
     "text": "Forceful as always in the south-east",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Forceful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the south-east",
+      "gives": "SE",
+      "note": "SE is the compass abbreviation"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Strong winds, as usual, in the south-east of England.",
+     "definitionFit": "Severe can describe something intense and powerful, like a forceful storm or blow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1754,56 @@
     "text": "Information sheet shows cards held by William",
     "enumeration": "8"
    },
-   "solution": "HANDBILL"
+   "solution": "HANDBILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDBILL",
+    "definitions": [
+     {
+      "text": "Information sheet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "charade",
+      "note": "cards held by someone sit alongside the name, joining it in order"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cards",
+      "gives": "HAND",
+      "note": "a hand is the set of cards a player holds"
+     },
+     {
+      "clueFragment": "William",
+      "gives": "BILL",
+      "note": "Bill is a short form of William"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "BILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A leaflet reveals the cards that William is holding.",
+     "definitionFit": "A handbill is a small printed notice handed out to people, giving details of an event or offer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   }
  ]
 }
