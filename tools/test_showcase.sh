@@ -58,9 +58,9 @@ def fake(i, series, **kw):
 pool = ([fake(i, "cryptic", message=True, jigsaw=True) for i in range(1, 9)]
         + [fake(i, "cyclops", message=True) for i in range(1, 3)])
 got = sc.sections(pool)
-ids = [f["id"] for _, _, _, cards in got for f, _ in cards]
+ids = [f["id"] for _, _, _, cards, _ in got for f, _ in cards]
 check("a puzzle shows in one section only", len(ids) == len(set(ids)), ids)
-msg = next(cards for slug, _, _, cards in got if slug == "hidden-message")
+msg = next(cards for slug, _, _, cards, _ in got if slug == "hidden-message")
 check("no series takes more than its share of a section",
       sum(f["series"] == "cryptic" for f, _ in msg) == 3, [f["id"] for f, _ in msg])
 check("a section with nothing to show is left out",
@@ -68,7 +68,7 @@ check("a section with nothing to show is left out",
 
 # --- only hinted puzzles; the burn is told which unhinted ones to do first ---
 pool = [fake(i, "cryptic", message=True, annotated=i % 2 == 0) for i in range(1, 9)]
-shown = [f["id"] for _, _, _, cards in sc.sections(pool) for f, _ in cards]
+shown = [f["id"] for _, _, _, cards, _ in sc.sections(pool) for f, _ in cards]
 check("the showcase shows only annotated puzzles",
       shown and all(int(i.split("-")[1]) % 2 == 0 for i in shown), shown)
 check("wanted() names the unhinted puzzles it would have shown",
@@ -80,7 +80,7 @@ import pathlib
 import build_seo_pages as B
 meta = {f["id"]: {"id": f["id"], "series": "cryptic", "number": f["number"],
                   "date": "2020-01-01", "annotated": True} for f in pool}
-page = B.showcase_page(pool, meta)
+page = B.showcase_page(sc.sections(pool), meta)
 check("a showcase row opens the puzzle in the app",
       f'href="{B.BASE}/?p=cryptic-8"' in page and "/puzzles/cryptic-8/" not in page)
 check("a clue link opens the app on that clue",
@@ -112,6 +112,41 @@ check("an archive row whose own link is the answer page is refused",
 check("the old-number chooser may link the answer pages it replaced",
       not refused("puzzles/30000/index.html",
                   f'<ul><li><a href="{B.BASE}/puzzles/cryptic-30000/">x</a></li></ul>'))
+
+# --- easiest beside hardest; each list's whole ranking on its own page ---
+# Undated, so the oldest section takes none; most-clues takes one of each
+# series first, so every series has spares.
+pool = [fake(i, s, difficulty=d, dated=False) for i, (s, d) in enumerate(
+    [("cryptic", 2.0), ("cryptic", 1.5), ("times", 1.0), ("times", -1.0),
+     ("quiptic", -1.5), ("quiptic", -0.5)], 1)]
+pool += [fake(i, s, difficulty=0.0, dated=False) for i in (90, 91) for s in ("cryptic", "times", "quiptic")]
+got = {slug: (cards, full) for slug, _, _, cards, full in sc.sections(pool)}
+hard = [f["id"] for f, _ in got["hardest"][0]]
+easy = [f["id"] for f, _ in got["easiest"][0]]
+check("the hardest lead with the top rating, one per series",
+      hard[:2] == ["cryptic-1", "times-3"], hard)
+check("the easiest lead with the bottom rating, one per series, none of the hardest",
+      easy[:2] == ["quiptic-5", "times-4"] and not set(easy) & set(hard), easy)
+full = [f["id"] for f, _ in got["hardest"][1][1]]
+check("a page that holds every candidate says all", got["hardest"][1][2] == "all 12", got["hardest"][1][2])
+check("a list's own page ranks every candidate, no series cap",
+      full[:3] == ["cryptic-1", "cryptic-2", "times-3"] and len(full) == 12, full)
+meta = {f["id"]: {"id": f["id"], "series": f["series"], "number": f["number"],
+                  "date": "2020-01-01", "annotated": True} for f in pool}
+secs = sc.sections(pool)
+pages = dict(B.showcase_list_pages(secs, meta))
+hp = pages.get(B.ROOT / "showcase" / "hardest" / "index.html", "")
+check("the hardest has its own page, rows opening the solver",
+      f'href="{B.BASE}/?p=cryptic-2"' in hp and not refused("showcase/hardest/index.html", hp))
+check("/showcase/ links the list's page",
+      f'href="{B.BASE}/showcase/hardest/"' in B.showcase_page(secs, meta))
+check("a list page may not link an answer page",
+      refused("showcase/hardest/index.html", answer))
+one = [fake(1, "cryptic", difficulty=1.0)]
+check("a section that shows all it has gets no page",
+      all(full is None for *_, full in sc.sections(one)), sc.sections(one))
+check("the sitemap lists the list pages",
+      f"{B.BASE}/showcase/hardest/" in B.sitemaps(B.index_json(), [f"{B.BASE}/showcase/hardest/"])[1][1])
 
 # --- the oldest section: one puzzle per paper, oldest first ---
 mk = lambda i, series, day, dated=True: {"id": i, "series": series, "day": day,

@@ -38,6 +38,8 @@ So this writes real HTML files alongside the app:
                            hidden in the grid, a jigsaw, a record. Picked by
                            tools/showcase.py from facts every puzzle page's
                            render reads off its file, so it costs no extra pass.
+  showcase/<slug>/index.html  one showcase section's whole list, or the top 100
+                           of a ranking, linked from its section.
   sitemap.xml              a sitemap index: sitemap-recent.xml (the pages that
                            change daily and the last 60 days of puzzles) and
                            sitemap-archive-<n>.xml (every older puzzle), all
@@ -1382,34 +1384,60 @@ def difficulty_page(idx):
 
 # -------------------------------------------------------------- showcase page
 
-def showcase_page(facts, meta):
+def showcase_page(secs, meta):
     """/showcase/: tools/showcase.py's sections, each a heading, one sentence
-    on what makes its puzzles unusual, and their archive rows."""
+    on what makes its puzzles unusual, their archive rows, and a link to the
+    whole ranked list where the section has more than it shows."""
     title = "Unusual cryptic crosswords: hidden messages, jigsaws and records"
     desc = ("Cryptic crosswords with something special about them: messages hidden in "
             "the grid, jigsaw grids, every letter of the alphabet, unusual grid shapes, the "
             "longest answers, the hardest and the oldest puzzles.")
     canonical = f"{BASE}/showcase/"
     crumbs = [("Cryptic Teacher", "/"), ("Unusual puzzles", "")]
-    secs = showcase.sections(f for f in facts if f["id"] in meta)
     body = [masthead(crumbs), '<main class="static-main">',
             "<h1>Unusual puzzles</h1>",
             "<p>Most cryptic crosswords follow the same pattern. These break it, or set "
             "a record. Each one opens ready to solve, with hints one step at a time.</p>",
             '<p class="s-years">' + " &middot; ".join(
-                f'<a href="#{slug}">{esc(heading)}</a>' for slug, heading, _, _ in secs)
+                f'<a href="#{slug}">{esc(heading)}</a>' for slug, heading, *_ in secs)
             + "</p>"]
-    for slug, heading, blurb, cards in secs:
+    for slug, heading, blurb, cards, full in secs:
+        more = (f'<p class="s-more"><a href="{BASE}/showcase/{slug}/">'
+                f"{esc(heading)}: {full[2]} &rarr;</a></p>" if full else "")
         body += [f'<section id="{slug}"><h2>{esc(heading)}</h2>', f"<p>{esc(blurb)}</p>",
                  '<ul class="s-index">'
                  + "".join(hub_row(meta[f["id"]], note) for f, note in cards)
-                 + "</ul></section>"]
+                 + "</ul>" + more + "</section>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/puzzles/">All puzzles, by paper '
              "and year &rarr;</a></p>", "</main>"]
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+def showcase_list_pages(secs, meta):
+    """/showcase/<slug>/: one showcase section's whole ranked list, for every
+    section with more than /showcase/ has room for."""
+    for slug, heading, _, _, full in secs:
+        if not full:
+            continue
+        blurb, cards, label = full
+        title = f"{heading}: {label}, cryptic crosswords"
+        canonical = f"{BASE}/showcase/{slug}/"
+        crumbs = [("Cryptic Teacher", "/"), ("Unusual puzzles", "/showcase/"),
+                  (heading, "")]
+        body = [masthead(crumbs), '<main class="static-main">',
+                f"<h1>{esc(heading)}</h1>", f"<p>{esc(blurb)}</p>",
+                '<ul class="s-index">'
+                + "".join(hub_row(meta[f["id"]], note) for f, note in cards) + "</ul>",
+                f'<p class="s-cta"><a class="cta" href="{BASE}/showcase/">More unusual '
+                "puzzles &rarr;</a></p>", "</main>"]
+        list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
+                   "name": title, "url": canonical, "description": blurb}
+        yield (ROOT / "showcase" / slug / "index.html",
+               head(title, blurb, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs)))
+               + "\n".join(body) + "\n" + FOOTER)
 
 
 # --------------------------------------------------------- abbreviations page
@@ -1722,7 +1750,7 @@ RECENT_DAYS = 60       # puzzle pages in the small, fast-changing sitemap
 SITEMAP_MAX = 40000    # URLs per file; the protocol's limit is 50,000
 
 
-def sitemap_urls(idx):
+def sitemap_urls(idx, pages=()):
     """(recent, archive): lists of (loc, changefreq, priority, lastmod).
 
     Recent is everything that changes daily (the site's own pages, the series
@@ -1737,6 +1765,7 @@ def sitemap_urls(idx):
               (f"{BASE}/indicators/", "weekly", "0.8", None),
               (f"{BASE}/difficulty/", "weekly", "0.6", None),
               (f"{BASE}/showcase/", "weekly", "0.7", None)]
+    recent += [(u, "weekly", "0.6", None) for u in pages]
     for s, years in listings(idx).items():
         newest = next(iter(years.values()))[0]
         recent.append((site_url(series_path(s)), "daily", "0.9",
@@ -1769,10 +1798,11 @@ def urlset(urls):
     return "\n".join(out) + "\n"
 
 
-def sitemaps(idx):
+def sitemaps(idx, pages=()):
     """[(path, text)]: /sitemap.xml as a sitemap index (the URL Search Console
-    holds), sitemap-recent.xml, and the archive in SITEMAP_MAX-URL parts."""
-    recent, archive = sitemap_urls(idx)
+    holds), sitemap-recent.xml, and the archive in SITEMAP_MAX-URL parts.
+    `pages` are generated pages' URLs that only the build knows of."""
+    recent, archive = sitemap_urls(idx, pages)
     parts = [("sitemap-recent.xml", recent)] + [
         (f"sitemap-archive-{i // SITEMAP_MAX + 1}.xml", archive[i:i + SITEMAP_MAX])
         for i in range(0, len(archive), SITEMAP_MAX)]
@@ -2060,8 +2090,11 @@ def outputs(check=False):
         # Relative, like the puzzle pages: nearly four thousand example links.
         yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
         yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
-        yield ROOT / "showcase" / "index.html", showcase_page(facts, meta)
-        yield from sitemaps(idx)
+        secs = showcase.sections(f for f in facts if f["id"] in meta)
+        yield ROOT / "showcase" / "index.html", showcase_page(secs, meta)
+        yield from showcase_list_pages(secs, meta)
+        yield from sitemaps(idx, [f"{BASE}/showcase/{slug}/"
+                                  for slug, *_, full in secs if full])
         yield home
     for p, text in rest():
         claim(p)
@@ -2128,8 +2161,9 @@ def assert_no_answer_links(path, text):
         return
     bad = [h for rows in ROW_LIST.findall(text) for h in ROW_LINK.findall(rows)
            if "?p=" not in h]
-    if path.name == "index.html" and path.parent.name in READER_PAGES \
-            and path.parent.parent == ROOT:
+    if path.name == "index.html" and (
+            path.parent.name in READER_PAGES and path.parent.parent == ROOT
+            or path.parent.parent == ROOT / "showcase"):
         bad += ANSWER_LINK.findall(text)
     if bad:
         raise SystemExit(f"{path.relative_to(ROOT)} links puzzles to their answer pages; "

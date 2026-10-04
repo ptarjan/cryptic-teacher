@@ -128,10 +128,75 @@ def pangram_times(f):
     return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=1)
 
 
+# Each list as (slug, heading, blurb, which puzzles, ranking, card note,
+# per_series). /showcase/ shows the first PER_SECTION of each, a puzzle once
+# and at most per_series from one series; its own page /showcase/<slug>/
+# lists every candidate in the same order: all of them, or the top FULL of a
+# ranking (a key other than newest_first), which can run to thousands. A
+# per_series of 1 lets a ranking that one series dominates show several papers.
+def specs(fs):
+    return [
+        ("hidden-message", "A message hidden in the grid",
+         ("Words run round the edge of the finished grid, along a diagonal or through "
+          "marked squares, and the note above the clues says where to look."),
+         [f for f in fs if f["message"]], newest_first, lambda f: "hidden message", 3),
+        ("jigsaw", "Answers that go wherever they fit",
+         ("Some or all of the clues come without grid numbers. You solve them, then "
+          "work out where each answer goes, like a jigsaw."),
+         [f for f in fs if f["jigsaw"]], newest_first, lambda f: "jigsaw", None),
+        ("alphabet", "One answer for every letter",
+         "Twenty-six answers, and each starts with a different letter of the alphabet.",
+         [f for f in fs if "alphabetical" in f["tags"] and f["answers"] == 26],
+         newest_first, lambda f: "A to Z", None),
+        ("pangrams", "Every letter, again and again",
+         ("Every letter of the alphabet, Q, X and Z included, appears at least three "
+          "times in the finished grid."),
+         [f for f in fs if pangram_times(f) >= 3],
+         lambda f: (-pangram_times(f), newest_first(f)),
+         lambda f: f"every letter {WORDS[pangram_times(f)]} times or more", None),
+        ("asymmetric", "Grids that are not symmetrical",
+         "Nearly every published grid looks the same turned upside down. These do not.",
+         [f for f in fs if "asymmetric" in f["tags"]], newest_first,
+         lambda f: "not symmetrical", 2),
+        ("barred", "Bars instead of black squares",
+         ("Thick lines between squares end the answers, so almost every letter is "
+          "shared by two answers."),
+         [f for f in fs if "barred" in f["tags"]], newest_first,
+         lambda f: "barred grid", 3),
+        ("longest", "The longest answers",
+         ("A single answer, often a whole quotation, that snakes through several parts "
+          "of the grid."),
+         [f for f in fs if f["longest"] and f["longest"][1] > 1],
+         lambda f: (-f["longest"][0], newest_first(f)),
+         lambda f: f"{f['longest'][0]} letters in {f['longest'][1]} parts", None),
+        ("most-clues", "The most clues", "The puzzles with the most clues.",
+         fs, lambda f: (-f["answers"], newest_first(f)),
+         lambda f: f"{f['answers']} clues", 1),
+        ("hardest", "The hardest",
+         "The puzzles our difficulty rating puts at the top.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (-f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("easiest", "The easiest",
+         "The puzzles our difficulty rating puts at the bottom: a good place to start.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("round-numbers", "Round numbers", "Milestone issues, numbered in round thousands.",
+         [f for f in fs if f["counted"] and f["number"] >= 1000
+          and f["number"] % 1000 == 0], newest_first, lambda f: "", 1),
+    ]
+
+
+FULL = 100
+
+ONE_PER_SERIES = " Here, no two from the same series."
+
+
 def sections(all_facts, hinted=True):
-    """[(slug, heading, blurb, [(fact dict, card note)])], in page order. A
-    puzzle shows once, in the first section that wants it; with hinted, only
-    the puzzles we have annotated are candidates."""
+    """[(slug, heading, blurb, [(fact dict, card note)], full)] in page order,
+    full being (blurb, cards, "all 21" or "top 100") for /showcase/<slug>/, or
+    None where the section already shows everything it has. A puzzle
+    shows once, in the first section that wants it; with hinted, only the
+    puzzles we have annotated are candidates."""
     used = set()
     fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
@@ -139,73 +204,29 @@ def sections(all_facts, hinted=True):
     # its second-oldest to stand in; shown last, where it always sat.
     oldest = oldest_per_paper(fs)
     used.update(f["id"] for f in oldest)
-
-    def add(slug, heading, blurb, picked, note):
-        if picked:
-            out.append((slug, heading, blurb, [(f, note(f)) for f in picked]))
-
-    add("hidden-message", "A message hidden in the grid",
-        "Words run round the edge of the finished grid, along a diagonal or through "
-        "marked squares, and the note above the clues says where to look.",
-        pick([f for f in fs if f["message"]], newest_first, used, per_series=3),
-        lambda f: "hidden message")
-    add("jigsaw", "Answers that go wherever they fit",
-        "Some or all of the clues come without grid numbers. You solve them, then "
-        "work out where each answer goes, like a jigsaw.",
-        pick([f for f in fs if f["jigsaw"]], newest_first, used),
-        lambda f: "jigsaw")
-    add("alphabet", "One answer for every letter",
-        "Twenty-six answers, and each starts with a different letter of the alphabet.",
-        pick([f for f in fs if "alphabetical" in f["tags"] and f["answers"] == 26],
-             newest_first, used),
-        lambda f: "A to Z")
-    add("pangrams", "Every letter, again and again",
-        "Every letter of the alphabet, Q, X and Z included, appears at least three "
-        "times in the finished grid.",
-        pick([f for f in fs if pangram_times(f) >= 3],
-             lambda f: (-pangram_times(f), newest_first(f)), used),
-        lambda f: f"every letter {WORDS[pangram_times(f)]} times or more")
-    add("asymmetric", "Grids that are not symmetrical",
-        "Nearly every published grid looks the same turned upside down. These do not.",
-        pick([f for f in fs if "asymmetric" in f["tags"]], newest_first, used,
-             per_series=2),
-        lambda f: "not symmetrical")
-    add("barred", "Bars instead of black squares",
-        "Thick lines between squares end the answers, so almost every letter is "
-        "shared by two answers.",
-        pick([f for f in fs if "barred" in f["tags"]], newest_first, used, per_series=3),
-        lambda f: "barred grid")
-    add("longest", "The longest answers",
-        "A single answer, often a whole quotation, that snakes through several parts "
-        "of the grid.",
-        pick([f for f in fs if f["longest"] and f["longest"][1] > 1],
-             lambda f: (-f["longest"][0], newest_first(f)), used),
-        lambda f: f"{f['longest'][0]} letters in {f['longest'][1]} parts")
-    add("most-clues", "The most clues",
-        "The puzzles with the most clues, no two from the same series.",
-        pick(fs, lambda f: (-f["answers"], newest_first(f)), used, per_series=1),
-        lambda f: f"{f['answers']} clues")
-    add("hardest", "The hardest",
-        "The puzzles our difficulty rating puts at the top, no two from the same "
-        "series.",
-        pick([f for f in fs if f["difficulty"] is not None],
-             lambda f: (-f["difficulty"], newest_first(f)), used, per_series=1),
-        lambda f: "")
-    add("round-numbers", "Round numbers",
-        "Milestone issues, numbered in round thousands.",
-        pick([f for f in fs if f["counted"] and f["number"] >= 1000
-              and f["number"] % 1000 == 0], newest_first, used, per_series=1),
-        lambda f: "")
-    add("oldest", "The oldest",
-        "The earliest puzzle we have from each paper, oldest first.",
-        oldest, lambda f: series_meta.publisher(f["series"]))
+    for slug, heading, blurb, cands, key, note, per_series in specs(fs):
+        picked = pick(cands, key, used, per_series)
+        if not picked:
+            continue
+        ranked = sorted(cands, key=key)
+        if key is not newest_first:
+            ranked = ranked[:FULL]
+        label = f"all {len(ranked)}" if len(ranked) == len(cands) else f"top {len(ranked)}"
+        full = ((blurb, [(f, note(f)) for f in ranked], label)
+                if [f["id"] for f in ranked] != [f["id"] for f in picked] else None)
+        out.append((slug, heading, blurb + (ONE_PER_SERIES if per_series == 1 else ""),
+                    [(f, note(f)) for f in picked], full))
+    if oldest:
+        out.append(("oldest", "The oldest",
+                    "The earliest puzzle we have from each paper, oldest first.",
+                    [(f, series_meta.publisher(f["series"])) for f in oldest], None))
     return out
 
 
 def wanted(all_facts):
     """Ids of the unannotated puzzles the showcase would pick if it took any
     puzzle: what annotating first would put on the page."""
-    return [f["id"] for _, _, _, cards in sections(all_facts, hinted=False)
+    return [f["id"] for _, _, _, cards, _ in sections(all_facts, hinted=False)
             for f, _ in cards if not f["annotated"]]
 
 
