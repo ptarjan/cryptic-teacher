@@ -257,8 +257,10 @@ for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
     # Compared as text: a stray full stop OCR put in a clue is worth mending.
     # A misread needs only a short note ("OCR misread: a stray r before
     # painter"); any other correction must argue its case.
-    # A clue read off the scan is evidenced by what the page shows.
-    floor = 25 if why.startswith(("OCR misread: ", V.SCAN_READ)) else 40
+    # A clue read off the scan is evidenced by what the page shows, however
+    # short the clue.
+    floor = (len(V.SCAN_READ) + 1 if why.startswith(V.SCAN_READ)
+             else 25 if why.startswith("OCR misread: ") else 40)
     if served.strip() == printed.strip() or len(why) < floor:
         bad.append(f"{pid} {eid}: corrects nothing, or the note is not evidence")
     # An OCR'd clue's correction mends a misread, never rewords the clue,
