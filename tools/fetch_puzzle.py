@@ -1906,6 +1906,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18254", "12-across"): (
+        "Embracing novices, nun lays out take she made",
+        "Embracing novices, nun lays out cake she made",
+        "OCR misread: the answer is a bun, so the definition needs cake"),
     ("times-18252", "17-down"): (
         "Metal in a lump, possibly",
         "Metal tin a lump, possibly",
