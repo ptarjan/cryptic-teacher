@@ -1927,6 +1927,10 @@ SOURCE_CLUE_WRONG = {
         "“Bright star, would I were —.— as thou an” (Keats)",
         "“Bright star, would I were — as thou art” (Keats)",
         "OCR misread: Keats wrote as thou art, and the blank is a single dash"),
+    ("times-18749", "20-down"): (
+        "China bead lost in garden area",
+        "China head lost in garden area",
+        "OCR misread: the wordplay needs head lost (CROCKERY without its first letter), not bead"),
     ("times-18742", "27-across"): (
         "In short, the skill needed 10 make a cocktail",
         "In short, the skill needed to make a cocktail",
