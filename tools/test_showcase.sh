@@ -29,6 +29,8 @@ for pid in ("cryptic-22863", "cryptic-25416", "cryptic-24355"):
 
 # --- jigsaws ---
 check("an alphabetical jigsaw is a jigsaw", facts("cryptic-24331")["jigsaw"])
+check("an A-to-Z of 27 answers is in the alphabet section",
+      "cryptic-24331" in [f["id"] for f in dict((x[0], x[3]) for x in sc.specs([facts("cryptic-24331")]))["alphabet"]])
 check("a theme note is not a jigsaw", not facts("cryptic-22863")["jigsaw"])
 
 # --- records ---
