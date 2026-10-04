@@ -1430,5 +1430,7 @@ tools/test_anagram_ring.sh                   a clue typed anagram gets the anagr
                                              longest part-anagram's, and the validator warns
                                              (ratcheted as assembly.anagrams) when a clue typed
                                              anagram names no fodder
+tools/test_discard_alert.sh                  does a rejected annotation alert only when the
+                                             puzzle is parked?
 ```
 <!-- LAYOUT-END -->
