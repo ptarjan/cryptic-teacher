@@ -77,6 +77,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     corrected_clue,
     leaders_named,
     read_puzzle_file,
+    SOURCE_CLUE_WRONG,
 )
 from find_answer_leaks import light_solutions, named, pieces_of, says  # noqa: E402 — one matcher, shared with the finder
 from groups import entry_id  # noqa: E402
@@ -2492,6 +2493,26 @@ def edit_distance(a, b):
     return row[-1]
 
 
+#: How a SOURCE_CLUE_WRONG row's evidence opens when its clue was read off
+#: the printed page (tools/scan_crop.py), not mended from the wordplay.
+SCAN_READ = "Scan reads: "
+
+
+def scan_read(pid, eid):
+    """Whether light `eid`'s SOURCE_CLUE_WRONG row was read off `pid`'s scan,
+    which tools/scan_crop.py can show: a clue read off the page is the
+    print's, however far the OCR strayed from it."""
+    why = SOURCE_CLUE_WRONG.get((pid, eid), (None, None, ""))[2]
+    if not why.startswith(SCAN_READ):
+        return False
+    import scan_crop
+    try:
+        scan_crop.crop(pid)
+    except scan_crop.NoCrop:
+        return False
+    return True
+
+
 def check_clue_unchanged(puzzle, path, errors):
     """An annotation explains the clue it was written against, and the clue is
     the source's. An annotated entry whose clue's words differ from the
@@ -2499,7 +2520,8 @@ def check_clue_unchanged(puzzle, path, errors):
     the new words are the ones fetch_puzzle.SOURCE_CLUE_WRONG prints for that
     light: a correction filed there is what every re-fetch writes, so the
     annotation written for it stands in the same run. An OCR'd clue
-    (provenance.OCR_CHANNELS) takes one only within OCR_MISREAD_EDITS letters. Typography (quotes,
+    (provenance.OCR_CHANNELS) takes one only within OCR_MISREAD_EDITS letters,
+    unless it was read off the scan (scan_read). Typography (quotes,
     dashes, accents, spacing) is not a different clue."""
     committed = committed_entries(path)
     if committed is None:
@@ -2514,13 +2536,14 @@ def check_clue_unchanged(puzzle, path, errors):
         ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
         if filed is not None and clue_words(filed) == clue_words(e["clue"].get("text")):
             misread = edit_distance(clue_words(was[entry_id(e)]), clue_words(filed))
-            if not ocr or misread <= OCR_MISREAD_EDITS:
+            if not ocr or misread <= OCR_MISREAD_EDITS or scan_read(puzzle.get("id"), entry_id(e)):
                 continue
             errors.append(
                 f"{entry_id(e)}: SOURCE_CLUE_WRONG changes {misread} letters of the "
                 f"OCR's {was[entry_id(e)]!r}; a misread is at most {OCR_MISREAD_EDITS} "
                 f"(judge for fudge). A clue that needs more is not the OCR's to mend: "
-                f"put it back and leave the entry null")
+                f"put it back and leave the entry null, unless the puzzle has a scan "
+                f"(tools/scan_crop.py) and the row's evidence opens {SCAN_READ!r}")
             continue
         errors.append(
             f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "

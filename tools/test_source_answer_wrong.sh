@@ -257,12 +257,15 @@ for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
     # Compared as text: a stray full stop OCR put in a clue is worth mending.
     # A misread needs only a short note ("OCR misread: a stray r before
     # painter"); any other correction must argue its case.
-    floor = 25 if why.startswith("OCR misread: ") else 40
+    # A clue read off the scan is evidenced by what the page shows.
+    floor = 25 if why.startswith(("OCR misread: ", V.SCAN_READ)) else 40
     if served.strip() == printed.strip() or len(why) < floor:
         bad.append(f"{pid} {eid}: corrects nothing, or the note is not evidence")
-    # An OCR'd clue's correction mends a misread, never rewords the clue.
+    # An OCR'd clue's correction mends a misread, never rewords the clue,
+    # unless it was read off the scan.
     puzzle = path and fetcher.read_puzzle_file(path)
     if puzzle and puzzle["source"].get("retrievedFrom") in provenance.OCR_CHANNELS and \
+            not why.startswith(V.SCAN_READ) and \
             V.edit_distance(fetcher.clue_words(served), fetcher.clue_words(printed)) > V.OCR_MISREAD_EDITS:
         bad.append(f"{pid} {eid}: an OCR clue reworded, not a misread mended")
 print("BAD", "; ".join(bad) or "none")
