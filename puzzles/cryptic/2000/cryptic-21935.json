@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,40 @@
     "text": "Something one just has to have",
     "enumeration": "9"
    },
-   "solution": "OWNERSHIP"
+   "solution": "OWNERSHIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OWNERSHIP",
+    "definitions": [
+     {
+      "text": "Something one just has to have",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something one just has to have",
+      "note": "surface reading: an essential item nobody can do without"
+     },
+     {
+      "clueFragment": "has to have",
+      "note": "setter's reading: the abstract state of having or possessing a thing"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper insists some gadget is an absolute must-buy.",
+     "walkthrough": "'Has to have' sounds like necessity, but read literally it is simply 'having', the condition of possessing something.",
+     "definitionFit": "The noun names the legal state of possessing property, the thing a person has."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +83,53 @@
     "text": "Refuse to abandon Irish county finally?",
     "enumeration": "5"
    },
-   "solution": "OFFAL"
+   "solution": "OFFAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OFFAL",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "to abandon something is to leave it behind, so a letter of the county is dropped"
+     },
+     {
+      "text": "finally",
+      "for": "deletion",
+      "note": "'finally' says which letter goes: the closing one of the county name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish county",
+      "gives": "OFFALY",
+      "note": "Offaly is a county in the Irish midlands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFFAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to leave an Irish county at last.",
+     "walkthrough": "'Refuse' looks like a verb but is the noun, rubbish.",
+     "definitionFit": "The noun once meant waste or rubbish; the word comes from 'off-fall', the parts cut away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +149,56 @@
      }
     ]
    },
-   "solution": "NUTCUTLET"
+   "solution": "NUTCUTLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUT CUTLET",
+    "definitions": [
+     {
+      "text": "vegetarian meal",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "served"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teachers",
+      "gives": "NUT",
+      "note": "the National Union of Teachers"
+     },
+     {
+      "clueFragment": "ignored",
+      "gives": "CUT",
+      "note": "to cut someone is to snub them"
+     },
+     {
+      "clueFragment": "inadequate service",
+      "gives": "LET",
+      "note": "in tennis a let is a serve that clips the net and must be replayed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "CUT",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff at a school canteen put up with poor service and dished up a meat-free dinner.",
+     "walkthrough": "The NUT was the main British teachers' trade union.",
+     "definitionFit": "A patty of chopped nuts shaped like a meat chop is a traditional meat-free main course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +212,68 @@
     "text": "To do this to her clues, editor intervenes",
     "enumeration": "10"
    },
-   "solution": "RESCHEDULE"
+   "solution": "RESCHEDULE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container"
+    ],
+    "answer": "RESCHEDULE",
+    "definitions": [
+     {
+      "text": "To do this to her clues, editor intervenes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To do this to",
+      "for": "anagram",
+      "note": "the answer itself means rearrange, so doing it to the words reorders their letters"
+     },
+     {
+      "text": "intervenes",
+      "for": "container",
+      "note": "to intervene is to come between, so the editor goes inside the reordered letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her clues",
+      "gives": "HERCLUES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESCH",
+      "ED",
+      "ULE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HERCLUES",
+       "gives": "RESCHULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle editor steps in to rejig a setter's clues.",
+     "walkthrough": "The whole clue is both definition and wordplay: an editor stepping in to rearrange a setter's clues is exactly what the answer describes.",
+     "definitionFit": "To rearrange the order or timing of something is to set it out on a new plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "this"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +297,65 @@
    "group": [
     "4-down",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERRINGBONE",
+    "definitions": [
+     {
+      "text": "example for the cloth",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means the word for sharpen wraps around the next pieces"
+     }
+    ],
+    "linkWords": [
+     "setting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get sharper",
+      "gives": "HONE",
+      "note": "to hone is to sharpen"
+     },
+     {
+      "clueFragment": "sinful",
+      "gives": "ERRING",
+      "note": "erring means straying into sin"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ERRING",
+      "B",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wayward bishop sharpens up and sets an example to the clergy.",
+     "walkthrough": "H(ERRING B)ONE. 'The cloth' suggests the clergy, but here it is fabric.",
+     "definitionFit": "A zigzag weave resembling fish bones is a common pattern woven into tweed and other fabrics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cloth"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +375,74 @@
      }
     ]
    },
-   "solution": "PHASEIN"
+   "solution": "PHASEIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "PHASE IN",
+    "definitions": [
+     {
+      "text": "grad-ually make progress",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start off",
+      "for": "deletion",
+      "note": "the opening letter is taken off the nationality"
+     },
+     {
+      "text": "garbling",
+      "for": "anagram",
+      "note": "garbling jumbles words, so the remaining letters are mixed up"
+     },
+     {
+      "text": "Touring",
+      "for": "container",
+      "note": "touring means travelling around, so the mixed letters go around the country code"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish",
+      "gives": "SPANISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHAS",
+      "E",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PANISH",
+       "gives": "PHASIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in Spain mangles the language at first but slowly improves.",
+     "walkthrough": "The hyphen in 'grad-ually' hints at a graduate easing into a job step by step.",
+     "definitionFit": "To introduce something in stages means bringing it into use a step at a time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Touring"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +456,56 @@
     "text": "Some prickly characters created scenes in Channel Islands",
     "enumeration": "5"
    },
-   "solution": "CACTI"
+   "solution": "CACTI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CACTI",
+    "definitions": [
+     {
+      "text": "Some prickly characters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the word for the scenes inside the islands' abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "standard abbreviation for the Channel Islands"
+     },
+     {
+      "clueFragment": "created scenes",
+      "gives": "ACT",
+      "note": "to act up is to make a scene"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ACT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Awkward people causing scenes in Jersey or Guernsey.",
+     "walkthrough": "C(ACT)I. 'Prickly characters' suggests touchy people, but the setter means spiny desert plants.",
+     "definitionFit": "These spiny succulent plants are literally covered in sharp spines, a playful use of the word for touchy people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 6,
@@ -163,7 +529,48 @@
    "group": [
     "6-down",
     "19-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CAT'S WHISKER",
+    "definitions": [
+     {
+      "text": "Old radio component",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "'not quite' means the phrase stops one letter short of its full length"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the best",
+      "gives": "CATSWHISKERS",
+      "note": "'the cat's whiskers' is slang for the very best"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATSWHISKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A vintage wireless part that falls just short of top quality.",
+     "walkthrough": "The bee's knees and the cat's whiskers both mean the very best.",
+     "definitionFit": "Early crystal radio sets used a fine wire touching a crystal, nicknamed after a feline's facial hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "best"
+    }
+   }
   },
   {
    "number": 7,
@@ -177,7 +584,57 @@
     "text": "Religious belief expressed by socialist in company",
     "enumeration": "5"
    },
-   "solution": "CREDO"
+   "solution": "CREDO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREDO",
+    "definitions": [
+     {
+      "text": "Religious belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the political word inside the business abbreviation"
+     }
+    ],
+    "linkWords": [
+     "expressed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is the traditional colour of the left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RED",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A leftist in a business voices a creed.",
+     "walkthrough": "C(RED)O.",
+     "definitionFit": "A creed is a statement of faith, from the Latin 'I believe' that opens Christian creeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -191,7 +648,40 @@
     "text": "Does he appear silly, playing cricket?",
     "enumeration": "9"
    },
-   "solution": "INFIELDER"
+   "solution": "INFIELDER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INFIELDER",
+    "definitions": [
+     {
+      "text": "Does he appear silly, playing cricket?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does he appear silly",
+      "note": "surface reading: someone looks foolish while playing"
+     },
+     {
+      "clueFragment": "silly",
+      "note": "setter's reading: silly point and silly mid-on are fielding positions close to the bat"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether a cricketer looks daft on the field.",
+     "walkthrough": "In cricket, 'silly' fielding positions are those very close to the batsman, near the middle of the ground.",
+     "definitionFit": "A fielder stationed close to the batsman is a fielder in the near ring rather than out on the boundary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "silly"
+    }
+   }
   },
   {
    "number": 9,
@@ -205,7 +695,40 @@
     "text": "Clot, however, begins to identify one of these goddesses",
     "enumeration": "5"
    },
-   "solution": "FATES"
+   "solution": "FATES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FATES",
+    "definitions": [
+     {
+      "text": "one of these goddesses",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clot, however, begins to identify",
+      "note": "surface reading: someone stupid nevertheless starts to recognise something"
+     },
+     {
+      "clueFragment": "Clot, however, begins",
+      "note": "setter's reading: the letters 'Clot' start the name of one of the goddesses, Clotho"
+     }
+    ],
+    "explanation": {
+     "surface": "A dimwit finally begins to recognise one of a group of goddesses.",
+     "walkthrough": "Clotho, the spinner of the thread of life, is one of the three Fates of Greek myth; her name begins with 'Clot'.",
+     "definitionFit": "Clotho, Lachesis and Atropos are the three Greek goddesses who spin, measure and cut the thread of life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clot"
+    }
+   }
   },
   {
    "number": 10,
@@ -225,7 +748,54 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAST BEEF",
+    "definitions": [
+     {
+      "text": "Sunday dinner",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting",
+      "for": "charade",
+      "note": "'starting' tells us the word for criticise must come first, ahead of the word for complain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticise",
+      "gives": "ROAST",
+      "note": "to roast someone is to criticise them harshly"
+     },
+     {
+      "clueFragment": "Complain",
+      "gives": "BEEF",
+      "note": "to beef is slang for to grumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAST",
+      "BEEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy guest moans and finds fault before tucking into the weekend meal.",
+     "walkthrough": "Without 'starting' the parts would read in clue order; it moves criticise to the front.",
+     "definitionFit": "The joint of meat cooked in the oven is the classic British Sunday lunch, given here by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 11,
@@ -239,7 +809,55 @@
     "text": "Given extra volume about precipitation? It amplifies what's been said",
     "enumeration": "10"
    },
-   "solution": "LOUDHAILER"
+   "solution": "LOUDHAILER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOUDHAILER",
+    "definitions": [
+     {
+      "text": "It amplifies what's been said",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means the word for extra volume goes around the weather word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Given extra volume",
+      "gives": "LOUDER",
+      "note": "made louder"
+     },
+     {
+      "clueFragment": "precipitation",
+      "gives": "HAIL",
+      "note": "hail is a form of precipitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOUD",
+      "HAIL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Something turned up loud during a hailstorm boosts the speech.",
+     "walkthrough": "LOUD(HAIL)ER.",
+     "definitionFit": "A megaphone device makes a speaker's voice carry further, amplifying their spoken words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "precipitation"
+    }
+   }
   },
   {
    "number": 12,
@@ -267,7 +885,40 @@
     "text": "Plays may be in production by this August",
     "enumeration": "10"
    },
-   "solution": "STRINDBERG"
+   "solution": "STRINDBERG",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STRINDBERG",
+    "definitions": [
+     {
+      "text": "Plays may be in production by this August",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plays may be in production by this August",
+      "note": "surface reading: theatre shows will be staged by late summer"
+     },
+     {
+      "clueFragment": "August",
+      "note": "setter's reading: August is a first name, that of a Swedish dramatist"
+     }
+    ],
+    "explanation": {
+     "surface": "A theatre promises its new shows will be running by next month.",
+     "walkthrough": "August Strindberg (1849-1912) was the Swedish dramatist of Miss Julie; 'August' looks like the month.",
+     "definitionFit": "The Swedish dramatist's plays, such as Miss Julie, are still regularly staged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 14,
@@ -291,7 +942,51 @@
    "group": [
     "14-across",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BULLDOG CLIP",
+    "definitions": [
+     {
+      "text": "controller of papers",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hound",
+      "gives": "BULLDOG",
+      "note": "a bulldog is a breed of dog"
+     },
+     {
+      "clueFragment": "rapid progress",
+      "gives": "CLIP",
+      "note": "to move at a clip is to go quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULLDOG",
+      "CLIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor races ahead, hounding staff like a press baron.",
+     "walkthrough": "'Hound' looks like a verb meaning harass, but it is the dog.",
+     "definitionFit": "The spring-loaded metal fastener grips a stack of loose sheets together, keeping them under control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hound"
+    }
+   }
   },
   {
    "number": 14,
@@ -305,7 +1000,47 @@
     "text": "Support hospital facilities getting into a worse state",
     "enumeration": "9"
    },
-   "solution": "BACKWARDS"
+   "solution": "BACKWARDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKWARDS",
+    "definitions": [
+     {
+      "text": "getting into a worse state",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "hospital facilities",
+      "gives": "WARDS",
+      "note": "a hospital is divided into wards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "WARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Funding for hospital units lets them decline further.",
+     "walkthrough": "The definition reads as 'going backwards', so the answer works as an adverb of decline.",
+     "definitionFit": "Going in reverse means regressing, slipping back to a poorer condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 15,
@@ -325,7 +1060,70 @@
      }
     ]
    },
-   "solution": "NOTEPAD"
+   "solution": "NOTEPAD",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NOTE-PAD",
+    "definitions": [
+     {
+      "text": "where details can be recorded",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "'holding' means the fellow's word wraps around the following phrase"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' tells us the whole assembled string reads from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "DON",
+      "note": "a don is a university fellow"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fit of pique",
+      "gives": "PET",
+      "note": "a pet is a sulk or fit of bad temper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTEPAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAPETON",
+       "to": "NOTEPAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky academic jots down the particulars of his grievance.",
+     "walkthrough": "DON holding A PET makes DAPETON, which reversed gives NOTEPAD.",
+     "definitionFit": "A pad of paper sheets is a place to write down notes and particulars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pique"
+    }
+   }
   },
   {
    "number": 16,
@@ -345,7 +1143,60 @@
      }
     ]
    },
-   "solution": "POKERFACE"
+   "solution": "POKERFACE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POKER FACE",
+    "definitions": [
+     {
+      "text": "An aspect of self-control",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storm",
+      "for": "anagram",
+      "note": "a storm throws things into disorder, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cope",
+      "gives": "COPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "freak",
+      "gives": "FREAK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPEFREAK",
+       "gives": "POKERFACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Handling a freak storm calmly shows self-control.",
+     "walkthrough": "'Aspect' is meant as a look on the face.",
+     "definitionFit": "An expressionless look that hides one's feelings, as card players keep, shows composure and restraint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aspect"
+    }
+   }
   },
   {
    "number": 17,
@@ -365,7 +1216,40 @@
      }
     ]
    },
-   "solution": "CATFLAP"
+   "solution": "CATFLAP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CAT-FLAP",
+    "definitions": [
+     {
+      "text": "Tom may leave at this point, as Queen makes an entrance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom may leave at this point, as Queen makes an entrance",
+      "note": "surface reading: someone called Tom exits as the monarch arrives"
+     },
+     {
+      "clueFragment": "Tom",
+      "note": "setter's reading: a tom is a male cat and a queen a female one, both using the same small door"
+     }
+    ],
+    "explanation": {
+     "surface": "A man named Tom slips away just as the Queen arrives at a function.",
+     "walkthrough": "A tom is a male cat and a queen is the name for a female cat.",
+     "definitionFit": "This small hinged door set in a house door lets pet felines come and go freely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 18,
@@ -379,7 +1263,65 @@
     "text": "Best to have no outsiders with lions about and be in control",
     "enumeration": "7"
    },
-   "solution": "PRESIDE"
+   "solution": "PRESIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRESIDE",
+    "definitions": [
+     {
+      "text": "be in control",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to have no outsiders",
+      "for": "letter_selection",
+      "note": "having no outsiders means losing the first and last letters, keeping only the core"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means the group of lions goes around the kept letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lions",
+      "gives": "PRIDE",
+      "note": "a pride is a group of lions"
+     },
+     {
+      "clueFragment": "Best",
+      "gives": "ES",
+      "select": "middle",
+      "note": "the inner letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "ES",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "The top dog among lions must stand apart to stay in charge.",
+     "walkthrough": "PR(ES)IDE.",
+     "definitionFit": "To chair a meeting or occupy the position of authority is to be in charge of proceedings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 19,
@@ -407,7 +1349,37 @@
     "text": "See 20",
     "enumeration": "7"
    },
-   "solution": "WHISTLE"
+   "solution": "WHISTLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WHISTLE",
+    "definitions": [
+     {
+      "text": "See 20",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See 20",
+      "note": "surface reading: a pointer to another clue in the grid"
+     },
+     {
+      "clueFragment": "20",
+      "note": "setter's reading: this light completes the two-word phrase defined by the clue at 20 across"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This light has no clue of its own: 20 across's clue defines the whole phrase WOLF WHISTLE, and this entry supplies its second word.",
+     "definitionFit": "Together with the word at 20 across it names the shrill two-note call aimed at an attractive woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -421,7 +1393,40 @@
     "text": "Heard evidence for woman's appeal that PC won't accept",
     "enumeration": "4"
    },
-   "solution": "WOLF"
+   "solution": "WOLF",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WOLF",
+    "definitions": [
+     {
+      "text": "Heard evidence for woman's appeal that PC won't accept",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heard evidence for woman's appeal",
+      "note": "surface reading: spoken testimony in support of a woman's legal appeal"
+     },
+     {
+      "clueFragment": "woman's appeal",
+      "note": "setter's reading: an audible signal that a man finds a woman attractive, frowned on by the politically correct"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman's court appeal rests on hearsay that a police constable refuses to accept.",
+     "walkthrough": "This clue defines the two-word phrase completed by 19 down's WHISTLE; 'PC' is politically correct, not police constable.",
+     "definitionFit": "A wolf whistle is a two-note whistle aimed at an attractive woman, now regarded as sexist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PC"
+    }
+   }
   },
   {
    "number": 21,
@@ -435,7 +1440,75 @@
     "text": "Hen party finally inhibited by genuine cock-up",
     "enumeration": "5"
    },
-   "solution": "LAYER"
+   "solution": "LAYER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "LAYER",
+    "definitions": [
+     {
+      "text": "Hen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "'finally' means only the last letter of the word for party is kept"
+     },
+     {
+      "text": "cock-up",
+      "for": "reversal",
+      "note": "in a down clue, 'up' turns the word for genuine upside down"
+     },
+     {
+      "text": "inhibited by",
+      "for": "container",
+      "note": "being inhibited means being held in, so the single letter sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "genuine",
+      "gives": "REAL",
+      "note": "genuine means real"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "Y",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REAL",
+       "to": "LAER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hen party ends in a genuine fiasco.",
+     "walkthrough": "'Hen' suggests a party for a bride, but it is a bird that lays eggs; 'cock-up' is British slang for a blunder.",
+     "definitionFit": "A hen kept for eggs is called this, from the verb meaning to produce eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hen"
+    }
+   }
   },
   {
    "number": 22,
@@ -449,7 +1522,61 @@
     "text": "Failing to understand, be embarrassed receiving Oscar?",
     "enumeration": "10"
    },
-   "solution": "BEWILDERED"
+   "solution": "BEWILDERED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEWILDERED",
+    "definitions": [
+     {
+      "text": "Failing to understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "'receiving' means the phrase for being embarrassed takes in the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "be",
+      "gives": "BE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "WILDE",
+      "note": "Oscar Wilde, the Irish playwright"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "red in the face with embarrassment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "WILDE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor blushes on receiving an Academy Award, not quite grasping why he won.",
+     "walkthrough": "BE RED holds WILDE. 'Oscar' suggests the film award, but it is the writer.",
+     "definitionFit": "Being utterly confused and puzzled means one fails to grasp what is going on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 23,
@@ -463,7 +1590,43 @@
     "text": "Bob's next to nominate Thomas",
     "enumeration": "5"
    },
-   "solution": "DYLAN"
+   "solution": "DYLAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DYLAN",
+    "definitions": [
+     {
+      "text": "Bob's next",
+      "at": 0
+     },
+     {
+      "text": "to nominate Thomas",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bob's next",
+      "note": "first meaning: the surname that follows Bob in the name of the American singer"
+     },
+     {
+      "clueFragment": "to nominate Thomas",
+      "note": "second meaning: the first name that names the Welsh poet Thomas"
+     }
+    ],
+    "explanation": {
+     "surface": "Bob is next in line to put forward someone called Thomas.",
+     "walkthrough": "Bob Dylan is the singer-songwriter; Dylan Thomas, the Welsh poet, took the name the singer adopted.",
+     "definitionFit": "The word serves as surname of the folk singer Bob and as forename of the poet Thomas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nominate"
+    }
+   }
   },
   {
    "number": 24,
@@ -497,7 +1660,40 @@
      }
     ]
    },
-   "solution": "ROYALMINT"
+   "solution": "ROYALMINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROYAL MINT",
+    "definitions": [
+     {
+      "text": "Where change is made in production of sterling quality",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where change is made",
+      "note": "surface reading: a place where alterations happen"
+     },
+     {
+      "clueFragment": "change",
+      "note": "setter's reading: small coins, minted in pounds sterling by the national coin-maker"
+     }
+    ],
+    "explanation": {
+     "surface": "A workshop where reforms are turned out to a top standard.",
+     "walkthrough": "'Change' is loose coins and 'sterling' is British currency, as well as meaning excellent.",
+     "definitionFit": "The Royal Mint is the British body that manufactures the coins of the pound sterling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 26,
@@ -517,7 +1713,66 @@
      }
     ]
    },
-   "solution": "EMAIL"
+   "solution": "EMAIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "E-MAIL",
+    "definitions": [
+     {
+      "text": "message",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is turned back, so the word for unconvincing is read backwards"
+     },
+     {
+      "text": "called in",
+      "for": "container",
+      "note": "'called in' means brought inside, so the numeral goes into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unconvincing",
+      "gives": "LAME",
+      "note": "a lame excuse is an unconvincing one"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMA",
+      "I",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LAME",
+       "to": "EMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak message was turned down after someone was summoned to deal with it.",
+     "definitionFit": "Electronic mail is a message sent between computers over a network."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 27,
@@ -531,7 +1786,66 @@
     "text": "For this one needs sugar daddy to abandon translation of papyrus",
     "enumeration": "5"
    },
-   "solution": "SYRUP"
+   "solution": "SYRUP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SYRUP",
+    "definitions": [
+     {
+      "text": "For this one needs sugar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "to abandon is to leave behind, so the father's word is dropped from the longer word"
+     },
+     {
+      "text": "translation",
+      "for": "anagram",
+      "note": "a translation renders words in another form, so what is left is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papyrus",
+      "gives": "PAPYRUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daddy",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYRUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PYRUS",
+       "gives": "SYRUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sugar daddy deserts a scholar translating an ancient papyrus.",
+     "walkthrough": "'Sugar daddy' reads as one phrase but splits: sugar belongs to the definition, daddy to the wordplay.",
+     "definitionFit": "The sweet thick liquid is made by dissolving sugar in water, so sugar is its essential ingredient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "daddy"
+    }
+   }
   },
   {
    "number": 28,
@@ -545,7 +1859,40 @@
     "text": "Never leaves off advertising such growth",
     "enumeration": "9"
    },
-   "solution": "EVERGREEN"
+   "solution": "EVERGREEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EVERGREEN",
+    "definitions": [
+     {
+      "text": "Never leaves off advertising such growth",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never leaves off advertising",
+      "note": "surface reading: an advertiser who never stops promoting"
+     },
+     {
+      "clueFragment": "Never leaves off",
+      "note": "setter's reading: a plant whose leaves never come off in winter"
+     }
+    ],
+    "explanation": {
+     "surface": "A company that never stops advertising enjoys continual expansion.",
+     "walkthrough": "'Leaves off' sounds like stopping, but here it is foliage that never falls.",
+     "definitionFit": "Plants of this kind keep their foliage all year round instead of shedding it in autumn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   }
  ]
 }
