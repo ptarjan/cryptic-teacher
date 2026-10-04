@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "28 entries, 56 crossings, 0 conflicts"
+  "check": "28 entries, 56 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "16-down",
+    "was": "TASTEFUL",
+    "now": "TASTEBUD",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,55 @@
     "text": "Economist goes by jet - he needs to strike while the iron is hot",
     "enumeration": "10"
    },
-   "solution": "BLACKSMITH"
+   "solution": "BLACKSMITH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLACKSMITH",
+    "definitions": [
+     {
+      "text": "he needs to strike while the iron is hot",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes by",
+      "for": "charade",
+      "note": "to go by something is to sit beside it, so the economist's name is placed next to the colour word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jet",
+      "gives": "BLACK",
+      "note": "jet is a deep glossy black"
+     },
+     {
+      "clueFragment": "Economist",
+      "gives": "SMITH",
+      "note": "Adam Smith, author of The Wealth of Nations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLACK",
+      "SMITH"
+     ]
+    },
+    "explanation": {
+     "surface": "An economist flying by jet, with a proverb about seizing the moment tacked on.",
+     "walkthrough": "The proverb about striking while the iron is hot is meant literally here: it describes the man at the forge.",
+     "definitionFit": "A smith hammers metal at the forge, and must strike while the heated metal is still workable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jet"
+    }
+   }
   },
   {
    "number": 2,
@@ -55,7 +114,54 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed inside",
+      "for": "container",
+      "note": "something installed inside is fitted within, so one word sits in the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign",
+      "gives": "LEO",
+      "note": "a sign of the zodiac"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "a worker ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ANT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A signwriter's employee fitted into a garden shed.",
+     "definitionFit": "A lean-to is a simple shed built against a wall, its roof resting on it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +181,61 @@
      }
     ]
    },
-   "solution": "CATCHALL"
+   "solution": "CATCHALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CATCH-ALL",
+    "definitions": [
+     {
+      "text": "Comprehensive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially keeps just the opening letter of the word before it"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "being overwhelmed means being engulfed, so the letter is swallowed by the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abuse",
+      "gives": "CATCALL",
+      "note": "a jeering whistle or shout"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATC",
+      "H",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher overwhelmed by a torrent of abuse, in a sweeping account.",
+     "definitionFit": "A catch-all covers every case, so it is all-embracing or comprehensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +255,46 @@
      }
     ]
    },
-   "solution": "SPLITLEVEL"
+   "solution": "SPLITLEVEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLIT-LEVEL",
+    "definitions": [
+     {
+      "text": "Sort of house",
+      "at": 0
+     },
+     {
+      "text": "not flat",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of house",
+      "note": "first meaning: a building type"
+     },
+     {
+      "clueFragment": "not flat",
+      "note": "second meaning: on more than one plane"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Not flat' looks like 'not an apartment', fitting the house theme, but means uneven.",
+     "definitionFit": "A split-level home has floors at staggered heights, and anything so arranged is uneven rather than level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +308,43 @@
     "text": "Establish how visiting President, for one, should be received",
     "enumeration": "7"
    },
-   "solution": "INSTATE"
+   "solution": "INSTATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTATE",
+    "definitions": [
+     {
+      "text": "Establish",
+      "at": 0
+     },
+     {
+      "text": "how visiting President, for one, should be received",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establish",
+      "note": "first meaning: install in office"
+     },
+     {
+      "clueFragment": "how visiting President, for one, should be received",
+      "note": "second meaning, as two words: with full ceremony"
+     }
+    ],
+    "explanation": {
+     "surface": "Protocol for a foreign head of state's official visit.",
+     "definitionFit": "To instate is to install someone in a post, and a head of state is received with pomp, in state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "President"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +358,54 @@
     "text": "Hurt right inside thigh",
     "enumeration": "4"
    },
-   "solution": "HARM"
+   "solution": "HARM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HARM",
+    "definitions": [
+     {
+      "text": "Hurt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the letter within the word for the meat"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thigh",
+      "gives": "HAM",
+      "note": "the ham is the back of the thigh"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An injury on the inner right thigh, like a pulled muscle.",
+     "definitionFit": "To hurt someone is to harm them; the two verbs are close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +419,51 @@
     "text": "Brave and strong, like Van Gogh, partly",
     "enumeration": "8"
    },
-   "solution": "FEARLESS"
+   "solution": "FEARLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEARLESS",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong",
+      "gives": "F",
+      "note": "f, forte, is the musical marking for loud or strong"
+     },
+     {
+      "clueFragment": "like Van Gogh, partly",
+      "gives": "EARLESS",
+      "note": "the painter cut off part of one ear, so was partly without one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EARLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for the painter as bold and powerful, at least in part.",
+     "walkthrough": "'Partly' seems to qualify the praise; it refers to the part of the ear he lost.",
+     "definitionFit": "Fearless and brave both describe a person who shows no fright in danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "partly"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +477,42 @@
     "text": "Establishes legal digest",
     "enumeration": "10"
    },
-   "solution": "INSTITUTES"
+   "solution": "INSTITUTES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTITUTES",
+    "definitions": [
+     {
+      "text": "Establishes",
+      "at": 0
+     },
+     {
+      "text": "legal digest",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establishes",
+      "note": "first meaning: sets up, a verb"
+     },
+     {
+      "clueFragment": "legal digest",
+      "note": "second meaning: a summary of law, as in Justinian's"
+     }
+    ],
+    "explanation": {
+     "surface": "Setting up a summary of the law.",
+     "definitionFit": "To institute is to set up, and the Institutes are classic textbooks of Roman law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digest"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +526,46 @@
     "text": "A rigid back",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rigid",
+      "gives": "STERN",
+      "note": "stern means strict or unbending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "STERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A stiff back, the kind a doctor might note.",
+     "definitionFit": "Astern is the nautical adverb for towards the rear of a ship, so going back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +579,50 @@
     "text": "Flog anklebone of Greek undergoing torture",
     "enumeration": "8"
    },
-   "solution": "TANTALUS"
+   "solution": "TANTALUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANTALUS",
+    "definitions": [
+     {
+      "text": "Greek undergoing torture",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flog",
+      "gives": "TAN",
+      "note": "to tan someone's hide is to beat them"
+     },
+     {
+      "clueFragment": "anklebone",
+      "gives": "TALUS",
+      "note": "the talus is the bone of the ankle joint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "TALUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim scene of beating and bone-breaking inflicted on some tortured Greek.",
+     "walkthrough": "In myth he stood in water under fruit he could never reach, the source of the word tantalise.",
+     "definitionFit": "The mythical king was punished in Hades with endless thirst and hunger, a classic eternal torment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Flog"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +642,55 @@
      }
     ]
    },
-   "solution": "TOMMYROT"
+   "solution": "TOMMYROT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOMMYROT",
+    "definitions": [
+     {
+      "text": "bunk",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer one piece written on another follows it, so the soldier comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private",
+      "gives": "TOMMY",
+      "note": "Tommy Atkins, slang for a British private soldier"
+     },
+     {
+      "clueFragment": "Languish in jail, perhaps",
+      "gives": "ROT",
+      "note": "to rot in jail is to languish there; perhaps marks it as one example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOMMY",
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier left to waste away in the cells on his prison bunk.",
+     "walkthrough": "'Bunk' seems to be a prison bed but means nonsense, short for bunkum.",
+     "definitionFit": "Tommyrot and bunk are both informal words for foolish talk or nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bunk"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +704,60 @@
     "text": "Artistic conclusion a medic backs",
     "enumeration": "4"
    },
-   "solution": "CODA"
+   "solution": "CODA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CODA",
+    "definitions": [
+     {
+      "text": "Artistic conclusion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backs",
+      "for": "reversal",
+      "note": "going backwards, the short phrase is read from its last letter to its first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "DOC",
+      "note": "doc is short for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COD",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ADOC",
+       "to": "CODA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor supporting the finale of some artistic work.",
+     "definitionFit": "A coda is the closing passage of a musical piece, or a concluding section of any work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backs"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +771,39 @@
     "text": "The prospect of the rack?",
     "enumeration": "10"
    },
-   "solution": "CLOUDSCAPE"
+   "solution": "CLOUDSCAPE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CLOUDSCAPE",
+    "definitions": [
+     {
+      "text": "The prospect of the rack?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The prospect of the rack?",
+      "note": "surface reading: the dread of being stretched on a torture device"
+     },
+     {
+      "clueFragment": "The prospect of the rack?",
+      "note": "setter's reading: rack is drifting cloud, and a prospect is a view of a scene"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Prospect' looks like anticipation and 'rack' like torture; both have scenic senses.",
+     "definitionFit": "Rack is an old word for wind-driven cloud, so a view of it is a picture of the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rack"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +827,46 @@
      }
     ]
    },
-   "solution": "LETSFACEIT"
+   "solution": "LETSFACEIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LET'S FACE IT",
+    "definitions": [
+     {
+      "text": "We should look forward to something",
+      "at": 0
+     },
+     {
+      "text": "be realistic",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We should look forward to something",
+      "note": "first meaning: literally, let us turn our faces towards a thing"
+     },
+     {
+      "clueFragment": "be realistic",
+      "note": "second meaning: the idiom for admitting an unwelcome truth"
+     }
+    ],
+    "explanation": {
+     "surface": "A pep talk urging hope for the future but also some realism.",
+     "definitionFit": "The idiom introduces a blunt admission, while its literal sense is turning to meet something head on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +890,56 @@
      }
     ]
    },
-   "solution": "FORMYMONEY"
+   "solution": "FORMYMONEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOR MY MONEY",
+    "definitions": [
+     {
+      "text": "I bet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make",
+      "gives": "FORM",
+      "note": "to form is to make"
+     },
+     {
+      "clueFragment": "unknown amount",
+      "gives": "Y",
+      "note": "y is an algebraic unknown quantity"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "MONEY",
+      "note": "a plain synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "Y",
+      "MONEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler placing a stake in cash, hoping to win an unknown sum.",
+     "definitionFit": "Both phrases introduce a personal opinion: in my view, I reckon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bet"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +953,47 @@
     "text": "Survive being dismissed, as it happens",
     "enumeration": "7"
    },
-   "solution": "OUTLIVE"
+   "solution": "OUTLIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTLIVE",
+    "definitions": [
+     {
+      "text": "Survive",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being dismissed",
+      "gives": "OUT",
+      "note": "a batsman who is dismissed is out"
+     },
+     {
+      "clueFragment": "as it happens",
+      "gives": "LIVE",
+      "note": "a live broadcast is shown as it happens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting through the sack, as it turns out.",
+     "walkthrough": "'As it happens' looks like a filler phrase meaning 'by chance'; it is the broadcasting sense, in real time.",
+     "definitionFit": "To outlive something is to last beyond it, which is to survive it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "happens"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1013,65 @@
      }
     ]
    },
-   "solution": "TASTEFUL"
+   "solution": "TASTEBUD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TASTE-BUD",
+    "definitions": [
+     {
+      "text": "that's on tip of tongue",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down answer, brought up means written from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discretion",
+      "gives": "TASTE",
+      "note": "discernment in choosing what is fitting"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "DUB",
+      "note": "to dub is to name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TASTE",
+      "BUD"
+     ],
+     "reversals": [
+      {
+       "from": "DUB",
+       "to": "BUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discreetly mentioning a name you can almost but not quite recall.",
+     "walkthrough": "'On the tip of the tongue' is the idiom for a word you nearly remember; here it is literal.",
+     "definitionFit": "Sensory receptors for flavour sit on the tongue, many of them at its front end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1085,50 @@
     "text": "Jerky start in crossing",
     "enumeration": "7"
    },
-   "solution": "TRANSIT"
+   "solution": "TRANSIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSIT",
+    "definitions": [
+     {
+      "text": "crossing",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Jerky",
+      "for": "anagram",
+      "note": "jerky movement is jolting and irregular, so these letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start in",
+      "gives": "STARTIN",
+      "note": "the two words taken as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARTIN",
+       "gives": "TRANSIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jolting departure as one begins to cross over.",
+     "definitionFit": "Transit is the act of passing across or through from one side to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jerky"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1142,50 @@
     "text": "Peerless item unchosen, remarkably",
     "enumeration": "8"
    },
-   "solution": "NONESUCH"
+   "solution": "NONESUCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NONESUCH",
+    "definitions": [
+     {
+      "text": "Peerless item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remarkably",
+      "for": "anagram",
+      "note": "remarkably implies something surprising has happened to the letters, here a rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unchosen",
+      "gives": "UNCHOSEN",
+      "note": "taken as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNCHOSEN",
+       "gives": "NONESUCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outstanding piece left oddly unpicked.",
+     "definitionFit": "A nonesuch is a person or thing without equal, an archaic word for a paragon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remarkably"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1199,68 @@
     "text": "Elects to play by ear at first on this?",
     "enumeration": "7"
    },
-   "solution": "CELESTE"
+   "solution": "CELESTE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CELESTE",
+    "definitions": [
+     {
+      "text": "Elects to play by ear at first on this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first keeps only the opening letter of the word before it"
+     },
+     {
+      "text": "to play",
+      "for": "anagram",
+      "note": "letters set to play are let loose to move about into a new order"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "on this?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elects",
+      "gives": "ELECTS",
+      "note": "taken as letters"
+     },
+     {
+      "clueFragment": "ear",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELECTSE",
+       "gives": "CELESTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician choosing to play an instrument by ear.",
+     "walkthrough": "The whole clue is also the definition: an instrument one might choose to play by ear.",
+     "definitionFit": "A celeste, or celesta, is a keyboard instrument whose hammers strike metal plates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Elects"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1274,69 @@
     "text": "This I'll site foolishly in non alcoholic surroundings?",
     "enumeration": "10"
    },
-   "solution": "DISTILLERY"
+   "solution": "DISTILLERY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container"
+    ],
+    "answer": "DISTILLERY",
+    "definitions": [
+     {
+      "text": "This I'll site foolishly in non alcoholic surroundings?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "doing something foolishly means doing it wrongly, so the letters end up jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing one thing in another puts the jumbled letters inside the outer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'll site",
+      "gives": "ISTILLE",
+      "note": "the letters of these words, rearranged"
+     },
+     {
+      "clueFragment": "non alcoholic",
+      "gives": "DRY",
+      "note": "a dry area or event has no alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISTILLE",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ILLSITE",
+       "gives": "ISTILLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone planning to build a whisky works in a teetotal district, and admitting it is daft.",
+     "walkthrough": "The whole clue is the definition too: building a plant for spirits in a dry area would be foolish. DRY is split around the rearranged letters.",
+     "definitionFit": "A distillery makes spirits, so putting one in a teetotal place would be a foolish choice of location."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "surroundings"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1350,43 @@
     "text": "Anti-American slogan showing sense",
     "enumeration": "4"
    },
-   "solution": "NOUS"
+   "solution": "NOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOUS",
+    "definitions": [
+     {
+      "text": "sense",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anti-American slogan",
+      "gives": "NO US",
+      "note": "a protest chant rejecting the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A protest banner that might or might not show good judgement.",
+     "definitionFit": "Nous is informal British English for practical intelligence or common sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slogan"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1400,58 @@
     "text": "Political grouping has succeeded in producing harmony",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "harmony",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "a word that has something holds it within, so the letter sits inside"
+     }
+    ],
+    "linkWords": [
+     "in producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Political grouping",
+      "gives": "UNION",
+      "note": "a union of states or parties"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "s is the abbreviation for succeeded in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A party alliance that has won by achieving consensus.",
+     "walkthrough": "UNISON is also the name of a large British trade union, which adds to the political surface.",
+     "definitionFit": "Acting in unison means in perfect agreement, as voices singing the same note."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeded"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1465,44 @@
     "text": "Division revealed when outfit takes the plunge?",
     "enumeration": "8"
    },
-   "solution": "CLEAVAGE"
+   "solution": "CLEAVAGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEAVAGE",
+    "definitions": [
+     {
+      "text": "Division",
+      "at": 0
+     },
+     {
+      "text": "revealed when outfit takes the plunge?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Division",
+      "note": "first meaning: a split or separation"
+     },
+     {
+      "clueFragment": "revealed when outfit takes the plunge?",
+      "note": "second meaning: what a plunging neckline shows"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone diving into water while their swimsuit gives way.",
+     "walkthrough": "'Takes the plunge' sounds like a dive or a bold decision, but a plunging dress has a deep low neckline.",
+     "definitionFit": "The word means a split or rift, and also the hollow between breasts exposed by a low-cut top."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plunge"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1516,51 @@
     "text": "Continuous bad feeling in teachers' centre",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "Continuous bad feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre is the middle portion, so only the inner letters are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teachers'",
+      "gives": "ACHE",
+      "select": "middle",
+      "note": "the central four of the eight letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lingering resentment in the staff room.",
+     "definitionFit": "An ache is a dull, persistent pain, a steady unpleasant sensation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "feeling"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1574,58 @@
     "text": "Sum at first remaining inflated for piece of jewelry",
     "enumeration": "8"
    },
-   "solution": "SUNBURST"
+   "solution": "SUNBURST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SUNBURST",
+    "definitions": [
+     {
+      "text": "piece of jewelry",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the preceding word only"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sum",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "remaining inflated",
+      "gives": "UNBURST",
+      "note": "a balloon still inflated has not burst"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UNBURST"
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant's sum somehow puffed up into the price of a jewel.",
+     "definitionFit": "A sunburst is a brooch whose gems radiate outward like rays of the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inflated"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1639,56 @@
     "text": "Toby's master works in a corporation",
     "enumeration": "6"
    },
-   "solution": "PAUNCH"
+   "solution": "PAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAUNCH",
+    "definitions": [
+     {
+      "text": "corporation",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works in",
+      "for": "container",
+      "note": "to work something in is to insert it, so the small word goes inside the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toby's master",
+      "gives": "PUNCH",
+      "note": "Toby is the dog in the Punch and Judy puppet show"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's owner employed in some big company.",
+     "walkthrough": "Punch and Judy is a traditional British seaside puppet show; 'corporation' is an old jokey word for a big belly.",
+     "definitionFit": "Corporation is dated humorous slang for a large stomach, the same as a pot belly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1702,53 @@
     "text": "The sum - subtract half of this, initially, from perfect answer",
     "enumeration": "10"
    },
-   "solution": "EVERYTHING"
+   "solution": "EVERYTHING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVERYTHING",
+    "definitions": [
+     {
+      "text": "The sum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "subtract",
+      "for": "deletion",
+      "note": "subtracting takes letters away from the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of this, initially",
+      "gives": "TH",
+      "note": "the first two of the four letters of this"
+     },
+     {
+      "clueFragment": "perfect answer",
+      "gives": "THEVERYTHING",
+      "note": "the very thing is exactly what is wanted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVERYTHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A maths instruction for taking part of a quantity from a total.",
+     "walkthrough": "'Initially' says which half: the front two letters of 'this' come off the front of the phrase.",
+     "definitionFit": "The sum of things is the whole lot, every part of it taken together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sum"
+    }
+   }
   }
  ]
 }
