@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Using breeze with skill, one can fly",
     "enumeration": "8"
    },
-   "solution": "AIRCRAFT"
+   "solution": "AIRCRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRCRAFT",
+    "definitions": [
+     {
+      "text": "one can fly",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "Using",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breeze",
+      "gives": "AIR",
+      "note": "a breeze is moving air"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "CRAFT",
+      "note": "craft is skill, as in a craftsman's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "CRAFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A glider pilot or a kite flyer rides the wind with expertise.",
+     "definitionFit": "Planes, gliders and helicopters are all machines built for flight, which is what the word covers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "breeze"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,59 @@
     "text": "Dirty place on front of eye can cause an eyelid problem",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STYE",
+    "definitions": [
+     {
+      "text": "an eyelid problem",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "can cause"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dirty place",
+      "gives": "STY",
+      "note": "a pigsty, or any filthy place"
+     },
+     {
+      "clueFragment": "eye",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of eye"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that grime near the eye can lead to an infection.",
+     "walkthrough": "The surface is almost a medical fact, since a dirty eyelid really can cause the swelling the answer names.",
+     "definitionFit": "A stye is a small painful swelling at the edge of the eyelid caused by an infected gland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +159,39 @@
     "text": "It'll make someone late!",
     "enumeration": "6"
    },
-   "solution": "MURDER"
+   "solution": "MURDER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MURDER",
+    "definitions": [
+     {
+      "text": "It'll make someone late!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It'll make someone late!",
+      "note": "surface reading: something that causes a person to arrive behind time"
+     },
+     {
+      "clueFragment": "late",
+      "note": "setter's reading: late in the sense of the late Mr Smith, that is, dead"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Late' looks like unpunctual, but in obituaries the late so-and-so is someone who has died.",
+     "definitionFit": "Killing someone turns them into the deceased, which is the obituary sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +205,47 @@
     "text": "A batsman is the one doing no work",
     "enumeration": "7"
    },
-   "solution": "STRIKER"
+   "solution": "STRIKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRIKER",
+    "definitions": [
+     {
+      "text": "A batsman",
+      "at": 0
+     },
+     {
+      "text": "the one doing no work",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A batsman",
+      "note": "first meaning: in cricket, the batsman currently facing the bowling"
+     },
+     {
+      "clueFragment": "the one doing no work",
+      "note": "second meaning: a worker who has walked out in an industrial dispute"
+     }
+    ],
+    "explanation": {
+     "surface": "A dig at a lazy cricketer who stands around while others toil.",
+     "walkthrough": "In cricket the batsman facing the bowler is called the striker; the other meaning is someone on strike.",
+     "definitionFit": "One word covers both the cricketer receiving the ball and an employee withholding labour during a dispute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +259,70 @@
     "text": "Possibly ring Gay about student wanting fish",
     "enumeration": "8"
    },
-   "solution": "GRAYLING"
+   "solution": "GRAYLING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GRAYLING",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly suggests one arrangement among several, so the letters may be reordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring Gay",
+      "gives": "RINGGAY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on the L-plates of a learner driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAY",
+      "L",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RINGGAY",
+       "gives": "GRAYING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks of phoning a person called Gay for advice on a fish-hungry student.",
+     "walkthrough": "The rearranged letters spell GRAYING, and the learner's L goes inside it.",
+     "definitionFit": "The grayling is a freshwater fish of the salmon family, prized by anglers in clear rivers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +336,71 @@
     "text": "Is man having painting in study causing dismay?",
     "enumeration": "10"
    },
-   "solution": "DISHEARTEN"
+   "solution": "DISHEARTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISHEARTEN",
+    "definitions": [
+     {
+      "text": "dismay",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "ART",
+      "note": "painting is a form of art"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study or retreat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "HE",
+      "ART",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about whether a man with a picture hanging in his study is upset.",
+     "definitionFit": "To dismay someone is to discourage them and sap their spirits, a close synonym used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +414,42 @@
     "text": "Cancel part of model eternity ring order",
     "enumeration": "6"
    },
-   "solution": "DELETE"
+   "solution": "DELETE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DELETE",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of says the answer is a stretch of the words that follow, not all of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model eternity ring order",
+      "gives": "DELETE",
+      "note": "the letters run across the end of model and the start of eternity"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper calls off a jewellery order for an eternity ring.",
+     "definitionFit": "Both verbs mean to remove or strike out, as when a keyboard key wipes text or a manager scraps a plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +463,46 @@
     "text": "Beware of water vapour corrosion",
     "enumeration": "8"
    },
-   "solution": "MISTRUST"
+   "solution": "MISTRUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MISTRUST",
+    "definitions": [
+     {
+      "text": "Beware of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water vapour",
+      "gives": "MIST",
+      "note": "mist is fine water vapour in the air"
+     },
+     {
+      "clueFragment": "corrosion",
+      "gives": "RUST",
+      "note": "rust is the corrosion of iron"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIST",
+      "RUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sign about damp causing metal to corrode.",
+     "definitionFit": "To be wary or suspicious of something is to doubt it and keep on guard, much like being told to beware."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beware"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +516,66 @@
     "text": "Shoving her about in river",
     "enumeration": "5"
    },
-   "solution": "RHINE"
+   "solution": "RHINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RHINE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean all around and jumbled, so those letters are moved"
+     },
+     {
+      "text": "Shoving",
+      "for": "container",
+      "note": "shoving one thing in pushes it inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "IN",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HER",
+       "gives": "RHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pushing a woman into the water.",
+     "definitionFit": "The Rhine is the great European river flowing from Switzerland through Germany to the North Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoving"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +589,54 @@
     "text": "Top male expert comes round",
     "enumeration": "4"
    },
-   "solution": "ACME"
+   "solution": "ACME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACME",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes round",
+      "for": "container",
+      "note": "to come round something is to encircle it, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "M",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading specialist pays a visit.",
+     "definitionFit": "The noun means the highest point or peak of achievement, the very summit of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comes"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +650,51 @@
     "text": "Why is Adele replacing this on a typewriter?",
     "enumeration": "10"
    },
-   "solution": "DAISYWHEEL"
+   "solution": "DAISYWHEEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAISYWHEEL",
+    "definitions": [
+     {
+      "text": "this on a typewriter",
+      "at": 23,
+      "note": "'this' stands for the answer: the part found on a typewriter"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "anagram",
+      "note": "replacing means putting back in different places, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why is Adele",
+      "gives": "WHYISADELE",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHYISADELE",
+       "gives": "DAISYWHEEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled office worker asks why a colleague is changing a part of the machine.",
+     "definitionFit": "A daisywheel is the replaceable disc of spokes, each tipped with a character, used in electric typewriters and early printers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "replacing"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +708,47 @@
     "text": "Stout girl's parent",
     "enumeration": "6"
    },
-   "solution": "FATHER"
+   "solution": "FATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FATHER",
+    "definitions": [
+     {
+      "text": "parent",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stout",
+      "gives": "FAT",
+      "note": "stout means fat"
+     },
+     {
+      "clueFragment": "girl's",
+      "gives": "HER",
+      "note": "her is the possessive for a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rather unkind description of a young woman's dad.",
+     "walkthrough": "Stout looks like the dark beer, but here it is the adjective for heavy-set.",
+     "definitionFit": "A male parent is called a father, so this is a plain dictionary synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stout"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +762,50 @@
     "text": "eat captain to shark",
     "enumeration": "10"
    },
-   "solution": "HAMMERHEAD"
+   "solution": "HAMMERHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAMMERHEAD",
+    "definitions": [
+     {
+      "text": "shark",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eat",
+      "gives": "HAMMER",
+      "note": "SOURCE ERROR: the served clue has lost its first letter; the setter's word is 'Beat', and to beat is to pound or batter"
+     },
+     {
+      "clueFragment": "captain",
+      "gives": "HEAD",
+      "note": "a captain is the head of a team or crew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAMMER",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's captain is thrashed and thrown to the sharks.",
+     "walkthrough": "The clue as served reads 'eat', but the printed Guardian clue began 'Beat'; only that verb supplies the first part.",
+     "definitionFit": "The hammerhead is a species of shark with a flattened, T-shaped head and widely spaced eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captain"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +819,50 @@
     "text": "Dreadful, steamier Eastern states",
     "enumeration": "8"
    },
-   "solution": "EMIRATES"
+   "solution": "EMIRATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMIRATES",
+    "definitions": [
+     {
+      "text": "Eastern states",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dreadful",
+      "for": "anagram",
+      "note": "something dreadful is in a terrible mess, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steamier",
+      "gives": "STEAMIER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STEAMIER",
+       "gives": "EMIRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about the awful humid heat of countries in the East.",
+     "definitionFit": "Emirates are territories ruled by an emir, such as those of the Gulf, which lie in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dreadful"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +876,43 @@
     "text": "Batsman may be baffled!",
     "enumeration": "7"
    },
-   "solution": "STUMPED"
+   "solution": "STUMPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUMPED",
+    "definitions": [
+     {
+      "text": "Batsman may be",
+      "at": 0
+     },
+     {
+      "text": "baffled",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batsman may be",
+      "note": "first meaning: a cricket dismissal where the wicketkeeper breaks the wicket while the batsman is out of his ground"
+     },
+     {
+      "clueFragment": "baffled",
+      "note": "second meaning: completely puzzled"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricketer at the crease is left confused.",
+     "walkthrough": "Being out this way is a cricket dismissal: the keeper knocks the bails off while the batsman has wandered from his crease.",
+     "definitionFit": "One participle names both a way of losing one's wicket and the state of being unable to find an answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +926,55 @@
     "text": "Note name, sex and breed",
     "enumeration": "8"
    },
-   "solution": "ENGENDER"
+   "solution": "ENGENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENGENDER",
+    "definitions": [
+     {
+      "text": "breed",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "E",
+      "note": "E is a musical note"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "GENDER",
+      "note": "sex in the sense of male or female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "GENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of the details a form asks for: name, sex and breed of an animal.",
+     "definitionFit": "To breed is to produce or give rise to, which the verb also means, as in hatred bred by fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breed"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +988,39 @@
     "text": "He thinks I'm great!",
     "enumeration": "7"
    },
-   "solution": "EGOTIST"
+   "solution": "EGOTIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGOTIST",
+    "definitions": [
+     {
+      "text": "He thinks I'm great!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He thinks I'm great!",
+      "note": "surface reading: someone pleased to hear another person admires the speaker"
+     },
+     {
+      "clueFragment": "I'm great",
+      "note": "setter's reading: the speaker's own opinion of himself, voiced in the first person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as boasting about an admirer, but the person who thinks 'I'm great' is the speaker.",
+     "definitionFit": "A conceited person preoccupied with his own importance holds exactly this view of himself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "He"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1034,53 @@
     "text": "In a dress ruined by fish",
     "enumeration": "8"
    },
-   "solution": "SARDINES"
+   "solution": "SARDINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SARDINES",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its original form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In a dress",
+      "gives": "INADRESS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INADRESS",
+       "gives": "SARDINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's outfit spoiled by a fishy accident.",
+     "definitionFit": "Sardines are small oily fish of the herring family, often sold packed in tins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1094,64 @@
     "text": "Conservative leader has a number to discipline",
     "enumeration": "7"
    },
-   "solution": "CHASTEN"
+   "solution": "CHASTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHASTEN",
+    "definitions": [
+     {
+      "text": "discipline",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Conservative"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAS",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory party chief has a handful of MPs to bring into line.",
+     "definitionFit": "To chasten is to correct or subdue someone through punishment, a verb sense of discipline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1165,44 @@
     "text": "Ability to withstand great pressure might",
     "enumeration": "8"
    },
-   "solution": "STRENGTH"
+   "solution": "STRENGTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRENGTH",
+    "definitions": [
+     {
+      "text": "Ability to withstand great pressure",
+      "at": 0
+     },
+     {
+      "text": "might",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ability to withstand great pressure",
+      "note": "first meaning: the toughness of a material under load"
+     },
+     {
+      "clueFragment": "might",
+      "note": "second meaning: power or force"
+     }
+    ],
+    "explanation": {
+     "surface": "An engineer describes how sturdy a structure might prove under load.",
+     "walkthrough": "'might' looks like the verb of possibility closing the sentence, but it is the noun for power.",
+     "definitionFit": "The noun covers both a material's resistance to force and physical power or vigour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "might"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1216,54 @@
     "text": "Objects when working nights",
     "enumeration": "6"
    },
-   "solution": "THINGS"
+   "solution": "THINGS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THINGS",
+    "definitions": [
+     {
+      "text": "Objects",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests the letters are set in motion and reorganised"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nights",
+      "gives": "NIGHTS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NIGHTS",
+       "gives": "THINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shift worker complains, or perhaps objects to the night shift.",
+     "walkthrough": "'Objects' could be the verb for protesting, but it is the plural noun.",
+     "definitionFit": "Things are items or articles, plain physical objects, a direct noun synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Objects"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1277,43 @@
     "text": "Bit of a plan Arkwright made here",
     "enumeration": "6"
    },
-   "solution": "LANARK"
+   "solution": "LANARK",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LANARK",
+    "definitions": [
+     {
+      "text": "made here",
+      "at": 24,
+      "note": "a place: where something was made"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "bit of says only a stretch of the following words is needed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan Arkwright",
+      "gives": "LANARK",
+      "note": "the letters run across the end of plan and the start of Arkwright"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of an industrial pioneer's scheme was carried out at this site.",
+     "walkthrough": "Richard Arkwright, the cotton-mill pioneer, helped plan the mills of New Lanark in Scotland, so the place really is where his plan was made.",
+     "definitionFit": "Lanark is a Scottish town beside the New Lanark mill village, a site of manufacturing history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1327,53 @@
     "text": "Non-professional fellow is following minstrel's song",
     "enumeration": "6"
    },
-   "solution": "LAYMAN"
+   "solution": "LAYMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAYMAN",
+    "definitions": [
+     {
+      "text": "Non-professional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is following",
+      "for": "charade",
+      "note": "following means the second piece comes after the first in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minstrel's song",
+      "gives": "LAY",
+      "note": "a lay is a medieval ballad sung by a minstrel"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An amateur turns up as a fan of a wandering minstrel's music.",
+     "definitionFit": "A layman is someone without expert or professional training in a field, an amateur outsider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1387,67 @@
     "text": "Fraud switches stone in attractive setting",
     "enumeration": "10"
    },
-   "solution": "DISHONESTY"
+   "solution": "DISHONESTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DISHONESTY",
+    "definitions": [
+     {
+      "text": "Fraud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switches",
+      "for": "anagram",
+      "note": "switches means changes over, so the letters swap positions"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the word for attractive"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "STONE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "attractive setting",
+      "gives": "DISHY",
+      "note": "dishy is informal British for good-looking, here the setting that surrounds the gem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "ONEST",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STONE",
+       "gives": "ONEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's con: a fake gem swapped into a pretty mount.",
+     "walkthrough": "Dishy is British slang for attractive, usually of a person.",
+     "definitionFit": "Fraud is deception for gain, and the noun names the quality of being deceitful or untruthful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1461,54 @@
     "text": "Having one in one's home was profitable",
     "enumeration": "4"
    },
-   "solution": "PAID"
+   "solution": "PAID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAID",
+    "definitions": [
+     {
+      "text": "was profitable",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having",
+      "for": "container",
+      "note": "having something in one's home means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's home",
+      "gives": "PAD",
+      "note": "a pad is slang for one's flat or home"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "I",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking in a lodger turned out to be a money-spinner.",
+     "definitionFit": "When a venture paid, it yielded a return, so the past tense of pay fits a profitable outcome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1522,45 @@
     "text": "Faint sound of a bucket?",
     "enumeration": "4"
    },
-   "solution": "PAIL"
+   "solution": "PAIL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAIL",
+    "definitions": [
+     {
+      "text": "a bucket",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound of",
+      "for": "homophone",
+      "note": "sound of tells us to go by how a word is spoken, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faint",
+      "gives": "PAIL",
+      "soundsLike": "PALE",
+      "note": "faint means pale, as of a light colour"
+     }
+    ],
+    "explanation": {
+     "surface": "A quiet clink from a bucket being set down.",
+     "walkthrough": "'Faint sound' reads as a quiet noise, but faint is a synonym for pallid.",
+     "definitionFit": "A pail is an old-fashioned word for a bucket used to carry water or milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Faint"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1574,45 @@
     "text": "Some taking ravens to the vet will be serious!",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GRAVE",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion only, so a stretch of the letters is taken"
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking ravens to the vet",
+      "gives": "GRAVE",
+      "note": "the letters run across the end of taking and the start of ravens"
+     }
+    ],
+    "explanation": {
+     "surface": "Bringing sick ravens to an animal doctor is no laughing matter.",
+     "definitionFit": "Grave and serious both describe a solemn situation that gives cause for worry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1626,63 @@
     "text": "One testing axe returned by a collier",
     "enumeration": "8"
    },
-   "solution": "EXAMINER"
+   "solution": "EXAMINER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXAMINER",
+    "definitions": [
+     {
+      "text": "One testing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word is read the other way"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "axe",
+      "gives": "AXE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a collier",
+      "gives": "MINER",
+      "note": "a collier is a coal miner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXA",
+      "MINER"
+     ],
+     "reversals": [
+      {
+       "from": "AXE",
+       "to": "EXA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector checks a tool handed back by a coal worker.",
+     "definitionFit": "An examiner sets or marks tests and inspects candidates, so is someone doing the testing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   }
  ]
 }
