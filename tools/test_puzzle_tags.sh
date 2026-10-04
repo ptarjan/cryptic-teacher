@@ -56,6 +56,12 @@ check("a jigsaw-wise preamble is a jigsaw", "jigsaw" in tagged(real("cryptic-243
 check("clues in their answers' alphabetical order are a jigsaw",
       pt.is_jigsaw(real("cryptic-22297")))
 check("interchangeable acrosses and downs are a jigsaw", pt.is_jigsaw(real("cryptic-23269")))
+check("clues the paper printed with no grid numbers are a jigsaw, whatever the preamble says",
+      pt.is_jigsaw({"cluesUnplaced": True, "preamble": "A special set of clues."})
+      and pt.jigsaw_tag({"cluesUnplaced": True}) == "jigsaw")
+check("(mirror) the same preamble without the field is not a jigsaw",
+      not pt.is_jigsaw({"preamble": "A special set of clues."}))
+check("a prize whose PDF lettered its clues is a jigsaw", "jigsaw" in tagged(real("cryptic-24433")))
 check("a theme note is not a jigsaw", not pt.is_jigsaw(real("cryptic-22863")))
 check("an alphabet puzzle with no such note is not", not pt.is_jigsaw(real("toughie-2768")))
 check("no preamble is no jigsaw", not pt.is_jigsaw({"preamble": None}))

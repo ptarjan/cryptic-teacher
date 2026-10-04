@@ -2342,6 +2342,7 @@ def convert(data):
         # reads it into cluePageInstructions.
         **({"preamble": pre} if (pre := merge_preamble(
             preamble(data.get("instructions")), data.get("cluePageInstructions"))) else {}),
+        **({"cluesUnplaced": True} if series == "cryptic" and data["number"] in CLUES_UNPLACED else {}),
         "source": {"url": "https://www.theguardian.com/" + data["id"]},
         "entries": entries,
     }
@@ -2740,6 +2741,11 @@ PDF_PREAMBLES = {
     24433: "This week's Prize has a special set of clues. Because of the symmetry of the grid, "
            "there are two possible ways of filling it in; but several indications show which is correct.",
 }
+
+# The prizes whose PDF printed the clues lettered A to Z by answer, with no
+# grid numbers: the solver finds where each goes, though the paper never said
+# "jigsaw" (24307 says it; 24433 does not).
+CLUES_UNPLACED = {24307, 24433}
 
 
 NUMBER_URL_FIXES = {
