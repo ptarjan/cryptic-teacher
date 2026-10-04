@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "29 entries, 54 crossings, 0 conflicts"
+  "check": "29 entries, 54 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "7-down",
+    "was": "SAVOR",
+    "now": "SAVER",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,47 @@
     "text": "Blades needed for cartilaginous fish",
     "enumeration": "6"
    },
-   "solution": "SKATES"
+   "solution": "SKATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SKATES",
+    "definitions": [
+     {
+      "text": "Blades",
+      "at": 0
+     },
+     {
+      "text": "cartilaginous fish",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "needed for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blades",
+      "note": "first meaning: ice ..., which run on blades"
+     },
+     {
+      "clueFragment": "cartilaginous fish",
+      "note": "second meaning: flat rays related to sharks"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone needs knives to prepare a fish dinner.",
+     "walkthrough": "'Blades needed for' reads like a kitchen instruction; the two halves are separate meanings of one word.",
+     "definitionFit": "Ice boots are named by their runners, and the same plural word names a family of flat ray fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blades"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +100,45 @@
     "text": "Destiny may sound rather serene",
     "enumeration": "5"
    },
-   "solution": "KARMA"
+   "solution": "KARMA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KARMA",
+    "definitions": [
+     {
+      "text": "Destiny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may sound",
+      "for": "homophone",
+      "note": "may sound means the words should be judged by how they come across when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather serene",
+      "gives": "KARMA",
+      "soundsLike": "CALMER",
+      "note": "rather serene means more tranquil, said in a non-rhotic accent"
+     }
+    ],
+    "explanation": {
+     "surface": "Fate might seem a peaceful thing.",
+     "walkthrough": "In standard British speech the R of the comparative is silent, so the two words sound alike.",
+     "definitionFit": "In Hindu and Buddhist thought, the consequences of one's deeds determine one's fate, so the word serves for destiny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "serene"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +152,61 @@
     "text": "Hair cut by almost vain Delilah, say",
     "enumeration": "9"
    },
-   "solution": "TEMPTRESS"
+   "solution": "TEMPTRESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEMPTRESS",
+    "definitions": [
+     {
+      "text": "Delilah, say",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     },
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "a thing cut by another is split open with the other placed in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "vain",
+      "gives": "EMPT",
+      "note": "vain means empty, as in empty promises; shortened by one letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EMPT",
+      "RESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Delilah, rather vain, cuts someone's hair, as she famously did to Samson.",
+     "walkthrough": "The surface recalls Delilah cutting Samson's hair; here the hair itself is cut open by EMPT(y) to give T-EMPT-RESS.",
+     "definitionFit": "Delilah, who seduced and betrayed Samson in the Bible, is the archetypal seductive woman, an example of the type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +220,42 @@
     "text": "Field-Marshal omits to incorporate peace formula",
     "enumeration": "6"
    },
-   "solution": "SHALOM"
+   "solution": "SHALOM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHALOM",
+    "definitions": [
+     {
+      "text": "peace formula",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to incorporate",
+      "for": "hidden_word",
+      "note": "the preceding words incorporate, or hold within them, the letters sought"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Field-Marshal omits",
+      "gives": "SHALOM",
+      "note": "runs across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A senior army officer leaves out a peace settlement.",
+     "definitionFit": "The Hebrew greeting means peace and is used as a formula of hello and farewell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "formula"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +275,51 @@
      }
     ]
    },
-   "solution": "SAFESEAT"
+   "solution": "SAFESEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAFE SEAT",
+    "definitions": [
+     {
+      "text": "it's easy to get in here",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "SAFE",
+      "note": "secure means safe"
+     },
+     {
+      "clueFragment": "mansion",
+      "gives": "SEAT",
+      "note": "a country seat is a mansion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE",
+      "SEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-protected stately home turns out to be easy to break into.",
+     "walkthrough": "'Get in' sounds like burglary but means getting elected: a SAFE SEAT is a parliamentary constituency a party is sure to win.",
+     "definitionFit": "A constituency held by a large majority guarantees the candidate's election, so getting into Parliament there is easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +343,51 @@
      }
     ]
    },
-   "solution": "SOWDRAGONSTEETH"
+   "solution": "SOWDRAGONSTEETH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOW DRAGONS TEETH",
+    "definitions": [
+     {
+      "text": "stir up trouble",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in other words",
+      "for": "anagram",
+      "note": "the phrase asks for the given letters expressed as other words, rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set the war dogs on",
+      "gives": "SETTHEWARDOGSON",
+      "note": "all fifteen letters taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETTHEWARDOGSON",
+       "gives": "SOWDRAGONSTEETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "To unleash the dogs of war, as Mark Antony says, is to stir up trouble.",
+     "walkthrough": "'In other words' looks like it introduces a paraphrase but is the anagram signal. In Greek myth Cadmus sowed dragon's teeth, which sprang up as armed men.",
+     "definitionFit": "The idiom, from the Cadmus legend, means doing something that breeds future conflict, so it fits provoking strife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 6,
@@ -145,7 +411,52 @@
      }
     ]
    },
-   "solution": "FORASONG"
+   "solution": "FORASONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOR A SONG",
+    "definitions": [
+     {
+      "text": "at a bargain price",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Representing",
+      "gives": "FOR",
+      "note": "to stand for is to represent"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "SONG",
+      "note": "a number is a piece of music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "A",
+      "SONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A sales rep acts for some figure at a cheap rate.",
+     "definitionFit": "The idiom means very cheaply, as if paid for with nothing more than a tune."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +470,47 @@
     "text": "Relish talking to someone of economy",
     "enumeration": "5"
    },
-   "solution": "SAVOR"
+   "solution": "SAVER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SAVER",
+    "definitions": [
+     {
+      "text": "someone of economy",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talking",
+      "for": "homophone",
+      "note": "talking means the word is to be heard spoken rather than read"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relish",
+      "gives": "SAVER",
+      "soundsLike": "SAVOUR",
+      "note": "to relish is to savour"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thrifty enjoys a chat.",
+     "walkthrough": "'Relish' looks like the definition but is the sound-alike; the thrifty person is defined.",
+     "definitionFit": "A person who puts money aside and spends carefully practises economy, hence a thrifty individual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relish"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +524,50 @@
     "text": "Unusually, I hate rock plant",
     "enumeration": "9"
    },
-   "solution": "ARTICHOKE"
+   "solution": "ARTICHOKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARTICHOKE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually means in an unusual way, so the letters come out in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I hate rock",
+      "gives": "IHATEROCK",
+      "note": "all nine letters taken as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IHATEROCK",
+       "gives": "ARTICHOKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surprisingly confesses a dislike of rock music.",
+     "definitionFit": "The globe artichoke is a thistle-like vegetable grown for its edible flower head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +587,65 @@
      }
     ]
    },
-   "solution": "CRIMEANWAR"
+   "solution": "CRIMEANWAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "CRIMEAN WAR",
+    "definitions": [
+     {
+      "text": "conflict with the Russians",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "formation",
+      "for": "anagram",
+      "note": "a formation is a new arrangement, so the letters are put into another order"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means something is dropped from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raw American",
+      "gives": "RAWAMERICAN",
+      "note": "fodder"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIMEANWAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAWMERICAN",
+       "gives": "CRIMEANWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inexperienced American military unit fails in a war against Russia.",
+     "walkthrough": "Remove one A from RAW AMERICAN before rearranging.",
+     "definitionFit": "The 1853-56 war saw Britain, France and Turkey fight Russia on the Black Sea peninsula."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formation"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +659,49 @@
     "text": "Stop having doctor round",
     "enumeration": "4"
    },
-   "solution": "VETO"
+   "solution": "VETO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VETO",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "VET",
+      "note": "a vet is an animal doctor"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VET",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stops a doctor from making rounds.",
+     "definitionFit": "A veto is a formal prohibition that blocks a proposal, so as a verb it means to block or forbid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 11,
@@ -221,7 +715,47 @@
     "text": "Sprint to secure prison",
     "enumeration": "8"
    },
-   "solution": "DARTMOOR"
+   "solution": "DARTMOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DARTMOOR",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sprint",
+      "gives": "DART",
+      "note": "to dart is to dash"
+     },
+     {
+      "clueFragment": "to secure",
+      "gives": "MOOR",
+      "note": "to moor a boat is to secure it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DART",
+      "MOOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner dashes to make a jail safe.",
+     "walkthrough": "DARTMOOR is a high-security prison on the Devon moor of the same name.",
+     "definitionFit": "The famous jail at Princetown in Devon is known simply by the moor's name, a metonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +769,48 @@
     "text": "Came into violent contact with second vehicle",
     "enumeration": "6"
    },
-   "solution": "STRUCK"
+   "solution": "STRUCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRUCK",
+    "definitions": [
+     {
+      "text": "Came into violent contact",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "TRUCK",
+      "note": "a truck is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A road collision with a second vehicle.",
+     "definitionFit": "Past tense of hit: to strike something is to hit it hard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +824,44 @@
     "text": "Obscure contributor to sacred canon",
     "enumeration": "4"
    },
-   "solution": "JUDE"
+   "solution": "JUDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JUDE",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     },
+     {
+      "text": "contributor to sacred canon",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obscure",
+      "note": "first sense: Hardy's novel ... the Obscure, so this name goes with the word"
+     },
+     {
+      "clueFragment": "contributor to sacred canon",
+      "note": "second sense: the author of a short epistle in the New Testament"
+     }
+    ],
+    "explanation": {
+     "surface": "Some little-known writer contributed to the scriptures.",
+     "walkthrough": "'Obscure' is not a synonym but completes a title: Thomas Hardy's novel Jude the Obscure.",
+     "definitionFit": "The Epistle of Jude is a book of the New Testament, so its author added to the Bible, and Hardy's hero carries the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +885,43 @@
      }
     ]
    },
-   "solution": "UPANDDOWN"
+   "solution": "UPANDDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UP AND DOWN",
+    "definitions": [
+     {
+      "text": "Where Puck led the lovers",
+      "at": 0
+     },
+     {
+      "text": "not always well",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Puck led the lovers",
+      "note": "first meaning: in A Midsummer Night's Dream Puck chants that he will lead the lovers this way and that"
+     },
+     {
+      "clueFragment": "not always well",
+      "note": "second meaning: fluctuating in health"
+     }
+    ],
+    "explanation": {
+     "surface": "Puck leading the lovers astray left them unwell.",
+     "walkthrough": "Puck's line in A Midsummer Night's Dream is 'Up and down, up and down, I will lead them up and down'.",
+     "definitionFit": "The phrase describes health that varies, good on some days and poor on others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +935,58 @@
     "text": "Group pursued by wild beast is a bundle of nerves",
     "enumeration": "8"
    },
-   "solution": "GANGLION"
+   "solution": "GANGLION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GANGLION",
+    "definitions": [
+     {
+      "text": "a bundle of nerves",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursued by",
+      "for": "charade",
+      "note": "something pursued by another comes first with the other following behind"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "GANG",
+      "note": "a gang is a group"
+     },
+     {
+      "clueFragment": "wild beast",
+      "gives": "LION",
+      "note": "a lion is a wild beast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GANG",
+      "LION"
+     ]
+    },
+    "explanation": {
+     "surface": "A group chased by a lion would be very nervous.",
+     "walkthrough": "'A bundle of nerves' sounds like a frightened person but is the literal anatomical meaning.",
+     "definitionFit": "In anatomy this is a cluster of nerve cells, literally a mass of nerve tissue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nerves"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1006,53 @@
      }
     ]
    },
-   "solution": "LASTRITES"
+   "solution": "LASTRITES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAST RITES",
+    "definitions": [
+     {
+      "text": "Ceremony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "one word holds the other, wrapping around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "meaningless",
+      "gives": "TRITE",
+      "note": "trite means hackneyed and empty of meaning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "TRITE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl finds a ritual empty.",
+     "definitionFit": "The sacrament given to the dying in the Christian church is a religious rite or ceremony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -327,7 +1072,51 @@
      }
     ]
    },
-   "solution": "FINESPUN"
+   "solution": "FINESPUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINE SPUN",
+    "definitions": [
+     {
+      "text": "not practical",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penalises",
+      "gives": "FINES",
+      "note": "to fine is to penalise"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is a joke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINES",
+      "PUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is punished for a joke that is not a practical one.",
+     "walkthrough": "'Not practical' seems to modify joke, contrasting with a practical joke, but is the definition.",
+     "definitionFit": "Something spun very fine is delicate and over-subtle, too refined for everyday practical use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "practical"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1130,55 @@
     "text": "Article written in bombastic language -- how like the damned man!",
     "enumeration": "8"
    },
-   "solution": "FAUSTIAN"
+   "solution": "FAUSTIAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAUSTIAN",
+    "definitions": [
+     {
+      "text": "how like the damned man!",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "one item is written in, so placed inside, the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bombastic language",
+      "gives": "FUSTIAN",
+      "note": "fustian is pompous, inflated speech"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "USTIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Pompous prose seems like a description of a damned soul.",
+     "walkthrough": "Faust sold his soul to the devil; the definition is an exclamation meaning 'how characteristic of Faust'.",
+     "definitionFit": "The adjective means typical of Faust, the scholar who traded his soul for knowledge and was damned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "damned"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1192,55 @@
     "text": "Mushrooms brought back for detailed description",
     "enumeration": "4"
    },
-   "solution": "SPEC"
+   "solution": "SPEC",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPEC",
+    "definitions": [
+     {
+      "text": "detailed description",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means returned, so the word is read from the other end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mushrooms",
+      "gives": "CEPS",
+      "note": "ceps are porcini mushrooms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEC"
+     ],
+     "reversals": [
+      {
+       "from": "CEPS",
+       "to": "SPEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mushrooms are brought back to be described in detail.",
+     "definitionFit": "Short for specification, a precise technical statement of how something is built or performs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -366,10 +1251,65 @@
    },
    "length": 6,
    "clue": {
-    "text": "Strip tease originally looked down on by night-dubs",
+    "text": "Strip tease originally looked down on by night-clubs",
     "enumeration": "6"
    },
-   "solution": "DIVEST"
+   "solution": "DIVEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIVEST",
+    "definitions": [
+     {
+      "text": "Strip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the start, so only the opening letter counts"
+     },
+     {
+      "text": "looked down on by",
+      "for": "charade",
+      "note": "in a down entry, a part looked down on sits below the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "night-clubs",
+      "gives": "DIVES",
+      "note": "dives are seedy night-clubs"
+     },
+     {
+      "clueFragment": "tease",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIVES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Seedy clubs frown on striptease acts.",
+     "walkthrough": "'Strip tease' reads as one thing, but 'Strip' alone is the definition. The source text has an OCR slip, 'night-dubs'.",
+     "definitionFit": "To divest is to deprive or remove, as in stripping someone of their clothes or possessions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tease"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1323,52 @@
     "text": "Be idle at work -- liable to get chewed up",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDIBLE",
+    "definitions": [
+     {
+      "text": "liable to get chewed up",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at work",
+      "for": "anagram",
+      "note": "letters at work are being worked on and reshaped into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be idle",
+      "gives": "BEIDLE",
+      "note": "fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEIDLE",
+       "gives": "EDIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Idling on the job risks a dressing-down from the boss.",
+     "walkthrough": "'Chewed up' sounds like being reprimanded, but is literal eating.",
+     "definitionFit": "Food fit to be eaten is fit to be bitten and swallowed, hence able to be chewed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chewed"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1382,50 @@
     "text": "Child left in confusion",
     "enumeration": "5"
    },
-   "solution": "BABEL"
+   "solution": "BABEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BABEL",
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "gives": "BABE",
+      "note": "a babe is a baby"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BABE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An abandoned child is bewildered.",
+     "walkthrough": "The Tower of Babel in Genesis is where God confused human languages, so the word means a din of confused voices.",
+     "definitionFit": "From the biblical tower, a babel is a scene of noisy disorder and muddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1445,50 @@
      }
     ]
    },
-   "solution": "TAILRACE"
+   "solution": "TAILRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAIL-RACE",
+    "definitions": [
+     {
+      "text": "running below the mill",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "TAIL",
+      "note": "to dog someone is to tail or follow them"
+     },
+     {
+      "clueFragment": "breed",
+      "gives": "RACE",
+      "note": "a race is a breed or stock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAIL",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pedigree dog runs about beneath a mill.",
+     "walkthrough": "'Dog breed' reads as a noun pair, but each word is a separate piece, with dog as a verb.",
+     "definitionFit": "This is the channel carrying water away from a mill wheel after it has turned it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 24,
@@ -431,7 +1502,51 @@
     "text": "Clear out of county",
     "enumeration": "5"
    },
-   "solution": "CLARE"
+   "solution": "CLARE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLARE",
+    "definitions": [
+     {
+      "text": "county",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "anagram",
+      "note": "out of here means out of order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "CLEAR",
+      "note": "fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLEAR",
+       "gives": "CLARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to leave the county.",
+     "walkthrough": "Clare is a county in the west of Ireland.",
+     "definitionFit": "County Clare in Munster, on Ireland's Atlantic coast, is one of the Irish counties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1560,45 @@
     "text": "Curry tastes sweet",
     "enumeration": "4"
    },
-   "solution": "COMB"
+   "solution": "COMB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMB",
+    "definitions": [
+     {
+      "text": "Curry",
+      "at": 0
+     },
+     {
+      "text": "tastes sweet",
+      "at": 6,
+      "note": "a cryptic description of honeycomb, not a substitutable synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curry",
+      "note": "first meaning: to curry a horse is to groom it with a toothed tool"
+     },
+     {
+      "clueFragment": "tastes sweet",
+      "note": "second meaning: honey in its waxy cells is sweet to eat"
+     }
+    ],
+    "explanation": {
+     "surface": "A spicy dish turns out to be sweet.",
+     "walkthrough": "'Curry' wants to be the spicy dish; it is the verb of grooming, as with a currycomb.",
+     "definitionFit": "Grooming a horse uses a currycomb, and a honeycomb, the bees' wax cells full of honey, is sweet to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Curry"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1618,45 @@
      }
     ]
    },
-   "solution": "PRESENTDAY"
+   "solution": "PRESENTDAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRESENT DAY",
+    "definitions": [
+     {
+      "text": "Modern",
+      "at": 0
+     },
+     {
+      "text": "Christmas?",
+      "at": 7,
+      "note": "a cryptic, punning definition, flagged by the question mark"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modern",
+      "note": "first meaning: belonging to current times"
+     },
+     {
+      "clueFragment": "Christmas?",
+      "note": "second meaning, read cryptically: the day on which gifts are given"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how Christmas is kept nowadays.",
+     "walkthrough": "The question mark flags the pun: Christmas is literally a day of gifts.",
+     "definitionFit": "The phrase means contemporary, of the current era, while also punning on the gift-giving festival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Christmas"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1670,66 @@
     "text": "Pawnbroker starts to neglect customers -- has to relax",
     "enumeration": "8"
    },
-   "solution": "UNCLENCH"
+   "solution": "UNCLENCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNCLENCH",
+    "definitions": [
+     {
+      "text": "relax",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts means beginnings, so each following word gives only its first letter"
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pawnbroker",
+      "gives": "UNCLE",
+      "note": "uncle is old slang for a pawnbroker"
+     },
+     {
+      "clueFragment": "neglect customers",
+      "gives": "NC",
+      "select": "first",
+      "note": "first letters of each word"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "NC",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A pawnbroker starts ignoring customers and must calm down.",
+     "walkthrough": "'Starts to' covers neglect, customers and has, the last sitting after the dash.",
+     "definitionFit": "To unclench a fist or jaw is to loosen it, letting the tension go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1743,44 @@
     "text": "Having thrown up, couldn't sleep",
     "enumeration": "6"
    },
-   "solution": "TOSSED"
+   "solution": "TOSSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOSSED",
+    "definitions": [
+     {
+      "text": "Having thrown up",
+      "at": 0
+     },
+     {
+      "text": "couldn't sleep",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having thrown up",
+      "note": "first meaning: flung into the air, as a coin"
+     },
+     {
+      "clueFragment": "couldn't sleep",
+      "note": "second meaning: turned restlessly in bed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone was sick and then had a sleepless night.",
+     "walkthrough": "'Thrown up' suggests vomiting but means pitched upwards.",
+     "definitionFit": "Both senses share a past-tense verb: flung upward like a coin, and turned about restlessly in bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thrown"
+    }
+   }
   }
  ]
 }
