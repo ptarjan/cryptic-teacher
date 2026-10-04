@@ -22,6 +22,9 @@
   "date": "2026-10-03",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,55 @@
     "text": "Where to get drugs fast, without abuse",
     "enumeration": "8"
    },
-   "solution": "PHARMACY"
+   "solution": "PHARMACY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PHARMACY",
+    "definitions": [
+     {
+      "text": "Where to get drugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "'without' in its old sense of 'outside', so the word for fast is wrapped around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fast",
+      "gives": "PACY",
+      "note": "pacy means quick, moving at speed"
+     },
+     {
+      "clueFragment": "abuse",
+      "gives": "HARM",
+      "note": "to abuse something is to harm it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HARM",
+      "ACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A seedy tip about where to get drugs quickly with no risk of misuse.",
+     "walkthrough": "'Without' looks like 'lacking', but here it means outside: the word for fast goes round the word for abuse.",
+     "definitionFit": "A chemist's shop dispenses medicines, so it is the place one obtains prescribed medication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +100,51 @@
     "text": "Hot and cold water laid on to craft used as transport",
     "enumeration": "8"
    },
-   "solution": "HANDCART"
+   "solution": "HANDCART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDCART",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "to",
+     "used as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot and cold water laid on",
+      "gives": "HANDC",
+      "note": "'h and c', hot and cold running water, as advertised by hotels and lodgings"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "a craft or skill is an art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANDC",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel boasts running water, and a boat is pressed into service to carry guests.",
+     "walkthrough": "'H and c' is the old abbreviation in room advertisements for hot and cold running water. 'Craft' suggests a boat, but here it is a skill.",
+     "definitionFit": "A small cart pushed or pulled by hand is a humble means of carrying goods, a kind of conveyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,10 +155,62 @@
    },
    "length": 12,
    "clue": {
-    "text": "Deploy me and 111 hunt for stock",
+    "text": "Deploy me and I'll hunt for stock",
     "enumeration": "12"
    },
-   "solution": "RUNOFTHEMILL"
+   "solution": "RUNOFTHEMILL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUN OF THE MILL",
+    "definitions": [
+     {
+      "text": "stock",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Deploy",
+      "for": "anagram",
+      "note": "to deploy troops is to spread them out into new positions, so the letters are set out afresh"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I'll hunt for",
+      "gives": "ILLHUNTFOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ME ILLHUNTFOR",
+       "gives": "RUNOFTHEMILL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commander tells an officer to send them out while the speaker hunts for supplies.",
+     "walkthrough": "'Stock' looks like a noun meaning supplies, but it is the adjective, as in a stock answer.",
+     "definitionFit": "A stock response is a standard, unremarkable one, so stock means ordinary and average."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +224,72 @@
     "text": "Creature finds a way in the Bible to animal refuge",
     "enumeration": "8"
    },
-   "solution": "AARDVARK"
+   "solution": "AARDVARK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AARDVARK",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the word for way inside the abbreviation for the Bible"
+     }
+    ],
+    "linkWords": [
+     "finds",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road, a way"
+     },
+     {
+      "clueFragment": "the Bible",
+      "gives": "AV",
+      "note": "AV is the Authorized Version of the Bible"
+     },
+     {
+      "clueFragment": "animal refuge",
+      "gives": "ARK",
+      "note": "Noah's ark sheltered the animals from the flood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "A",
+      "RD",
+      "V",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal finds its way in scripture to Noah's refuge.",
+     "walkthrough": "AV, the Authorized (King James) Version, is the standard crossword shorthand for the Bible.",
+     "definitionFit": "The South African burrowing anteater is an animal, so it is a fair example of a living creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 5,
@@ -91,7 +303,70 @@
     "text": "Refuse piled up without attention — is that desired?",
     "enumeration": "7"
    },
-   "solution": "YEARNED"
+   "solution": "YEARNED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "YEARNED",
+    "definitions": [
+     {
+      "text": "desired",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piled up",
+      "for": "reversal",
+      "note": "in a down entry 'piled up' builds the word from the bottom, so it reads upwards"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "'without' meaning outside, so the word for refuse wraps round the word for attention"
+     }
+    ],
+    "linkWords": [
+     "is that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "gives": "DENY",
+      "note": "to refuse a request is to deny it"
+     },
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to pay attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EAR",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "DENY",
+       "to": "YNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish heaped up uncared for: surely nobody wanted that?",
+     "walkthrough": "'Refuse' reads as rubbish, but it is the verb, to say no.",
+     "definitionFit": "To long for something is to want it intensely, so the past tense matches wanted or desired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,10 +377,61 @@
    },
    "length": 6,
    "clue": {
-    "text": "A but is demolished, creating a gap",
+    "text": "A hut is demolished, creating a gap",
     "enumeration": "6"
    },
-   "solution": "HIATUS"
+   "solution": "HIATUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HIATUS",
+    "definitions": [
+     {
+      "text": "gap",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is demolished",
+      "for": "anagram",
+      "note": "a demolished building is knocked down and its material left in a new heap, so the letters are rebuilt"
+     }
+    ],
+    "linkWords": [
+     "creating a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hut",
+      "gives": "AHUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHUTIS",
+       "gives": "HIATUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shed is knocked down, leaving an empty space on the plot.",
+     "definitionFit": "A break or pause in a sequence is an interruption, a space where something is missing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hut"
+    }
+   }
   },
   {
    "number": 7,
@@ -119,7 +445,48 @@
     "text": "Went fast and fell, so to speak",
     "enumeration": "4"
    },
-   "solution": "HIED"
+   "solution": "HIED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HIED",
+    "definitions": [
+     {
+      "text": "Went fast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so to speak",
+      "for": "homophone",
+      "note": "'so to speak' asks us to take the word for fell as it is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fell",
+      "gives": "HIED",
+      "soundsLike": "HIDE",
+      "note": "a fell is an animal's skin, a hide"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone rushed along and tripped over, as it were.",
+     "walkthrough": "'Fell' looks like the past of fall, but it is the noun for an animal pelt.",
+     "definitionFit": "To hie is an old verb meaning to hasten, so its past tense means hurried along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 8,
@@ -133,7 +500,55 @@
     "text": "Burglar finds one book collection more offensive",
     "enumeration": "8"
    },
-   "solution": "INTRUDER"
+   "solution": "INTRUDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTRUDER",
+    "definitions": [
+     {
+      "text": "Burglar",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "book collection",
+      "gives": "NT",
+      "note": "the New Testament is a collection of books of the Bible"
+     },
+     {
+      "clueFragment": "more offensive",
+      "gives": "RUDER",
+      "note": "comparative of rude"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NT",
+      "RUDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A burglar discovers a set of books even nastier than expected.",
+     "definitionFit": "A housebreaker is someone who enters premises without permission, an unwelcome trespasser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collection"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,10 +559,64 @@
    },
    "length": 8,
    "clue": {
-    "text": "Discharge girl (one kept in a very long time",
+    "text": "Discharge girl one kept in a very long time",
     "enumeration": "8"
    },
-   "solution": "EMISSION"
+   "solution": "EMISSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EMISSION",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "something kept in is held inside, so the words for girl and one sit within the long period"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a young unmarried woman"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "a very long time",
+      "gives": "EON",
+      "note": "an aeon, an age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MISS",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is let out of custody after one was held for ages.",
+     "definitionFit": "Something given off, like exhaust gas, is released; a noun for what is let out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharge"
+    }
+   }
   },
   {
    "number": 10,
@@ -161,7 +630,42 @@
     "text": "Presently unidentified",
     "enumeration": "4"
    },
-   "solution": "ANON"
+   "solution": "ANON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANON",
+    "definitions": [
+     {
+      "text": "Presently",
+      "at": 0
+     },
+     {
+      "text": "unidentified",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Presently",
+      "note": "first meaning: soon, in a little while (old-fashioned)"
+     },
+     {
+      "clueFragment": "unidentified",
+      "note": "second meaning: short for anonymous, of unnamed authorship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Presently' here has its older sense of 'soon', not 'now'.",
+     "definitionFit": "The archaic adverb means shortly, and the abbreviation marks a poem or quotation whose writer is unknown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Presently"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +685,51 @@
      }
     ]
    },
-   "solution": "OLDPRETENDER"
+   "solution": "OLDPRETENDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLD PRETENDER",
+    "definitions": [
+     {
+      "text": "Leader of rebellion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revision",
+      "for": "anagram",
+      "note": "a revision reworks a text, so these letters are rewritten in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deplored rent",
+      "gives": "DEPLOREDRENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEPLOREDRENT",
+       "gives": "OLDPRETENDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel chief complained bitterly about a rent increase.",
+     "walkthrough": "The title belongs to James Francis Edward Stuart, the Jacobite claimant to the British throne behind the 1715 rising.",
+     "definitionFit": "James Stuart, the Jacobite claimant, headed the 1715 rising against George I, so he led an uprising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +749,55 @@
      }
     ]
    },
-   "solution": "NEWHAMPSHIRE"
+   "solution": "NEWHAMPSHIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEW HAMPSHIRE",
+    "definitions": [
+     {
+      "text": "a state",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distraught",
+      "for": "anagram",
+      "note": "someone distraught is all over the place, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hiram's nephew",
+      "gives": "HIRAMSNEPHEW",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HIRAMSNEPHEW",
+       "gives": "NEWHAMPSHIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hiram's sister's son is in a terrible emotional state.",
+     "walkthrough": "'In a state' reads as 'very upset'; split off 'in', and 'a state' is the definition.",
+     "definitionFit": "It is one of the fifty United States, in New England, so it is an example of a state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +811,42 @@
     "text": "Hymn in German translation",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "Hymn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' says the answer lies inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German translation",
+      "gives": "MANTRA",
+      "note": "the end of German and the start of translation"
+     }
+    ],
+    "explanation": {
+     "surface": "A sacred song rendered into German.",
+     "definitionFit": "A Vedic text chanted in worship is a sacred verse, so it counts as a song of praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +860,63 @@
     "text": "Street in each part of town going in one direction",
     "enumeration": "8"
    },
-   "solution": "EASTWARD"
+   "solution": "EASTWARD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EASTWARD",
+    "definitions": [
+     {
+      "text": "in one direction",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the abbreviation for street inside the abbreviation for each"
+     }
+    ],
+    "linkWords": [
+     "going"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "abbreviation for street"
+     },
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "abbreviation for each"
+     },
+     {
+      "clueFragment": "part of town",
+      "gives": "WARD",
+      "note": "an electoral division of a town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "ST",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-way street running through every district of town.",
+     "definitionFit": "Heading towards sunrise is travelling along a single compass bearing, so it is one way of moving."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +930,39 @@
     "text": "Runs with lots of flesh displayed outside",
     "enumeration": "7"
    },
-   "solution": "STREAKS"
+   "solution": "STREAKS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STREAKS",
+    "definitions": [
+     {
+      "text": "Runs with lots of flesh displayed outside",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs with lots of flesh displayed outside",
+      "note": "surface reading: someone sprints about with plenty of skin on show outdoors"
+     },
+     {
+      "clueFragment": "Runs",
+      "note": "setter's reading: runs naked through a public place, often a sports ground, for a dare"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Runs' also suggests a series, as in a winning run, which the answer can mean too.",
+     "definitionFit": "To dash naked across a pitch or public place as a prank is exactly running with bare skin exposed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +976,65 @@
     "text": "Give information about very good and very loud champion",
     "enumeration": "8"
    },
-   "solution": "SPIFFING"
+   "solution": "SPIFFING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPIFFING",
+    "definitions": [
+     {
+      "text": "champion",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the word for give information goes round the other pieces"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give information",
+      "gives": "SING",
+      "note": "to sing is slang for informing to the police"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "PI",
+      "note": "pi is short for pious, very good"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "fortissimo in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PI",
+      "FF",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A noisy, worthy prizewinner is asked to tell what they know.",
+     "walkthrough": "'Champion' is the old British exclamation of approval, an adjective, not a winner.",
+     "definitionFit": "Both are dated British slang adjectives for excellent, the kind of word used for something splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "champion"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1048,50 @@
     "text": "China has to maintain conference",
     "enumeration": "7"
    },
-   "solution": "PALAVER"
+   "solution": "PALAVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALAVER",
+    "definitions": [
+     {
+      "text": "conference",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "rhyming slang: china plate means mate, a pal"
+     },
+     {
+      "clueFragment": "maintain",
+      "gives": "AVER",
+      "note": "to maintain a claim is to assert it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Chinese delegation must keep a summit going.",
+     "walkthrough": "'China' with its capital looks like the country; in Cockney rhyming slang it is a friend.",
+     "definitionFit": "Originally a parley between traders and locals, so a lengthy talk or discussion, now usually a fuss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1105,64 @@
     "text": "Sea room required around main mass of land",
     "enumeration": "8"
    },
-   "solution": "ATLANTIC"
+   "solution": "ATLANTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ATLANTIC",
+    "definitions": [
+     {
+      "text": "Sea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "main mass of",
+      "for": "deletion",
+      "note": "only the bulk of the word is kept, so its tail is dropped"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the word for room is placed around the shortened piece"
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "room",
+      "gives": "ATTIC",
+      "note": "a room in the roof"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "LAN",
+      "note": "the word land without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "LAN",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An ocean needs space surrounding the continent.",
+     "walkthrough": "In fact this sea is surrounded by land masses, which helps the surface.",
+     "definitionFit": "The ocean between Europe and the Americas is often called a sea, as in the phrase 'across the sea'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1176,63 @@
     "text": "Drive out whale? One's found in river",
     "enumeration": "8"
    },
-   "solution": "EXORCISE"
+   "solution": "EXORCISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXORCISE",
+    "definitions": [
+     {
+      "text": "Drive out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place is inside it, so the whale and the rest go inside the river"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whale",
+      "gives": "ORC",
+      "note": "an orc is a killer whale, an orca"
+     },
+     {
+      "clueFragment": "One's",
+      "gives": "IS",
+      "note": "one is: I for one, plus S for the 's"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the River Exe in Devon, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ORC",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Chasing off a whale that has been spotted swimming upstream.",
+     "walkthrough": "The Exe is a river in south-west England, a crossword regular.",
+     "definitionFit": "To expel an evil spirit from a person or place is to cast it out by ritual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "whale"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1246,49 @@
     "text": "Primarily something that you press to injured chin",
     "enumeration": "7"
    },
-   "solution": "STYPTIC"
+   "solution": "STYPTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "STYPTIC",
+    "definitions": [
+     {
+      "text": "Primarily something that you press to injured chin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "'primarily' means at first, so only the opening letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something that you press to injured chin",
+      "gives": "STYPTIC",
+      "select": "first",
+      "note": "the initials of the seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STYPTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "First aid advice: what you hold to a cut chin, say after shaving.",
+     "walkthrough": "The whole clue is both the wordplay and the definition.",
+     "definitionFit": "A styptic pencil or pad stops bleeding by contracting tissue, which is exactly what one dabs on a shaving cut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1302,71 @@
     "text": "I rail about closure of border — it is a nuisance",
     "enumeration": "8"
    },
-   "solution": "IRRITANT"
+   "solution": "IRRITANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "IRRITANT",
+    "definitions": [
+     {
+      "text": "a nuisance",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closure of",
+      "for": "letter_selection",
+      "note": "the closure of a word is its end, so only the final letter of border is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the words for I rail go round the other piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I rail",
+      "gives": "IRANT",
+      "note": "I plus RANT: to rail is to complain angrily"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of border"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "RIT",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that a border closing is a real pain.",
+     "definitionFit": "Something that annoys or inflames is a source of bother, so it means a pest or annoyance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rail"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1380,58 @@
     "text": "Amazed commanders with shorter version of it",
     "enumeration": "6"
    },
-   "solution": "AGHAST"
+   "solution": "AGHAST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AGHAST",
+    "definitions": [
+     {
+      "text": "Amazed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shorter version of",
+      "for": "deletion",
+      "note": "a shorter version loses a letter, so the little word is cut down"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commanders",
+      "gives": "AGHAS",
+      "note": "aghas or agas are Turkish military commanders"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGHAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Officers astonished when given a cut-down account of events.",
+     "walkthrough": "An agha (also aga) is an Ottoman title for a commander; 'it' loses its first letter here.",
+     "definitionFit": "Filled with horror or shock, so struck dumb with astonishment, much like amazed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1445,66 @@
     "text": "City police in US try to return pet",
     "enumeration": "6"
    },
-   "solution": "LAPDOG"
+   "solution": "LAPDOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LAPDOG",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back, so the word for try is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "Los Angeles"
+     },
+     {
+      "clueFragment": "police in US",
+      "gives": "PD",
+      "note": "police department, the American term"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "PD",
+      "OG"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American city police attempt to bring back a lost pet.",
+     "definitionFit": "A small pampered dog kept as a companion animal is the classic household favourite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "try"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1518,50 @@
     "text": "Suffer financial hardship if help thence is redirected",
     "enumeration": "12"
    },
-   "solution": "FEELTHEPINCH"
+   "solution": "FEELTHEPINCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FEEL THE PINCH",
+    "definitions": [
+     {
+      "text": "Suffer financial hardship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is redirected",
+      "for": "anagram",
+      "note": "redirected means sent a new way, so these letters take a new route"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if help thence",
+      "gives": "IFHELPTHENCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFHELPTHENCE",
+       "gives": "FEELTHEPINCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is short of money if assistance is sent elsewhere.",
+     "definitionFit": "The idiom describes being short of cash and having to economise, a familiar expression for money troubles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "redirected"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1575,45 @@
     "text": "Vessel's sound net",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "net",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "'sound' tells us to use how the vessel word is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel's",
+      "gives": "EARN",
+      "soundsLike": "URN",
+      "note": "an urn is a vessel; the 's means 'is'"
+     }
+    ],
+    "explanation": {
+     "surface": "A boat's fishing net is in good condition.",
+     "walkthrough": "'Vessel' suggests a boat and 'sound' a seaworthy state, but the vessel is a pot and 'net' is the verb, to clear as profit.",
+     "definitionFit": "To net a sum is to gain it as profit, so the verb means take home in wages or receive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1627,49 @@
     "text": "Flag of island trimmed",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRIS",
+    "definitions": [
+     {
+      "text": "Flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "something trimmed has its end cut off, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of island",
+      "gives": "IRISH",
+      "note": "belonging to the island of Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "An island's banner with a decorative edging.",
+     "walkthrough": "'Flag' looks like a banner; it is the yellow flag, a wild plant.",
+     "definitionFit": "The yellow wild plant of riversides is called a flag, and it belongs to the same flowering genus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flag"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1683,75 @@
     "text": "Bloomers made as one ship with one load of fish returned",
     "enumeration": "8"
    },
-   "solution": "NARCISSI"
+   "solution": "NARCISSI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NARCISSI",
+    "definitions": [
+     {
+      "text": "Bloomers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the whole string is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "made as",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "steamship"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "load of fish",
+      "gives": "CRAN",
+      "note": "a cran is a measure of fresh herrings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NARCISSI"
+     ],
+     "reversals": [
+      {
+       "from": "ISSICRAN",
+       "to": "NARCISSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Underwear made on board a ship that brought back a catch of fish.",
+     "walkthrough": "'Bloomers' looks like old-fashioned knickers; here it means flowers, things that bloom.",
+     "definitionFit": "Daffodils and their relatives flower each spring, so they are plants that bloom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomers"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1765,48 @@
     "text": "Bird dog used by the Spanish",
     "enumeration": "8"
    },
-   "solution": "COCKEREL"
+   "solution": "COCKEREL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKEREL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "COCKER",
+      "note": "a cocker spaniel"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "Spanish for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCKER",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gun dog employed by Spanish hunters to retrieve birds.",
+     "definitionFit": "A young male domestic fowl is a farmyard creature with feathers, so it is a kind of bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
