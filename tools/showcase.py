@@ -29,10 +29,11 @@ MESSAGE = re.compile(
     r"|in the diagonals|displays [^.]* on the perimeter|\(see perimeter\)",
     re.IGNORECASE)
 
-# Grid words for the n of an n-fold pangram, from tools/puzzle_tags.py.
-PANGRAM_TIMES = {f"{word}-pangram": i + 2
-                 for i, (word, _) in enumerate(puzzle_tags.MULTIPLES)}
-WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
+# The n of an n-fold pangram for each pangram tag of tools/puzzle_tags.py,
+# and the card note that names it.
+PANGRAM_TIMES = {"pangram": 1, **{f"{word}-pangram": i + 2
+                                  for i, (word, _) in enumerate(puzzle_tags.MULTIPLES)}}
+PANGRAM_NOTE = {n: tag.replace("-", " ") for tag, n in PANGRAM_TIMES.items()}
 
 PER_SECTION = 6
 
@@ -125,7 +126,8 @@ def oldest_per_paper(fs):
 
 
 def pangram_times(f):
-    return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=1)
+    """n for an n-fold pangram, 0 for a grid that is no pangram."""
+    return max((PANGRAM_TIMES[t] for t in f["tags"] if t in PANGRAM_TIMES), default=0)
 
 
 # Each list as (slug, heading, blurb, which puzzles, ranking, card note,
@@ -136,6 +138,23 @@ def pangram_times(f):
 # per_series of 1 lets a ranking that one series dominates show several papers.
 def specs(fs):
     return [
+        ("longest", "The longest answers",
+         ("A single answer, often a whole quotation, that snakes through several parts "
+          "of the grid."),
+         [f for f in fs if f["longest"] and f["longest"][1] > 1],
+         lambda f: (-f["longest"][0], newest_first(f)),
+         lambda f: f"{f['longest'][0]} letters in {f['longest'][1]} parts", None),
+        ("hardest", "The hardest",
+         "The puzzles our difficulty rating puts at the top.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (-f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("easiest", "The easiest",
+         "The puzzles our difficulty rating puts at the bottom: a good place to start.",
+         [f for f in fs if f["difficulty"] is not None],
+         lambda f: (f["difficulty"], newest_first(f)), lambda f: "", 1),
+        ("most-clues", "The most clues", "The puzzles with the most clues.",
+         fs, lambda f: (-f["answers"], newest_first(f)),
+         lambda f: f"{f['answers']} clues", 1),
         ("hidden-message", "A message hidden in the grid",
          ("Words run round the edge of the finished grid, along a diagonal or through "
           "marked squares, and the note above the clues says where to look."),
@@ -148,12 +167,13 @@ def specs(fs):
          "Twenty-six answers, and each starts with a different letter of the alphabet.",
          [f for f in fs if "alphabetical" in f["tags"] and f["answers"] == 26],
          newest_first, lambda f: "A to Z", None),
-        ("pangrams", "Every letter, again and again",
-         ("Every letter of the alphabet, Q, X and Z included, appears at least three "
-          "times in the finished grid."),
-         [f for f in fs if pangram_times(f) >= 3],
+        ("pangrams", "Every letter of the alphabet",
+         ("Every letter, Q, X and Z included, appears in the finished grid. In a double "
+          "pangram every letter appears at least twice, in a triple three times, and so "
+          "on. The most repeats come first."),
+         [f for f in fs if pangram_times(f)],
          lambda f: (-pangram_times(f), newest_first(f)),
-         lambda f: f"every letter {WORDS[pangram_times(f)]} times or more", None),
+         lambda f: PANGRAM_NOTE[pangram_times(f)], None),
         ("asymmetric", "Grids that are not symmetrical",
          "Nearly every published grid looks the same turned upside down. These do not.",
          [f for f in fs if "asymmetric" in f["tags"]], newest_first,
@@ -163,23 +183,6 @@ def specs(fs):
           "shared by two answers."),
          [f for f in fs if "barred" in f["tags"]], newest_first,
          lambda f: "barred grid", 3),
-        ("longest", "The longest answers",
-         ("A single answer, often a whole quotation, that snakes through several parts "
-          "of the grid."),
-         [f for f in fs if f["longest"] and f["longest"][1] > 1],
-         lambda f: (-f["longest"][0], newest_first(f)),
-         lambda f: f"{f['longest'][0]} letters in {f['longest'][1]} parts", None),
-        ("most-clues", "The most clues", "The puzzles with the most clues.",
-         fs, lambda f: (-f["answers"], newest_first(f)),
-         lambda f: f"{f['answers']} clues", 1),
-        ("hardest", "The hardest",
-         "The puzzles our difficulty rating puts at the top.",
-         [f for f in fs if f["difficulty"] is not None],
-         lambda f: (-f["difficulty"], newest_first(f)), lambda f: "", 1),
-        ("easiest", "The easiest",
-         "The puzzles our difficulty rating puts at the bottom: a good place to start.",
-         [f for f in fs if f["difficulty"] is not None],
-         lambda f: (f["difficulty"], newest_first(f)), lambda f: "", 1),
         ("round-numbers", "Round numbers", "Milestone issues, numbered in round thousands.",
          [f for f in fs if f["counted"] and f["number"] >= 1000
           and f["number"] % 1000 == 0], newest_first, lambda f: "", 1),
@@ -201,7 +204,7 @@ def sections(all_facts, hinted=True):
     fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
     # Picked first so no other section takes a paper's oldest puzzle and leaves
-    # its second-oldest to stand in; shown last, where it always sat.
+    # its second-oldest to stand in; shown last.
     oldest = oldest_per_paper(fs)
     used.update(f["id"] for f in oldest)
     for slug, heading, blurb, cands, key, note, per_series in specs(fs):
@@ -219,7 +222,8 @@ def sections(all_facts, hinted=True):
     if oldest:
         out.append(("oldest", "The oldest",
                     "The earliest puzzle we have from each paper, oldest first.",
-                    [(f, series_meta.publisher(f["series"])) for f in oldest], None))
+                    # No note: the series badge already names the paper.
+                    [(f, "") for f in oldest], None))
     return out
 
 
