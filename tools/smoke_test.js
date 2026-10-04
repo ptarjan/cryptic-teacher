@@ -7091,11 +7091,12 @@ global.realSetTimeout(() => {
   assert(clue && typeOf(clue).includes(weakest) && !planted["ct:" + decodeURIComponent(pid)],
     `and it opens an unsolved ${weakest} clue: ${pid} ${pref}`);
 
-  // The shelf: finished of the puzzles with answers, only series with a save.
-  const size = (series) => global.CRYPTIC_INDEX.puzzles.filter((p) => p.series === series && p.hasSolutions).length;
+  // The shelf: finished in each series with a save, most first, never out of
+  // the archive's size (that total is daunting and only says how much we hold).
   const shelf = [...html.matchAll(/<div class="shelf-row">[\s\S]*?<span class="shelf-n">([^<]*)<\/span>/g)].map((m) => m[1]);
-  assert(String(shelf.sort()) === String([`1 / ${size("cryptic").toLocaleString()}`, `2 / ${size("quiptic").toLocaleString()}`].sort()),
-    "the shelf holds cryptic 1 and quiptic 2 finished, and no series untouched: " + shelf);
+  assert(String(shelf) === String(["2", "1"]),
+    "the shelf holds quiptic 2 then cryptic 1 finished, and no series untouched: " + shelf);
+  assert(!/\//.test(shelf.join("")), "and no shelf count is out of a total: " + shelf);
 
   // The year: a cell per local day since the Sunday 51 weeks back, shaded by
   // clues solved, a clean finish ringed.

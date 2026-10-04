@@ -5725,21 +5725,23 @@
   ];
   // Each is reached on the one solve that first makes its test true, so the
   // walk below knows the date and the clue, and the solve can say so.
-  const MILESTONES = [
-    ["First clue solved", (n) => n.clues >= 1],
-    ["First clue with no hints", (n) => n.clean >= 1],
-    ["First puzzle finished", (n) => n.puzzles >= 1],
-    ["First puzzle with no hints", (n) => n.cleanPuzzles >= 1],
-    ["10 clues with no hints", (n) => n.clean >= 10],
-    ["100 clues solved", (n) => n.clues >= 100],
-    ["10 puzzles finished", (n) => n.puzzles >= 10],
-    ["100 clues with no hints", (n) => n.clean >= 100],
-    ["500 clues solved", (n) => n.clues >= 500],
-    ["50 puzzles finished", (n) => n.puzzles >= 50],
-    ["1,000 clues solved", (n) => n.clues >= 1000],
-    ["500 clues with no hints", (n) => n.clean >= 500],
-    ["100 puzzles finished", (n) => n.puzzles >= 100],
+  // Milestones never run out: each kind climbs 1, 5, 10, 25, 50, 100, 250, …,
+  // and the ladder is ordered by roughly how many clues each takes, a puzzle
+  // being about 30 clues and a clean clue about two plain ones, so the next
+  // three ahead are always within reach of each other.
+  const MILESTONE_KINDS = [
+    ["clues", 1, "clue solved", "clues solved", 100],
+    ["clean", 1.5, "clue with no hints", "clues with no hints", 10],
+    ["puzzles", 30, "puzzle finished", "puzzles finished", 5],
+    ["cleanPuzzles", 60, "puzzle with no hints", "puzzles with no hints", 5],
   ];
+  const MILESTONES = MILESTONE_KINDS.flatMap(([key, weight, one, many, from]) => {
+    const steps = [1];
+    for (let d = 1; d * weight <= 1e6; d *= 10) [d, 2.5 * d, 5 * d].forEach((k) => k >= from && k * weight <= 1e6 && steps.push(k));
+    return steps.map((k) => ({ k, cost: k * weight, label: k === 1 ? `First ${one}` : `${k.toLocaleString("en")} ${many}`,
+      test: (n) => n[key] >= k }));
+  }).filter((m, i, all) => all.findIndex((o) => o.label === m.label) === i)
+    .sort((a, b) => a.cost - b.cost).map((m) => [m.label, m.test]);
   const DAY_MS = 864e5;
 
   // A local calendar day, as a number that sorts: a streak is about the
@@ -5868,7 +5870,7 @@
   function statsMilestonesHTML(st) {
     // 0 is a save from before letters were stamped: the day is unknown, not 1970.
     const when = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : "";
-    const reached = st.milestones.filter((m) => m.id);
+    const reached = st.milestones.filter((m) => m.id).sort((a, b) => a.at - b.at);
     const ahead = st.milestones.filter((m) => !m.id).slice(0, 3);
     return `<h3 class="stats-h">Milestones</h3><ul class="milestones">`
       + reached.map((m) => `<li class="reached">${m.label}<span class="muted">${when(m.at)}</span></li>`).join("")
@@ -5912,24 +5914,21 @@
       + `A type is ranked from ${TYPE_MIN} clues.</p>`;
   }
 
-  // Puzzles finished of those with answers, for each series with a save in it.
-  let seriesSizes = null;
+  // Puzzles finished in each series with a save in it, most first; bars are
+  // scaled to the top series, never to the archive size.
   function statsShelfHTML(st) {
-    if (!seriesSizes) {
-      seriesSizes = {};
-      INDEX.puzzles.forEach((p) => { if (p.hasSolutions) seriesSizes[p.series] = (seriesSizes[p.series] || 0) + 1; });
-    }
     const done = {}, touched = {};
     Object.keys(savedProgress()).forEach((id) => { if (BY_ID[id]) touched[BY_ID[id].series] = true; });
     Object.keys(st.finished).forEach((id) => { if (BY_ID[id]) done[BY_ID[id].series] = (done[BY_ID[id].series] || 0) + 1; });
-    const list = Object.keys(touched).filter((s) => seriesSizes[s] && SERIES_BADGE[s])
-      .sort((a, b) => (done[b] || 0) / seriesSizes[b] - (done[a] || 0) / seriesSizes[a] || a.localeCompare(b));
+    const list = Object.keys(touched).filter((s) => SERIES_BADGE[s])
+      .sort((a, b) => (done[b] || 0) - (done[a] || 0) || a.localeCompare(b));
     if (!list.length) return "";
-    return `<h3 class="stats-h">Series</h3><div class="shelf">` + list.map((s) => {
-      const k = done[s] || 0, of = seriesSizes[s];
+    const top = Math.max(1, ...list.map((s) => done[s] || 0));
+    return `<h3 class="stats-h">Finished by series</h3><div class="shelf">` + list.map((s) => {
+      const k = done[s] || 0;
       return `<div class="shelf-row">${seriesChip(s)}<span class="type-track"><span class="type-fill" `
-        + `style="width:${k ? `max(2px, ${(100 * k / of).toFixed(1)}%)` : 0}"></span></span>`
-        + `<span class="shelf-n">${k.toLocaleString()} / ${of.toLocaleString()}</span></div>`;
+        + `style="width:${k ? `${(100 * k / top).toFixed(1)}%` : 0}"></span></span>`
+        + `<span class="shelf-n">${k.toLocaleString()}</span></div>`;
     }).join("") + `</div>`;
   }
 
