@@ -1906,6 +1906,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18258", "24-down"): (
+        "In paris of Madagascar, the weird climbing mammal appears",
+        "In Paris of Madagascar, the weird climbing mammal appears",
+        "OCR misread: the wordplay needs Paris, so that 'the' becomes French LE"),
     ("times-18255", "20-down"): (
         "Dr's left chemist for poet",
         "Di's left chemist for poet",
