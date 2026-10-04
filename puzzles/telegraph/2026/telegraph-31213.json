@@ -10,18 +10,14 @@
  },
  "source": {
   "publisher": "Telegraph",
-  "url": "https://bigdave44.com/2026/04/14/dt-31213/",
-  "retrievedFrom": "blog",
-  "acquiredBy": "tools/file_telegraph_puzzles.py",
+  "url": "https://www.telegraph.co.uk/puzzles/",
+  "retrievedFrom": "publisher",
+  "acquiredBy": "tools/fetch_telegraph.py",
   "acquiredOn": "2026-09-26",
-  "gridOrigin": "reconstructed"
+  "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "writeup",
-  "blog": "bigdave44",
-  "url": "https://bigdave44.com/2026/04/14/dt-31213/",
-  "date": "2026-04-14",
-  "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
+  "origin": "published"
  },
  "annotatedBy": [
   "claude-opus-5-5"
@@ -1153,7 +1149,7 @@
    },
    "length": 8,
    "clue": {
-    "text": "This man finally reads wise man’s emails?",
+    "text": "This writer finally reads wise man's emails?",
     "enumeration": "8"
    },
    "solution": "MESSAGES",
@@ -1166,32 +1162,32 @@
     "definitions": [
      {
       "text": "emails",
-      "at": 34
+      "at": 37
      }
     ],
     "indicators": [
      {
       "text": "finally",
       "for": "letter_selection",
-      "note": "finally means at the end, so only the closing letter is kept"
+      "note": "finally points to the very end of the next word, so only its closing letter is kept"
      }
     ],
     "blocks": [
      {
-      "clueFragment": "This man",
+      "clueFragment": "This writer",
       "gives": "ME",
-      "note": "the setter speaking of himself, so 'this man' is me"
+      "note": "the setter referring to themself, as the pronoun me"
      },
      {
       "clueFragment": "reads",
       "gives": "S",
       "select": "last",
-      "note": "the closing letter of the word"
+      "note": "the closing letter of reads"
      },
      {
-      "clueFragment": "wise man’s",
+      "clueFragment": "wise man's",
       "gives": "SAGES",
-      "note": "a sage is a wise man, with the possessive S"
+      "note": "a sage is a wise man, and the 's is kept as a letter S"
      }
     ],
     "assembly": {
@@ -1202,13 +1198,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone at last reads the inbox of a guru.",
-     "walkthrough": "'This man' is a crossword convention for the setter, giving ME.",
-     "definitionFit": "Emails are electronic communications, so they are one example of the general category."
+     "surface": "The setter reads the emails of some wise man, perhaps a guru who has written in.",
+     "walkthrough": "'This writer' is the crossword convention for the setter, giving ME. The apostrophe-s in 'wise man's' is not possessive in the wordplay: it simply adds an S, so SAGE becomes SAGES.",
+     "definitionFit": "Emails are one kind of electronic communication sent between people, so they are examples of the wider category; the question mark flags the definition by example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "man's"
     }
    }
   },
