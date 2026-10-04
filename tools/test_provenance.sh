@@ -372,5 +372,23 @@ same "and still parses to an integer" "$(field PRENAMESPACE_NUMBER "$out6")" "30
 same "stamping an authored puzzle doesn't crash and marks the grid as ours, not the publisher's" \
   "$(field STAMPED_GRID_ORIGIN "$out6")" "authored"
 
+echo "every source key the schema allows survives a write"
+out9=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import json
+import provenance as p
+puzzle = {"id": "canberra-770331", "number": 770331, "date": "1977-03-31", "entries": [],
+          "source": {"url": "https://trove.nla.gov.au/newspaper/article/110731095",
+                     "reprintOf": "times-14510", "feedId": "x"}}
+print("REPRINT_OF", p.stamp(puzzle, "tools/file_trove_puzzles.py")["source"].get("reprintOf"))
+# A key derive() neither works out nor carries is dropped on every write.
+schema = json.load(open("tools/data/puzzle.schema.json"))
+derived = set(p.derive(puzzle, "tools/file_trove_puzzles.py", "2026-10-04")["source"]) | {"book"}
+lost = sorted(set(schema["$defs"]["source"]["properties"]) - derived - set(p.SOURCE_CARRIED))
+print("LOST", len(lost), *lost)
+PY
+)
+same "a write keeps source.reprintOf" "$(field REPRINT_OF "$out9")" "times-14510"
+same "every schema source key is derived or in SOURCE_CARRIED" "$(field LOST "$out9")" "0"
+
 [ "$fails" = 0 ] && echo "provenance: all checks passed" || echo "provenance: $fails FAILED"
 exit $((fails > 0))

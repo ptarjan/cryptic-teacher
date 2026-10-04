@@ -67,6 +67,17 @@ after=$(stat -c %Y "$tmp/out/canberra-720601.json" 2>/dev/null || stat -f %m "$t
 check "second run: same verdicts" "$first" "$second"
 check "second run: the filed puzzle untouched" "$before" "$after"
 
+# Reading the article again (--reread) leaves a filed puzzle as it is, so the
+# Times puzzle it was matched to (source.reprintOf) stays named.
+python3 -c "
+import json
+p = '$tmp/out/canberra-720601.json'
+d = json.load(open(p)); d['source']['reprintOf'] = 'times-12345'
+json.dump(d, open(p, 'w'))"
+(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out" --reread >/dev/null)
+check "a reread keeps source.reprintOf" "times-12345" \
+  "$(python3 -c "import json; print(json.load(open('$tmp/out/canberra-720601.json'))['source'].get('reprintOf'))")"
+
 # No picture at all: the clues alone still file it, the grid rebuilt from
 # them and marked so; the rebuild is the grid the picture shows.
 mkdir -p "$tmp/nogrid/102024288" "$tmp/out2"

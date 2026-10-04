@@ -611,6 +611,12 @@ def channel_of(tool):
     return ACQUIRED_BY.get(tool, ACQUIRED_BY["unknown"])["channel"]
 
 
+#: The `source` keys derive() cannot work out and carries from the file as they
+#: are: a Metro puzzle's PuzzleMe id, and the London Times puzzle a Canberra
+#: Times one reprints. Every other key in the schema's `source` is derived.
+SOURCE_CARRIED = ("feedId", "reprintOf")
+
+
 def derive(puzzle, claimed, acquired_on, previously=None):
     """The `source`, `solutions` and `annotatedBy` for a puzzle, from what is
     actually knowable.
@@ -636,7 +642,7 @@ def derive(puzzle, claimed, acquired_on, previously=None):
         "gridOrigin": (old_source["gridOrigin"] if grid_per_puzzle(series, tool)
                        and old_source.get("gridOrigin") in GRID_ORIGINS
                        else grid_origin(series, old_source.get("url"))),
-        "feedId": old_source.get("feedId"),
+        **{k: old_source.get(k) for k in SOURCE_CARRIED},
     }
     book = book_of(series, puzzle["number"]) if is_book(series) else None
     if book:

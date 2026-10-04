@@ -77,4 +77,9 @@ for paper in telegraph guardian ft times; do
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
 done
 slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
+# Name the London Times puzzle each canberra file reprints (source.reprintOf).
+# The Times slices match too, but before this pass's canberra files exist.
+nice -n 19 python3 tools/file_archive_org_puzzles.py --match-canberra ||
+  echo "file_archive_org_puzzles --match-canberra failed (rc=$?); canberra files keep the reprintOf they had"
+publish "Canberra reprints named" || echo "commit failed for the Canberra reprints"
 echo "=== full pass done $(date '+%F %T') ==="
