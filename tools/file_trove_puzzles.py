@@ -1015,9 +1015,9 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
         if puzzle is not None and write:
             path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
                     else puzzle_path(SERIES, puzzle["number"]))
-            if not path.exists():
-                write_puzzle_file(path, puzzle, generator=TOOL)
-                verdict["wrote"] = True
+            if not path.exists() and not scan_queue.file_puzzle(write_puzzle_file, TOOL, path,
+                                                                 puzzle, verdict):
+                puzzle = None
         row = {"article": aid, "inputs": h, **verdict, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             row["vlm"] = seen_by

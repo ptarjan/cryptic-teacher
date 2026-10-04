@@ -38,6 +38,21 @@ check("a pool of two reads every item", [1, 2, 3], got)
 check("nothing starts after the deadline", [], list(q.parallel([(-1,)], abs, workers=2, deadline=time.monotonic() - 1)))
 check("serial when one worker, in order", [1, 2], [r for _, r in q.parallel([(-1,), (-2,)], abs)])
 
+import puzzle_integrity
+def refuse(path, puzzle, generator): raise puzzle_integrity.RefusedWrite("refusing to write x-1: SHAPE", [])
+def boom(path, puzzle, generator): raise OSError("disk full")
+v = {}
+check("a refused write is a verdict, not a crash", (False, {"refusedWrite": "refusing to write x-1: SHAPE"}),
+      (q.file_puzzle(refuse, "t", "p", {"id": "x-1"}, v), v))
+v = {}
+import contextlib
+with contextlib.redirect_stderr(io.StringIO()):
+    ok = q.file_puzzle(boom, "t", "p", {"id": "x-1"}, v)
+check("any other write error is a writeFailed verdict", (False, "OSError: disk full"), (ok, v.get("writeFailed")))
+v = {}
+check("a write that goes through says so", (True, {"wrote": True}),
+      (q.file_puzzle(lambda path, puzzle, generator: None, "t", "p", {"id": "x-1"}, v), v))
+
 # One item that raises is logged with its error and stands as failed()'s
 # result (or is left out), in a pool and serially; the rest still read.
 import contextlib, io
