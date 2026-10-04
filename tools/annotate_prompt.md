@@ -38,7 +38,7 @@ missing, or shown on two lights, is lost, not misread: make that entry `null`.
 A clue the source shows exactly as printed whose anagram still cannot give the
 answer is the setter's slip: annotate it as printed, say what is wrong in its
 `explanation.walkthrough`, and give the entry
-`"setterError": ["<fodder words as printed>", "<answer letters>", "<evidence>"]`.
+`"setterError": ["<fodder words as printed>", "<letters the anagram should give>", "<evidence>"]`.
 
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
 for any clue that looks cut short, garbled, blank or wrong for its answer, and give

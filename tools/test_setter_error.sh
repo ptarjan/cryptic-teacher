@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # A clue the setter printed wrong is annotated as printed: the anagram mismatch
 # tools/data/setter_error.json names for that light passes, with a walkthrough
-# saying so, and every other mismatch still fails.
+# saying so, and every other mismatch still fails. A row is a whole-answer or a
+# partial anagram of what the clue prints, or it is refused.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -36,16 +37,36 @@ check("the slip must be told in the walkthrough", 1,
 check("a row more than one letter out is a wrong parse", 1,
       len(errors("p-1", "2-down", "ABCDEF", "GHIJKL")))
 
-# The committed rows: each one's fodder is in its clue, and it is at most one letter out.
-from fetch_puzzle import clue_words, read_puzzle_file
-from groups import entry_id
+# The row's two shapes, and a row fitting neither (setter_error_problems, which
+# annotate_check refuses to file by and the validator fails on).
+PUZ = {"id": "p-1", "entries": [
+    {"number": 13, "direction": "down", "solution": "KISSOFLIFE",
+     "clue": {"text": "First aid required after skis become involved in Elf oil spill"}},
+    {"number": 3, "direction": "across", "solution": "UNGALLANT",
+     "clue": {"text": "Discourteous bitterness in crude taunt"}},
+    {"number": 5, "direction": "across", "solution": "BLUECOLLAR",
+     "clue": {"text": "Unskilled group circulating changed locale"}},
+    {"number": 1, "direction": "across", "solution": "WHO", "group": ["1-across", "9-across"],
+     "clue": {"text": "Ow, ho, I am! Television show"}},
+    {"number": 9, "direction": "across", "solution": "AMI", "clue": {"text": "See 1"}}]}
+GALL = {"blocks": [{"clueFragment": "bitterness", "gives": "GALL"}]}
+CLUB = {"blocks": [{"clueFragment": "group", "gives": "CLUB"}]}
+P = lambda eid, row, ann={}: len(v.setter_error_problems(PUZ, eid, row, ann))
+check("whole answer from printed words is filed", 0, P("13-down", ["skis Elf oil", "KISSOFLIFE", "e"]))
+check("a partial anagram's own letters are filed", 0, P("3-across", ["taunt", "UNANT", "e"], GALL))
+check("fodder may be a block's gives", 0, P("5-across", ["club locale", "BLUECOLLAR", "e"], CLUB))
+check("a linked answer is every light's letters", 0, P("1-across", ["ow ho I am", "WHOAMI", "e"]))
+check("fodder neither printed nor a block's gives is refused", 1,
+      P("5-across", ["club locale", "BLUECOLLAR", "e"]))
+check("gives with letters the answer lacks is refused", 1, P("3-across", ["taunt", "TAUNT", "e"], GALL))
+check("a row too far out is refused", 1, P("13-down", ["skis", "KISSOFLIFE", "e"]))
+check("a row with no evidence is refused", 1, P("13-down", ["skis Elf oil", "KISSOFLIFE", " "]))
+
+# The committed rows all fit.
+from fetch_puzzle import read_puzzle_file
 from puzzle_paths import find
-for (pid, eid), (fodder, gives, why) in v.load_source_table("setter_error").items():
-    e = {entry_id(x): x for x in read_puzzle_file(find(pid))["entries"]}[eid]
-    words = {v.letters(w) for w in e["clue"]["text"].split()}
-    check(f"{pid}/{eid}: fodder is words printed in the clue", True,
-          all(v.letters(w) in words for w in fodder.split()))
-    check(f"{pid}/{eid}: gives is the answer", True, v.letters(gives) == e["solution"])
-    check(f"{pid}/{eid}: has evidence", True, bool(why.strip()))
+for (pid, eid), row in v.load_source_table("setter_error").items():
+    check(f"{pid}/{eid} fits a setter_error shape", [],
+          v.setter_error_problems(read_puzzle_file(find(pid)), eid, row))
 raise SystemExit(fails)
 PY
