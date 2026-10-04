@@ -7,7 +7,8 @@
 The pre-reset backfill runs several puzzles at once in one tree, and every run
 files its source corrections as rows of shared files: SOURCE_CLUE_WRONG and
 SOURCE_ANSWER_WRONG in tools/data/source_clue_wrong.json and
-tools/data/source_answer_wrong.json (keyed "puzzle id/entry id"), the other
+tools/data/source_answer_wrong.json, a setter's slips in
+tools/data/setter_error.json (each keyed "puzzle id/entry id"), the other
 SOURCE_* tables (SOURCE_LIGHT_WRONG, ...) in tools/fetch_puzzle.py. So a
 puzzle's commit never stages those files from the tree: `stage` writes HEAD's
 version with only ID's rows changed straight into the index, and the rows the
@@ -29,7 +30,8 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 FETCHER = TOOLS / "fetch_puzzle.py"
 REL = "tools/fetch_puzzle.py"
-DATA_RELS = ("tools/data/source_answer_wrong.json", "tools/data/source_clue_wrong.json")
+DATA_RELS = ("tools/data/setter_error.json", "tools/data/source_answer_wrong.json",
+             "tools/data/source_clue_wrong.json")
 
 
 def tables(source):

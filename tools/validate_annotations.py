@@ -76,6 +76,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     clue_words,
     corrected_clue,
     leaders_named,
+    load_source_table,
     read_puzzle_file,
     SOURCE_CLUE_WRONG,
 )
@@ -1723,6 +1724,63 @@ def multiset_diff(a, b):
     return extra, missing
 
 
+#: Clues whose printed wordplay is the SETTER's slip: the paper printed these
+#: words, and they cannot give the answer. Keyed "puzzle id/entry id", each row
+#: holds the anagram fodder as printed, the letters the answer needs, and the
+#: evidence that the print says so (the source page read, not a guess). Unlike
+#: tools/data/source_clue_wrong.json nothing is corrected: the clue stays as
+#: printed, the annotation explains it as printed, and its walkthrough tells the
+#: solver what is wrong with it.
+SETTER_ERROR = load_source_table("setter_error")
+
+#: The letters a setter's slip may cost an anagram, extra and missing together:
+#: one wrong letter (quiptic-32 13-down, ELF OIL for KISS OF LIFE's FF and one L).
+#: A parse further out than that is a wrong parse, not a slip.
+SETTER_ERROR_LETTERS = 2
+
+
+def check_anagram_letters(pid, eid, tag, ann, errors):
+    """Each anagram's fodder holds exactly the letters it gives, unless
+    SETTER_ERROR names this light's fodder and gives letter for letter; such a
+    row must then be used, cost at most SETTER_ERROR_LETTERS letters, and come
+    with an explanation.walkthrough telling the solver of the slip."""
+    row = SETTER_ERROR.get((pid, eid))
+    declared = row and (letters(row[0]), letters(row[1]))
+    used = False
+    for a in assembly(ann).get("anagrams", []):
+        fodder, gives = letters(a["fodder"]), letters(a["gives"])
+        extra, missing = multiset_diff(fodder, gives)
+        if not (extra or missing):
+            continue
+        if (fodder, gives) == declared:
+            used = True
+            continue
+        errors.append(
+            f"{tag}: anagram fodder {fodder} != its gives {gives}"
+            f" (fodder extra: {extra or '-'}, fodder missing: {missing or '-'})"
+            + ("" if row else
+               ". If the clue as the paper printed it truly cannot give these letters "
+               "(the setter's slip, checked against the source page, not an OCR "
+               "misread), file it in tools/data/setter_error.json"))
+    if not row:
+        return
+    extra, missing = multiset_diff(*declared)
+    if not used:
+        errors.append(f"{tag}: tools/data/setter_error.json names fodder {declared[0]} "
+                      f"giving {declared[1]}, and no anagram of this annotation has "
+                      f"that fodder and gives: annotate the clue as printed, or delete "
+                      f"the row")
+    if len(extra) + len(missing) > SETTER_ERROR_LETTERS:
+        errors.append(f"{tag}: tools/data/setter_error.json's row is {len(extra) + len(missing)} "
+                      f"letters out (extra: {extra or '-'}, missing: {missing or '-'}); a "
+                      f"setter's slip is at most {SETTER_ERROR_LETTERS}, so this parse is "
+                      f"wrong, not the clue")
+    if not explanation(ann).get("walkthrough"):
+        errors.append(f"{tag}: the setter's slip in tools/data/setter_error.json needs an "
+                      f"explanation.walkthrough telling the solver what the printed clue "
+                      f"gets wrong")
+
+
 def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False):
     """A puzzle may not lean on cryptic definitions (see MAX_CRYPTIC_DEFINITIONS).
 
@@ -2771,13 +2829,7 @@ def validate_puzzle(puzzle, corpus=False):
 
         # Letter mechanics.
         build = assembly(ann)
-        for a in build.get("anagrams", []):
-            fodder, gives = letters(a["fodder"]), letters(a["gives"])
-            extra, missing = multiset_diff(fodder, gives)
-            if extra or missing:
-                errors.append(
-                    f"{tag}: anagram fodder {fodder} != its gives {gives}"
-                    f" (fodder extra: {extra or '-'}, fodder missing: {missing or '-'})")
+        check_anagram_letters(puzzle.get("id"), entry_id(e), tag, ann, errors)
         for r in build.get("reversals", []):
             if letters(r["from"])[::-1] != letters(r["to"]):
                 errors.append(f"{tag}: reversal {r['from']} reversed != {r['to']}")

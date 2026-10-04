@@ -37,6 +37,11 @@ sorted; put the new line where its key sorts, with a comma after it unless it is
 The check applies it, and refuses it if more than 3 letters change. A clue that is
 missing, or shown on two lights, is lost, not misread: make that entry `null`.
 
+A clue the source shows exactly as printed whose anagram still cannot give the
+answer is the setter's slip: annotate it as printed, say what is wrong in its
+`explanation.walkthrough`, and file it in `tools/data/setter_error.json` (same layout):
+`"<ID>/<entry id>": ["<fodder words as printed>", "<answer letters>", "<evidence>"]`.
+
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
 for any clue that looks cut short, garbled or wrong for its answer, and file the
 clue exactly as the page prints it, evidence `"Scan reads: <what the page shows>"`.
