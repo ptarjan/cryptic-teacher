@@ -1915,6 +1915,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18833", "22-down"): (
+        "Hot and sour soup for Egyptian . deity",
+        "Hot and sour soup for Egyptian deity",
+        "OCR misread: a stray full stop splits the definition Egyptian deity"),
     ("times-18829", "17-down"): (
         "Unbelievable female celebrated intially as novelist and artist",
         "Unbelievable female celebrated initially as novelist and artist",
