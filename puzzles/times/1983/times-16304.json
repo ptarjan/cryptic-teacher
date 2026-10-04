@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,56 @@
     "text": "Decline to meet bill and other debts, causing disappointment",
     "enumeration": "10"
    },
-   "solution": "FALLACIOUS"
+   "solution": "FALLACIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALLACIOUS",
+    "definitions": [
+     {
+      "text": "causing disappointment",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "gives": "FALL",
+      "note": "to decline is to fall, as prices do"
+     },
+     {
+      "clueFragment": "bill",
+      "gives": "AC",
+      "note": "AC, short for account, is a bill"
+     },
+     {
+      "clueFragment": "and other debts",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay debts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALL",
+      "AC",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls behind on a bill and assorted debts, and their creditors are let down.",
+     "walkthrough": "FALL + AC + IOUS. The older sense of fallacious is deceptive, something that raises hopes only to dash them.",
+     "definitionFit": "In its older sense the word describes a thing that deceives or misleads, so it ends up letting people down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +101,70 @@
     "text": "View of cafe set on Tuesday opening",
     "enumeration": "5"
    },
-   "solution": "FACET"
+   "solution": "FACET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FACET",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set",
+      "for": "anagram",
+      "note": "set as in arranged, the letters being laid out in a fresh order"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the very start, so just the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cafe",
+      "gives": "FACE",
+      "note": "these four letters rearranged"
+     },
+     {
+      "clueFragment": "Tuesday",
+      "gives": "T",
+      "select": "first",
+      "note": "the start of the day's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAFE",
+       "gives": "FACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The look of a cafe that is laid out ready for its Tuesday opening time.",
+     "definitionFit": "An aspect or angle of something, a particular way of looking at it, is a synonym for a view of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +178,39 @@
     "text": "Kinds of floor covering familiar to the chapel?",
     "enumeration": "9"
    },
-   "solution": "LINOTYPES"
+   "solution": "LINOTYPES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LINOTYPES",
+    "definitions": [
+     {
+      "text": "Kinds of floor covering familiar to the chapel?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kinds of floor covering",
+      "note": "surface reading: varieties of a cheap vinyl-like floor material, perhaps seen in a church hall"
+     },
+     {
+      "clueFragment": "familiar to the chapel",
+      "note": "setter's reading: a chapel is a printers' trade-union branch, whose members ran hot-metal typesetting machines"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as LINO TYPES and it is floor coverings; a chapel is also the branch of a printers' union, at The Times itself.",
+     "definitionFit": "These were hot-metal typesetting machines casting whole lines of type, worked by the newspaper compositors of the print unions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chapel"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,10 +221,59 @@
    },
    "length": 14,
    "clue": {
-    "text": "Nice tip, perhaps, might made from this service",
+    "text": "Nice tip, perhaps, might be made from this service",
     "enumeration": "14"
    },
-   "solution": "APPRENTICESHIP"
+   "solution": "APPRENTICESHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APPRENTICESHIP",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might be made from this",
+      "for": "anagram",
+      "note": "the clue says one phrase could be fashioned from the letters of another, the signal for a rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice tip",
+      "gives": "NICETIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "perhaps",
+      "gives": "PERHAPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NICETIPPERHAPS",
+       "gives": "APPRENTICESHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A generous gratuity is the sort of thing good service earns.",
+     "walkthrough": "Back to front: take PERHAPS out of APPRENTICESHIP and NICE TIP is what is left to rearrange, so the two together shuffle into the answer.",
+     "definitionFit": "A trainee bound to a master for a fixed term was said to be in service, learning a craft while working."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +287,37 @@
     "text": "Did Clio do it to Herodotus?",
     "enumeration": "7"
    },
-   "solution": "INSPIRE"
+   "solution": "INSPIRE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSPIRE",
+    "definitions": [
+     {
+      "text": "Did Clio do it to Herodotus?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did Clio do it to Herodotus?",
+      "note": "surface reading: a puzzle about what a woman named Clio did to a Greek"
+     },
+     {
+      "clueFragment": "Clio",
+      "note": "setter's reading: Clio is the Muse of history, and Herodotus is called the father of history, so she would have breathed ideas into him"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Clio is the Muse of history; Herodotus, the ancient Greek historian, would be her natural protege.",
+     "definitionFit": "A Muse's job is to fill a writer with creative ideas, which is the verb meaning to give artistic stimulus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +331,46 @@
     "text": "Not a grand type, but honest?",
     "enumeration": "7"
    },
-   "solution": "UPRIGHT"
+   "solution": "UPRIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UPRIGHT",
+    "definitions": [
+     {
+      "text": "Not a grand type",
+      "at": 0
+     },
+     {
+      "text": "honest",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not a grand type",
+      "note": "first meaning: a piano with vertical strings, the alternative to a grand"
+     },
+     {
+      "clueFragment": "honest",
+      "note": "second meaning: morally straight, of good character"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Not a grand type' sounds like a modest person, but grand is a piano and the other kind stands vertical.",
+     "definitionFit": "The word means an upstanding piano and also a person of sound moral principle, decent and trustworthy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +384,43 @@
     "text": "Turn cooler?",
     "enumeration": "4"
    },
-   "solution": "WIND"
+   "solution": "WIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WIND",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     },
+     {
+      "text": "cooler",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "note": "first meaning: to turn a handle or key, as when tightening a clock spring"
+     },
+     {
+      "clueFragment": "cooler",
+      "note": "second meaning: a moving current of air, which brings the temperature down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as one phrase it asks whether something will get colder; split, it is a verb and a noun sharing one spelling, pronounced differently.",
+     "definitionFit": "One sense is the verb for twisting a crank round; the other is moving air, something that chills whatever it blows over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cooler"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +434,39 @@
     "text": "Quested for a passage hereto",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "Quested for a passage hereto",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quested for a passage hereto",
+      "note": "surface reading: someone sought a route to a destination, like an explorer seeking a sea route"
+     },
+     {
+      "clueFragment": "Quested",
+      "note": "setter's reading: Adela Quested is the heroine who travels out in E. M. Forster's novel A Passage to ..."
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Quested' looks like the past of quest, but Miss Quested is the young Englishwoman in Forster's novel; the explorers' hunt for a sea route east adds a second layer.",
+     "definitionFit": "The country is the destination in the title of Forster's 1924 novel and was sought by early European explorers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Quested"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +480,55 @@
     "text": "Put down document, including papers",
     "enumeration": "9"
    },
-   "solution": "DEPRESSED"
+   "solution": "DEPRESSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEPRESSED",
+    "definitions": [
+     {
+      "text": "Put down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something inside, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "document",
+      "gives": "DEED",
+      "note": "a deed is a legal document"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "PRESS",
+      "note": "the press means the newspapers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "PRESS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets a document down along with some papers.",
+     "walkthrough": "'Put down' reads as placing an object, but the answer is the past participle meaning dejected or pushed lower; 'papers' means the newspapers collectively.",
+     "definitionFit": "Something pushed lower has been pressed down, and a person humiliated or dispirited is likewise dejected, both senses of the participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "document"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +548,39 @@
      }
     ]
    },
-   "solution": "VULGARFRACTION"
+   "solution": "VULGARFRACTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VULGAR FRACTION",
+    "definitions": [
+     {
+      "text": "A bit common?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bit common?",
+      "note": "surface reading: a remark that something is rather coarse or lower-class"
+     },
+     {
+      "clueFragment": "bit common",
+      "note": "setter's reading: a common, or ordinary, way of writing part of a whole, such as three quarters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read 'common' as vulgar and 'bit' as a part of a whole: it is the name for a fraction written as one number over another, as opposed to a decimal.",
+     "definitionFit": "A ratio written as numerator over denominator, like two thirds, carries this name, also called a simple or common one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +594,50 @@
     "text": "Star is able to get work",
     "enumeration": "7"
    },
-   "solution": "CANOPUS"
+   "solution": "CANOPUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANOPUS",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is able",
+      "gives": "CAN",
+      "note": "one who is able can"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OPUS",
+      "note": "an opus is a work, especially a musical composition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "OPUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity performer with real ability lands a job.",
+     "walkthrough": "'Star' reads as a famous actor, but it is a real star in the night sky.",
+     "definitionFit": "This is the second brightest star in the night sky, lying in the southern constellation Carina."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +657,39 @@
      }
     ]
    },
-   "solution": "ROUNDUP"
+   "solution": "ROUNDUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROUND-UP",
+    "definitions": [
+     {
+      "text": "Gathering of lower types?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gathering of lower types?",
+      "note": "surface reading: a get-together of people of low social class"
+     },
+     {
+      "clueFragment": "lower types",
+      "note": "setter's reading: animals that low, that is cattle, collected together on a ranch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lower' is not 'more low' but 'one who lows', as a cow moos; the gathering is herding cattle.",
+     "definitionFit": "The word names the collecting together of cattle by cowboys, and by extension any summary gathering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +703,64 @@
     "text": "Someone adding fresh gin appears unsteady",
     "enumeration": "9"
    },
-   "solution": "TOTTERING"
+   "solution": "TOTTERING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TOTTERING",
+    "definitions": [
+     {
+      "text": "unsteady",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "a fresh version is a new one, so these letters come in a new order"
+     }
+    ],
+    "linkWords": [
+     "appears"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone adding",
+      "gives": "TOTTER",
+      "note": "one who tots up figures is a totter"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "ING",
+      "note": "these three letters reordered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOTTER",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "ING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman topping up someone's gin and tonic is starting to sway on their feet.",
+     "walkthrough": "To tot up is to add, so someone who adds is a TOTTER.",
+     "definitionFit": "Walking or standing in a wobbly way, close to falling over, is exactly the state of being shaky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +774,43 @@
     "text": "Serious object of some undertaking?",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRAVE",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     },
+     {
+      "text": "object of some undertaking",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "note": "first meaning: solemn, weighty"
+     },
+     {
+      "clueFragment": "object of some undertaking",
+      "note": "second meaning: the burial place an undertaker prepares for"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Undertaking' looks like any enterprise, but here it is the undertaker's trade of arranging funerals.",
+     "definitionFit": "As an adjective it means solemn; as a noun it is a burial plot, which is where a funeral director's work ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "undertaking"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +824,46 @@
     "text": "Station of foreign vessel",
     "enumeration": "5"
    },
-   "solution": "DEPOT"
+   "solution": "DEPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEPOT",
+    "definitions": [
+     {
+      "text": "Station",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of foreign",
+      "gives": "DE",
+      "note": "de is French for 'of'"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "POT",
+      "note": "a pot is a vessel for cooking or holding liquid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A port terminal for a ship flying another country's flag.",
+     "definitionFit": "A bus or railway terminus, or a military base, can be called by this word, a synonym for a base or yard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +877,46 @@
     "text": "Taking off some characteristic procedure of Holmes?",
     "enumeration": "9"
    },
-   "solution": "DEDUCTION"
+   "solution": "DEDUCTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEDUCTION",
+    "definitions": [
+     {
+      "text": "Taking off",
+      "at": 0
+     },
+     {
+      "text": "characteristic procedure of Holmes",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "some"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taking off",
+      "note": "first meaning: subtracting an amount, as tax from pay"
+     },
+     {
+      "clueFragment": "characteristic procedure of Holmes",
+      "note": "second meaning: reasoning from clues to a conclusion, the detective's famous method"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Taking off' suggests a mimic's impression of Holmes; it is subtraction. Sherlock Holmes is the fictional detective.",
+     "definitionFit": "Subtraction from a total and logical reasoning from evidence to a conclusion are both expressed by this one noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +930,66 @@
     "text": "Parts outside the former Tories' building, bearing right",
     "enumeration": "9"
    },
-   "solution": "EXTERIORS"
+   "solution": "EXTERIORS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXTERIORS",
+    "definitions": [
+     {
+      "text": "Parts outside",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the letters are put together in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the former",
+      "gives": "EX",
+      "note": "an ex is a former partner or holder of a role"
+     },
+     {
+      "clueFragment": "Tories'",
+      "gives": "TORIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bearing right",
+      "gives": "R",
+      "note": "R is the abbreviation for right; bearing means carrying it along"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TERIORS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORIESR",
+       "gives": "TERIORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The facade of an old Conservative Party headquarters, seen from the right-hand side.",
+     "walkthrough": "Tories are members of Britain's Conservative Party; the surface makes 'building' a noun, but it is the signal to rebuild TORIES plus R.",
+     "definitionFit": "The outer surfaces of things, as opposed to their insides, are exactly the sections that lie outside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1003,39 @@
     "text": "Entertainers whose lines are barred?",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "Entertainers whose lines are barred?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entertainers whose lines are barred?",
+      "note": "surface reading: performers banned from speaking their lines, as if censored"
+     },
+     {
+      "clueFragment": "lines are barred",
+      "note": "setter's reading: the players read music whose staves are divided by bar lines"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Barred' looks like 'forbidden'; it means divided into bars, as written music is.",
+     "definitionFit": "A large group of instrumental musicians playing from scored parts together is the body named here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barred"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1049,56 @@
     "text": "Outrage of the foreign quarter of London's assessment",
     "enumeration": "9"
    },
-   "solution": "DESECRATE"
+   "solution": "DESECRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESECRATE",
+    "definitions": [
+     {
+      "text": "Outrage",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of the foreign",
+      "gives": "DES",
+      "note": "des is French for 'of the' before a plural"
+     },
+     {
+      "clueFragment": "quarter of London",
+      "gives": "EC",
+      "note": "EC, East Central, is the postal district of the City of London"
+     },
+     {
+      "clueFragment": "assessment",
+      "gives": "RATE",
+      "note": "to rate is to assess; a rate was also a local property tax assessment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "EC",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scandal over how a foreign district of London has been valued.",
+     "walkthrough": "'Outrage' is a verb here: to violate something sacred.",
+     "definitionFit": "To profane a holy place or object is to violate it, so the verb matches outrage in its sense of grossly abuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outrage"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1112,60 @@
     "text": "Pardon Jack - loves wrongdoing",
     "enumeration": "7"
    },
-   "solution": "ABSOLVE"
+   "solution": "ABSOLVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABSOLVE",
+    "definitions": [
+     {
+      "text": "Pardon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongdoing",
+      "for": "anagram",
+      "note": "doing something wrongly suggests the letters are put into the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "AB",
+      "note": "a jack is a sailor, and an AB is an able-bodied seaman"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "SOLVE",
+      "note": "these five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SOLVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVES",
+       "gives": "SOLVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to forgive a man called Jack, whose affairs have led him astray.",
+     "definitionFit": "To forgive someone formally, releasing them from guilt or punishment, is what the verb means, especially in church confession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1179,70 @@
     "text": "Raised call catches up a pair of Kings -- irregular!",
     "enumeration": "7"
    },
-   "solution": "ERRATIC"
+   "solution": "ERRATIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ERRATIC",
+    "definitions": [
+     {
+      "text": "irregular",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catches up",
+      "for": "container",
+      "note": "to catch up something is to grab and hold it, so one piece holds the others inside"
+     },
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down entry, raising something turns it to read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "CITE",
+      "note": "to cite someone is to call them to appear in court"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pair of Kings",
+      "gives": "RR",
+      "note": "R, short for Latin rex, is the abbreviation for king; two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRATIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITARRE",
+       "to": "ERRATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry goes up when someone draws two kings at cards, and play becomes unpredictable.",
+     "walkthrough": "CITE holds A and RR to make CITARRE, which reads upward as the answer.",
+     "definitionFit": "Something behaving unpredictably, without a steady pattern, is the meaning shared by these two adjectives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1256,56 @@
     "text": "Competed a good deal, in a way",
     "enumeration": "5"
    },
-   "solution": "RACED"
+   "solution": "RACED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RACED",
+    "definitions": [
+     {
+      "text": "Competed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside the other, the way words sit within a frame"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a good deal",
+      "gives": "ACE",
+      "note": "being dealt an ace is a good deal at cards"
+     },
+     {
+      "clueFragment": "a way",
+      "gives": "RD",
+      "note": "RD, short for road, is a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone took part in contests a great deal, after a fashion.",
+     "walkthrough": "'A good deal' looks like 'a lot', but it is a card being dealt: the top card is the best one to receive.",
+     "definitionFit": "To have run in contests of speed is to have taken part in competition, the simple past of race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,10 +1316,63 @@
    },
    "length": 5,
    "clue": {
-    "text": "Sorcerer's ring replaced by 2 writer",
+    "text": "Sorcerer's ring replaced by a writer",
     "enumeration": "5"
    },
-   "solution": "CAMUS"
+   "solution": "CAMUS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CAMUS",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced by",
+      "for": "substitution",
+      "note": "replaced by tells us one letter is swapped out and another put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorcerer's",
+      "gives": "COMUS",
+      "note": "Comus is the sorcerer in Milton's masque of that name"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "MUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wizard's magic ring has been swapped for an author.",
+     "walkthrough": "COMUS with its O swapped for A. The surface makes 'ring' a wizard's jewellery; it is the round letter.",
+     "definitionFit": "Albert Camus was the French-Algerian novelist and essayist who wrote The Outsider and The Plague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1386,46 @@
     "text": "Crop is one month's. it's said",
     "enumeration": "5"
    },
-   "solution": "MAIZE"
+   "solution": "MAIZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAIZE",
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said means the words are judged by how they are spoken out loud"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one month's",
+      "gives": "MAIZE",
+      "soundsLike": "MAY'S",
+      "note": "the possessive of the fifth month of the year"
+     }
+    ],
+    "explanation": {
+     "surface": "A harvest belonging to one particular month, so people say.",
+     "definitionFit": "This cereal plant, called corn in America, is one of the world's major grain crops grown for food and fodder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "month's"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1439,39 @@
     "text": "They are engaged in chain-work",
     "enumeration": "9"
    },
-   "solution": "SPROCKETS"
+   "solution": "SPROCKETS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPROCKETS",
+    "definitions": [
+     {
+      "text": "They are engaged in chain-work",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They are engaged in chain-work",
+      "note": "surface reading: workers busy at a chain-making forge or a production line"
+     },
+     {
+      "clueFragment": "engaged",
+      "note": "setter's reading: toothed wheels engage, meshing with the links of a bicycle chain"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Engaged' looks like 'employed', but toothed wheels are said to engage with a chain.",
+     "definitionFit": "These are toothed wheels whose teeth fit into the links of a chain, as on a bicycle's pedal and rear wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1485,46 @@
     "text": "Some troops Lee trained for bad weather?",
     "enumeration": "5"
    },
-   "solution": "SLEET"
+   "solution": "SLEET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SLEET",
+    "definitions": [
+     {
+      "text": "bad weather",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troops Lee trained",
+      "gives": "SLEET",
+      "note": "the end of troops, all of Lee and the start of trained"
+     }
+    ],
+    "explanation": {
+     "surface": "General Lee drilled a detachment of soldiers for battle in rough conditions.",
+     "walkthrough": "Robert E. Lee led the Confederate army in the American Civil War.",
+     "definitionFit": "Rain mixed with snow or partly frozen is a kind of nasty winter precipitation, an example of foul conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1538,43 @@
     "text": "Original letter-writer?",
     "enumeration": "7"
    },
-   "solution": "INITIAL"
+   "solution": "INITIAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INITIAL",
+    "definitions": [
+     {
+      "text": "Original",
+      "at": 0
+     },
+     {
+      "text": "letter-writer",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Original",
+      "note": "first meaning: first, earliest"
+     },
+     {
+      "clueFragment": "letter-writer",
+      "note": "second meaning: one who signs only with the first letters of a name, as when approving a document"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Letter-writer' suggests a correspondent; here it is someone writing their own monogram, a verb used as an agent.",
+     "definitionFit": "As an adjective it means coming first; as a verb it means marking with the opening letters of one's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter-writer"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1588,47 @@
     "text": "Plant in splendid order?",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     },
+     {
+      "text": "splendid order",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant",
+      "note": "first meaning: a prickly weed with purple flowers, Scotland's emblem"
+     },
+     {
+      "clueFragment": "splendid order",
+      "note": "second meaning: the Most Ancient and Most Noble Order of the ..., Scotland's highest order of chivalry"
+     }
+    ],
+    "explanation": {
+     "surface": "A garden plant looking at its best, everything in its place.",
+     "walkthrough": "'In splendid order' sounds like a well-kept garden; the order is a knightly one.",
+     "definitionFit": "The spiky weed is Scotland's national flower, and it gives its name to Scotland's senior order of knighthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1642,39 @@
     "text": "Of course we would want to be in it!",
     "enumeration": "4"
    },
-   "solution": "NEED"
+   "solution": "NEED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEED",
+    "definitions": [
+     {
+      "text": "Of course we would want to be in it!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Of course we would want to be in it!",
+      "note": "surface reading: an eager wish to join some club or event"
+     },
+     {
+      "clueFragment": "want",
+      "note": "setter's reading: to be in want is to be in poverty, the state nobody chooses"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation reads as enthusiasm, but 'want' means lack: if we were in this state we would be lacking things.",
+     "definitionFit": "Poverty or a lack of necessities is what this word means in the phrase 'in it', a state of wanting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 28,
@@ -453,7 +1688,43 @@
     "text": "Family man on the way down?",
     "enumeration": "10"
    },
-   "solution": "DESCENDANT"
+   "solution": "DESCENDANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESCENDANT",
+    "definitions": [
+     {
+      "text": "Family man",
+      "at": 0
+     },
+     {
+      "text": "on the way down",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family man",
+      "note": "first meaning: an offspring further down a family tree"
+     },
+     {
+      "clueFragment": "on the way down",
+      "note": "second meaning: descending, going lower"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a family man in decline; one word covers both an heir and something moving downward.",
+     "definitionFit": "As a noun it is someone born into a later generation of a family; as an adjective it means sloping or moving lower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Family"
+    }
+   }
   }
  ]
 }
