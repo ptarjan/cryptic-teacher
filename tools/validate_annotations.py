@@ -1773,7 +1773,8 @@ def check_anagram_letters(pid, eid, tag, ann, errors):
             + ("" if row else
                ". If the clue as the paper printed it truly cannot give these letters "
                "(the setter's slip, checked against the source page, not an OCR "
-               "misread), file it in tools/data/setter_error.json"))
+               "misread), give its _ann entry \"setterError\": [\"<fodder words as "
+               "printed>\", \"<answer letters>\", \"<evidence>\"]"))
     if not row:
         return
     extra, missing = multiset_diff(*declared)
@@ -2619,9 +2620,9 @@ def check_clue_unchanged(puzzle, path, errors):
             f"{entry_id(e)}: clue changed from {was[entry_id(e)]!r} to {now!r} "
             f"under an annotation. The clue text is the source's, not the "
             f"annotator's: put it back, or, when the source serves it wrong, "
-            f"file the printed clue and its evidence in "
-            f"tools/data/source_clue_wrong.json, which makes the change "
-            f"and this annotation pass together")
+            f"give its _ann entry \"printedClue\": [\"<clue as printed, no "
+            f"count>\", \"<evidence>\"], which files the change so it and this "
+            f"annotation pass together")
 
 
 # The indicators rung is a tier below the building blocks, and a note written as

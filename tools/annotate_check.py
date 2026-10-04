@@ -10,6 +10,11 @@ into tools/_ann_<ID>.json first: each named field replaced, null removing it,
 and deletes FILE. Many clues' fixes are one Write and this one command, not a
 fix script, which these runs cannot get approved.
 
+An entry's `printedClue` (a misread clue mended) and `setterError` (a
+setter's slip) are filed as its rows of tools/data/source_clue_wrong.json and
+setter_error.json and taken off the entry (FILED), so filing one is a field in
+the same write, not a hand edit of a sorted table.
+
 An entry the _ann file has no key for is filled in as null (not done yet), so
 a file written a few clues at a time applies as it stands, an `answer`
 typed with the enumeration's commas is respelt with spaces, and
@@ -47,6 +52,7 @@ sys.path.insert(0, str(TOOLS))
 from annotate_audit import load_templates, rule_name  # noqa: E402
 from annotation import assembly, wordplay_letters  # noqa: E402
 import blog_post  # noqa: E402
+import fetch_puzzle  # noqa: E402
 import clue_types  # noqa: E402
 import definitions  # noqa: E402
 import groups  # noqa: E402
@@ -57,6 +63,7 @@ import validate_annotations  # noqa: E402
 from apply_annotations import (  # noqa: E402
     annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle  # noqa: E402
+from json_merge import dump_lines  # noqa: E402
 from find_answer_leaks import leaks, light_solutions, names, pieces_of, unname  # noqa: E402
 from find_renarration import scan  # noqa: E402
 
@@ -143,6 +150,30 @@ def to_write(puzzle, before):
     return only
 
 
+def grid_rows(puzzle):
+    """The filled grid as one string per row, `.` a block and `-` a square no
+    answer fills yet, so crossings are read off the view rather than rebuilt
+    from the puzzle file's positions by a script."""
+    dims = puzzle.get("dimensions") or {}
+    cols, rows = dims.get("cols"), dims.get("rows")
+    if not cols or not rows:
+        return None
+    grid = [["."] * cols for _ in range(rows)]
+    for e in puzzle["entries"]:
+        pos = e.get("position") or {}
+        x, y = pos.get("x"), pos.get("y")
+        if x is None or y is None:
+            continue
+        letters = re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())
+        for i in range(e.get("length") or len(letters)):
+            cx, cy = (x + i, y) if e.get("direction") == "across" else (x, y + i)
+            if cy < rows and cx < cols:
+                c = letters[i] if i < len(letters) else "-"
+                if grid[cy][cx] in (".", "-"):
+                    grid[cy][cx] = c
+    return ["".join(r) for r in grid]
+
+
 def view_line(e, leaders, model=()):
     """One entry as a line: id | group | SOLUTION | clue (enumeration). An
     answer in `model` is marked (MODEL): a cold solve's, which the run may
@@ -192,6 +223,8 @@ def write_view(path):
     leaves alone is kept in `existingAnnotations`, for context."""
     puzzle = read_puzzle_file(path)
     view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle and k != "entries"}
+    if (puzzle.get("source") or {}).get("retrievedFrom"):
+        view["source"] = {"retrievedFrom": puzzle["source"]["retrievedFrom"]}
     # A run that started on the whole puzzle stays on it; one that started on
     # the missing clues keeps that list.
     started = current_view(path)
@@ -208,6 +241,11 @@ def write_view(path):
     model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}
              if provenance.solution_origin_from_file(puzzle) == "model" else set())
     view["entries"] = [view_line(e, leaders, model) for e in puzzle["entries"]]
+    # A (MODEL) answer may be corrected only to one its crossings agree with.
+    if model:
+        grid = grid_rows(puzzle)
+        if grid:
+            view["grid"] = grid
     kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
             if e.get("annotation") and only is not None and entry_id(e) not in only}
     if kept:
@@ -301,6 +339,66 @@ def patch(pending, fix):
     pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     fix.unlink()
     return None
+
+
+DATA = TOOLS / "data"
+# _ann field -> (table it is filed in, what it must hold, an example). A row is
+# keyed "<ID>/<entry id>"; printedClue's row opens with the clue as shown.
+FILED = {
+    "printedClue": ("source_clue_wrong", '["<clue as printed, no count>", "<evidence>"]',
+                    '["Fudge the issue", "OCR misread: the anagram needs fudge"]'),
+    "setterError": ("setter_error", '["<fodder words as printed>", "<answer letters>", "<evidence>"]',
+                    '["taunt", "UNANT", "TAUNT has two Ts where the answer needs one"]'),
+}
+
+
+def file_rows(path, pending, data=DATA):
+    """Move each entry's `printedClue` and `setterError` in `pending` into
+    their tables (FILED); returns (["<field> <entry id>" filed], what is wrong
+    or None).
+
+    printedClue's row is [clue as shown, clue as printed, evidence]. The clue
+    as shown is the row's own when the key is already filed, so a re-run does
+    not record the mended text as what the source served."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return [], None
+    if not isinstance(ann, dict):
+        return [], None
+    wants = [(field, eid, a[field]) for field in FILED for eid, a in ann.items()
+             if isinstance(a, dict) and field in a]
+    if not wants:
+        return [], None
+    for field, eid, v in wants:
+        width = FILED[field][1].count('"<')
+        if not (isinstance(v, list) and len(v) == width
+                and all(isinstance(x, str) and x.strip() for x in v)):
+            return [], (f"{eid}: {field} must be {FILED[field][1]}, "
+                        f"e.g. {FILED[field][2]}; it is {json.dumps(v, ensure_ascii=False)}")
+    puzzle = read_puzzle_file(path)
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    unknown = sorted({eid for _, eid, _ in wants} - set(by_id))
+    if unknown:
+        return [], f"{', '.join(unknown)}: not an entry of {puzzle['id']}, so nothing to file"
+    tables = {}
+    for field, eid, v in wants:
+        name = FILED[field][0]
+        rows = tables.setdefault(name, json.loads((data / f"{name}.json").read_text(encoding="utf-8")))
+        key = f"{puzzle['id']}/{eid}"
+        row = [x.strip() for x in v]
+        if field == "printedClue":
+            shown = rows[key][0] if key in rows else (by_id[eid]["clue"].get("text") or "")
+            row = ["" if validate_annotations.is_blank_clue(shown) else shown] + row
+            fetch_puzzle.SOURCE_CLUE_WRONG[(puzzle["id"], eid)] = tuple(row)
+        else:
+            validate_annotations.SETTER_ERROR[(puzzle["id"], eid)] = tuple(row)
+        rows[key] = row
+        del ann[eid][field]
+    for name, rows in tables.items():
+        (data / f"{name}.json").write_text(dump_lines(rows), encoding="utf-8")
+    pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return [f"{field} {eid}" for field, eid, _ in wants], None
 
 
 def fill_missing(path, pending):
@@ -552,6 +650,13 @@ def main(argv):
         print(f"merged {patched} into {pending.name} and deleted it\n")
 
     if pending.exists():
+        filed, err = file_rows(path, pending)
+        if err:
+            print(f"annotate_check {stem}: STOPPED — {err}")
+            return 2
+        if filed:
+            print(f"filed in tools/data/ and taken off {pending.name}: "
+                  f"{', '.join(filed)}\n")
         normalize_pending(path, pending)
         spaced = respell_answers(pending)
         if spaced:

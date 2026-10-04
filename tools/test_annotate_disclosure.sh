@@ -106,7 +106,7 @@ next(e for e in reworded["entries"] if entry_id(e) == entry_id(lead))["clue"]["t
 next(e for e in retyped["entries"] if entry_id(e) == entry_id(lead))["clue"]["text"] = lead["clue"]["text"].replace(" ", "  ") + "!"
 errs = []
 V.check_clue_unchanged(reworded, committed, errs)
-say("reworded_clue_fails", len(errs) == 1 and "SOURCE_CLUE_WRONG" in errs[0])
+say("reworded_clue_fails", len(errs) == 1 and "\"printedClue\": [" in errs[0])
 errs = []
 V.check_clue_unchanged(retyped, committed, errs)
 say("retyped_clue_passes", not errs)
