@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Go to pieces quickly after meal",
     "enumeration": "9"
    },
-   "solution": "BREAKFAST"
+   "solution": "BREAKFAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREAKFAST",
+    "definitions": [
+     {
+      "text": "meal",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go to pieces",
+      "gives": "BREAK",
+      "note": "to break is to go to pieces, shatter"
+     },
+     {
+      "clueFragment": "quickly",
+      "gives": "FAST",
+      "note": "fast means quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAK",
+      "FAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone falls apart in a hurry once they have eaten.",
+     "walkthrough": "'After' looks like it orders the pieces, but it only joins wordplay to the definition at the end.",
+     "definitionFit": "The first meal of the morning, eaten after the overnight fast is broken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,44 @@
     "text": "The directors sound fed up",
     "enumeration": "5"
    },
-   "solution": "BORED"
+   "solution": "BORED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BORED",
+    "definitions": [
+     {
+      "text": "fed up",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "sound tells us to say the word for the directors out loud and spell what we hear differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The directors",
+      "gives": "BORED",
+      "soundsLike": "BOARD",
+      "note": "a company's directors make up its board"
+     }
+    ],
+    "explanation": {
+     "surface": "The company bosses announce that they have had enough.",
+     "definitionFit": "Someone weary and lacking interest is described as tired of things, the same state as being fed up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +144,57 @@
     "text": "Rose in elegant fashion",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGLANTINE",
+    "definitions": [
+     {
+      "text": "Rose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fashion",
+      "for": "anagram",
+      "note": "to fashion something is to shape it, so the letters are moulded into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elegant",
+      "gives": "ELEGANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INELEGANT",
+       "gives": "EGLANTINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somebody stood up gracefully.",
+     "walkthrough": "'Rose' reads as a verb, getting up elegantly, but it is the flower. Neatly, the fodder spells 'inelegant'.",
+     "definitionFit": "Eglantine is the sweet briar, a wild species of rose with scented leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rose"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +214,40 @@
      }
     ]
    },
-   "solution": "KIDNEYBEAN"
+   "solution": "KIDNEYBEAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KIDNEY BEAN",
+    "definitions": [
+     {
+      "text": "Organic vegetable?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organic vegetable?",
+      "note": "surface reading: produce grown without chemicals"
+     },
+     {
+      "clueFragment": "Organic",
+      "note": "setter's reading: a vegetable named after a body organ and shaped like it"
+     }
+    ],
+    "explanation": {
+     "surface": "Something you would buy at a health-food shop.",
+     "walkthrough": "'Organic' suggests pesticide-free farming; here it means 'of an organ', the kidney.",
+     "definitionFit": "This pulse is called after the bodily organ whose curved shape it resembles, so it is literally an organ-like vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Organic"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +261,67 @@
     "text": "One is absorbed by papers designed to inform",
     "enumeration": "7"
    },
-   "solution": "APPRISE"
+   "solution": "APPRISE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "APPRISE",
+    "definitions": [
+     {
+      "text": "inform",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is absorbed by",
+      "for": "container",
+      "note": "something absorbed is taken in, so one piece ends up inside the other"
+     },
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means planned out afresh, so the combined letters are laid out in a new pattern"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers",
+      "gives": "PAPERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPRISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAPERIS",
+       "gives": "APPRISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Documents drawn up to give a person the facts they need.",
+     "definitionFit": "To apprise someone is to notify them or tell them about something, a formal synonym of inform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +335,51 @@
     "text": "Impressive seating arrangement - not hers!",
     "enumeration": "7"
    },
-   "solution": "THRONES"
+   "solution": "THRONES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THRONES",
+    "definitions": [
+     {
+      "text": "Impressive seating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement puts things in a fresh order, so the following letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not hers",
+      "gives": "NOTHERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTHERS",
+       "gives": "THRONES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand set of chairs, pointedly with none for the ladies.",
+     "walkthrough": "'Impressive seating arrangement' reads as one phrase, but 'arrangement' is the signal and the definition stops at 'seating'.",
+     "definitionFit": "Thrones are ceremonial chairs for monarchs, about as grand as places to sit can get."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +393,46 @@
     "text": "Dull way to help",
     "enumeration": "5"
    },
-   "solution": "STAID"
+   "solution": "STAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAID",
+    "definitions": [
+     {
+      "text": "Dull",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "A boring method of assisting someone.",
+     "definitionFit": "Staid describes someone sedate, respectable and unadventurous, which is dull in character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +446,58 @@
     "text": "Right to take legal action without being certain",
     "enumeration": "4"
    },
-   "solution": "SURE"
+   "solution": "SURE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SURE",
+    "definitions": [
+     {
+      "text": "certain",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one piece sits around the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to take legal action",
+      "gives": "SUE",
+      "note": "to sue is to take someone to court"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has the right to go to court even when unsure of their case.",
+     "walkthrough": "'Without' seems to mean lacking, but here it is the old sense 'outside': SUE goes around R.",
+     "definitionFit": "Being sure means having no doubt, so it is a direct synonym of certain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +511,50 @@
     "text": "Foreign aide's remark overheard",
     "enumeration": "5"
    },
-   "solution": "ASIDE"
+   "solution": "ASIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASIDE",
+    "definitions": [
+     {
+      "text": "remark overheard",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "something foreign is strange and unfamiliar, so these letters appear in an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aide's",
+      "gives": "AIDES",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIDES",
+       "gives": "ASIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat's assistant from abroad lets slip a comment that others catch.",
+     "definitionFit": "An aside is a comment spoken so as not to be heard by all, though on stage the audience does hear it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foreign"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +568,57 @@
     "text": "Wanted to embrace secretary, but didn''t have a hope!",
     "enumeration": "9"
    },
-   "solution": "DESPAIRED"
+   "solution": "DESPAIRED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESPAIRED",
+    "definitions": [
+     {
+      "text": "didn''t have a hope",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to embrace",
+      "for": "container",
+      "note": "an embrace wraps arms around someone, so one word wraps around another"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanted",
+      "gives": "DESIRED",
+      "note": "desired means wanted"
+     },
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant, a secretary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DES",
+      "PA",
+      "IRED"
+     ]
+    },
+    "explanation": {
+     "surface": "An office romance thwarted: the boss longed to hug the secretary but it was hopeless.",
+     "definitionFit": "To despair is to lose all hope, so someone who despaired had no hope left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embrace"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +632,60 @@
     "text": "Regretted bringing novice on board, having taken the decision",
     "enumeration": "5"
    },
-   "solution": "RULED"
+   "solution": "RULED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RULED",
+    "definitions": [
+     {
+      "text": "having taken the decision",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing",
+      "for": "container",
+      "note": "bringing someone along takes them in with you, so one piece is taken into the other"
+     },
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "someone on board is inside the vessel, so the piece sits within the word around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regretted",
+      "gives": "RUED",
+      "note": "rued means regretted"
+     },
+     {
+      "clueFragment": "novice",
+      "gives": "L",
+      "note": "L is for learner, as on a British learner driver's L-plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "L",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A board member regrets letting a newcomer join once the vote has been taken.",
+     "walkthrough": "'On board' is part of the container signal too: the novice goes inside RUED.",
+     "definitionFit": "A committee that has ruled has given a verdict, that is, reached and announced its decision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +699,69 @@
     "text": "Pro-change, artist destroyed pictures",
     "enumeration": "9"
    },
-   "solution": "PORTRAITS"
+   "solution": "PORTRAITS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PORTRAITS",
+    "definitions": [
+     {
+      "text": "pictures",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "change tells us to alter the order of the short word just before it"
+     },
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked, so the word before it is broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro",
+      "gives": "PRO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "ARTIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POR",
+      "TRAITS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRO",
+       "gives": "POR"
+      },
+      {
+       "fodder": "ARTIST",
+       "gives": "TRAITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter keen on reform has wrecked his own canvases.",
+     "definitionFit": "Portraits are pictures of people, painted, drawn or photographed, so they are a kind of picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pro-change"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +775,53 @@
     "text": "Fine-sounding creatures are weedy specimens",
     "enumeration": "10"
    },
-   "solution": "DANDELIONS"
+   "solution": "DANDELIONS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DANDELIONS",
+    "definitions": [
+     {
+      "text": "weedy specimens",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding asks for words heard rather than seen, so the phrase is spoken and spelt anew"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "DANDE",
+      "soundsLike": "DANDY",
+      "note": "dandy means fine, excellent"
+     },
+     {
+      "clueFragment": "creatures",
+      "gives": "LIONS",
+      "note": "lions are creatures, kept as they are spoken"
+     }
+    ],
+    "explanation": {
+     "surface": "Animals that sound splendid turn out to be puny examples.",
+     "walkthrough": "'Dandy lions' spoken gives the flower's name, which comes from French dent de lion, lion's tooth.",
+     "definitionFit": "Dandelions are the common yellow weeds of lawns, so they are literally specimens of weed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weedy"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +835,65 @@
     "text": "Vicar bowled over by a girl",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VERA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bowled over",
+      "for": "reversal",
+      "note": "a thing bowled over is knocked upside down, so the word is turned back to front"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicar",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a vicar's title"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The parish priest is smitten with a young woman.",
+     "walkthrough": "'Bowled over' suggests being smitten; it is the signal to turn REV around.",
+     "definitionFit": "Vera is a woman's given name, and crosswords often define first names simply as girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bowled"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +907,39 @@
     "text": "Stops on the way",
     "enumeration": "10"
    },
-   "solution": "ROADBLOCKS"
+   "solution": "ROADBLOCKS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROADBLOCKS",
+    "definitions": [
+     {
+      "text": "Stops on the way",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stops on the way",
+      "note": "surface reading: places where one pauses during a journey"
+     },
+     {
+      "clueFragment": "the way",
+      "note": "setter's reading: barriers that halt traffic on a road"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stops' looks like rest stops on a trip; it is things that stop vehicles, and 'the way' is the road itself.",
+     "definitionFit": "Police or workers set up barriers across a road to halt vehicles, which literally stop traffic on the highway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stops"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +953,68 @@
     "text": "Run up road to have a bite to eat, no starter",
     "enumeration": "7"
    },
-   "solution": "DRIBBLE"
+   "solution": "DRIBBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "DRIBBLE",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry or by convention, up means the word is read backwards"
+     },
+     {
+      "text": "no starter",
+      "for": "deletion",
+      "note": "with no starter the first letter of the phrase is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     },
+     {
+      "clueFragment": "to have a bite to eat",
+      "gives": "NIBBLE",
+      "note": "to nibble is to take small bites of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "IBBLE"
+     ],
+     "reversals": [
+      {
+       "from": "RD",
+       "to": "DR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dashes up the street to grab a snack, skipping the first course.",
+     "walkthrough": "'Starter' looks like a first course, a nod to the meal; it means the first letter of NIBBLE goes.",
+     "definitionFit": "Liquid that dribbles trickles or runs slowly, as a nose or tap may run."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +1028,73 @@
     "text": "Out of shape woman takes second cake and last of bread",
     "enumeration": "9"
    },
-   "solution": "DISTORTED"
+   "solution": "DISTORTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DISTORTED",
+    "definitions": [
+     {
+      "text": "Out of shape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of means only the final letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "DI",
+      "note": "Di, short for Diana, is a woman's name"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "TORTE",
+      "note": "a torte is a rich layered cake"
+     },
+     {
+      "clueFragment": "bread",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of bread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "TORTE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter going for a second slice of cake and bread ends up out of shape.",
+     "walkthrough": "'Takes' only links the pieces in order. A torte is a German or Austrian cake.",
+     "definitionFit": "Something distorted has been twisted or warped, so it is literally bent out of its proper form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shape"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1108,59 @@
     "text": "Support Orson's version with extra page",
     "enumeration": "7"
    },
-   "solution": "SPONSOR"
+   "solution": "SPONSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SPONSOR",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "version",
+      "for": "anagram",
+      "note": "a version is a variant form, so the letters are offered in a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orson's",
+      "gives": "ORSONS",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "extra page",
+      "gives": "P",
+      "note": "p is the abbreviation for page, added as an extra letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORSONSP",
+       "gives": "SPONSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Backing Orson Welles's take on a film, with a bonus page in the script.",
+     "definitionFit": "A sponsor backs a person or event, often with money, so to sponsor is to support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1180,51 @@
      }
     ]
    },
-   "solution": "SALTWATER"
+   "solution": "SALTWATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SALT WATER",
+    "definitions": [
+     {
+      "text": "the drink",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "set"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "SALT",
+      "note": "an old salt is an experienced sailor"
+     },
+     {
+      "clueFragment": "to dilute",
+      "gives": "WATER",
+      "note": "to water a drink is to dilute it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALT",
+      "WATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is about to water down his drink.",
+     "walkthrough": "'The drink' is slang for the sea, so it is the definition rather than a beverage.",
+     "definitionFit": "The drink is informal slang for the sea, and the sea is made of briny water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1238,64 @@
     "text": "Official set off to part of hospital",
     "enumeration": "7"
    },
-   "solution": "STEWARD"
+   "solution": "STEWARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STEWARD",
+    "definitions": [
+     {
+      "text": "Official",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or awry, so the short word before it is jumbled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part of hospital",
+      "gives": "WARD",
+      "note": "a ward is a room or section of a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "WARD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "STE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An administrator heads off towards one of the hospital wings.",
+     "walkthrough": "'Set off' looks like a phrasal verb, departing; it is SET with 'off' as the signal.",
+     "definitionFit": "A steward is an official who manages events or affairs, such as at a race meeting or in a union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1309,50 @@
     "text": "Stop associating with striking nonconformist",
     "enumeration": "7"
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROPOUT",
+    "definitions": [
+     {
+      "text": "nonconformist",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop associating",
+      "gives": "DROP",
+      "note": "to drop someone is to stop associating with them"
+     },
+     {
+      "clueFragment": "striking",
+      "gives": "OUT",
+      "note": "workers on strike are out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROP",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone advises cutting ties with an eye-catching rebel.",
+     "walkthrough": "'Striking' seems to mean eye-catching; here it means on strike, as in 'the miners are out'.",
+     "definitionFit": "A dropout is someone who rejects conventional society or abandons education, a person who refuses to conform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1366,59 @@
     "text": "Scout leader confused when given responsibility",
     "enumeration": "7"
    },
-   "solution": "SADDLED"
+   "solution": "SADDLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SADDLED",
+    "definitions": [
+     {
+      "text": "given responsibility",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scout",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of Scout"
+     },
+     {
+      "clueFragment": "confused",
+      "gives": "ADDLED",
+      "note": "addled means muddled, confused"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ADDLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A troop's leader gets flustered on being put in charge.",
+     "walkthrough": "'Scout leader' looks like a person, a scoutmaster; it only means the first letter of Scout.",
+     "definitionFit": "To be saddled with something is to be burdened with a duty or task, loaded like a horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1432,71 @@
     "text": "It's nicer out in the south-east, to be honest",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "honest",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests the letters are put out of their places and scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the scrambled letters inside the regional abbreviation"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the south-east",
+      "gives": "SE",
+      "note": "SE is the abbreviation for south-east"
+     },
+     {
+      "clueFragment": "nicer",
+      "gives": "NICER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INCER",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICER",
+       "gives": "INCER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frankly admits the weather is better in south-east England.",
+     "walkthrough": "'Out' looks like outdoors; it is the signal to rearrange 'nicer'.",
+     "definitionFit": "Someone sincere means what they say and is genuine, which is to be honest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1510,50 @@
     "text": "Chooses new post",
     "enumeration": "4"
    },
-   "solution": "OPTS"
+   "solution": "OPTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPTS",
+    "definitions": [
+     {
+      "text": "Chooses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh form, so the letters of the next word are remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post",
+      "gives": "POST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POST",
+       "gives": "OPTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone selects a different job.",
+     "definitionFit": "To opt is to make a choice between alternatives, so opts is a direct synonym of chooses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1567,52 @@
     "text": "Bulb lit up switch",
     "enumeration": "5"
    },
-   "solution": "TULIP"
+   "solution": "TULIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TULIP",
+    "definitions": [
+     {
+      "text": "Bulb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switch",
+      "for": "anagram",
+      "note": "to switch things is to swap them round, so these letters change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lit up",
+      "gives": "LITUP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LITUP",
+       "gives": "TULIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A light bulb glowing at the flick of a switch.",
+     "walkthrough": "The surface is all about electric light; 'Bulb' is the plant kind.",
+     "definitionFit": "A tulip grows from a bulb, so the flower is named here by its underground storage organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bulb"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1626,51 @@
     "text": "Blossom in awkward spot by river",
     "enumeration": "10"
    },
-   "solution": "CORNFLOWER"
+   "solution": "CORNFLOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORNFLOWER",
+    "definitions": [
+     {
+      "text": "Blossom",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "awkward spot",
+      "gives": "CORN",
+      "note": "a corn is a painful hard patch on the foot"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "FLOWER",
+      "note": "crossword sense: a river is something that flows, a flow-er"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORN",
+      "FLOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a tricky situation beside a river.",
+     "walkthrough": "'By' joins CORN to FLOWER. Reading 'river' as flow-er, a thing that flows, is a crossword staple.",
+     "definitionFit": "The cornflower is a blue-flowered plant once common in grain fields, so it is a kind of blossom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1684,50 @@
     "text": "Quick to criticise, I would say",
     "enumeration": "5"
    },
-   "solution": "RAPID"
+   "solution": "RAPID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPID",
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticise",
+      "gives": "RAP",
+      "note": "to rap is to rebuke or criticise"
+     },
+     {
+      "clueFragment": "I would say",
+      "gives": "ID",
+      "note": "I'd is the contracted form of 'I would' in speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits being quick to find fault.",
+     "walkthrough": "'Say' makes the contraction natural: in speech 'I would' becomes I'd.",
+     "definitionFit": "Rapid describes something happening at great speed, a plain synonym of fast or swift."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1741,40 @@
     "text": "Imitates animals",
     "enumeration": "4"
    },
-   "solution": "APES"
+   "solution": "APES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "APES",
+    "definitions": [
+     {
+      "text": "Imitates",
+      "at": 0
+     },
+     {
+      "text": "animals",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Imitates",
+      "note": "first meaning: copies, mimics"
+     },
+     {
+      "clueFragment": "animals",
+      "note": "second meaning: primates such as gorillas"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "As a verb it means copies someone's behaviour; as a plural noun it names tail-less primates like chimpanzees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1788,64 @@
     "text": "Contact Helen when out with weird poet",
     "enumeration": "9"
    },
-   "solution": "TELEPHONE"
+   "solution": "TELEPHONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELEPHONE",
+    "definitions": [
+     {
+      "text": "Contact",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests letters thrown out of their places and mixed up"
+     },
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "weird means strange, so the combined letters appear in an odd order"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Helen",
+      "gives": "HELEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "POET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HELENPOET",
+       "gives": "TELEPHONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting in touch with Helen while she is out with a strange bard.",
+     "definitionFit": "To telephone someone is to call them, a common way of getting in touch with or contacting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1865,44 @@
      }
     ]
    },
-   "solution": "CUTUP"
+   "solution": "CUTUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CUT UP",
+    "definitions": [
+     {
+      "text": "Distressed",
+      "at": 0
+     },
+     {
+      "text": "carry out dissection",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "at having to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distressed",
+      "note": "first meaning: upset, informal adjective"
+     },
+     {
+      "clueFragment": "carry out dissection",
+      "note": "second meaning: to slice into pieces, as a biology student does"
+     }
+    ],
+    "explanation": {
+     "surface": "A squeamish student is upset at having to dissect a frog.",
+     "definitionFit": "Informally, someone badly upset is said to be hurt deeply; literally, the phrasal verb means to slice into pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1916,64 @@
     "text": "Fools wrongly dispute leaving it out",
     "enumeration": "5"
    },
-   "solution": "DUPES"
+   "solution": "DUPES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DUPES",
+    "definitions": [
+     {
+      "text": "Fools",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "wrongly means not correctly, so the remaining letters are set in the wrong order"
+     },
+     {
+      "text": "leaving it out",
+      "for": "deletion",
+      "note": "leaving out means omitting, so the letters of the word it are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispute",
+      "gives": "DISPUTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUPES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DSPUE",
+       "gives": "DUPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gullible people argue mistakenly, missing the point.",
+     "definitionFit": "Dupes are people easily tricked or deceived, so the noun means fools or gullible victims."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fools"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +1987,67 @@
     "text": "Valued confident entry into free trade",
     "enumeration": "9"
    },
-   "solution": "TREASURED"
+   "solution": "TREASURED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TREASURED",
+    "definitions": [
+     {
+      "text": "Valued",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "free suggests letters let loose from their order and rearranged"
+     },
+     {
+      "text": "entry into",
+      "for": "container",
+      "note": "an entry into something goes inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade",
+      "gives": "TRADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "confident",
+      "gives": "SURE",
+      "note": "sure means confident"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREA",
+      "SURE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRADE",
+       "gives": "TREAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-assured nation joins a free-trade area and is prized for it.",
+     "walkthrough": "'Free trade' reads as an economics term; 'free' is the signal to rearrange 'trade'.",
+     "definitionFit": "Something treasured is cherished and held dear, so it is highly valued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   }
  ]
 }
