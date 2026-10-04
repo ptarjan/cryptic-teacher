@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Blue swallow found on shed",
     "enumeration": "8"
    },
-   "solution": "DOWNCAST"
+   "solution": "DOWNCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNCAST",
+    "definitions": [
+     {
+      "text": "Blue",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swallow",
+      "gives": "DOWN",
+      "note": "to down a drink is to swallow it"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "CAST",
+      "note": "a snake casts, or sheds, its skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird with blue plumage, a swallow, has been spotted perched on a garden shed.",
+     "walkthrough": "'Blue swallow' reads as a bird, but blue is the mood and swallow is a verb; 'found on' just places one piece after the other.",
+     "definitionFit": "Feeling blue means feeling sad or dejected, which is exactly what a downcast person is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,43 @@
     "text": "Tax office",
     "enumeration": "4"
    },
-   "solution": "DUTY"
+   "solution": "DUTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUTY",
+    "definitions": [
+     {
+      "text": "Tax",
+      "at": 0
+     },
+     {
+      "text": "office",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tax",
+      "note": "first meaning: a levy charged on imported goods"
+     },
+     {
+      "clueFragment": "office",
+      "note": "second meaning: a task or function one is obliged to perform"
+     }
+    ],
+    "explanation": {
+     "surface": "A short label for a tax office.",
+     "walkthrough": "The two words look like one place, the tax office, but each is a separate meaning of the answer.",
+     "definitionFit": "Customs charges are levies called by this name, and the word also means an obligation or post, as in 'the duties of the office'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +143,64 @@
     "text": "Caution if climbing pole and inexperienced",
     "enumeration": "4"
    },
-   "solution": "WARN"
+   "solution": "WARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WARN",
+    "definitions": [
+     {
+      "text": "Caution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means the letters are read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pole",
+      "gives": "N",
+      "note": "N for north, one of the earth's poles"
+     },
+     {
+      "clueFragment": "inexperienced",
+      "gives": "RAW",
+      "note": "a raw recruit is an inexperienced one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NRAW",
+       "to": "WARN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to an inexperienced climber about going up a pole.",
+     "walkthrough": "Pole and inexperienced are joined first, then the whole string goes upwards.",
+     "definitionFit": "To caution someone is to give them a warning, so the verb matches the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +214,58 @@
     "text": "Credit note with tax on is for neckwear",
     "enumeration": "6"
    },
-   "solution": "CRAVAT"
+   "solution": "CRAVAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAVAT",
+    "definitions": [
+     {
+      "text": "neckwear",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on",
+     "is for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Credit",
+      "gives": "CR",
+      "note": "the standard abbreviation for credit in accounts"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "A",
+      "note": "A is a note of the musical scale"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "value added tax, the British sales tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "A",
+      "VAT"
+     ]
+    },
+    "explanation": {
+     "surface": "An invoice for an item of neckwear, credited, with sales tax added.",
+     "walkthrough": "VAT is value added tax, Britain's sales tax.",
+     "definitionFit": "This is a scarf-like band of cloth worn around the throat, a kind of neckwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +285,76 @@
      }
     ]
    },
-   "solution": "STANDINGGUARD"
+   "solution": "STANDINGGUARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STANDING GUARD",
+    "definitions": [
+     {
+      "text": "acting as a sentry",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trained",
+      "for": "anagram",
+      "note": "something trained has been worked into shape, so these letters are put into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the rule wraps itself round the other letters"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "STANDARD",
+      "note": "a standard is a rule or norm to be followed"
+     },
+     {
+      "clueFragment": "GI",
+      "gives": "GI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "GUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAND",
+      "INGGU",
+      "ARD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIGUN",
+       "gives": "INGGU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An army rule about a soldier who has been trained with a gun and put on sentry duty.",
+     "walkthrough": "GI is an American soldier, which makes 'trained' look like drill rather than a signal; the jumbled GI and gun sit inside the rule.",
+     "definitionFit": "A sentry keeps watch on duty, and to do that is to be on post protecting something, the phrase meaning keeping watch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +368,55 @@
     "text": "Managed to cheat millions by chance",
     "enumeration": "6"
    },
-   "solution": "RANDOM"
+   "solution": "RANDOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANDOM",
+    "definitions": [
+     {
+      "text": "by chance",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "cheat",
+      "gives": "DO",
+      "note": "to do someone is slang for cheating them"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "DO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A fraudster managed to swindle someone out of millions purely through luck.",
+     "definitionFit": "Something random happens haphazardly, without plan or pattern, as if by luck or accident."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Managed"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +430,77 @@
     "text": "Pop up and put it in fitting",
     "enumeration": "8"
    },
-   "solution": "APPOSITE"
+   "solution": "APPOSITE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "APPOSITE",
+    "definitions": [
+     {
+      "text": "fitting",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word for pop is written from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece is placed inside the word for put"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pop",
+      "gives": "PA",
+      "note": "pop is an informal name for one's father"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "POSE",
+      "note": "to pose a question is to put it"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POS",
+      "IT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to pop something up and slot it in, like a fitting being installed.",
+     "walkthrough": "Pop is an informal word for father here, not a burst or a quick visit; 'put' is the sense of putting a question.",
+     "definitionFit": "Apposite remarks are apt or appropriate to the occasion, which is the sense of the adjective fitting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pop"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +514,73 @@
     "text": "Decide you need time at home when caught in the act?",
     "enumeration": "10"
    },
-   "solution": "DETERMINED"
+   "solution": "DETERMINED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DETERMINED",
+    "definitions": [
+     {
+      "text": "Decide",
+      "at": 0,
+      "note": "the answer is the past tense, decided"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught in",
+      "for": "container",
+      "note": "something caught in another thing is held inside it, so the time and home words sit within the act"
+     }
+    ],
+    "linkWords": [
+     "you need",
+     "when",
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "DE",
+      "note": "first part of DEED, a deed being an act"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TERM",
+      "note": "a term is a period of time"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone who is in is at home"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "ED",
+      "note": "the rest of DEED, wrapped around the other pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TERM",
+      "IN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on choosing to stay home after being caught red-handed.",
+     "walkthrough": "The act is a deed, split around the other pieces. The definition is a stretch: the answer is the past form, decided.",
+     "definitionFit": "To determine a matter is to settle or resolve it, so the past form means a choice has been made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +594,53 @@
     "text": "Manage to improve upon lap a minute",
     "enumeration": "10"
    },
-   "solution": "MANIPULATE"
+   "solution": "MANIPULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANIPULATE",
+    "definitions": [
+     {
+      "text": "Manage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "improve upon",
+      "for": "anagram",
+      "note": "to improve upon something is to rework it, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lap a minute",
+      "gives": "LAPAMINUTE",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAPAMINUTE",
+       "gives": "MANIPULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner managing to cut a minute off their lap time.",
+     "definitionFit": "To manipulate people or things is to handle or control them skilfully, often deviously, which is managing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lap"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +654,66 @@
     "text": "Scold great man touring the West End",
     "enumeration": "9"
    },
-   "solution": "TERMAGANT"
+   "solution": "TERMAGANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERMAGANT",
+    "definitions": [
+     {
+      "text": "Scold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End",
+      "for": "letter_selection",
+      "note": "end points to the final letter of the word west"
+     },
+     {
+      "text": "touring",
+      "for": "anagram",
+      "note": "touring suggests moving around, so the letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great man",
+      "gives": "GREATMAN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of West"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREATMANT",
+       "gives": "TERMAGANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A great man is told off while touring London's West End theatre district.",
+     "walkthrough": "The West End is London's theatre district, but here it means only the last letter of West.",
+     "definitionFit": "A termagant is a harsh, overbearing woman, so the noun scold, someone who nags, is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +737,53 @@
      }
     ]
    },
-   "solution": "TONGUEINCHEEK"
+   "solution": "TONGUEINCHEEK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONGUE-IN-CHEEK",
+    "definitions": [
+     {
+      "text": "Insincere",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "TONGUE",
+      "note": "a tongue is a language, as in mother tongue"
+     },
+     {
+      "clueFragment": "invol-ved with",
+      "gives": "IN",
+      "note": "to be in with someone is to be involved with them"
+     },
+     {
+      "clueFragment": "insolence",
+      "gives": "CHEEK",
+      "note": "cheek is impudent talk or insolence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONGUE",
+      "IN",
+      "CHEEK"
+     ]
+    },
+    "explanation": {
+     "surface": "Speech that is insincere, tangled up with rudeness.",
+     "walkthrough": "The hyphen in 'invol-ved' is an accident of the printed source.",
+     "definitionFit": "A remark made this way is ironic or not meant seriously, so it is insincere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "language"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +797,69 @@
     "text": "Spike is to pop back round",
     "enumeration": "5"
    },
-   "solution": "PITON"
+   "solution": "PITON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PITON",
+    "definitions": [
+     {
+      "text": "Spike",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us the word for pop is written in the opposite direction"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means wrapping around, so one piece goes about the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pop",
+      "gives": "NIP",
+      "note": "to pop out somewhere is to nip out"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "TO",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NIP",
+       "to": "PIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spike that is meant to be popped back round.",
+     "definitionFit": "A climber hammers this metal peg into rock to anchor a rope, so it is a kind of spike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +879,49 @@
      }
     ]
    },
-   "solution": "LANDINGSTRIP"
+   "solution": "LANDINGSTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDING STRIP",
+    "definitions": [
+     {
+      "text": "which pilots use",
+      "at": 31,
+      "note": "a clause standing for 'something which pilots use'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhere between flights",
+      "gives": "LANDING",
+      "note": "a landing is the level space between two flights of stairs"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "STRIP",
+      "note": "a strip is a narrow bar or band"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDING",
+      "STRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "An airport bar where pilots relax between flights.",
+     "walkthrough": "'Flights' suggests aircraft but means flights of stairs; the aviation sense returns in the definition.",
+     "definitionFit": "Pilots touch down on a cleared runway, the place aircraft come to earth, so it is what they use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flights"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +935,53 @@
     "text": "In this area there’s a house Bert rebuilt",
     "enumeration": "10"
    },
-   "solution": "HEREABOUTS"
+   "solution": "HEREABOUTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEREABOUTS",
+    "definitions": [
+     {
+      "text": "In this area",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "something rebuilt is put together again differently, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "there’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a house Bert",
+      "gives": "AHOUSEBERT",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHOUSEBERT",
+       "gives": "HEREABOUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local noting that nearby is a house Bert has rebuilt.",
+     "definitionFit": "The adverb means near this place or in the vicinity, the same as the phrase about this area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bert"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +995,53 @@
     "text": "Cheating companion, one taking money",
     "enumeration": "10"
    },
-   "solution": "CHISELLING"
+   "solution": "CHISELLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHISELLING",
+    "definitions": [
+     {
+      "text": "Cheating",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "taking money",
+      "gives": "SELLING",
+      "note": "selling goods means taking money for them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "SELLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest companion who takes people's money.",
+     "walkthrough": "CH is Companion of Honour, a British award.",
+     "definitionFit": "Chiselling is informal for swindling or defrauding people, so it means the same as cheating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "companion"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1055,42 @@
     "text": "Some pianoforte chords reverberate",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "reverberate",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pianoforte chords",
+      "gives": "ECHO",
+      "note": "found across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Piano chords ringing out round a room.",
+     "definitionFit": "A sound that reverberates rings back repeatedly, which is what the verb meaning repeat a sound describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1104,47 @@
     "text": "Running water experiment for use in manufacturing",
     "enumeration": "10"
    },
-   "solution": "INDUSTRIAL"
+   "solution": "INDUSTRIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDUSTRIAL",
+    "definitions": [
+     {
+      "text": "for use in manufacturing",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Running water",
+      "gives": "INDUS",
+      "note": "the Indus is a great river of Pakistan, running water"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TRIAL",
+      "note": "a trial is a test or experiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDUS",
+      "TRIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A test of flowing water for a factory process.",
+     "walkthrough": "'Running water' sounds like a tap, but it stands for a named river.",
+     "definitionFit": "Industrial goods or processes belong to industry, meaning factories and the making of products."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1158,67 @@
     "text": "Songs about plays in Greek island",
     "enumeration": "8"
    },
-   "solution": "CALYPSOS"
+   "solution": "CALYPSOS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CALYPSOS",
+    "definitions": [
+     {
+      "text": "Songs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests things being moved around, so the letters of plays are reordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the island's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plays",
+      "gives": "ALYPS",
+      "note": "the letters of plays rearranged"
+     },
+     {
+      "clueFragment": "Greek island",
+      "gives": "COS",
+      "note": "Cos, or Kos, is an island in the Dodecanese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALYPS",
+      "OS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PLAYS",
+       "gives": "ALYPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Songs about dramas staged on a Greek island.",
+     "walkthrough": "Calypso is also a nymph's island in Homer, which makes 'Greek island' look like a whole-word hint.",
+     "definitionFit": "These are West Indian songs with improvised, topical lyrics, originally from Trinidad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1238,83 @@
      }
     ]
    },
-   "solution": "EASTANGLIA"
+   "solution": "EASTANGLIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EAST ANGLIA",
+    "definitions": [
+     {
+      "text": "Where",
+      "at": 0,
+      "note": "a question standing for a place"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "battered means knocked about, so the letters are knocked out of order"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word for trouble is written from right to left"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "you get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "EAS",
+      "note": "sea with its letters shuffled"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "TANG",
+      "note": "a tang is a sharp projecting point, as on a knife"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAS",
+      "TANGLIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TANG AIL",
+       "gives": "AILGNAT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AILGNAT",
+       "to": "TANGLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere on a storm-lashed headland where you are left with a bad back.",
+     "walkthrough": "Point sounds like a headland, which suits the coast; it is a tang. East Anglia is the bulging coastal region of eastern England, Norfolk and Suffolk.",
+     "definitionFit": "The clue asks for a place, and this English region, exposed to the North Sea, fits the seaside picture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1328,66 @@
     "text": "Kiss a number, coming back round after that",
     "enumeration": "4"
    },
-   "solution": "NEXT"
+   "solution": "NEXT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NEXT",
+    "definitions": [
+     {
+      "text": "after that",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means the number is written in the opposite direction"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the number goes around the kiss"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "Kiss",
+      "gives": "X",
+      "note": "X is the kiss written at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "X",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TEN",
+       "to": "NET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kissing a series of people one after another, coming back round each time.",
+     "definitionFit": "As an adverb the word means then or afterwards, the same as after that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1401,72 @@
     "text": "Brutal for a short time? That’s up to Capone",
     "enumeration": "6"
    },
-   "solution": "ANIMAL"
+   "solution": "ANIMAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANIMAL",
+    "definitions": [
+     {
+      "text": "Brutal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the short time is written from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "That’s",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "MIN",
+      "note": "min is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "Capone",
+      "gives": "AL",
+      "note": "Al Capone, the Chicago gangster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NIM",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "MIN",
+       "to": "NIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster's brutality, briefly: it's up to Al Capone.",
+     "walkthrough": "'That's up to Capone' reads as leaving it to him, but up reverses the short time and Capone gives his first name.",
+     "definitionFit": "As an adjective it means bestial or physical, so animal violence is brutal violence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1486,48 @@
      }
     ]
    },
-   "solution": "BELLYDANCING"
+   "solution": "BELLYDANCING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BELLY DANCING",
+    "definitions": [
+     {
+      "text": "Sensuous performance",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gut",
+      "gives": "BELLY",
+      "note": "gut and belly both mean the stomach"
+     },
+     {
+      "clueFragment": "reaction to good news",
+      "gives": "DANCING",
+      "note": "people dance for joy at good news"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELLY",
+      "DANCING"
+     ]
+    },
+    "explanation": {
+     "surface": "An instinctive gut reaction to something good, and a sensuous show.",
+     "walkthrough": "'Gut reaction' is an idiom for instinct, but here gut and reaction split into two pieces.",
+     "definitionFit": "This Middle Eastern dance, with its rippling hip and stomach movements, is a famously sensuous performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gut"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1541,50 @@
     "text": "Student first to reach table",
     "enumeration": "4"
    },
-   "solution": "LIST"
+   "solution": "LIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIST",
+    "definitions": [
+     {
+      "text": "table",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to reach"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, from British learner-driver plates"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1ST, with the figure one read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A student racing to be first to the table.",
+     "walkthrough": "L is the learner plate on British cars.",
+     "definitionFit": "A table of figures or names is an ordered list, a set of items written out in rows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1598,55 @@
     "text": "Japanese buyer about a quarter interviewed",
     "enumeration": "4"
    },
-   "solution": "SEEN"
+   "solution": "SEEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEEN",
+    "definitions": [
+     {
+      "text": "interviewed",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the money goes around the quarter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese buyer",
+      "gives": "SEN",
+      "note": "the sen is a Japanese coin, money being what buys"
+     },
+     {
+      "clueFragment": "a quarter",
+      "gives": "E",
+      "note": "east, one of the four quarters of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Japanese buyer questioned about a quarterly purchase.",
+     "walkthrough": "The sen, a hundredth of a yen, wraps around E for east.",
+     "definitionFit": "A candidate seen by a panel or a patient seen by a doctor has been interviewed or examined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "buyer"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1660,66 @@
     "text": "Can return in American groups",
     "enumeration": "5"
    },
-   "solution": "UNITS"
+   "solution": "UNITS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "UNITS",
+    "definitions": [
+     {
+      "text": "groups",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "return means the word for can goes back the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned word inside the American abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NIT",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cans being sent back by American groups.",
+     "definitionFit": "Units are teams or sections of a larger body, such as army units, so they are groups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Can"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1733,51 @@
     "text": "Imagine going to dig being fantastic?",
     "enumeration": "9"
    },
-   "solution": "DREAMLIKE"
+   "solution": "DREAMLIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DREAMLIKE",
+    "definitions": [
+     {
+      "text": "fantastic",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Imagine",
+      "gives": "DREAM",
+      "note": "to dream something up is to imagine it"
+     },
+     {
+      "clueFragment": "dig",
+      "gives": "LIKE",
+      "note": "to dig is slang for to like"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DREAM",
+      "LIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Picture setting off to dig and finding it wonderful.",
+     "walkthrough": "'Dig' looks like spadework but is the slang sense, to appreciate.",
+     "definitionFit": "Something fantastic in the old sense is unreal or fanciful, as if it came from a sleeping vision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dig"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1791,47 @@
     "text": "The most sensible sink is French",
     "enumeration": "6"
    },
-   "solution": "SAGEST"
+   "solution": "SAGEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAGEST",
+    "definitions": [
+     {
+      "text": "The most sensible",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "SAG",
+      "note": "to sag is to sink or droop"
+     },
+     {
+      "clueFragment": "is French",
+      "gives": "EST",
+      "note": "est is French for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that French sinks are the most sensible.",
+     "walkthrough": "'Sink' suggests a kitchen basin but is the verb, to droop.",
+     "definitionFit": "Sage means wise, and its superlative form describes the wisest, most sensible person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sink"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1845,64 @@
     "text": "Bones and leeks cooked by weight",
     "enumeration": "8"
    },
-   "solution": "SKELETON"
+   "solution": "SKELETON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SKELETON",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means altered or prepared, so the letters are mixed into a new order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leeks",
+      "gives": "SKELE",
+      "note": "the letters of leeks rearranged"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKELE",
+      "TON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEEKS",
+       "gives": "SKELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe of bones and leeks cooked up by weight, like a stock.",
+     "definitionFit": "The skeleton is the body's whole framework of bones, so the word stands for the bones collectively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   }
  ]
 }
