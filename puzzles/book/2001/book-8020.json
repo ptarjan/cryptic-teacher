@@ -29,6 +29,9 @@
   "check": "32 entries, 58 crossings, 0 conflicts",
   "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,54 @@
     "text": "Concern for Channel Islands seen in isolation",
     "enumeration": "10"
    },
-   "solution": "SOLICITUDE"
+   "solution": "SOLICITUDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLICITUDE",
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "container",
+      "note": "something seen in a place sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isolation",
+      "gives": "SOLITUDE",
+      "note": "solitude is the state of being alone"
+     },
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "CI is the standard abbreviation for the Channel Islands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLI",
+      "CI",
+      "TUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Islanders worry about being cut off from the mainland.",
+     "definitionFit": "Solicitude is anxious care or attentive worry for someone's welfare, a close synonym of concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +106,70 @@
     "text": "First signs of someone using dependable soap",
     "enumeration": "4"
    },
-   "solution": "SUDS"
+   "solution": "SUDS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SUDS",
+    "definitions": [
+     {
+      "text": "soap",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First signs of",
+      "for": "letter_selection",
+      "note": "the first sign of a word is its opening letter, taken from each following word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "using",
+      "gives": "U",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "dependable",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "soap",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter; the word also serves as the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "U",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks whether a person is using a reliable brand of soap.",
+     "walkthrough": "The last word does double duty: its first letter ends the wordplay and the whole word is the definition.",
+     "definitionFit": "Suds is lather or soapy water, and informally soap itself, especially in washing contexts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "signs"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +183,51 @@
     "text": "New lord, an incongruous man of property",
     "enumeration": "9"
    },
-   "solution": "LANDOWNER"
+   "solution": "LANDOWNER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANDOWNER",
+    "definitions": [
+     {
+      "text": "man of property",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incongruous",
+      "for": "anagram",
+      "note": "incongruous means out of place, so the preceding letters are set out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New lord, an",
+      "gives": "NEWLORDAN",
+      "note": "all three words supply the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEWLORDAN",
+       "gives": "LANDOWNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly ennobled peer looks out of place among the propertied classes.",
+     "walkthrough": "'New' looks like a description of the lord, but it is part of the letters to be rearranged.",
+     "definitionFit": "A landowner holds real estate, so he is a man possessing property in land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +241,67 @@
     "text": "Lycra woven round edges of short glass",
     "enumeration": "7"
    },
-   "solution": "CRYSTAL"
+   "solution": "CRYSTAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CRYSTAL",
+    "definitions": [
+     {
+      "text": "glass",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "woven",
+      "for": "anagram",
+      "note": "threads that are woven are twisted and interlaced, so the fabric name's letters are worked into a new order"
+     },
+     {
+      "text": "round",
+      "for": "anagram",
+      "note": "round says the fabric's letters are wrapped about the added pair as they are reworked"
+     },
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lycra",
+      "gives": "LYCRA",
+      "note": "the stretch fabric, taken as written"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "ST",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LYCRAST",
+       "gives": "CRYSTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stretchy fabric is wrapped around a tumbler to protect it.",
+     "definitionFit": "Crystal is fine, clear, high-quality glass, used for decanters and wine glasses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +315,57 @@
     "text": "Complication that’s no good in account",
     "enumeration": "6"
    },
-   "solution": "TANGLE"
+   "solution": "TANGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANGLE",
+    "definitions": [
+     {
+      "text": "Complication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "TALE",
+      "note": "a tale is an account or story"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the common abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "NG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A story becomes useless once it gets too complicated to follow.",
+     "definitionFit": "A tangle is a confused muddle or knotty difficulty, much like a complication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +379,55 @@
     "text": "Depressed, hot and off-colour - getting lower",
     "enumeration": "8"
    },
-   "solution": "DOWNHILL"
+   "solution": "DOWNHILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNHILL",
+    "definitions": [
+     {
+      "text": "getting lower",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depressed",
+      "gives": "DOWN",
+      "note": "feeling down is feeling low"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H for hot, as on a tap"
+     },
+     {
+      "clueFragment": "off-colour",
+      "gives": "ILL",
+      "note": "off-colour means slightly unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "H",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feverish and miserable feels their mood sinking further.",
+     "definitionFit": "Going downhill means deteriorating or descending, so it describes something steadily getting lower or worse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +441,49 @@
     "text": "My mistake - backing into neighbour's pool",
     "enumeration": "4"
    },
-   "solution": "OOPS"
+   "solution": "OOPS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OOPS",
+    "definitions": [
+     {
+      "text": "My mistake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "hidden_word",
+      "note": "the letters are found running into the following words, straddling them"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the found letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neighbour's pool",
+      "gives": "SPOO",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone apologises after reversing their car into the pool next door.",
+     "definitionFit": "Oops is the exclamation one utters on making a slip, equivalent to admitting a mistake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +497,64 @@
     "text": "Band removing silver from ruined cottage",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing tells us letters are taken away from the word that follows"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "a ruined building has fallen apart, so the remaining letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "cottage",
+      "gives": "COTTAGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCTET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COTTE",
+       "gives": "OCTET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of musicians strip the silverware from a derelict cottage.",
+     "definitionFit": "An octet is a group of eight musicians, a small musical band or ensemble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 8,
@@ -154,7 +568,55 @@
     "text": "Very hot iumbled crowd chant outside",
     "enumeration": "10"
    },
-   "solution": "SWELTERING"
+   "solution": "SWELTERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWELTERING",
+    "definitions": [
+     {
+      "text": "Very hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside says the word for chant wraps around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chant",
+      "gives": "SING",
+      "note": "to chant is to sing"
+     },
+     {
+      "clueFragment": "iumbled crowd",
+      "gives": "WELTER",
+      "note": "printed with an OCR slip for jumbled; a welter is a confused mass or jumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WELTER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A disorderly crowd chants in the blazing heat.",
+     "walkthrough": "The scan misreads 'jumbled'. That word looks like an anagram signal, but 'jumbled crowd' together defines one word.",
+     "definitionFit": "Sweltering describes oppressive heat that makes one sweat, so it means extremely hot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "iumbled"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +630,48 @@
     "text": "Wretch in terror at bagpipes’ noise",
     "enumeration": "6"
    },
-   "solution": "RATBAG"
+   "solution": "RATBAG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RATBAG",
+    "definitions": [
+     {
+      "text": "Wretch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells us the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terror at bagpipes’",
+      "gives": "RATBAG",
+      "note": "spans the end of the first word, the second word and the start of the third"
+     },
+     {
+      "clueFragment": "noise",
+      "note": "surface padding completing the picture of the pipes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is scared stiff by the sound of bagpipes.",
+     "walkthrough": "RATBAG is British and Australian slang for an unpleasant or contemptible person.",
+     "definitionFit": "A ratbag is a nasty, despicable person, so it matches wretch in its insulting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "noise"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +685,63 @@
     "text": "Dull-coloured fringes of napery in basement",
     "enumeration": "5"
    },
-   "solution": "DINGY"
+   "solution": "DINGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DINGY",
+    "definitions": [
+     {
+      "text": "Dull-coloured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fringes of",
+      "for": "letter_selection",
+      "note": "the fringes of a cloth are its edges, so only the outermost letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the kept letters go inside the word for basement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "napery",
+      "gives": "NY",
+      "select": "outer",
+      "note": "first and last letters; napery is table linen"
+     },
+     {
+      "clueFragment": "basement",
+      "gives": "DIG",
+      "note": "a dig is an excavation, something below ground level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "N",
+      "G",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "The edges of the table linen kept in the cellar have gone grubby.",
+     "walkthrough": "The setter loosely puts the two edge letters into the word for basement, one inside and one tacked on at the end.",
+     "definitionFit": "Dingy means drab, dirty-looking or lacking brightness, so it describes something dull in colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fringes"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +755,54 @@
     "text": "Fortress behind modern English port",
     "enumeration": "9"
    },
-   "solution": "NEWCASTLE"
+   "solution": "NEWCASTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWCASTLE",
+    "definitions": [
+     {
+      "text": "English port",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind says the first word is placed after the second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern",
+      "gives": "NEW",
+      "note": "modern means new"
+     },
+     {
+      "clueFragment": "Fortress",
+      "gives": "CASTLE",
+      "note": "a castle is a fortress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "CASTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A castle stands behind a modern English harbour town.",
+     "walkthrough": "NEWCASTLE upon Tyne is a city and port in north-east England.",
+     "definitionFit": "Newcastle is a major port city on the River Tyne in England, so it is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +816,43 @@
     "text": "Deadly, just like us",
     "enumeration": "6"
    },
-   "solution": "MORTAL"
+   "solution": "MORTAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MORTAL",
+    "definitions": [
+     {
+      "text": "Deadly",
+      "at": 0
+     },
+     {
+      "text": "just like us",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deadly",
+      "note": "first meaning: causing death, as a fatal wound"
+     },
+     {
+      "clueFragment": "just like us",
+      "note": "second meaning: subject to death, as humans are"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The comma separates two senses: the adjective for a fatal blow and the adjective for beings who must die.",
+     "definitionFit": "Mortal means both fatal and liable to die, the condition every human shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Deadly"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +866,59 @@
     "text": "One's milieu for a time, following custom",
     "enumeration": "7"
    },
-   "solution": "HABITAT"
+   "solution": "HABITAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HABITAT",
+    "definitions": [
+     {
+      "text": "One's milieu",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says the first pieces come after the word for custom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "custom",
+      "gives": "HABIT",
+      "note": "a habit is a custom or practice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HABIT",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "For a while, someone's surroundings are dictated by convention.",
+     "definitionFit": "A habitat is the natural home environment of an organism, its surroundings or milieu."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +932,46 @@
     "text": "Beat chief manager of society's premises",
     "enumeration": "10"
    },
-   "solution": "CLUBMASTER"
+   "solution": "CLUBMASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLUBMASTER",
+    "definitions": [
+     {
+      "text": "manager of society's premises",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "CLUB",
+      "note": "to club someone is to beat them"
+     },
+     {
+      "clueFragment": "chief",
+      "gives": "MASTER",
+      "note": "a master is a chief or head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLUB",
+      "MASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone surpasses the head manager of a society's building.",
+     "definitionFit": "A clubmaster is the person who runs a club's house and facilities for its members."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +985,46 @@
     "text": "In Carousel, one lyric that’s unaccompanied",
     "enumeration": "6"
    },
-   "solution": "LONELY"
+   "solution": "LONELY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LONELY",
+    "definitions": [
+     {
+      "text": "unaccompanied",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "In tells us the letters lie inside the run of words that follows"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carousel, one lyric",
+      "gives": "LONELY",
+      "note": "spans the last letter of the first word, the second word, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A song in the musical Carousel is about being alone.",
+     "walkthrough": "Carousel is a Rodgers and Hammerstein musical, which makes the hunt for a song title tempting.",
+     "definitionFit": "Lonely means solitary or without companions, which is what unaccompanied describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carousel"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1038,61 @@
     "text": "Scamp’s slimmer after beginning to beg",
     "enumeration": "8"
    },
-   "solution": "BLIGHTER"
+   "solution": "BLIGHTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BLIGHTER",
+    "definitions": [
+     {
+      "text": "Scamp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the word for slimmer comes later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beg",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "slimmer",
+      "gives": "LIGHTER",
+      "note": "lighter means weighing less, as a slimmer person does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal who has lost weight starts begging.",
+     "walkthrough": "The 's in 'Scamp's' is 'is', joining definition to wordplay. Blighter is British slang for a rogue or fellow.",
+     "definitionFit": "A blighter is a mildly contemptible or mischievous person, much like a scamp or rascal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slimmer"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1112,51 @@
      }
     ]
    },
-   "solution": "TURNSTAIL"
+   "solution": "TURNSTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURNS TAIL",
+    "definitions": [
+     {
+      "text": "makes off",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reverses",
+      "gives": "TURNS",
+      "note": "turns as in turns round"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "TAIL",
+      "note": "the train of a gown is its trailing tail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURNS",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway train reverses out of the station and leaves.",
+     "walkthrough": "'Train' suggests a railway, but here it is the trailing part of a dress.",
+     "definitionFit": "To turn tail is an idiom for fleeing or running away, which is to make off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1170,51 @@
     "text": "Costs hit organisation belonging to my country",
     "enumeration": "8"
    },
-   "solution": "SCOTTISH"
+   "solution": "SCOTTISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCOTTISH",
+    "definitions": [
+     {
+      "text": "belonging to my country",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organisation",
+      "for": "anagram",
+      "note": "organisation means arranging things afresh, so these letters are put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Costs hit",
+      "gives": "COSTSHIT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COSTSHIT",
+       "gives": "SCOTTISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rising costs hurt an organisation in the setter's homeland.",
+     "walkthrough": "The puzzle comes from The Scotsman, so 'my country' is the setter's own Scotland.",
+     "definitionFit": "Scottish means of or from Scotland, the home nation of a Scotsman crossword setter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1228,44 @@
     "text": "Remove shirt, like some circus performers",
     "enumeration": "8"
    },
-   "solution": "BAREBACK"
+   "solution": "BAREBACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BAREBACK",
+    "definitions": [
+     {
+      "text": "Remove shirt",
+      "at": 0,
+      "note": "a phrase, read as bare back"
+     },
+     {
+      "text": "like some circus performers",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remove shirt",
+      "note": "first meaning: to bare one's back"
+     },
+     {
+      "clueFragment": "like some circus performers",
+      "note": "second meaning: riding a horse without a saddle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split into two words it is to uncover one's back; as one word it is riding without a saddle, as circus riders do.",
+     "definitionFit": "Bareback riders in the circus perform on unsaddled horses, and taking off a shirt exposes the back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shirt"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1279,55 @@
     "text": "Monkey puts sailor in favour",
     "enumeration": "6"
    },
-   "solution": "BABOON"
+   "solution": "BABOON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BABOON",
+    "definitions": [
+     {
+      "text": "Monkey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puts",
+      "for": "container",
+      "note": "puts ... in says one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favour",
+      "gives": "BOON",
+      "note": "a boon is a favour"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB is an able-bodied seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AB",
+      "OON"
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey does a sailor a favour.",
+     "definitionFit": "A baboon is a large African monkey with a dog-like muzzle, so it is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1341,54 @@
     "text": "No part-exchange for this customer",
     "enumeration": "6"
    },
-   "solution": "PATRON"
+   "solution": "PATRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATRON",
+    "definitions": [
+     {
+      "text": "customer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchange",
+      "for": "anagram",
+      "note": "an exchange swaps things about, so the letters change places"
+     }
+    ],
+    "linkWords": [
+     "for this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No part",
+      "gives": "NOPART",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOPART",
+       "gives": "PATRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop refuses to offer a part-exchange deal to this customer.",
+     "walkthrough": "'Part-exchange' reads as a trade-in deal, but the hyphen hides a word to rearrange and the signal.",
+     "definitionFit": "A patron is a regular customer of a shop, restaurant or business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 22,
@@ -356,7 +1402,55 @@
     "text": "Game where cards are dealt after a cut",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABRIDGE",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the game's name comes later than the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Game where cards are dealt",
+      "gives": "BRIDGE",
+      "note": "bridge is a card game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "In a card game the deal follows the cut of the pack.",
+     "walkthrough": "'Cut' sounds like cutting the deck, but it is the definition.",
+     "definitionFit": "To abridge is to shorten a text, which is to cut it down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 23,
@@ -370,7 +1464,42 @@
     "text": "Some fuel, perhaps, stored by frugal Londoners",
     "enumeration": "6"
    },
-   "solution": "GALLON"
+   "solution": "GALLON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GALLON",
+    "definitions": [
+     {
+      "text": "Some fuel, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored by",
+      "for": "hidden_word",
+      "note": "something stored by people is kept within them, so the letters lie inside these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frugal Londoners",
+      "gives": "GALLON",
+      "note": "spans the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Thrifty city dwellers keep a stock of fuel.",
+     "definitionFit": "A gallon is a unit of volume in which fuel is often measured, so it is some fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stored"
+    }
+   }
   },
   {
    "number": 24,
@@ -384,7 +1513,60 @@
     "text": "Stunt-girl, say, a spiteful girl hiding loot",
     "enumeration": "7"
    },
-   "solution": "ACROBAT"
+   "solution": "ACROBAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACROBAT",
+    "definitions": [
+     {
+      "text": "Stunt-girl, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "hiding means keeping something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spiteful girl",
+      "gives": "CAT",
+      "note": "a cat is a spiteful woman"
+     },
+     {
+      "clueFragment": "loot",
+      "gives": "ROB",
+      "note": "to loot is to rob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "ROB",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A stuntwoman is a nasty girl concealing stolen goods.",
+     "definitionFit": "A stunt-girl performs daring physical feats, as an acrobat does, so she is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loot"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1580,61 @@
     "text": "Honest about ending of operation to do with kidneys",
     "enumeration": "5"
    },
-   "solution": "RENAL"
+   "solution": "RENAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RENAL",
+    "definitions": [
+     {
+      "text": "to do with kidneys",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending of",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for honest goes round the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honest",
+      "gives": "REAL",
+      "note": "real means genuine or honest"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "N",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "N",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A frank account of how a kidney operation ended.",
+     "definitionFit": "Renal is the medical adjective relating to the kidneys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1648,50 @@
     "text": "Once more he’s far off",
     "enumeration": "6"
    },
-   "solution": "AFRESH"
+   "solution": "AFRESH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFRESH",
+    "definitions": [
+     {
+      "text": "Once more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means out of sorts or wrong, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he’s far",
+      "gives": "HESFAR",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESFAR",
+       "gives": "AFRESH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "He has gone a long way away yet again.",
+     "definitionFit": "Afresh means anew or again, to start over, which is once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1705,57 @@
     "text": "One gets almost all food some way away",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AFAR",
+    "definitions": [
+     {
+      "text": "some way away",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost all",
+      "for": "deletion",
+      "note": "almost all means the last letter is dropped from the word for food"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "one is a or an"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FARE",
+      "note": "fare is food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receives nearly all of their meal at a distance.",
+     "definitionFit": "Afar means at or to a great distance, some way away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1769,66 @@
     "text": "Soon cracked in experiment to do with barbering",
     "enumeration": "9"
    },
-   "solution": "TONSORIAL"
+   "solution": "TONSORIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TONSORIAL",
+    "definitions": [
+     {
+      "text": "to do with barbering",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "something cracked is broken up, so the letters are put into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the rearranged letters go inside the word for experiment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soon",
+      "gives": "SOON",
+      "note": "taken as written before rearranging"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TRIAL",
+      "note": "a trial is a test or experiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ONSO",
+      "RIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOON",
+       "gives": "ONSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barbering experiment fails quickly.",
+     "definitionFit": "Tonsorial is the formal, often jocular adjective for barbers and hairdressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
+    }
+   }
   },
   {
    "number": 29,
@@ -454,7 +1842,62 @@
     "text": "Waste airborne force dropped in middle of landfill",
     "enumeration": "5"
    },
-   "solution": "DRAFF"
+   "solution": "DRAFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRAFF",
+    "definitions": [
+     {
+      "text": "Waste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped in",
+      "for": "container",
+      "note": "dropped in means put inside, so one piece goes within the other"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landfill",
+      "gives": "DF",
+      "select": "middle",
+      "note": "the two central letters of this eight-letter word"
+     },
+     {
+      "clueFragment": "airborne force",
+      "gives": "RAF",
+      "note": "the Royal Air Force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RAF",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "An air force airdrops rubbish into a landfill site.",
+     "walkthrough": "Draff is the dregs or refuse of malt left after brewing; RAF is Britain's Royal Air Force.",
+     "definitionFit": "Draff is spent grain or dregs, worthless residue, so it is a kind of waste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 30,
@@ -468,7 +1911,57 @@
     "text": "Last stage of tender, hurtful burn",
     "enumeration": "4"
    },
-   "solution": "RILL"
+   "solution": "RILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RILL",
+    "definitions": [
+     {
+      "text": "burn",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last stage of",
+      "for": "letter_selection",
+      "note": "the last stage of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tender",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter"
+     },
+     {
+      "clueFragment": "hurtful",
+      "gives": "ILL",
+      "note": "ill as in ill-natured or harmful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "The final stage of a painful burn is still sore.",
+     "walkthrough": "A burn is a Scottish word for a small stream, not an injury.",
+     "definitionFit": "A rill is a small brook, just as a burn is a Scottish stream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "burn"
+    }
+   }
   },
   {
    "number": 31,
@@ -482,7 +1975,58 @@
     "text": "Minister's section of church with most of learning",
     "enumeration": "10"
    },
-   "solution": "CHANCELLOR"
+   "solution": "CHANCELLOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CHANCELLOR",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means the final letter of the word for learning is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section of church",
+      "gives": "CHANCEL",
+      "note": "the chancel is the part of a church near the altar"
+     },
+     {
+      "clueFragment": "learning",
+      "gives": "LORE",
+      "note": "lore is learning or knowledge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHANCEL",
+      "LOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric's part of the church is filled with scholarship.",
+     "walkthrough": "'Minister' suggests a clergyman, matching the church, but it is a government minister.",
+     "definitionFit": "A chancellor is a senior government minister, such as Britain's Chancellor of the Exchequer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   }
  ]
 }
