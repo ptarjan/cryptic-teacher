@@ -20,8 +20,25 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "28 entries, 56 crossings, 0 conflicts"
+  "check": "28 entries, 56 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "10-across",
+    "was": "COMMUTER",
+    "now": "COMMONER",
+    "date": "2026-10-04"
+   },
+   {
+    "entry": "4-down",
+    "was": "NOTCONTENT",
+    "now": "NONCONTENT",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +52,62 @@
     "text": "Stick insect gets right inside sponge",
     "enumeration": "10"
    },
-   "solution": "BATTENBURG"
+   "solution": "BATTENBURG",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BATTENBURG",
+    "definitions": [
+     {
+      "text": "sponge",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets right inside",
+      "for": "container",
+      "note": "'inside' says one piece sits within another, here the abbreviation for right going into the insect"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "BATTEN",
+      "note": "a batten is a long strip of wood"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "BUG",
+      "note": "a bug is an insect"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BATTEN",
+      "BU",
+      "R",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A stick insect finds its way into a bath sponge.",
+     "walkthrough": "'Stick insect' reads as one creature but splits into two pieces. Battenburg is a chequered pink-and-yellow British cake wrapped in marzipan.",
+     "definitionFit": "Battenburg is a cake made of sponge, so the sponge stands for the cake by naming its kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +121,47 @@
     "text": "Use some heat on a lock, not having a key",
     "enumeration": "6"
    },
-   "solution": "ATONAL"
+   "solution": "ATONAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATONAL",
+    "definitions": [
+     {
+      "text": "not having a key",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' takes only part of the following words, the answer lying within them"
+     }
+    ],
+    "linkWords": [
+     "Use"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heat on a lock",
+      "gives": "ATONAL",
+      "note": "the letters run across the words"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to warm a frozen lock when there is no key.",
+     "walkthrough": "'key' sounds like a door key but is the musical sense.",
+     "definitionFit": "Atonal music is written without a key, that is, with no tonal centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 3,
@@ -69,7 +181,60 @@
      }
     ]
    },
-   "solution": "TOMMYROT"
+   "solution": "TOMMYROT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOMMY-ROT",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to climb",
+      "for": "reversal",
+      "note": "in a down answer, climbing means going upward, so the word for hill is read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Private",
+      "gives": "TOMMY",
+      "note": "Tommy is slang for a private soldier in the British army"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOMMY",
+      "ROT"
+     ],
+     "reversals": [
+      {
+       "from": "TOR",
+       "to": "ROT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is asked whether there is a hill to climb.",
+     "definitionFit": "Tommyrot is an old colloquial word for rubbish or foolish talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Private"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +254,56 @@
      }
     ]
    },
-   "solution": "NOTCONTENT"
+   "solution": "NONCONTENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NON-CONTENT",
+    "definitions": [
+     {
+      "text": "Peer's refusal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "CONTENT",
+      "note": "the volume of a vessel is its content"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "N",
+      "CONTENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lord declines because his name will not appear in a book.",
+     "walkthrough": "In the House of Lords, peers vote 'content' or 'not content'; one voting against is a non-content. The cold solve had NOT CONTENT, which the wordplay does not give.",
+     "definitionFit": "A non-content is the House of Lords term for a peer who votes against a motion, so it names a peer's negative vote."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +317,58 @@
     "text": "Tune has no beginning or end — composer to explain",
     "enumeration": "7"
    },
-   "solution": "UNRAVEL"
+   "solution": "UNRAVEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNRAVEL",
+    "definitions": [
+     {
+      "text": "explain",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no beginning or end",
+      "for": "letter_selection",
+      "note": "losing the beginning and end keeps just the inner letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tune",
+      "gives": "UN",
+      "select": "middle",
+      "note": "the inside of tune"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, French composer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RAVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A melody without start or finish, and a composer called in to account for it.",
+     "definitionFit": "To unravel a mystery is to solve or make it clear, which is what explaining does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composer"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +382,46 @@
     "text": "Wanders to Dickens's hill",
     "enumeration": "4"
    },
-   "solution": "GADS"
+   "solution": "GADS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GADS",
+    "definitions": [
+     {
+      "text": "Wanders",
+      "at": 0
+     },
+     {
+      "text": "Dickens's hill",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanders",
+      "note": "first meaning: roams about idly"
+     },
+     {
+      "clueFragment": "Dickens's hill",
+      "note": "second meaning: ... Hill, where Dickens lived"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone strolls off towards the hill Dickens knew.",
+     "walkthrough": "Gad's Hill Place in Kent was Charles Dickens's home in his last years.",
+     "definitionFit": "To gad about is to roam idly, and Dickens's house stood on Gad's Hill, giving the possessive form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +435,55 @@
     "text": "Dress wrongly in Glamis — have to change",
     "enumeration": "8"
    },
-   "solution": "MISALIGN"
+   "solution": "MISALIGN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISALIGN",
+    "definitions": [
+     {
+      "text": "Dress wrongly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "have to change",
+      "for": "anagram",
+      "note": "the letters must change their order to make the new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Glamis",
+      "gives": "MISALIGN",
+      "note": "these eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISALIGN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INGLAMIS",
+       "gives": "MISALIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at Glamis Castle has put on the wrong clothes and must get changed.",
+     "walkthrough": "'Dress' is the military sense, lining troops up in rank. Glamis is the Scottish castle of Macbeth.",
+     "definitionFit": "To dress ranks is to align soldiers, so dressing them wrongly is to misalign them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dress"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +497,56 @@
     "text": "Tap regularly found under the boiler in the kitchen?",
     "enumeration": "10"
    },
-   "solution": "KETTLEDRUM"
+   "solution": "KETTLEDRUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "KETTLEDRUM",
+    "definitions": [
+     {
+      "text": "Tap regularly found under the boiler in the kitchen?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down answer, what is found under comes lower, so it follows the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the boiler in the kitchen",
+      "gives": "KETTLE",
+      "note": "the kitchen appliance that boils water"
+     },
+     {
+      "clueFragment": "Tap regularly",
+      "gives": "DRUM",
+      "note": "to drum is to tap repeatedly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KETTLE",
+      "DRUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumbing tap sits below a boiler in the kitchen.",
+     "walkthrough": "The whole clue also describes the instrument: a drum shaped like a kettle that is tapped rhythmically.",
+     "definitionFit": "A kettledrum, or timpano, is a large copper bowl drum, kettle-shaped and beaten rhythmically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tap"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +560,64 @@
     "text": "Artist rejected offer from Greek",
     "enumeration": "6"
    },
-   "solution": "ARGIVE"
+   "solution": "ARGIVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ARGIVE",
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters for artist are read backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is the crossword's usual artist"
+     },
+     {
+      "clueFragment": "offer",
+      "gives": "GIVE",
+      "note": "to give is to offer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GIVE"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter turns down a proposal from a Greek patron.",
+     "walkthrough": "RA stands for Royal Academician, a member of the Royal Academy of Arts.",
+     "definitionFit": "Argive literally describes someone from Argos, and Homer uses it for the Greeks generally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +631,43 @@
     "text": "One up? Lord, no",
     "enumeration": "8"
    },
-   "solution": "COMMUTER"
+   "solution": "COMMONER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMMONER",
+    "definitions": [
+     {
+      "text": "One up",
+      "at": 0
+     },
+     {
+      "text": "Lord, no",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One up",
+      "note": "first meaning: a student up at Oxford who holds no scholarship"
+     },
+     {
+      "clueFragment": "Lord, no",
+      "note": "second meaning: someone who is not a peer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To be 'up' is to be in residence at university; at Oxford a commoner is an undergraduate paying their own way. The cold solve had COMMUTER, but 4 Down needs N here.",
+     "definitionFit": "At Oxford the word names an ordinary fee-paying undergraduate, and generally it means anyone without a title of nobility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +681,45 @@
     "text": "Precis is difficult to understand",
     "enumeration": "8"
    },
-   "solution": "ABSTRACT"
+   "solution": "ABSTRACT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABSTRACT",
+    "definitions": [
+     {
+      "text": "Precis",
+      "at": 0
+     },
+     {
+      "text": "difficult to understand",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precis",
+      "note": "first meaning: a short summary of a paper"
+     },
+     {
+      "clueFragment": "difficult to understand",
+      "note": "second meaning: theoretical and hard to grasp"
+     }
+    ],
+    "explanation": {
+     "surface": "A complaint that someone's summary is too hard to follow.",
+     "definitionFit": "As a noun the word means a summary of a scientific paper; as an adjective it means theoretical and obscure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +733,50 @@
     "text": "Almost let the cat out of the bag in confusion",
     "enumeration": "4"
    },
-   "solution": "BLUR"
+   "solution": "BLUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLUR",
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "let the cat out of the bag",
+      "gives": "BLURT",
+      "note": "to blurt is to give away a secret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly gives away a secret while flustered.",
+     "definitionFit": "A blur is a hazy, indistinct state, which is a kind of confusion of the senses or mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "confusion"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +790,57 @@
     "text": "Railing, being ordered long periods inside",
     "enumeration": "10"
    },
-   "solution": "BALUSTRADE"
+   "solution": "BALUSTRADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BALUSTRADE",
+    "definitions": [
+     {
+      "text": "Railing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "'inside' places the long periods within the word for ordered"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordered",
+      "gives": "BADE",
+      "note": "bade is the past tense of bid, to order"
+     },
+     {
+      "clueFragment": "long periods",
+      "gives": "LUSTRA",
+      "note": "a lustrum is a five-year period; lustra is the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "LUSTRA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A railing being installed after long periods of waiting.",
+     "definitionFit": "A balustrade is a row of small posts topped by a rail, as along a staircase or balcony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +860,57 @@
      }
     ]
    },
-   "solution": "NEEDLETIME"
+   "solution": "NEEDLETIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEEDLE TIME",
+    "definitions": [
+     {
+      "text": "record allowance",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start",
+      "for": "charade",
+      "note": "'to start' says the next piece comes first, ahead of the age"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to nag",
+      "gives": "NEEDLE",
+      "note": "to needle someone is to nag or goad them"
+     },
+     {
+      "clueFragment": "The age",
+      "gives": "TIME",
+      "note": "an age or era is a time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEEDLE",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A child reaches the age when nagging begins, in time for a record.",
+     "walkthrough": "Needle time was the limited daily airtime British radio stations were allowed for playing commercial records, set by agreement with the record industry.",
+     "definitionFit": "It was the ration of broadcasting hours allowed for playing gramophone records, hence an allowance of record-playing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +930,66 @@
      }
     ]
    },
-   "solution": "LIPSERVICE"
+   "solution": "LIPSERVICE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIP-SERVICE",
+    "definitions": [
+     {
+      "text": "offered but not performed",
+      "at": 38,
+      "note": "an adjectival phrase, read with the assistance before it, for a noun answer: help offered but not given"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included",
+      "for": "container",
+      "note": "something included is taken in, so the record surrounds the letter"
+     }
+    ],
+    "linkWords": [
+     "For the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "LP, long-playing, is a record"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "assistance",
+      "gives": "SERVICE",
+      "note": "service is help given"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "P",
+      "SERVICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note for the record that help was promised and never given.",
+     "walkthrough": "The definition reuses 'assistance', which also gives the last piece.",
+     "definitionFit": "Paying lip service is professing support in words without acting on it, which is help promised but never given."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1003,56 @@
     "text": "Tragic fellow who swallowed the cricket-ball",
     "enumeration": "7"
    },
-   "solution": "LEATHER"
+   "solution": "LEATHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEATHER",
+    "definitions": [
+     {
+      "text": "cricket-ball",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "who swallowed",
+      "for": "container",
+      "note": "swallowing takes something inside, so the tragic fellow wraps round the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tragic fellow",
+      "gives": "LEAR",
+      "note": "King Lear is Shakespeare's tragic king"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad character who gulped down a cricket ball.",
+     "walkthrough": "'Tragic fellow' points to King Lear.",
+     "definitionFit": "Leather is cricket slang for the ball, which is made of a leather case stitched together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "swallowed"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1066,71 @@
     "text": "For one that holds court, fancy dress",
     "enumeration": "8"
    },
-   "solution": "ACCOUTRE"
+   "solution": "ACCOUTRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ACCOUTRE",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "holding means keeping something within, so one surrounds the other word"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the letters of court are dressed up anew"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is a one in cards"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "COUTR",
+      "note": "the letters of court rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COUTR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COURT",
+       "gives": "COUTR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fancy dress for one who presides over a royal court.",
+     "walkthrough": "'fancy dress' reads as costume, but the two words do different jobs.",
+     "definitionFit": "To accoutre is to equip or clothe someone, especially in military gear, so it means to dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1144,47 @@
     "text": "The spider and the fly",
     "enumeration": "7"
    },
-   "solution": "SPINNER"
+   "solution": "SPINNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPINNER",
+    "definitions": [
+     {
+      "text": "The spider",
+      "at": 0
+     },
+     {
+      "text": "the fly",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The spider",
+      "note": "first meaning: a creature that spins a web"
+     },
+     {
+      "clueFragment": "the fly",
+      "note": "second meaning: a revolving lure used by anglers"
+     }
+    ],
+    "explanation": {
+     "surface": "It recalls the nursery poem of the spider luring the fly into its parlour.",
+     "walkthrough": "Both creatures seem to be animals, but the fly is a fishing fly.",
+     "definitionFit": "A spider spins silk, and an angler's spinner is an artificial fly or lure that revolves in the water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1198,43 @@
     "text": "Attest a decline?",
     "enumeration": "8"
    },
-   "solution": "NOTARISE"
+   "solution": "NOTARISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTARISE",
+    "definitions": [
+     {
+      "text": "Attest",
+      "at": 0
+     },
+     {
+      "text": "a decline?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attest",
+      "note": "first meaning: to certify a document formally"
+     },
+     {
+      "clueFragment": "a decline?",
+      "note": "second meaning, read cryptically: a fall is no increase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as NOT A RISE, the answer describes a decline; the question mark flags the wordplay.",
+     "definitionFit": "A notary public attests signatures, and to notarise a document is to certify it in that way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decline"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1254,54 @@
      }
     ]
    },
-   "solution": "SIDECAR"
+   "solution": "SIDECAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDE-CAR",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a cocktail",
+      "for": "anagram",
+      "note": "a cocktail is a mixture, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cider as",
+      "gives": "SIDECAR",
+      "note": "these seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDECAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CIDERAS",
+       "gives": "SIDECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to serve cider in a mixed drink.",
+     "walkthrough": "'cocktail' looks like the definition but is the mixing signal.",
+     "definitionFit": "A sidecar is a classic cocktail of brandy, orange liqueur and lemon juice, so it is a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cocktail"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1315,51 @@
     "text": "Underground river makes item for study, perhaps",
     "enumeration": "10"
    },
-   "solution": "SECRETAIRE"
+   "solution": "SECRETAIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECRETAIRE",
+    "definitions": [
+     {
+      "text": "item for study, perhaps",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underground",
+      "gives": "SECRET",
+      "note": "an underground movement is a secret one"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "AIRE",
+      "note": "the Aire is a river in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECRET",
+      "AIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A river running below ground yields something worth studying.",
+     "walkthrough": "'study' is the room, not the activity.",
+     "definitionFit": "A secretaire is a writing desk with drawers, a typical piece of furniture in a study."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1373,46 @@
     "text": "Spell the name",
     "enumeration": "4"
    },
-   "solution": "TERM"
+   "solution": "TERM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TERM",
+    "definitions": [
+     {
+      "text": "Spell",
+      "at": 0
+     },
+     {
+      "text": "name",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spell",
+      "note": "first meaning: a fixed period, as of office or school"
+     },
+     {
+      "clueFragment": "name",
+      "note": "second meaning: a word used for something"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to write out the name letter by letter.",
+     "definitionFit": "A school term is a spell of time, and a term is also a word or expression used to label something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1426,54 @@
     "text": "Keep control, receiving thanks",
     "enumeration": "6"
    },
-   "solution": "RETAIN"
+   "solution": "RETAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETAIN",
+    "definitions": [
+     {
+      "text": "Keep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the word for control holds the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein is to control"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding on to power while being thanked.",
+     "definitionFit": "To retain something is to continue to possess it rather than give it up, the ordinary sense of keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "control"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1487,59 @@
     "text": "Bulk-of old woman smothered in make-up",
     "enumeration": "8"
    },
-   "solution": "ROUGHAGE"
+   "solution": "ROUGHAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUGHAGE",
+    "definitions": [
+     {
+      "text": "Bulk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smothered in",
+      "for": "container",
+      "note": "something smothered in a substance is covered by it all round"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make-up",
+      "gives": "ROUGE",
+      "note": "rouge is red cosmetic powder"
+     },
+     {
+      "clueFragment": "old woman",
+      "gives": "HAG",
+      "note": "a hag is an ugly old woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUG",
+      "HAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Most of an elderly lady is covered in cosmetics.",
+     "walkthrough": "The printed hyphen after 'Bulk' is a typesetting slip and plays no part.",
+     "definitionFit": "Roughage is dietary fibre, also called bulk because it adds volume to food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bulk"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1553,54 @@
     "text": "Give backing off-beat",
     "enumeration": "4"
    },
-   "solution": "ABET"
+   "solution": "ABET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABET",
+    "definitions": [
+     {
+      "text": "Give backing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means awry, so the letters of the following word go wrong"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beat",
+      "gives": "ABET",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEAT",
+       "gives": "ABET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician provides accompaniment that is out of time.",
+     "definitionFit": "To abet is to support or encourage someone, usually in wrongdoing, which is giving them backing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1614,43 @@
     "text": "Important as Sheridan's hero",
     "enumeration": "8"
    },
-   "solution": "CRITICAL"
+   "solution": "CRITICAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRITICAL",
+    "definitions": [
+     {
+      "text": "Important",
+      "at": 0
+     },
+     {
+      "text": "as Sheridan's hero",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Important",
+      "note": "first meaning: crucial, decisive"
+     },
+     {
+      "clueFragment": "as Sheridan's hero",
+      "note": "second meaning: like a critic, the title figure of Sheridan's play The Critic"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sheridan wrote the comedy The Critic; behaving like its title character is being fault-finding.",
+     "definitionFit": "A critical moment is a crucial one, and to be critical is to find fault as a reviewer does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hero"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,10 +1661,57 @@
    },
    "length": 6,
    "clue": {
-    "text": "Extract phosphorus from strip si",
+    "text": "Extract phosphorus from strip",
     "enumeration": "6"
    },
-   "solution": "DERIVE"
+   "solution": "DERIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DERIVE",
+    "definitions": [
+     {
+      "text": "Extract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "'from' here means taken away out of, so a letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phosphorus",
+      "gives": "P",
+      "note": "P is the chemical symbol for phosphorus"
+     },
+     {
+      "clueFragment": "strip",
+      "gives": "DEPRIVE",
+      "note": "to strip someone of something is to deprive them of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "RIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to remove phosphorus from a strip of material.",
+     "walkthrough": "'Extract' looks like the instruction but is the definition, used as a verb.",
+     "definitionFit": "To derive something is to obtain or draw it out from a source, as one extracts a meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1725,62 @@
     "text": "Massage there, little girl — this bit isn't tender any more",
     "enumeration": "10"
    },
-   "solution": "THREEPENNY"
+   "solution": "THREEPENNY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THREEPENNY",
+    "definitions": [
+     {
+      "text": "this bit isn't tender any more",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Massage",
+      "for": "anagram",
+      "note": "massaging kneads and works things about, so the next word is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there",
+      "gives": "THREE",
+      "note": "the letters of there, kneaded"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "PENNY",
+      "note": "Penny is a pet form of the girl's name Penelope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREE",
+      "PENNY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THERE",
+       "gives": "THREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A masseur tells a girl the sore spot no longer hurts.",
+     "walkthrough": "The threepenny bit was a small British coin withdrawn in 1971, so it is no longer legal tender.",
+     "definitionFit": "The old coin was known as a bit, and since decimalisation it no longer counts as legal money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tender"
+    }
+   }
   }
  ]
 }
