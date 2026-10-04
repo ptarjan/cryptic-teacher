@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Sid turns up with Daisy, a calamity!",
     "enumeration": "8"
    },
-   "solution": "DISASTER"
+   "solution": "DISASTER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISASTER",
+    "definitions": [
+     {
+      "text": "a calamity",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue, turning a word up means reading it from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sid",
+      "gives": "SID",
+      "note": "the name taken as written, before it is turned"
+     },
+     {
+      "clueFragment": "Daisy",
+      "gives": "ASTER",
+      "note": "the aster, or Michaelmas daisy, is a daisy-like flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "ASTER"
+     ],
+     "reversals": [
+      {
+       "from": "SID",
+       "to": "DIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Sid arrives with a woman called Daisy, and it goes horribly wrong.",
+     "walkthrough": "Daisy looks like a woman's name, but it is the flower: DIS plus ASTER gives DISASTER.",
+     "definitionFit": "A disaster is a sudden event causing great damage or misfortune, which is exactly what a calamity is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Daisy"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +107,44 @@
     "text": "Sounds like they're ringing beautiful women",
     "enumeration": "6"
    },
-   "solution": "BELLES"
+   "solution": "BELLES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BELLES",
+    "definitions": [
+     {
+      "text": "beautiful women",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "the clue says outright that the answer is said the same as another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they're ringing",
+      "gives": "BELLES",
+      "soundsLike": "BELLS",
+      "note": "things that ring are bells; the spelling for lovely women is said identically"
+     }
+    ],
+    "explanation": {
+     "surface": "Some lovely women seem to have a voice like chimes.",
+     "definitionFit": "A belle is a beautiful woman, especially the most admired one at a party or in a town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,51 @@
     "text": "What nurses use when the musicians take a long time?",
     "enumeration": "8"
    },
-   "solution": "BANDAGES"
+   "solution": "BANDAGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDAGES",
+    "definitions": [
+     {
+      "text": "What nurses use",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when",
+     "take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the musicians",
+      "gives": "BAND",
+      "note": "a group of musicians playing together"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "AGES",
+      "note": "informally, ages means a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "A whimsical question about hospital supplies whenever the band is slow to play.",
+     "definitionFit": "Nurses wrap wounds in strips of gauze or cloth, the dressings they apply to injuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "musicians"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,42 @@
     "text": "An ice cream container",
     "enumeration": "6"
    },
-   "solution": "CORNET"
+   "solution": "CORNET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CORNET",
+    "definitions": [
+     {
+      "text": "An ice cream",
+      "at": 0
+     },
+     {
+      "text": "container",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An ice cream",
+      "note": "first meaning: in Britain, an ice cream served in a wafer cone"
+     },
+     {
+      "clueFragment": "container",
+      "note": "second meaning: a cone-shaped paper bag for holding sweets or nuts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one description of a cone; the clue splits into two senses of the same word.",
+     "definitionFit": "British English calls a wafer cone with ice cream in it a cornet, and also a twisted paper cone used to hold sweets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +265,58 @@
     "text": "Girl wanted to help men outside",
     "enumeration": "6"
    },
-   "solution": "MAIDEN"
+   "solution": "MAIDEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAIDEN",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word placed outside another wraps around it, with the other sitting within"
+     }
+    ],
+    "linkWords": [
+     "wanted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written; this is the outer word"
+     },
+     {
+      "clueFragment": "to help",
+      "gives": "AID",
+      "note": "to aid is to help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AID",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A job advert: a young woman is wanted to assist some men.",
+     "walkthrough": "'Wanted' reads as part of the advert, but it only links the definition to the wordplay.",
+     "definitionFit": "Maiden is an old-fashioned or poetic word for a young unmarried woman or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanted"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +330,58 @@
     "text": "Sorrow of skinflint at the end of the day",
     "enumeration": "6"
    },
-   "solution": "MISERY"
+   "solution": "MISERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MISERY",
+    "definitions": [
+     {
+      "text": "Sorrow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept here"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skinflint",
+      "gives": "MISER",
+      "note": "a skinflint is a stingy person, a miser"
+     },
+     {
+      "clueFragment": "the day",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the second word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy person feels gloomy when the working day is over.",
+     "definitionFit": "Misery is great unhappiness or distress, a close synonym of deep sorrow or grief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +395,50 @@
     "text": "What prisoner may be given if father takes part?",
     "enumeration": "6"
    },
-   "solution": "PAROLE"
+   "solution": "PAROLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAROLE",
+    "definitions": [
+     {
+      "text": "What prisoner may be given",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "if",
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "an actor's part in a play is a role"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Musing over whether a convict gets an early release when Dad plays along.",
+     "definitionFit": "Parole is the conditional early release of a prisoner, granted on promise of good behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +452,67 @@
     "text": "Going around Rolls-Royce, poor Rose slips",
     "enumeration": "6"
    },
-   "solution": "ERRORS"
+   "solution": "ERRORS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ERRORS",
+    "definitions": [
+     {
+      "text": "slips",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something in poor shape has fallen apart, so these letters are put into a new order"
+     },
+     {
+      "text": "Going around",
+      "for": "container",
+      "note": "going around something means surrounding it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rose",
+      "gives": "ROSE",
+      "note": "the name taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Rolls-Royce",
+      "gives": "RR",
+      "note": "RR is the standard abbreviation for Rolls-Royce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RR",
+      "ORS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROSE",
+       "gives": "EORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poor Rose keeps slipping up while driving round a Rolls-Royce.",
+     "walkthrough": "The name is rearranged first, and the result then wraps around the car's initials.",
+     "definitionFit": "A slip is a small mistake, so slips are minor errors or blunders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slips"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +532,44 @@
      }
     ]
    },
-   "solution": "ROMANCANDLE"
+   "solution": "ROMANCANDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROMAN CANDLE",
+    "definitions": [
+     {
+      "text": "Firework",
+      "at": 0
+     },
+     {
+      "text": "which lit up a room in the Italian capital",
+      "at": 9,
+      "note": "a descriptive phrase, read literally as a light used in Rome"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firework",
+      "note": "first meaning: a firework that shoots out balls of coloured fire"
+     },
+     {
+      "clueFragment": "which lit up a room in the Italian capital",
+      "note": "second meaning, taken literally: a candle from Rome used for indoor light"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half invites you to picture an actual candle in a house in Rome, the literal reading of the firework's name.",
+     "definitionFit": "A tube-shaped firework that ejects a series of flaming stars is called by this name; literally it is a candle from the city of Rome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +583,49 @@
     "text": "When to go to sea and attack",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSAIL",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "to go to sea",
+      "gives": "SAIL",
+      "note": "to sail is to travel over the sea in a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Pirates choose the moment to put out to sea and launch an assault.",
+     "definitionFit": "To assail is to attack violently, physically or with words, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "When"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +639,53 @@
     "text": "Turning dry air on is nothing special",
     "enumeration": "8"
    },
-   "solution": "ORDINARY"
+   "solution": "ORDINARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORDINARY",
+    "definitions": [
+     {
+      "text": "nothing special",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "anagram",
+      "note": "turning things over and around mixes up their order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry air on",
+      "gives": "DRYAIRON",
+      "note": "all eight letters taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRYAIRON",
+       "gives": "ORDINARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Switching on a dehumidifier is a mundane, unremarkable act.",
+     "definitionFit": "Something ordinary is common and unremarkable, without any special or distinctive features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +699,50 @@
     "text": "Courage? King George needs it",
     "enumeration": "4"
    },
-   "solution": "GRIT"
+   "solution": "GRIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIT",
+    "definitions": [
+     {
+      "text": "Courage",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "GR stands for Georgius Rex, Latin for King George"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether the king requires bravery to face what lies ahead.",
+     "walkthrough": "GR appears as a royal cipher on British postboxes from the reigns of the King Georges.",
+     "definitionFit": "Grit is informal for strength of character and determination, much like bravery or pluck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "needs"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +756,55 @@
     "text": "Butchers chuckling in a ship",
     "enumeration": "10"
    },
-   "solution": "SLAUGHTERS"
+   "solution": "SLAUGHTERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLAUGHTERS",
+    "definitions": [
+     {
+      "text": "Butchers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it is placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a ship",
+      "gives": "SS",
+      "note": "SS means steamship, the prefix before a ship's name"
+     },
+     {
+      "clueFragment": "chuckling",
+      "gives": "LAUGHTER",
+      "note": "chuckling is a form of laughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LAUGHTER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Meat cutters sharing a joke aboard a vessel.",
+     "walkthrough": "Butchers is a verb here, not the tradesmen: LAUGHTER sits inside S...S.",
+     "definitionFit": "To butcher is to kill brutally or in large numbers, just as to slaughter is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Butchers"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +818,63 @@
     "text": "Radio personality on board spilt some sugar",
     "enumeration": "11"
    },
-   "solution": "BROADCASTER"
+   "solution": "BROADCASTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BROADCASTER",
+    "definitions": [
+     {
+      "text": "Radio personality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spilt",
+      "for": "anagram",
+      "note": "something spilt is scattered out of place, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "BOARD",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "some sugar",
+      "gives": "CASTER",
+      "note": "caster sugar is a fine white sugar used in British baking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "CASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOARD",
+       "gives": "BROAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ on a ship knocks over the sugar bowl.",
+     "definitionFit": "A broadcaster presents programmes on radio or television, so is a familiar on-air personality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spilt"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +888,50 @@
     "text": "Moving chair can, causing chaos",
     "enumeration": "8"
    },
-   "solution": "ANARCHIC"
+   "solution": "ANARCHIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANARCHIC",
+    "definitions": [
+     {
+      "text": "causing chaos",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Moving",
+      "for": "anagram",
+      "note": "moving things around shifts their places, so these letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chair can",
+      "gives": "CHAIRCAN",
+      "note": "both words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAIRCAN",
+       "gives": "ANARCHIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shifting furniture and a tin around makes a real mess.",
+     "definitionFit": "Anarchic describes disorder with no control or rules, the lawless state that produces chaos."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moving"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +945,61 @@
     "text": "Civil Engineer standing still, enraptured",
     "enumeration": "8"
    },
-   "solution": "ECSTATIC"
+   "solution": "ECSTATIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ECSTATIC",
+    "definitions": [
+     {
+      "text": "enraptured",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "in a down clue, standing up means reading the letters from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Civil Engineer",
+      "gives": "CE",
+      "note": "CE is the abbreviation for Civil Engineer"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "STATIC",
+      "note": "static means motionless or still"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "STATIC"
+     ],
+     "reversals": [
+      {
+       "from": "CE",
+       "to": "EC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer stands motionless, completely carried away with delight.",
+     "walkthrough": "'Standing still' wants to be a single phrase; 'standing' turns CE up into EC, and 'still' alone gives STATIC.",
+     "definitionFit": "Being enraptured means filled with intense joy or delight, the state of overwhelming happiness that ecstatic describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1013,59 @@
     "text": "Boy in the SAS getting healthy meals?",
     "enumeration": "6"
    },
-   "solution": "SALADS"
+   "solution": "SALADS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALADS",
+    "definitions": [
+     {
+      "text": "healthy meals",
+      "at": 23,
+      "note": "the question mark flags that these dishes are only sometimes full meals"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits within it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the SAS",
+      "gives": "SAS",
+      "note": "the Special Air Service, a British army regiment, taken as written"
+     },
+     {
+      "clueFragment": "Boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LAD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A young recruit to the special forces is fed well.",
+     "walkthrough": "The SAS (Special Air Service) is an elite British army regiment.",
+     "definitionFit": "Salads are dishes of raw vegetables or leaves, widely seen as nutritious, light food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boy"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1079,51 @@
     "text": "Develop and go round topless!",
     "enumeration": "6"
    },
-   "solution": "EVOLVE"
+   "solution": "EVOLVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVOLVE",
+    "definitions": [
+     {
+      "text": "Develop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top, so in a down clue the first letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go round",
+      "gives": "REVOLVE",
+      "note": "to revolve is to turn around a centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVOLVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky instruction to grow up and then dance around with no shirt on.",
+     "definitionFit": "To evolve is to develop gradually, the way species or ideas change over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1137,62 @@
     "text": "Leading volunteers taking home journalist to be looked after",
     "enumeration": "10"
    },
-   "solution": "MAINTAINED"
+   "solution": "MAINTAINED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAINTAINED",
+    "definitions": [
+     {
+      "text": "looked after",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leading",
+      "gives": "MAIN",
+      "note": "main means chief or leading"
+     },
+     {
+      "clueFragment": "volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIN",
+      "TA",
+      "IN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Top volunteers take a reporter back to their house to care for him.",
+     "definitionFit": "Something maintained is kept in good condition and cared for, so looked after in the sense of upkeep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1206,63 @@
     "text": "Fool silly twin with it",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NITWIT",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly suggests the letters behave foolishly and land in a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twin",
+      "gives": "TWIN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NITW",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TWIN",
+       "gives": "NITW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calling a sibling an idiot for being daft.",
+     "definitionFit": "A nitwit is an informal term for a stupid or silly person, an idiot or dunce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twin"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1276,55 @@
     "text": "Swing end of rod to try to catch fish",
     "enumeration": "6"
    },
-   "solution": "DANGLE"
+   "solution": "DANGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DANGLE",
+    "definitions": [
+     {
+      "text": "Swing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rod",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "try to catch fish",
+      "gives": "ANGLE",
+      "note": "to angle is to fish with a rod and line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler swings the tip of the fishing rod hoping for a bite.",
+     "definitionFit": "To dangle is to hang loosely and sway, so swing is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swing"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1338,47 @@
     "text": "Rescue, in rough seas, a vessel",
     "enumeration": "4"
    },
-   "solution": "SAVE"
+   "solution": "SAVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SAVE",
+    "definitions": [
+     {
+      "text": "Rescue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer is said to be in the words that follow, sitting inside them unaltered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rough",
+      "note": "surface padding only, describing the sea"
+     },
+     {
+      "clueFragment": "seas, a vessel",
+      "gives": "SAVE",
+      "note": "the last letter of the first word, the middle word and the first two of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A rescue of a boat caught in stormy waters.",
+     "walkthrough": "'Rough' is only scenery; nothing is rearranged.",
+     "definitionFit": "To save someone is to rescue them from danger or harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1392,51 @@
     "text": "Unusual in a cult, a marine",
     "enumeration": "8"
    },
-   "solution": "NAUTICAL"
+   "solution": "NAUTICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAUTICAL",
+    "definitions": [
+     {
+      "text": "marine",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so the letters fall out of their ordinary order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a cult, a",
+      "gives": "INACULTA",
+      "note": "all eight letters taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INACULTA",
+       "gives": "NAUTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier from the sea has odd membership of a sect.",
+     "walkthrough": "'Marine' looks like a noun for a soldier, but it is the adjective meaning of the sea.",
+     "definitionFit": "Both adjectives relate to the sea, ships and sailing, so marine and nautical are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marine"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1450,46 @@
     "text": "Almost noon before it should be?",
     "enumeration": "6"
    },
-   "solution": "NEARLY"
+   "solution": "NEARLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEARLY",
+    "definitions": [
+     {
+      "text": "Almost",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is an abbreviation for noon"
+     },
+     {
+      "clueFragment": "before it should be",
+      "gives": "EARLY",
+      "note": "early means ahead of the proper time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EARLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether it is nearly midday ahead of schedule.",
+     "definitionFit": "Nearly and almost both mean very close to but not quite, so they are interchangeable adverbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1503,44 @@
     "text": "Ghost coming out of the drinks cabinet?",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Ghost",
+      "at": 0
+     },
+     {
+      "text": "coming out of the drinks cabinet",
+      "at": 6,
+      "note": "a descriptive phrase for an alcoholic drink rather than a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ghost",
+      "note": "first meaning: a supernatural being, an apparition"
+     },
+     {
+      "clueFragment": "coming out of the drinks cabinet",
+      "note": "second meaning: a strong distilled drink such as gin or whisky"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface imagines a phantom emerging from the cupboard; the second half really describes a bottle of liquor poured from it.",
+     "definitionFit": "A disembodied soul or apparition is one sense; distilled liquor like brandy or vodka is the other sense of the same word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1554,58 @@
     "text": "Spot in which I found fish",
     "enumeration": "6"
    },
-   "solution": "PLAICE"
+   "solution": "PLAICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLAICE",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in which",
+      "for": "container",
+      "note": "something found in another thing sits within it, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot",
+      "gives": "PLACE",
+      "note": "a spot is a place or location"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "I",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a location where someone discovered a fish.",
+     "walkthrough": "I goes inside PLACE, after its first three letters.",
+     "definitionFit": "Plaice is a flat European sea fish, popular in British fish and chip shops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   }
  ]
 }
