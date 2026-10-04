@@ -1736,16 +1736,16 @@ def bare_letters(solution):
 # which marks a whole puzzle's fill unofficial. This table is the opposite case:
 # an official key, published, with a known error in two of its letters.
 SOURCE_ANSWER_WRONG = {
-    ("times-18256", "25-down"): (
-        "DAS", "DOS",
-        '"The Turf getting up entertainments" is SOD (turf) reversed in a down '
-        "light, which spells DOS, parties; DAS is not a word; the middle cell "
-        "is unchecked"),
     ("times-16427", "27-across"): (
         "AESPERUS", "HESPERUS",
         '"Star pianist covers the country" is HESS (Myra Hess, pianist) around '
         "PERU, which spells HESPERUS, the evening star; AESPERUS is not a word; "
         "the first cell is unchecked"),
+    ("times-18256", "25-down"): (
+        "DAS", "DOS",
+        '"The Turf getting up entertainments" is SOD (turf) reversed in a down '
+        "light, which spells DOS, parties; DAS is not a word; the middle cell "
+        "is unchecked"),
     ("times-17841", "24-across"): (
         "ALISI", "ALIBI",
         '"Left one bishop to be taken in excellent defence" is L, I, B inside '
