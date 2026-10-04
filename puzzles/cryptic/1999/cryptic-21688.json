@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "I live to destroy people: time for a change",
     "enumeration": "9"
    },
-   "solution": "AMENDMENT"
+   "solution": "AMENDMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMENDMENT",
+    "definitions": [
+     {
+      "text": "a change",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I live",
+      "gives": "AM",
+      "note": "'I am' is to say I exist, I live"
+     },
+     {
+      "clueFragment": "to destroy",
+      "gives": "END",
+      "note": "to end something is to destroy it"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "END",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A misanthrope declares a mission of destruction and announces that the moment for change has arrived.",
+     "walkthrough": "The colon makes the first part read as a manifesto, but every word is a building block: 'I live' is AM, as in 'I am', so the whole reads AM + END + MEN + T.",
+     "definitionFit": "An amendment is an alteration made to a text or motion, so it is literally a modification."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,71 @@
     "text": "Pyromania’s what it is – there’s no pay – I’m off",
     "enumeration": "5"
    },
-   "solution": "ARSON"
+   "solution": "ARSON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ARSON",
+    "definitions": [
+     {
+      "text": "Pyromania’s what it is – there’s no pay – I’m off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'there's no' says the letters of the following word are absent from the fodder"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "'off' also means wrong or disordered, so what is left after the removals is scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pyromania’s",
+      "gives": "PYROMANIAS",
+      "note": "the word with its 's taken as written, the starting fodder"
+     },
+     {
+      "clueFragment": "pay",
+      "gives": "PAY",
+      "note": "taken as written, these letters are struck out"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written, these letters are struck out too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARSON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RONAS",
+       "gives": "ARSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arsonist explains that it is no money-making crime, merely a compulsion, and leaves the scene.",
+     "walkthrough": "Take PYROMANIAS, remove P, A, Y and I, M, and the leftover R, O, N, A, S rearrange; the whole clue also describes the crime, an unpaid act of a fire-raiser who then flees.",
+     "definitionFit": "Arson is the criminal act of deliberately setting fire to property, the deed a compulsive fire-raiser commits without any financial motive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,70 @@
     "text": "Cut up a member on the French pattern",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "pattern",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry 'up' means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "AXE",
+      "note": "to axe is to cut"
+     },
+     {
+      "clueFragment": "a member",
+      "gives": "MP",
+      "note": "a Member of Parliament is an MP"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXA",
+      "MP",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "AXE",
+       "to": "EXA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor chops up a limb following a French dress pattern, a gruesome sewing lesson.",
+     "walkthrough": "'Member' suggests a limb but is the parliamentary MP; 'on' just strings the pieces together.",
+     "definitionFit": "An example is a model to be copied, a sample that others follow, as in setting an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +260,39 @@
     "text": "Departs for the other side",
     "enumeration": "4"
    },
-   "solution": "DIES"
+   "solution": "DIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DIES",
+    "definitions": [
+     {
+      "text": "Departs for the other side",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Departs for the other side",
+      "note": "surface reading: someone sets out for the far side of a river or border"
+     },
+     {
+      "clueFragment": "Departs",
+      "note": "setter's reading: departing for 'the other side' is a euphemism for death, the passing to the afterlife"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It is also one of the stage directions 9 across refers to: a character who expires on stage.",
+     "definitionFit": "To pass over to the other side is a gentle euphemism for expiring, leaving life behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +306,71 @@
     "text": "Departs for the unknown, about which there’s a drawback",
     "enumeration": "4"
    },
-   "solution": "EXIT"
+   "solution": "EXIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EXIT",
+    "definitions": [
+     {
+      "text": "Departs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' tells us the word for draw is read from end to start"
+     },
+     {
+      "text": "about which there’s",
+      "for": "container",
+      "note": "'about which there's' puts the reversed draw around the unknown"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drawback",
+      "gives": "TIE",
+      "note": "the word splits into draw plus back; a draw in a match is a tie"
+     },
+     {
+      "clueFragment": "the unknown",
+      "gives": "X",
+      "note": "X is the algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "IT"
+     ],
+     "reversals": [
+      {
+       "from": "TIXE",
+       "to": "EXIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads off into uncharted territory, and the trip has a downside.",
+     "walkthrough": "'Drawback' looks like one word meaning a disadvantage, but splits into draw and back. Exit is also a stage direction, one of the examples at 9 across.",
+     "definitionFit": "Exit is the stage direction for a single actor leaving, meaning he or she goes off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawback"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +398,52 @@
    "group": [
     "5-down",
     "6-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE HUNTING OF THE SNARK",
+    "definitions": [
+     {
+      "text": "provided by 16’s creator",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn thong",
+      "gives": "TURNTHONG",
+      "note": "taken as written, first half of the fodder"
+     },
+     {
+      "clueFragment": "sheath knife",
+      "gives": "SHEATHKNIFE",
+      "note": "taken as written, second half of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURNTHONGSHEATHKNIFE",
+       "gives": "THEHUNTINGOFTHESNARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a woodsman: twist a leather strap together with a sheathed blade.",
+     "walkthrough": "'Turn' looks like the instruction to rearrange but is itself part of the twenty letters; no separate signal is given. 16 is ALICE, whose creator was Lewis Carroll.",
+     "definitionFit": "Lewis Carroll, who wrote the Alice books, also wrote this nonsense poem about a voyage to catch an imaginary beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +457,56 @@
     "text": "Other ranks left to work on the bottom deck",
     "enumeration": "5"
    },
-   "solution": "ORLOP"
+   "solution": "ORLOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORLOP",
+    "definitions": [
+     {
+      "text": "the bottom deck",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Other ranks",
+      "gives": "OR",
+      "note": "OR is the military abbreviation for other ranks, soldiers who are not officers"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "L",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Ordinary sailors are left behind to labour down on the lowest level of a ship.",
+     "definitionFit": "The orlop is the lowest deck of a sailing warship, below the waterline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 6,
@@ -178,7 +553,66 @@
    "group": [
     "7-down",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "LOOKING GLASS",
+    "definitions": [
+     {
+      "text": "It reflects",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vocal",
+      "for": "homophone",
+      "note": "'vocal' means the following word is to be heard spoken rather than read"
+     }
+    ],
+    "linkWords": [
+     "on the",
+     "where there’s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little room",
+      "gives": "LOO",
+      "note": "the loo is the lavatory, often called the little room"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are one's family"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "soundsLike": "GEE-GEE",
+      "note": "gee-gee is a childish word for a horse, and said aloud it is two letter Gs"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     }
+    ],
+    "explanation": {
+     "surface": "Musings on a cramped family home where there is no space even for a girl's pony.",
+     "walkthrough": "In a down entry the little room sits on top of the family. Gee-gee is a nursery word for a horse, and spoken it is two letters.",
+     "definitionFit": "A looking glass is an old word for a mirror, which reflects whatever stands before it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reflects"
+    }
+   }
   },
   {
    "number": 8,
@@ -198,7 +632,65 @@
      }
     ]
    },
-   "solution": "POSTEARLY"
+   "solution": "POSTEARLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POST EARLY",
+    "definitions": [
+     {
+      "text": "Pre-Christmas appeal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "'entering' puts the pieces before it inside the gates"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the gates",
+      "gives": "PEARLY",
+      "note": "the pearly gates are the entrance to heaven, so 'gates' points to pearly"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "ST",
+      "EARLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint arriving at heaven's gates finds the place indifferent to the Christmas rush.",
+     "walkthrough": "The gates are those a saint would enter, the pearly gates of heaven; O and ST go in after the P.",
+     "definitionFit": "'Post early for Christmas' was the long-running Royal Mail slogan urging people to send cards in good time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 9,
@@ -218,7 +710,50 @@
      }
     ]
    },
-   "solution": "STAGEDIRECTIONS"
+   "solution": "STAGEDIRECTIONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAGE DIRECTIONS",
+    "definitions": [
+     {
+      "text": "3 and 4 for 2",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach",
+      "gives": "STAGE",
+      "note": "a stagecoach is a coach, shortened to stage"
+     },
+     {
+      "clueFragment": "bearings",
+      "gives": "DIRECTIONS",
+      "note": "bearings are compass directions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAGE",
+      "DIRECTIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainer takes compass readings before a numbered set of moves.",
+     "walkthrough": "3 down DIES and 4 down EXIT, for 2 down EXAMPLE: they are examples of instructions printed in a play's script.",
+     "definitionFit": "Exit and dies are both instructions printed in a playscript telling actors what happens, so they are instances of this category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 10,
@@ -232,7 +767,52 @@
     "text": "Primate of the north gets it in the neck",
     "enumeration": "4"
    },
-   "solution": "NAPE"
+   "solution": "NAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAPE",
+    "definitions": [
+     {
+      "text": "the neck",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "of the",
+     "gets it in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "Primate",
+      "gives": "APE",
+      "note": "an ape is a primate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A northern ape, or a northern archbishop, gets a nasty blow to the throat.",
+     "walkthrough": "'Primate' also means an archbishop, and 'gets it in the neck' is a phrase for being punished; neither sense matters here.",
+     "definitionFit": "The nape is the back of the neck, standing for the whole part of the body here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Primate"
+    }
+   }
   },
   {
    "number": 11,
@@ -252,7 +832,48 @@
      }
     ]
    },
-   "solution": "SUREFIRE"
+   "solution": "SUREFIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURE-FIRE",
+    "definitions": [
+     {
+      "text": "infallible",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Of course",
+      "gives": "SURE",
+      "note": "'sure' is an informal way of saying of course"
+     },
+     {
+      "clueFragment": "use the gun",
+      "gives": "FIRE",
+      "note": "to fire is to use a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SURE",
+      "FIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gunman is told that shooting is the method that cannot fail.",
+     "definitionFit": "Something surefire is certain to succeed, so it cannot go wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -266,7 +887,67 @@
     "text": "The chances are there’ll be five in one set",
     "enumeration": "10"
    },
-   "solution": "ADVENTURES"
+   "solution": "ADVENTURES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ADVENTURES",
+    "definitions": [
+     {
+      "text": "The chances",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places five inside the set"
+     }
+    ],
+    "linkWords": [
+     "are",
+     "there’ll be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "DENTURES",
+      "note": "a set of false teeth is dentures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "V",
+      "ENTURES"
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler says the odds are good that a five will turn up in any one round.",
+     "walkthrough": "'Set' looks like a set in tennis or cards, but it is a set of false teeth; V goes in after the D.",
+     "definitionFit": "Adventures are risky undertakings, hazards where you take your chance, so the plural matches 'chances'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 13,
@@ -280,7 +961,62 @@
     "text": "Prevailed over the German student with a remarkable situation",
     "enumeration": "10"
    },
-   "solution": "WONDERLAND"
+   "solution": "WONDERLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WONDERLAND",
+    "definitions": [
+     {
+      "text": "remarkable situation",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prevailed",
+      "gives": "WON",
+      "note": "to prevail is to win"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is a German word for 'the'"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, a student driver"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means with, in addition to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WON",
+      "DER",
+      "L",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A victory over a German student, achieved in a striking set of circumstances.",
+     "walkthrough": "'Over' works because this is a down entry: the first piece sits above the rest. L for learner comes from British L-plates on learner drivers' cars.",
+     "definitionFit": "A wonderland is a marvellous place or state of affairs, and also the scene of Carroll's first Alice book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "student"
+    }
+   }
   },
   {
    "number": 14,
@@ -294,7 +1030,60 @@
     "text": "A Bedfordshire poet fiddled with an outboard",
     "enumeration": "9"
    },
-   "solution": "SPEEDBOAT"
+   "solution": "SPEEDBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPEEDBOAT",
+    "definitions": [
+     {
+      "text": "an outboard",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fiddled with",
+      "for": "anagram",
+      "note": "to fiddle with something is to tamper with it and so jumble it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Bedfordshire",
+      "gives": "BEDS",
+      "note": "Beds is the standard abbreviation of Bedfordshire, an English county north of London"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "POET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "A BEDS POET",
+       "gives": "SPEEDBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural English versifier tinkers with a boat engine.",
+     "definitionFit": "A speedboat is typically a fast motorboat driven by an outboard motor, so the motorboat is named by its engine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poet"
+    }
+   }
   },
   {
    "number": 14,
@@ -308,7 +1097,66 @@
     "text": "Salt and where it comes from at home with layabout",
     "enumeration": "9"
    },
-   "solution": "SEASONING"
+   "solution": "SEASONING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEASONING",
+    "definitions": [
+     {
+      "text": "Salt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "'with' joined to the 'about' inside layabout wraps the ballad round the phrase for at home"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where it comes from",
+      "gives": "SEA",
+      "note": "salt comes from the sea"
+     },
+     {
+      "clueFragment": "layabout",
+      "gives": "SONG",
+      "note": "the word splits into lay plus about; a lay is a ballad"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "in means at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "SON",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Salt, its seaside origin and a lazy person lounging around the house.",
+     "walkthrough": "'Layabout' looks like an idler but splits into lay plus about, the container signal hidden in the word.",
+     "definitionFit": "Salt is the most common flavouring added to food, the standard example of a condiment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "layabout"
+    }
+   }
   },
   {
    "number": 15,
@@ -322,7 +1170,47 @@
     "text": "Francophone part of Anglophone country is the flower",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIGER",
+    "definitions": [
+     {
+      "text": "Francophone part of Anglophone country",
+      "at": 0
+     },
+     {
+      "text": "the flower",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Francophone part of Anglophone country",
+      "note": "first meaning: a French-speaking African country whose name is the first part of its English-speaking neighbour's"
+     },
+     {
+      "clueFragment": "the flower",
+      "note": "second meaning: a flower is something that flows, a river, here the great West African one"
+     }
+    ],
+    "explanation": {
+     "surface": "A French-speaking region of an English-speaking land has a national bloom.",
+     "walkthrough": "'Flower' is crossword slang for a river. The French-speaking country's name is literally part of the name of its English-speaking neighbour Nigeria.",
+     "definitionFit": "The name belongs both to a former French colony in West Africa and to the major river flowing through it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 16,
@@ -336,7 +1224,37 @@
     "text": "She had 12 in 13 and penetrated 7 26",
     "enumeration": "5"
    },
-   "solution": "ALICE"
+   "solution": "ALICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALICE",
+    "definitions": [
+     {
+      "text": "She had 12 in 13 and penetrated 7 26",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She had 12 in 13",
+      "note": "setter's reading: a girl who had adventures in wonderland, the first book's title"
+     },
+     {
+      "clueFragment": "penetrated 7 26",
+      "note": "setter's reading: she went through the looking glass, the second book's title"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The numbers fill in from 12 down, 13 down and 7 down/26 across, giving the titles of Lewis Carroll's two books about one girl.",
+     "definitionFit": "Carroll's heroine stars in Adventures in Wonderland and Through the Looking-Glass, so she is the girl described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 17,
@@ -350,7 +1268,46 @@
     "text": "It’s doing nothing that keeps one going",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "doing nothing",
+      "at": 5
+     },
+     {
+      "text": "that keeps one going",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doing nothing",
+      "note": "first meaning: idleness, a disinclination to act"
+     },
+     {
+      "clueFragment": "that keeps one going",
+      "note": "second meaning: in physics, the property by which a moving body continues in motion unless a force stops it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a paradox about idleness giving energy; the two halves are the everyday and the physics senses of one word.",
+     "definitionFit": "In daily speech the word means sluggish apathy; in physics it is a body's tendency to stay at rest or keep moving steadily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 18,
@@ -364,7 +1321,41 @@
     "text": "Inclined to err, upper-class dandy, double drab",
     "enumeration": "9"
    },
-   "solution": "DUNDREARY"
+   "solution": "DUNDREARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNDREARY",
+    "definitions": [
+     {
+      "text": "Inclined to err, upper-class dandy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double drab",
+      "gives": "DUNDREARY",
+      "note": "two words each meaning drab: dun, a dull greyish brown, and dreary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUNDREARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a foppish, blundering aristocrat dressed in doubly dull colours.",
+     "walkthrough": "'Double drab' asks for two synonyms of drab placed side by side: DUN + DREARY.",
+     "definitionFit": "Lord Dundreary is the foolish, foppish aristocrat of the play Our American Cousin, a byword for a muddle-headed swell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 19,
@@ -378,7 +1369,58 @@
     "text": "Give the job and order some beer outside",
     "enumeration": "7"
    },
-   "solution": "APPOINT"
+   "solution": "APPOINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPOINT",
+    "definitions": [
+     {
+      "text": "Give the job",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "'outside' puts the beer around the word for order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some beer",
+      "gives": "APINT",
+      "note": "a pint is some beer"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "PO",
+      "note": "PO is a postal order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PO",
+      "INT"
+     ]
+    },
+    "explanation": {
+     "surface": "Hire someone and then buy a round of drinks outside the pub.",
+     "walkthrough": "PO goes inside A PINT, after its P. A postal order is a British money order bought at a post office.",
+     "definitionFit": "To appoint someone is to assign them to a post, placing them in a position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 20,
@@ -392,7 +1434,52 @@
     "text": "It’s obvious the vessel will capsize",
     "enumeration": "8"
    },
-   "solution": "OVERTURN"
+   "solution": "OVERTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERTURN",
+    "definitions": [
+     {
+      "text": "capsize",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "It’s",
+     "the",
+     "will"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obvious",
+      "gives": "OVERT",
+      "note": "overt means open, obvious"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "URN",
+      "note": "an urn is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "Anyone can see the ship is about to roll over.",
+     "walkthrough": "'Vessel' suggests a ship, which fits capsizing, but it is a pot.",
+     "definitionFit": "To overturn is to turn upside down, just as a boat does when it tips over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 21,
@@ -406,7 +1493,45 @@
     "text": "Composition for the voice addressed to cat",
     "enumeration": "4"
    },
-   "solution": "OPUS"
+   "solution": "OPUS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OPUS",
+    "definitions": [
+     {
+      "text": "Composition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the voice",
+      "for": "homophone",
+      "note": "'for the voice' means what follows is spoken, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "addressed to cat",
+      "gives": "OPUS",
+      "soundsLike": "O PUSS",
+      "note": "the old vocative way to call to a cat: O plus the pet name for a cat"
+     }
+    ],
+    "explanation": {
+     "surface": "A song written for a singer, dedicated to a pet cat.",
+     "walkthrough": "'Composition for the voice' looks like the definition, a song; only 'Composition' defines.",
+     "definitionFit": "Opus is Latin for work and is used for a numbered musical piece by a composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 22,
@@ -420,7 +1545,51 @@
     "text": "The upshot is, bonnie 14ac’s destination’s right",
     "enumeration": "5"
    },
-   "solution": "SKYER"
+   "solution": "SKYER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKYER",
+    "definitions": [
+     {
+      "text": "The upshot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bonnie 14ac’s destination",
+      "gives": "SKYE",
+      "note": "the Skye Boat Song runs 'Speed, bonnie boat ... over the sea to Skye', the Scottish island"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKYE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The conclusion reached: the bonnie boat's goal is correct.",
+     "walkthrough": "14 across is SPEEDBOAT, and 'Speed, bonnie boat' opens the Skye Boat Song. 'Upshot' reads as a result but is literally a shot hit upwards.",
+     "definitionFit": "In cricket a skyer is a ball hit high into the air, quite literally a shot that goes up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upshot"
+    }
+   }
   },
   {
    "number": 23,
@@ -457,7 +1626,61 @@
    "group": [
     "24-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AQUA TINT",
+    "definitions": [
+     {
+      "text": "picture",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the model inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "funny",
+      "gives": "QUAINT",
+      "note": "quaint means odd, funny"
+     },
+     {
+      "clueFragment": "Model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUA",
+      "T",
+      "INT"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's sitter appears in a comic painting.",
+     "walkthrough": "'Model' looks like a sitter for a painting but is Ford's Model T, giving just the T, which goes after A QUA.",
+     "definitionFit": "An aquatint is an etching made by a process that imitates watercolour washes, and so a kind of print or image."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 25,
@@ -477,7 +1700,66 @@
      }
     ]
    },
-   "solution": "INTERNALINQUIRY"
+   "solution": "INTERNALINQUIRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERNAL INQUIRY",
+    "definitions": [
+     {
+      "text": "lest one should suspect a cover-up?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exposed",
+      "for": "anagram",
+      "note": "something exposed is laid open and pulled apart, so these letters are broken up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny",
+      "gives": "TINY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "QUARREL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the abbreviation for Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINY QUARREL IN NI",
+       "gives": "INTERNALINQUIRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small dispute in Northern Ireland is made public to head off any accusation of hushing things up.",
+     "walkthrough": "The question mark signals a cryptic definition: an organisation investigates itself to show it hides nothing, though the irony is it may itself be a cover-up.",
+     "definitionFit": "An organisation holds an investigation into its own conduct, ostensibly to show the public it is concealing nothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Exposed"
+    }
+   }
   },
   {
    "number": 26,
@@ -504,7 +1786,44 @@
     "text": "Dese days it pulls de plough – can’t I let well alone?",
     "enumeration": "9"
    },
-   "solution": "DETRACTOR"
+   "solution": "DETRACTOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DETRACTOR",
+    "definitions": [
+     {
+      "text": "Dese days it pulls de plough",
+      "at": 0
+     },
+     {
+      "text": "can’t I let well alone?",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dese days it pulls de plough",
+      "note": "first meaning: in the dialect of the clue, 'de' is 'the', and nowadays a tractor pulls the plough"
+     },
+     {
+      "clueFragment": "can’t I let well alone?",
+      "note": "second meaning: someone who keeps finding fault even when things are fine"
+     }
+    ],
+    "explanation": {
+     "surface": "A rustic voice laments modern farm machinery and asks why it cannot leave a good thing be.",
+     "walkthrough": "The dialect spelling 'de' for 'the' is the hint: say 'de tractor' and you have the word.",
+     "definitionFit": "A critic who disparages things can never leave well enough alone, always running down what is already good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plough"
+    }
+   }
   }
  ]
 }
