@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Fictional detective in horror film",
     "enumeration": "6"
    },
-   "solution": "HAMMER"
+   "solution": "HAMMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMMER",
+    "definitions": [
+     {
+      "text": "Fictional detective",
+      "at": 0
+     },
+     {
+      "text": "horror film",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fictional detective",
+      "note": "first meaning: Mickey Spillane's private eye Mike"
+     },
+     {
+      "clueFragment": "horror film",
+      "note": "second meaning: the British studio famous for gothic chillers"
+     }
+    ],
+    "explanation": {
+     "surface": "A private eye turns up as a character in a scary movie.",
+     "walkthrough": "The surface suggests one detective inside one film; in fact the two halves name the same word separately, a pulp sleuth's surname and a famous horror studio.",
+     "definitionFit": "Mike Hammer is Spillane's hard-boiled private eye, and Hammer Films made the classic British Dracula and Frankenstein pictures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +89,63 @@
     "text": "Cry of grief from girl who's lost a son",
     "enumeration": "4"
    },
-   "solution": "ALAS"
+   "solution": "ALAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALAS",
+    "definitions": [
+     {
+      "text": "Cry of grief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "who's lost",
+      "for": "deletion",
+      "note": "a girl who has lost something no longer has it, so a letter goes missing from her"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman, bereaved of her child, cries out in sorrow.",
+     "walkthrough": "Read 'a girl who's lost son': A plus LASS with one S taken away.",
+     "definitionFit": "Alas is an exclamation used to express sorrow, regret or pity, exactly a cry of grief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "son"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +159,52 @@
     "text": "Minister mends loan bungle",
     "enumeration": "9"
    },
-   "solution": "MANDELSON"
+   "solution": "MANDELSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MANDELSON",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bungle",
+      "for": "anagram",
+      "note": "a bungle is a botched, messed-up job, so the words before it are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mends loan",
+      "gives": "MENDSLOAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENDSLOAN",
+       "gives": "MANDELSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister clumsily fixes up a botched loan.",
+     "walkthrough": "Peter Mandelson was a Labour cabinet minister, famously resigning over an undeclared home loan, which makes the surface pointed.",
+     "definitionFit": "Peter Mandelson served as a Labour cabinet minister under Blair and Brown, so he is an example of a minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bungle"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +218,55 @@
     "text": "Roman Catholic's embracing prophet's remains",
     "enumeration": "6"
    },
-   "solution": "RELICS"
+   "solution": "RELICS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELICS",
+    "definitions": [
+     {
+      "text": "remains",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hug and enclose, so the first part wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman Catholic's",
+      "gives": "RCS",
+      "note": "RC is the abbreviation for Roman Catholic, with the S of the possessive"
+     },
+     {
+      "clueFragment": "prophet's",
+      "gives": "ELI",
+      "note": "Eli is the Old Testament priest and prophet who raised Samuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELI",
+      "CS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Catholic church holds onto the bones of a holy prophet.",
+     "walkthrough": "The apostrophe-S on 'Roman Catholic's' supplies the final S; the one on 'prophet's' is just surface.",
+     "definitionFit": "Relics are physical remains, especially the bones of a saint kept for veneration, or leftovers from the past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +280,57 @@
     "text": "Sailor Ray, perhaps, is after singular sea creature",
     "enumeration": "8"
    },
-   "solution": "STARFISH"
+   "solution": "STARFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARFISH",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "is after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "S is the grammar abbreviation for singular"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "a tar is a sailor"
+     },
+     {
+      "clueFragment": "Ray, perhaps",
+      "gives": "FISH",
+      "note": "a ray is an example of a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAR",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman named Ray is chasing an unusual marine animal.",
+     "walkthrough": "'Ray' looks like a sailor's first name; it is the flat fish. 'is after' places the sailor and fish after the S.",
+     "definitionFit": "A starfish is a star-shaped echinoderm living on the seabed, a classic marine animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,51 @@
      }
     ]
    },
-   "solution": "STAMPCOLLECTING"
+   "solution": "STAMPCOLLECTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAMP COLLECTING",
+    "definitions": [
+     {
+      "text": "popular hobby",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Character",
+      "gives": "STAMP",
+      "note": "stamp means character or kind, as in 'a man of that stamp'"
+     },
+     {
+      "clueFragment": "raising funds",
+      "gives": "COLLECTING",
+      "note": "collecting money for a cause is raising funds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMP",
+      "COLLECTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who fundraises for a well-liked pastime.",
+     "walkthrough": "'Character' seems to mean a person; it is the other sense, kind or stamp.",
+     "definitionFit": "Philately, gathering postage stamps, is among the most widespread pastimes people pursue in their leisure time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +408,58 @@
     "text": "Much dismayed, a quiet friend took the initiative",
     "enumeration": "8"
    },
-   "solution": "APPALLED"
+   "solution": "APPALLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPALLED",
+    "definitions": [
+     {
+      "text": "Much dismayed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical direction for quiet"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "took the initiative",
+      "gives": "LED",
+      "note": "to lead is to take the initiative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PAL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is horrified when a shy friend takes charge.",
+     "definitionFit": "To be appalled is to be shocked and horrified, a strong form of being dismayed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +473,44 @@
     "text": "Throw a dance",
     "enumeration": "5"
    },
-   "solution": "FLING"
+   "solution": "FLING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLING",
+    "definitions": [
+     {
+      "text": "Throw",
+      "at": 0
+     },
+     {
+      "text": "a dance",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Throw",
+      "note": "first meaning: to hurl forcefully"
+     },
+     {
+      "clueFragment": "a dance",
+      "note": "second meaning: the Highland dance of Scotland"
+     }
+    ],
+    "explanation": {
+     "surface": "Host a party with dancing.",
+     "walkthrough": "'Throw a dance' reads like hosting one; the verb and the noun are separate meanings.",
+     "definitionFit": "To fling is to hurl something, and the Highland fling is a lively Scottish solo dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Throw"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +524,54 @@
     "text": "Perhaps pert Tess is a relative by marriage",
     "enumeration": "10"
    },
-   "solution": "STEPSISTER"
+   "solution": "STEPSISTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEPSISTER",
+    "definitions": [
+     {
+      "text": "a relative by marriage",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the following words could be a different word in another order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pert Tess is",
+      "gives": "PERTTESSIS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERTTESSIS",
+       "gives": "STEPSISTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky girl called Tess might be an in-law.",
+     "walkthrough": "'Perhaps' suggests an example, but it signals that the letters may be arranged differently. 'is' appears both as fodder and as the link; the fodder needs its letters.",
+     "definitionFit": "A stepsister is the daughter of one's step-parent, related through a parent's remarriage rather than blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Perhaps"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +585,56 @@
     "text": "Make animal go into ornamental shrub",
     "enumeration": "8"
    },
-   "solution": "MAGNOLIA"
+   "solution": "MAGNOLIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNOLIA",
+    "definitions": [
+     {
+      "text": "ornamental shrub",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Make",
+      "for": "anagram",
+      "note": "make, paired with into, orders that one set of words be turned into something new"
+     },
+     {
+      "text": "into",
+      "for": "anagram",
+      "note": "into names the transformed result, completing the instruction to remake the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal go",
+      "gives": "ANIMALGO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANIMALGO",
+       "gives": "MAGNOLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Force a creature to wander into the garden bushes.",
+     "walkthrough": "'Make X into Y' instructs turning one set of letters into another word.",
+     "definitionFit": "Magnolias are flowering trees and bushes grown in gardens for their large showy blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +648,66 @@
     "text": "Tellytubby is extremely excited and ready for action",
     "enumeration": "6"
    },
-   "solution": "POISED"
+   "solution": "POISED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POISED",
+    "definitions": [
+     {
+      "text": "ready for action",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "read literally, at the extremes: only the two end letters of the next word are kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tellytubby",
+      "gives": "PO",
+      "note": "Po is the smallest, red Teletubby"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "excited",
+      "gives": "ED",
+      "select": "outer",
+      "note": "the first and last letters of excited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "IS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A children's TV character gets thrilled and set to go.",
+     "walkthrough": "The Teletubbies were a BBC toddlers' programme; its four characters were Tinky Winky, Dipsy, Laa-Laa and Po.",
+     "definitionFit": "Poised describes someone balanced and prepared, ready to act at a moment's notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +721,56 @@
     "text": "Notes about advocate for Houdini, perhaps",
     "enumeration": "12"
    },
-   "solution": "ESCAPOLOGIST"
+   "solution": "ESCAPOLOGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESCAPOLOGIST",
+    "definitions": [
+     {
+      "text": "Houdini, perhaps",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notes",
+      "gives": "ES",
+      "note": "E and S are both notes, one musical and one in the sense of the scale (E, and S for the 'soh' of sol-fa)"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c (circa) is the abbreviation for about"
+     },
+     {
+      "clueFragment": "advocate",
+      "gives": "APOLOGIST",
+      "note": "an apologist argues in defence of a cause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "C",
+      "APOLOGIST"
+     ]
+    },
+    "explanation": {
+     "surface": "Musical notes describing someone who argues on behalf of the famous magician.",
+     "walkthrough": "Houdini was the celebrated escape artist; 'perhaps' marks him as an example.",
+     "definitionFit": "Harry Houdini was the most famous performer of escapes from chains and locked boxes, an example of the profession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advocate"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +784,69 @@
     "text": "A broken tin, we hear, lets out ethylene glycol",
     "enumeration": "10"
    },
-   "solution": "ANTIFREEZE"
+   "solution": "ANTIFREEZE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "homophone",
+     "charade"
+    ],
+    "answer": "ANTIFREEZE",
+    "definitions": [
+     {
+      "text": "ethylene glycol",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed apart, so the words around it are rearranged"
+     },
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the answer only sounds like the synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "lets out",
+      "gives": "FREEZE",
+      "soundsLike": "FREES",
+      "note": "to let out is to free"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATIN",
+       "gives": "ANTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cracked can leaks out a chemical.",
+     "walkthrough": "The surface pictures a leaking tin; ethylene glycol is the main ingredient of engine coolant.",
+     "definitionFit": "Ethylene glycol is the chemical used in car radiators to lower the freezing point of the coolant water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lets"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +860,62 @@
     "text": "Top men heartlessly discuss deaths",
     "enumeration": "4"
    },
-   "solution": "ENDS"
+   "solution": "ENDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENDS",
+    "definitions": [
+     {
+      "text": "deaths",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top",
+      "for": "deletion",
+      "note": "to top is to cut off the head, so the first letter of the word goes"
+     },
+     {
+      "text": "heartlessly",
+      "for": "letter_selection",
+      "note": "without its heart, a word keeps only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "discuss",
+      "gives": "DS",
+      "select": "outer",
+      "note": "the word discuss with all its middle letters gone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Senior figures talk through mortality figures without feeling.",
+     "walkthrough": "'Top' is a verb here, to behead: men loses its first letter.",
+     "definitionFit": "An end is a death, as in 'met his end', so the plural means deaths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +929,51 @@
     "text": "Beyond Slough it's cloudy",
     "enumeration": "8"
    },
-   "solution": "OVERCAST"
+   "solution": "OVERCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERCAST",
+    "definitions": [
+     {
+      "text": "cloudy",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beyond",
+      "gives": "OVER",
+      "note": "over means beyond, as in over the hill"
+     },
+     {
+      "clueFragment": "Slough",
+      "gives": "CAST",
+      "note": "to slough is to shed, as a snake casts its skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Past the town of Slough the weather turns grey.",
+     "walkthrough": "Slough looks like the Berkshire town west of London; it is the verb to shed.",
+     "definitionFit": "An overcast sky is completely covered with grey cloud, so the two words are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Slough"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +987,44 @@
     "text": "Bloody Quiptic!",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "Bloody",
+      "at": 0
+     },
+     {
+      "text": "Quiptic",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloody",
+      "note": "first meaning, read as two words: an angry word, an expletive"
+     },
+     {
+      "clueFragment": "Quiptic",
+      "note": "second meaning: the Quiptic is itself a puzzle of this kind"
+     }
+    ],
+    "explanation": {
+     "surface": "A solver's exasperated outburst at this very puzzle.",
+     "walkthrough": "'Bloody' is a cross word, a swear word; the Quiptic is the Guardian's beginner puzzle.",
+     "definitionFit": "Split in two it names an angry swear word such as bloody; whole, it is the grid puzzle the Quiptic exemplifies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloody"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1038,61 @@
     "text": "Dizzy Di taking the country to heart",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "Dizzy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside, so one piece is put within another"
+     },
+     {
+      "text": "to heart",
+      "for": "container",
+      "note": "taken to heart means put right in the middle, where the inserted piece goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Di",
+      "gives": "DI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the country",
+      "gives": "ISRAEL",
+      "note": "a Middle Eastern nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ISRAEL",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Princess Diana, scatterbrained, holds her homeland close.",
+     "walkthrough": "'Dizzy' looks like a description of Di; it was the nickname of the Victorian prime minister Benjamin Disraeli.",
+     "definitionFit": "Benjamin Disraeli, Victorian Conservative prime minister, was widely known by the nickname Dizzy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dizzy"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1106,67 @@
     "text": "Every two years Annie and Bill almost get spliced",
     "enumeration": "8"
    },
-   "solution": "BIENNIAL"
+   "solution": "BIENNIAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BIENNIAL",
+    "definitions": [
+     {
+      "text": "Every two years",
+      "at": 0,
+      "note": "adverb phrase for an adjective: read as 'happening every two years'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter of the name is dropped"
+     },
+     {
+      "text": "get spliced",
+      "for": "anagram",
+      "note": "spliced means joined and interwoven, so the two names are mixed together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annie",
+      "gives": "ANNIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "BILL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIENNIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANNIEBIL",
+       "gives": "BIENNIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple, Annie and Bill, nearly marry every couple of years.",
+     "walkthrough": "'Get spliced' is slang for getting married, but here it means joining and mixing the letters.",
+     "definitionFit": "Biennial describes something that occurs once in each two-year period, such as an art festival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spliced"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1180,47 @@
     "text": "Allow access to duck enclosure",
     "enumeration": "4"
    },
-   "solution": "OPEN"
+   "solution": "OPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN",
+    "definitions": [
+     {
+      "text": "Allow access to",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, shaped like O"
+     },
+     {
+      "clueFragment": "enclosure",
+      "gives": "PEN",
+      "note": "a pen is an enclosure for animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Let someone into the duck pen.",
+     "walkthrough": "'Duck' reads as a bird to go in the enclosure; it is the zero.",
+     "definitionFit": "To open a door or place is to unlock it and let people come in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1234,44 @@
     "text": "Chief fixer",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     },
+     {
+      "text": "fixer",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief",
+      "note": "first meaning: main or principal"
+     },
+     {
+      "clueFragment": "fixer",
+      "note": "second meaning: a bent wire that fastens papers together"
+     }
+    ],
+    "explanation": {
+     "surface": "The boss who sorts things out.",
+     "walkthrough": "'Chief fixer' reads as a head troubleshooter; the two words are separate meanings.",
+     "definitionFit": "A staple food is the principal one, and a staple is the small wire fastener that holds sheets together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fixer"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1285,53 @@
     "text": "Perv is a trace mixed up and avoids the truth",
     "enumeration": "12"
    },
-   "solution": "PREVARICATES"
+   "solution": "PREVARICATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PREVARICATES",
+    "definitions": [
+     {
+      "text": "avoids the truth",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed up",
+      "for": "anagram",
+      "note": "things mixed up lose their order, so the words before it are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perv is a trace",
+      "gives": "PERVISATRACE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERVISATRACE",
+       "gives": "PREVARICATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confused pervert, under investigation, dodges questions.",
+     "definitionFit": "To prevaricate is to speak evasively, dodging a straight answer to mislead someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trace"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1345,47 @@
     "text": "Instrument for a pansy?",
     "enumeration": "5"
    },
-   "solution": "VIOLA"
+   "solution": "VIOLA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIOLA",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     },
+     {
+      "text": "a pansy",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instrument",
+      "note": "first meaning: the stringed instrument a little larger than a violin"
+     },
+     {
+      "clueFragment": "a pansy",
+      "note": "second meaning: the plant genus that includes pansies and violets"
+     }
+    ],
+    "explanation": {
+     "surface": "Which instrument suits a delicate soul?",
+     "walkthrough": "The question mark flags the pansy as an example of the plant genus, rather than a person.",
+     "definitionFit": "The viola is a bowed string instrument, and Viola is the botanical genus to which garden pansies belong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pansy"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1399,58 @@
     "text": "Badly educated tutee initially getting a second-class mark",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "second-class mark",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letters of each word are taken"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Badly educated tutee",
+      "gives": "BET",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A poorly taught student receives a mediocre grade.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, used in marking for second-rate work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Badly"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1464,42 @@
     "text": "Far away in an obscure motel",
     "enumeration": "6"
    },
-   "solution": "REMOTE"
+   "solution": "REMOTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REMOTE",
+    "definitions": [
+     {
+      "text": "Far away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer sits inside the following words, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure motel",
+      "gives": "REMOTE",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A distant, little-known roadside lodging.",
+     "definitionFit": "Remote means distant or isolated, a long way off from other places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1513,48 @@
     "text": "I'm dead rude",
     "enumeration": "8"
    },
-   "solution": "IMPROPER"
+   "solution": "IMPROPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPROPER",
+    "definitions": [
+     {
+      "text": "rude",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "PROPER",
+      "note": "dead and proper are both British slang intensifiers meaning very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PROPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful admission of being thoroughly bad-mannered.",
+     "walkthrough": "In British speech 'dead rude' and 'proper rude' both mean very rude.",
+     "definitionFit": "Improper behaviour is indecent or unseemly, so rude in the sense of offensive or lewd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1568,72 @@
     "text": "Telling of genital disorder after end of affair",
     "enumeration": "8"
    },
-   "solution": "RELATING"
+   "solution": "RELATING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "RELATING",
+    "definitions": [
+     {
+      "text": "Telling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, which is all that is kept"
+     },
+     {
+      "text": "disorder",
+      "for": "anagram",
+      "note": "disorder means confusion, so the word beside it is jumbled"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affair",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of affair"
+     },
+     {
+      "clueFragment": "genital",
+      "gives": "GENITAL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELATING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GENITAL",
+       "gives": "ELATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a medical complaint picked up once a fling ended.",
+     "walkthrough": "'after' puts the rearranged letters after the R.",
+     "definitionFit": "To relate a story is to tell or narrate it, so relating means telling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "disorder"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1647,52 @@
     "text": "Make stop 'ere, it's said",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "Make",
+      "at": 0,
+      "note": "the clue leans on 'make dear'; endear means to make beloved"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "it's said means spoken aloud, so the answer is how the phrase sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "END",
+      "note": "to stop is to end"
+     },
+     {
+      "clueFragment": "'ere",
+      "gives": "EAR",
+      "soundsLike": "'ERE",
+      "note": "'ere, the dropped-H form of here, sounds like the body part"
+     }
+    ],
+    "explanation": {
+     "surface": "A Cockney instruction to halt right here.",
+     "walkthrough": "Spoken, 'end 'ere' is the answer; the definition is thin, as endear means to make dear, so 'Make' stands for the whole idea.",
+     "definitionFit": "To endear is to cause someone to be loved, literally to render them dear to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Make"
+    }
+   }
   }
  ]
 }
