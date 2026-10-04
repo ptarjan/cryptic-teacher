@@ -20,8 +20,25 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "29 entries, 54 crossings, 0 conflicts"
+  "check": "29 entries, 54 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "19-across",
+    "was": "RING",
+    "now": "BOND",
+    "date": "2026-10-04"
+   },
+   {
+    "entry": "16-down",
+    "was": "HERITABLE",
+    "now": "HABITABLE",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +52,47 @@
     "text": "Idea that's incomplete, however",
     "enumeration": "6"
    },
-   "solution": "THOUGH"
+   "solution": "THOUGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THOUGH",
+    "definitions": [
+     {
+      "text": "however",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's incomplete",
+      "for": "deletion",
+      "note": "something incomplete is missing a part, here its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idea",
+      "gives": "THOUGHT",
+      "note": "a thought is an idea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOUGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone half-floats a notion and then hedges it with a qualification.",
+     "definitionFit": "Both words can open a contrasting remark, as in 'it was cold; however, we went out'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incomplete"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +106,50 @@
     "text": "In South coast resort left substandard accommodation",
     "enumeration": "5"
    },
-   "solution": "HOVEL"
+   "solution": "HOVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOVEL",
+    "definitions": [
+     {
+      "text": "substandard accommodation",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South coast resort",
+      "gives": "HOVE",
+      "note": "Hove is a seaside town beside Brighton on England's south coast"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOVE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside town is left with poor-quality lodgings for visitors.",
+     "walkthrough": "'In' looks like a container signal, but it only links: the answer is in the resort plus left.",
+     "definitionFit": "A hovel is a squalid, poorly built little dwelling, the kind of home nobody would choose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +163,59 @@
     "text": "Frenchman, in single case, lacking refreshment",
     "enumeration": "9"
    },
-   "solution": "UNRENEWED"
+   "solution": "UNRENEWED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNRENEWED",
+    "definitions": [
+     {
+      "text": "lacking refreshment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "case",
+      "for": "container",
+      "note": "a case surrounds what it holds, so the word for single wraps round the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "UNWED",
+      "note": "a single person is not married"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "RENE",
+      "note": "René is a typical French man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RENE",
+      "WED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman, alone in a court action, goes without a drink.",
+     "definitionFit": "Something not refreshed or revived has gone without being made new again, as a lapsed subscription."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 4,
@@ -77,7 +229,46 @@
     "text": "Gym equipment for runners in field",
     "enumeration": "6"
    },
-   "solution": "HORSES"
+   "solution": "HORSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HORSES",
+    "definitions": [
+     {
+      "text": "Gym equipment",
+      "at": 0
+     },
+     {
+      "text": "runners in field",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gym equipment",
+      "note": "first meaning: vaulting apparatus in a gymnasium"
+     },
+     {
+      "clueFragment": "runners in field",
+      "note": "second meaning: the competitors in a race, the field"
+     }
+    ],
+    "explanation": {
+     "surface": "Apparatus at the gym is meant for athletes training outdoors.",
+     "walkthrough": "A field is all the starters in a race, so its runners are racehorses.",
+     "definitionFit": "Gymnasts vault over padded boxes called this, and racehorses make up the field of a race meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +288,75 @@
      }
     ]
    },
-   "solution": "ATOMBOMB"
+   "solution": "ATOMBOMB",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ATOM BOMB",
+    "definitions": [
+     {
+      "text": "Terrible weapon to fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disorderly",
+      "for": "anagram",
+      "note": "a disorderly crowd is out of its proper order, so its letters are rearranged"
+     },
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "repeatedly says the shuffled group is used twice over, one copy after another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mob",
+      "gives": "OMB",
+      "note": "the word mob rearranged"
+     },
+     {
+      "clueFragment": "mob",
+      "gives": "OMB",
+      "note": "the same word rearranged again, the second time round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "OMB",
+      "OMB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOB",
+       "gives": "OMB"
+      },
+      {
+       "fodder": "MOB",
+       "gives": "OMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proposes using a dreadful weapon against an unruly crowd, again and again.",
+     "definitionFit": "A nuclear fission device is the archetypal devastating weapon, dropped or launched against a target."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repeatedly"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +376,39 @@
      }
     ]
    },
-   "solution": "ANCESTORWORSHIP"
+   "solution": "ANCESTORWORSHIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANCESTOR WORSHIP",
+    "definitions": [
+     {
+      "text": "Relatively old form of religion?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relatively old",
+      "note": "surface reading: fairly ancient"
+     },
+     {
+      "clueFragment": "Relatively old form of religion?",
+      "note": "setter's reading: a faith devoted to one's old relatives, those of earlier generations"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about a faith that dates back some way.",
+     "definitionFit": "Veneration of dead forebears is among the oldest religious practices, found across China, Africa and elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Relatively"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +428,54 @@
      }
     ]
    },
-   "solution": "OLDWORLD"
+   "solution": "OLDWORLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OLD-WORLD",
+    "definitions": [
+     {
+      "text": "Quaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "archaism",
+      "gives": "OLDWORD",
+      "note": "an archaism is an old word"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLDWOR",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An antiquated expression has been retained in a text.",
+     "definitionFit": "Charming in an old-fashioned way, belonging to times past, like a village with thatched cottages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +489,47 @@
     "text": "Half-heartedly shout downstairs",
     "enumeration": "5"
    },
-   "solution": "BELOW"
+   "solution": "BELOW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BELOW",
+    "definitions": [
+     {
+      "text": "downstairs",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half-heartedly",
+      "for": "deletion",
+      "note": "half the heart goes: one of the two central letters is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shout",
+      "gives": "BELLOW",
+      "note": "to bellow is to shout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls down the stairs without much enthusiasm.",
+     "definitionFit": "On a lower floor, or on a ship below decks, as in servants who lived downstairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Half-heartedly"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +543,39 @@
     "text": "Among ordinary people, Dick is the entrepreneur",
     "enumeration": "9"
    },
-   "solution": "MIDDLEMAN"
+   "solution": "MIDDLEMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MIDDLEMAN",
+    "definitions": [
+     {
+      "text": "entrepreneur",
+      "at": 35
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Among ordinary people, Dick",
+      "note": "setter's reading: in the stock phrase for ordinary people, Tom, Dick and Harry, Dick is the one in the centre"
+     },
+     {
+      "clueFragment": "is the entrepreneur",
+      "note": "surface reading: a man called Dick runs his own business"
+     }
+    ],
+    "explanation": {
+     "surface": "Of all the common folk around, Dick is the one with the business sense.",
+     "definitionFit": "An entrepreneur in its original sense is an intermediary trader standing between producer and customer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dick"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +589,66 @@
     "text": "Importing staple food proved oddly expensive",
     "enumeration": "10"
    },
-   "solution": "OVERPRICED"
+   "solution": "OVERPRICED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OVERPRICED",
+    "definitions": [
+     {
+      "text": "expensive",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Importing",
+      "for": "container",
+      "note": "to import is to bring something inside, so one piece goes into the other"
+     },
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "done oddly means done strangely, out of the usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "proved",
+      "gives": "OVERPD",
+      "note": "the word proved rearranged, split to take the food"
+     },
+     {
+      "clueFragment": "staple food",
+      "gives": "RICE",
+      "note": "rice is the staple food of much of the world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERP",
+      "RICE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PROVED",
+       "gives": "OVERPD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in a basic foodstuff from abroad turned out to cost surprisingly much.",
+     "definitionFit": "Something costing more than it is worth is dear, or expensive, in the sense of being priced too high."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +662,79 @@
     "text": "Game you reportedly found in old-fashioned case",
     "enumeration": "4"
    },
-   "solution": "LUDO"
+   "solution": "LUDO",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "container"
+    ],
+    "answer": "LUDO",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so we go by sound"
+     },
+     {
+      "text": "fashioned",
+      "for": "anagram",
+      "note": "to fashion is to shape or make anew, so these letters are remade"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another is sitting inside it"
+     },
+     {
+      "text": "case",
+      "for": "container",
+      "note": "a case surrounds its contents, so the remade letters go round the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is said exactly like the word you"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "LDO",
+      "note": "the word old rearranged to make the case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLD",
+       "gives": "LDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A board game is said to have turned up in an antique box.",
+     "walkthrough": "'Old-fashioned' reads as one adjective, but it splits: old is the fodder and fashioned the signal.",
+     "definitionFit": "This is a simple children's board game played with dice and counters, the British form of pachisi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashioned"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +748,45 @@
     "text": "Defoe's character as seen in part of Europe",
     "enumeration": "8"
    },
-   "solution": "FLANDERS"
+   "solution": "FLANDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLANDERS",
+    "definitions": [
+     {
+      "text": "Defoe's character",
+      "at": 0
+     },
+     {
+      "text": "part of Europe",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "as seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defoe's character",
+      "note": "first meaning: the surname of Daniel Defoe's heroine Moll"
+     },
+     {
+      "clueFragment": "part of Europe",
+      "note": "second meaning: the Dutch-speaking northern region of Belgium"
+     }
+    ],
+    "explanation": {
+     "surface": "A literary figure is spotted on a trip abroad on the Continent.",
+     "definitionFit": "Moll Flanders is the 1722 novel by Daniel Defoe, and the region lies in northern Belgium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +800,55 @@
     "text": "One English novelist or another abridged",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "One English novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text is cut short, so the name loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "WELLS",
+      "note": "H. G. Wells, another English novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between two English novelists, one of them in a shortened edition.",
+     "walkthrough": "'Another' points back to 'English novelist', so it stands for a second writer: Wells.",
+     "definitionFit": "George Orwell, author of Nineteen Eighty-Four and Animal Farm, was an English writer of novels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +862,55 @@
     "text": "Lighter domestic animal put on second",
     "enumeration": "4"
    },
-   "solution": "SCOW"
+   "solution": "SCOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOW",
+    "definitions": [
+     {
+      "text": "Lighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "put on means placed after, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "domestic animal",
+      "gives": "COW",
+      "note": "a cow is a farm animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COW"
+     ]
+    },
+    "explanation": {
+     "surface": "A farm animal is given a second helping, and comes out less heavy.",
+     "walkthrough": "'Lighter' looks like a comparative of light, but it is a noun: a flat barge for unloading ships.",
+     "definitionFit": "A scow is a flat-bottomed boat used, like a lighter, for carrying cargo to and from ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lighter"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +924,43 @@
     "text": "Singularly useless product for the Japanese consumer",
     "enumeration": "9"
    },
-   "solution": "CHOPSTICK"
+   "solution": "CHOPSTICK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHOPSTICK",
+    "definitions": [
+     {
+      "text": "Singularly useless product for the Japanese consumer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singularly useless product",
+      "note": "surface reading: a remarkably pointless item sold in Japan"
+     },
+     {
+      "clueFragment": "Singularly",
+      "note": "setter's reading: used singly, one alone is no good, since they work only in pairs"
+     },
+     {
+      "clueFragment": "consumer",
+      "note": "setter's reading: the consumer is someone eating"
+     }
+    ],
+    "explanation": {
+     "surface": "A sneer at some pointless gadget marketed to Japanese shoppers.",
+     "definitionFit": "Asian diners eat with a pair of thin sticks; a single one cannot pick up food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Singularly"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +974,46 @@
     "text": "18 in a state",
     "enumeration": "8"
    },
-   "solution": "OKLAHOMA"
+   "solution": "OKLAHOMA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OKLAHOMA",
+    "definitions": [
+     {
+      "text": "18",
+      "at": 0
+     },
+     {
+      "text": "a state",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "18",
+      "note": "first meaning: a good show, the answer to 18 across, here the Rodgers and Hammerstein musical"
+     },
+     {
+      "clueFragment": "a state",
+      "note": "second meaning: one of the United States"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 18 answer, GOOD SHOW, is read literally: a hit stage musical.",
+     "definitionFit": "Oklahoma! is the celebrated Broadway musical, and Oklahoma is also a state of the American Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1027,54 @@
     "text": "Husband, somewhat expert, providing good living?",
     "enumeration": "9"
    },
-   "solution": "HERITABLE"
+   "solution": "HABITABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HABITABLE",
+    "definitions": [
+     {
+      "text": "providing good living?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "somewhat",
+      "gives": "ABIT",
+      "note": "a bit means somewhat"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ABLE",
+      "note": "able means skilled, expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ABIT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A capable husband earns enough to give his family a comfortable life.",
+     "walkthrough": "'Good living' suggests income; the question mark flags that it means a place fit to live in.",
+     "definitionFit": "A habitable building is fit for people to dwell in, suitable for occupation as a home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "living"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1088,73 @@
     "text": "Church fitted us up within ecclesiastical garb",
     "enumeration": "8"
    },
-   "solution": "CHASUBLE"
+   "solution": "CHASUBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "CHASUBLE",
+    "definitions": [
+     {
+      "text": "ecclesiastical garb",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom, backwards"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "fitted",
+      "gives": "ABLE",
+      "note": "fitted for a task means able to do it"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "A",
+      "SU",
+      "BLE"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The church has dressed us up in clerical robes.",
+     "definitionFit": "A chasuble is the sleeveless outer vestment worn by a priest celebrating Mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fitted"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1174,49 @@
      }
     ]
    },
-   "solution": "GOODSHOW"
+   "solution": "GOODSHOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOOD SHOW",
+    "definitions": [
+     {
+      "text": "Well done!",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Merchandise",
+      "gives": "GOODS",
+      "note": "goods are merchandise"
+     },
+     {
+      "clueFragment": "method",
+      "gives": "HOW",
+      "note": "the how of something is its method"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOODS",
+      "HOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman's pitch is followed by a cry of approval.",
+     "definitionFit": "Both are dated British exclamations of praise for something achieved, congratulating the person responsible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "method"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1230,42 @@
     "text": "Spy chain",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "BOND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOND",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     },
+     {
+      "text": "chain",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "note": "first meaning: James ..., Ian Fleming's secret agent 007"
+     },
+     {
+      "clueFragment": "chain",
+      "note": "second meaning: a fetter or shackle, something that binds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Spy chain' suggests a ring of agents, which tempts RING; the crossing B from 16 kills it.",
+     "definitionFit": "Fleming's fictional agent is the archetypal spy, and bonds are fetters or chains that hold a prisoner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chain"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1279,50 @@
     "text": "Aircraft, on time, coming to earth",
     "enumeration": "6"
    },
-   "solution": "PLANET"
+   "solution": "PLANET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANET",
+    "definitions": [
+     {
+      "text": "earth",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "coming to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aircraft",
+      "gives": "PLANE",
+      "note": "a plane is an aircraft"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLANE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A plane landing on schedule touches down.",
+     "walkthrough": "'Coming to earth' looks like landing, but earth is the definition, and one example of the answer.",
+     "definitionFit": "Earth is an example: the third world orbiting the sun in our solar system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1336,47 @@
     "text": "Very large flower worshipped by ancient Egyptians",
     "enumeration": "6"
    },
-   "solution": "OSIRIS"
+   "solution": "OSIRIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSIRIS",
+    "definitions": [
+     {
+      "text": "worshipped by ancient Egyptians",
+      "at": 18,
+      "note": "describes a god rather than naming one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very large",
+      "gives": "OS",
+      "note": "OS is the clothing abbreviation for outsize"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "IRIS",
+      "note": "the iris is a garden flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "IRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge bloom is revered by the people of the pharaohs.",
+     "definitionFit": "Osiris was the Egyptian god of the dead and the afterlife, a central deity of ancient worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1390,54 @@
     "text": "Staff joined by popular French master",
     "enumeration": "5"
    },
-   "solution": "RODIN"
+   "solution": "RODIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RODIN",
+    "definitions": [
+     {
+      "text": "French master",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "joined by",
+      "for": "charade",
+      "note": "joined by means followed on by, so the second piece comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "ROD",
+      "note": "a rod is a staff or stick"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable, popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROD",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Employees are joined by a well-liked French boss.",
+     "walkthrough": "'Staff' reads as employees, but it is a stick.",
+     "definitionFit": "Auguste Rodin, sculptor of The Thinker, was a French artist regarded as a master of his craft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1451,48 @@
     "text": "Corresponding part of some vital error reversed",
     "enumeration": "8"
    },
-   "solution": "RELATIVE"
+   "solution": "RELATIVE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RELATIVE",
+    "definitions": [
+     {
+      "text": "Corresponding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of tells us the answer is a stretch of the following words"
+     },
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed says the stretch is read backwards, right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some vital error",
+      "gives": "EVITALER",
+      "note": "the run of letters spanning the end of the first word to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A section of some critical mistake has been undone.",
+     "definitionFit": "Relative and corresponding both describe things considered in proportion or comparison to each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vital"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1506,58 @@
     "text": "Prolific scorer's off-drive",
     "enumeration": "5"
    },
-   "solution": "VERDI"
+   "solution": "VERDI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERDI",
+    "definitions": [
+     {
+      "text": "Prolific scorer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off is out of true, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive",
+      "gives": "VERDI",
+      "note": "the word drive rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERDI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRIVE",
+       "gives": "VERDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket batsman who scores lots of runs plays a shot to the off side.",
+     "walkthrough": "An off-drive is a cricket stroke; a scorer here is a writer of musical scores.",
+     "definitionFit": "Giuseppe Verdi composed some twenty-eight operas, making him a prolific writer of musical scores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scorer"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1571,44 @@
     "text": "A number of Germans were dishonest",
     "enumeration": "4"
    },
-   "solution": "LIED"
+   "solution": "LIED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LIED",
+    "definitions": [
+     {
+      "text": "A number of Germans",
+      "at": 0
+     },
+     {
+      "text": "were dishonest",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of Germans",
+      "note": "first meaning: a German song, a number in the musical sense"
+     },
+     {
+      "clueFragment": "were dishonest",
+      "note": "second meaning: told untruths"
+     }
+    ],
+    "explanation": {
+     "surface": "Some German people did not tell the truth.",
+     "walkthrough": "'Number' looks like a quantity but means a song; Germans here is the possessive sense, numbers by Germans.",
+     "definitionFit": "A Lied is a German art song, like those of Schubert, and lied is the past tense of lie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1628,43 @@
      }
     ]
    },
-   "solution": "BEHINDBARS"
+   "solution": "BEHINDBARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEHIND BARS",
+    "definitions": [
+     {
+      "text": "Where those who serve drinks are placed",
+      "at": 0
+     },
+     {
+      "text": "inside",
+      "at": 40
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where those who serve drinks are placed",
+      "note": "first meaning, taken literally: the station of barmen and barmaids at the counter"
+     },
+     {
+      "clueFragment": "inside",
+      "note": "second meaning: inside is slang for in prison"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Serve' hints at serving time, which fits the prison sense of the second definition.",
+     "definitionFit": "The phrase is the idiom for imprisoned, and bar staff literally stand back of the counter they pour at."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "serve"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1684,57 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SKIN-DEEP",
+    "definitions": [
+     {
+      "text": "shallow",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "something trapped in another is held inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type",
+      "gives": "KIND",
+      "note": "a kind is a type"
+     },
+     {
+      "clueFragment": "ooze",
+      "gives": "SEEP",
+      "note": "to seep is to ooze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIND",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "Some kind of creature is stuck in a thin layer of mud.",
+     "definitionFit": "Superficial, only on the surface, as in the saying that beauty is only that far down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1748,58 @@
     "text": "The short form of 23's argument",
     "enumeration": "6"
    },
-   "solution": "THESIS"
+   "solution": "THESIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "THESIS",
+    "definitions": [
+     {
+      "text": "argument",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short form of",
+      "for": "deletion",
+      "note": "a short form is a clipped version of a longer word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "23",
+      "gives": "SISTER",
+      "note": "the answer to 23 across is a relative, and a sister is one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A summary of some earlier answer's case, in abbreviated form.",
+     "walkthrough": "SIS is the familiar short form of sister.",
+     "definitionFit": "A thesis is a proposition put forward and defended, the line of reasoning in a debate or paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   }
  ]
 }
