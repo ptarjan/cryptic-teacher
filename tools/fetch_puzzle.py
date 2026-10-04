@@ -1915,6 +1915,14 @@ SOURCE_CLUE_WRONG = {
         "Traps not big enough for growl-era?",
         "Traps not big enough for growlers?",
         "OCR misread: the joke needs growlers (horse cabs, and dogs), not growl-era"),
+    ("times-18727", "11-across"): (
+        "Most of the spots are can",
+        "Most of the spots are cane",
+        "OCR misread: the definition needs cane (to beat), not can"),
+    ("times-18727", "27-across"): (
+        "Disreputable number beading (towards foreign port (American)",
+        "Disreputable number heading towards foreign port (American)",
+        "OCR misread: the link word is heading, and the stray bracket is a scan smudge"),
     ("times-18262", "25-across"): (
         "Jack got track - that's clear",
         "Jack got crack - that's clear",
