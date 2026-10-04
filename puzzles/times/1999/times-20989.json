@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-04",
-  "check": "32 entries, 64 crossings, 0 conflicts"
+  "check": "32 entries, 64 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "14-down",
+    "was": "UPSYDAISY",
+    "now": "UPSADAISY",
+    "date": "2026-10-04"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,7 +52,51 @@
      }
     ]
    },
-   "solution": "PRIMENUMBER"
+   "solution": "PRIMENUMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRIME NUMBER",
+    "definitions": [
+     {
+      "text": "1999, for example",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "PRIME",
+      "note": "prime means first in rank or importance"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "NUMBER",
+      "note": "an issue of a magazine or newspaper is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIME",
+      "NUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "The newspaper's very first edition of the new year 1999.",
+     "walkthrough": "The surface suggests the first paper published in January 1999; in fact 1999 is divisible only by itself and one.",
+     "definitionFit": "The year figure 1999 has no divisors other than one and itself, making it an instance of this arithmetic category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 1,
@@ -55,7 +110,41 @@
     "text": "Seize illegal substance",
     "enumeration": "3"
    },
-   "solution": "POT"
+   "solution": "POT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POT",
+    "definitions": [
+     {
+      "text": "Seize",
+      "at": 0
+     },
+     {
+      "text": "illegal substance",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seize",
+      "note": "first meaning: to grab or win, as in potting a prize"
+     },
+     {
+      "clueFragment": "illegal substance",
+      "note": "second meaning: slang for cannabis"
+     }
+    ],
+    "explanation": {
+     "surface": "Police confiscating banned drugs.",
+     "definitionFit": "The short word is a verb for capturing something and also everyday slang for marijuana, a banned drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -69,7 +158,65 @@
     "text": "Thoughts of leader of assassins during fateful day?",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IDEAS",
+    "definitions": [
+     {
+      "text": "Thoughts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter of the next word is kept"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period sits inside it, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fateful day",
+      "gives": "IDES",
+      "note": "the Ides of March, the day Julius Caesar was murdered"
+     },
+     {
+      "clueFragment": "assassins",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of assassins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDE",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "What went through the conspirators' minds on the day Caesar was stabbed.",
+     "walkthrough": "The Ides of March was the day Julius Caesar was murdered, so the assassins in the surface belong to the very day being clued.",
+     "definitionFit": "Ideas are thoughts, notions formed in the mind; the plural matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assassins"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +230,50 @@
     "text": "Tried to get editor to join paper",
     "enumeration": "7"
    },
-   "solution": "ESSAYED"
+   "solution": "ESSAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESSAYED",
+    "definitions": [
+     {
+      "text": "Tried",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "ESSAY",
+      "note": "a paper is a written essay"
+     },
+     {
+      "clueFragment": "editor to join",
+      "gives": "ED",
+      "note": "ED is the usual short form of editor, here joined on after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempted to get an editor taken on by a newspaper.",
+     "walkthrough": "'Paper' looks like a newspaper hiring staff, but it is a school or academic piece of writing.",
+     "definitionFit": "To essay something is a formal way of saying to attempt it, so the past tense matches tried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +287,43 @@
     "text": "Not fully understood how one's lacking basic domestic facilities",
     "enumeration": "9"
    },
-   "solution": "UNPLUMBED"
+   "solution": "UNPLUMBED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNPLUMBED",
+    "definitions": [
+     {
+      "text": "Not fully understood",
+      "at": 0
+     },
+     {
+      "text": "how one's lacking basic domestic facilities",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not fully understood",
+      "note": "first meaning: whose depths have not been measured or explored"
+     },
+     {
+      "clueFragment": "how one's lacking basic domestic facilities",
+      "note": "second meaning, playfully: having no pipes, taps or toilets fitted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second reading takes the word literally as a house with no plumbing; the first is its figurative sense of unexplored depths.",
+     "definitionFit": "A plumb line measures depth, so unexplored depths or mysteries are described with this word, as are homes without pipework."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "facilities"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +337,45 @@
     "text": "One who acquires a farm building (as opposed to cellar, say)",
     "enumeration": "5"
    },
-   "solution": "BUYER"
+   "solution": "BUYER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BUYER",
+    "definitions": [
+     {
+      "text": "One who acquires",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the word and keep its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a farm building",
+      "gives": "BUYER",
+      "soundsLike": "BYRE",
+      "note": "a byre is a cowshed"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper picking up a barn rather than an underground storeroom.",
+     "walkthrough": "The bracket is an extra joke: cellar sounds like seller, the opposite of the answer. A byre is a cowshed, a word common in Scotland and northern England.",
+     "definitionFit": "Someone who purchases goods is a buyer; acquiring by paying is purchasing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cellar"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +389,46 @@
     "text": "Again request harvest work",
     "enumeration": "7"
    },
-   "solution": "REAPPLY"
+   "solution": "REAPPLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REAPPLY",
+    "definitions": [
+     {
+      "text": "Again request",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harvest",
+      "gives": "REAP",
+      "note": "to reap is to harvest a crop"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "PLY",
+      "note": "to ply a trade is to work at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAP",
+      "PLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Farm hands asking once more for harvesting jobs.",
+     "definitionFit": "To reapply is to put in a fresh application, making the same request a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harvest"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +442,44 @@
     "text": "Insect likely to be problematic in a year",
     "enumeration": "3"
    },
-   "solution": "BUG"
+   "solution": "BUG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUG",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     },
+     {
+      "text": "likely to be problematic in a year",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insect",
+      "note": "first meaning: a small creepy-crawly"
+     },
+     {
+      "clueFragment": "likely to be problematic in a year",
+      "note": "second meaning: the computer fault feared at the turn of the millennium"
+     }
+    ],
+    "explanation": {
+     "surface": "A pest predicted to cause trouble in the coming year.",
+     "walkthrough": "Published in 1999, this alludes to the millennium computer fault expected when dates rolled over to 2000.",
+     "definitionFit": "The word means a small insect and also a software fault; the famous Y2K fault was expected in the year 2000."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Insect"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +493,51 @@
     "text": "Servant with carriage that helped to get Wellington on",
     "enumeration": "9"
    },
-   "solution": "BOOTSTRAP"
+   "solution": "BOOTSTRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOTSTRAP",
+    "definitions": [
+     {
+      "text": "that helped to get Wellington on",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Servant",
+      "gives": "BOOTS",
+      "note": "Boots was the hotel servant who cleaned guests' shoes"
+     },
+     {
+      "clueFragment": "carriage",
+      "gives": "TRAP",
+      "note": "a trap is a light horse-drawn carriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOTS",
+      "TRAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant with a coach who helped the Duke of Wellington into his clothes.",
+     "walkthrough": "Wellington looks like the Duke, but it is a wellington boot, a rubber boot.",
+     "definitionFit": "A bootstrap is the loop at the back of a boot that you pull on to draw the boot onto your foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wellington"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +557,50 @@
      }
     ]
    },
-   "solution": "GARDENPARTY"
+   "solution": "GARDENPARTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARDEN PARTY",
+    "definitions": [
+     {
+      "text": "social gathering",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eden",
+      "gives": "GARDEN",
+      "note": "Eden was the first garden, in Genesis"
+     },
+     {
+      "clueFragment": "Politicians following",
+      "gives": "PARTY",
+      "note": "a political party is a body of politicians, placed after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARDEN",
+      "PARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Politicians trailing Anthony Eden, the 1950s Prime Minister, into a reception.",
+     "walkthrough": "Eden suggests Anthony Eden, the Conservative Prime Minister, which fits the politicians; here it is the biblical garden.",
+     "definitionFit": "An outdoor reception held on a lawn, such as at Buckingham Palace, is a familiar kind of social occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eden"
+    }
+   }
   },
   {
    "number": 9,
@@ -184,10 +611,53 @@
    },
    "length": 9,
    "clue": {
-    "text": "Religious system i uniting man and woman",
+    "text": "Religious system uniting man and woman",
     "enumeration": "9"
    },
-   "solution": "THEOSOPHY"
+   "solution": "THEOSOPHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEOSOPHY",
+    "definitions": [
+     {
+      "text": "Religious system",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "uniting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "THEO",
+      "note": "Theo is a man's name"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "SOPHY",
+      "note": "Sophy is a woman's name, a form of Sophia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEO",
+      "SOPHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A faith built around joining a husband and wife.",
+     "walkthrough": "'Uniting' suggests marriage but just tells you to put the two names together.",
+     "definitionFit": "Theosophy is a mystical philosophy claiming direct insight into the divine, counted as a belief system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniting"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +671,44 @@
     "text": "Love in Paris that would be non-U in Rome?",
     "enumeration": "5"
    },
-   "solution": "AMOUR"
+   "solution": "AMOUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMOUR",
+    "definitions": [
+     {
+      "text": "Love in Paris",
+      "at": 0
+     },
+     {
+      "text": "that would be non-U in Rome?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love in Paris",
+      "note": "first meaning: the French word for love"
+     },
+     {
+      "clueFragment": "that would be non-U in Rome?",
+      "note": "second meaning, cryptically: take away the U and you have the Latin and Italian word for love"
+     }
+    ],
+    "explanation": {
+     "surface": "A French romance that would be thought vulgar in Italy.",
+     "walkthrough": "Non-U is British slang for not upper class, which fits the snobbish surface; read literally it means drop the U, turning the French word into the Latin one.",
+     "definitionFit": "Amour is the French word for love, and in English means a love affair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "non-U"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +732,45 @@
      }
     ]
    },
-   "solution": "IASKYOU"
+   "solution": "IASKYOU",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "I ASK YOU",
+    "definitions": [
+     {
+      "text": "What interrogator says",
+      "at": 0
+     },
+     {
+      "text": "expression of amazement",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What interrogator says",
+      "note": "first meaning: literally, a questioner putting a question"
+     },
+     {
+      "clueFragment": "expression of amazement",
+      "note": "second meaning: an exclamation of exasperated disbelief"
+     }
+    ],
+    "explanation": {
+     "surface": "A questioner's words causing a gasp of surprise.",
+     "definitionFit": "The phrase is a British exclamation of incredulity or exasperation, and also literally what someone posing questions says."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -245,7 +790,43 @@
      }
     ]
    },
-   "solution": "INSIDETRACK"
+   "solution": "INSIDETRACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSIDE TRACK",
+    "definitions": [
+     {
+      "text": "Advantageous position",
+      "at": 0
+     },
+     {
+      "text": "not the first part of record?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advantageous position",
+      "note": "first meaning: a favoured place, as on the inner lane of a racecourse"
+     },
+     {
+      "clueFragment": "not the first part of record?",
+      "note": "second meaning, playfully: the innermost groove of a vinyl disc, played last"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A vinyl record plays from the outer edge inwards, so the innermost band comes at the end, never first.",
+     "definitionFit": "The inner lane is the shortest way round a racetrack, so the phrase means an edge or privileged advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 12,
@@ -259,7 +840,42 @@
     "text": "Immediate response in letter I posted",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RIPOSTE",
+    "definitions": [
+     {
+      "text": "Immediate response",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter I posted",
+      "gives": "RIPOSTE",
+      "note": "spans the end of letter, the word I and most of posted"
+     }
+    ],
+    "explanation": {
+     "surface": "A quick reply to a letter someone sent off.",
+     "definitionFit": "A riposte is a quick retort, originally a fencer's swift return thrust after parrying."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posted"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +889,42 @@
     "text": "Test depth of Channel",
     "enumeration": "5"
    },
-   "solution": "SOUND"
+   "solution": "SOUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOUND",
+    "definitions": [
+     {
+      "text": "Test depth of",
+      "at": 0
+     },
+     {
+      "text": "Channel",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test depth of",
+      "note": "first meaning: to measure water depth with a line"
+     },
+     {
+      "clueFragment": "Channel",
+      "note": "second meaning: a narrow sea passage"
+     }
+    ],
+    "explanation": {
+     "surface": "Measuring how deep the English Channel is.",
+     "definitionFit": "Sailors sound water by dropping a weighted line, and a strait or inlet of sea is also called this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 14,
@@ -297,7 +948,62 @@
      }
     ]
    },
-   "solution": "UPSYDAISY"
+   "solution": "UPSADAISY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "UPS-A-DAISY",
+    "definitions": [
+     {
+      "text": "Encouragement after slipping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "say introduces an example, like e.g."
+     },
+     {
+      "clueFragment": "platform",
+      "gives": "DAIS",
+      "note": "a dais is a raised platform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "SA",
+      "DAIS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheering someone up after they've stumbled, standing on a stage.",
+     "walkthrough": "Reading 'slipping up' together is the trap: 'slipping' ends the definition, and 'up' starts the wordplay.",
+     "definitionFit": "This is the comforting cry said to a child who has tripped, as you help them back up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 15,
@@ -317,7 +1023,64 @@
      }
     ]
    },
-   "solution": "BOOBYTRAP"
+   "solution": "BOOBYTRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOOBY-TRAP",
+    "definitions": [
+     {
+      "text": "explosive device",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrieved",
+      "for": "reversal",
+      "note": "retrieved suggests bringing back, so the word is taken the other way round"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diver",
+      "gives": "BOOBY",
+      "note": "the booby is a seabird that dives for fish"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "PART",
+      "note": "a part is a piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOBY",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diver bringing up part of an underwater mine.",
+     "walkthrough": "'Diver' suggests a frogman, which suits the explosive; it is the bird.",
+     "definitionFit": "A booby trap is a hidden bomb set to go off when an unsuspecting person touches it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Diver"
+    }
+   }
   },
   {
    "number": 16,
@@ -341,7 +1104,64 @@
      }
     ]
    },
-   "solution": "ONTHETROT"
+   "solution": "ONTHETROT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ON THE TROT",
+    "definitions": [
+     {
+      "text": "in succession",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Improperly assigned",
+      "for": "anagram",
+      "note": "things placed improperly are out of their right order, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "be before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to throne",
+      "gives": "ONTHETRO",
+      "note": "the eight letters rearranged"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the usual abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHETRO",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOTHRONE",
+       "gives": "ONTHETRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wrongly given the crown before their turn in the royal line.",
+     "walkthrough": "Succession suggests the royal line, matching the throne, but it simply means one after another.",
+     "definitionFit": "On the trot is British informal for consecutively, as in three wins on the trot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succession"
+    }
+   }
   },
   {
    "number": 17,
@@ -355,7 +1175,59 @@
     "text": "Invalidate right to make changes on record",
     "enumeration": "9"
    },
-   "solution": "DISCREDIT"
+   "solution": "DISCREDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCREDIT",
+    "definitions": [
+     {
+      "text": "Invalidate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a clue, on means placed after, so the pieces before it are put behind the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "DISC",
+      "note": "a record is a disc"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "to make changes",
+      "gives": "EDIT",
+      "note": "to edit is to make changes to text"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "R",
+      "EDIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rule letting someone alter the official record.",
+     "definitionFit": "To discredit evidence or a theory is to show it untrustworthy, so to cancel its validity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 18,
@@ -366,7 +1238,7 @@
    },
    "length": 7,
    "clue": {
-    "text": "3 Put down 'phone - no longer engaged?",
+    "text": "Put down 'phone - no longer engaged?",
     "enumeration": "4,3",
     "separators": [
      {
@@ -375,7 +1247,43 @@
      }
     ]
    },
-   "solution": "RANGOFF"
+   "solution": "RANGOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RANG OFF",
+    "definitions": [
+     {
+      "text": "Put down 'phone",
+      "at": 0
+     },
+     {
+      "text": "no longer engaged?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put down 'phone",
+      "note": "first meaning: ended a call by hanging up"
+     },
+     {
+      "clueFragment": "no longer engaged?",
+      "note": "second meaning, playfully: the line is no longer busy, or a betrothal has been called off"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Engaged' is the British term for a busy phone line; the question mark points to the jilted-lover reading.",
+     "definitionFit": "To end a phone call by hanging up is to ring off, here in the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "engaged"
+    }
+   }
   },
   {
    "number": 19,
@@ -389,7 +1297,58 @@
     "text": "Musician with piano in place of seaside entertainment",
     "enumeration": "5"
    },
-   "solution": "PIPER"
+   "solution": "PIPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIPER",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one letter is put inside the following word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place of seaside entertainment",
+      "gives": "PIER",
+      "note": "a pier is the seaside spot with amusements"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano, meaning softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A pianist playing at a seaside resort.",
+     "walkthrough": "British seaside piers traditionally host arcades, shows and bands, so they count as a place of entertainment.",
+     "definitionFit": "A piper is a musician who plays the pipes or bagpipes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 19,
@@ -403,7 +1362,68 @@
     "text": "One accepted by Constable as likewise a great artist",
     "enumeration": "7"
    },
-   "solution": "PICASSO"
+   "solution": "PICASSO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PICASSO",
+    "definitions": [
+     {
+      "text": "a great artist",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "something accepted is taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Constable",
+      "gives": "PC",
+      "note": "PC is police constable"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "likewise",
+      "gives": "SO",
+      "note": "so means likewise, as in so do I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "C",
+      "AS",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "John Constable welcoming a fellow master painter.",
+     "walkthrough": "Constable suggests the English landscape painter, apt beside a great artist, but it is a police officer.",
+     "definitionFit": "Pablo Picasso, the Spanish co-founder of Cubism, is among the most celebrated painters of the twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Constable"
+    }
+   }
   },
   {
    "number": 20,
@@ -417,7 +1437,57 @@
     "text": "News that is initially brought by sound of bells",
     "enumeration": "7"
    },
-   "solution": "TIDINGS"
+   "solution": "TIDINGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TIDINGS",
+    "definitions": [
+     {
+      "text": "News",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words just before it"
+     }
+    ],
+    "linkWords": [
+     "brought by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "TI",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "sound of bells",
+      "gives": "DINGS",
+      "note": "bells go ding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "DINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Announcements first carried by church bells ringing out.",
+     "definitionFit": "Tidings is an old-fashioned word for news or information received."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -431,7 +1501,45 @@
     "text": "Sounds like sort of horse, one that starts nervously",
     "enumeration": "5"
    },
-   "solution": "SHYER"
+   "solution": "SHYER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHYER",
+    "definitions": [
+     {
+      "text": "one that starts nervously",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "sounds like asks for a word that is spoken the same as another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sort of horse",
+      "gives": "SHYER",
+      "soundsLike": "SHIRE",
+      "note": "a Shire is a big English draught horse"
+     }
+    ],
+    "explanation": {
+     "surface": "A jumpy kind of horse that bolts easily.",
+     "walkthrough": "A horse that shies starts sideways in fright, so the answer and the horse belong together.",
+     "definitionFit": "A shyer is a horse that shies, jumping aside in alarm, so it starts nervously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 22,
@@ -451,7 +1559,50 @@
      }
     ]
    },
-   "solution": "EACHWAY"
+   "solution": "EACHWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EACH WAY",
+    "definitions": [
+     {
+      "text": "this sort of bet",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every",
+      "gives": "EACH",
+      "note": "each means every"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "WAY",
+      "note": "a course is a way or route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EACH",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Every racecourse offers a certain kind of wager.",
+     "walkthrough": "'Course' suggests a racecourse, fitting the betting; it is a route. An each-way bet in British racing backs a horse both to win and to be placed.",
+     "definitionFit": "An each-way stake is a two-part wager, half on winning and half on finishing in the places."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 23,
@@ -465,7 +1616,38 @@
     "text": "Bridge-player's abandoned this?",
     "enumeration": "5"
    },
-   "solution": "WHIST"
+   "solution": "WHIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WHIST",
+    "definitions": [
+     {
+      "text": "Bridge-player's abandoned this?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bridge-player's abandoned this?",
+      "note": "surface reading: something a player left behind or gave up"
+     },
+     {
+      "clueFragment": "Bridge-player",
+      "note": "setter's reading: the older card game that bridge grew out of and replaced"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bridge developed from an earlier trick-taking game, which players then abandoned in its favour.",
+     "definitionFit": "Whist is the four-player trick-taking card game from which contract bridge evolved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 24,
@@ -479,7 +1661,54 @@
     "text": "American and I leave China, for Spain",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMIGO",
+    "definitions": [
+     {
+      "text": "China, for Spain",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "AM is a short form of American"
+     },
+     {
+      "clueFragment": "and I",
+      "gives": "I",
+      "note": "taken as written, joined on"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "I",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "An American and I depart from China for Spain.",
+     "walkthrough": "China is Cockney rhyming slang for mate (china plate = mate); China and Spain look like countries to travel between.",
+     "definitionFit": "Amigo is Spanish for friend, which is what china means in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 25,
@@ -493,7 +1722,49 @@
     "text": "Standard criticism attached to London police",
     "enumeration": "9"
    },
-   "solution": "YARDSTICK"
+   "solution": "YARDSTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YARDSTICK",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London police",
+      "gives": "YARD",
+      "note": "the Yard is Scotland Yard, London's Metropolitan Police"
+     },
+     {
+      "clueFragment": "criticism",
+      "gives": "STICK",
+      "note": "taking stick is British informal for being criticised"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YARD",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Routine complaints aimed at the Metropolitan Police.",
+     "definitionFit": "A yardstick is a benchmark against which things are measured, so a standard or criterion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 26,
@@ -507,7 +1778,43 @@
     "text": "Child that's looked after by nanny",
     "enumeration": "3"
    },
-   "solution": "KID"
+   "solution": "KID",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KID",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     },
+     {
+      "text": "that's looked after by nanny",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "note": "first meaning: informal for a youngster"
+     },
+     {
+      "clueFragment": "that's looked after by nanny",
+      "note": "second meaning: a young goat, whose mother is a nanny goat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nanny suggests a childminder, but a nanny is also a female goat.",
+     "definitionFit": "The word is casual for a youngster and also names a baby goat, which its mother tends."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nanny"
+    }
+   }
   },
   {
    "number": 27,
@@ -521,7 +1828,43 @@
     "text": "She just makes it into the first eleven",
     "enumeration": "3"
    },
-   "solution": "KAY"
+   "solution": "KAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KAY",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     },
+     {
+      "text": "just makes it into the first eleven",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "She",
+      "note": "first meaning: a woman's first name"
+     },
+     {
+      "clueFragment": "just makes it into the first eleven",
+      "note": "second meaning, cryptically: the spelt-out name of the alphabet's eleventh letter, last of the first eleven"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "First eleven suggests a cricket or football team; here it is the alphabet from A, and the eleventh letter's spelt-out name is also a woman's name.",
+     "definitionFit": "Kay is a female first name, which is what the pronoun she stands for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 28,
@@ -541,7 +1884,59 @@
      }
     ]
    },
-   "solution": "FIRSTFOOTED"
+   "solution": "FIRSTFOOTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIRST-FOOTED",
+    "definitions": [
+     {
+      "text": "Arrived early this morning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about, so the letters reel into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ie trod off",
+      "gives": "IETRODOFF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRSTFOOTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IETRODOFFST",
+       "gives": "FIRSTFOOTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A New Year reveller staggering home along the road after midnight.",
+     "walkthrough": "First-footing is a Scottish New Year custom: the first visitor over the threshold after midnight brings luck. The puzzle appeared on New Year's Day 1999.",
+     "definitionFit": "To first-foot is to be the first guest to cross a home's doorstep in the small hours of New Year."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
+    }
+   }
   }
  ]
 }
