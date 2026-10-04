@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Place at Brighton for retired cricketers",
     "enumeration": "8"
    },
-   "solution": "PAVILION"
+   "solution": "PAVILION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAVILION",
+    "definitions": [
+     {
+      "text": "Place at Brighton",
+      "at": 0
+     },
+     {
+      "text": "for retired cricketers",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place at Brighton",
+      "note": "first meaning: the Royal ..., the Prince Regent's oriental palace in the seaside town of Brighton"
+     },
+     {
+      "clueFragment": "for retired cricketers",
+      "note": "second meaning: the building at a cricket ground where a batsman goes when he retires from the crease"
+     }
+    ],
+    "explanation": {
+     "surface": "A seaside retirement home for old cricket players.",
+     "walkthrough": "Retired cricketers sounds like elderly players, but in cricket a batsman who retires simply walks off the field to the clubhouse.",
+     "definitionFit": "The word names both the famous Regency palace in Brighton and the clubhouse building beside a cricket field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,41 @@
     "text": "Girl used in 11 across",
     "enumeration": "4"
    },
-   "solution": "RUBY"
+   "solution": "RUBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUBY",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     },
+     {
+      "text": "used in 11 across",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "note": "first meaning: a female first name"
+     },
+     {
+      "clueFragment": "used in 11 across",
+      "note": "second meaning: a red precious stone, the kind of thing a jeweller cuts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "11 across is GEM CUTTING, whose clue itself contains a cut-down version of this stone.",
+     "definitionFit": "It is both a common female forename and a red gemstone that lapidaries shape and polish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +135,67 @@
     "text": "Put up horse in frisky ride",
     "enumeration": "6"
    },
-   "solution": "RIGGED"
+   "solution": "RIGGED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RIGGED",
+    "definitions": [
+     {
+      "text": "Put up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frisky",
+      "for": "anagram",
+      "note": "a frisky animal jumps about, so the letters of the word beside it are tossed into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one element is placed inside another, the outer word wrapping it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride",
+      "gives": "RIDE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "GG, short for gee-gee, is a childish word for a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "GG",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIDE",
+       "gives": "RIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets a horse up for a lively outing.",
+     "walkthrough": "'Put up' looks like stabling a horse, but here it means fixed in advance, as in a put-up job.",
+     "definitionFit": "A put-up job is a fraud arranged beforehand, which is exactly what a fixed or crooked contest is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +209,66 @@
     "text": "Thomas could first muster up courage for the fight",
     "enumeration": "7"
    },
-   "solution": "STOMACH"
+   "solution": "STOMACH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "STOMACH",
+    "definitions": [
+     {
+      "text": "courage for the fight",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the neighbouring word is kept"
+     },
+     {
+      "text": "muster up",
+      "for": "anagram",
+      "note": "to muster is to gather troops and form them up in a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thomas",
+      "gives": "THOMAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "could",
+      "gives": "C",
+      "select": "first",
+      "note": "the initial letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOMACH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THOMASC",
+       "gives": "STOMACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doubting Thomas might summon the nerve to go into battle.",
+     "walkthrough": "Having the stomach for something means having the nerve or appetite to face it.",
+     "definitionFit": "Stomach in the idiomatic sense is the nerve or willingness needed to face a difficult or unpleasant struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "muster"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +282,39 @@
     "text": "Do they weigh on the conscience?",
     "enumeration": "8"
    },
-   "solution": "SCRUPLES"
+   "solution": "SCRUPLES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCRUPLES",
+    "definitions": [
+     {
+      "text": "Do they weigh on the conscience?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do they weigh on the conscience?",
+      "note": "surface reading: worries that press heavily on a guilty mind"
+     },
+     {
+      "clueFragment": "weigh",
+      "note": "setter's reading: these are also small apothecaries' weights, so they literally weigh things, as well as being moral hesitations"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is both an old apothecaries' unit of weight, a twentieth of an ounce, and a moral qualm.",
+     "definitionFit": "Moral hesitations that trouble a person's sense of right are the qualms meant, punning on a tiny old pharmacist's weight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weigh"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +328,38 @@
     "text": "Where an archbishop keeps his books?",
     "enumeration": "10"
    },
-   "solution": "CANTERBURY"
+   "solution": "CANTERBURY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CANTERBURY",
+    "definitions": [
+     {
+      "text": "Where an archbishop keeps his books?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where an archbishop keeps his books?",
+      "note": "surface reading: an archbishop's library or study"
+     },
+     {
+      "clueFragment": "an archbishop",
+      "note": "setter's reading: the senior Church of England archbishop takes his title from a city whose name is also a small stand for books and music"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is a Kent cathedral city, seat of the senior English archbishop, and also a low stand with partitions for holding books or sheet music.",
+     "definitionFit": "A piece of furniture with slotted divisions for storing papers shares its name with the archbishop's own see."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +373,64 @@
     "text": "Stone I cut from hewn granite",
     "enumeration": "6"
    },
-   "solution": "GARNET"
+   "solution": "GARNET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GARNET",
+    "definitions": [
+     {
+      "text": "Stone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut from",
+      "for": "deletion",
+      "note": "something cut from a larger whole is removed from it"
+     },
+     {
+      "text": "hewn",
+      "for": "anagram",
+      "note": "rock that is hewn is chopped up and reshaped, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "granite",
+      "gives": "GRANITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "this letter is the piece removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARNET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRANTE",
+       "gives": "GARNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mason cuts a stone out of a block of rough-hewn rock.",
+     "definitionFit": "The deep red silicate mineral is a semi-precious gem, so it is a kind of precious stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hewn"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +444,39 @@
     "text": "Someone who never wears out",
     "enumeration": "8"
    },
-   "solution": "NATURIST"
+   "solution": "NATURIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NATURIST",
+    "definitions": [
+     {
+      "text": "Someone who never wears out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone who never wears out",
+      "note": "surface reading: a tireless person who never becomes exhausted"
+     },
+     {
+      "clueFragment": "wears out",
+      "note": "setter's reading: a person who puts on no clothes when outside"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Wears out' looks like the phrasal verb for tiring, but split it: this person never wears anything when out.",
+     "definitionFit": "A nudist goes about unclothed by choice, so in public they wear nothing at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wears"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +490,51 @@
     "text": "They could be involved in a crash",
     "enumeration": "6"
    },
-   "solution": "CHARAS"
+   "solution": "CHARAS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "CHARAS",
+    "definitions": [
+     {
+      "text": "They could be involved in a crash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled or twisted up, so the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a crash",
+      "gives": "ACRASH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACRASH",
+       "gives": "CHARAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that certain vehicles might end up in a collision.",
+     "walkthrough": "A chara is short for charabanc, an old open motor coach for outings; the whole clue is both the wordplay and the definition.",
+     "definitionFit": "Old motor coaches are vehicles, and vehicles are exactly the things that can end up in a road collision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +548,48 @@
     "text": "Girl likely to be heartless",
     "enumeration": "4"
    },
-   "solution": "LILY"
+   "solution": "LILY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LILY",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letters of the word are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "likely",
+      "gives": "LIKELY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman who will probably turn out to be cruel.",
+     "definitionFit": "It is a common female forename, taken from the flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +609,39 @@
      }
     ]
    },
-   "solution": "GEMCUTTING"
+   "solution": "GEMCUTTING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GEM-CUTTING",
+    "definitions": [
+     {
+      "text": "Jeweller's work",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "could make Cornelia rub, etc",
+      "note": "surface reading: some task that would make a woman called Cornelia start rubbing"
+     },
+     {
+      "clueFragment": "Cornelia rub, etc",
+      "note": "setter's reading: chop the last letter off precious stone names, cornelian and the red one, and you get these words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the answer literally as trimming jewels: cornelian loses its N, the red stone loses its Y, and so on.",
+     "definitionFit": "A lapidary's craft is shaping and faceting precious stones, which is exactly what a jeweller's cutting trade involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cornelia"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +655,61 @@
     "text": "Namely, a hollow red mask",
     "enumeration": "6"
    },
-   "solution": "VIZARD"
+   "solution": "VIZARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "VIZARD",
+    "definitions": [
+     {
+      "text": "mask",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "something hollow has its inside emptied, so only the outside letters of the word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Namely",
+      "gives": "VIZ",
+      "note": "viz is the abbreviation meaning namely"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RD",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIZ",
+      "A",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "Specifically, an empty crimson face covering.",
+     "definitionFit": "This is an archaic word for a visor or face covering worn to disguise the wearer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +723,51 @@
     "text": "A great egg's smashed - stuff for the mixer",
     "enumeration": "10"
    },
-   "solution": "AGGREGATES"
+   "solution": "AGGREGATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGGREGATES",
+    "definitions": [
+     {
+      "text": "stuff for the mixer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smashed",
+      "for": "anagram",
+      "note": "a smashed egg is broken apart, so these letters are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A great egg's",
+      "gives": "AGREATEGGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREATEGGS",
+       "gives": "AGGREGATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big egg broken into a cake mix in the kitchen.",
+     "walkthrough": "The mixer sounds like a kitchen food mixer, but it is a concrete mixer.",
+     "definitionFit": "Sand, gravel and crushed stone are the materials poured into a cement mixer to make concrete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mixer"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +781,57 @@
     "text": "Speed created when centre of star drops out",
     "enumeration": "8"
    },
-   "solution": "CELERITY"
+   "solution": "CELERITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CELERITY",
+    "definitions": [
+     {
+      "text": "Speed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "deletion",
+      "note": "points to the middle letter of the word that follows"
+     },
+     {
+      "text": "drops out",
+      "for": "deletion",
+      "note": "a letter that drops out leaves the word and is lost"
+     }
+    ],
+    "linkWords": [
+     "created when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star",
+      "gives": "CELEBRITY",
+      "note": "a famous person, a star of screen or sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELE",
+      "RITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A star's middle collapses and things happen fast.",
+     "walkthrough": "Star suggests astronomy, but it is a famous person, and its middle letter, the fifth of nine, is removed.",
+     "definitionFit": "This is a formal word for swiftness or rapidity of movement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +845,39 @@
     "text": "Example of where the stick is thickest",
     "enumeration": "7"
    },
-   "solution": "ANAGRAM"
+   "solution": "ANAGRAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANAGRAM",
+    "definitions": [
+     {
+      "text": "Example of where the stick is thickest",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where the stick is thickest",
+      "note": "surface reading: the fattest part of a stick or club"
+     },
+     {
+      "clueFragment": "the stick",
+      "note": "setter's reading: these eight letters rearranged spell the clue's last word, so the phrase is an instance of a wordplay device"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue is self-referential: 'the stick' and 'thickest' share the same eight letters.",
+     "definitionFit": "A word or phrase formed by rearranging the letters of another is the device this clue demonstrates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +891,48 @@
     "text": "Diamonds once formed from very hard sulphur",
     "enumeration": "8"
    },
-   "solution": "ADAMANTS"
+   "solution": "ADAMANTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAMANTS",
+    "definitions": [
+     {
+      "text": "Diamonds once",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "formed from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very hard",
+      "gives": "ADAMANT",
+      "note": "an adjective meaning unyielding, from a legendary hard stone"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADAMANT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gems made long ago from tough sulphur deposits.",
+     "definitionFit": "The word was an old name for diamond or any impenetrably hard stone, hence 'once' for its archaic use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +946,47 @@
     "text": "Kind of English issuing from big mouth!",
     "enumeration": "7"
    },
-   "solution": "ESTUARY"
+   "solution": "ESTUARY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ESTUARY",
+    "definitions": [
+     {
+      "text": "Kind of English",
+      "at": 0
+     },
+     {
+      "text": "big mouth",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "issuing from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of English",
+      "note": "first meaning: the accent of south-east England around the Thames, a blend of Cockney and standard speech"
+     },
+     {
+      "clueFragment": "big mouth",
+      "note": "second meaning: the wide tidal mouth of a river"
+     }
+    ],
+    "explanation": {
+     "surface": "A particular accent pouring out of a loudmouth.",
+     "walkthrough": "'Big mouth' suggests a boastful talker, but it is a river's mouth.",
+     "definitionFit": "The name of the Thames-side accent comes from the tidal river inlet, the broad opening where a river meets the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouth"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1000,43 @@
     "text": "What the highest jumper does at the back?",
     "enumeration": "8"
    },
-   "solution": "REARMOST"
+   "solution": "REARMOST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REARMOST",
+    "definitions": [
+     {
+      "text": "What the highest jumper does",
+      "at": 0
+     },
+     {
+      "text": "at the back",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What the highest jumper does",
+      "note": "first meaning, read as two words: a horse that leaps up highest on its hind legs is the one that rears most"
+     },
+     {
+      "clueFragment": "at the back",
+      "note": "second meaning: furthest to the rear"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading splits the word: a jumping horse rears, and the highest one does so most.",
+     "definitionFit": "The word is the superlative of rear, meaning the very last in position, furthest behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1050,44 @@
     "text": "Bird crossing the road?",
     "enumeration": "7"
    },
-   "solution": "PELICAN"
+   "solution": "PELICAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PELICAN",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     },
+     {
+      "text": "crossing the road",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "note": "first meaning: a large water bird with a throat pouch"
+     },
+     {
+      "clueFragment": "crossing the road",
+      "note": "second meaning: in Britain a pedestrian crossing controlled by push-button traffic lights"
+     }
+    ],
+    "explanation": {
+     "surface": "Why did the bird cross the road?",
+     "walkthrough": "In Britain a pelican crossing is a pedestrian crossing with lights the walker operates.",
+     "definitionFit": "The pouched seabird gives its name to a light-controlled British street crossing for walkers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1101,55 @@
     "text": "Order cream tea? That's steep!",
     "enumeration": "8"
    },
-   "solution": "MACERATE"
+   "solution": "MACERATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MACERATE",
+    "definitions": [
+     {
+      "text": "steep",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Order",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so the letters are put into a new sequence"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cream tea",
+      "gives": "CREAMTEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREAMTEA",
+       "gives": "MACERATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A café customer orders scones and is shocked by the price.",
+     "walkthrough": "A cream tea is a British afternoon snack of tea with scones, jam and clotted cream; 'steep' looks like an expensive price, but it is the verb.",
+     "definitionFit": "To soak food in liquid until it softens is to steep it, as fruit in alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "steep"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1163,55 @@
     "text": "Leaders of army coup go free",
     "enumeration": "6"
    },
-   "solution": "ACQUIT"
+   "solution": "ACQUIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACQUIT",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "leaders are the ones at the front, so the opening letters of the next words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army coup",
+      "gives": "AC",
+      "select": "first",
+      "note": "the initial letters of these two words"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "QUIT",
+      "note": "to quit is to leave or go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "QUIT"
+     ]
+    },
+    "explanation": {
+     "surface": "The generals behind a military takeover are let off.",
+     "definitionFit": "To free in the legal sense is to clear a defendant of a charge and release them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1225,44 @@
     "text": "Amateur performer of 22 down?",
     "enumeration": "6"
    },
-   "solution": "LAYMAN"
+   "solution": "LAYMAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAYMAN",
+    "definitions": [
+     {
+      "text": "Amateur",
+      "at": 0
+     },
+     {
+      "text": "performer of 22 down",
+      "at": 8,
+      "note": "read as two words, a man of lays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amateur",
+      "note": "first meaning: a non-professional, someone without expert training"
+     },
+     {
+      "clueFragment": "performer of 22 down",
+      "note": "second meaning, split in two: 22 down is art-songs, and a lay is a song"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "22 down is LIEDER, German art-songs; a lay is an old word for a song or ballad.",
+     "definitionFit": "A non-specialist outside a profession is an amateur in that field, someone untrained in its expertise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "performer"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1276,50 @@
     "text": "I*d reel out art-songs",
     "enumeration": "6"
    },
-   "solution": "LIEDER"
+   "solution": "LIEDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIEDER",
+    "definitions": [
+     {
+      "text": "art-songs",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means awry or disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I*d reel",
+      "gives": "IDREEL",
+      "note": "taken as written, ignoring the asterisk"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDREEL",
+       "gives": "LIEDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer says they would rattle off a string of concert songs.",
+     "definitionFit": "German romantic songs for solo voice and piano, such as Schubert's, are known in English by their German plural name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reel"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1333,50 @@
     "text": "Water with jolly blue colour",
     "enumeration": "10"
    },
-   "solution": "AQUAMARINE"
+   "solution": "AQUAMARINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AQUAMARINE",
+    "definitions": [
+     {
+      "text": "blue colour",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water",
+      "gives": "AQUA",
+      "note": "aqua is the Latin word for water"
+     },
+     {
+      "clueFragment": "jolly",
+      "gives": "MARINE",
+      "note": "a jolly is old naval slang for a Royal Marine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AQUA",
+      "MARINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheerful water of a bright blue hue.",
+     "walkthrough": "Jolly looks like an adjective, but in British naval slang it is a noun for a Royal Marine.",
+     "definitionFit": "The pale greenish-blue shade takes its name from the sea-coloured gemstone, beryl of that tint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1390,39 @@
     "text": "Does the dismissed athlete take it running?",
     "enumeration": "4"
    },
-   "solution": "JUMP"
+   "solution": "JUMP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JUMP",
+    "definitions": [
+     {
+      "text": "Does the dismissed athlete take it running?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does the dismissed athlete take it running?",
+      "note": "surface reading: does a sacked sportsman accept the news on the move?"
+     },
+     {
+      "clueFragment": "dismissed",
+      "note": "setter's reading: someone told to go away is told to take a running one, an idiom of dismissal, and for an athlete it is also an event"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go and take a running jump' is a rude British way of telling someone to go away, so a dismissed person takes one.",
+     "definitionFit": "A leap made after a run-up is an athletic event, and taking one is the idiom for being sent packing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1436,43 @@
     "text": "The Augustus who painted gents?",
     "enumeration": "4"
    },
-   "solution": "JOHN"
+   "solution": "JOHN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JOHN",
+    "definitions": [
+     {
+      "text": "The Augustus who painted",
+      "at": 0
+     },
+     {
+      "text": "gents",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Augustus who painted",
+      "note": "first meaning: the surname of the Welsh portrait painter Augustus, 1878 to 1961"
+     },
+     {
+      "clueFragment": "gents",
+      "note": "second meaning: an informal word for a lavatory; the gents is a British name for a men's public toilet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as if the artist painted portraits of gentlemen, but 'gents' is a separate meaning: a men's toilet.",
+     "definitionFit": "The surname of a famous Welsh painter is also American slang for a toilet, which the British call the gents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gents"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1486,60 @@
     "text": "Turn off! I'd come back green",
     "enumeration": "6"
    },
-   "solution": "DIVERT"
+   "solution": "DIVERT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DIVERT",
+    "definitions": [
+     {
+      "text": "Turn off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "come back",
+      "for": "reversal",
+      "note": "to come back is to return, so the word is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "the contraction without its apostrophe"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert is the heraldic term for green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "VERT"
+     ],
+     "reversals": [
+      {
+       "from": "ID",
+       "to": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snaps that they will go back to being an environmentalist.",
+     "definitionFit": "To turn off a road is to change course, which means to redirect or deflect traffic onto another route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1553,61 @@
     "text": "May the small stone change colour?",
     "enumeration": "8"
    },
-   "solution": "AMETHYST"
+   "solution": "AMETHYST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AMETHYST",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change is to alter, so the letters are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "May the",
+      "gives": "MAYTHE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "small stone",
+      "gives": "ST",
+      "note": "st is the short form of stone, the British unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMETHY",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAYTHE",
+       "gives": "AMETHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wish that a little pebble might alter its hue.",
+     "walkthrough": "The surface invites the stone itself as answer, but the definition is the last word: the name is also a purple shade.",
+     "definitionFit": "The violet quartz gives its name to a purple shade, so the word is used as a colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   }
  ]
 }
