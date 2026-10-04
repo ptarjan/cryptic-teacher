@@ -1915,6 +1915,10 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18804", "4-down"): (
+        "Expert personally trained beginners cutting hair could have been Delilah!",
+        "Expert me personally trained beginners cutting hair could have been Delilah!",
+        "OCR misread: the initials inserted into TRESS must be EMPT, so a word starting with M was lost after Expert"),
     ("times-18750", "25-across"): (
         "Able to go to Elba, for example 7 )",
         "Able to go to Elba, for example",
