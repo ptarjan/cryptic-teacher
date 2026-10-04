@@ -5870,8 +5870,9 @@
   function statsMilestonesHTML(st) {
     // 0 is a save from before letters were stamped: the day is unknown, not 1970.
     const when = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : "";
-    const reached = st.milestones.filter((m) => m.id).sort((a, b) => a.at - b.at);
-    const ahead = st.milestones.filter((m) => !m.id).slice(0, 3);
+    // The journey, not the map: the last few reached and the next two ahead.
+    const reached = st.milestones.filter((m) => m.id).sort((a, b) => a.at - b.at).slice(-3);
+    const ahead = st.milestones.filter((m) => !m.id).slice(0, 2);
     return `<h3 class="stats-h">Milestones</h3><ul class="milestones">`
       + reached.map((m) => `<li class="reached">${m.label}<span class="muted">${when(m.at)}</span></li>`).join("")
       + ahead.map((m) => `<li class="ahead">${m.label}</li>`).join("") + `</ul>`;
