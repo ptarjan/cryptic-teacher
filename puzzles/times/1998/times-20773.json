@@ -42,6 +42,9 @@
    "26-across": "RUNNER"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -55,7 +58,45 @@
     "text": "Dynamic Miss Oakley, it is announced, has married",
     "enumeration": "8"
    },
-   "solution": "ANIMATED"
+   "solution": "ANIMATED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ANIMATED",
+    "definitions": [
+     {
+      "text": "Dynamic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it is announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so the phrase is judged by how it sounds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss Oakley, it is announced, has married",
+      "gives": "ANIMATED",
+      "soundsLike": "ANNIE MATED",
+      "note": "Annie Oakley was the American sharpshooter; mated means married"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item about the sharpshooter Annie Oakley getting married, with an energetic adjective tacked on.",
+     "walkthrough": "Annie Oakley was a famous Wild West markswoman; said aloud, her first name followed by a word for married runs together into one word.",
+     "definitionFit": "Someone lively and full of energy is described as animated, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 1,
@@ -69,7 +110,56 @@
     "text": "Pilot leaving George in the car",
     "enumeration": "4"
    },
-   "solution": "AUTO"
+   "solution": "AUTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUTO",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when something is leaving it departs, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "George",
+      "gives": "AUTOPILOT",
+      "note": "George is RAF slang for an aircraft's automatic pilot"
+     },
+     {
+      "clueFragment": "Pilot",
+      "gives": "PILOT",
+      "note": "taken as written, and removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot steps out of a car belonging to someone called George.",
+     "walkthrough": "George is old airmen's slang for the automatic pilot; drop the second half of that word.",
+     "definitionFit": "Auto is a dated, chiefly American short form of automobile, meaning a motor car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 2,
@@ -83,7 +173,51 @@
     "text": "Russian some American aviator's taken up",
     "enumeration": "4"
    },
-   "solution": "IVAN"
+   "solution": "IVAN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "IVAN",
+    "definitions": [
+     {
+      "text": "Russian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the words means only a portion of their letters is used"
+     },
+     {
+      "text": "taken up",
+      "for": "reversal",
+      "note": "in a down clue, taken up means read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American aviator",
+      "gives": "NAVI",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Russian has been given a lift by an American pilot.",
+     "definitionFit": "Ivan is the commonest Russian man's name, used as a byword for a typical Russian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aviator"
+    }
+   }
   },
   {
    "number": 3,
@@ -97,7 +231,54 @@
     "text": "Equipment put up as a trap, possibly",
     "enumeration": "9"
    },
-   "solution": "APPARATUS"
+   "solution": "APPARATUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APPARATUS",
+    "definitions": [
+     {
+      "text": "Equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements the letters could take"
+     }
+    ],
+    "linkWords": [
+     "put"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up as a trap",
+      "gives": "UPASATRAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPASATRAP",
+       "gives": "APPARATUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some gear set up as a snare.",
+     "walkthrough": "'Put up' looks like a phrase, but the second word belongs to the letters to be rearranged.",
+     "definitionFit": "Apparatus is the technical equipment or machinery needed for a particular task."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +292,39 @@
     "text": "One who has ways of making you speak",
     "enumeration": "12"
    },
-   "solution": "ELOCUTIONIST"
+   "solution": "ELOCUTIONIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELOCUTIONIST",
+    "definitions": [
+     {
+      "text": "One who has ways of making you speak",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who has ways of making you speak",
+      "note": "surface reading: the film interrogator's threat, 'we have ways of making you talk'"
+     },
+     {
+      "clueFragment": "ways of making you speak",
+      "note": "setter's reading: a teacher of clear, correct pronunciation and delivery"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue echoes the war-film interrogator's line; the real speaker-maker is a voice coach.",
+     "definitionFit": "This teacher trains people in clear and expressive public speaking, showing them how to deliver words properly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ways"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +338,50 @@
     "text": "Wicked warriors calling for silence",
     "enumeration": "6"
    },
-   "solution": "IMPISH"
+   "solution": "IMPISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPISH",
+    "definitions": [
+     {
+      "text": "Wicked",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "calling for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warriors",
+      "gives": "IMPI",
+      "note": "an impi is a Zulu regiment of warriors"
+     },
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "the sound made to ask for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPI",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Fierce fighters demanding quiet are described as wicked.",
+     "walkthrough": "IMPI, a body of Zulu warriors, is a crossword favourite.",
+     "definitionFit": "Wicked in its mild, playful sense means mischievous, like a little imp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calling"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +395,45 @@
     "text": "Violet Elizabeth Bott's mouse trap",
     "enumeration": "5"
    },
-   "solution": "MOUTH"
+   "solution": "MOUTH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MOUTH",
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Violet Elizabeth Bott's",
+      "for": "homophone",
+      "note": "this character speaks with a lisp, so the following word is taken as she pronounces it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mouse",
+      "gives": "MOUTH",
+      "soundsLike": "MOUSE",
+      "note": "the word she means; with her lisp the s comes out as th"
+     }
+    ],
+    "explanation": {
+     "surface": "A little girl's mousetrap.",
+     "walkthrough": "Violet Elizabeth Bott is the lisping girl in Richmal Crompton's Just William stories, famous for 'I'll thcream and thcream'.",
+     "definitionFit": "Trap is informal slang for the mouth, as in 'shut your trap'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +447,62 @@
     "text": "Writing fashionable carol about Nativity scene",
     "enumeration": "10"
    },
-   "solution": "INSCRIBING"
+   "solution": "INSCRIBING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INSCRIBING",
+    "definitions": [
+     {
+      "text": "Writing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in fashion"
+     },
+     {
+      "clueFragment": "carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "Nativity scene",
+      "gives": "CRIB",
+      "note": "the manger scene set up at Christmas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "CRIB",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Composing a trendy Christmas carol about the stable at Bethlehem.",
+     "walkthrough": "Carol is a verb here; the manger goes inside it.",
+     "definitionFit": "Inscribing means writing or carving words onto a surface, a formal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carol"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +516,50 @@
     "text": "Wild animal scattering the beaters",
     "enumeration": "10"
    },
-   "solution": "HARTEBEEST"
+   "solution": "HARTEBEEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARTEBEEST",
+    "definitions": [
+     {
+      "text": "Wild animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattering",
+      "for": "anagram",
+      "note": "scattering sends things in all directions, so the letters land in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the beaters",
+      "gives": "THEBEATERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEBEATERS",
+       "gives": "HARTEBEEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild beast sends the hunt's beaters running in all directions.",
+     "definitionFit": "The hartebeest is a large African antelope with long face and curved horns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scattering"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +573,40 @@
     "text": "Can it stir up a disproportionately violent storm?",
     "enumeration": "8"
    },
-   "solution": "TEASPOON"
+   "solution": "TEASPOON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEASPOON",
+    "definitions": [
+     {
+      "text": "Can it stir up a disproportionately violent storm?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can it stir up a disproportionately violent storm?",
+      "note": "surface reading: a question about something whipping up a fearsome tempest out of all proportion"
+     },
+     {
+      "clueFragment": "stir up a disproportionately violent storm",
+      "note": "setter's reading: a storm in a teacup is a fuss about nothing, and the small utensil is what stirs a teacup"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question about what could whip up an outsized tempest.",
+     "walkthrough": "The idiom 'a storm in a teacup' means a fuss out of all proportion; the thing that stirs a teacup is a small spoon.",
+     "definitionFit": "A small spoon is used for stirring a cup of tea, so it is what would agitate the idiomatic stormy teacup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "storm"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +620,60 @@
     "text": "Accounts officer's resistance to contract at first",
     "enumeration": "6"
    },
-   "solution": "PURSER"
+   "solution": "PURSER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PURSER",
+    "definitions": [
+     {
+      "text": "Accounts officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to only the opening letter of the word it follows being kept"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "PURSE",
+      "note": "to purse the lips is to contract them"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of resistance, also the physics symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PURSE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A finance officer is reluctant to sign a contract at the outset.",
+     "walkthrough": "'Resistance to' places the letter alongside the verb meaning contract.",
+     "definitionFit": "A purser is the officer on a ship who keeps the accounts and handles money matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +693,39 @@
      }
     ]
    },
-   "solution": "SHORTCOMMONS"
+   "solution": "SHORTCOMMONS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHORT COMMONS",
+    "definitions": [
+     {
+      "text": "Lack of food",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lack of food",
+      "note": "surface reading: a shortage of things to eat"
+     },
+     {
+      "clueFragment": "not evident in the Long Parliament",
+      "note": "setter's reading: the opposite of a long House of Commons would be a brief one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Long Parliament sat from 1640 to 1660; its opposite, a brief House of Commons, is also an idiom for scanty rations.",
+     "definitionFit": "The idiom means meagre rations or insufficient food, from commons in the sense of shared meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +745,52 @@
      }
     ]
    },
-   "solution": "DRAUGHTHORSE"
+   "solution": "DRAUGHTHORSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAUGHT-HORSE",
+    "definitions": [
+     {
+      "text": "punch, perhaps",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "DRAUGHT",
+      "note": "a man is a playing piece in the board game of draughts"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "HORSE",
+      "note": "horse is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAUGHT",
+      "HORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes drugs that someone has slipped into a bowl of punch.",
+     "walkthrough": "Punch is not a drink here: the Suffolk Punch is a breed of heavy working horse. Draughts is the British name for checkers.",
+     "definitionFit": "The Suffolk Punch is a classic breed of heavy farm horse bred for pulling loads, an example of the type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +810,50 @@
      }
     ]
    },
-   "solution": "PORTARTHUR"
+   "solution": "PORTARTHUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORT ARTHUR",
+    "definitions": [
+     {
+      "text": "lots got transported here",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "demanded"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "PORT",
+      "note": "a fortified wine from Portugal"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "ARTHUR",
+      "note": "the legendary king of Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "ARTHUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A king calls for wine, while many people are shipped away.",
+     "walkthrough": "Port Arthur in Tasmania was a penal settlement for convicts transported from Britain; 'lots' means a great many people.",
+     "definitionFit": "This Tasmanian settlement was a notorious prison colony receiving convicts shipped from Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "transported"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +867,57 @@
     "text": "Salesman on a fixed allowance giving satisfaction",
     "enumeration": "10"
    },
-   "solution": "REPARATION"
+   "solution": "REPARATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPARATION",
+    "definitions": [
+     {
+      "text": "satisfaction",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "on",
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salesman",
+      "gives": "REP",
+      "note": "short for sales representative"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fixed allowance",
+      "gives": "RATION",
+      "note": "a fixed amount allowed to each person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "A",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman on a fixed income still finds contentment.",
+     "walkthrough": "'Satisfaction' here is the old sense of making amends for a wrong.",
+     "definitionFit": "Satisfaction can mean compensation for an injury, which is what reparation is: amends made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "satisfaction"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +931,59 @@
     "text": "Surplus shirt-tail is plainly visible",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "plainly visible",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "the tail of a word is its final letter, so only the end is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surplus",
+      "gives": "OVER",
+      "note": "left over, in excess"
+     },
+     {
+      "clueFragment": "shirt",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of shirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A spare shirt with its tail hanging out for all to see.",
+     "walkthrough": "'Shirt-tail' looks like one thing but splits into a word and the instruction to take its end.",
+     "definitionFit": "Overt means done openly and not concealed, so it is plainly visible to anyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shirt-tail"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +997,60 @@
     "text": "Getting annoyed in the middle of stirring food",
     "enumeration": "9"
    },
-   "solution": "IRRITABLE"
+   "solution": "IRRITABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IRRITABLE",
+    "definitions": [
+     {
+      "text": "Getting annoyed",
+      "at": 0,
+      "note": "a participle phrase for an adjective: irritable means easily annoyed"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central part, with the outer letters dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stirring",
+      "gives": "IRRI",
+      "select": "middle",
+      "note": "the four central letters of stirring"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "TABLE",
+      "note": "table as in the fare provided, as in 'keeps a good table'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRRI",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loses patience halfway through mixing the dinner.",
+     "walkthrough": "'Stirring food' reads as cooking, but the participle only supplies its middle letters.",
+     "definitionFit": "An irritable person is quick to become cross and bad-tempered, readily getting annoyed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1070,61 @@
      }
     ]
    },
-   "solution": "TAKINGOFF"
+   "solution": "TAKINGOFF",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TAKING OFF",
+    "definitions": [
+     {
+      "text": "Mocking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quotation",
+      "gives": "TAG",
+      "note": "a tag is a familiar quotation"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "relatives"
+     },
+     {
+      "clueFragment": "beginning to decay",
+      "gives": "OFF",
+      "note": "food going off is starting to rot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "KIN",
+      "G",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneering quote about a family on the slide.",
+     "definitionFit": "Taking someone off means imitating them in order to ridicule, which is mocking them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quotation"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1138,62 @@
     "text": "Though pretty fast, no trains move with the speed of light",
     "enumeration": "9"
    },
-   "solution": "TRANSONIC"
+   "solution": "TRANSONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSONIC",
+    "definitions": [
+     {
+      "text": "pretty fast",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "move",
+      "for": "anagram",
+      "note": "to move things about is to shift them around into new positions"
+     }
+    ],
+    "linkWords": [
+     "Though",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no trains",
+      "gives": "NOTRAINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the speed of light",
+      "gives": "C",
+      "note": "c is the physics symbol for the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANSONIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTRAINSC",
+       "gives": "TRANSONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "However quick they may be, trains cannot travel at the speed of light.",
+     "definitionFit": "Transonic describes speeds close to that of sound, which counts as pretty fast by any standard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1207,45 @@
     "text": "One of two books coming to pieces",
     "enumeration": "5"
    },
-   "solution": "KINGS"
+   "solution": "KINGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KINGS",
+    "definitions": [
+     {
+      "text": "One of two books",
+      "at": 0
+     },
+     {
+      "text": "pieces",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "coming to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of two books",
+      "note": "first meaning: the Old Testament has a First and a Second book with this name"
+     },
+     {
+      "clueFragment": "pieces",
+      "note": "second meaning: the most important chess pieces, in the plural"
+     }
+    ],
+    "explanation": {
+     "surface": "A volume of a two-part set falls apart.",
+     "definitionFit": "The Bible has two books of this name, and in chess these are the pieces whose capture ends the game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1259,57 @@
     "text": "Study simply intended, say, for further revision",
     "enumeration": "12"
    },
-   "solution": "READJUSTMENT"
+   "solution": "READJUSTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "READJUSTMENT",
+    "definitions": [
+     {
+      "text": "further revision",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for the preceding word as it is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "READ",
+      "note": "to read a subject is to study it"
+     },
+     {
+      "clueFragment": "simply",
+      "gives": "JUST",
+      "note": "merely, only"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "MENT",
+      "soundsLike": "MEANT",
+      "note": "meant is intended; the spelling follows the sound"
+     }
+    ],
+    "explanation": {
+     "surface": "Revising a study that was only ever meant as a draft.",
+     "definitionFit": "A readjustment is a further alteration or modification, which is a fresh revision of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1323,38 @@
     "text": "Great leader featured in a book of the Bible",
     "enumeration": "5"
    },
-   "solution": "JUDGE"
+   "solution": "JUDGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "JUDGE",
+    "definitions": [
+     {
+      "text": "Great leader featured in a book of the Bible",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great leader featured in a book of the Bible",
+      "note": "surface reading: some heroic figure such as Moses or David"
+     },
+     {
+      "clueFragment": "a book of the Bible",
+      "note": "setter's reading: the book's title names this kind of leader in the plural"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Before Israel had kings it was led by figures like Gideon and Samson, whose stories fill a book named after their office.",
+     "definitionFit": "In ancient Israel these were tribal leaders and deliverers, such as Deborah and Gideon, before the monarchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1368,50 @@
     "text": "Unlimited confidence shown in exam",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "exam",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "without limits means without the boundary letters at either end"
+     }
+    ],
+    "linkWords": [
+     "shown in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confidence",
+      "gives": "MORALE",
+      "note": "morale is confidence or spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Boundless self-assurance on display in a test.",
+     "definitionFit": "An oral is a spoken examination, as opposed to a written paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unlimited"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1425,40 @@
     "text": "Continuously abroad",
     "enumeration": "4"
    },
-   "solution": "AWAY"
+   "solution": "AWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AWAY",
+    "definitions": [
+     {
+      "text": "Continuously",
+      "at": 0
+     },
+     {
+      "text": "abroad",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Continuously",
+      "note": "first meaning: without stopping"
+     },
+     {
+      "clueFragment": "abroad",
+      "note": "second meaning: not at home, gone from one's own country"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means persistently, as in chattering away, and also absent, as in being off overseas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1472,57 @@
     "text": "Hot breeze needed to produce crop, say",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "crop, say",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "needed to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H for hot, as on a tap"
+     },
+     {
+      "clueFragment": "breeze",
+      "gives": "AIR",
+      "note": "a light current of air"
+     },
+     {
+      "clueFragment": "produce",
+      "gives": "DO",
+      "note": "to do is to make or produce, as in doing a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer hopes warm winds will help the harvest grow.",
+     "walkthrough": "'Crop' reads as harvest, but a crop is also a very short haircut.",
+     "definitionFit": "A crop is a close-cut hairstyle, one example of a styled arrangement of hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crop"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1536,39 @@
     "text": "Time for the answer to appear",
     "enumeration": "8"
    },
-   "solution": "TOMORROW"
+   "solution": "TOMORROW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TOMORROW",
+    "definitions": [
+     {
+      "text": "Time for the answer to appear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time for the answer to appear",
+      "note": "surface reading: the moment a solution is finally revealed, in general"
+     },
+     {
+      "clueFragment": "the answer",
+      "note": "setter's reading: a newspaper prints the solution to its crossword in the next day's paper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The scan shows it: the solution to the previous day's puzzle appears below the clues.",
+     "definitionFit": "Newspaper crossword solutions are published the following day, so the answer comes the day after today."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1582,45 @@
     "text": "Horse identified by tout",
     "enumeration": "6"
    },
-   "solution": "RUNNER"
+   "solution": "RUNNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUNNER",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     },
+     {
+      "text": "tout",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "identified by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "note": "first meaning: a horse taking part in a race"
+     },
+     {
+      "clueFragment": "tout",
+      "note": "second meaning: someone who solicits custom or carries messages for a bookmaker"
+     }
+    ],
+    "explanation": {
+     "surface": "A racing tipster picks out a horse.",
+     "definitionFit": "Every competitor in a race is so called, and the same word names a touting agent who drums up business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "identified"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1634,48 @@
     "text": "Exploit completely and profitably",
     "enumeration": "8"
    },
-   "solution": "USEFULLY"
+   "solution": "USEFULLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USEFULLY",
+    "definitions": [
+     {
+      "text": "profitably",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exploit",
+      "gives": "USE",
+      "note": "to exploit something is to use it"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "FULLY",
+      "note": "entirely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USE",
+      "FULLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to make the most of something and turn a profit.",
+     "definitionFit": "Doing something usefully means doing it to good purpose or advantage, much as profitably does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
