@@ -413,7 +413,7 @@ reopen_answers() {
 # undone as both halves of the rename.
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
 # Undo a run's edits to one puzzle, including a copy written to a new folder,
-# and its rows of fetch_puzzle.py's SOURCE_* tables: back as HEAD has them, then
+# and its rows of the source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py): back as HEAD has them, then
 # any SOURCE_CLUE_WRONG row left for a clue the reverted file does not show.
 discard_puzzle() {
   git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
@@ -428,7 +428,7 @@ discard_puzzle() {
 stage_puzzle() {
   git add -A -- "$(puzzle_spec "$1")"
   python3 tools/own_rows.py stage "$1" && return 0
-  git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py
+  git reset -q -- "$(puzzle_spec "$1")" tools/fetch_puzzle.py tools/data/source_answer_wrong.json tools/data/source_clue_wrong.json
   return 1
 }
 

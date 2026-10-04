@@ -1114,7 +1114,7 @@ def check_duplicated_clues(puzzle, flags):
         flags.append(("SHAPE", puzzle.get("id"), f"{', '.join(ids)}: one clue read onto "
                       f"{len(ids)} lights, so the others' clues were lost: file it on the light "
                       f"it fits and the rest blank (ocr_clues.one_light_each), or the printed "
-                      f"clue in tools/fetch_puzzle.py SOURCE_CLUE_WRONG"))
+                      f"clue in tools/data/source_clue_wrong.json"))
 
 
 def check_rewrite(old, new, flags):
