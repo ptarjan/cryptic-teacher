@@ -83,7 +83,7 @@ def serve():
     versions(), each request is a JSON line {"which", "bytes"} and that many
     bytes of PNG; each answer a JSON line {"words"} or {"error"}."""
     os.environ["PATH"] = str(Path(HOME) / "tess" / "Library" / "bin") + os.pathsep + os.environ["PATH"]
-    # A dozen sessions share the 28-thread box: two threads each.
+    # The full pass's 20 sessions share the 28-thread box: two threads each.
     os.environ.setdefault("OCR_THREADS", "2")
     import io
 

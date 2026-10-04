@@ -36,7 +36,7 @@ CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 # the desktop is off.
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.48}"
 export OCR_THREADS="${OCR_THREADS:-1}"
-WORKERS="${OCR_FULL_PASS_WORKERS:-12}"
+WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # Scan filer: readings screened against the grid, VLM picks held to the readers
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-03T15:22:00+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
