@@ -122,7 +122,7 @@ NUMBERED_SQUARES = re.compile(
 def is_jigsaw(puzzle):
     """The solver is to work out where each answer goes, so the app must not
     tie a clue to its light (no clue numbers, no highlighting its squares)."""
-    return bool(JIGSAW_PHRASES.search(puzzle.get("preamble") or ""))
+    return bool(puzzle.get("cluesUnplaced") or JIGSAW_PHRASES.search(puzzle.get("preamble") or ""))
 
 
 def jigsaw_tag(puzzle):
@@ -130,7 +130,7 @@ def jigsaw_tag(puzzle):
     the paper printed it unnumbered, None for a puzzle that says where."""
     if not is_jigsaw(puzzle):
         return None
-    return "numbered-jigsaw" if NUMBERED_SQUARES.search(puzzle["preamble"]) else "jigsaw"
+    return "numbered-jigsaw" if NUMBERED_SQUARES.search(puzzle.get("preamble") or "") else "jigsaw"
 
 
 # More answers than this and covering every initial stops being a feature. The
