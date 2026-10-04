@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "A dish which may contain blood",
     "enumeration": "6"
    },
-   "solution": "VESSEL"
+   "solution": "VESSEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VESSEL",
+    "definitions": [
+     {
+      "text": "A dish",
+      "at": 0
+     },
+     {
+      "text": "which may contain blood",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A dish",
+      "note": "first meaning: a container such as a bowl for serving food"
+     },
+     {
+      "clueFragment": "which may contain blood",
+      "note": "second meaning: a tube in the body carrying blood"
+     }
+    ],
+    "explanation": {
+     "surface": "A grisly dish like black pudding, made with blood.",
+     "walkthrough": "The second half is a descriptive definition: veins and arteries are blood vessels.",
+     "definitionFit": "The word covers both a hollow container for food or liquid and a duct in the body such as a vein."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,40 @@
     "text": "They're designed to provide a set amount of illumination",
     "enumeration": "10"
    },
-   "solution": "FOOTLIGHTS"
+   "solution": "FOOTLIGHTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOOTLIGHTS",
+    "definitions": [
+     {
+      "text": "They're designed to provide a set amount of illumination",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a set amount of illumination",
+      "note": "surface reading: lamps rated to give a fixed, measured quantity of light"
+     },
+     {
+      "clueFragment": "set",
+      "note": "setter's reading: the set is the scenery on a theatre stage, lit from the front edge"
+     }
+    ],
+    "explanation": {
+     "surface": "Lamps engineered to deliver a fixed, regulated level of brightness.",
+     "walkthrough": "'Set' reads as an adjective meaning fixed, but it is the noun: the stage set.",
+     "definitionFit": "Footlights are the row of lamps along the front of a theatre stage, lighting the performers and scenery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +133,71 @@
     "text": "Scatter as animal returns to find endless water supply",
     "enumeration": "8"
    },
-   "solution": "SPRINKLE"
+   "solution": "SPRINKLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SPRINKLE",
+    "definitions": [
+     {
+      "text": "Scatter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the water source loses its final letter"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "an animal that returns goes back the way it came, so its word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water supply",
+      "gives": "SPRING",
+      "note": "a spring is a natural source of water"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "ELK",
+      "note": "a large deer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPRIN",
+      "KLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELK",
+       "to": "KLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal comes back to a watering hole to find it drying up and its supply scattered.",
+     "walkthrough": "SPRIN(g) without its final letter, then ELK backwards gives SPRINKLE.",
+     "definitionFit": "To sprinkle is to scatter small drops or particles over a surface, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +211,44 @@
     "text": "Fool to stick with?",
     "enumeration": "6"
    },
-   "solution": "SUCKER"
+   "solution": "SUCKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUCKER",
+    "definitions": [
+     {
+      "text": "Fool",
+      "at": 0
+     },
+     {
+      "text": "to stick with?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "note": "first meaning: a gullible person who is easily duped"
+     },
+     {
+      "clueFragment": "to stick with?",
+      "note": "second meaning: a rubber cup or organ that clings to a surface"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a foolish partner is worth staying loyal to.",
+     "walkthrough": "The question mark flags the playful second sense: something you stick on with, like an octopus's suction cup.",
+     "definitionFit": "A dupe who falls for tricks is a sucker, and a suction pad that adheres to glass is also called one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +262,55 @@
     "text": "View escape as crazy",
     "enumeration": "8"
    },
-   "solution": "SEASCAPE"
+   "solution": "SEASCAPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEASCAPE",
+    "definitions": [
+     {
+      "text": "View",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "something crazy is wild and disordered, so the preceding letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escape",
+      "gives": "ESCAPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCAPEAS",
+       "gives": "SEASCAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks a plan to escape is mad.",
+     "definitionFit": "A seascape is a picture or prospect of the sea, so it is a kind of view or scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "View"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +324,65 @@
     "text": "Furniture set out at back of simple home",
     "enumeration": "8"
    },
-   "solution": "CABINETS"
+   "solution": "CABINETS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CABINETS",
+    "definitions": [
+     {
+      "text": "Furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "set out means laid out afresh, so the word before it is rearranged"
+     },
+     {
+      "text": "at back of",
+      "for": "charade",
+      "note": "placing one thing at the back of another puts the rearranged piece after the home"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple home",
+      "gives": "CABIN",
+      "note": "a cabin is a basic hut or small house"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CABIN",
+      "ETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "ETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Furniture being arranged at the rear of a modest house.",
+     "definitionFit": "Cabinets are cupboards with shelves or drawers, pieces of household furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +396,59 @@
     "text": "Doctor - Polish - at the health centre",
     "enumeration": "8"
    },
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOSPITAL",
+    "definitions": [
+     {
+      "text": "health centre",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the following letters are altered in order"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish",
+      "gives": "POLISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POLISHAT",
+       "gives": "HOSPITAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish doctor working at the local medical centre.",
+     "walkthrough": "'Doctor' and 'health centre' both point to medicine, but 'Doctor' is a verb telling you to rearrange, and 'Polish' is just letters.",
+     "definitionFit": "A hospital is an institution where sick and injured people receive medical treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +462,43 @@
     "text": "Gave instruction, sounding tense",
     "enumeration": "4"
    },
-   "solution": "TAUT"
+   "solution": "TAUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TAUT",
+    "definitions": [
+     {
+      "text": "tense",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means the preceding meaning is taken by how its word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gave instruction",
+      "gives": "TAUT",
+      "soundsLike": "TAUGHT",
+      "note": "taught is the past tense of teach"
+     }
+    ],
+    "explanation": {
+     "surface": "A teacher whose voice sounded strained while giving a lesson.",
+     "definitionFit": "Taut describes something pulled tight or a person under strain, matching tense in both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +512,56 @@
     "text": "Stagger back, giving a filthy look",
     "enumeration": "4"
    },
-   "solution": "LEER"
+   "solution": "LEER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "LEER",
+    "definitions": [
+     {
+      "text": "a filthy look",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word before it is read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stagger",
+      "gives": "REEL",
+      "note": "to reel is to sway or lurch unsteadily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEER"
+     ],
+     "reversals": [
+      {
+       "from": "REEL",
+       "to": "LEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk staggers backwards and shoots someone a dirty look.",
+     "definitionFit": "A leer is a lascivious or sly glance, a lewd look given to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stagger"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +575,40 @@
     "text": "She's responsible for order",
     "enumeration": "6"
    },
-   "solution": "ABBESS"
+   "solution": "ABBESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABBESS",
+    "definitions": [
+     {
+      "text": "She's responsible for order",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "responsible for order",
+      "note": "surface reading: a woman who keeps discipline, such as a manager or police officer"
+     },
+     {
+      "clueFragment": "order",
+      "note": "setter's reading: a religious order of nuns, headed by a woman"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman in charge of keeping things tidy and disciplined.",
+     "walkthrough": "'Order' means a community of nuns, not neatness or discipline.",
+     "definitionFit": "An abbess is the female superior of a convent, leading a community within a religious order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +622,65 @@
     "text": "Pointless test audit confused one's thinking",
     "enumeration": "8"
    },
-   "solution": "ATTITUDE"
+   "solution": "ATTITUDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ATTITUDE",
+    "definitions": [
+     {
+      "text": "one's thinking",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pointless",
+      "for": "deletion",
+      "note": "points here are compass points, so without them one compass letter is dropped"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are mixed up, so what remains is put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "TEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "audit",
+      "gives": "AUDIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTITUDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TETAUDIT",
+       "gives": "ATTITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A futile check of the books left someone muddled.",
+     "walkthrough": "The compass point S (south) is removed from TEST AUDIT, and the remaining eight letters are rearranged.",
+     "definitionFit": "An attitude is a settled way of thinking or feeling about something, one's mindset."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pointless"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +694,51 @@
     "text": "Taper to a thin strip, providing light support",
     "enumeration": "11"
    },
-   "solution": "CANDLESTICK"
+   "solution": "CANDLESTICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANDLESTICK",
+    "definitions": [
+     {
+      "text": "light support",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to",
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taper",
+      "gives": "CANDLE",
+      "note": "a taper is a slender candle"
+     },
+     {
+      "clueFragment": "a thin strip",
+      "gives": "STICK",
+      "note": "a stick is a thin piece of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANDLE",
+      "STICK"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for whittling something down to a thin strip that will hold light.",
+     "walkthrough": "'Taper' looks like a verb meaning narrow, but it is the noun: a thin candle.",
+     "definitionFit": "A candlestick is a holder that props up a candle, so it supports a source of light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Taper"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +752,51 @@
     "text": "Music producer - the sort to make a fixed impression",
     "enumeration": "10"
    },
-   "solution": "STEREOTYPE"
+   "solution": "STEREOTYPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEREOTYPE",
+    "definitions": [
+     {
+      "text": "a fixed impression",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Music producer",
+      "gives": "STEREO",
+      "note": "a stereo is a sound system that plays music"
+     },
+     {
+      "clueFragment": "the sort",
+      "gives": "TYPE",
+      "note": "type means kind or sort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEREO",
+      "TYPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A record producer of the kind who makes a lasting mark.",
+     "walkthrough": "A stereotype was originally a solid printing plate, so the definition plays on both a cast impression and a fixed idea.",
+     "definitionFit": "A stereotype is an oversimplified, rigid idea about a group, a preconception that does not change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +810,67 @@
     "text": "Confused, but outwardly acting like Thomas",
     "enumeration": "8"
    },
-   "solution": "DOUBTING"
+   "solution": "DOUBTING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOUBTING",
+    "definitions": [
+     {
+      "text": "like Thomas",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Confused",
+      "for": "anagram",
+      "note": "confused letters are jumbled, so the short word after it is rearranged"
+     },
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "acting outwardly means the word for acting sits on the outside, wrapped round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting",
+      "gives": "DOING",
+      "note": "doing means performing or carrying out"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "BUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "UBT",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUT",
+       "gives": "UBT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muddled but putting on a show of confidence.",
+     "walkthrough": "Doubting Thomas is the apostle who would not believe in the Resurrection until he saw Jesus's wounds.",
+     "definitionFit": "The apostle Thomas is proverbially sceptical, so being like him means being sceptical and unconvinced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thomas"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +884,50 @@
     "text": "He creates an endless list",
     "enumeration": "8"
    },
-   "solution": "INVENTOR"
+   "solution": "INVENTOR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INVENTOR",
+    "definitions": [
+     {
+      "text": "He creates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list",
+      "gives": "INVENTORY",
+      "note": "an inventory is a full itemised record of stock or goods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INVENTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tireless creator who keeps adding to an infinite list.",
+     "definitionFit": "An inventor is a person who devises new machines or processes, someone who creates things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "list"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +947,47 @@
      }
     ]
    },
-   "solution": "PETNAME"
+   "solution": "PETNAME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PET NAME",
+    "definitions": [
+     {
+      "text": "Love handle",
+      "at": 0
+     },
+     {
+      "text": "a term of endearment",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love handle",
+      "note": "first meaning: read cryptically, Love is a handle, an informal form of address used for someone dear"
+     },
+     {
+      "clueFragment": "a term of endearment",
+      "note": "second meaning: an affectionate word used in place of someone's real name"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering whether a flabby midriff could be a pet's affectionate nickname.",
+     "walkthrough": "A love handle is a roll of fat at the waist; here 'handle' is slang for a name, so 'Love' itself is the handle.",
+     "definitionFit": "Darling, Love and Sweetie are affectionate nicknames, informal names given to someone cherished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1001,63 @@
     "text": "Designates secretary to come up with reasons",
     "enumeration": "8"
    },
-   "solution": "APPOINTS"
+   "solution": "APPOINTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "APPOINTS",
+    "definitions": [
+     {
+      "text": "Designates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to come up",
+      "for": "reversal",
+      "note": "in a down clue coming up means the word is read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "PA is a personal assistant"
+     },
+     {
+      "clueFragment": "reasons",
+      "gives": "POINTS",
+      "note": "points are arguments put forward in a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "POINTS"
+     ],
+     "reversals": [
+      {
+       "from": "PA",
+       "to": "AP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss names a secretary to come up with justifications.",
+     "definitionFit": "To appoint someone is to name or assign them to a role, which is what designating does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secretary"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1071,40 @@
     "text": "One who'd break up a dance",
     "enumeration": "7"
    },
-   "solution": "HOEDOWN"
+   "solution": "HOEDOWN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOEDOWN",
+    "definitions": [
+     {
+      "text": "a dance",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who'd break up a dance",
+      "note": "surface reading: a spoilsport or police officer who ends a party"
+     },
+     {
+      "clueFragment": "One who'd break up",
+      "note": "setter's reading: a gardener's tool breaking up soil, pushed downward into the ground"
+     }
+    ],
+    "explanation": {
+     "surface": "A killjoy who shuts down a dance party.",
+     "walkthrough": "A hoe is the gardening tool that breaks up the soil, and the phrase for it working downwards names a lively American country dance.",
+     "definitionFit": "A hoedown is a boisterous social gathering featuring square dancing and folk music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1118,58 @@
     "text": "Uncharacteristically, Paula rebels - and is fun!",
     "enumeration": "11"
    },
-   "solution": "PLEASURABLE"
+   "solution": "PLEASURABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLEASURABLE",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uncharacteristically",
+      "for": "anagram",
+      "note": "acting out of character means behaving differently, so the names' letters fall out of their usual order"
+     }
+    ],
+    "linkWords": [
+     "and is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paula",
+      "gives": "PAULA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rebels",
+      "gives": "REBELS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAULAREBELS",
+       "gives": "PLEASURABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A normally well-behaved Paula breaks out and enjoys herself.",
+     "definitionFit": "Something pleasurable is enjoyable, giving delight, which is what fun means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rebels"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1183,50 @@
     "text": "Returned to salesman with help",
     "enumeration": "6"
    },
-   "solution": "REPAID"
+   "solution": "REPAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPAID",
+    "definitions": [
+     {
+      "text": "Returned",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means assistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone went back to a salesman, bringing assistance.",
+     "definitionFit": "Repaid means gave back money owed, so it is returned in the financial sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Returned"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1240,45 @@
     "text": "Try to use a knife",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "Try",
+      "at": 0
+     },
+     {
+      "text": "use a knife",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "note": "first meaning: an attempt, as in having a go at something"
+     },
+     {
+      "clueFragment": "use a knife",
+      "note": "second meaning: to thrust a blade into someone"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to attempt using a knife, perhaps at the dinner table.",
+     "definitionFit": "To have a stab is to make an attempt, and to stab is to pierce with a pointed blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1292,52 @@
     "text": "Many be sued, if they're not paid",
     "enumeration": "4"
    },
-   "solution": "DUES"
+   "solution": "DUES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DUES",
+    "definitions": [
+     {
+      "text": "Many be sued, if they're not paid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Many be",
+      "for": "anagram",
+      "note": "may be signals one possible form among others, so the word that follows is a rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sued",
+      "gives": "SUED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SUED",
+       "gives": "DUES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Defaulters on their payments risk court action.",
+     "walkthrough": "'Many be' is almost certainly a slip for 'May be', the anagram signal; the whole clue also describes the answer, since unpaid fees can lead to a lawsuit.",
+     "definitionFit": "Dues are fees or charges owed, such as membership subscriptions, which can be pursued in court when unpaid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sued"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1351,64 @@
     "text": "Sorts it out with posh travellers",
     "enumeration": "8"
    },
-   "solution": "TOURISTS"
+   "solution": "TOURISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOURISTS",
+    "definitions": [
+     {
+      "text": "travellers",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "sorting things out means rearranging them, and out says the letters are put in fresh order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorts",
+      "gives": "SORTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SORTSITU",
+       "gives": "TOURISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organiser handles the arrangements for well-to-do holidaymakers.",
+     "walkthrough": "U for upper-class is a crossword convention from the old U and non-U distinction; it joins the other letters in the rearrangement.",
+     "definitionFit": "Tourists are people visiting places for pleasure, so they are travellers on holiday."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorts"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1422,40 @@
     "text": "Event which attracts dashing young men",
     "enumeration": "6"
    },
-   "solution": "SPRINT"
+   "solution": "SPRINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPRINT",
+    "definitions": [
+     {
+      "text": "Event which attracts dashing young men",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attracts dashing young men",
+      "note": "surface reading: a social occasion that draws handsome, debonair suitors"
+     },
+     {
+      "clueFragment": "dashing",
+      "note": "setter's reading: dashing means running at full speed"
+     }
+    ],
+    "explanation": {
+     "surface": "A society function that pulls in eligible, stylish bachelors.",
+     "walkthrough": "'Dashing' sounds like glamorous, but it means rushing, as on an athletics track.",
+     "definitionFit": "A sprint is a short race run at top speed, an athletics event for fast runners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dashing"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1475,40 @@
      }
     ]
    },
-   "solution": "BUSSTOPS"
+   "solution": "BUSSTOPS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BUS STOPS",
+    "definitions": [
+     {
+      "text": "Ideal places for people wanting to get on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "people wanting to get on",
+      "note": "surface reading: ambitious people keen to succeed in life"
+     },
+     {
+      "clueFragment": "get on",
+      "note": "setter's reading: to board a vehicle"
+     }
+    ],
+    "explanation": {
+     "surface": "The best spots for go-getters seeking advancement.",
+     "walkthrough": "'Get on' reads as making progress in a career, but it means climbing aboard.",
+     "definitionFit": "Bus stops are the roadside points where passengers wait to board public buses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ideal"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1522,47 @@
     "text": "On hand, with a small amount of alcohol",
     "enumeration": "6"
    },
-   "solution": "FINGER"
+   "solution": "FINGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FINGER",
+    "definitions": [
+     {
+      "text": "On hand",
+      "at": 0
+     },
+     {
+      "text": "a small amount of alcohol",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On hand",
+      "note": "first meaning: a digit found on the hand"
+     },
+     {
+      "clueFragment": "a small amount of alcohol",
+      "note": "second meaning: a measure of spirits as deep as a digit is wide"
+     }
+    ],
+    "explanation": {
+     "surface": "Having a little drink available nearby.",
+     "walkthrough": "'On hand' looks like 'available', but it is a description: something that grows on the hand.",
+     "definitionFit": "A finger is one of the digits of the hand, and also a measure of whisky poured to that depth in a glass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   }
  ]
 }
