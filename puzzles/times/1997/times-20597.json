@@ -22,6 +22,9 @@
   "date": "2026-10-04",
   "check": "28 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,44 @@
     "text": "Loose-fitting dress obligatory for certain races",
     "enumeration": "4"
    },
-   "solution": "SACK"
+   "solution": "SACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SACK",
+    "definitions": [
+     {
+      "text": "Loose-fitting dress",
+      "at": 0
+     },
+     {
+      "text": "obligatory for certain races",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loose-fitting dress",
+      "note": "first meaning: a shapeless, unwaisted dress"
+     },
+     {
+      "clueFragment": "obligatory for certain races",
+      "note": "second meaning: the bag each runner climbs into at a school sports day race"
+     }
+    ],
+    "explanation": {
+     "surface": "A fashion rule: some race meetings demand a loose dress.",
+     "walkthrough": "The 'certain races' are sack races, where children hop along inside a bag; a sack dress is a loose shift.",
+     "definitionFit": "The word names both a shapeless shift garment and the coarse bag every competitor in a sack race must stand inside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "races"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +89,39 @@
     "text": "One's craft may be revealed in such a painting",
     "enumeration": "8"
    },
-   "solution": "SEASCAPE"
+   "solution": "SEASCAPE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEASCAPE",
+    "definitions": [
+     {
+      "text": "One's craft may be revealed in such a painting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's craft may be revealed in such a painting",
+      "note": "surface reading: any painting displays the artist's skill"
+     },
+     {
+      "clueFragment": "craft",
+      "note": "setter's reading: craft means a boat, which appears in a picture of the ocean"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Craft reads as an artist's skill, but it is a vessel; a picture of the sea is where boats show up.",
+     "definitionFit": "A seascape is a painting of the sea, a natural place to depict ships and boats under sail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +135,60 @@
     "text": "Initially crags unnerve and hinder a climber",
     "enumeration": "8"
    },
-   "solution": "CUCUMBER"
+   "solution": "CUCUMBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUCUMBER",
+    "definitions": [
+     {
+      "text": "a climber",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "Initially takes only the opening letters of the two words that follow"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crags unnerve",
+      "gives": "CU",
+      "select": "first",
+      "note": "the first letters of crags and unnerve"
+     },
+     {
+      "clueFragment": "hinder",
+      "gives": "CUMBER",
+      "note": "cumber is an old word for burden or hamper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "CUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Mountaineering hazards: rock faces that frighten and impede a climber.",
+     "walkthrough": "The climber is a plant, not a mountaineer.",
+     "definitionFit": "The cucumber plant is a trailing vine that clambers up supports using tendrils, so a botanical climber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +202,62 @@
     "text": "You might find her involved in show, on mare",
     "enumeration": "10"
    },
-   "solution": "HORSEWOMAN"
+   "solution": "HORSEWOMAN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "HORSEWOMAN",
+    "definitions": [
+     {
+      "text": "You might find her involved in show, on mare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up together, so the letters that follow are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show",
+      "gives": "SHOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mare",
+      "gives": "MARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHOWONMARE",
+       "gives": "HORSEWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider at a horse show, seated on her mare.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: a rider found at a show on a mare is exactly what the mixed letters spell.",
+     "definitionFit": "A female rider is the person one would expect to see competing at a show while seated on a mare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,10 +268,58 @@
    },
    "length": 5,
    "clue": {
-    "text": "Recognised outstanding bridge player coming m in",
+    "text": "Recognised outstanding bridge player coming in",
     "enumeration": "5"
    },
-   "solution": "OWNED"
+   "solution": "OWNED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OWNED",
+    "definitions": [
+     {
+      "text": "Recognised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means entering, so the player goes inside the word for outstanding"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outstanding",
+      "gives": "OWED",
+      "note": "an outstanding debt is one still owed"
+     },
+     {
+      "clueFragment": "bridge player",
+      "gives": "N",
+      "note": "North, one of the four seats at a bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OW",
+      "N",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated bridge player is acknowledged on arrival.",
+     "walkthrough": "Outstanding means unpaid, not excellent. Bridge players are N, S, E and W after their seats.",
+     "definitionFit": "To own something can mean to admit or acknowledge it, as in owning up, so recognised fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +333,55 @@
     "text": "Servant on stage worked out best route",
     "enumeration": "9"
    },
-   "solution": "SOUBRETTE"
+   "solution": "SOUBRETTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUBRETTE",
+    "definitions": [
+     {
+      "text": "Servant on stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked out",
+      "for": "anagram",
+      "note": "worked out suggests something processed and rearranged until solved"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best",
+      "gives": "BEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "ROUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BESTROUTE",
+       "gives": "SOUBRETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stage servant figured out the best way to go.",
+     "definitionFit": "A soubrette is the stock comic role of a pert lady's maid in opera and comedy, a theatrical maidservant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +401,51 @@
      }
     ]
    },
-   "solution": "WATERBOATMAN"
+   "solution": "WATERBOATMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WATER-BOATMAN",
+    "definitions": [
+     {
+      "text": "a six-foot swimmer",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "WATER",
+      "note": "water is something to drink"
+     },
+     {
+      "clueFragment": "J, for example",
+      "gives": "BOATMAN",
+      "note": "J is the narrator of Jerome K Jerome's Three Men in a Boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "BOATMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink, and a very tall swimmer with the initial J.",
+     "walkthrough": "Six-foot means six-legged, not tall: the swimmer is an insect. J, George and Harris row up the Thames in the comic novel Three Men in a Boat.",
+     "definitionFit": "The water boatman is a pond insect with six legs that swims on its back using oar-like hind legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "six-foot"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +459,41 @@
     "text": "Free to move around city in Alabama",
     "enumeration": "6"
    },
-   "solution": "MOBILE"
+   "solution": "MOBILE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOBILE",
+    "definitions": [
+     {
+      "text": "Free to move around",
+      "at": 0
+     },
+     {
+      "text": "city in Alabama",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Free to move around",
+      "note": "first meaning: able to move freely"
+     },
+     {
+      "clueFragment": "city in Alabama",
+      "note": "second meaning: the port city on ... Bay"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone at liberty to wander about an Alabama town.",
+     "definitionFit": "The adjective means able to move from place to place, and it is also the name of Alabama's Gulf Coast port."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +507,46 @@
     "text": "Required to be massaged, say",
     "enumeration": "6"
    },
-   "solution": "NEEDED"
+   "solution": "NEEDED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEEDED",
+    "definitions": [
+     {
+      "text": "Required",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say tells us the word for massaged is spoken, and we write a different spelling"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massaged",
+      "gives": "NEEDED",
+      "soundsLike": "KNEADED",
+      "note": "kneaded means worked with the hands, like dough or muscles"
+     }
+    ],
+    "explanation": {
+     "surface": "A sore back that had to be rubbed.",
+     "definitionFit": "Needed means necessary or called for, the same sense as something that was required."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "massaged"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +560,47 @@
     "text": "Knowing how to make a bow",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Knowing",
+      "at": 0
+     },
+     {
+      "text": "make a bow",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "how to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knowing",
+      "note": "first meaning: sly, mischievously aware"
+     },
+     {
+      "clueFragment": "make a bow",
+      "note": "second meaning: to bend into a curve"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who knows the right way to perform a bow.",
+     "walkthrough": "'Knowing how to' reads as one phrase about skill, but 'Knowing' stands alone as an adjective; the bow is a curve, not a courtesy.",
+     "definitionFit": "Arch as an adjective means slyly playful, and as a verb it means to curve the back or body into a curved shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +614,44 @@
     "text": "Impossible to find clothes for? Not fitting!",
     "enumeration": "10"
    },
-   "solution": "UNSUITABLE"
+   "solution": "UNSUITABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNSUITABLE",
+    "definitions": [
+     {
+      "text": "Impossible to find clothes for",
+      "at": 0
+     },
+     {
+      "text": "Not fitting",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impossible to find clothes for",
+      "note": "cryptic meaning: read as ..., not able to be given a suit"
+     },
+     {
+      "clueFragment": "Not fitting",
+      "note": "plain meaning: inappropriate"
+     }
+    ],
+    "explanation": {
+     "surface": "A frustrated tailor's complaint about a customer nothing fits.",
+     "walkthrough": "The first half splits the word into UN + SUIT + ABLE, someone no suit can be found for.",
+     "definitionFit": "The word ordinarily means inappropriate or unbecoming, the same idea as something improper or out of place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fitting"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +671,47 @@
      }
     ]
    },
-   "solution": "CABINETMAKER"
+   "solution": "CABINETMAKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CABINET-MAKER",
+    "definitions": [
+     {
+      "text": "Skilled carpenter",
+      "at": 0
+     },
+     {
+      "text": "description of Liverpool in 1812",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skilled carpenter",
+      "note": "first meaning: a craftsman who makes fine furniture"
+     },
+     {
+      "clueFragment": "description of Liverpool in 1812",
+      "note": "second meaning: Lord Liverpool became Prime Minister in 1812 and formed a government"
+     }
+    ],
+    "explanation": {
+     "surface": "A woodworker writes about the city of Liverpool two centuries ago.",
+     "walkthrough": "Liverpool is not the city but the Earl of Liverpool, British Prime Minister from 1812, who appointed a set of ministers.",
+     "definitionFit": "A cabinetmaker builds fine furniture, while a new prime minister literally makes a cabinet of ministers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Liverpool"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +725,74 @@
     "text": "Short break finally taken by retiring communist officer",
     "enumeration": "9"
    },
-   "solution": "COMMANDER"
+   "solution": "COMMANDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "COMMANDER",
+    "definitions": [
+     {
+      "text": "officer",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the next word only"
+     },
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the word for communist is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short break",
+      "gives": "COMMA",
+      "note": "a comma marks a brief pause in a sentence"
+     },
+     {
+      "clueFragment": "taken",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of taken"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "red is the standard label for a communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMA",
+      "N",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party official on his way out takes a brief holiday.",
+     "walkthrough": "The break is a punctuation pause, not a holiday.",
+     "definitionFit": "A commander is a naval rank and generally anyone holding authority over troops, so a type of officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +806,58 @@
     "text": "Austrian poet's class in religious education",
     "enumeration": "5"
    },
-   "solution": "RILKE"
+   "solution": "RILKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RILKE",
+    "definitions": [
+     {
+      "text": "Austrian poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for class inside the abbreviation for the school subject"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious education",
+      "gives": "RE",
+      "note": "RE is the school abbreviation for religious education"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "ILK",
+      "note": "ilk means kind or sort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ILK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's work is studied in a religion lesson.",
+     "walkthrough": "Class means a kind or sort here, not a group of pupils, which the school setting suggests.",
+     "definitionFit": "Rainer Maria Rilke, born in Prague under the Habsburgs, wrote the Duino Elegies and was an Austrian subject and poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +871,65 @@
     "text": "Bias in prophecy is extremely lamentable",
     "enumeration": "12"
    },
-   "solution": "PREDILECTION"
+   "solution": "PREDILECTION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PREDILECTION",
+    "definitions": [
+     {
+      "text": "Bias",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the selected letters inside the word for prophecy"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the first and last letters of the following word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prophecy",
+      "gives": "PREDICTION",
+      "note": "a prophecy is a forecast of the future"
+     },
+     {
+      "clueFragment": "lamentable",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the outside letters of lamentable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREDI",
+      "LE",
+      "CTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Prejudice in forecasts is deeply regrettable.",
+     "walkthrough": "The two end letters go inside after PREDI; 'in' reads as part of the surface phrase 'Bias in prophecy'.",
+     "definitionFit": "A predilection is a partiality or preference for something, which is a leaning or slant in judgement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +943,62 @@
     "text": "Get rid of old priest popular within China",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within puts the word for popular inside the word China stands for"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old priest",
+      "gives": "ELI",
+      "note": "Eli was the priest who raised Samuel in the Old Testament"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "rhyming slang: china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "M",
+      "IN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Expelling an elderly cleric well liked in China.",
+     "walkthrough": "China is Cockney rhyming slang (china plate = mate), not the country; the capital C hides that.",
+     "definitionFit": "To eliminate is to remove or do away with entirely, the same as getting rid of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1012,77 @@
     "text": "Subject no one raised in an African province",
     "enumeration": "8"
    },
-   "solution": "NATIONAL"
+   "solution": "NATIONAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "NATIONAL",
+    "definitions": [
+     {
+      "text": "Subject",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised means lifted up, which in a down answer turns the words upside down"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned words inside the name of the province"
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "African province",
+      "gives": "NATAL",
+      "note": "Natal was a province of South Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAT",
+      "I",
+      "ON",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "NOI",
+       "to": "ION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A subject of no consequence brought up in an African province.",
+     "walkthrough": "In a down answer, raised turns words bottom to top. Natal was a South African province until 1994.",
+     "definitionFit": "A national is a citizen or subject of a particular country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1096,65 @@
     "text": "Endlessly phone city organisation supplying soporific drug",
     "enumeration": "8"
    },
-   "solution": "HYPNOTIC"
+   "solution": "HYPNOTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HYPNOTIC",
+    "definitions": [
+     {
+      "text": "soporific drug",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "Endlessly means without its end, so the final letter of the next word goes"
+     },
+     {
+      "text": "organisation",
+      "for": "anagram",
+      "note": "organisation means arranging into order, so the letters before it are rearranged"
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phone",
+      "gives": "PHON",
+      "note": "phone without its last letter"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHONCITY",
+       "gives": "HYPNOTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organisation that keeps calling the city to deliver sleeping pills.",
+     "walkthrough": "Organisation looks like a noun for a company; it is the signal to rearrange.",
+     "definitionFit": "As a noun, a hypnotic is a drug that induces sleep, so it is a soporific medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1168,46 @@
     "text": "Cardinal in American prison",
     "enumeration": "12"
    },
-   "solution": "PENITENTIARY"
+   "solution": "PENITENTIARY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PENITENTIARY",
+    "definitions": [
+     {
+      "text": "Cardinal",
+      "at": 0
+     },
+     {
+      "text": "American prison",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cardinal",
+      "note": "first meaning: the Major ..., a cardinal who heads a Vatican tribunal"
+     },
+     {
+      "clueFragment": "American prison",
+      "note": "second meaning: a US state or federal jail"
+     }
+    ],
+    "explanation": {
+     "surface": "A senior churchman behind bars in the United States.",
+     "walkthrough": "Cardinal looks like a number to put inside something, but it is a churchman: the Cardinal Penitentiary runs the Apostolic Penitentiary in Rome.",
+     "definitionFit": "The word is the title of a Vatican cardinal dealing with confession and the usual American name for a large jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1221,57 @@
     "text": "School doctor taken in and thoroughly searched",
     "enumeration": "6"
    },
-   "solution": "COMBED"
+   "solution": "COMBED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMBED",
+    "definitions": [
+     {
+      "text": "thoroughly searched",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "taken in means admitted inside, so the doctor is placed within the word for school"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "COED",
+      "note": "a coed is a coeducational school, taking boys and girls"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MB",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A school medic was admitted and frisked carefully.",
+     "walkthrough": "The school is a mixed one, coeducational; the doctor is a medical degree, not a person.",
+     "definitionFit": "To comb an area is to search it carefully, like drawing a comb through every strand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1285,39 @@
     "text": "Sportsmen who let things slide - they go downhill fast",
     "enumeration": "6"
    },
-   "solution": "SKIERS"
+   "solution": "SKIERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SKIERS",
+    "definitions": [
+     {
+      "text": "Sportsmen who let things slide - they go downhill fast",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sportsmen who let things slide - they go downhill fast",
+      "note": "surface reading: lazy athletes whose careers rapidly decline"
+     },
+     {
+      "clueFragment": "let things slide",
+      "note": "setter's reading: the things are the boards on their feet, which literally slide down snowy slopes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Letting things slide and going downhill sound like neglect and decline, but both are literal on a snowy mountain.",
+     "definitionFit": "Competitors on snow glide on two long runners and race at speed down mountain slopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "downhill"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1331,46 @@
     "text": "Fibre from former county town, say",
     "enumeration": "5"
    },
-   "solution": "OAKUM"
+   "solution": "OAKUM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OAKUM",
+    "definitions": [
+     {
+      "text": "Fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the town's name and write down what it sounds like"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former county town",
+      "gives": "OAKUM",
+      "soundsLike": "OAKHAM",
+      "note": "Oakham was the county town of Rutland, a county abolished in 1974 and restored in 1997"
+     }
+    ],
+    "explanation": {
+     "surface": "Textile fibre produced in an old English market town.",
+     "walkthrough": "Oakham, in the tiny English Midlands county of Rutland, is spoken to give a word spelt differently.",
+     "definitionFit": "Oakum is loose hemp or jute fibre picked from old rope and used to caulk ships' seams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1384,47 @@
     "text": "Artificial, or most genuine flannel?",
     "enumeration": "9"
    },
-   "solution": "IMITATION"
+   "solution": "IMITATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IMITATION",
+    "definitions": [
+     {
+      "text": "Artificial",
+      "at": 0
+     },
+     {
+      "text": "most genuine flannel",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artificial",
+      "note": "first meaning: fake"
+     },
+     {
+      "clueFragment": "most genuine flannel",
+      "note": "second meaning: the saying calls it the sincerest form of flattery"
+     }
+    ],
+    "explanation": {
+     "surface": "Is this cloth synthetic, or the purest real flannel?",
+     "walkthrough": "Flannel here is British slang for flattery, not cloth; the proverb runs 'imitation is the sincerest form of flattery'.",
+     "definitionFit": "As an adjective it means fake or synthetic, and the proverb names copying as the most sincere kind of praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flannel"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1438,55 @@
     "text": "Best imaginable fish on a line",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Best imaginable",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide is a freshwater fish, a crossword favourite"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The perfect catch: a fish hooked on an angler's line.",
+     "definitionFit": "Ideal means perfect, the finest that could be conceived."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1500,51 @@
     "text": "Mole takes brief rest by river, perhaps",
     "enumeration": "10"
    },
-   "solution": "BREAKWATER"
+   "solution": "BREAKWATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREAKWATER",
+    "definitions": [
+     {
+      "text": "Mole",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief rest",
+      "gives": "BREAK",
+      "note": "a short pause from work"
+     },
+     {
+      "clueFragment": "river, perhaps",
+      "gives": "WATER",
+      "note": "a river is an example of a body of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREAK",
+      "WATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A mole pauses for a nap beside a river, like a Wind in the Willows scene.",
+     "walkthrough": "Mole is not the animal but a stone pier or sea wall; 'by' simply places the second piece after the first.",
+     "definitionFit": "A mole is a massive harbour pier, and a breakwater is just such a barrier protecting a harbour from waves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mole"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1558,47 @@
     "text": "Bond's problem",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KNOT",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     },
+     {
+      "text": "problem",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bond",
+      "note": "first meaning: a tie, something that binds"
+     },
+     {
+      "clueFragment": "problem",
+      "note": "second meaning: a tangled difficulty"
+     }
+    ],
+    "explanation": {
+     "surface": "James Bond faces his latest trouble.",
+     "walkthrough": "Bond looks like 007, but it is a tie; the 's is read as 'is'.",
+     "definitionFit": "A knot fastens rope together like a tie, and figuratively a knotty matter is a hard puzzle or difficulty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1612,61 @@
     "text": "Daughter assisted priest in cathedral city, as is merited",
     "enumeration": "10"
    },
-   "solution": "DESERVEDLY"
+   "solution": "DESERVEDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DESERVEDLY",
+    "definitions": [
+     {
+      "text": "as is merited",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the word for assisted a priest inside the name of the cathedral city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "cathedral city",
+      "gives": "ELY",
+      "note": "Ely is a small cathedral city in Cambridgeshire"
+     },
+     {
+      "clueFragment": "assisted priest",
+      "gives": "SERVED",
+      "note": "to serve is to assist a priest at Mass, as an altar server does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "SERVED",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl rightly earned her place helping at the altar of a cathedral.",
+     "walkthrough": "The city's name is split, E...LY, to hold the middle piece.",
+     "definitionFit": "Deservedly means rightly or justly, in the way that someone has earned it, which is what 'as is merited' says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1680,55 @@
     "text": "Political group forming to prevent king escaping",
     "enumeration": "4"
    },
-   "solution": "BLOC"
+   "solution": "BLOC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLOC",
+    "definitions": [
+     {
+      "text": "Political group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping",
+      "for": "deletion",
+      "note": "escaping means getting out, so the letter for king leaves the word"
+     }
+    ],
+    "linkWords": [
+     "forming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to prevent",
+      "gives": "BLOCK",
+      "note": "to block is to stop or obstruct"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLOC"
+     ]
+    },
+    "explanation": {
+     "surface": "Political faction forming to stop a monarch fleeing.",
+     "definitionFit": "A bloc is an alliance of parties or countries acting together for common interests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "escaping"
+    }
+   }
   }
  ]
 }
