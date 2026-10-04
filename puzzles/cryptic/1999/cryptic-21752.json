@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,40 @@
     "text": "See 10",
     "enumeration": "7"
    },
-   "solution": "WEATHER"
+   "solution": "WEATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEATHER",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0,
+      "note": "a pointer: the definition, not one indeed, is in the clue at 10"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "WEATHER",
+      "note": "the clue at 10 starts with the first part of 9, Clement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEATHER"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "This light holds the middle word of FAIR WEATHER FRIEND, clued at 10.",
+     "definitionFit": "With 10 and 12 it forms the phrase for a companion who is loyal only while things go well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +83,48 @@
     "text": "Heath's Australian cousin writing a letter that's brief and pungent",
     "enumeration": "7"
    },
-   "solution": "EPACRID"
+   "solution": "EPACRID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPACRID",
+    "definitions": [
+     {
+      "text": "Heath's Australian cousin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writing a letter that's brief",
+      "gives": "EP",
+      "note": "an epistle is a letter in writing, and EP is its brief form, the abbreviation"
+     },
+     {
+      "clueFragment": "pungent",
+      "gives": "ACRID",
+      "note": "acrid means sharp and pungent in smell or taste"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "ACRID"
+     ]
+    },
+    "explanation": {
+     "surface": "A short, sharp-tongued letter written by an Australian relative of a man called Heath.",
+     "walkthrough": "Heath looks like a surname (Edward Heath, the politician) but is the plant. Ep. is the standard abbreviation for epistle.",
+     "definitionFit": "An epacrid is a shrub of a mainly Australian plant family closely related to the heathers of the northern hemisphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heath's"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +138,58 @@
     "text": "Here and there, maybe",
     "enumeration": "5"
    },
-   "solution": "THREE"
+   "solution": "THREE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "THREE",
+    "definitions": [
+     {
+      "text": "Here and there, maybe",
+      "at": 0,
+      "note": "the whole clue: the phrase is made of this many words"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe suggests one possible version among others, so the letters of the word before it can be arranged otherwise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Here and",
+      "note": "part of the phrase being counted; gives no letters"
+     },
+     {
+      "clueFragment": "there",
+      "gives": "THERE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THERE",
+       "gives": "THREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vague gesture at things scattered about the place.",
+     "walkthrough": "The whole clue does double duty: 'there' rearranged gives the answer, and 'Here and there' is itself a phrase of THREE words.",
+     "definitionFit": "Counting the words of the phrase 'Here and there' gives exactly that number, so the clue describes its own count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "maybe"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +203,51 @@
     "text": "\"Make me a lord\" assigned to 9 but not 15",
     "enumeration": "7"
    },
-   "solution": "EARLDOM"
+   "solution": "EARLDOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARLDOM",
+    "definitions": [
+     {
+      "text": "assigned to 9 but not 15",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Make",
+      "for": "anagram",
+      "note": "to make something is to form or construct it, so the following letters are built into a new word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me a lord",
+      "gives": "MEALORD",
+      "note": "taken as written, all seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALORD",
+       "gives": "EARLDOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pleading for a peerage, which went to one prime minister but not another.",
+     "walkthrough": "Clement Attlee was made Earl Attlee in 1955; Winston Churchill declined a peerage and stayed in the Commons.",
+     "definitionFit": "The rank of earl was granted to Attlee on retirement, while Churchill turned down such honours, so it fits one and not the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Make"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +261,68 @@
     "text": "Where fighter pilot is to die, holding back old lawyer",
     "enumeration": "7"
    },
-   "solution": "COCKPIT"
+   "solution": "COCKPIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "COCKPIT",
+    "definitions": [
+     {
+      "text": "Where fighter pilot is",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so this short abbreviation is written right to left"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to die",
+      "gives": "COPIT",
+      "note": "to cop it is slang for to be killed or die"
+     },
+     {
+      "clueFragment": "old lawyer",
+      "gives": "KC",
+      "note": "a King's Counsel; in 1999 the title was QC, so KC was the old one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "CK",
+      "PIT"
+     ],
+     "reversals": [
+      {
+       "from": "KC",
+       "to": "CK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime airman faces death while carrying an ageing barrister in his plane.",
+     "walkthrough": "A cock is a fighting bird, so a cockpit is also the pit where cockfights were held, as well as a pilot's seat.",
+     "definitionFit": "The cockpit is the compartment of an aircraft where the pilot sits; it was also the arena for fighting cocks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fighter"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +336,56 @@
     "text": "A greater lord in a play, with other ranks in the circle",
     "enumeration": "6"
    },
-   "solution": "ORSINO"
+   "solution": "ORSINO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORSINO",
+    "definitions": [
+     {
+      "text": "A greater lord in a play",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other ranks",
+      "gives": "ORS",
+      "note": "OR is the military abbreviation for other ranks, plural here"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the circle",
+      "gives": "O",
+      "note": "the letter O is round like a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORS",
+      "IN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman in a drama mixing with ordinary soldiers in a ring.",
+     "walkthrough": "Orsino is the Duke of Illyria in Shakespeare's Twelfth Night; a duke is a greater lord than the earl of 4.",
+     "definitionFit": "The character is a duke, the highest rank of the peerage, appearing in Shakespeare's comedy Twelfth Night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +405,61 @@
      }
     ]
    },
-   "solution": "KOALABEAR"
+   "solution": "KOALABEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KOALA BEAR",
+    "definitions": [
+     {
+      "text": "native to Australia",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decisive blow",
+      "gives": "KO",
+      "note": "a knockout, the blow that ends a boxing match"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "LAB",
+      "note": "short for the Labour Party"
+     },
+     {
+      "clueFragment": "audience",
+      "gives": "EAR",
+      "note": "to give someone an ear is to grant them a hearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KO",
+      "A",
+      "LAB",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A knockout punch delivered to a gathering of spectators at a political party.",
+     "definitionFit": "The animal is a tree-dwelling marsupial found only in eastern Australia, so it is an Australian native."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +473,49 @@
     "text": "I shall make bequests with malice",
     "enumeration": "7"
    },
-   "solution": "ILLWILL"
+   "solution": "ILLWILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLWILL",
+    "definitions": [
+     {
+      "text": "malice",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I shall",
+      "gives": "ILL",
+      "note": "the contraction I'll"
+     },
+     {
+      "clueFragment": "make bequests",
+      "gives": "WILL",
+      "note": "to will property is to leave it in a testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "WILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone promising to write their testament out of spite.",
+     "definitionFit": "Both expressions describe hostility or a wish for harm towards another person, a feeling of spite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bequests"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +535,71 @@
      }
     ]
    },
-   "solution": "CLEMENTATTLEE"
+   "solution": "CLEMENTATTLEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLEMENT ATTLEE",
+    "definitions": [
+     {
+      "text": "Prime Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the people and their gossip go within the shelter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, away from the wind"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men as people in general"
+     },
+     {
+      "clueFragment": "gossip",
+      "gives": "TATTLE",
+      "note": "to tattle is to chatter or tell tales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LE",
+      "MEN",
+      "TATTLE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A national leader and a crowd chatting while taking cover.",
+     "walkthrough": "The shelter splits L-E...E around the people and their gossip. The answer's first name, Clement, feeds the theme: Lady Churchill was Clementine.",
+     "definitionFit": "Clement Attlee led the Labour government as the UK's head of government from 1945 to 1951."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +613,57 @@
     "text": ",1,12 9 (part1) finder revealed as not one indeed?",
     "enumeration": "4"
    },
-   "solution": "FAIR"
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "not one indeed?",
+      "at": 35,
+      "note": "defines the three-light phrase made with 1 and 12"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revealed",
+      "for": "anagram",
+      "note": "to reveal is to open up and expose, so the word before it is broken open and its letters laid out afresh"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "9 (part1)",
+      "gives": "FAIR",
+      "note": "the first part of 9 is Clement; clement weather, the rest of that phrase, goes in at 1"
+     },
+     {
+      "clueFragment": "finder",
+      "note": "rearranged, it fills the third light, at 12"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who found something turns out to be a disappointing companion after all.",
+     "walkthrough": "The whole answer across 10, 1 and 12 is FAIR WEATHER FRIEND. The proverb runs 'a friend in need is a friend indeed'; a fair-weather friend, loyal only in good times, is not one indeed.",
+     "definitionFit": "The proverb's true companion stands by you in trouble; someone who deserts you when times turn hard fails that test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "finder"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +677,39 @@
     "text": "Savoury for the dinner Elisha blessed",
     "enumeration": "10"
    },
-   "solution": "RELISHABLE"
+   "solution": "RELISHABLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RELISHABLE",
+    "definitions": [
+     {
+      "text": "Savoury",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dinner Elisha blessed",
+      "gives": "RELISHABLE",
+      "note": "the letters run across the end of dinner, all of Elisha and the start of blessed"
+     }
+    ],
+    "explanation": {
+     "surface": "A tasty dish, fit for the meal the prophet Elisha blessed.",
+     "walkthrough": "There is no signal word for the hidden answer; the biblical surface (Elisha's miracles with food in 2 Kings) carries it.",
+     "definitionFit": "Something that can be relished is tasty and appetising, which is what savoury means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elisha"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +723,46 @@
     "text": "See 10",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0,
+      "note": "a pointer: the definition, not one indeed, is in the clue at 10"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "FINDER",
+      "note": "the word finder in the clue at 10, which that clue marks for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIEND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINDER",
+       "gives": "FRIEND"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "This light holds the last word of FAIR WEATHER FRIEND, clued at 10, where 'finder revealed' supplies its letters.",
+     "definitionFit": "With 10 and 1 it forms the phrase for a companion who is loyal only while things go well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +776,44 @@
     "text": "Like Lady 15, a senior civil servant",
     "enumeration": "8"
    },
-   "solution": "MANDARIN"
+   "solution": "MANDARIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANDARIN",
+    "definitions": [
+     {
+      "text": "Like Lady 15",
+      "at": 0,
+      "note": "a comparison: the fruit is like a clementine"
+     },
+     {
+      "text": "a senior civil servant",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Lady 15",
+      "note": "first meaning: Lady Churchill was Clementine, and a clementine is a small citrus fruit of this kind"
+     },
+     {
+      "clueFragment": "a senior civil servant",
+      "note": "second meaning: a powerful official, originally in imperial China"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lady 15 is Clementine Churchill, Winston's wife; her name is also a fruit, and several clues use her as a definition.",
+     "definitionFit": "The citrus fruit is a close relative of the clementine, and the word is also slang for a top-ranking government official."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +827,65 @@
     "text": "Extraction possibly due to Bond?",
     "enumeration": "9"
    },
-   "solution": "EDUCEMENT"
+   "solution": "EDUCEMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EDUCEMENT",
+    "definitions": [
+     {
+      "text": "Extraction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints at another arrangement than the one written, so the short word before it is reordered"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Bond",
+      "gives": "CEMENT",
+      "note": "cement is what bonds bricks together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDU",
+      "CEMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "EDU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy-film question: could a removal be the work of James Bond?",
+     "walkthrough": "Bond looks like the secret agent; it is a binding material.",
+     "definitionFit": "To educe is to draw out or extract, so the noun formed from it names the act of drawing something out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bond"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +899,50 @@
     "text": "...  one before and after finding Christians unhealthy",
     "enumeration": "9"
    },
-   "solution": "CHURCHILL"
+   "solution": "CHURCHILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHURCHILL",
+    "definitions": [
+     {
+      "text": "one before and after",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christians",
+      "gives": "CHURCH",
+      "note": "the church is the body of Christian believers"
+     },
+     {
+      "clueFragment": "unhealthy",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHURCH",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from 9: someone discovering that believers are sickly.",
+     "walkthrough": "The dots join this to 9: Winston Churchill was Prime Minister before Attlee (1940-45) and again after him (1951-55).",
+     "definitionFit": "Churchill held the premiership in the years either side of Attlee's government, so he preceded and followed him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "finding"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +956,48 @@
     "text": "Saint 9 (part 1)'s say 29 and 25s - they sound pretty",
     "enumeration": "5"
    },
-   "solution": "BELLS"
+   "solution": "BELLS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BELLS",
+    "definitions": [
+     {
+      "text": "Saint 9 (part 1)'s say 29 and 25s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "sound points to how a word is heard when spoken rather than how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "they"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty",
+      "gives": "BELLS",
+      "soundsLike": "BELLES",
+      "note": "belles are pretty women"
+     }
+    ],
+    "explanation": {
+     "surface": "Quoting the nursery rhyme about a London church, and remarking how nice they are to hear.",
+     "walkthrough": "The rhyme runs 'Oranges and lemons, say the bells of St Clement's' (29 and 25 supply the fruit).",
+     "definitionFit": "In the old nursery rhyme it is the church peals of St Clement's that ring out the words about citrus fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pretty"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1011,46 @@
     "text": "The baby is a girl",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "The baby",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a girl",
+      "gives": "SUE",
+      "note": "Sue is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Announcing the sex of a newborn.",
+     "definitionFit": "The word means offspring or children, as in 'died without issue', so a baby is someone's offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1064,45 @@
     "text": "Like Lady 15, came off the wheel in Japan",
     "enumeration": "7"
    },
-   "solution": "SATSUMA"
+   "solution": "SATSUMA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SATSUMA",
+    "definitions": [
+     {
+      "text": "Like Lady 15",
+      "at": 0,
+      "note": "a comparison: the fruit is like a clementine"
+     },
+     {
+      "text": "came off the wheel in Japan",
+      "at": 14,
+      "note": "describes the pottery, a verb phrase for a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Lady 15",
+      "note": "first meaning: a small citrus fruit akin to the clementine, Lady Churchill's first name"
+     },
+     {
+      "clueFragment": "came off the wheel in Japan",
+      "note": "second meaning: a Japanese ware thrown on a potter's wheel"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Came off the wheel' suggests a crash; it means pottery thrown on a potter's wheel. Satsuma ware is a cream-glazed pottery from the former Satsuma province.",
+     "definitionFit": "The name covers both a loose-skinned mandarin-type fruit and a decorated earthenware made in a southern Japanese province."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wheel"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1116,54 @@
     "text": "Spike swallowing wrath, like Lady 15",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANGERINE",
+    "definitions": [
+     {
+      "text": "like Lady 15",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so one word goes into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spike",
+      "gives": "TINE",
+      "note": "a tine is a prong or spike, as on a fork"
+     },
+     {
+      "clueFragment": "wrath",
+      "gives": "ANGER",
+      "note": "wrath is fierce anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGER",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp point taking in fury, compared to a titled woman.",
+     "definitionFit": "The fruit is a deep-orange variety of mandarin, a near relation of the clementine named after Lady Churchill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spike"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1177,60 @@
     "text": "Roof beam on top of gable needs hard worker",
     "enumeration": "7"
    },
-   "solution": "GRAFTER"
+   "solution": "GRAFTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GRAFTER",
+    "definitions": [
+     {
+      "text": "hard worker",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gable",
+      "gives": "G",
+      "select": "first",
+      "note": "only the opening letter is kept"
+     },
+     {
+      "clueFragment": "Roof beam",
+      "gives": "RAFTER",
+      "note": "a rafter is a sloping beam supporting a roof"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAFTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A builder's observation that putting a beam on a gable takes a diligent labourer.",
+     "walkthrough": "Grafter is British slang for someone who works hard.",
+     "definitionFit": "To graft in British slang is to toil, so the one who toils is a diligent, industrious labourer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1244,64 @@
     "text": "Recovered from the Nile, egg without proper covering?",
     "enumeration": "7"
    },
-   "solution": "NEGLIGE"
+   "solution": "NEGLIGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEGLIGE",
+    "definitions": [
+     {
+      "text": "without proper covering?",
+      "at": 29,
+      "note": "describes the state of someone in the garment, an adjective phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recovered",
+      "for": "anagram",
+      "note": "recovered can be read as covered anew, given a fresh form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "from the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nile",
+      "gives": "NILE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "EGG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEGLIGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NILEEGG",
+       "gives": "NEGLIGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An egg fished out of the river Nile, not properly wrapped.",
+     "walkthrough": "A négligé is a flimsy dressing gown, or the state of being informally or scantily dressed.",
+     "definitionFit": "Someone in négligé is in a state of undress, lightly or carelessly clothed rather than properly dressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Recovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1329,48 @@
     "text": "Keep cannabis in the kitchen?",
     "enumeration": "8"
    },
-   "solution": "STOCKPOT"
+   "solution": "STOCKPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCKPOT",
+    "definitions": [
+     {
+      "text": "in the kitchen?",
+      "at": 14,
+      "note": "loose: names where the thing is found rather than the thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep",
+      "gives": "STOCK",
+      "note": "to stock goods is to keep them for sale"
+     },
+     {
+      "clueFragment": "cannabis",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCK",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hiding drugs among the kitchen cupboards.",
+     "definitionFit": "A stockpot is a large cooking vessel for simmering bones and vegetables into broth, a fixture of any kitchen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "cannabis"
+    }
+   }
   },
   {
    "number": 24,
@@ -367,7 +1384,59 @@
     "text": "Assert a member to be in liquor",
     "enumeration": "6"
    },
-   "solution": "ALLEGE"
+   "solution": "ALLEGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLEGE",
+    "definitions": [
+     {
+      "text": "Assert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the limb goes inside the drink"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liquor",
+      "gives": "ALE",
+      "note": "ale is beer"
+     },
+     {
+      "clueFragment": "a member",
+      "gives": "LEG",
+      "note": "a leg is a limb, a member of the body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "LEG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Claiming that a club member is drunk.",
+     "walkthrough": "'Member' suggests a club, and 'in liquor' suggests drunk; the member is a limb and the liquor is beer.",
+     "definitionFit": "To allege something is to claim or declare it is true, typically without yet proving it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 25,
@@ -381,7 +1450,43 @@
     "text": "The sole possible answer and it's no good",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEMON",
+    "definitions": [
+     {
+      "text": "The sole possible answer",
+      "at": 0
+     },
+     {
+      "text": "it's no good",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The sole possible answer",
+      "note": "first meaning: the word that goes with sole to name a flatfish"
+     },
+     {
+      "clueFragment": "it's no good",
+      "note": "second meaning: slang for a dud, something that fails to work"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The sole possible answer' reads as 'the only answer'; sole is the fish, and lemon sole is one kind.",
+     "definitionFit": "Lemon sole is a common edible flatfish, and a lemon is also slang for a faulty purchase, especially a car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sole"
+    }
+   }
   },
   {
    "number": 26,
@@ -395,7 +1500,66 @@
     "text": "Mentally without help - it's about making one generous",
     "enumeration": "10"
    },
-   "solution": "MUNIFICENT"
+   "solution": "MUNIFICENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MUNIFICENT",
+    "definitions": [
+     {
+      "text": "generous",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a word for support is taken away from the longer word"
+     },
+     {
+      "text": "it's about",
+      "for": "container",
+      "note": "being about something means surrounding it, so what remains goes round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mentally",
+      "gives": "MENTALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "ALLY",
+      "note": "an ally is a helper or supporter"
+     },
+     {
+      "clueFragment": "making one",
+      "gives": "UNIFIC",
+      "note": "unific is a rare adjective meaning making into one, unifying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UNIFIC",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment on someone who, unaided in their mind, set out to make a person kind.",
+     "walkthrough": "'Without help' reads like 'unaided', but help is a word to take away; unific is a rare word, found mainly in dictionaries, for unifying.",
+     "definitionFit": "Munificent describes someone who gives lavishly, so it is a more formal word for liberal and open-handed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 27,
@@ -413,7 +1577,46 @@
    "group": [
     "27-across",
     "22-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAINSPRING",
+    "definitions": [
+     {
+      "text": "may help to give time",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at sea",
+      "gives": "MAIN",
+      "note": "the main is the open sea, a poetic usage"
+     },
+     {
+      "clueFragment": "A tide",
+      "gives": "SPRING",
+      "note": "a spring tide is the high tide near new and full moon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIN",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "Tides out at sea could serve to tell the time.",
+     "definitionFit": "A mainspring is the coiled driving spring in a clock or watch, the part that powers its timekeeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tide"
+    }
+   }
   },
   {
    "number": 28,
@@ -427,7 +1630,71 @@
     "text": "Drawing of a man holding a Unionist prisoner",
     "enumeration": "7"
    },
-   "solution": "HAULAGE"
+   "solution": "HAULAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAULAGE",
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping inside, so the man wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a man",
+      "gives": "HE",
+      "note": "he is a man, by pronoun"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Unionist",
+      "gives": "U",
+      "note": "U is the abbreviation for Unionist"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "a lag is a convict, as in old lag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "U",
+      "LAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sketch of a man keeping an Ulster Unionist captive.",
+     "walkthrough": "'Drawing' suggests a picture, but here it means pulling. A Unionist favours Northern Ireland staying in the UK.",
+     "definitionFit": "Haulage is the business of pulling or carrying goods, and to draw a load is to haul it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drawing"
+    }
+   }
   },
   {
    "number": 29,
@@ -441,7 +1708,50 @@
     "text": "Nothing extends from Lady 15's big brothers",
     "enumeration": "7"
    },
-   "solution": "ORANGES"
+   "solution": "ORANGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORANGES",
+    "definitions": [
+     {
+      "text": "Lady 15's big brothers",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "extends",
+      "gives": "RANGES",
+      "note": "a thing that ranges extends or stretches over an area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing reaches beyond a titled woman's elder siblings.",
+     "definitionFit": "The larger citrus fruits are the bigger relatives of the small clementine, Lady Churchill's first name, hence its big brothers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brothers"
+    }
+   }
   }
  ]
 }
