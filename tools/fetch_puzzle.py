@@ -1915,6 +1915,18 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18816", "3-down"): (
+        "Advice once given 1to conceal gold bar in coat",
+        "Advice once given to conceal gold bar in coat",
+        "OCR misread: a stray 1 before 'to'; the wordplay needs the word to"),
+    ("times-18816", "6-down"): (
+        "Capital husband .withdraws from part of diocese",
+        "Capital husband withdraws from part of diocese",
+        "OCR misread: a stray full stop before 'withdraws', the deletion indicator"),
+    ("times-18816", "11-down"): (
+        "Settles among contents of this (transporter?",
+        "Settles among contents of this transporter?",
+        "OCR misread: a stray bracket before 'transporter', the word the definition needs"),
     ("times-18804", "4-down"): (
         "Expert personally trained beginners cutting hair could have been Delilah!",
         "Expert me personally trained beginners cutting hair could have been Delilah!",
