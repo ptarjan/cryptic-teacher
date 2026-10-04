@@ -550,10 +550,12 @@ def tidy(text):
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         # "15 Adanger out east": a clue's opening "A" run into the next word,
         # unless the whole is a misspelling of a commoner word ("Arived").
+        # A word the lexicon lacks (is_word's closed list: "whore", "togo")
+        # has no rank, and ranks below every word it has.
         glued = re.match(r"^(\d{1,2}(?:,\s?\d{1,2})*\s+)A([a-z]{3,})\b", line)
-        if glued and is_word(glued.group(2)) and not is_word("a" + glued.group(2)) and not any(
-                rank(e) and rank(e) < rank(glued.group(2)) for e in edits("a" + glued.group(2))
-                if e != glued.group(2)):
+        word = glued and glued.group(2)
+        if glued and is_word(word) and not is_word("a" + word) and not any(
+                (rank(e) or 10 ** 9) < (rank(word) or 10 ** 9) for e in edits("a" + word) if e != word):
             line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
         # Specks after a clue's count ("(8)'", "(5).·", "(5). _") end nothing.
