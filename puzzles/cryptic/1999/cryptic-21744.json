@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Prove right, merely by changing book to Kipling poem",
     "enumeration": "7"
    },
-   "solution": "JUSTIFY"
+   "solution": "JUSTIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "JUSTIFY",
+    "definitions": [
+     {
+      "text": "Prove right",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing book to",
+      "for": "substitution",
+      "note": "the instruction says one letter standing for a volume is swapped out and a poem title put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merely",
+      "gives": "JUST",
+      "note": "merely means only, just"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "Kipling poem",
+      "gives": "IF",
+      "note": "If— is Rudyard Kipling's best-known poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUST",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor vindicates a choice by swapping a book in an anthology for a Kipling poem.",
+     "walkthrough": "JUST BY becomes JUSTIFY once the B is replaced with IF.",
+     "definitionFit": "To justify an action is to show that it was correct or reasonable, vindicating it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,59 @@
     "text": "Two little women with start of lock jaw",
     "enumeration": "4"
    },
-   "solution": "JOWL"
+   "solution": "JOWL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JOWL",
+    "definitions": [
+     {
+      "text": "jaw",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two little women",
+      "gives": "JOW",
+      "note": "Jo is one of Alcott's Little Women, and W is the little, abbreviated, form of women"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Two small girls, one with the beginning of a lock of hair against a jaw.",
+     "walkthrough": "The two women are given two different ways: Jo, the March sister in Little Women, and W, the standard abbreviation.",
+     "definitionFit": "A jowl is the lower part of the cheek and jaw, especially when fleshy or sagging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +181,39 @@
      }
     ]
    },
-   "solution": "SURPRISEELEMENT"
+   "solution": "SURPRISEELEMENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SURPRISE ELEMENT",
+    "definitions": [
+     {
+      "text": "The lead for which one was unprepared?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The lead for which one was unprepared?",
+      "note": "surface reading: an actor or detective given a lead role or clue without warning"
+     },
+     {
+      "clueFragment": "lead",
+      "note": "setter's reading: lead is the metal Pb, a chemical element, and this one caught you off guard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lead looks like a leading role or a clue to follow; read as the metal, it is a chemical element, and an unexpected one is the phrase for a sudden advantage.",
+     "definitionFit": "The phrase means the advantage of catching an opponent off guard, punned here as an unexpected chemical substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +233,72 @@
      }
     ]
    },
-   "solution": "INDEBT"
+   "solution": "INDEBT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "IN DEBT",
+    "definitions": [
+     {
+      "text": "still owing",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing third",
+      "for": "deletion",
+      "note": "missing means lacking, and third points at the letter in third position of the word before it"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the very end, so the final letter is taken"
+     },
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "something done badly is botched and jumbled, so the letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "BEHIND",
+      "note": "taken as written; its third letter H is dropped"
+     },
+     {
+      "clueFragment": "payment",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of payment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDEBT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEINDT",
+       "gives": "INDEBT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone badly behind with payments, having missed the third instalment, still owes money.",
+     "walkthrough": "BEHIND loses its H to become BEIND, then T is added and the six letters are rearranged.",
+     "definitionFit": "To be in debt is to owe money that has not yet been repaid to a creditor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Badly"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +312,66 @@
     "text": "Young professional lady's ending up tart?",
     "enumeration": "6"
    },
-   "solution": "YUPPIE"
+   "solution": "YUPPIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YUPPIE",
+    "definitions": [
+     {
+      "text": "Young professional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of lady"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tart",
+      "gives": "PIE",
+      "note": "a tart is a kind of pie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "UP",
+      "PIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a young career woman will end up as a tart, a loose woman.",
+     "walkthrough": "Tart looks like an insult for a woman; here it is pastry. The 's reads as 'is'.",
+     "definitionFit": "Yuppie is the 1980s coinage for a young urban professional with a well-paid job and expensive tastes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tart"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +385,68 @@
     "text": "One disposing of irritations following Labour Party round",
     "enumeration": "7"
    },
-   "solution": "FLYTRAP"
+   "solution": "FLYTRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FLYTRAP",
+    "definitions": [
+     {
+      "text": "One disposing of irritations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the word runs right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "note": "L is the abbreviation for Labour, the UK political party"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "PARTY",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "YTRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PARTY",
+       "to": "YTRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Labour politician disposes of irritating colleagues after a round of party meetings.",
+     "walkthrough": "The irritations are flies, and a flytrap, the plant or the device, gets rid of them.",
+     "definitionFit": "A flytrap catches and kills flies, which are the small pests or annoyances described cryptically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "irritations"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +460,67 @@
     "text": "In terror, disorderly go to pumps?",
     "enumeration": "8"
    },
-   "solution": "FOOTGEAR"
+   "solution": "FOOTGEAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FOOTGEAR",
+    "definitions": [
+     {
+      "text": "pumps?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disorderly",
+      "for": "anagram",
+      "note": "disorderly means out of order, so the letters following are scrambled"
+     },
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in places the jumbled letters inside the word for dread"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terror",
+      "gives": "FEAR",
+      "note": "terror is great fear"
+     },
+     {
+      "clueFragment": "go to",
+      "gives": "OOTG",
+      "note": "the letters of go to rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OOTG",
+      "EAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOTO",
+       "gives": "OOTG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Terrified people flee in disorder towards the pumps, as if from a fire.",
+     "walkthrough": "Pumps looks like machinery; it is light shoes, an example of the definition, hence the question mark. A pump is a plain shoe or a plimsoll in Britain.",
+     "definitionFit": "Footgear covers all shoes and boots, and pumps are one example of such footwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pumps"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +534,60 @@
     "text": "Volunteers of yore, with many suffering",
     "enumeration": "8"
    },
-   "solution": "YEOMANRY"
+   "solution": "YEOMANRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YEOMANRY",
+    "definitions": [
+     {
+      "text": "Volunteers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering words are knocked about and put out of shape, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yore",
+      "gives": "YORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOREMANY",
+       "gives": "YEOMANRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Volunteer soldiers of olden days, many of them enduring hardship.",
+     "walkthrough": "The British Yeomanry were volunteer cavalry regiments, originally raised from small landowners.",
+     "definitionFit": "The yeomanry was a volunteer mounted force in Britain, so its members are collectively volunteers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +607,39 @@
      }
     ]
    },
-   "solution": "RUSSIANROULETTE"
+   "solution": "RUSSIANROULETTE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RUSSIAN ROULETTE",
+    "definitions": [
+     {
+      "text": "Chambers won't have an entry here, if you're lucky!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chambers won't have an entry here",
+      "note": "surface reading: the Chambers dictionary lacks a headword for some term"
+     },
+     {
+      "clueFragment": "Chambers",
+      "note": "setter's reading: the chambers of a revolver, and the entry is a bullet; if luck holds, the one that fires is empty"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chambers is the famous dictionary used by crossword setters, so an entry sounds like a headword; it is the cylinder of a gun with one live round.",
+     "definitionFit": "In this deadly game a player spins a revolver loaded with a single bullet and fires at their own head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chambers"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +653,94 @@
     "text": "One retiring medic follows another back into queue behind Dad - or Mum, for example",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "PALINDROME",
+    "definitions": [
+     {
+      "text": "Mum, for example",
+      "at": 67
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means withdrawing backwards, so that doctor's title is read in the other direction"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows fixes the order: the first-named doctor comes after the second"
+     },
+     {
+      "text": "back into",
+      "for": "container",
+      "note": "going back into somewhere means being put inside it, here inside the word for a queue"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind sets the queue after the father in the word"
+     }
+    ],
+    "linkWords": [
+     "One",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "queue",
+      "gives": "LINE",
+      "note": "a queue is a line of people"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "DR",
+      "note": "another medic: DR, short for doctor"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "MO",
+      "note": "MO, the Medical Officer, a military doctor; this one is turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "LIN",
+      "DR",
+      "OM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "MO",
+       "to": "OM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queue of patients behind a father, one doctor retiring and another following, with a mention of mum.",
+     "walkthrough": "The dash makes Mum look like an alternative to Dad; it is the definition by example. MO is the Medical Officer, an army doctor.",
+     "definitionFit": "Mum reads the same forwards and backwards, so it is an example of a word that is symmetrical in spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mum"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +754,55 @@
     "text": "Express boarded by Latin Society",
     "enumeration": "5"
    },
-   "solution": "WORLD"
+   "solution": "WORLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WORLD",
+    "definitions": [
+     {
+      "text": "Society",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarded by",
+      "for": "container",
+      "note": "something boarded by a passenger has that passenger inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express",
+      "gives": "WORD",
+      "note": "to express is to put into words, to word"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A Latin Society boards an express train.",
+     "walkthrough": "Express looks like a train, which makes boarded natural; it is the verb meaning to phrase.",
+     "definitionFit": "The world can mean human society at large, as in the world of fashion or the wider world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +816,70 @@
     "text": "Magistrate's conflicting votes left America in recession",
     "enumeration": "9"
    },
-   "solution": "PROCONSUL"
+   "solution": "PROCONSUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PROCONSUL",
+    "definitions": [
+     {
+      "text": "Magistrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "a recession is a going back, so those letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflicting votes",
+      "gives": "PROCON",
+      "note": "votes for and against: pro and con"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROCON",
+      "SU",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LUS",
+       "to": "SUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magistrate's split vote has left America in an economic recession.",
+     "walkthrough": "Recession looks economic; it means retreating. The 's stands for 'is'.",
+     "definitionFit": "A proconsul was a Roman official, a governor with judicial powers in a province, so a kind of magistrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recession"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +893,51 @@
     "text": "Big, big band in organ rendition",
     "enumeration": "14"
    },
-   "solution": "BROBDINGNAGIAN"
+   "solution": "BROBDINGNAGIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BROBDINGNAGIAN",
+    "definitions": [
+     {
+      "text": "Big",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendition",
+      "for": "anagram",
+      "note": "a rendition is a fresh performance or version, so the letters before it are played in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "big band in organ",
+      "gives": "BIGBANDINORGAN",
+      "note": "all fourteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIGBANDINORGAN",
+       "gives": "BROBDINGNAGIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big band's arrangement is played on an organ.",
+     "walkthrough": "The first 'Big' is the definition; the second is part of the letters to be mixed.",
+     "definitionFit": "Brobdingnag is the land of giants in Gulliver's Travels, so its adjective means huge or gigantic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +957,49 @@
      }
     ]
    },
-   "solution": "GOODSTRAIN"
+   "solution": "GOODSTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOODS TRAIN",
+    "definitions": [
+     {
+      "text": "Commercial transport",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "considerable",
+      "gives": "GOOD",
+      "note": "as in a good few or a good deal: considerable"
+     },
+     {
+      "clueFragment": "stress",
+      "gives": "STRAIN",
+      "note": "strain is stress or tension"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOD",
+      "STRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Commercial transport is under considerable stress, as in a struggling haulage industry.",
+     "definitionFit": "A goods train carries freight rather than passengers, making it transport for trade and business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "considerable"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1013,55 @@
     "text": "Serviceable fellow rejected northern banker",
     "enumeration": "4"
    },
-   "solution": "OUSE"
+   "solution": "OUSE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUSE",
+    "definitions": [
+     {
+      "text": "northern banker",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "deletion",
+      "note": "something rejected is thrown out, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serviceable",
+      "gives": "OFUSE",
+      "note": "serviceable means of use"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A useful colleague turned down by a bank in the north of England.",
+     "walkthrough": "Banker is crossword shorthand for a river, which has banks; the Ouse flows through York.",
+     "definitionFit": "The Ouse is a river in Yorkshire, northern England, and any river has banks on either side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1075,69 @@
     "text": "War and Peace personified: not I - the king's old gamekeeper",
     "enumeration": "8"
    },
-   "solution": "WARRENER"
+   "solution": "WARRENER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WARRENER",
+    "definitions": [
+     {
+      "text": "old gamekeeper",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the letter that follows is taken out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "War",
+      "gives": "WAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Peace personified",
+      "gives": "IRENE",
+      "note": "Irene, or Eirene, is the Greek goddess who personifies peace"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "RENE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary puzzle about Tolstoy's novel and an old royal gamekeeper.",
+     "walkthrough": "War and Peace looks like the Tolstoy title; it is WAR plus the goddess Irene, who loses her I.",
+     "definitionFit": "A warrener was historically the keeper of a rabbit warren on an estate, a kind of gamekeeper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peace"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1161,77 @@
      }
     ]
    },
-   "solution": "NOTATALL"
+   "solution": "NOTATALL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOT AT ALL",
+    "definitions": [
+     {
+      "text": "my pleasure!",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secures",
+      "for": "container",
+      "note": "to secure something is to hold it fast inside, so the farewell sits within"
+     },
+     {
+      "text": "last place in",
+      "for": "letter_selection",
+      "note": "the last place in a word is its final letter, which alone is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "bye",
+      "gives": "TATA",
+      "note": "ta-ta is an informal goodbye, so bye"
+     },
+     {
+      "clueFragment": "quarter-final",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of quarter-final"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TATA",
+      "L",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis seed numbered fifty wins a bye into the quarter-final.",
+     "walkthrough": "Bye looks like the sporting free pass; it is a farewell. Ta-ta is a chiefly British way of saying goodbye.",
+     "definitionFit": "Both phrases are polite replies to thanks, waving the favour away as no trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bye"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1245,64 @@
     "text": "Like a fool, puts up with way layabout behaves",
     "enumeration": "8"
    },
-   "solution": "STUPIDLY"
+   "solution": "STUPIDLY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STUPIDLY",
+    "definitions": [
+     {
+      "text": "Like a fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means reading from the bottom upwards, so backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puts",
+      "gives": "PUTS",
+      "note": "taken as written, then turned upwards"
+     },
+     {
+      "clueFragment": "way layabout behaves",
+      "gives": "IDLY",
+      "note": "a layabout behaves lazily, doing nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUP",
+      "IDLY"
+     ],
+     "reversals": [
+      {
+       "from": "PUTS",
+       "to": "STUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool puts up with how a layabout behaves.",
+     "walkthrough": "Puts up with looks like one phrase meaning tolerates; it splits into the reversal and a link word.",
+     "definitionFit": "Acting stupidly means acting foolishly, without sense, as a fool would."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "puts"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1322,55 @@
      }
     ]
    },
-   "solution": "DUENORTH"
+   "solution": "DUENORTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DUE NORTH",
+    "definitions": [
+     {
+      "text": "up the pole",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twist",
+      "for": "anagram",
+      "note": "twisting something bends it out of shape, so the letters around it are rearranged"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Round the",
+      "gives": "ROUNDTHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUNDTHE",
+       "gives": "DUENORTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether someone is round the twist or up the pole: two British ways of saying mad.",
+     "walkthrough": "Both 'round the twist' and 'up the pole' are British slang for crazy, so the clue looks like a pair of synonyms.",
+     "definitionFit": "Heading straight towards the North Pole is travelling directly north on the compass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1384,56 @@
     "text": "The Animals may initially make a persistent noise!",
     "enumeration": "4"
    },
-   "solution": "ZOOM"
+   "solution": "ZOOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ZOOM",
+    "definitions": [
+     {
+      "text": "make a persistent noise",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Animals",
+      "gives": "ZOO",
+      "note": "a zoo is a collection of animals"
+     },
+     {
+      "clueFragment": "may",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of may"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZOO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The 1960s rock group The Animals may make a lot of noise.",
+     "walkthrough": "The Animals were a British band, which makes noise seem musical.",
+     "definitionFit": "To zoom is to make a continuous low humming or buzzing sound, as a fast engine does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Animals"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1447,47 @@
     "text": "That is a horse beetle",
     "enumeration": "6"
    },
-   "solution": "SCARAB"
+   "solution": "SCARAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARAB",
+    "definitions": [
+     {
+      "text": "beetle",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That is",
+      "gives": "SC",
+      "note": "sc., short for Latin scilicet, means that is to say"
+     },
+     {
+      "clueFragment": "a horse",
+      "gives": "ARAB",
+      "note": "an Arab is a breed of horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "ARAB"
+     ]
+    },
+    "explanation": {
+     "surface": "Points at an insect and names it a horse beetle.",
+     "walkthrough": "SC is less common than i.e. for 'that is', but setters use it.",
+     "definitionFit": "The scarab is a dung beetle, sacred in ancient Egypt and often carved as an amulet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "horse"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1501,46 @@
     "text": "Show fear - this is a case for Robin Hood",
     "enumeration": "6"
    },
-   "solution": "QUIVER"
+   "solution": "QUIVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUIVER",
+    "definitions": [
+     {
+      "text": "Show fear",
+      "at": 0
+     },
+     {
+      "text": "case for Robin Hood",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "this is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show fear",
+      "note": "first meaning: tremble, shake with fright"
+     },
+     {
+      "clueFragment": "case for Robin Hood",
+      "note": "second meaning: the container for an archer's arrows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Case for Robin Hood sounds like a legal case; it is something holding arrows.",
+     "definitionFit": "The word is both a verb for trembling with emotion and a noun for an archer's arrow holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1564,73 @@
      }
     ]
    },
-   "solution": "THEHAPPYCOUPLE"
+   "solution": "THEHAPPYCOUPLE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "THE HAPPY COUPLE",
+    "definitions": [
+     {
+      "text": "Besotted, they pop without introduction up chapel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without introduction",
+      "for": "deletion",
+      "note": "without its introduction a word loses its first letter"
+     },
+     {
+      "text": "Besotted",
+      "for": "anagram",
+      "note": "besotted means befuddled, as if drunk, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they",
+      "gives": "THEY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pop",
+      "gives": "POP",
+      "note": "taken as written, then losing its first letter"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chapel",
+      "gives": "CHAPEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEYOPUPCHAPEL",
+       "gives": "THEHAPPYCOUPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smitten pair pop up to the chapel to get married.",
+     "walkthrough": "The whole clue both supplies the letters and describes the newlyweds heading to their wedding.",
+     "definitionFit": "The phrase is the usual name for a bride and groom, two besotted people who wed in a chapel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1644,48 @@
     "text": "Adverse criticism almost to the end of the scale",
     "enumeration": "4"
    },
-   "solution": "FLAK"
+   "solution": "FLAK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FLAK",
+    "definitions": [
+     {
+      "text": "Adverse criticism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost to the end of",
+      "for": "deletion",
+      "note": "going almost to the end stops short by one, so the last letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scale",
+      "gives": "FLAKE",
+      "note": "a scale is a thin flake, as of skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAK"
+     ]
+    },
+    "explanation": {
+     "surface": "Criticism that runs almost to the top of the scale.",
+     "walkthrough": "Scale looks like a range of measurement; it is a small flake.",
+     "definitionFit": "Flak, originally anti-aircraft fire, is used figuratively for strong hostile criticism or opposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scale"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1699,65 @@
     "text": "Great conqueror's kiss collected by a beautiful youth",
     "enumeration": "9"
    },
-   "solution": "ALEXANDER"
+   "solution": "ALEXANDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALEXANDER",
+    "definitions": [
+     {
+      "text": "Great conqueror",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected by",
+      "for": "container",
+      "note": "something collected by another is gathered up and held inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beautiful youth",
+      "gives": "LEANDER",
+      "note": "Leander, lover of Hero in Greek myth, was a handsome young man"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X is the conventional written kiss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LE",
+      "X",
+      "ANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A conqueror steals a kiss from a handsome young man.",
+     "walkthrough": "Leander swam the Hellespont nightly to visit Hero. The 's stands for 'is'.",
+     "definitionFit": "Alexander the Great of Macedon conquered an empire stretching from Greece to India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collected"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1771,62 @@
     "text": "Essential part finally bottled?",
     "enumeration": "5"
    },
-   "solution": "VITAL"
+   "solution": "VITAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VITAL",
+    "definitions": [
+     {
+      "text": "Essential",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means at the end, so the last letter is taken"
+     },
+     {
+      "text": "bottled",
+      "for": "container",
+      "note": "something bottled is put inside a small glass vessel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of part"
+     },
+     {
+      "clueFragment": "bottled",
+      "gives": "VIAL",
+      "note": "a vial is a small bottle, which holds the letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "T",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether the essential element was finally bottled.",
+     "walkthrough": "Bottled does double duty: it signals the insertion and supplies the bottle itself.",
+     "definitionFit": "Something vital is absolutely necessary or indispensable to life or success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottled"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1846,48 @@
      }
     ]
    },
-   "solution": "NETPLAY"
+   "solution": "NETPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NET-PLAY",
+    "definitions": [
+     {
+      "text": "enacted on court?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "NET",
+      "note": "to clear a sum after costs is to net it"
+     },
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NET",
+      "PLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A clear-cut piece of drama acted out in a courtroom.",
+     "walkthrough": "Court looks legal; it is a tennis court, where net play is volleying close to the net.",
+     "definitionFit": "In tennis, play at the net means volleys and smashes performed on the court near it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1901,58 @@
     "text": "Fool's eating bitter plant off the wall!",
     "enumeration": "7"
    },
-   "solution": "BERSERK"
+   "solution": "BERSERK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BERSERK",
+    "definitions": [
+     {
+      "text": "off the wall",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside itself"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "BERK",
+      "note": "berk is British slang for a fool"
+     },
+     {
+      "clueFragment": "bitter plant",
+      "gives": "ERS",
+      "note": "ers is the bitter vetch, a plant name setters favour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ERS",
+      "ERK"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool eats a bitter plant and goes wild.",
+     "walkthrough": "The 's stands for 'is'. ERS goes inside BERK after its B.",
+     "definitionFit": "Going berserk means becoming wildly out of control, as does behaviour that is crazy or bizarre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   }
  ]
 }
