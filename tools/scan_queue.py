@@ -78,7 +78,7 @@ def lock(ledger, wait_for_it=False):
         yield True
 
 
-def _failure(item, e):
+def failure(item, e):
     """The log line for `item`'s read raising `e`: the source and the whole
     traceback (a worker's included), so the log says what to look at."""
     text = "".join(traceback.format_exception(e)).rstrip()
@@ -106,7 +106,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
             try:
                 result = fn(*item)
             except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
-                error = _failure(item, e)
+                error = failure(item, e)
                 if failed is not None:
                     yield item, failed(item, error)
                 continue
@@ -135,7 +135,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                 except BrokenProcessPool:
                     raise
                 except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
-                    error = _failure(item, e)
+                    error = failure(item, e)
                     if failed is not None:
                         yield item, failed(item, error)
                     continue

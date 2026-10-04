@@ -722,6 +722,23 @@ wrote.clear()
 rows = f.run(cache=ed_dir.parent.parent, ledger=Path(os.environ["TMP"]) / "l2.jsonl",
              source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
 check("without --out a puzzle with a blank clue is written nowhere", ["corpus/times-18180.json"], wrote)
+# One puzzle whose write raises is a verdict: the run files the rest, and
+# its summary counts the failure.
+import io
+def failing_write(path, puzzle, generator):
+    if puzzle["id"] == "times-18179":
+        raise ValueError("times-18179 22-down: definition 'x' is not in the clue ''")
+    wrote.append(path.parent.name + "/" + path.name)
+wrote.clear()
+fetch_puzzle.write_puzzle_file = failing_write
+summary = io.StringIO()
+rows = f.run(cache=ed_dir.parent.parent, puzzles=Path(os.environ["TMP"]) / "unfiled",
+             ledger=Path(os.environ["TMP"]) / "l3.jsonl", source=Path(os.environ["TMP"]) / "src", out=summary)
+failed = [v for r in rows for v in r["verdicts"] if v.get("writeFailed")]
+check("a puzzle whose write raises is logged, counted and skipped; the rest are filed",
+      (["corpus/times-18180.json"], [18179], True, True),
+      (wrote, [v["number"] for v in failed], "is not in the clue" in failed[0]["writeFailed"],
+       "1  write failed: ValueError" in summary.getvalue()))
 (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
  fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
 
