@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "See doctor at four, fit and roadworthy",
     "enumeration": "8"
    },
-   "solution": "DRIVABLE"
+   "solution": "DRIVABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRIVABLE",
+    "definitions": [
+     {
+      "text": "roadworthy",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "See",
+     "at",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR is the standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "four in Roman numerals"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "fit to do something is able to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "IV",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is told to see the doctor at four o'clock to be declared fit, like a car passing its inspection.",
+     "walkthrough": "'See doctor at four' reads like an appointment, but the time is a Roman numeral placed next to the doctor.",
+     "definitionFit": "A vehicle that is roadworthy is in a safe condition to be driven on public highways."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "four"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,60 @@
     "text": "Female chief cried about lock of hair",
     "enumeration": "10"
    },
-   "solution": "DIRECTRESS"
+   "solution": "DIRECTRESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DIRECTRESS",
+    "definitions": [
+     {
+      "text": "Female chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving around, so these letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cried",
+      "gives": "CRIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lock of hair",
+      "gives": "TRESS",
+      "note": "a tress is a long lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIREC",
+      "TRESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIED",
+       "gives": "DIREC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman boss wept over a curl of hair.",
+     "definitionFit": "A directress is the old feminine form for a woman who directs or leads an organisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,61 @@
     "text": "More than one aim under canvas is to hold on",
     "enumeration": "10"
    },
-   "solution": "INTENTIONS"
+   "solution": "INTENTIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTENTIONS",
+    "definitions": [
+     {
+      "text": "More than one aim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under canvas",
+      "gives": "INTENT",
+      "note": "under canvas means camping, in a tent"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENT",
+      "I",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A camper has several goals, one being to hang on in the tent.",
+     "definitionFit": "Intentions are plans or purposes, the plural of what someone aims to achieve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "canvas"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,58 @@
     "text": "Lewis Carroll's girl is caught in a lie",
     "enumeration": "5"
    },
-   "solution": "ALICE"
+   "solution": "ALICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALICE",
+    "definitions": [
+     {
+      "text": "Lewis Carroll's girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lie",
+      "gives": "ALIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The heroine of Wonderland is found out telling an untruth.",
+     "walkthrough": "On a cricket scorecard, c stands for caught.",
+     "definitionFit": "Alice is the heroine of Carroll's Alice's Adventures in Wonderland and Through the Looking-Glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +307,49 @@
      }
     ]
    },
-   "solution": "LIVETOGETHER"
+   "solution": "LIVETOGETHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIVE TOGETHER",
+    "definitions": [
+     {
+      "text": "cohabit",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burning",
+      "gives": "LIVE",
+      "note": "live coals are burning ones"
+     },
+     {
+      "clueFragment": "to pick up the girl",
+      "gives": "TOGETHER",
+      "note": "to pick up is to get, and the girl is her"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVE",
+      "TOGETHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is eager to collect his girlfriend and move in with her.",
+     "definitionFit": "Couples who cohabit share a home as partners without being married."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Burning"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +363,64 @@
     "text": "US spacecraft keeps its head in a ring",
     "enumeration": "6"
    },
-   "solution": "APOLLO"
+   "solution": "APOLLO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APOLLO",
+    "definitions": [
+     {
+      "text": "US spacecraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits inside it, so the head goes between the outer pieces"
+     }
+    ],
+    "linkWords": [
+     "keeps its"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "POLL",
+      "note": "poll is an old word for the head, as in poll tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A spacecraft stays steady, keeping its nose centred within a ring, as on a docking manoeuvre.",
+     "walkthrough": "A and O join first, then the old word for head goes in between them.",
+     "definitionFit": "Apollo was the NASA programme whose craft carried astronauts to the Moon between 1968 and 1972."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +434,58 @@
     "text": "Bloodsucking as it appears in Capri quaintly",
     "enumeration": "9"
    },
-   "solution": "PARASITIC"
+   "solution": "PARASITIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARASITIC",
+    "definitions": [
+     {
+      "text": "Bloodsucking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "quaintly",
+      "for": "anagram",
+      "note": "done quaintly means in an odd, unusual way, so these letters are set in a strange order"
+     }
+    ],
+    "linkWords": [
+     "appears in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as it",
+      "gives": "ASIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Capri",
+      "gives": "CAPRI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASITCAPRI",
+       "gives": "PARASITIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mosquitoes bite on the charming Italian island of Capri.",
+     "definitionFit": "A parasitic creature lives off a host, as leeches and ticks feed on blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quaintly"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +499,48 @@
     "text": "Culinary vegetable, sleek if top not cut off",
     "enumeration": "4"
    },
-   "solution": "LEEK"
+   "solution": "LEEK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEEK",
+    "definitions": [
+     {
+      "text": "Culinary vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "if top not cut off",
+      "for": "deletion",
+      "note": "the answer would be the given word had its first letter not been lopped, so that letter is gone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleek",
+      "gives": "SLEEK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook notes that a vegetable looks glossy when its top is left on.",
+     "walkthrough": "Read it as: the vegetable would be sleek if its top letter had not been cut off.",
+     "definitionFit": "The leek is an onion relative used in soups and stews, a staple kitchen vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +554,50 @@
     "text": "Headless women acting as a warning",
     "enumeration": "4"
    },
-   "solution": "OMEN"
+   "solution": "OMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OMEN",
+    "definitions": [
+     {
+      "text": "a warning",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Headless",
+      "for": "deletion",
+      "note": "without a head means the first letter of the next word is removed"
+     }
+    ],
+    "linkWords": [
+     "acting as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women",
+      "gives": "WOMEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Ghostly women without heads appear as a sign of doom.",
+     "definitionFit": "An omen is a sign foretelling something, often taken as a warning of trouble ahead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Headless"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +611,53 @@
     "text": "Recapture and revere it like this",
     "enumeration": "8"
    },
-   "solution": "RETRIEVE"
+   "solution": "RETRIEVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETRIEVE",
+    "definitions": [
+     {
+      "text": "Recapture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "like this",
+      "for": "anagram",
+      "note": "the words are to be put into the form shown by the definition, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revere it",
+      "gives": "REVEREIT",
+      "note": "the eight letters of these two words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REVEREIT",
+       "gives": "RETRIEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to win something back and then treat it with deep respect.",
+     "definitionFit": "To recapture something is to get it back again, which is what retrieving a lost thing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revere"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +671,44 @@
     "text": "Hear ornamental band become rigid",
     "enumeration": "6"
    },
-   "solution": "FREEZE"
+   "solution": "FREEZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FREEZE",
+    "definitions": [
+     {
+      "text": "become rigid",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hear",
+      "for": "homophone",
+      "note": "we are told to listen, so the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ornamental band",
+      "gives": "FREEZE",
+      "soundsLike": "FRIEZE",
+      "note": "a frieze is a decorative band along the top of a wall"
+     }
+    ],
+    "explanation": {
+     "surface": "A visitor admires a decorative band in a building and stiffens on the spot.",
+     "definitionFit": "Water that freezes turns solid, and a person who freezes stops moving, stiff with fear or cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +728,49 @@
      }
     ]
    },
-   "solution": "LOSEINTEREST"
+   "solution": "LOSEINTEREST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOSE INTEREST",
+    "definitions": [
+     {
+      "text": "Wearied folk",
+      "at": 0,
+      "note": "people; the answer is what they might do"
+     },
+     {
+      "text": "unlucky savers",
+      "at": 17,
+      "note": "people; the answer is what they might do"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "might do"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wearied folk",
+      "note": "first meaning: bored people stop caring about something"
+     },
+     {
+      "clueFragment": "unlucky savers",
+      "note": "second meaning: savers who are unlucky forfeit the return on their deposits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase works once as boredom and once as a literal loss of money earned by savings.",
+     "definitionFit": "Bored people stop paying attention, and savers whose bank fails forfeit the money their deposits earned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "savers"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +784,51 @@
     "text": "Argumentative but happy with later promises",
     "enumeration": "11"
    },
-   "solution": "CONTENTIOUS"
+   "solution": "CONTENTIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTENTIOUS",
+    "definitions": [
+     {
+      "text": "Argumentative",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "but",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "CONTENT",
+      "note": "content means satisfied, pleased"
+     },
+     {
+      "clueFragment": "later promises",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay back later"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTENT",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrelsome person is cheerful as long as they are owed a few promises.",
+     "walkthrough": "An IOU ('I owe you') is a note acknowledging a debt to be settled later.",
+     "definitionFit": "A contentious person or issue causes disputes and quarrels, so it is likely to provoke argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promises"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +842,61 @@
     "text": "Kicked around a referee without shoes",
     "enumeration": "10"
    },
-   "solution": "BAREFOOTED"
+   "solution": "BAREFOOTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BAREFOOTED",
+    "definitions": [
+     {
+      "text": "without shoes",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word goes around another, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kicked",
+      "gives": "BOOTED",
+      "note": "to boot something is to kick it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "referee",
+      "gives": "REF",
+      "note": "ref is the short form of referee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "REF",
+      "OOTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Players kick out at a match official, without any boots on.",
+     "walkthrough": "'Kicked around' reads as a phrase meaning mistreated, but 'around' tells the kick to wrap the official.",
+     "definitionFit": "Someone barefooted walks with bare feet, wearing no shoes or socks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kicked"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +910,51 @@
     "text": "Young French woman: \"Lilo seemed wobbly\"",
     "enumeration": "10"
    },
-   "solution": "DEMOISELLE"
+   "solution": "DEMOISELLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMOISELLE",
+    "definitions": [
+     {
+      "text": "Young French woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbly",
+      "for": "anagram",
+      "note": "something wobbly is unsteady and out of order, so these letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lilo seemed",
+      "gives": "LILOSEEMED",
+      "note": "the letters of these two words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LILOSEEMED",
+       "gives": "DEMOISELLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young Frenchwoman remarks that the inflatable airbed seemed unsteady.",
+     "walkthrough": "A Lilo is a British brand of inflatable airbed.",
+     "definitionFit": "Demoiselle is French for a young unmarried lady, borrowed into English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lilo"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +968,58 @@
     "text": "Former BBC chief upset her with it",
     "enumeration": "5"
    },
-   "solution": "REITH"
+   "solution": "REITH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REITH",
+    "definitions": [
+     {
+      "text": "Former BBC chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERIT",
+       "gives": "REITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired head of the BBC is annoyed with a woman over something.",
+     "definitionFit": "John Reith was the founding Director-General of the British Broadcasting Corporation in the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1039,51 @@
      }
     ]
    },
-   "solution": "HALFCROWN"
+   "solution": "HALFCROWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HALF-CROWN",
+    "definitions": [
+     {
+      "text": "old coin",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "on",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifty per cent",
+      "gives": "HALF",
+      "note": "fifty per cent is one half"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "CROWN",
+      "note": "the crown is the top of the head or of a hill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALF",
+      "CROWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Half of something sits above an antique coin, like a stack of change.",
+     "walkthrough": "In a down clue, 'on' puts the first piece above the second. The half-crown was a British coin worth two shillings and sixpence, withdrawn in 1970.",
+     "definitionFit": "The half-crown was a pre-decimal British silver coin, now out of circulation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1103,47 @@
      }
     ]
    },
-   "solution": "GREATDANE"
+   "solution": "GREATDANE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREAT DANE",
+    "definitions": [
+     {
+      "text": "Hamlet",
+      "at": 0
+     },
+     {
+      "text": "very large dog",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamlet",
+      "note": "first meaning: Shakespeare's prince of Denmark, a famous person from that country"
+     },
+     {
+      "clueFragment": "very large dog",
+      "note": "second meaning: a giant breed of hound"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like asking about the Danish prince's enormous pet.",
+     "walkthrough": "The 's stands for 'is', not possession; the question mark flags the playful reading of Hamlet as a notable native of Denmark.",
+     "definitionFit": "Hamlet is a celebrated prince of Denmark, and the same phrase names the huge breed of dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hamlet"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1157,50 @@
     "text": "Only child with vest on",
     "enumeration": "9"
    },
-   "solution": "SINGLETON"
+   "solution": "SINGLETON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINGLETON",
+    "definitions": [
+     {
+      "text": "Only child",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vest",
+      "gives": "SINGLET",
+      "note": "a singlet is a sleeveless vest"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGLET",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone youngster runs about with nothing but a vest on.",
+     "walkthrough": "In British use a vest is an undershirt, not a waistcoat.",
+     "definitionFit": "A child with no brothers or sisters is called a singleton, a word for anything existing alone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vest"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1214,57 @@
     "text": "My belief is that wine is absorbed in company",
     "enumeration": "5"
    },
-   "solution": "CREDO"
+   "solution": "CREDO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CREDO",
+    "definitions": [
+     {
+      "text": "My belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is absorbed in",
+      "for": "container",
+      "note": "something absorbed in another is taken inside it, so the drink goes within the firm"
+     }
+    ],
+    "linkWords": [
+     "is that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "red is a colour of wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RED",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares their creed: wine is best drunk in good company.",
+     "definitionFit": "Credo is Latin for 'I believe' and names a personal creed or statement of principles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "absorbed"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1284,52 @@
      }
     ]
    },
-   "solution": "CLEVERCLOGS"
+   "solution": "CLEVERCLOGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEVER CLOGS",
+    "definitions": [
+     {
+      "text": "I'm oversure of my own ability",
+      "at": 0,
+      "note": "the clue gives a sentence a know-all might say; the answer is the noun naming such a person"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "CLEVER",
+      "note": "smart means bright, quick-witted"
+     },
+     {
+      "clueFragment": "wooden shoes",
+      "gives": "CLOGS",
+      "note": "clogs are shoes with wooden soles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEVER",
+      "CLOGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A boaster brags about their talents while showing off fashionable wooden footwear.",
+     "walkthrough": "Clever clogs is British slang for a smart aleck; 'smart' here is intelligence, not style.",
+     "definitionFit": "A clever clogs is an informal name for a show-off who thinks they know best."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1343,42 @@
     "text": "Pincer-like claw displayed by Rachel acting",
     "enumeration": "5"
    },
-   "solution": "CHELA"
+   "solution": "CHELA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHELA",
+    "definitions": [
+     {
+      "text": "Pincer-like claw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displayed by",
+      "for": "hidden_word",
+      "note": "something displayed by these words is on show within them, spanning the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rachel acting",
+      "gives": "CHELA",
+      "note": "the run of letters across the end of the name and start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "An actress named Rachel mimes a crab's grip on stage.",
+     "definitionFit": "A chela is the zoological term for the pincer of a crab, lobster or scorpion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1392,49 @@
     "text": "Leading lady accommodates second sailor",
     "enumeration": "4"
    },
-   "solution": "STAR"
+   "solution": "STAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAR",
+    "definitions": [
+     {
+      "text": "Leading lady",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "accommodates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is old slang for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "An actress in the main role makes room for a second seaman.",
+     "definitionFit": "The star of a show is its principal performer, the one who takes the lead role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodates"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1448,57 @@
     "text": "Starting pistols, for example, hung up in pub's small room",
     "enumeration": "4"
    },
-   "solution": "SNUG"
+   "solution": "SNUG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUG",
+    "definitions": [
+     {
+      "text": "pub's small room",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hung up",
+      "for": "reversal",
+      "note": "in a down entry, hung up means raised from bottom to top, so the word reads upward"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starting pistols, for example",
+      "gives": "GUNS",
+      "note": "starting pistols are a kind of firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUG"
+     ],
+     "reversals": [
+      {
+       "from": "GUNS",
+       "to": "SNUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Starter's pistols are hung on the wall of a cosy back room in a pub.",
+     "walkthrough": "A snug is a small private bar room in a British pub.",
+     "definitionFit": "The snug is a small, cosy side room in a traditional British public house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hung"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1512,50 @@
     "text": "Money attracts marijuana, which is worthless",
     "enumeration": "6"
    },
-   "solution": "TINPOT"
+   "solution": "TINPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TINPOT",
+    "definitions": [
+     {
+      "text": "worthless",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "attracts",
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "TIN",
+      "note": "tin is old British slang for money"
+     },
+     {
+      "clueFragment": "marijuana",
+      "gives": "POT",
+      "note": "pot is slang for cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIN",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that cash draws in drugs, which have no value.",
+     "definitionFit": "Tinpot describes something shabby, inferior or of little importance, like a tinpot dictator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Money"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1569,60 @@
     "text": "Desmond breaks up a petal, which is base",
     "enumeration": "8"
    },
-   "solution": "PEDESTAL"
+   "solution": "PEDESTAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEDESTAL",
+    "definitions": [
+     {
+      "text": "base",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks up",
+      "for": "container",
+      "note": "something that breaks up another splits it apart and sits in the gap"
+     }
+    ],
+    "linkWords": [
+     "a",
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petal",
+      "gives": "PETAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Desmond",
+      "gives": "DES",
+      "note": "Des is the short form of the name Desmond"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DES",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Desmond pulls a flower petal to pieces, which is a low act.",
+     "walkthrough": "'Base' looks like 'mean' after the destructive act, but it is the support a statue stands on.",
+     "definitionFit": "A pedestal is the base or support on which a column or statue stands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1636,54 @@
     "text": "Administrator, for example, included in the rent",
     "enumeration": "6"
    },
-   "solution": "REGENT"
+   "solution": "REGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REGENT",
+    "definitions": [
+     {
+      "text": "Administrator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the rent",
+      "gives": "RENT",
+      "note": "rent taken as written; 'the' is just part of the surface"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EG",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An estate manager's fee, say, is counted in the rent tenants pay.",
+     "definitionFit": "A regent administers a kingdom on behalf of a monarch who is too young, absent or unfit to rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Administrator"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1697,64 @@
     "text": "Spread legs wide to keep violin ''eld backwards",
     "enumeration": "8"
    },
-   "solution": "STRADDLE"
+   "solution": "STRADDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STRADDLE",
+    "definitions": [
+     {
+      "text": "Spread legs wide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "going backwards means this word is read from its last letter to its first"
+     }
+    ],
+    "linkWords": [
+     "to keep"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "violin",
+      "gives": "STRAD",
+      "note": "a Strad is a Stradivarius violin"
+     },
+     {
+      "clueFragment": "''eld",
+      "gives": "ELD",
+      "note": "'eld is 'held' with its H dropped, as in Cockney speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAD",
+      "DLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELD",
+       "to": "DLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cellist is told to sit with legs apart to keep the instrument held back.",
+     "walkthrough": "The apostrophe marks a dropped H, so only the three letters after it are used.",
+     "definitionFit": "To straddle something is to sit or stand with one leg either side of it, legs apart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "violin"
+    }
+   }
   }
  ]
 }
