@@ -20,8 +20,31 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 60 crossings, 0 conflicts"
+  "check": "32 entries, 60 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "17-down",
+    "was": "PAPERWORK",
+    "now": "POPPYCOCK",
+    "date": "2026-10-03"
+   },
+   {
+    "entry": "18-down",
+    "was": "TWOENDED",
+    "now": "TWOSIDED",
+    "date": "2026-10-03"
+   },
+   {
+    "entry": "23-across",
+    "was": "BECKER",
+    "now": "ASHKEY",
+    "date": "2026-10-03"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,10 +55,56 @@
    },
    "length": 5,
    "clue": {
-    "text": "Question on examination paper — “What gas circulates here?\" (5.",
+    "text": "Question on examination paper — “What gas circulates here?”",
     "enumeration": "5"
    },
-   "solution": "XENON"
+   "solution": "XENON",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "XENON",
+    "definitions": [
+     {
+      "text": "gas",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "here",
+      "for": "hidden_word",
+      "note": "here points back at the words already written in the clue, so the letters sit inside them"
+     },
+     {
+      "text": "circulates",
+      "for": "reversal",
+      "note": "something that circulates goes round, so the run of letters is read the other way round"
+     }
+    ],
+    "linkWords": [
+     "paper —",
+     "What"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question on examination",
+      "gives": "NONEX",
+      "note": "the tail of question, all of on and the start of examination"
+     }
+    ],
+    "explanation": {
+     "surface": "An exam paper on chemistry asks students to name a gas that is circulating in the room.",
+     "walkthrough": "The whole clue is a question set in an exam, and its own opening words answer it once read backwards: questiON ON EXamination, reversed, spells XENON.",
+     "definitionFit": "Xenon is one of the noble elements, a heavy inert substance found in tiny traces in the air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circulates"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +118,66 @@
     "text": "Nagging wife can make it happen after a kiss",
     "enumeration": "9"
    },
-   "solution": "XANTHIPPE"
+   "solution": "XANTHIPPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "XANTHIPPE",
+    "definitions": [
+     {
+      "text": "Nagging wife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can make",
+      "for": "anagram",
+      "note": "can make suggests the letters are used as raw material to build something different"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the rearranged letters follow the other piece, so they go second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a kiss",
+      "gives": "X",
+      "note": "X is the cross used for a kiss at the end of a letter"
+     },
+     {
+      "clueFragment": "it happen",
+      "gives": "ANTHIPPE",
+      "note": "the eight letters of the two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "ANTHIPPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITHAPPEN",
+       "gives": "ANTHIPPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife who keeps on at her husband gets her way once she has given him a kiss.",
+     "walkthrough": "After puts the kiss first in the answer, with the rearranged letters following it.",
+     "definitionFit": "Xanthippe, the wife of Socrates, was famed as a shrew, so her name stands for any scolding spouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +191,51 @@
     "text": "Christmas present the Spanish give",
     "enumeration": "5"
    },
-   "solution": "NOWEL"
+   "solution": "NOWEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOWEL",
+    "definitions": [
+     {
+      "text": "Christmas",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present",
+      "gives": "NOW",
+      "note": "the present moment is now"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOW",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Christmas gift that Spanish people hand over.",
+     "walkthrough": "Christmas present reads as a gift, but present is the time now and Christmas alone is the definition.",
+     "definitionFit": "Nowel is an old spelling of Noel, the French-derived word for the Yuletide festival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +249,59 @@
     "text": "Parsimony of composer wearing cape",
     "enumeration": "8"
    },
-   "solution": "NEARNESS"
+   "solution": "NEARNESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEARNESS",
+    "definitions": [
+     {
+      "text": "Parsimony",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a garment that is worn goes round its wearer, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cape",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness or Sheerness"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "ARNE",
+      "note": "Thomas Arne, the English composer of Rule, Britannia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "ARNE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer known for meanness is spotted in a cloak.",
+     "walkthrough": "Wearing reads as the composer having the cape on, but the cape word is the outside piece: Arne goes inside ness.",
+     "definitionFit": "Near can mean stingy or tight-fisted, so nearness is meanness with money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cape"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +315,50 @@
     "text": "Fantastic claim — wish is realised",
     "enumeration": "9"
    },
-   "solution": "WHIMSICAL"
+   "solution": "WHIMSICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WHIMSICAL",
+    "definitions": [
+     {
+      "text": "Fantastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is realised",
+      "for": "anagram",
+      "note": "a thing realised is made real in a new form, so the letters are rebuilt into another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claim — wish",
+      "gives": "CLAIMWISH",
+      "note": "the two words supply all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLAIMWISH",
+       "gives": "WHIMSICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes a far-fetched claim and then the wish behind it comes true.",
+     "definitionFit": "Fantastic in its sense of fanciful or capricious matches playfully odd, the meaning of whimsical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "realised"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +372,45 @@
     "text": "Wash in stir",
     "enumeration": "4"
    },
-   "solution": "WAKE"
+   "solution": "WAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAKE",
+    "definitions": [
+     {
+      "text": "Wash",
+      "at": 0
+     },
+     {
+      "text": "stir",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wash",
+      "note": "first meaning: the trail of disturbed water behind a boat"
+     },
+     {
+      "clueFragment": "stir",
+      "note": "second meaning: to rouse or come out of sleep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests stirring something into the laundry; wash is the water left behind a vessel and stir means to rouse.",
+     "definitionFit": "A boat's wake is the wash it leaves behind, and to wake is to stir from slumber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wash"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,10 +421,56 @@
    },
    "length": 10,
    "clue": {
-    "text": "Concerned with sheep gathering as a whole MO).",
+    "text": "Concerned with sheep gathering as a whole",
     "enumeration": "10"
    },
-   "solution": "INTEGRALLY"
+   "solution": "INTEGRALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTEGRALLY",
+    "definitions": [
+     {
+      "text": "as a whole",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned with",
+      "gives": "IN",
+      "note": "to be in something is to be involved or concerned with it"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "TEG",
+      "note": "a teg is a sheep in its second year"
+     },
+     {
+      "clueFragment": "gathering",
+      "gives": "RALLY",
+      "note": "a rally is a mass meeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEG",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone worried about sheep being rounded up all together.",
+     "walkthrough": "TEG, a young sheep, is a crossword favourite worth remembering.",
+     "definitionFit": "Integrally means as an essential part of a complete thing, taken whole rather than in pieces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +484,51 @@
     "text": "Area controlled by military escort, perhaps",
     "enumeration": "6"
    },
-   "solution": "SECTOR"
+   "solution": "SECTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECTOR",
+    "definitions": [
+     {
+      "text": "Area controlled by military",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps says the word is only one possible arrangement, inviting another ordering"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escort",
+      "gives": "ESCORT",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ESCORT",
+       "gives": "SECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A zone run by soldiers, who may be providing an armed escort.",
+     "walkthrough": "Military escort looks like a phrase, but military belongs to the definition and escort alone is the fodder.",
+     "definitionFit": "In army usage a sector is a zone of operations assigned to a particular unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "escort"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +542,64 @@
     "text": "Bloke joining a bishop and a novice in the bush",
     "enumeration": "9"
    },
-   "solution": "CHAPARRAL"
+   "solution": "CHAPARRAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAPARRAL",
+    "definitions": [
+     {
+      "text": "bush",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "joining",
+     "and",
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke",
+      "gives": "CHAP",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR is Right Reverend, a bishop's title"
+     },
+     {
+      "clueFragment": "a novice",
+      "gives": "AL",
+      "note": "a as written, and L for learner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "A",
+      "RR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man teams up with a bishop and a trainee out in the wilderness.",
+     "walkthrough": "L is the learner plate on British cars, hence a novice.",
+     "definitionFit": "Chaparral is dense scrubland of the American south-west, so it is a stretch of bush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bush"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,10 +610,51 @@
    },
    "length": 5,
    "clue": {
-    "text": "It's lawful m walk",
+    "text": "It's lawful to walk",
     "enumeration": "5"
    },
-   "solution": "LEGIT"
+   "solution": "LEGIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEGIT",
+    "definitions": [
+     {
+      "text": "lawful",
+      "at": 5
+     },
+     {
+      "text": "to walk",
+      "at": 12,
+      "note": "read as the two words leg it"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lawful",
+      "note": "first meaning: legitimate, in slang form"
+     },
+     {
+      "clueFragment": "to walk",
+      "note": "second meaning"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reassures us that strolling here is permitted.",
+     "walkthrough": "Split the answer into two words for the second meaning: leg it is slang for going on foot or running off.",
+     "definitionFit": "Legit is short slang for legitimate, meaning legal or above board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "walk"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +668,44 @@
     "text": "Game in which you'll find many trainers",
     "enumeration": "9"
    },
-   "solution": "NEWMARKET"
+   "solution": "NEWMARKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEWMARKET",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     },
+     {
+      "text": "in which you'll find many trainers",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "note": "first meaning: a card game of the stops family"
+     },
+     {
+      "clueFragment": "in which you'll find many trainers",
+      "note": "second meaning: the Suffolk town that is the headquarters of British horse racing"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports game where plenty of coaches, or running shoes, turn up.",
+     "walkthrough": "Trainers suggest coaches or sports shoes, but here they are racehorse trainers: Newmarket in Suffolk, England, has more racing stables than anywhere in Britain.",
+     "definitionFit": "Newmarket is both a gambling card game played with a layout of cards and the English town famous for its racing stables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trainers"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +719,59 @@
     "text": "Loud noise from Scots group at midnight",
     "enumeration": "5"
    },
-   "solution": "CLANG"
+   "solution": "CLANG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLANG",
+    "definitions": [
+     {
+      "text": "Loud noise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "midnight",
+      "for": "letter_selection",
+      "note": "mid- names the middle of the word night, so only its centre letter is kept"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scots group",
+      "gives": "CLAN",
+      "note": "a clan is a Scottish family group"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "G",
+      "select": "middle",
+      "note": "the middle letter of night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A Highland family makes a racket in the middle of the night.",
+     "definitionFit": "A clang is a loud ringing metallic sound, such as a bell or a dropped pan makes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "midnight"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,10 +782,57 @@
    },
    "length": 6,
    "clue": {
-    "text": "Maritime industry out west using rugs",
+    "text": "Maritime industry out west using tugs",
     "enumeration": "6"
    },
-   "solution": "HALING"
+   "solution": "HALING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HALING",
+    "definitions": [
+     {
+      "text": "using tugs",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out tells us the following letter is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maritime industry",
+      "gives": "WHALING",
+      "note": "hunting whales at sea"
+     },
+     {
+      "clueFragment": "west",
+      "gives": "W",
+      "note": "W is the compass abbreviation for west"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HALING"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafaring business in the western ocean relies on tugboats.",
+     "walkthrough": "Tugs look like tugboats, which suits the maritime picture, but here they are pulls or heaves.",
+     "definitionFit": "To hale is an old form of haul, so haling means pulling or dragging, giving strong pulls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tugs"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +846,50 @@
     "text": "I grant no dispensation in the dark",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORANT",
+    "definitions": [
+     {
+      "text": "in the dark",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensation",
+      "for": "anagram",
+      "note": "a dispensation is an arrangement or ordering of things, so the letters are set out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I grant no",
+      "gives": "IGRANTNO",
+      "note": "all eight letters of the three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGRANTNO",
+       "gives": "IGNORANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church official refuses to grant an exemption without explaining why.",
+     "definitionFit": "Being in the dark is an idiom for lacking knowledge or information about something, unaware."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dispensation"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +909,56 @@
      }
     ]
    },
-   "solution": "SNAILSPACE"
+   "solution": "SNAILSPACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SNAIL'S PACE",
+    "definitions": [
+     {
+      "text": "slow motion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into puts one word inside another rather than beside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unoccupied area",
+      "gives": "SPACE",
+      "note": "empty room is space"
+     },
+     {
+      "clueFragment": "Tacks",
+      "gives": "NAILS",
+      "note": "tacks are small nails"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAILS",
+      "PACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tacking a sail slowly into open water.",
+     "walkthrough": "Tacks suggests sailing, but here they are small nails, which go after the first letter of space.",
+     "definitionFit": "A snail's pace is an idiom for very slow progress, since the creature barely creeps along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tacks"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +978,66 @@
      }
     ]
    },
-   "solution": "PALMSUNDAY"
+   "solution": "PALMSUNDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PALM SUNDAY",
+    "definitions": [
+     {
+      "text": "a feast",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the Continent",
+      "for": "charade",
+      "note": "on the Continent tells us to use the European, here German, word rather than the English one"
+     },
+     {
+      "text": "cover",
+      "for": "container",
+      "note": "to cover is to go round on all sides, so one word wraps the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charitable giving",
+      "gives": "ALMS",
+      "note": "alms are gifts to the poor"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "UND",
+      "note": "und is German for and"
+     },
+     {
+      "clueFragment": "Wages",
+      "gives": "PAY",
+      "note": "wages are pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ALMSUND",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers' pay includes donations to charity, and in Europe a banquet too.",
+     "walkthrough": "Wages go round both the charity word and the German one.",
+     "definitionFit": "Palm Sunday, the Sunday before Easter, is a Christian festival, and feast is the church word for one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1057,49 @@
      }
     ]
    },
-   "solution": "LOOKSMART"
+   "solution": "LOOKSMART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOK SMART",
+    "definitions": [
+     {
+      "text": "order to speed up",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seem",
+      "gives": "LOOK",
+      "note": "to look a certain way is to seem it"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "SMART",
+      "note": "to smart is to sting or hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOK",
+      "SMART"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone appears upset at being told to get a move on.",
+     "definitionFit": "Look smart is a British command meaning hurry up, be quick about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1113,54 @@
     "text": "Catch 6 on the way back",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "going on the way back means travelling in the opposite direction, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "6",
+      "gives": "PART",
+      "note": "the answer to 6 down is sector, which is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone catches a number six bus on the return journey.",
+     "walkthrough": "6 is a cross-reference to 6 down, sector, which you must turn into a synonym before reading it backwards.",
+     "definitionFit": "To catch an animal is to trap it, and a catch on a door is also a trap of sorts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "6"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1174,58 @@
     "text": "Flower providing cover for bird and rats",
     "enumeration": "9"
    },
-   "solution": "PAPERWORK"
+   "solution": "POPPYCOCK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPPYCOCK",
+    "definitions": [
+     {
+      "text": "rats",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing cover for",
+      "for": "charade",
+      "note": "in a down answer the piece that covers another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "POPPY",
+      "note": "a poppy is a red flower"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "COCK",
+      "note": "a cock is a male bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POPPY",
+      "COCK"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant gives shelter to a bird and some rodents.",
+     "walkthrough": "Rats looks like more animals for the scene, but it is the exclamation Rats!, meaning nonsense.",
+     "definitionFit": "Rats! is a dismissive exclamation like Poppycock!, both meaning rubbish or nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rats"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,10 +1236,48 @@
    },
    "length": 8,
    "clue": {
-    "text": "Mobius strip is not so controversial 13-5).",
+    "text": "Mobius strip is not so controversial",
     "enumeration": "8"
    },
-   "solution": "TWOENDED"
+   "solution": "TWOSIDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWO-SIDED",
+    "definitions": [
+     {
+      "text": "Mobius strip is not so",
+      "at": 0,
+      "note": "a cryptic description, not a synonym"
+     },
+     {
+      "text": "controversial",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mobius strip is not so",
+      "note": "first meaning: a Möbius strip, a loop with a half twist, famously has only one surface"
+     },
+     {
+      "clueFragment": "controversial",
+      "note": "second meaning: an issue with arguments on both sides"
+     }
+    ],
+    "explanation": {
+     "surface": "A geometry puzzle is said to be less divisive than people think.",
+     "walkthrough": "Not so controversial looks like one phrase; split after so: the strip is not so, and controversial is the second meaning.",
+     "definitionFit": "A controversial question has opposing camps, so it is two-sided, while a Möbius band has only one face."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "so"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1291,44 @@
     "text": "By the sound of it, took in island",
     "enumeration": "4"
    },
-   "solution": "EYOT"
+   "solution": "EYOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYOT",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "By the sound of it",
+      "for": "homophone",
+      "note": "this tells us to go by how a word is pronounced, not how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took in",
+      "gives": "EYOT",
+      "soundsLike": "ATE",
+      "note": "took in food means ate, said the British way to rhyme with eight"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone apparently visited, or swallowed, an island.",
+     "walkthrough": "Many British speakers say ate as eight, which is how an eyot, also spelt ait, is pronounced.",
+     "definitionFit": "An eyot is a small island in a river, especially the Thames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,10 +1339,67 @@
    },
    "length": 10,
    "clue": {
-    "text": "Bed-linen given prisoner who's admitted “1 shall escape\"",
+    "text": "Bed-linen given prisoner who's admitted “I shall escape\"",
     "enumeration": "10"
    },
-   "solution": "PILLOWSLIP"
+   "solution": "PILLOWSLIP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PILLOWSLIP",
+    "definitions": [
+     {
+      "text": "Bed-linen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "who's admitted",
+      "for": "container",
+      "note": "someone who has admitted a visitor has let them inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "POW",
+      "note": "POW is a prisoner of war"
+     },
+     {
+      "clueFragment": "I shall",
+      "gives": "ILL",
+      "note": "contracted to I'll"
+     },
+     {
+      "clueFragment": "escape",
+      "gives": "SLIP",
+      "note": "to slip away is to escape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ILL",
+      "OW",
+      "SLIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A captive who vows to break out is handed bedsheets, perhaps for a rope.",
+     "definitionFit": "A pillowslip is a pillowcase, one of the cloth items making up a bed's linen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,10 +1410,56 @@
    },
    "length": 6,
    "clue": {
-    "text": "Result — tom coat",
+    "text": "Result — torn coat",
     "enumeration": "6"
    },
-   "solution": "ULSTER"
+   "solution": "ULSTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULSTER",
+    "definitions": [
+     {
+      "text": "coat",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "torn",
+      "for": "anagram",
+      "note": "something torn is ripped apart, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result",
+      "gives": "RESULT",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESULT",
+       "gives": "ULSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The outcome of a scuffle is a ripped overcoat.",
+     "definitionFit": "An ulster is a long loose overcoat, often belted, named after the Irish province."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "torn"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,10 +1470,60 @@
    },
    "length": 8,
    "clue": {
-    "text": "Show 10 be deprived of record in first place",
+    "text": "Show to be deprived of record in first place",
     "enumeration": "8"
    },
-   "solution": "DISCLOSE"
+   "solution": "DISCLOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCLOSE",
+    "definitions": [
+     {
+      "text": "Show",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in first place",
+      "for": "charade",
+      "note": "in first place says this piece comes at the front of the answer"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "DISC",
+      "note": "a disc is a gramophone record"
+     },
+     {
+      "clueFragment": "be deprived of",
+      "gives": "LOSE",
+      "note": "to lose something is to be deprived of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "LOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A show is going to lose its prize-winning record.",
+     "walkthrough": "In first place sounds like winning, but it simply puts the record word at the start.",
+     "definitionFit": "To show something hidden is to reveal it, which is what disclose means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1537,49 @@
     "text": "Beautiful girl featured in boring commercial",
     "enumeration": "5"
    },
-   "solution": "DRYAD"
+   "solution": "DRYAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRYAD",
+    "definitions": [
+     {
+      "text": "Beautiful girl",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "featured in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boring",
+      "gives": "DRY",
+      "note": "dry means dull"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A pretty model appears in a dull television advert.",
+     "definitionFit": "A dryad is a tree nymph of Greek myth, nymph being an old term for a lovely young woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "featured"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1599,51 @@
      }
     ]
    },
-   "solution": "BECKER"
+   "solution": "ASHKEY",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ASH-KEY",
+    "definitions": [
+     {
+      "text": "seed",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "named",
+      "for": "homophone",
+      "note": "named means said out loud, so the champion counts for how his surname is pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former Wimbledon champion",
+      "gives": "ASH",
+      "soundsLike": "ASHE",
+      "note": "Arthur Ashe won the Wimbledon men's singles in 1975"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "KEY",
+      "note": "key means chief or principal"
+     }
+    ],
+    "explanation": {
+     "surface": "A past tennis winner is announced as the number one seed.",
+     "walkthrough": "Top seed belongs to tennis, but seed alone is the definition. Ashe's surname is said exactly like the tree.",
+     "definitionFit": "An ash key is the winged fruit of the ash tree, which carries its seed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seed"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1657,57 @@
     "text": "Record held by Kipling's python for a long time",
     "enumeration": "5"
    },
-   "solution": "KALPA"
+   "solution": "KALPA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KALPA",
+    "definitions": [
+     {
+      "text": "a long time",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kipling's python",
+      "gives": "KAA",
+      "note": "Kaa is the python in Kipling's Jungle Book"
+     },
+     {
+      "clueFragment": "Record",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KA",
+      "LP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Kipling's snake keeps hold of an album for ages.",
+     "definitionFit": "In Hindu and Buddhist cosmology a kalpa is an aeon, a cycle lasting billions of years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1721,56 @@
     "text": "Broadcast schedule is upset",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Broadcast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down answer, set upside down means the word reads bottom to top"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schedule",
+      "gives": "TIME",
+      "note": "to time something is to schedule it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The television listings have been thrown into disarray.",
+     "definitionFit": "Both words are plain synonyms for sending out a signal or radio waves, as a transmitter does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1784,62 @@
     "text": "It raises a point still outstanding",
     "enumeration": "5"
    },
-   "solution": "YEAST"
+   "solution": "YEAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "YEAST",
+    "definitions": [
+     {
+      "text": "It raises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outstanding",
+      "for": "container",
+      "note": "read as out-standing, one word stands outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "still and yet both mean even now"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "S",
+      "note": "S, south, is a compass point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone brings up an unresolved issue.",
+     "walkthrough": "It raises looks like a person raising a point, but the it is the leavening in bread dough.",
+     "definitionFit": "Yeast makes dough rise by producing gas, so it is the thing that raises bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raises"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1853,73 @@
     "text": "Bad trouble about chasing a marine creature",
     "enumeration": "9"
    },
-   "solution": "ARMADILLO"
+   "solution": "ARMADILLO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARMADILLO",
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one word surrounds another"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "a chaser follows behind, so this piece comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "marine",
+      "gives": "RM",
+      "note": "RM is a Royal Marine"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "ado is fuss or bother"
+     },
+     {
+      "clueFragment": "Bad",
+      "gives": "ILL",
+      "note": "ill means bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RM",
+      "AD",
+      "ILL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A dangerous sea creature in pursuit of something causes real trouble.",
+     "walkthrough": "Marine creature looks like a sea animal, but marine is wordplay and creature alone is the definition.",
+     "definitionFit": "The armadillo is an American mammal with a bony armoured shell, an animal and so a creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marine"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1933,47 @@
     "text": "Cleaner put chap off",
     "enumeration": "9"
    },
-   "solution": "DETERGENT"
+   "solution": "DETERGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DETERGENT",
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put",
+      "gives": "DETER",
+      "note": "put, read with off at the end of the clue, gives the verb put off"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a gent is a gentleman, a chap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETER",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaning lady discourages a man.",
+     "walkthrough": "Put off means deter and chap means gent; the setter has tucked chap inside the phrase, but the pieces simply run one after the other.",
+     "definitionFit": "A detergent is a washing agent, a substance used for cleaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +1987,48 @@
     "text": "Had lush imbibed?",
     "enumeration": "5"
    },
-   "solution": "DRANK"
+   "solution": "DRANK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRANK",
+    "definitions": [
+     {
+      "text": "imbibed",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had",
+      "gives": "D",
+      "note": "had shortens to 'd, as in I'd"
+     },
+     {
+      "clueFragment": "lush",
+      "gives": "RANK",
+      "note": "lush and rank both describe overgrown vegetation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RANK"
+     ]
+    },
+    "explanation": {
+     "surface": "Did the drunkard have a drink?",
+     "walkthrough": "Lush looks like a heavy drinker, but here it is luxuriant growth.",
+     "definitionFit": "Imbibed is a formal past tense for taking in liquid, which is what drank means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lush"
+    }
+   }
   }
  ]
 }
