@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Awful stain on cover causes talk",
     "enumeration": "12"
    },
-   "solution": "CONVERSATION"
+   "solution": "CONVERSATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONVERSATION",
+    "definitions": [
+     {
+      "text": "talk",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "something awful is in a dreadful state, so the following letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stain on cover",
+      "gives": "STAINONCOVER",
+      "note": "the three words taken letter for letter as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STAINONCOVER",
+       "gives": "CONVERSATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful mark on a book jacket or cushion gets everyone gossiping.",
+     "definitionFit": "A conversation is spoken exchange between people, so talk is a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,82 @@
     "text": "Canada initially, then America not a melting pot, perhaps",
     "enumeration": "7"
    },
-   "solution": "CERAMIC"
+   "solution": "CERAMIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CERAMIC",
+    "definitions": [
+     {
+      "text": "pot, perhaps",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us the following small word is to be taken away from the country name"
+     },
+     {
+      "text": "melting",
+      "for": "anagram",
+      "note": "melting loses its shape, so the remaining letters run together in a new order"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canada",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of Canada"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "AMERICA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, removed from the country name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ERAMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMERIC",
+       "gives": "ERAMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that North America, Canada first, is not after all the famous melting pot of cultures.",
+     "walkthrough": "'Melting pot' reads as one phrase about immigration, but the words split: 'melting' signals the shuffle and 'pot, perhaps' is the definition.",
+     "definitionFit": "A pot made of fired clay is one example of ceramic ware, hence the 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "melting"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +185,49 @@
     "text": "Requirement came first, but created irritation",
     "enumeration": "7"
    },
-   "solution": "NEEDLED"
+   "solution": "NEEDLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEEDLED",
+    "definitions": [
+     {
+      "text": "created irritation",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Requirement",
+      "gives": "NEED",
+      "note": "a requirement is a need"
+     },
+     {
+      "clueFragment": "came first",
+      "gives": "LED",
+      "note": "whoever came first in a race led it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEED",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who put their needs first ended up annoying everyone.",
+     "definitionFit": "To needle someone is to annoy or provoke them, so needled means caused irritation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Requirement"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +247,48 @@
      }
     ]
    },
-   "solution": "EXSERVICE"
+   "solution": "EXSERVICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EX SERVICE",
+    "definitions": [
+     {
+      "text": "now out of commission?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formerly",
+      "gives": "EX",
+      "note": "ex- is the prefix for former"
+     },
+     {
+      "clueFragment": "in use",
+      "gives": "SERVICE",
+      "note": "something in service is in use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "SERVICE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old machine that used to be working is now broken down.",
+     "walkthrough": "A commission is also an officer's rank in the armed forces, so someone 'out of commission' has left the military.",
+     "definitionFit": "Ex-service describes veterans who formerly served in the armed forces, which a commissioned officer leaves on retiring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "commission"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +302,46 @@
     "text": "One who was good and erect?",
     "enumeration": "5"
    },
-   "solution": "STAND"
+   "solution": "STAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAND",
+    "definitions": [
+     {
+      "text": "erect",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who was good",
+      "gives": "ST",
+      "note": "a saint was a good person, abbreviated ST"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about someone virtuous who held themselves upright.",
+     "definitionFit": "To stand something is to set it upright, which is to erect or put it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "erect"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +361,51 @@
      }
     ]
    },
-   "solution": "TOTEBAG"
+   "solution": "TOTEBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTE BAG",
+    "definitions": [
+     {
+      "text": "Sack, perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "because"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "betting system",
+      "gives": "TOTE",
+      "note": "the tote is a pool-betting system run at British racecourses"
+     },
+     {
+      "clueFragment": "takes hold",
+      "gives": "BAG",
+      "note": "to bag something is to seize or take hold of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOTE",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fired because the racecourse betting operation takes over.",
+     "walkthrough": "'Sack' looks like dismissal from a job, but it is the carrying sort.",
+     "definitionFit": "A tote bag is a large open carrier bag, and a sack is one kind of such bag."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sack"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +419,58 @@
     "text": "Suspect caring nothing for what concerns living things",
     "enumeration": "7"
    },
-   "solution": "ORGANIC"
+   "solution": "ORGANIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANIC",
+    "definitions": [
+     {
+      "text": "what concerns living things",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suspect",
+      "for": "anagram",
+      "note": "suspect means dubious or not genuine, so the letters are not in their true order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caring",
+      "gives": "CARING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARINGO",
+       "gives": "ORGANIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is suspected of not caring at all about the natural world.",
+     "definitionFit": "Organic means relating to or derived from living organisms, as in organic chemistry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspect"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +490,70 @@
      }
     ]
    },
-   "solution": "BACHELORGIRL"
+   "solution": "BACHELORGIRL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BACHELOR GIRL",
+    "definitions": [
+     {
+      "text": "one who is free",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "re-written",
+      "for": "anagram",
+      "note": "a part re-written has its letters set down again in a different order"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "BACH",
+      "note": "J S Bach, the German composer"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "ROLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "GIRL",
+      "note": "a girl is a female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACH",
+      "ELOR",
+      "GIRL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROLE",
+       "gives": "ELOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer reworks an opera part so a woman can sing it.",
+     "definitionFit": "A bachelor girl is an independent unmarried young woman, free of any husband."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Composer"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +567,47 @@
     "text": "Close without a song",
     "enumeration": "7"
    },
-   "solution": "AIRLESS"
+   "solution": "AIRLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRLESS",
+    "definitions": [
+     {
+      "text": "Close",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "LESS",
+      "note": "less can mean without, as in 'a year less a day'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to end a performance without singing.",
+     "walkthrough": "'Close' looks like a verb meaning finish; it is the adjective for stuffy weather or rooms.",
+     "definitionFit": "Close weather or rooms are stuffy and lacking fresh air, which is what airless means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Close"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +621,52 @@
     "text": "A tug in a bad way in the Caribbean",
     "enumeration": "7"
    },
-   "solution": "ANTIGUA"
+   "solution": "ANTIGUA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIGUA",
+    "definitions": [
+     {
+      "text": "in the Caribbean",
+      "at": 19,
+      "note": "names the island by where it is"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad way",
+      "for": "anagram",
+      "note": "something in a bad way is in disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A tug in a",
+      "gives": "ATUGINA",
+      "note": "the four words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATUGINA",
+       "gives": "ANTIGUA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tugboat is struggling in Caribbean waters.",
+     "walkthrough": "'In a bad way' reads as one phrase, but 'in a' belongs to the letters and 'bad way' alone signals the rearrangement.",
+     "definitionFit": "Antigua is an island nation located among the Leeward Islands of the West Indies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tug"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +686,50 @@
      }
     ]
    },
-   "solution": "ABSOLUTEZERO"
+   "solution": "ABSOLUTEZERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSOLUTE ZERO",
+    "definitions": [
+     {
+      "text": "extreme frigidity",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfect",
+      "gives": "ABSOLUTE",
+      "note": "absolute means perfect or complete"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "ZERO",
+      "note": "love is a score of nothing in tennis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSOLUTE",
+      "ZERO"
+     ]
+    },
+    "explanation": {
+     "surface": "A romance that seems ideal but is chilly in the bedroom.",
+     "definitionFit": "Absolute zero is the lowest temperature physically possible, about minus 273 Celsius, the ultimate cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +743,38 @@
     "text": "More lowly than Uriah Heep?",
     "enumeration": "7"
    },
-   "solution": "HUMBLER"
+   "solution": "HUMBLER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HUMBLER",
+    "definitions": [
+     {
+      "text": "More lowly than Uriah Heep?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More lowly than Uriah Heep?",
+      "note": "surface reading: someone even more servile than Dickens's fawning clerk"
+     },
+     {
+      "clueFragment": "Uriah Heep",
+      "note": "setter's reading: Heep drops his aitches and calls himself 'umble, so the comparative with the aitch restored is what we want"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Uriah Heep, in Dickens's David Copperfield, endlessly claims to be 'very 'umble', dropping the H.",
+     "definitionFit": "The comparative of humble means of lower rank or more meek, so it means more lowly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +788,46 @@
     "text": "Exposes the claims of French beds",
     "enumeration": "7"
    },
-   "solution": "DEBUNKS"
+   "solution": "DEBUNKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEBUNKS",
+    "definitions": [
+     {
+      "text": "Exposes the claims",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "beds",
+      "gives": "BUNKS",
+      "note": "bunks are narrow beds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BUNKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reveals the truth about French beds and their supposed qualities.",
+     "definitionFit": "To debunk is to show that an idea or belief is false or exaggerated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +841,63 @@
     "text": "Clear when detectives follow clue, missing both first and last",
     "enumeration": "5"
    },
-   "solution": "LUCID"
+   "solution": "LUCID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LUCID",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing both first and last",
+      "for": "letter_selection",
+      "note": "dropping the opening and closing letters leaves only the inner ones"
+     },
+     {
+      "text": "follow",
+      "for": "charade",
+      "note": "follow places the detectives after the other piece"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clue",
+      "gives": "LU",
+      "select": "middle",
+      "note": "the inner pair of clue"
+     },
+     {
+      "clueFragment": "detectives",
+      "gives": "CID",
+      "note": "CID is the Criminal Investigation Department of British police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives working from a clue that has lost its ends.",
+     "definitionFit": "Lucid means easily understood and expressed plainly, the sense of clear prose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clue"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +911,74 @@
     "text": "The Italian record (one note by a student) doesn't make sense",
     "enumeration": "9"
    },
-   "solution": "ILLOGICAL"
+   "solution": "ILLOGICAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLOGICAL",
+    "definitions": [
+     {
+      "text": "doesn't make sense",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Italian",
+      "gives": "IL",
+      "note": "il is Italian for the"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "C",
+      "note": "C is a musical note"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "a learner, as on the L-plates of a British learner driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "LOG",
+      "I",
+      "C",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian record that features a single note from a learner makes no sense.",
+     "walkthrough": "The definition is a predicate: 'X doesn't make sense' and 'X is illogical' say the same.",
+     "definitionFit": "Something illogical lacks sound reasoning, so it doesn't make sense; the definition is a verb phrase for an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +998,49 @@
      }
     ]
    },
-   "solution": "LIFEPEERS"
+   "solution": "LIFEPEERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIFE PEERS",
+    "definitions": [
+     {
+      "text": "some in the House of Lords",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "set for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Period of animation",
+      "gives": "LIFE",
+      "note": "a life is the span of time a thing is alive or animate"
+     },
+     {
+      "clueFragment": "looks",
+      "gives": "PEERS",
+      "note": "to peer is to look closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFE",
+      "PEERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A long stretch of liveliness seems destined for some members of the upper chamber.",
+     "definitionFit": "Life peers are members appointed to Britain's House of Lords whose titles are not passed to heirs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "animation"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1060,50 @@
      }
     ]
    },
-   "solution": "ROASTBEEF"
+   "solution": "ROASTBEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROAST BEEF",
+    "definitions": [
+     {
+      "text": "the joint",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook",
+      "gives": "ROAST",
+      "note": "to roast is to cook in an oven"
+     },
+     {
+      "clueFragment": "a complaint",
+      "gives": "BEEF",
+      "note": "beef is slang for a grievance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAST",
+      "BEEF"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef receives a grumble about the meat being served.",
+     "definitionFit": "A joint is a large cut of meat for roasting, and roast beef is the classic British Sunday one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1117,52 @@
     "text": "She is a woman speaking beautiful French",
     "enumeration": "7"
    },
-   "solution": "ANNABEL"
+   "solution": "ANNABEL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ANNABEL",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "speaking",
+      "for": "homophone",
+      "note": "speaking tells us to go by how the French word is said rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a woman",
+      "gives": "ANNA",
+      "note": "Anna is a woman's name"
+     },
+     {
+      "clueFragment": "beautiful French",
+      "gives": "BEL",
+      "soundsLike": "BELLE",
+      "note": "belle is French for beautiful"
+     }
+    ],
+    "explanation": {
+     "surface": "A woman who speaks fine French is described.",
+     "definitionFit": "Annabel is a girl's given name, so it stands for a woman referred to as she."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "She"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1176,42 @@
     "text": "Some Puritan trickery concerning a particular Hindu movement",
     "enumeration": "7"
    },
-   "solution": "TANTRIC"
+   "solution": "TANTRIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TANTRIC",
+    "definitions": [
+     {
+      "text": "concerning a particular Hindu movement",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means just a part of their run of letters is needed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puritan trickery",
+      "gives": "TANTRIC",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Puritans accuse a Hindu sect of deceit.",
+     "definitionFit": "Tantric relates to the tantras, esoteric texts and practices of a school of Hinduism and Buddhism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Puritan"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1225,68 @@
     "text": "Overheated? Massage back, not extremities!",
     "enumeration": "5"
    },
-   "solution": "BURNT"
+   "solution": "BURNT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BURNT",
+    "definitions": [
+     {
+      "text": "Overheated?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word for massage is read in the opposite direction"
+     },
+     {
+      "text": "extremities",
+      "for": "letter_selection",
+      "note": "extremities are the outermost ends, so only the end letters of the word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Massage",
+      "gives": "RUB",
+      "note": "to massage is to rub"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the two end letters of not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUR",
+      "NT"
+     ],
+     "reversals": [
+      {
+       "from": "RUB",
+       "to": "BUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A massage instruction: work on the back, but leave the hands and feet alone.",
+     "walkthrough": "'Massage back' reads as rubbing someone's back; 'back' is the reversal signal, and 'not extremities' means the ends of the word not.",
+     "definitionFit": "Food that is burnt has been cooked at too high a temperature, hence overheated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1300,63 @@
     "text": "Familiar business, sort of rare and becoming very odd",
     "enumeration": "7"
    },
-   "solution": "BIZARRE"
+   "solution": "BIZARRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BIZARRE",
+    "definitions": [
+     {
+      "text": "very odd",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort of",
+      "for": "anagram",
+      "note": "sort can be a verb, to arrange, so the letters are sorted into a new order"
+     }
+    ],
+    "linkWords": [
+     "and becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Familiar business",
+      "gives": "BIZ",
+      "note": "biz is informal slang for business, as in showbiz"
+     },
+     {
+      "clueFragment": "rare",
+      "gives": "RARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIZ",
+      "ARRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RARE",
+       "gives": "ARRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known company is becoming unusual and strange.",
+     "definitionFit": "Bizarre describes something strikingly strange or unconventional, an intensified version of odd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Familiar"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1370,38 @@
     "text": "Rock movers?",
     "enumeration": "7"
    },
-   "solution": "ROADIES"
+   "solution": "ROADIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ROADIES",
+    "definitions": [
+     {
+      "text": "Rock movers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rock movers?",
+      "note": "surface reading: people or machines that shift boulders"
+     },
+     {
+      "clueFragment": "Rock",
+      "note": "setter's reading: rock is the music, so these are crew who move a band's gear"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Roadies are the touring crew who set up and transport the equipment of rock bands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1415,52 @@
     "text": "Batsmen's turn to get prizes without their opener",
     "enumeration": "7"
    },
-   "solution": "INNINGS"
+   "solution": "INNINGS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INNINGS",
+    "definitions": [
+     {
+      "text": "Batsmen's turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without their opener",
+      "for": "deletion",
+      "note": "the opener is the first letter, and without it means that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prizes",
+      "gives": "WINNINGS",
+      "note": "winnings are money or prizes won"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cricketers take their turn to win awards, minus the opening batsman.",
+     "walkthrough": "'Opener' sounds like cricket's opening batsman, but here it is the first letter.",
+     "definitionFit": "In cricket an innings is a team's or player's period of batting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1474,50 @@
     "text": "Brush around the plant",
     "enumeration": "5"
    },
-   "solution": "SHRUB"
+   "solution": "SHRUB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHRUB",
+    "definitions": [
+     {
+      "text": "the plant",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests letters moved about from their places into another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brush",
+      "gives": "BRUSH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRUSH",
+       "gives": "SHRUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sweep the floor of the factory or round a pot plant.",
+     "definitionFit": "A shrub is a woody bush, one kind of garden plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1531,57 @@
     "text": "Sparkle given off by pizza put before two sleeping characters",
     "enumeration": "7"
    },
-   "solution": "PIZZAZZ"
+   "solution": "PIZZAZZ",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIZZAZZ",
+    "definitions": [
+     {
+      "text": "Sparkle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put before",
+      "for": "charade",
+      "note": "put before places the food item ahead of the remaining piece"
+     }
+    ],
+    "linkWords": [
+     "given off by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pizza",
+      "gives": "PIZZA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two sleeping characters",
+      "gives": "ZZ",
+      "note": "zz is the cartoon sign for snoring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIZZA",
+      "ZZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A pizza is so lively it glitters next to two dozing people.",
+     "definitionFit": "Pizzazz is lively flair and glamour, the quality of sparkle in a person or show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sleeping"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1595,56 @@
     "text": "Manual worker in US city moved right",
     "enumeration": "7"
    },
-   "solution": "LABORER"
+   "solution": "LABORER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LABORER",
+    "definitions": [
+     {
+      "text": "Manual worker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "Los Angeles"
+     },
+     {
+      "clueFragment": "moved",
+      "gives": "BORE",
+      "note": "bore is the past of bear, to carry or move"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "BORE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer relocated to an American city.",
+     "walkthrough": "'US' does double duty: it makes the city LA and warns that the answer takes the American spelling, without the U.",
+     "definitionFit": "A laborer does physical, unskilled work with the hands, which is what manual work means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1658,55 @@
     "text": "Peer and I join the Queen beforehand",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "beforehand",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "join"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peer",
+      "gives": "EARL",
+      "note": "an earl is a nobleman, a peer"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman and I meet the monarch ahead of time.",
+     "definitionFit": "Earlier as an adverb means at a previous time, the same as beforehand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peer"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1720,47 @@
     "text": "These popular films can be highly explosive",
     "enumeration": "12"
    },
-   "solution": "BLOCKBUSTERS"
+   "solution": "BLOCKBUSTERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLOCKBUSTERS",
+    "definitions": [
+     {
+      "text": "These popular films",
+      "at": 0
+     },
+     {
+      "text": "highly explosive",
+      "at": 27,
+      "note": "adjective standing for the noun: things that are highly explosive"
+     }
+    ],
+    "linkWords": [
+     "can be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "These popular films",
+      "note": "first meaning: big commercial hit movies"
+     },
+     {
+      "clueFragment": "highly explosive",
+      "note": "second meaning: huge aerial bombs from the Second World War"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Explosive' in film talk means a sensational hit, but here it is literal: the name was first given to bombs able to flatten a city block.",
+     "definitionFit": "A blockbuster was a massive wartime bomb, and the term then passed to hugely successful films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "explosive"
+    }
+   }
   }
  ]
 }
