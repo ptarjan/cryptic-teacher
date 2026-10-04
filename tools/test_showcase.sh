@@ -157,6 +157,24 @@ old = sc.oldest_per_paper([mk("a2", "cryptic", 200), mk("a1", "cryptic", 100),
 check("the oldest shows one dated puzzle per paper, oldest first",
       [f["id"] for f in old] == ["t1", "a1"], [f["id"] for f in old])
 
+# --- pangrams: every one, most repeats first; the rankings lead ---
+# Undated, so the oldest section takes none; the most clues take the six fillers.
+pool = [fake(i, f"filler{i}", answers=99, dated=False) for i in range(6)]
+pool += [fake(1, "cryptic", tags=["pangram"], dated=False),
+         fake(2, "cryptic", tags=["pangram"], dated=False),
+         fake(3, "times", tags=["double-pangram"], dated=False),
+         fake(4, "times", dated=False)]
+got = {slug: cards for slug, _, _, cards, _ in sc.sections(pool)}
+pg = [(f["id"], note) for f, note in got.get("pangrams", [])]
+check("every pangram shows, most repeats first, then newest",
+      pg == [("times-3", "double pangram"), ("cryptic-2", "pangram"), ("cryptic-1", "pangram")], pg)
+order = [slug for slug, *_ in sc.specs([])]
+check("the rankings lead, before the features",
+      order[:4] == ["longest", "hardest", "easiest", "most-clues"], order)
+old = [note for slug, _, _, cards, _ in sc.sections([fake(1, "cryptic")])
+       if slug == "oldest" for _, note in cards]
+check("the oldest cards carry no note beside the series badge", old == [""], old)
+
 print("\n%d failure(s)" % fails)
 raise SystemExit(fails > 0)
 PY
