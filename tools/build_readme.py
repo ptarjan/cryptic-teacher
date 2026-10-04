@@ -486,6 +486,8 @@ LAYOUT = [
     ("fetching", "tools/sweep_series.py", "probe every number of a Guardian series between two bounds, file what is served"),
     ("fetching", "tools/ocr_remote.py", "the clue OCR (tools/ocr_clues.py raw_words) run on Paul's desktop over ssh"),
     ("fetching", "tools/test_sync_skip_published.sh", "sync_attempt drops a conflicting commit whose puzzle origin/master already holds, and aborts cleanly on any other conflict"),
+    ("fetching", "tools/scan_crop.py", "the printed clues of an archive.org scan, cut out for the annotator"),
+    ("fetching", "tools/test_scan_crop.sh", "does the annotator get the printed clues of a puzzle filed off a scan?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

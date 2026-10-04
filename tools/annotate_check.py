@@ -35,6 +35,7 @@ import contextlib
 import io
 import json
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -158,6 +159,23 @@ def view_line(e, leaders, model=()):
     return f"{eid} | {group} | {solution} | {words}"
 
 
+def scan_path(puzzle):
+    """tools/_scan_<id>.png, the printed clues of a puzzle OCR'd off an
+    archive.org scan (tools/scan_crop.py), copied beside the run's view so
+    its Read reaches it; None when the puzzle has no scan to show."""
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return None
+    out = TOOLS / f"_scan_{puzzle['id']}.png"
+    if out.exists():
+        return out
+    import scan_crop
+    try:
+        shutil.copyfile(scan_crop.crop(puzzle["id"]), out)
+    except scan_crop.NoCrop:
+        return None
+    return out
+
+
 def write_view(path):
     """Write the annotate run's copy of the puzzle file, current as of now.
 
@@ -189,6 +207,9 @@ def write_view(path):
             if e.get("annotation") and only is not None and entry_id(e) not in only}
     if kept:
         view["existingAnnotations"] = kept
+    scan = scan_path(puzzle)
+    if scan:
+        view["scan"] = f"{scan.relative_to(ROOT)}: the page these clues were OCR'd from"
     view_path(path).write_text(json.dumps(view, indent=1, ensure_ascii=False) + "\n",
                                encoding="utf-8")
     return view_path(path)

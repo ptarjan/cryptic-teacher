@@ -1109,7 +1109,7 @@ if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
 fi
 # The annotation payloads apply_annotations.py consumed, swept for the same
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
-rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
+rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_scan_"*.png
 
 # The stamps come back off before staging, for the reason daily_update.sh gives
 # at its own --unstamp: a ?v= hash in a tracked file is churn, and the deploy

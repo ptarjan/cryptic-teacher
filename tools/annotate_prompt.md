@@ -37,6 +37,11 @@ sorted; put the new line where its key sorts, with a comma after it unless it is
 The check applies it, and refuses it if more than 3 letters change. A clue that is
 missing, or shown on two lights, is lost, not misread: make that entry `null`.
 
+When your copy of the puzzle has a `scan`, that image is the printed page. Read it
+for any clue that looks cut short, garbled or wrong for its answer, and file the
+clue exactly as the page prints it, evidence `"Scan reads: <what the page shows>"`.
+A clue read off the scan may differ by any number of letters.
+
 ## Order of work
 
 - **Write early.** Put clues into the file a handful at a time and run the check (below)

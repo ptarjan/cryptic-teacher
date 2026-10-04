@@ -1381,5 +1381,9 @@ tools/ocr_remote.py                          the clue OCR (tools/ocr_clues.py ra
 tools/test_sync_skip_published.sh            sync_attempt drops a conflicting commit whose
                                              puzzle origin/master already holds, and aborts
                                              cleanly on any other conflict
+tools/scan_crop.py                           the printed clues of an archive.org scan, cut out
+                                             for the annotator
+tools/test_scan_crop.sh                      does the annotator get the printed clues of a
+                                             puzzle filed off a scan?
 ```
 <!-- LAYOUT-END -->
