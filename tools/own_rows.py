@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""One puzzle's rows of fetch_puzzle.py's SOURCE_* tables, and no one else's.
+"""One puzzle's rows of the shared source-correction tables, and no one else's.
 
     python3 tools/own_rows.py stage ID    # index: HEAD's file + ID's rows as the tree has them
     python3 tools/own_rows.py revert ID   # tree: ID's rows put back as HEAD has them
 
 The pre-reset backfill runs several puzzles at once in one tree, and every run
-files its source corrections (SOURCE_CLUE_WRONG, SOURCE_ANSWER_WRONG,
-SOURCE_LIGHT_WRONG, ...) as rows of the one shared tools/fetch_puzzle.py. So a
-puzzle's commit never stages that file from the tree: `stage` writes HEAD's
+files its source corrections as rows of shared files: SOURCE_CLUE_WRONG and
+SOURCE_ANSWER_WRONG in tools/data/source_clue_wrong.json and
+tools/data/source_answer_wrong.json (keyed "puzzle id/entry id"), the other
+SOURCE_* tables (SOURCE_LIGHT_WRONG, ...) in tools/fetch_puzzle.py. So a
+puzzle's commit never stages those files from the tree: `stage` writes HEAD's
 version with only ID's rows changed straight into the index, and the rows the
 puzzles still in flight filed stay in the tree for their own commits. `revert`
 is the discard: the puzzle file goes back to HEAD, so its rows do too.
@@ -19,6 +21,7 @@ the result is checked to hold exactly the donor's rows for ID and the base's
 for everyone else before anything is written.
 """
 import ast
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -26,6 +29,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 FETCHER = TOOLS / "fetch_puzzle.py"
 REL = "tools/fetch_puzzle.py"
+DATA_RELS = ("tools/data/source_answer_wrong.json", "tools/data/source_clue_wrong.json")
 
 
 def tables(source):
@@ -108,12 +112,27 @@ def git(*args, stdin=None):
                           capture_output=True, text=True, check=True).stdout
 
 
+def splice_json(base, donor, pid):
+    """`base` (a keyed-JSON text) with pid's rows replaced by `donor`'s."""
+    from json_merge import dump_lines
+    held = {k: v for k, v in json.loads(base).items() if k.split("/", 1)[0] != pid}
+    held.update({k: v for k, v in json.loads(donor).items()
+                 if k.split("/", 1)[0] == pid})
+    return dump_lines(held)
+
+
+def _stage_blob(rel, blob):
+    sha = git("hash-object", "-w", "--stdin", "--path", rel, stdin=blob).strip()
+    mode = git("ls-tree", "HEAD", "--", rel).split()[0]
+    git("update-index", "--cacheinfo", f"{mode},{sha},{rel}")
+
+
 def stage(pid):
     head = git("show", f"HEAD:{REL}")
-    blob = splice(head, FETCHER.read_text(), pid)
-    sha = git("hash-object", "-w", "--stdin", "--path", REL, stdin=blob).strip()
-    mode = git("ls-tree", "HEAD", "--", REL).split()[0]
-    git("update-index", "--cacheinfo", f"{mode},{sha},{REL}")
+    _stage_blob(REL, splice(head, FETCHER.read_text(), pid))
+    for rel in DATA_RELS:
+        _stage_blob(rel, splice_json(git("show", f"HEAD:{rel}"),
+                                     (TOOLS.parent / rel).read_text(), pid))
 
 
 def revert(pid):
@@ -122,6 +141,13 @@ def revert(pid):
     if kept != tree:
         FETCHER.write_text(kept)
         print(f"  [{pid}] put its rows of {REL} back as HEAD has them")
+    for rel in DATA_RELS:
+        path = TOOLS.parent / rel
+        text = path.read_text()
+        kept = splice_json(text, git("show", f"HEAD:{rel}"), pid)
+        if kept != text:
+            path.write_text(kept)
+            print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
 
 
 def main(argv):

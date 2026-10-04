@@ -2527,7 +2527,7 @@ def check_clue_unchanged(puzzle, path, errors):
             f"under an annotation. The clue text is the source's, not the "
             f"annotator's: put it back, or, when the source serves it wrong, "
             f"file the printed clue and its evidence in "
-            f"tools/fetch_puzzle.py SOURCE_CLUE_WRONG, which makes the change "
+            f"tools/data/source_clue_wrong.json, which makes the change "
             f"and this annotation pass together")
 
 

@@ -1127,6 +1127,16 @@ tools/test_prereset_lock.sh                  does the pre-reset backfill still t
                                              nobody is holding?
 tools/test_nightly_worktree.sh               which tree does a scheduled job end up running in?
                                              checked by running one
+tools/data/source_answer_wrong.json          answers a source's key got wrong, keyed puzzle
+                                             id/entry id: what it serves, the corrected
+                                             letters, the evidence; read as
+                                             fetch_puzzle.SOURCE_ANSWER_WRONG, merged per key
+tools/data/source_clue_wrong.json            clues a source serves or OCRs wrong, keyed puzzle
+                                             id/entry id: how the served text opens, the clue
+                                             as printed, the evidence; read as
+                                             fetch_puzzle.SOURCE_CLUE_WRONG, merged per key
+tools/test_source_tables_merge.sh            do two writers adding different rows to the
+                                             source-correction tables merge without a conflict?
 tools/test_json_merge.sh                     do the keyed JSON data files merge per key in a
                                              real rebase?
 tools/test_refresh_window.sh                 does refresh_unsolved ever stop asking for an

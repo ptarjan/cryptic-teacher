@@ -309,7 +309,7 @@ def parse(doc, variant):
     if dups := duplicated_clues(entries):
         raise ValueError(f"{pid}: {'; '.join(' and '.join(ids) for ids in dups)} are "
                          f"served the same clue, so the bucket has lost all but one; "
-                         f"file the printed clue (bigdave44.com prints them) in fetch_puzzle.SOURCE_CLUE_WRONG")
+                         f"file the printed clue (bigdave44.com prints them) in tools/data/source_clue_wrong.json")
     # Only the clues are mandatory. A prize puzzle whose entries are still
     # open has no answers yet: it files unsolved, with no half key, and a
     # later --holes run replaces it once the bucket publishes them.

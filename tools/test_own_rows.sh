@@ -27,7 +27,13 @@ trap 'rm -rf "$tree"' EXIT
 export PYTHONDONTWRITEBYTECODE=1
 mkdir -p "$tree/tools" "$tree/puzzles/times/1984"
 cp "$REPO"/tools/*.py "$tree/tools/"
-ln -s "$REPO/tools/data" "$tree/tools/data"
+mkdir -p "$tree/tools/data"
+for f in "$REPO"/tools/data/*; do
+  case "$f" in
+    */source_answer_wrong.json|*/source_clue_wrong.json) cp "$f" "$tree/tools/data/" ;;
+    *) ln -s "$f" "$tree/tools/data/" ;;
+  esac
+done
 A=times-16348 B=times-16347
 cp "$REPO/puzzles/times/1984/$A.json" "$REPO/puzzles/times/1984/$B.json" "$tree/puzzles/times/1984/"
 cd "$tree" || exit 1
@@ -50,7 +56,16 @@ from pathlib import Path
 import fetch_puzzle as fetcher
 from groups import entry_id
 
-src = Path(fetcher.__file__)
+from json_merge import dump_lines
+
+
+def file_row(table, key, row):
+    path = Path("tools/data") / f"{table}.json"
+    rows = json.loads(path.read_text())
+    rows[key] = row
+    path.write_text(dump_lines(rows))
+
+
 for pid in sys.argv[1:]:
     path = fetcher.puzzle_paths.find(pid)
     puzzle = json.loads(path.read_text())
@@ -59,31 +74,22 @@ for pid in sys.argv[1:]:
     served = entry["clue"]["text"]
     entry["clue"]["text"] = "Mended " + served
     path.write_text(json.dumps(puzzle, indent=2) + "\n")
-    text = src.read_text()
-    anchor = "SOURCE_CLUE_WRONG = {\n"
-    text = text.replace(anchor, anchor +
-        f'    # filed by the simulated run for {pid}\n'
-        f'    ("{pid}", "{entry_id(entry)}"): (\n'
-        f'        {served!r},\n        {entry["clue"]["text"]!r},\n'
-        '        "OCR misread: simulated by test_own_rows"),\n', 1)
+    file_row("source_clue_wrong", f"{pid}/{entry_id(entry)}",
+             [served, entry["clue"]["text"], "OCR misread: simulated by test_own_rows"])
     if pid == sys.argv[2]:
-        anchor = "SOURCE_ANSWER_WRONG = {\n"
-        text = text.replace(anchor, anchor +
-            f'    ("{pid}", "99-across"): ("SERVED", "PRINTED", "simulated"),\n', 1)
-    src.write_text(text)
+        file_row("source_answer_wrong", f"{pid}/99-across", ["SERVED", "PRINTED", "simulated"])
 PY
 
 stage_puzzle "$A" && commit "Annotate $A"
-shown() { git show "$1" -- tools/fetch_puzzle.py | grep -c "^+.*(\"$2\","; }
+D=tools/data
+shown() { git show "$1" -- $D | grep -c "^+.*\"$2/"; }
 check "A's commit carries A's row" "1" "$(shown HEAD "$A")"
 check "A's commit carries none of B's rows" "0" "$(shown HEAD "$B")"
-check "A's commit carries A's comment" "1" \
-  "$(git show HEAD -- tools/fetch_puzzle.py | grep -c "^+    # filed by the simulated run for $A")"
 check "A's commit carries A's puzzle" "puzzles/times/1984/$A.json" \
   "$(git show --name-only --format= HEAD -- puzzles)"
 check "B's rows are still in the tree for B's commit" "2" \
-  "$(git diff -U0 -- tools/fetch_puzzle.py | grep -c "^+.*(\"$B\",")"
-check "and nothing else is" "6" "$(git diff -U0 -- tools/fetch_puzzle.py | grep -c "^+[^+]")"
+  "$(git diff -U0 -- $D | grep -c "^+.*\"$B/")"
+check "and nothing else is" "2" "$(git diff -U0 -- $D | grep -c "^+ ")"
 
 discard_puzzle "$B"
 check "after B's discard the tree is clean" "" "$(git status --porcelain)"
@@ -108,19 +114,21 @@ check "every committed clue row holds on disk" "none" "$bad"
 
 # A puzzle with no rows, committed while a sibling's rows sit in the tree.
 python3 - "$B" <<'PY'
-import sys
+import json, sys
+sys.path.insert(0, "tools")
+from json_merge import dump_lines
 from pathlib import Path
-src = Path("tools/fetch_puzzle.py")
-anchor = "SOURCE_CLUE_WRONG = {\n"
-src.write_text(src.read_text().replace(anchor, anchor +
-    f'    ("{sys.argv[1]}", "99-across"): ("Served", "Printed", "simulated"),\n', 1))
+p = Path("tools/data/source_clue_wrong.json")
+rows = json.loads(p.read_text())
+rows[f"{sys.argv[1]}/99-across"] = ["Served", "Printed", "simulated"]
+p.write_text(dump_lines(rows))
 PY
 printf '\n' >>"puzzles/times/1984/$A.json"
 stage_puzzle "$A" && commit "Reannotate $A"
-check "a puzzle with no rows commits fetch_puzzle.py as HEAD had it" "" \
-  "$(git show --name-only --format= HEAD -- tools/fetch_puzzle.py)"
+check "a puzzle with no rows commits the tables as HEAD had them" "" \
+  "$(git show --name-only --format= HEAD -- tools/fetch_puzzle.py $D)"
 check "and the sibling's row stays in the tree" "1" \
-  "$(git diff -U0 -- tools/fetch_puzzle.py | grep -c "^+.*(\"$B\",")"
+  "$(git diff -U0 -- $D | grep -c "^+.*\"$B/")"
 
 [ "$fails" = 0 ] && echo "own_rows: all checks passed" || echo "own_rows: $fails FAILED"
 exit $((fails > 0))
