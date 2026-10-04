@@ -1911,6 +1911,22 @@ def correct_source_answers(pid, entries):
 # corrected clue land in the same run as the correction. A page that no longer
 # serves `served` is taken as it is: the table names an error, not a preference.
 SOURCE_CLUE_WRONG = {
+    ("times-18264", "9-across"): (
+        "Train in torn clothes?",
+        "Train me torn clothes?",
+        "OCR misread: the anagram needs TRAIN plus ME to make RAIMENT"),
+    ("times-18264", "6-down"): (
+        "Most distant t extremity is hurt",
+        "Most distant extremity is hurt",
+        "OCR misread: a stray t; the wordplay is OFF plus END"),
+    ("times-18264", "19-across"): (
+        "It's s demonstrated primarily by gay laughter, exuberant elation",
+        "It's demonstrated primarily by gay laughter, exuberant elation",
+        "OCR misread: a stray s before demonstrated"),
+    ("times-18264", "28-across"): (
+        "Prevent animals 8 eating the last of the harvest",
+        "Prevent animals eating the last of the harvest",
+        "OCR misread: a stray 8; the wordplay is DEER around T"),
     ("times-18258", "24-down"): (
         "In paris of Madagascar, the weird climbing mammal appears",
         "In Paris of Madagascar, the weird climbing mammal appears",
