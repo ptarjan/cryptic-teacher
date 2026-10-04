@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Moody relief worker crazy about date",
     "enumeration": "13"
    },
-   "solution": "TEMPERAMENTAL"
+   "solution": "TEMPERAMENTAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPERAMENTAL",
+    "definitions": [
+     {
+      "text": "Moody",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relief worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary worker who relieves or covers for staff"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "ERA",
+      "note": "a date in the sense of a period of history"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "MENTAL",
+      "note": "informal word for mad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "ERA",
+      "MENTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky stand-in worker gets worked up over a romantic date.",
+     "walkthrough": "'About' only places the date beside the crazy part, as in 'round about'; nothing is wrapped. 'Date' means a period of history, not a romantic outing.",
+     "definitionFit": "Someone temperamental has unpredictable mood swings, a direct synonym of moody."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,46 @@
     "text": "Jerusalem men, thalidomide victims, wanted a bit of cheese",
     "enumeration": "9"
    },
-   "solution": "EMMENTHAL"
+   "solution": "EMMENTHAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMMENTHAL",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanted a bit of",
+      "for": "hidden_word",
+      "note": "only a bit of the run of words is wanted, so the answer sits inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jerusalem men, thalidomide",
+      "gives": "EMMENTHAL",
+      "note": "spans the end of the first word, all of the second and the start of the third"
+     },
+     {
+      "clueFragment": "victims",
+      "note": "surface padding to complete the picture"
+     }
+    ],
+    "explanation": {
+     "surface": "A grim picture of men in Jerusalem affected by a drug, craving some cheese.",
+     "definitionFit": "Emmenthal is a Swiss hard cheese with large holes, an example of the category named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thalidomide"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +152,47 @@
     "text": "One finds four suits in these and gets ready to go away",
     "enumeration": "5"
    },
-   "solution": "PACKS"
+   "solution": "PACKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PACKS",
+    "definitions": [
+     {
+      "text": "One finds four suits in these",
+      "at": 0
+     },
+     {
+      "text": "gets ready to go away",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One finds four suits in these",
+      "note": "first meaning: decks of playing cards, each holding hearts, clubs, diamonds and spades"
+     },
+     {
+      "clueFragment": "gets ready to go away",
+      "note": "second meaning: fills a suitcase before a trip"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller loads several suits into luggage before setting off.",
+     "walkthrough": "The suits look like clothing for a trip, but the first meaning is about card suits.",
+     "definitionFit": "Card decks are called packs in Britain, and a person who packs prepares luggage for departure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suits"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +206,60 @@
     "text": "Cuts down coloured cues for playing with",
     "enumeration": "7"
    },
-   "solution": "REDUCES"
+   "solution": "REDUCES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "REDUCES",
+    "definitions": [
+     {
+      "text": "Cuts down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for playing with",
+      "for": "anagram",
+      "note": "things picked up for playing with get moved about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coloured",
+      "gives": "RED",
+      "note": "red is a colour"
+     },
+     {
+      "clueFragment": "cues",
+      "gives": "CUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "UCES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUES",
+       "gives": "UCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shortens snooker cues painted bright colours so they can play with them.",
+     "definitionFit": "To reduce something is to lessen or cut it down, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +273,57 @@
     "text": "Gangster's girlfriend you and I caught with an invertebrate",
     "enumeration": "7"
    },
-   "solution": "MOLLUSC"
+   "solution": "MOLLUSC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOLLUSC",
+    "definitions": [
+     {
+      "text": "invertebrate",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "with an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gangster's girlfriend",
+      "gives": "MOLL",
+      "note": "a moll is a gangster's female companion"
+     },
+     {
+      "clueFragment": "you and I",
+      "gives": "US",
+      "note": "the pronoun for the speaker plus another"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLL",
+      "US",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "We nab a mobster's girlfriend along with a spineless accomplice.",
+     "walkthrough": "'Invertebrate' reads as an insult for a coward, but it is the zoological definition.",
+     "definitionFit": "Molluscs such as snails and squid have no backbone, so they are an example of invertebrates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "invertebrate"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +337,77 @@
     "text": "Deny going round back to one looking for bargain",
     "enumeration": "9"
    },
-   "solution": "NEGOTIATE"
+   "solution": "NEGOTIATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "NEGOTIATE",
+    "definitions": [
+     {
+      "text": "bargain",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the short word is read from right to left"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "the word for deny encircles the other letters, going round them"
+     }
+    ],
+    "linkWords": [
+     "looking for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deny",
+      "gives": "NEGATE",
+      "note": "to negate is to deny"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEG",
+      "OT",
+      "I",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns down an offer and comes back, hunting for a good deal.",
+     "walkthrough": "'Bargain' looks like a noun, but here it is the verb: to haggle.",
+     "definitionFit": "To bargain is to haggle over terms, which is exactly what it means to negotiate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bargain"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +421,56 @@
     "text": "Capone takes a moment to see where Davy Crockett died",
     "enumeration": "5"
    },
-   "solution": "ALAMO"
+   "solution": "ALAMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALAMO",
+    "definitions": [
+     {
+      "text": "where Davy Crockett died",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capone",
+      "gives": "AL",
+      "note": "Al Capone, the Chicago gangster"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "MO",
+      "note": "mo is informal for a moment, as in 'half a mo'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "A",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster pauses briefly to visit a famous historic battle site.",
+     "walkthrough": "'Half a mo' is British slang for a short moment.",
+     "definitionFit": "The frontiersman Davy Crockett was killed defending the Texas mission at the 1836 siege of the Alamo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +484,50 @@
     "text": "Titles for excellent vessels",
     "enumeration": "13"
    },
-   "solution": "CHAMPIONSHIPS"
+   "solution": "CHAMPIONSHIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAMPIONSHIPS",
+    "definitions": [
+     {
+      "text": "Titles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "CHAMPION",
+      "note": "champion as an informal adjective meaning first-rate"
+     },
+     {
+      "clueFragment": "vessels",
+      "gives": "SHIPS",
+      "note": "ships are seagoing vessels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAMPION",
+      "SHIPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A shipping firm awards honours to its finest boats.",
+     "walkthrough": "'Champion!' is a northern English exclamation meaning splendid.",
+     "definitionFit": "Titles in sport are the championships won, such as world or league crowns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Titles"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +541,50 @@
     "text": "Remembers unit arranging repayment",
     "enumeration": "13"
    },
-   "solution": "REIMBURSEMENT"
+   "solution": "REIMBURSEMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REIMBURSEMENT",
+    "definitions": [
+     {
+      "text": "repayment",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranging",
+      "for": "anagram",
+      "note": "arranging puts items into a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remembers unit",
+      "gives": "REMEMBERSUNIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REMEMBERSUNIT",
+       "gives": "REIMBURSEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office department recalls setting up a scheme to pay people back.",
+     "definitionFit": "Reimbursement is money paid back to cover an expense, a direct synonym of repayment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +598,39 @@
     "text": "Sort of maniac likely to make someone late?",
     "enumeration": "9"
    },
-   "solution": "HOMICIDAL"
+   "solution": "HOMICIDAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOMICIDAL",
+    "definitions": [
+     {
+      "text": "Sort of maniac likely to make someone late?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of maniac likely to make someone late?",
+      "note": "surface reading: a disorganised person who keeps others waiting"
+     },
+     {
+      "clueFragment": "late",
+      "note": "setter's reading: 'the late' means dead, so this maniac kills"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Late' looks like 'not on time', but it is the late in 'the late Mr Smith': deceased.",
+     "definitionFit": "A maniac who kills people is a murderous one, the adjective describing killing a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +644,51 @@
     "text": "She's given ¿1,000 to run",
     "enumeration": "5"
    },
-   "solution": "GRACE"
+   "solution": "GRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRACE",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "¿1,000",
+      "gives": "G",
+      "note": "£1,000 is a grand, abbreviated G; the ¿ is a garbled pound sign"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "RACE",
+      "note": "to race is to run fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman receives a thousand pounds to take part in a sponsored run.",
+     "walkthrough": "'She' stands for a woman's name; G for grand is standard slang for a thousand pounds.",
+     "definitionFit": "Grace is a common female first name, so a woman can be referred to by it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +702,56 @@
     "text": "Diminished by getting married in America",
     "enumeration": "5"
    },
-   "solution": "MINUS"
+   "solution": "MINUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINUS",
+    "definitions": [
+     {
+      "text": "Diminished",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels reduced by having wed in the States.",
+     "walkthrough": "'In' looks like it places one piece inside another, but here it is simply part of the answer.",
+     "definitionFit": "Minus as an adjective describes a quantity that has been reduced or taken away from, so less."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +765,51 @@
     "text": "Royal household will need space for cases here",
     "enumeration": "9"
    },
-   "solution": "COURTROOM"
+   "solution": "COURTROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COURTROOM",
+    "definitions": [
+     {
+      "text": "cases here",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "will need"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal household",
+      "gives": "COURT",
+      "note": "a monarch's court is the royal household"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "ROOM",
+      "note": "room in the sense of available space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COURT",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal family needs more storage space for their luggage.",
+     "walkthrough": "'Cases' look like suitcases, but they are legal cases heard before a judge.",
+     "definitionFit": "Legal trials are heard in this chamber, so the place where cases are tried describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +823,46 @@
     "text": "In this place a pole remains firm in something",
     "enumeration": "7"
    },
-   "solution": "INHERES"
+   "solution": "INHERES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INHERES",
+    "definitions": [
+     {
+      "text": "remains firm in something",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In this place",
+      "gives": "INHERE",
+      "note": "in here means in this place"
+     },
+     {
+      "clueFragment": "a pole",
+      "gives": "S",
+      "note": "S, south, is one of the two poles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INHERE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Here a post stands solidly fixed in the ground.",
+     "definitionFit": "A quality that inheres in something is permanently fixed within it as an essential part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pole"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +876,65 @@
     "text": "Repeat again and again: soldiers get irate about Lawrence",
     "enumeration": "9"
    },
-   "solution": "REITERATE"
+   "solution": "REITERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REITERATE",
+    "definitions": [
+     {
+      "text": "Repeat again and again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the angry word is split around the other"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "irate",
+      "gives": "IRATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "T. E. Lawrence, Lawrence of Arabia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "I",
+      "TE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops grow angry about Lawrence of Arabia and say so over and over.",
+     "walkthrough": "No anagram here: the angry word just opens after its first letter. The Royal Engineers are a British army corps.",
+     "definitionFit": "To reiterate is to say something once more, often repeatedly, a straight synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lawrence"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +948,65 @@
     "text": "Union leader after two teas at a French country house",
     "enumeration": "7"
    },
-   "solution": "CHATEAU"
+   "solution": "CHATEAU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHATEAU",
+    "definitions": [
+     {
+      "text": "a French country house",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the opening letter is wanted"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the union letter to follow the tea pieces rather than precede them"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two teas",
+      "gives": "CHATEA",
+      "note": "cha is slang for tea, followed by tea itself"
+     },
+     {
+      "clueFragment": "Union",
+      "gives": "U",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "TEA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade union boss takes afternoon tea twice at a grand house in France.",
+     "walkthrough": "Cha (or char) is old British slang for tea, from Chinese.",
+     "definitionFit": "A château is a large country mansion or castle in France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Union"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1020,50 @@
     "text": "Leave it on when changing height",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEVATION",
+    "definitions": [
+     {
+      "text": "height",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when changing",
+      "for": "anagram",
+      "note": "changing means altering the order, so the letters come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave it on",
+      "gives": "LEAVEITON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAVEITON",
+       "gives": "ELEVATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep something switched on while adjusting its altitude.",
+     "definitionFit": "Elevation is the height of a place above sea level, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changing"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1077,53 @@
     "text": "Turn fully in to render ineffective",
     "enumeration": "7"
    },
-   "solution": "NULLIFY"
+   "solution": "NULLIFY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NULLIFY",
+    "definitions": [
+     {
+      "text": "render ineffective",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn",
+      "for": "anagram",
+      "note": "to turn something over is to reshape it, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fully in",
+      "gives": "FULLYIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FULLYIN",
+       "gives": "NULLIFY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to switch something completely off.",
+     "definitionFit": "To nullify a law or contract is to cancel its force, making it void and without effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1137,58 @@
     "text": "Becomes jaundiced; with a cry of pain shouts about it",
     "enumeration": "7"
    },
-   "solution": "YELLOWS"
+   "solution": "YELLOWS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YELLOWS",
+    "definitions": [
+     {
+      "text": "Becomes jaundiced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about it",
+      "for": "container",
+      "note": "the shouting word goes about the cry, wrapping round it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shouts",
+      "gives": "YELLS",
+      "note": "to yell is to shout"
+     },
+     {
+      "clueFragment": "a cry of pain",
+      "gives": "OW",
+      "note": "the exclamation when hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YELL",
+      "OW",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient turning sickly cries out in pain.",
+     "walkthrough": "'It' points back to the cry of pain: the shouts go round it.",
+     "definitionFit": "Jaundice turns the skin a yellow colour, so to become jaundiced is to turn that hue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jaundiced"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1202,59 @@
     "text": "Old policeman the French noblemen must go round to see",
     "enumeration": "7"
    },
-   "solution": "PEELERS"
+   "solution": "PEELERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEELERS",
+    "definitions": [
+     {
+      "text": "Old policeman",
+      "at": 0,
+      "note": "singular, while the answer is plural"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must go round",
+      "for": "container",
+      "note": "the nobles go round, enclosing the French article"
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noblemen",
+      "gives": "PEERS",
+      "note": "peers are members of the nobility"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "LE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Nobles have to make a visit to a retired constable.",
+     "walkthrough": "Peeler is old British slang for a police officer, after Sir Robert Peel who founded the Metropolitan Police; the clue's singular definition slightly mismatches the plural answer.",
+     "definitionFit": "Early London constables were nicknamed after their founder, Robert Peel, hence the historical slang term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "see"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1268,58 @@
     "text": "Upstart found the normal meeting place pointless",
     "enumeration": "7"
    },
-   "solution": "PARVENU"
+   "solution": "PARVENU",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARVENU",
+    "definitions": [
+     {
+      "text": "Upstart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pointless",
+      "for": "deletion",
+      "note": "without its point, the venue loses the letter that stands for a compass point"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the normal",
+      "gives": "PAR",
+      "note": "par is the normal or average standard"
+     },
+     {
+      "clueFragment": "meeting place",
+      "gives": "VENUE",
+      "note": "a venue is where people meet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "VENU"
+     ]
+    },
+    "explanation": {
+     "surface": "A social climber thought the usual gathering spot was a waste of time.",
+     "walkthrough": "E for east is the compass point dropped from VENUE.",
+     "definitionFit": "A parvenu is someone newly risen to wealth or status who lacks social polish, as is an upstart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pointless"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1333,66 @@
     "text": "Person in YHA wants Head Office to sack first cashier",
     "enumeration": "9"
    },
-   "solution": "HOSTELLER"
+   "solution": "HOSTELLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOSTELLER",
+    "definitions": [
+     {
+      "text": "Person in YHA",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "wants",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head Office",
+      "gives": "HO",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "sack",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "cashier",
+      "gives": "TELLER",
+      "note": "a bank teller handles cash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "S",
+      "TELLER"
+     ]
+    },
+    "explanation": {
+     "surface": "A youth hostel guest wants headquarters to fire the leading cashier.",
+     "walkthrough": "'Sack first' reads as dismissing someone, but it only supplies a letter. The YHA is the Youth Hostels Association in England and Wales.",
+     "definitionFit": "A hosteller is someone who stays at youth hostels, as members of the Youth Hostels Association do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sack"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1406,59 @@
     "text": "Mark is wrong about the Territorial Army",
     "enumeration": "5"
    },
-   "solution": "STAIN"
+   "solution": "STAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAIN",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the wrong word goes around the army"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "the Territorial Army",
+      "gives": "TA",
+      "note": "the TA is Britain's part-time volunteer army reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Mark is mistaken about the reserve forces.",
+     "walkthrough": "'Mark' looks like a man's name, but it is the noun for a blemish.",
+     "definitionFit": "A stain is a discoloured spot or blemish, a kind of mark left on fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1472,56 @@
     "text": "Hives finally heat lots of bees",
     "enumeration": "5"
    },
-   "solution": "SWARM"
+   "solution": "SWARM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWARM",
+    "definitions": [
+     {
+      "text": "lots of bees",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hives",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter"
+     },
+     {
+      "clueFragment": "heat",
+      "gives": "WARM",
+      "note": "to heat is to warm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WARM"
+     ]
+    },
+    "explanation": {
+     "surface": "Beehives eventually warm up with crowds of bees.",
+     "walkthrough": "'Hives' looks like part of the bee picture, but it only gives a letter.",
+     "definitionFit": "A swarm is a large group of bees leaving a hive together with a queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hives"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1535,59 @@
     "text": "Sordid joint by the end of the day",
     "enumeration": "5"
    },
-   "solution": "SEAMY"
+   "solution": "SEAMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEAMY",
+    "definitions": [
+     {
+      "text": "Sordid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its closing letter only"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "SEAM",
+      "note": "a seam is the joint where two pieces meet"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEAM",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A disreputable pub visited late at night.",
+     "walkthrough": "'Joint' suggests a dive bar or cannabis, but it is a seam.",
+     "definitionFit": "The seamy side of life is its squalid, unpleasant part, so seamy is a synonym of sordid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1601,47 @@
     "text": "Silly chump Lazarus found hiding in a Spanish square",
     "enumeration": "5"
    },
-   "solution": "PLAZA"
+   "solution": "PLAZA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PLAZA",
+    "definitions": [
+     {
+      "text": "a Spanish square",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found hiding in",
+      "for": "hidden_word",
+      "note": "something hiding in the words is concealed inside them, across a gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silly",
+      "note": "surface padding describing the chump"
+     },
+     {
+      "clueFragment": "chump Lazarus",
+      "gives": "PLAZA",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A foolish man named Lazarus lurks in a town square in Spain.",
+     "walkthrough": "'Silly' only colours the surface; the answer runs across the next two words.",
+     "definitionFit": "Plaza is the Spanish word for a public square in a town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lazarus"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1655,44 @@
     "text": "A job to be done in the theatre?",
     "enumeration": "9"
    },
-   "solution": "OPERATION"
+   "solution": "OPERATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OPERATION",
+    "definitions": [
+     {
+      "text": "A job to be done",
+      "at": 0
+     },
+     {
+      "text": "in the theatre",
+      "at": 17,
+      "note": "a phrase for what happens there, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A job to be done",
+      "note": "first meaning: a task or undertaking"
+     },
+     {
+      "clueFragment": "in the theatre",
+      "note": "second meaning: surgery performed in a hospital operating theatre"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Theatre' suggests a stage, but the question mark points to the operating theatre in a hospital.",
+     "definitionFit": "An undertaking or task can be called an operation, and so can the surgery a surgeon performs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1706,39 @@
     "text": "Preparing to take part, if someone else is ill",
     "enumeration": "13"
    },
-   "solution": "UNDERSTUDYING"
+   "solution": "UNDERSTUDYING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNDERSTUDYING",
+    "definitions": [
+     {
+      "text": "Preparing to take part, if someone else is ill",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preparing to take part",
+      "note": "surface reading: getting ready to join in something"
+     },
+     {
+      "clueFragment": "if someone else is ill",
+      "note": "setter's reading: 'part' is a stage role, learned by an actor who covers when the lead is off sick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Take part' sounds like joining in, but a part here is a role in a play.",
+     "definitionFit": "An actor who learns a lead's role to stand in during illness is doing the work of a theatrical stand-in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "part"
+    }
+   }
   }
  ]
 }
