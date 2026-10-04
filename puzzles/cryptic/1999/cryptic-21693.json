@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Horse seller, perhaps",
     "enumeration": "7"
    },
-   "solution": "CHARGER"
+   "solution": "CHARGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARGER",
+    "definitions": [
+     {
+      "text": "Horse",
+      "at": 0
+     },
+     {
+      "text": "seller, perhaps",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "note": "first meaning: a cavalry horse ridden into battle"
+     },
+     {
+      "clueFragment": "seller, perhaps",
+      "note": "second meaning: someone who charges a price, as a seller does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Horse seller' reads as a horse dealer, but the two words are separate meanings; 'perhaps' marks the seller as just one example of someone who sets a fee.",
+     "definitionFit": "A war horse is called this, and anyone who asks payment for goods literally levies a fee on the buyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seller"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,62 @@
     "text": "Capital adornment for head porter in holiday home",
     "enumeration": "7"
    },
-   "solution": "CHAPLET"
+   "solution": "CHAPLET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHAPLET",
+    "definitions": [
+     {
+      "text": "Capital adornment for head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of something is its top, which in a word is the opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a person in a home is inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday home",
+      "gives": "CHALET",
+      "note": "a chalet is a holiday cottage"
+     },
+     {
+      "clueFragment": "porter",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of porter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "P",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A splendid hat is worn by the chief porter at a holiday cottage.",
+     "walkthrough": "'Head' does double duty: in the definition it is the part of the body, and in the wordplay it picks the opening letter. The P goes between the A and L of CHALET.",
+     "definitionFit": "A chaplet is a wreath or garland worn on the crown, and 'capital' adds the sense of an excellent one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "porter"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,70 @@
     "text": "Greek sailors finding tuna dish in store",
     "enumeration": "9"
    },
-   "solution": "ARGONAUTS"
+   "solution": "ARGONAUTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARGONAUTS",
+    "definitions": [
+     {
+      "text": "Greek sailors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dish",
+      "for": "anagram",
+      "note": "to dish something is to ruin or spoil it, so the word is wrecked and its letters reshuffled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "goods found in a shop are inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "ARGOS",
+      "note": "Argos is a British chain of catalogue shops"
+     },
+     {
+      "clueFragment": "tuna",
+      "gives": "NAUT",
+      "note": "the letters of tuna, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGO",
+      "NAUT",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUNA",
+       "gives": "NAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Greek seamen come across a tuna meal on sale in a shop.",
+     "walkthrough": "'Dish' reads as food but is a verb meaning spoil, so the fish is mixed up. ARGOS is a British high-street shop, and the mixed fish goes inside it.",
+     "definitionFit": "In Greek legend Jason's crew sailed the ship Argo in search of the Golden Fleece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dish"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +231,47 @@
     "text": "Safe investment for pigs?",
     "enumeration": "5"
    },
-   "solution": "GILTS"
+   "solution": "GILTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GILTS",
+    "definitions": [
+     {
+      "text": "Safe investment",
+      "at": 0
+     },
+     {
+      "text": "pigs",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Safe investment",
+      "note": "first meaning: British government bonds, known as gilt-edged securities"
+     },
+     {
+      "clueFragment": "pigs",
+      "note": "second meaning: young female pigs that have not yet bred"
+     }
+    ],
+    "explanation": {
+     "surface": "Is there a secure place to put money for pig farmers?",
+     "walkthrough": "The question mark flags that 'pigs' is a farming term: a gilt is a young sow.",
+     "definitionFit": "UK government bonds are regarded as low-risk holdings, and farmers call young sows by the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "pigs"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +285,57 @@
     "text": "A beer chit destroyed by teetotaller",
     "enumeration": "9"
    },
-   "solution": "RECHABITE"
+   "solution": "RECHABITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RECHABITE",
+    "definitions": [
+     {
+      "text": "teetotaller",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is smashed apart, and its pieces can be put back together in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A beer chit",
+      "gives": "RECHABITE",
+      "note": "every letter of these words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECHABITE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABEERCHIT",
+       "gives": "RECHABITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar tab for beer gets torn up by someone who doesn't drink.",
+     "walkthrough": "The Rechabites were a biblical tribe who refused wine, and the name was taken by a temperance society.",
+     "definitionFit": "Members of a temperance friendly society, named after the abstaining biblical tribe, abstain from alcohol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +349,55 @@
     "text": "Article in court newspaper",
     "enumeration": "7"
    },
-   "solution": "COURANT"
+   "solution": "COURANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COURANT",
+    "definitions": [
+     {
+      "text": "newspaper",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another thing sits inside it, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "COURT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUR",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing appears in a newspaper that reports on the law courts.",
+     "walkthrough": "The article goes inside COURT, between its R and T. Courant is an old word used in newspaper titles, such as the Hartford Courant.",
+     "definitionFit": "Courant survives as a title for a daily paper, originally meaning one that runs or circulates current news."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +411,57 @@
     "text": "Boat needing a once-over",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "anagram",
+      "note": "a thing knocked over has been overturned, so the words before it are tipped into a new order"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a once",
+      "gives": "CANOE",
+      "note": "every letter of these words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AONCE",
+       "gives": "CANOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat requires a quick inspection.",
+     "walkthrough": "'Once-over' looks like one word for a quick look, but the hyphen hides a split: the letters before it are overturned.",
+     "definitionFit": "A light, narrow paddled craft is a kind of small vessel for rivers and lakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +475,45 @@
     "text": "Useful kind of tool in film classification",
     "enumeration": "9"
    },
-   "solution": "UNIVERSAL"
+   "solution": "UNIVERSAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNIVERSAL",
+    "definitions": [
+     {
+      "text": "Useful kind of tool",
+      "at": 0
+     },
+     {
+      "text": "film classification",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Useful kind of tool",
+      "note": "first meaning: a tool that works for every job"
+     },
+     {
+      "clueFragment": "film classification",
+      "note": "second meaning: the British U certificate, suitable for all audiences"
+     }
+    ],
+    "explanation": {
+     "surface": "A handy tool appears in a film's rating category.",
+     "walkthrough": "In Britain a U certificate film is suitable for everyone.",
+     "definitionFit": "A tool that fits all purposes is called this, and the British film rating U stands for the same word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +527,61 @@
     "text": "Saw an American lawyer, for example, taken aback",
     "enumeration": "5"
    },
-   "solution": "ADAGE"
+   "solution": "ADAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ADAGE",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "aback means backwards, so the abbreviation is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an American lawyer",
+      "gives": "ADA",
+      "note": "A, plus DA for district attorney"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. means for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADA",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted an American attorney who was startled.",
+     "walkthrough": "'Saw' is not the past of see but the noun for a proverb. Only the two letters for 'for example' are turned round.",
+     "definitionFit": "A saw is an old saying or proverb, and the answer is another word for such a maxim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +595,55 @@
     "text": "Letters providing support for board?",
     "enumeration": "7"
    },
-   "solution": "TRESTLE"
+   "solution": "TRESTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRESTLE",
+    "definitions": [
+     {
+      "text": "support for board?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing",
+      "for": "anagram",
+      "note": "the word supplies its letters as raw material, which are then laid out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letters",
+      "gives": "TRESTLE",
+      "note": "every letter of this word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRESTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LETTERS",
+       "gives": "TRESTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Correspondence offers backing to a company's directors.",
+     "walkthrough": "'Board' suggests a company's directors, but it is a plank, as in a trestle table.",
+     "definitionFit": "A pair of A-frame legs holds up a plank to make a table, so this frame is a stand for a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +657,44 @@
     "text": "Old currency provided by financial backer",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "Old currency",
+      "at": 0
+     },
+     {
+      "text": "financial backer",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old currency",
+      "note": "first meaning: an old English gold coin stamped with St Michael"
+     },
+     {
+      "clueFragment": "financial backer",
+      "note": "second meaning: an investor who funds a theatre show or start-up"
+     }
+    ],
+    "explanation": {
+     "surface": "Some old money is put up by a wealthy investor.",
+     "definitionFit": "The historic gold coin bore an archangel's image, and theatre slang names a private investor for a production in the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +708,39 @@
     "text": "One feeling qualified to play Lawrence?",
     "enumeration": "9"
    },
-   "solution": "CANDIDATE"
+   "solution": "CANDIDATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CANDIDATE",
+    "definitions": [
+     {
+      "text": "One feeling qualified to play Lawrence?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One feeling qualified to play Lawrence?",
+      "note": "surface reading: an actor who thinks they are right for the role of Lawrence of Arabia"
+     },
+     {
+      "clueFragment": "One feeling qualified",
+      "note": "setter's reading: anyone who puts themselves forward for a post they believe they suit, such as an audition or election"
+     }
+    ],
+    "explanation": {
+     "surface": "An actor believes they are the right person to star as Lawrence of Arabia.",
+     "walkthrough": "The casting picture is only one example: anyone applying for a role, part or office fits the description.",
+     "definitionFit": "An applicant or nominee is someone who thinks they meet the requirements and so puts their name forward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lawrence"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +754,47 @@
     "text": "\"Lights on the Headland\" - a painting by Constable?",
     "enumeration": "9"
    },
-   "solution": "LANDSCAPE"
+   "solution": "LANDSCAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDSCAPE",
+    "definitions": [
+     {
+      "text": "a painting by Constable?",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lights on",
+      "gives": "LANDS",
+      "note": "to light on something is to land on it"
+     },
+     {
+      "clueFragment": "the Headland",
+      "gives": "CAPE",
+      "note": "a cape is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANDS",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A painting by John Constable shows lights shining on a coastal headland.",
+     "walkthrough": "'Lights' looks like a noun for lamps, but 'lights on' is a verb meaning settles. John Constable was an English painter of country scenes.",
+     "definitionFit": "Constable is famous for pictures of the English countryside, so any such work is a view of rural scenery; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lights"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +808,51 @@
     "text": "Result of putting uniform on model",
     "enumeration": "5"
    },
-   "solution": "EVENT"
+   "solution": "EVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENT",
+    "definitions": [
+     {
+      "text": "Result",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of putting",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uniform",
+      "gives": "EVEN",
+      "note": "uniform means even, level"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Something happens when a fashion model is dressed in a uniform.",
+     "walkthrough": "'Uniform' suggests clothing, but here it is the adjective for regular. The T is from Ford's famous Model T car.",
+     "definitionFit": "An outcome or occurrence, as in 'in the event', is something that turns out to happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +866,47 @@
     "text": "Bound, it is said, to have confidence",
     "enumeration": "5"
    },
-   "solution": "TRUST"
+   "solution": "TRUST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRUST",
+    "definitions": [
+     {
+      "text": "have confidence",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it is said",
+      "for": "homophone",
+      "note": "something said is heard rather than read, so we want a word that is pronounced the same as another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound",
+      "gives": "TRUST",
+      "soundsLike": "TRUSSED",
+      "note": "trussed means tied up, bound"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is certain, so people say, to feel self-assured.",
+     "walkthrough": "'Bound' looks like 'certain to', but it is the past tense of bind: tied up like a chicken.",
+     "definitionFit": "To rely on someone or believe in them is to place faith and reliance in them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +920,58 @@
     "text": "Essays about old people in some Shakespearean plays",
     "enumeration": "9"
    },
-   "solution": "TRAGEDIES"
+   "solution": "TRAGEDIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAGEDIES",
+    "definitions": [
+     {
+      "text": "some Shakespearean plays",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the other on either side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essays",
+      "gives": "TRIES",
+      "note": "an essay is an attempt, a try"
+     },
+     {
+      "clueFragment": "old people",
+      "gives": "AGED",
+      "note": "the aged are old people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AGED",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "School essays discuss the elderly characters in Shakespeare's works.",
+     "walkthrough": "'Essays' suggests compositions, but it is the older sense of attempts.",
+     "definitionFit": "Hamlet, Macbeth, Othello and King Lear are among Shakespeare's plays ending in the death of the hero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Essays"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +985,54 @@
     "text": "Though unwilling, took sustenance during examination",
     "enumeration": "9"
    },
-   "solution": "INTESTATE"
+   "solution": "INTESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTESTATE",
+    "definitions": [
+     {
+      "text": "Though unwilling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "in means during"
+     },
+     {
+      "clueFragment": "examination",
+      "gives": "TEST",
+      "note": "a test is an examination"
+     },
+     {
+      "clueFragment": "took sustenance",
+      "gives": "ATE",
+      "note": "to eat is to take sustenance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEST",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant student still managed to eat something in the middle of an exam.",
+     "walkthrough": "'Unwilling' means reluctant on the surface, but read it as 'un-willed': lacking a will. 'During examination' gives the first part, followed by the eating.",
+     "definitionFit": "Someone who dies without having made a legal will is literally without a will, which the pun 'unwilling' captures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unwilling"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1046,70 @@
     "text": "Learning processes tried out, perhaps, in tests",
     "enumeration": "9"
    },
-   "solution": "TUTORIALS"
+   "solution": "TUTORIALS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TUTORIALS",
+    "definitions": [
+     {
+      "text": "Learning processes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps signals one possible version of the word, so its letters may be arranged differently"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another thing is held inside it"
+     }
+    ],
+    "linkWords": [
+     "tried"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tests",
+      "gives": "TRIALS",
+      "note": "trials are tests"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "UTO",
+      "note": "the letters of out, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "UTO",
+      "RIALS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "UTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Teaching methods are being piloted, maybe, as experiments.",
+     "walkthrough": "'Tried out' reads as one phrase, but 'out' is the word to rearrange, and it goes after the T of TRIALS.",
+     "definitionFit": "Small-group teaching sessions with a tutor are a method by which students are taught."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1129,40 @@
      }
     ]
    },
-   "solution": "ARMYGROUP"
+   "solution": "ARMYGROUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARMY GROUP",
+    "definitions": [
+     {
+      "text": "military formation?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Octopodes",
+      "note": "surface reading: a bunch of eight-limbed sea creatures"
+     },
+     {
+      "clueFragment": "military formation?",
+      "note": "setter's reading: a large unit of soldiers made of several armies, read jokingly as a set of creatures with plenty of limbs"
+     }
+    ],
+    "explanation": {
+     "surface": "Octopuses line up in ranks like soldiers.",
+     "walkthrough": "Read the first word of the answer as 'arm-y', having many arms, which is what octopuses are.",
+     "definitionFit": "A military formation of several field armies under one commander bears this name in many armed forces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Octopodes"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1176,61 @@
     "text": "Trial meant to upset will",
     "enumeration": "9"
    },
-   "solution": "TESTAMENT"
+   "solution": "TESTAMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TESTAMENT",
+    "definitions": [
+     {
+      "text": "will",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to upset",
+      "for": "anagram",
+      "note": "upsetting something knocks it over and throws its parts out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     },
+     {
+      "clueFragment": "meant",
+      "gives": "AMENT",
+      "note": "the word meant, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "AMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEANT",
+       "gives": "AMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court case was designed to overturn someone's last wishes.",
+     "walkthrough": "'Will' looks like a verb, but it is the legal document, as in 'last will and testament'.",
+     "definitionFit": "A legal document setting out how a person's estate is shared after death is called a last will and testament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1244,70 @@
     "text": "Belt thrown round border by Irish politician",
     "enumeration": "7"
    },
-   "solution": "TRIMBLE"
+   "solution": "TRIMBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRIMBLE",
+    "definitions": [
+     {
+      "text": "Irish politician",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown",
+      "for": "anagram",
+      "note": "something thrown is tossed about, so its letters land in a jumbled order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "a belt goes round a waist, so one piece encircles the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belt",
+      "gives": "TBLE",
+      "note": "the letters of belt, rearranged"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "RIM",
+      "note": "a rim is a border or edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIM",
+      "BLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BELT",
+       "gives": "TBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician from Ireland flings a belt around the edge of something.",
+     "walkthrough": "David Trimble was the Ulster Unionist leader who became First Minister of Northern Ireland.",
+     "definitionFit": "David Trimble led the Ulster Unionists and shared the Nobel Peace Prize for the Good Friday Agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1321,70 @@
     "text": "Object to a novice going over poem",
     "enumeration": "5"
    },
-   "solution": "LAMIA"
+   "solution": "LAMIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LAMIA",
+    "definitions": [
+     {
+      "text": "poem",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going over",
+      "for": "reversal",
+      "note": "going over suggests turning right over, so the string of letters is read from the other end"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Object",
+      "gives": "AIM",
+      "note": "an aim is an object or goal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "novice",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "MIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIMAL",
+       "to": "LAMIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner raises an objection while reading over a poem.",
+     "walkthrough": "'Object' looks like a verb meaning protest, but it is the noun for a goal. Lamia is a narrative poem by Keats.",
+     "definitionFit": "Keats wrote a well-known narrative work of verse with this title, about a serpent woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1398,46 @@
     "text": "A game cut short",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABRIDGE",
+    "definitions": [
+     {
+      "text": "cut short",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "BRIDGE",
+      "note": "bridge is a card game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A match is ended early.",
+     "definitionFit": "To shorten a book or text by condensing it is to reduce its length, matching the verb sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1451,44 @@
     "text": "Outcome of point in dispute",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Outcome",
+      "at": 0
+     },
+     {
+      "text": "point in dispute",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outcome",
+      "note": "first meaning: a result"
+     },
+     {
+      "clueFragment": "point in dispute",
+      "note": "second meaning: a matter being argued over"
+     }
+    ],
+    "explanation": {
+     "surface": "The result of an argument over some contested matter.",
+     "definitionFit": "The word means both an end result and a contested topic, as in 'the issue at stake'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1502,47 @@
     "text": "County girl at work",
     "enumeration": "5"
    },
-   "solution": "SALOP"
+   "solution": "SALOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SALOP",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "SAL",
+      "note": "Sal is a girl's name, short for Sally"
+     },
+     {
+      "clueFragment": "at work",
+      "gives": "OP",
+      "note": "op. is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A country girl is doing her job.",
+     "walkthrough": "Salop is an old name for Shropshire, an English county on the Welsh border.",
+     "definitionFit": "Salop is the former official name for Shropshire, an English shire in the West Midlands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "County"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1556,47 @@
     "text": "The German double weapon",
     "enumeration": "9"
    },
-   "solution": "DERRINGER"
+   "solution": "DERRINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DERRINGER",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The German",
+      "gives": "DER",
+      "note": "der is a German word for the"
+     },
+     {
+      "clueFragment": "double",
+      "gives": "RINGER",
+      "note": "a dead ringer is an exact double"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DER",
+      "RINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German man's lookalike is armed.",
+     "walkthrough": "'The German' looks like a person, but it is just the German for 'the'. A derringer is a small pocket pistol.",
+     "definitionFit": "This is a short-barrelled pocket pistol, named after its American maker Henry Deringer, so an example of a firearm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1610,47 @@
     "text": "Records with strong backing support?",
     "enumeration": "5"
    },
-   "solution": "DISCS"
+   "solution": "DISCS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISCS",
+    "definitions": [
+     {
+      "text": "Records",
+      "at": 0
+     },
+     {
+      "text": "strong backing support?",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Records",
+      "note": "first meaning: vinyl or compact recordings of music"
+     },
+     {
+      "clueFragment": "strong backing support?",
+      "note": "second meaning: the pads between the vertebrae that hold the spine up"
+     }
+    ],
+    "explanation": {
+     "surface": "Music recordings come with a powerful backing band behind them.",
+     "walkthrough": "'Backing' sounds like musical accompaniment, but it means the back: the spine's cartilage pads.",
+     "definitionFit": "Vinyl LPs are round flat objects, and the cartilage pads in the spine share the name and hold up the back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1664,64 @@
     "text": "Draw conclusion from fashionable referee's rise",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INFER",
+    "definitions": [
+     {
+      "text": "Draw conclusion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "in a down clue a rise goes upwards, so the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "referee's",
+      "gives": "REF",
+      "note": "ref is short for referee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FER"
+     ],
+     "reversals": [
+      {
+       "from": "REF",
+       "to": "FER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conclusion is reached from the stylish umpire's promotion.",
+     "walkthrough": "In a down clue, rising means read from the bottom up, so only the referee's short form turns round.",
+     "definitionFit": "To deduce something from evidence is to reach a judgement by reasoning, the meaning of this verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1741,54 @@
      }
     ]
    },
-   "solution": "BALTICSEA"
+   "solution": "BALTICSEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALTIC SEA",
+    "definitions": [
+     {
+      "text": "to the east of Sweden",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "running colours bleed and mix, so these letters flow out of their order into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's a cable",
+      "gives": "BALTICSEA",
+      "note": "every letter of these words, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALTICSEA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSACABLE",
+       "gives": "BALTICSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A telegraph cable is laid off the Swedish coast.",
+     "walkthrough": "The definition is a location rather than a noun: the answer is what lies to the east of Sweden, and an undersea cable fits the scene.",
+     "definitionFit": "Sweden's eastern coast faces the inland sea that separates it from Finland and the Baltic states."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1802,70 @@
     "text": "Poor fool to start diving on a rising tide",
     "enumeration": "5"
    },
-   "solution": "FLOOD"
+   "solution": "FLOOD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLOOD",
+    "definitions": [
+     {
+      "text": "a rising tide",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the word that follows is knocked out of its proper order"
+     },
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening, so only its first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "FLOO",
+      "note": "the letters of fool, rearranged"
+     },
+     {
+      "clueFragment": "diving",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of diving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOO",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOOL",
+       "gives": "FLOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hapless idiot tries diving just as the sea comes in.",
+     "definitionFit": "The incoming tide is called the flood tide, the opposite of the ebb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1879,47 @@
     "text": "Reveals former attitudes",
     "enumeration": "7"
    },
-   "solution": "EXPOSES"
+   "solution": "EXPOSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPOSES",
+    "definitions": [
+     {
+      "text": "Reveals",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex- means former"
+     },
+     {
+      "clueFragment": "attitudes",
+      "gives": "POSES",
+      "note": "an attitude can be a bodily pose, as a model strikes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "POSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discloses the views they used to hold.",
+     "walkthrough": "'Attitudes' suggests opinions, but it is the older sense of physical postures.",
+     "definitionFit": "To uncover or lay something bare is to show it publicly, the verb form matching 'reveals'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attitudes"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1933,44 @@
     "text": "Moral impediment of little weight",
     "enumeration": "7"
    },
-   "solution": "SCRUPLE"
+   "solution": "SCRUPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRUPLE",
+    "definitions": [
+     {
+      "text": "Moral impediment",
+      "at": 0
+     },
+     {
+      "text": "little weight",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moral impediment",
+      "note": "first meaning: a qualm of conscience that holds one back"
+     },
+     {
+      "clueFragment": "little weight",
+      "note": "second meaning: an old apothecaries' unit of 20 grains"
+     }
+    ],
+    "explanation": {
+     "surface": "A minor ethical worry that hardly matters.",
+     "definitionFit": "A qualm of conscience stops one acting, and apothecaries once measured tiny amounts in this unit of twenty grains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
