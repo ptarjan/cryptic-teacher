@@ -29,10 +29,6 @@ MESSAGE = re.compile(
     r"|in the diagonals|displays [^.]* on the perimeter|\(see perimeter\)",
     re.IGNORECASE)
 
-# A note that says the answers go wherever they fit: the clues carry no grid
-# numbers. Every match in the corpus was read and says exactly that.
-JIGSAW = re.compile(r"jigsaw-wise|wherever they will go", re.IGNORECASE)
-
 # Grid words for the n of an n-fold pangram, from tools/puzzle_tags.py.
 PANGRAM_TIMES = {f"{word}-pangram": i + 2
                  for i, (word, _) in enumerate(puzzle_tags.MULTIPLES)}
@@ -87,7 +83,7 @@ def facts(puz, meta):
         "longest": longest_answer(puz),
         "tags": tags,
         "message": bool(MESSAGE.search(preamble)),
-        "jigsaw": bool(JIGSAW.search(preamble)),
+        "jigsaw": puzzle_tags.is_jigsaw(puz),
         "difficulty": diff.get("index") if diff.get("band") else None,
         "annotated": bool((meta or {}).get("annotated")),
         # A round issue number means something only where the number counts
