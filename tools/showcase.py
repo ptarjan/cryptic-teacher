@@ -91,18 +91,14 @@ def newest_first(f):
     return -(f["day"] or 0)
 
 
-def pick(cands, key, used, per_series=None, n=PER_SECTION):
-    """The first n of cands by key that no earlier section showed, at most
-    per_series from any one series."""
+def ranked(cands, key, per_series=None):
+    """cands by key, at most per_series from any one series."""
     out, count = [], {}
     for f in sorted(cands, key=key):
-        if f["id"] in used or count.get(f["series"], 0) >= (per_series or n):
+        if per_series and count.get(f["series"], 0) >= per_series:
             continue
         out.append(f)
         count[f["series"]] = count.get(f["series"], 0) + 1
-        if len(out) == n:
-            break
-    used.update(f["id"] for f in out)
     return out
 
 
@@ -139,12 +135,12 @@ def feature_spec(fs, tag):
 
 
 # Each list as (slug, heading, blurb, which puzzles, ranking, card note,
-# per_series): the rankings, every feature, then the round numbers.
-# /showcase/ shows the first PER_SECTION of each, a puzzle once
-# and at most per_series from one series; its own page /showcase/<slug>/
-# lists every candidate in the same order: all of them, or the top FULL of a
-# ranking (a key other than newest_first), which can run to thousands. A
-# per_series of 1 lets a ranking that one series dominates show several papers.
+# per_series): the rankings, every feature, then the round numbers. Each
+# list is its candidates by ranking, at most per_series from one series: all
+# of them, or the top FULL of a ranking (a key other than newest_first), which
+# can run to thousands. /showcase/<slug>/ shows the list and /showcase/ its
+# first PER_SECTION. A per_series of 1 lets a ranking that one series
+# dominates show several papers.
 def specs(fs):
     return [
         ("longest", "The longest answers",
@@ -179,28 +175,25 @@ ONE_PER_SERIES = " Here, no two from the same series."
 def sections(all_facts, hinted=True):
     """[(slug, heading, blurb, [(fact dict, card note)], full)] in page order,
     full being (blurb, cards, "all 21" or "top 100") for /showcase/<slug>/, or
-    None where the section already shows everything it has. A puzzle
-    shows once, in the first section that wants it; with hinted, only the
-    puzzles we have annotated are candidates."""
-    used = set()
+    None where the section already shows everything it has. Each section is
+    ranked once: /showcase/ shows the first PER_SECTION of the list its own
+    page shows, so the two always agree, and a puzzle may be in several
+    sections. With hinted, only the puzzles we have annotated are candidates."""
     fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
-    # Picked first so no other section takes a paper's oldest puzzle and leaves
-    # its second-oldest to stand in; shown last.
-    oldest = oldest_per_paper(fs)
-    used.update(f["id"] for f in oldest)
     for slug, heading, blurb, cands, key, note, per_series in specs(fs):
-        picked = pick(cands, key, used, per_series)
-        if not picked:
+        whole = ranked(cands, key, per_series)
+        if not whole:
             continue
-        ranked = sorted(cands, key=key)
-        if key is not newest_first:
-            ranked = ranked[:FULL]
-        label = f"all {len(ranked)}" if len(ranked) == len(cands) else f"top {len(ranked)}"
-        full = ((blurb, [(f, note(f)) for f in ranked], label)
-                if [f["id"] for f in ranked] != [f["id"] for f in picked] else None)
-        out.append((slug, heading, blurb + (ONE_PER_SERIES if per_series == 1 else ""),
-                    [(f, note(f)) for f in picked], full))
+        if key is not newest_first and len(whole) > FULL:
+            whole, label = whole[:FULL], f"top {FULL}"
+        else:
+            label = f"all {len(whole)}"
+        blurb += ONE_PER_SERIES if per_series == 1 else ""
+        cards = [(f, note(f)) for f in whole]
+        full = (blurb, cards, label) if len(cards) > PER_SECTION else None
+        out.append((slug, heading, blurb, cards[:PER_SECTION], full))
+    oldest = oldest_per_paper(fs)
     if oldest:
         out.append(("oldest", "The oldest",
                     "The earliest puzzle we have from each paper, oldest first.",
