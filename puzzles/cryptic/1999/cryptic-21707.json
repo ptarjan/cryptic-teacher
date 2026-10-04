@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Artist's backpay",
     "enumeration": "6"
    },
-   "solution": "REWARD"
+   "solution": "REWARD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REWARD",
+    "definitions": [
+     {
+      "text": "pay",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s back",
+      "for": "reversal",
+      "note": "the artist is back, meaning turned around to face the other way, so the word is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "DRAWER",
+      "note": "an artist is someone who draws, a drawer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REWARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAWER",
+       "to": "REWARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter finally receives the back wages owed to them.",
+     "walkthrough": "'Backpay' reads as one word, but it splits: the artist's word is back, and pay is the definition.",
+     "definitionFit": "A reward is something given in return for work or service, so it serves as payment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backpay"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,48 @@
     "text": "Chorus of \"don'ts\"?",
     "enumeration": "7"
    },
-   "solution": "REFRAIN"
+   "solution": "REFRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFRAIN",
+    "definitions": [
+     {
+      "text": "Chorus",
+      "at": 0
+     },
+     {
+      "text": "\"don'ts\"",
+      "at": 10,
+      "note": "plural noun for the verb: every don't is an order to hold back"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chorus",
+      "note": "first meaning: the repeated lines of a song"
+     },
+     {
+      "clueFragment": "\"don'ts\"",
+      "note": "second meaning: a verb for abstaining, which is what each don't demands"
+     }
+    ],
+    "explanation": {
+     "surface": "A crowd all chanting prohibitions at once.",
+     "walkthrough": "The quotation marks and question mark flag that the second meaning is loose: each don't tells you to abstain.",
+     "definitionFit": "The repeated lines of a song are its chorus; the same word as a verb means abstain, the message of every don't."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chorus"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +153,44 @@
     "text": "Not the best way to beat an opponent",
     "enumeration": "5"
    },
-   "solution": "WORST"
+   "solution": "WORST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WORST",
+    "definitions": [
+     {
+      "text": "Not the best",
+      "at": 0
+     },
+     {
+      "text": "beat an opponent",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "way to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not the best",
+      "note": "first meaning: the opposite extreme, the poorest"
+     },
+     {
+      "clueFragment": "beat an opponent",
+      "note": "second meaning: an old verb meaning to defeat"
+     }
+    ],
+    "explanation": {
+     "surface": "A tactic for defeating a rival that is far from ideal.",
+     "definitionFit": "As an adjective it is the superlative of bad; as a verb it means to get the better of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +210,44 @@
      }
     ]
    },
-   "solution": "RUBDOWN"
+   "solution": "RUBDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUB DOWN",
+    "definitions": [
+     {
+      "text": "Dry off",
+      "at": 0
+     },
+     {
+      "text": "smooth with sandpaper",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dry off",
+      "note": "first meaning: towel oneself vigorously after bathing"
+     },
+     {
+      "clueFragment": "smooth with sandpaper",
+      "note": "second meaning: sand a surface flat before painting"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions for finishing woodwork after it gets wet.",
+     "definitionFit": "The phrasal verb covers both towelling a body vigorously and abrading a surface flat before painting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +261,57 @@
     "text": "One member to take part in strike",
     "enumeration": "6"
    },
-   "solution": "IMPACT"
+   "solution": "IMPACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPACT",
+    "definitions": [
+     {
+      "text": "strike",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "to take part",
+      "gives": "ACT",
+      "note": "to take a part in a play is to act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A single union member is urged to join a walkout.",
+     "walkthrough": "'Strike' suggests industrial action, but here it means a blow or collision.",
+     "definitionFit": "An impact is the forceful collision of one object hitting another, a blow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +331,45 @@
      }
     ]
    },
-   "solution": "MAKEUP"
+   "solution": "MAKEUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAKE UP",
+    "definitions": [
+     {
+      "text": "Compensate",
+      "at": 0
+     },
+     {
+      "text": "cosmetics",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compensate",
+      "note": "first meaning"
+     },
+     {
+      "clueFragment": "cosmetics",
+      "note": "second meaning: face paint and powder"
+     }
+    ],
+    "explanation": {
+     "surface": "Covering a flaw with a dab of foundation.",
+     "definitionFit": "As a phrasal verb it means to make amends; as a noun it names lipstick, powder and foundation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +383,52 @@
     "text": "Gypsum and basalt are different",
     "enumeration": "9"
    },
-   "solution": "ALABASTER"
+   "solution": "ALABASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALABASTER",
+    "definitions": [
+     {
+      "text": "Gypsum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "being different means changed from how they stand, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "basalt are",
+      "gives": "BASALTARE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BASALTARE",
+       "gives": "ALABASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geologist notes that two rocks are not alike.",
+     "definitionFit": "The white translucent stone used for carving is a fine-grained variety of the mineral calcium sulphate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +442,55 @@
     "text": "She turns eastern hearts",
     "enumeration": "7"
    },
-   "solution": "THERESA"
+   "solution": "THERESA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THERESA",
+    "definitions": [
+     {
+      "text": "She",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "anagram",
+      "note": "turning the letters around shakes them into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "abbreviation for east"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "HEARTS",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "E HEARTS",
+       "gives": "THERESA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman wins over people from the East.",
+     "definitionFit": "A woman's given name, so any female person named that could be referred to by the pronoun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +504,50 @@
     "text": "State it is lent, hence restitution is required",
     "enumeration": "13"
    },
-   "solution": "LIECHTENSTEIN"
+   "solution": "LIECHTENSTEIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIECHTENSTEIN",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restitution is required",
+      "for": "anagram",
+      "note": "restitution means restoring something, so the letters must be put back into a proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it is lent, hence",
+      "gives": "ITISLENTHENCE",
+      "note": "letters to rearrange, the comma ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITISLENTHENCE",
+       "gives": "LIECHTENSTEIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country has lent money and now demands repayment.",
+     "definitionFit": "The small Alpine principality between Switzerland and Austria is a sovereign country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restitution"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +561,65 @@
     "text": "A long way off getting a return of service",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AFAR",
+    "definitions": [
+     {
+      "text": "A long way off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return sends something back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "RAF",
+      "note": "the Royal Air Force is one of the armed services"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAF",
+       "to": "FAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone far away waits for a tennis serve to be sent back.",
+     "walkthrough": "'Service' sounds like tennis, but it is one of the armed forces.",
+     "definitionFit": "Afar is an adverb meaning at or to a great distance, matching the phrase exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +633,40 @@
     "text": "Workman who naturally works his way up",
     "enumeration": "10"
    },
-   "solution": "BRICKLAYER"
+   "solution": "BRICKLAYER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRICKLAYER",
+    "definitions": [
+     {
+      "text": "Workman who naturally works his way up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Workman who naturally works his way up",
+      "note": "surface reading: an ambitious employee climbing the career ladder"
+     },
+     {
+      "clueFragment": "works his way up",
+      "note": "setter's reading: a builder literally rises course by course as the wall he builds grows"
+     }
+    ],
+    "explanation": {
+     "surface": "An ambitious labourer rises through the ranks on talent.",
+     "walkthrough": "'Works his way up' sounds like promotion, but this builder climbs as each course of a wall goes on.",
+     "definitionFit": "A tradesman who builds walls from fired clay blocks and mortar must rise as each row goes on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "naturally"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +680,44 @@
     "text": "Military show leaves a permanent impression on one",
     "enumeration": "6"
    },
-   "solution": "TATTOO"
+   "solution": "TATTOO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TATTOO",
+    "definitions": [
+     {
+      "text": "Military show",
+      "at": 0
+     },
+     {
+      "text": "leaves a permanent impression on one",
+      "at": 14,
+      "note": "a description of the thing rather than a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military show",
+      "note": "first meaning: an evening display by soldiers and bands, like the Edinburgh one"
+     },
+     {
+      "clueFragment": "leaves a permanent impression on one",
+      "note": "second meaning: ink pricked into the skin that never fades"
+     }
+    ],
+    "explanation": {
+     "surface": "A regimental display so stirring that spectators never forget it.",
+     "definitionFit": "The word names both an outdoor army pageant with bands and an indelible inked design on someone's skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impression"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +731,42 @@
     "text": "Struggles to maintain faith in the past",
     "enumeration": "8"
    },
-   "solution": "CRUSADES"
+   "solution": "CRUSADES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRUSADES",
+    "definitions": [
+     {
+      "text": "Struggles",
+      "at": 0
+     },
+     {
+      "text": "to maintain faith in the past",
+      "at": 10,
+      "note": "a description of the historical wars rather than a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Struggles",
+      "note": "first meaning: vigorous campaigns for a cause"
+     },
+     {
+      "clueFragment": "to maintain faith in the past",
+      "note": "second meaning: the medieval Christian military expeditions to the Holy Land"
+     }
+    ],
+    "explanation": {
+     "surface": "Keeping one's beliefs alive in bygone times was a constant battle.",
+     "definitionFit": "Campaigns for a cause are named after the medieval holy wars fought by Christian knights over Jerusalem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +780,53 @@
     "text": "Cause to appear in bodily form when in a trance, perhaps",
     "enumeration": "9"
    },
-   "solution": "INCARNATE"
+   "solution": "INCARNATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCARNATE",
+    "definitions": [
+     {
+      "text": "Cause to appear in bodily form",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps marks the words as only one possible arrangement, inviting another ordering"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a trance",
+      "gives": "INATRANCE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INATRANCE",
+       "gives": "INCARNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medium in a trance makes a spirit materialise in the flesh.",
+     "definitionFit": "As a verb, to incarnate is to embody, giving a spirit or idea a physical human shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trance"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +840,71 @@
     "text": "Ballet posture of Lincoln in square dance",
     "enumeration": "9"
    },
-   "solution": "ARABESQUE"
+   "solution": "ARABESQUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARABESQUE",
+    "definitions": [
+     {
+      "text": "Ballet posture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dance",
+      "for": "anagram",
+      "note": "letters that dance move about into a new arrangement"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one name inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "square",
+      "gives": "SQUARE",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "Lincoln",
+      "gives": "ABE",
+      "note": "Abraham Lincoln was known as Abe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "ABE",
+      "SQUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SQUARE",
+       "gives": "ARSQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US president strikes a ballet pose at a hoedown.",
+     "walkthrough": "'Square dance' reads as one folk dance; the second word is the instruction to shuffle the first.",
+     "definitionFit": "In ballet this is a pose on one leg with the other extended straight behind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +918,56 @@
     "text": "Stake for backing hotly-tipped runner",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "hotly-tipped runner",
+      "at": 18,
+      "note": "a cryptic description: a volcano with a hot summit down which lava runs"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the word is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stake",
+      "gives": "ANTE",
+      "note": "an ante is a poker stake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANTE",
+       "to": "ETNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter places a bet on the racehorse everyone is tipping.",
+     "walkthrough": "'Hotly-tipped runner' looks like a racing favourite; it is a Sicilian volcano whose peak is hot and whose lava runs.",
+     "definitionFit": "Etna in Sicily is an active volcano: its summit is literally hot and molten rock flows down its slopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +981,43 @@
     "text": "Trial run in the theatre",
     "enumeration": "4"
    },
-   "solution": "HEAT"
+   "solution": "HEAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEAT",
+    "definitions": [
+     {
+      "text": "Trial run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "HEAT",
+      "note": "letters two to five of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A dress rehearsal staged at the playhouse.",
+     "walkthrough": "The four letters sit in the middle of t-HEAT-re.",
+     "definitionFit": "A heat is a preliminary race or round that decides who goes through to the final."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1031,52 @@
     "text": "Pope with aspiration to become emperor",
     "enumeration": "7"
    },
-   "solution": "HADRIAN"
+   "solution": "HADRIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HADRIAN",
+    "definitions": [
+     {
+      "text": "emperor",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aspiration",
+      "gives": "H",
+      "note": "an aspirate is an h sound, breathed out"
+     },
+     {
+      "clueFragment": "Pope",
+      "gives": "ADRIAN",
+      "note": "Adrian IV was the only English pope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ADRIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambitious pontiff hopes to rise to imperial rank.",
+     "walkthrough": "'Aspiration' looks like ambition, but it is a breathed h.",
+     "definitionFit": "The Roman ruler who built the famous wall across northern Britain held the imperial title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "aspiration"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1100,44 @@
      }
     ]
    },
-   "solution": "ONTHERACK"
+   "solution": "ONTHERACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON THE RACK",
+    "definitions": [
+     {
+      "text": "Pipes may be",
+      "at": 0,
+      "note": "a cryptic description of where tobacco pipes are kept"
+     },
+     {
+      "text": "severely tested",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pipes may be",
+      "note": "first meaning: tobacco pipes are stored standing in a stand on a shelf"
+     },
+     {
+      "clueFragment": "severely tested",
+      "note": "second meaning: suffering great strain, as on the medieval torture frame"
+     }
+    ],
+    "explanation": {
+     "surface": "Plumbing is subjected to harsh pressure checks.",
+     "definitionFit": "The phrase means under great stress, from the torture device that stretched victims, and also where a smoker's pipes rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pipes"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1151,54 @@
     "text": "Can holy orders be so calm and peaceful?",
     "enumeration": "7"
    },
-   "solution": "HALCYON"
+   "solution": "HALCYON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HALCYON",
+    "definitions": [
+     {
+      "text": "calm and peaceful",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "orders",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so the letters are set out anew"
+     }
+    ],
+    "linkWords": [
+     "be so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can holy",
+      "gives": "CANHOLY",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANHOLY",
+       "gives": "HALCYON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether religious brotherhoods can be truly serene.",
+     "walkthrough": "'Holy orders' suggests monks; 'orders' is the shuffle signal.",
+     "definitionFit": "Halcyon days are tranquil ones, from the mythical kingfisher said to still the sea while nesting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orders"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1212,49 @@
     "text": "It makes light work of passing course",
     "enumeration": "7"
    },
-   "solution": "CURRENT"
+   "solution": "CURRENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CURRENT",
+    "definitions": [
+     {
+      "text": "It makes light work",
+      "at": 0,
+      "note": "a cryptic description of electricity powering a lamp"
+     },
+     {
+      "text": "passing course",
+      "at": 23,
+      "note": "a description, a flow moving along"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It makes light work",
+      "note": "first meaning: electricity flowing makes a bulb shine"
+     },
+     {
+      "clueFragment": "passing course",
+      "note": "second meaning: a flow of water or air moving along its path"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that breezes through a passing training module.",
+     "walkthrough": "'Light work' reads as easy work, but it means making a lamp work.",
+     "definitionFit": "Electricity flowing through a wire powers lamps, and the same word names a stream's moving flow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1268,44 @@
     "text": "Group of soldiers in particular",
     "enumeration": "6"
    },
-   "solution": "DETAIL"
+   "solution": "DETAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DETAIL",
+    "definitions": [
+     {
+      "text": "Group of soldiers",
+      "at": 0
+     },
+     {
+      "text": "particular",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group of soldiers",
+      "note": "first meaning: a small squad assigned to a special duty"
+     },
+     {
+      "clueFragment": "particular",
+      "note": "second meaning: an individual item or point"
+     }
+    ],
+    "explanation": {
+     "surface": "A specific unit of troops is singled out.",
+     "definitionFit": "The noun names both a squad sent on a special task and a single small fact or point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1319,49 @@
     "text": "Disciple has to stick by holy writ",
     "enumeration": "8"
    },
-   "solution": "ADHERENT"
+   "solution": "ADHERENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADHERENT",
+    "definitions": [
+     {
+      "text": "Disciple",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to stick",
+      "gives": "ADHERE",
+      "note": "to adhere is to stick"
+     },
+     {
+      "clueFragment": "holy writ",
+      "gives": "NT",
+      "note": "the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADHERE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A follower must keep faithfully to scripture.",
+     "definitionFit": "A disciple is a follower or supporter of a teacher, cause or faith, which is exactly what this noun names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1375,53 @@
     "text": "Left one extremely out of sorts",
     "enumeration": "6"
    },
-   "solution": "LIVERY"
+   "solution": "LIVERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIVERY",
+    "definitions": [
+     {
+      "text": "out of sorts",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "VERY",
+      "note": "both mean to a high degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "VERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandoned and alone feels thoroughly miserable.",
+     "walkthrough": "Livery here is the adjective, an old word for liverish: irritable, as if one's liver were upset.",
+     "definitionFit": "Liverish or livery describes feeling unwell and bad-tempered, once blamed on a disordered liver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1435,54 @@
     "text": "Speak evil about none",
     "enumeration": "5"
    },
-   "solution": "VOICE"
+   "solution": "VOICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VOICE",
+    "definitions": [
+     {
+      "text": "Speak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evil",
+      "gives": "VICE",
+      "note": "vice is wickedness"
+     },
+     {
+      "clueFragment": "none",
+      "gives": "O",
+      "note": "zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nobody may say a word about wickedness.",
+     "definitionFit": "To voice an opinion is to express it in words, to utter or say it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "none"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1496,51 @@
     "text": "Exclude underworld leader with pass",
     "enumeration": "10"
    },
-   "solution": "DISQUALIFY"
+   "solution": "DISQUALIFY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISQUALIFY",
+    "definitions": [
+     {
+      "text": "Exclude",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underworld leader",
+      "gives": "DIS",
+      "note": "Dis is the Roman god who rules the underworld"
+     },
+     {
+      "clueFragment": "pass",
+      "gives": "QUALIFY",
+      "note": "to pass a test is to qualify"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "QUALIFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang boss is barred despite holding an entry permit.",
+     "walkthrough": "'Underworld leader' suggests a crime boss, but it is the classical ruler of the dead.",
+     "definitionFit": "To disqualify someone is to bar them from a competition or office, ruling them out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "underworld"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1554,59 @@
     "text": "Piece of news I encountered on return",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Piece of news",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "returning means coming back, so the word goes backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "to encounter someone is to meet them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller picks up some gossip after coming home.",
+     "definitionFit": "A news item is a single report or story in a bulletin or paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1620,40 @@
     "text": "An old record-player",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "An old record-player",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An old record-player",
+      "note": "surface reading: a vintage gramophone"
+     },
+     {
+      "clueFragment": "record-player",
+      "note": "setter's reading: the small part that actually plays the record by running in its groove"
+     }
+    ],
+    "explanation": {
+     "surface": "A vintage gramophone from the attic.",
+     "walkthrough": "The whole machine is suggested, but only the steel point that runs in the groove is meant.",
+     "definitionFit": "On old gramophones a sharp steel point tracked the groove and reproduced the sound, so it truly played records."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1667,43 @@
     "text": "Firm plan",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     },
+     {
+      "text": "plan",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "note": "first meaning: resolved, determined"
+     },
+     {
+      "clueFragment": "plan",
+      "note": "second meaning: an aim or purpose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Firm' looks like a company, but it is the adjective meaning resolute.",
+     "definitionFit": "The word is an adjective for being resolutely set on something and a noun for one's purpose or aim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Firm"
+    }
+   }
   }
  ]
 }
