@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,43 @@
      }
     ]
    },
-   "solution": "PLAINSPOKEN"
+   "solution": "PLAINSPOKEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAIN SPOKEN",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     },
+     {
+      "text": "clue for flier",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "note": "first meaning: blunt and outspoken"
+     },
+     {
+      "clueFragment": "clue for flier",
+      "note": "second meaning: say the word plain out loud and you hear the aircraft, so the two words are an instruction that clues that machine"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is cryptic: a plane is a flier, and the answer, read as an instruction, tells you to say a word that sounds like it.",
+     "definitionFit": "Someone who is frank speaks bluntly and directly without dressing up opinions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flier"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +92,52 @@
     "text": "Rubbish in Croatian port's off-putting",
     "enumeration": "15"
    },
-   "solution": "PROCRASTINATION"
+   "solution": "PROCRASTINATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROCRASTINATION",
+    "definitions": [
+     {
+      "text": "off-putting",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rubbish",
+      "for": "anagram",
+      "note": "rubbish read as a verb means to trash, so the following letters are scattered and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Croatian port's",
+      "gives": "INCROATIANPORTS",
+      "note": "every letter of these words, the apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCROATIANPORTS",
+       "gives": "PROCRASTINATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that litter lying around a Croatian harbour town puts visitors off.",
+     "walkthrough": "'Off-putting' reads as an adjective meaning unpleasant, but here it is a noun: the act of putting things off.",
+     "definitionFit": "Delaying tasks until later is literally putting them off, hence the hyphenated gerund."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off-putting"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +151,44 @@
     "text": "Reproductive system, we hear",
     "enumeration": "5"
    },
-   "solution": "AUDIO"
+   "solution": "AUDIO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUDIO",
+    "definitions": [
+     {
+      "text": "Reproductive system",
+      "at": 0
+     },
+     {
+      "text": "we hear",
+      "at": 21,
+      "note": "a clause standing for the adjective: relating to what we hear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reproductive system",
+      "note": "first meaning: equipment that reproduces recorded sound"
+     },
+     {
+      "clueFragment": "we hear",
+      "note": "second meaning: concerned with sound, the thing perceived by the ear"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'We hear' looks like a sound-alike signal, and reproductive suggests biology; both halves are about sound.",
+     "definitionFit": "Hi-fi gear is an audio setup because it plays back recorded sound, and audio describes anything relating to hearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reproductive"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +202,70 @@
     "text": "A stew-up without heart is bliss",
     "enumeration": "7"
    },
-   "solution": "NIRVANA"
+   "solution": "NIRVANA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "NIRVANA",
+    "definitions": [
+     {
+      "text": "bliss",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without heart",
+      "for": "deletion",
+      "note": "a word without its heart loses the letter at its centre"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the letters from the bottom back to the top"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stew",
+      "gives": "NAVARIN",
+      "note": "a navarin is a French lamb stew; its middle letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIRVAN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ANAVRIN",
+       "to": "NIRVANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook's quip that a stew which has lost its heart turns out to be blissful.",
+     "walkthrough": "NAVARIN loses its central A to become NAVRIN; A plus NAVRIN, read upwards, gives NIRVANA.",
+     "definitionFit": "In Buddhism nirvana is the ultimate state of release and peace, and loosely any perfect happiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stew-up"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +279,43 @@
     "text": "Somewhat hungry Gregorian?",
     "enumeration": "7"
    },
-   "solution": "PECKISH"
+   "solution": "PECKISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PECKISH",
+    "definitions": [
+     {
+      "text": "Somewhat hungry",
+      "at": 0
+     },
+     {
+      "text": "Gregorian?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhat hungry",
+      "note": "first meaning: a little ..., wanting a snack"
+     },
+     {
+      "clueFragment": "Gregorian?",
+      "note": "second meaning, punning: like the film star Gregory Peck, read as Peck plus the suffix meaning like"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Gregorian suggests chant or the calendar; the question mark signals a playful reading as a Gregory Peck sort of person.",
+     "definitionFit": "Feeling peckish is a mild, informal appetite, wanting a small bite before a proper meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gregorian"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +329,39 @@
     "text": "Notes character from here",
     "enumeration": "8"
    },
-   "solution": "KEYBOARD"
+   "solution": "KEYBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KEYBOARD",
+    "definitions": [
+     {
+      "text": "Notes character from here",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notes character",
+      "note": "surface reading: someone observes a person's personality"
+     },
+     {
+      "clueFragment": "from here",
+      "note": "setter's reading: the place musical notes and typed letters both come from"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Notes and character look like verb and object; really both are nouns, musical notes on a piano and printed characters on a computer.",
+     "definitionFit": "A piano's row of keys plays notes, and a computer's set of keys types letters and symbols."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Notes"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +381,50 @@
      }
     ]
    },
-   "solution": "NATIONALSERVICE"
+   "solution": "NATIONALSERVICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NATIONAL SERVICE",
+    "definitions": [
+     {
+      "text": "Compulsion to join",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "general",
+      "gives": "NATIONAL",
+      "note": "general, affecting a whole country, is nationwide"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "SERVICE",
+      "note": "a mass is a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATIONAL",
+      "SERVICE"
+     ]
+    },
+    "explanation": {
+     "surface": "An order compelling recruits to enlist, given out at a big church gathering led by a general.",
+     "walkthrough": "National service was compulsory military service, ended in Britain in 1960.",
+     "definitionFit": "Conscription forced young men by law to enlist in the armed forces for a fixed period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "general"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +438,60 @@
     "text": "Wattle one spies under bill",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "Wattle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places the word before it below the word after it, so that piece is sent second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill",
+      "gives": "AC",
+      "note": "AC is short for account, a bill"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the CIA is the American spy agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "A",
+      "CIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A single agent working for a spy ring sits below the bill in some ledger.",
+     "walkthrough": "In a down clue, under means the spy pieces come after the bill.",
+     "definitionFit": "Wattle is the Australian name for acacia trees, whose golden flowers are a national emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +505,55 @@
     "text": "Floor finish finally defies belief",
     "enumeration": "6"
    },
-   "solution": "SCREED"
+   "solution": "SCREED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCREED",
+    "definitions": [
+     {
+      "text": "Floor finish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defies",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of defies"
+     },
+     {
+      "clueFragment": "belief",
+      "gives": "CREED",
+      "note": "a creed is a set of beliefs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREED"
+     ]
+    },
+    "explanation": {
+     "surface": "A flooring job whose final result is unbelievably good.",
+     "definitionFit": "A screed is a levelled layer of cement and sand laid as the top surface of a concrete floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +567,54 @@
     "text": "Cowherd's pie and broth",
     "enumeration": "7"
    },
-   "solution": "CHOWDER"
+   "solution": "CHOWDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHOWDER",
+    "definitions": [
+     {
+      "text": "broth",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pie",
+      "for": "anagram",
+      "note": "printers' pie is type spilt into a jumbled heap, so pie signals disordered letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cowherd's",
+      "gives": "COWHERD",
+      "note": "the word as written, without the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COWHERD",
+       "gives": "CHOWDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmhand's supper of pie with soup.",
+     "walkthrough": "Pie looks like food alongside broth; it is the printers' term for jumbled type.",
+     "definitionFit": "Chowder is a thick soup, typically of clams or fish with potato, a hearty kind of broth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pie"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +628,58 @@
     "text": "Keen on quiet moment to be told secret",
     "enumeration": "7"
    },
-   "solution": "CRYPTIC"
+   "solution": "CRYPTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CRYPTIC",
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be told",
+      "for": "homophone",
+      "note": "something told is spoken, so the word before it counts by its sound"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen",
+      "gives": "CRY",
+      "note": "to keen is to wail or cry"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano, quiet in music"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "TIC",
+      "soundsLike": "TICK",
+      "note": "a tick is a moment; spelt as the twitch it sounds like"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone eager for a quiet moment in which to hear a secret.",
+     "walkthrough": "Keen looks like eager, but here it is the verb to wail.",
+     "definitionFit": "Cryptic means having a hidden or obscure meaning, mysterious and secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Keen"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +693,69 @@
     "text": "Lot of bottle backing country's secret society",
     "enumeration": "9"
    },
-   "solution": "CARBONARI"
+   "solution": "CARBONARI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CARBONARI",
+    "definitions": [
+     {
+      "text": "secret society",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the word is cut short"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottle",
+      "gives": "CARBOY",
+      "note": "a carboy is a large bottle in a protective frame; its last letter goes"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "IRAN",
+      "note": "a country in the Middle East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARBO",
+      "NARI"
+     ],
+     "reversals": [
+      {
+       "from": "IRAN",
+       "to": "NARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Much of a nation's drink supply funds a clandestine group.",
+     "definitionFit": "The Carbonari were a secret revolutionary society in early nineteenth-century Italy, plotting for unification."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +769,50 @@
     "text": "Gas ring on range",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OZONE",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "the letter O is ring-shaped"
+     },
+     {
+      "clueFragment": "range",
+      "gives": "ZONE",
+      "note": "a range, an area or band, is a zone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ZONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gas ring burning on a kitchen range.",
+     "walkthrough": "Gas ring and range form a kitchen picture; gas is the definition and ring, range the pieces.",
+     "definitionFit": "Ozone is a form of oxygen with three atoms per molecule, a pale blue gas in the upper atmosphere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +826,42 @@
     "text": "Prodigal son has this too",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALSO",
+    "definitions": [
+     {
+      "text": "too",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has this",
+      "for": "hidden_word",
+      "note": "the phrase says the preceding words contain the solution inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prodigal son",
+      "gives": "ALSO",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "The returning prodigal son in the parable also gets a share.",
+     "definitionFit": "Both words mean in addition, as well, besides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "has"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +875,51 @@
     "text": "Half ardent about Germany, for example",
     "enumeration": "10"
    },
-   "solution": "FATHERLAND"
+   "solution": "FATHERLAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FATHERLAND",
+    "definitions": [
+     {
+      "text": "Germany, for example",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests turning things round and round, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half ardent",
+      "gives": "HALFARDENT",
+      "note": "every letter of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HALFARDENT",
+       "gives": "FATHERLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone only half keen on Germany.",
+     "walkthrough": "Half looks like a cue to take half of ardent; it is simply part of the letters to rearrange.",
+     "definitionFit": "Germans traditionally call their homeland the Vaterland, so it is a stock instance of one's native country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Half"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +933,42 @@
     "text": "It stops water going on and off",
     "enumeration": "8"
    },
-   "solution": "FLASHING"
+   "solution": "FLASHING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLASHING",
+    "definitions": [
+     {
+      "text": "It stops water",
+      "at": 0
+     },
+     {
+      "text": "going on and off",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It stops water",
+      "note": "first meaning: metal strips sealing roof joints against rain"
+     },
+     {
+      "clueFragment": "going on and off",
+      "note": "second meaning: a light that blinks repeatedly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a tap or valve; the meanings are roofing material and a blinking light.",
+     "definitionFit": "Roofers fit lead or zinc strips around chimneys to keep rain out, and a blinking lamp lights up intermittently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +982,65 @@
     "text": "Swimmer that is holding party for Nelson's talent",
     "enumeration": "10"
    },
-   "solution": "BRILLIANCE"
+   "solution": "BRILLIANCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BRILLIANCE",
+    "definitions": [
+     {
+      "text": "talent",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means gripping something inside, so one piece wraps around another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swimmer",
+      "gives": "BRILL",
+      "note": "brill is a flatfish"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "ie is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "party for Nelson",
+      "gives": "ANC",
+      "note": "Nelson Mandela led the African National Congress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRILL",
+      "I",
+      "ANC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that once held a party for Admiral Nelson, admiring his gifts.",
+     "walkthrough": "Nelson suggests the admiral, but this is Nelson Mandela, whose party is the one meant here.",
+     "definitionFit": "Brilliance is exceptional ability or intelligence, a dazzling level of skill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nelson's"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1054,38 @@
     "text": "Saying what wish might be to carry around this one",
     "enumeration": "6"
    },
-   "solution": "BEGGAR"
+   "solution": "BEGGAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEGGAR",
+    "definitions": [
+     {
+      "text": "Saying what wish might be to carry around this one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saying what wish might be",
+      "note": "surface reading: putting into words what one hopes for"
+     },
+     {
+      "clueFragment": "to carry around this one",
+      "note": "setter's reading: the proverb that if wishes were horses, this poor person would ride"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The saying is 'If wishes were horses, beggars would ride': a wish as a horse carrying this person around.",
+     "definitionFit": "The proverb names a pauper who asks for alms as the rider wishes would carry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saying"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1099,55 @@
     "text": "Confession of dishonesty keeps one in circulation",
     "enumeration": "7"
    },
-   "solution": "AMBIENT"
+   "solution": "AMBIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMBIENT",
+    "definitions": [
+     {
+      "text": "in circulation",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confession of dishonesty",
+      "gives": "AMBENT",
+      "note": "the admission 'I am bent', bent meaning crooked, with the I understood"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMB",
+      "I",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook's admission keeps one man in the public eye.",
+     "walkthrough": "Bent is slang for corrupt; AM BENT holds I after its B to give AMB-I-ENT.",
+     "definitionFit": "Ambient air or sound is what surrounds and moves around a place, the surrounding medium."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circulation"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1161,59 @@
     "text": "Learn about defeat when one's in the soup",
     "enumeration": "7"
    },
-   "solution": "CROUTON"
+   "solution": "CROUTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CROUTON",
+    "definitions": [
+     {
+      "text": "one's in the soup",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "gives": "CON",
+      "note": "to con is to study or learn by heart"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "ROUT",
+      "note": "a rout is a crushing defeat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROUT",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone learns of a defeat just when they're already in trouble.",
+     "walkthrough": "'In the soup' means in trouble; here it is literal.",
+     "definitionFit": "A crouton is a small cube of toasted bread floated in soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soup"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1227,49 @@
     "text": "A short nun's goddess",
     "enumeration": "4"
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISIS",
+    "definitions": [
+     {
+      "text": "goddess",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "I",
+      "note": "a means one, the Roman numeral I"
+     },
+     {
+      "clueFragment": "short nun",
+      "gives": "SIS",
+      "note": "a nun is a sister, shortened to sis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "The goddess worshipped by a diminutive nun.",
+     "definitionFit": "Isis was the chief mother goddess of ancient Egypt, wife of Osiris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1283,43 @@
     "text": "Precedes a fall, one might add",
     "enumeration": "6"
    },
-   "solution": "SUMMER"
+   "solution": "SUMMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUMMER",
+    "definitions": [
+     {
+      "text": "Precedes a fall",
+      "at": 0
+     },
+     {
+      "text": "one might add",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precedes a fall",
+      "note": "first meaning: the season before autumn, fall in American English"
+     },
+     {
+      "clueFragment": "one might add",
+      "note": "second meaning: someone who sums figures"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests pride before a fall; the second meaning is read as sum-mer, one who sums.",
+     "definitionFit": "Summer is the season before autumn, and a person doing addition can whimsically be a summer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1333,43 @@
     "text": "Drink that can be on the hour",
     "enumeration": "5"
    },
-   "solution": "GLASS"
+   "solution": "GLASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GLASS",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     },
+     {
+      "text": "that can be on the hour",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "note": "first meaning: a ..., as in a drink served in one"
+     },
+     {
+      "clueFragment": "that can be on the hour",
+      "note": "second meaning: put after hour, it makes the sand timer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "On the hour suggests a time; really the word sits after hour to give hourglass.",
+     "definitionFit": "Asking for a glass means a drink, and an hourglass is a sand timer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hour"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1389,49 @@
      }
     ]
    },
-   "solution": "BROADBRIM"
+   "solution": "BROADBRIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROAD BRIM",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not the main way",
+      "gives": "BROAD",
+      "note": "a B-road is a minor road in Britain, below the main A-roads"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "BRIM",
+      "note": "a brim is an edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "BRIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A minor route running along the edge of something.",
+     "definitionFit": "A broadbrim is a hat with a wide brim, as worn by Quakers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1445,42 @@
     "text": "Country house had a charming interior",
     "enumeration": "5"
    },
-   "solution": "DACHA"
+   "solution": "DACHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DACHA",
+    "definitions": [
+     {
+      "text": "Country house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interior",
+      "for": "hidden_word",
+      "note": "an interior is the inside, so the solution lies within the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had a charming",
+      "gives": "DACHA",
+      "note": "running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A country house with a charming inside.",
+     "definitionFit": "A dacha is a Russian second home in the countryside, often a summer cottage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interior"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1494,46 @@
     "text": "Stupid since 19",
     "enumeration": "7"
    },
-   "solution": "ASININE"
+   "solution": "ASININE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASININE",
+    "definitions": [
+     {
+      "text": "Stupid",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as can mean since, because"
+     },
+     {
+      "clueFragment": "19",
+      "gives": "ININE",
+      "note": "the number written as its digits in words, one and nine, with one as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "ININE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "19 looks like a cross-reference to 19 Across, ISIS; really it is just the digits 1 and 9, given as I and NINE.",
+     "definitionFit": "Asinine literally means like an ass, so it is used to mean foolish or silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "19"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1547,56 @@
     "text": "Work lining roof should be felt",
     "enumeration": "7"
    },
-   "solution": "TACTILE"
+   "solution": "TACTILE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TACTILE",
+    "definitions": [
+     {
+      "text": "should be felt",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lining",
+      "for": "container",
+      "note": "a lining sits inside something, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roof",
+      "gives": "TILE",
+      "note": "roof covering, a tile"
+     },
+     {
+      "clueFragment": "Work",
+      "gives": "ACT",
+      "note": "to work is to act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ACT",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Roofing advice: felt should go under the tiles as a lining.",
+     "walkthrough": "Felt is roofing material in the surface, but here it means perceived by touch.",
+     "definitionFit": "Tactile describes things perceived by touch, so a tactile quality is one meant to be sensed by fingers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1610,61 @@
     "text": "Close to thrill about a singer",
     "enumeration": "11"
    },
-   "solution": "NIGHTINGALE"
+   "solution": "NIGHTINGALE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NIGHTINGALE",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Close to",
+      "gives": "NIGH",
+      "note": "nigh means near"
+     },
+     {
+      "clueFragment": "thrill",
+      "gives": "TINGLE",
+      "note": "a tingle is a thrill"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGH",
+      "TING",
+      "A",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting near a thrill when a singer performs.",
+     "definitionFit": "The nightingale is a songbird famed for its rich song at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Close"
+    }
+   }
   }
  ]
 }
