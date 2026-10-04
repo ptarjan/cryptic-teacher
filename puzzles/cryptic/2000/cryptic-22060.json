@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,48 @@
      }
     ]
    },
-   "solution": "CAPECOD"
+   "solution": "CAPECOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPE COD",
+    "definitions": [
+     {
+      "text": "in Massachusetts",
+      "at": 28,
+      "note": "a location phrase standing for a place found there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Garment",
+      "gives": "CAPE",
+      "note": "a cape is a sleeveless cloak"
+     },
+     {
+      "clueFragment": "paid for on receipt",
+      "gives": "COD",
+      "note": "COD stands for cash on delivery, payment made when goods arrive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPE",
+      "COD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone buys clothing in Massachusetts and pays when the parcel turns up.",
+     "walkthrough": "The definition is unusually loose: 'in Massachusetts' stands for a place that lies in that state.",
+     "definitionFit": "The hooked peninsula in the American north-east is one of the best-known features of that New England state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "receipt"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +97,48 @@
     "text": "Want a little time",
     "enumeration": "8"
    },
-   "solution": "SHORTAGE"
+   "solution": "SHORTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORTAGE",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a little",
+      "gives": "SHORT",
+      "note": "something little is short"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for just a few moments.",
+     "walkthrough": "'Want' reads as a verb asking for something, but it is the noun meaning lack.",
+     "definitionFit": "Want in the sense of lack or insufficiency is a synonym for a scarcity of supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +152,64 @@
     "text": "Liquor to drink up: result - uproar",
     "enumeration": "6"
    },
-   "solution": "RUMPUS"
+   "solution": "RUMPUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUMPUS",
+    "definitions": [
+     {
+      "text": "uproar",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "result -"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liquor",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink in small mouthfuls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "PUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUP",
+       "to": "PUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drinking spirits ends, predictably, in a noisy brawl.",
+     "definitionFit": "A rumpus is a noisy disturbance or commotion, the same as an uproar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +233,43 @@
      }
     ]
    },
-   "solution": "MANOFWAR"
+   "solution": "MANOFWAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAN-OF-WAR",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     },
+     {
+      "text": "employed by the navy",
+      "at": 8,
+      "note": "a descriptive phrase for a warship"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "note": "first meaning: an old term for a fighting man or warrior"
+     },
+     {
+      "clueFragment": "employed by the navy",
+      "note": "second meaning: an armed sailing warship"
+     }
+    ],
+    "explanation": {
+     "surface": "A soldier is seconded to serve with the fleet.",
+     "definitionFit": "The hyphenated phrase once meant a warrior, and later named a heavily armed sailing vessel of the fleet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "employed"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +283,73 @@
     "text": "New fears about opening the attack",
     "enumeration": "6"
    },
-   "solution": "STRAFE"
+   "solution": "STRAFE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STRAFE",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is remade, so these letters come out in fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed around, so one piece wraps the other"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its initial letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fears",
+      "gives": "FEARS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "RAFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEARS",
+       "gives": "SRAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh worries surround the start of an offensive.",
+     "definitionFit": "To strafe is to attack with machine-gun fire from low-flying aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +363,51 @@
     "text": "One point is needed to beat the old club",
     "enumeration": "7"
    },
-   "solution": "NIBLICK"
+   "solution": "NIBLICK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIBLICK",
+    "definitions": [
+     {
+      "text": "old club",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "is needed to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One point",
+      "gives": "NIB",
+      "note": "a nib is the single point of a pen"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "LICK",
+      "note": "to lick is informally to beat or thrash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIB",
+      "LICK"
+     ]
+    },
+    "explanation": {
+     "surface": "A single point is all that's required to defeat a long-established sports team.",
+     "walkthrough": "'Club' suggests a sports team, but it is a golf club: the niblick was the old name for a lofted iron, roughly a nine-iron.",
+     "definitionFit": "This was a traditional golf iron with a steeply angled face, now superseded by numbered irons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +427,40 @@
      }
     ]
    },
-   "solution": "LASHOUT"
+   "solution": "LASHOUT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LASH OUT",
+    "definitions": [
+     {
+      "text": "Give generously when there's a whip-round?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give generously when there's a whip-round?",
+      "note": "surface reading: donating freely when colleagues pass round a collection"
+     },
+     {
+      "clueFragment": "whip-round",
+      "note": "setter's reading: whipping round suggests striking out with a lash, which is also the idiom for spending lavishly"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is urged to be generous when the office collection comes round.",
+     "walkthrough": "A whip-round is a British informal collection of money among a group; the phrase meaning spend freely also literally means strike with a whip.",
+     "definitionFit": "The phrasal verb means to spend money freely or extravagantly, as well as to hit out violently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whip-round"
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +474,51 @@
     "text": "Flier in a flat spin",
     "enumeration": "7"
    },
-   "solution": "FANTAIL"
+   "solution": "FANTAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FANTAIL",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spin",
+      "for": "anagram",
+      "note": "a spin sends things whirling, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a flat",
+      "gives": "INAFLAT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INAFLAT",
+       "gives": "FANTAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is panicking, in a flat spin.",
+     "walkthrough": "'In a flat spin' is a British idiom for agitated panic; here the phrase splits into fodder and signal.",
+     "definitionFit": "A fantail is a breed of domestic pigeon with a spread tail, or a small flycatcher bird, either way a winged creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +538,39 @@
      }
     ]
    },
-   "solution": "FALLINGSTAR"
+   "solution": "FALLINGSTAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FALLING STAR",
+    "definitions": [
+     {
+      "text": "One whose meteoric career is almost over",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One whose meteoric career is almost over",
+      "note": "surface reading: a celebrity whose rapid rise is about to end"
+     },
+     {
+      "clueFragment": "meteoric",
+      "note": "setter's reading: taken literally, an actual meteor streaking across the sky before burning out"
+     }
+    ],
+    "explanation": {
+     "surface": "A celebrity who shot to fame is now on the way down.",
+     "definitionFit": "A shooting meteor seen in the night sky is popularly called this, and the phrase also describes a fading celebrity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meteoric"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +590,54 @@
      }
     ]
    },
-   "solution": "DETROP"
+   "solution": "DETROP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DE TROP",
+    "definitions": [
+     {
+      "text": "too much",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by mistake",
+      "for": "anagram",
+      "note": "a mistake puts things in the wrong order, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "- it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pot red",
+      "gives": "POTRED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POTRED",
+       "gives": "DETROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player sinks the red accidentally and is told that's overdoing it.",
+     "walkthrough": "Potting a red is a snooker shot. The answer is a French phrase used in English.",
+     "definitionFit": "The borrowed French expression means superfluous or unwanted, literally excessive in number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pot"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +651,54 @@
     "text": "Lovely girl, outwardly competent",
     "enumeration": "8"
    },
-   "solution": "ADORABLE"
+   "solution": "ADORABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADORABLE",
+    "definitions": [
+     {
+      "text": "Lovely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "outwardly means on the outside, so one word wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "competent",
+      "gives": "ABLE",
+      "note": "able means capable"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "DORA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DORA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming young woman who is capable on the face of it.",
+     "definitionFit": "Both words describe someone delightful and easy to love or admire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outwardly"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +712,51 @@
     "text": "It may be produced by carbon monoxide to a degree",
     "enumeration": "4"
    },
-   "solution": "COMA"
+   "solution": "COMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "COMA",
+    "definitions": [
+     {
+      "text": "It may be produced by carbon monoxide to a degree",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carbon monoxide",
+      "gives": "CO",
+      "note": "CO is the chemical formula for carbon monoxide"
+     },
+     {
+      "clueFragment": "a degree",
+      "gives": "MA",
+      "note": "MA is a Master of Arts degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A gas leak can bring on a medical condition to some extent.",
+     "walkthrough": "The whole clue is the definition, since poisoning by this gas can cause unconsciousness.",
+     "definitionFit": "A state of deep prolonged unconsciousness, which serious carbon monoxide poisoning can bring on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "degree"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +776,69 @@
      }
     ]
    },
-   "solution": "STLAWRENCE"
+   "solution": "STLAWRENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ST LAWRENCE",
+    "definitions": [
+     {
+      "text": "a great seaway",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set",
+      "for": "anagram",
+      "note": "to set something is to arrange it, so these letters are put in new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the rearranged letters go about another piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newcastle",
+      "gives": "NEWCASTLE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STLAW",
+      "R",
+      "ENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWCASTLE",
+       "gives": "STLAWENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English city is described as built around a river, a major waterway.",
+     "definitionFit": "The North American river and its seaway link the Great Lakes to the Atlantic for ocean shipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newcastle"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +852,39 @@
     "text": "One regarding the nineties as a thing of the past",
     "enumeration": "11"
    },
-   "solution": "CENTENARIAN"
+   "solution": "CENTENARIAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CENTENARIAN",
+    "definitions": [
+     {
+      "text": "One regarding the nineties as a thing of the past",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One regarding the nineties as a thing of the past",
+      "note": "surface reading: someone dismissing the 1990s decade as old history"
+     },
+     {
+      "clueFragment": "the nineties",
+      "note": "setter's reading: the nineties of a person's age, which a hundred-year-old has left behind"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone views a recent decade as already passé.",
+     "definitionFit": "A person who has reached a hundred years old has lived beyond their own nineties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nineties"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +898,36 @@
     "text": "Russian comrade",
     "enumeration": "8"
    },
-   "solution": "TOVARICH"
+   "solution": "TOVARICH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TOVARICH",
+    "definitions": [
+     {
+      "text": "Russian comrade",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian comrade",
+      "note": "surface reading: a fellow party member in Russia"
+     },
+     {
+      "clueFragment": "Russian",
+      "note": "setter's reading: the Russian-language word itself for comrade"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "This is the Russian word used as a form of address meaning comrade, especially in Soviet times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +941,38 @@
     "text": "Roman water-carrier",
     "enumeration": "8"
    },
-   "solution": "AQUEDUCT"
+   "solution": "AQUEDUCT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AQUEDUCT",
+    "definitions": [
+     {
+      "text": "Roman water-carrier",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman water-carrier",
+      "note": "surface reading: a person in ancient Rome who fetched water"
+     },
+     {
+      "clueFragment": "water-carrier",
+      "note": "setter's reading: a structure that channels water across country"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Ancient Rome built long bridge-like channels to convey water supplies into its cities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "water-carrier"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +986,59 @@
     "text": "English queen, one with real potential",
     "enumeration": "7"
    },
-   "solution": "ELEANOR"
+   "solution": "ELEANOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEANOR",
+    "definitions": [
+     {
+      "text": "English queen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potential",
+      "for": "anagram",
+      "note": "potential describes what could become something else, so these letters may form a new word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "REAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEREAL",
+       "gives": "ELEANOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen of England is described as having genuine promise.",
+     "walkthrough": "'With' joins the two parts of the fodder. Eleanor of Aquitaine and Eleanor of Castile were both queens of England.",
+     "definitionFit": "Several medieval consorts of English kings bore this name, notably the wives of Henry II and Edward I."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potential"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1052,42 @@
     "text": "Produced admitted  superiority",
     "enumeration": "7"
    },
-   "solution": "YIELDED"
+   "solution": "YIELDED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YIELDED",
+    "definitions": [
+     {
+      "text": "Produced",
+      "at": 0
+     },
+     {
+      "text": "admitted  superiority",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produced",
+      "note": "first meaning: gave forth, as a field gives a crop"
+     },
+     {
+      "clueFragment": "admitted  superiority",
+      "note": "second meaning: gave way to a stronger opponent"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Produced' looks like it governs the next words, but the clue splits into two separate meanings.",
+     "definitionFit": "The verb covers both bearing a crop or return and giving way or surrendering to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Produced"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1107,45 @@
      }
     ]
    },
-   "solution": "ILLADVISED"
+   "solution": "ILLADVISED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ILL-ADVISED",
+    "definitions": [
+     {
+      "text": "Unwise",
+      "at": 0
+     },
+     {
+      "text": "profession of medical consultant",
+      "at": 7,
+      "note": "a cryptic description, read as two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unwise",
+      "note": "first meaning: badly judged"
+     },
+     {
+      "clueFragment": "profession of medical consultant",
+      "note": "second meaning, read as two words: a consultant's job is to counsel sick patients"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor's line of work is said to be foolish.",
+     "walkthrough": "Split as ILL ADVISED, the answer describes sick people being given advice, which is what a consultant does.",
+     "definitionFit": "The hyphenated adjective means foolish or imprudent, acting on poor judgement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "profession"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1159,40 @@
     "text": "In which the early bird lies awaiting the worm?",
     "enumeration": "6"
    },
-   "solution": "AMBUSH"
+   "solution": "AMBUSH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AMBUSH",
+    "definitions": [
+     {
+      "text": "In which the early bird lies awaiting the worm?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In which the early bird lies awaiting the worm?",
+      "note": "surface reading: the proverb about early risers catching worms"
+     },
+     {
+      "clueFragment": "early bird lies",
+      "note": "setter's reading: a morning bird lurking in a shrub, a hidden position from which to spring on prey"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird gets up early and waits to catch a worm.",
+     "walkthrough": "Split as AM BUSH, the answer is a morning shrub where the early bird might hide, as well as a surprise attack from cover.",
+     "definitionFit": "A surprise attack launched from a concealed position, exactly how a lurking predator waits for prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lies"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1206,50 @@
     "text": "Murder mother for the estate",
     "enumeration": "6"
    },
-   "solution": "DOMAIN"
+   "solution": "DOMAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOMAIN",
+    "definitions": [
+     {
+      "text": "estate",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murder",
+      "gives": "DOIN",
+      "note": "to do in is slang for to kill"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone kills their mother to inherit the property.",
+     "walkthrough": "There is no container signal: the slang phrase for kill is simply split around the word for mother.",
+     "definitionFit": "A domain is lands or territory owned or ruled by someone, like an estate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1263,42 @@
     "text": "Single piece of ammunition",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNIT",
+    "definitions": [
+     {
+      "text": "Single",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "hidden_word",
+      "note": "a piece of something is just part of it, so the letters lie inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ammunition",
+      "gives": "UNIT",
+      "note": "letters three to six of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "One bullet or cartridge.",
+     "definitionFit": "A unit is a single individual thing, one complete item counted on its own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Single"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1312,43 @@
     "text": "Australian capital ship",
     "enumeration": "8"
    },
-   "solution": "CANBERRA"
+   "solution": "CANBERRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CANBERRA",
+    "definitions": [
+     {
+      "text": "Australian capital",
+      "at": 0
+     },
+     {
+      "text": "ship",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian capital",
+      "note": "first meaning: the seat of Australia's federal government"
+     },
+     {
+      "clueFragment": "ship",
+      "note": "second meaning: a warship or liner bearing the name, such as the P&O liner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Capital ship' is a naval term for a major warship, which hides the split between the two meanings.",
+     "definitionFit": "The city is the national capital, and several naval vessels and a famous cruise liner bore the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1362,52 @@
     "text": "Posers seldom resolved",
     "enumeration": "6"
    },
-   "solution": "MODELS"
+   "solution": "MODELS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MODELS",
+    "definitions": [
+     {
+      "text": "Posers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved is worked out anew, so these letters are sorted into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seldom",
+      "gives": "SELDOM",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SELDOM",
+       "gives": "MODELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzles that are rarely solved.",
+     "walkthrough": "'Posers' suggests difficult problems, but here it means people who pose.",
+     "definitionFit": "Artists' sitters and fashion mannequins strike poses for painters or photographers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Posers"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1421,68 @@
     "text": "Legendary bird returns, so it is written, to a Mediterranean isle",
     "enumeration": "7"
    },
-   "solution": "CORSICA"
+   "solution": "CORSICA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CORSICA",
+    "definitions": [
+     {
+      "text": "a Mediterranean isle",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Legendary bird",
+      "gives": "ROC",
+      "note": "the roc is a giant mythical bird"
+     },
+     {
+      "clueFragment": "so it is written",
+      "gives": "SIC",
+      "note": "sic is Latin for thus, used to flag a quotation copied exactly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "SIC",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ROC",
+       "to": "COR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical bird flies back to an island, according to the written record.",
+     "definitionFit": "The French island lies in the Mediterranean Sea north of Sardinia and was Napoleon's birthplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1496,38 @@
     "text": "Company of high-fliers",
     "enumeration": "7"
    },
-   "solution": "AIRCREW"
+   "solution": "AIRCREW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AIRCREW",
+    "definitions": [
+     {
+      "text": "Company of high-fliers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company of high-fliers",
+      "note": "surface reading: a firm of ambitious, successful executives"
+     },
+     {
+      "clueFragment": "high-fliers",
+      "note": "setter's reading: people literally flying high, the staff of an aircraft"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The pilots and cabin staff working aboard an aeroplane form a team that flies at altitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high-fliers"
+    }
+   }
   }
  ]
 }
