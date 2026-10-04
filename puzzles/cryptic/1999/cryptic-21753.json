@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "State limits of New Hampshire, Virginia and Dakota",
     "enumeration": "6"
    },
-   "solution": "NEVADA"
+   "solution": "NEVADA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEVADA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits of",
+      "for": "letter_selection",
+      "note": "the limits of a word are its two ends, so only the first and final letters of each place name count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New Hampshire",
+      "gives": "NE",
+      "select": "outer",
+      "note": "the first letter of New and the last of Hampshire"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "Dakota",
+      "gives": "DA",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "VA",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography question about where the borders of three American states lie.",
+     "walkthrough": "The clue lists states so you hunt for a state among them, but the edges of the names build a fourth one.",
+     "definitionFit": "Nevada is one of the fifty United States, in the American West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +107,53 @@
     "text": "Prepare to publish current returns",
     "enumeration": "4"
    },
-   "solution": "EDIT"
+   "solution": "EDIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EDIT",
+    "definitions": [
+     {
+      "text": "Prepare to publish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so the word for current is read from its far end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "current",
+      "gives": "TIDE",
+      "note": "a tide is a current of the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIDE",
+       "to": "EDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a story ready for print as current events come back round.",
+     "definitionFit": "To edit a text is to correct and shape it so that it is ready for publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +173,54 @@
      }
     ]
    },
-   "solution": "ALMSHOUSE"
+   "solution": "ALMSHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALMS HOUSE",
+    "definitions": [
+     {
+      "text": "Poor place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new out of these letters means arranging them into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hose - a slum",
+      "gives": "HOSEASLUM",
+      "note": "the letters of hose, a and slum together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOSEASLUM",
+       "gives": "ALMSHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor neighbourhood gets a new hosepipe, perhaps from a charity.",
+     "walkthrough": "'Poor place' reads as a description of the slum, but it defines the answer: a house for the poor.",
+     "definitionFit": "An almshouse was a charitable dwelling where the destitute were housed, literally a place for poor people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +234,49 @@
     "text": "Having the most skill makes ace happy",
     "enumeration": "6"
    },
-   "solution": "ABLEST"
+   "solution": "ABLEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABLEST",
+    "definitions": [
+     {
+      "text": "Having the most skill",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the abbreviation for ace on playing cards"
+     },
+     {
+      "clueFragment": "happy",
+      "gives": "BLEST",
+      "note": "blest, a poetic spelling of blessed, means fortunate or happy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BLEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Being the most skilled player makes a champion contented.",
+     "definitionFit": "The superlative of able: most capable, most competent at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ace"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +290,69 @@
     "text": "Holt's letters concealed in tree trunk as a refuge from danger",
     "enumeration": "8"
    },
-   "solution": "BOLTHOLE"
+   "solution": "BOLTHOLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BOLTHOLE",
+    "definitions": [
+     {
+      "text": "refuge from danger",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letters",
+      "for": "anagram",
+      "note": "only the letters of the name are wanted, free to be put in any order rather than as spelt"
+     },
+     {
+      "text": "concealed in",
+      "for": "container",
+      "note": "what is concealed in something sits inside it, wrapped round by the outer word"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree trunk",
+      "gives": "BOLE",
+      "note": "a bole is the trunk of a tree"
+     },
+     {
+      "clueFragment": "Holt's",
+      "gives": "HOLT",
+      "note": "the name supplies the four letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "LTHO",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOLT",
+       "gives": "LTHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Holt hides letters inside a hollow tree for safety.",
+     "definitionFit": "A bolthole is a hiding place or retreat one can escape to when threatened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +380,63 @@
      }
     ]
    },
-   "solution": "BYWAYOFCONTRAST"
+   "solution": "BYWAYOFCONTRAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BY WAY OF CONTRAST",
+    "definitions": [
+     {
+      "text": "And now for something completely different",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupied by",
+      "for": "container",
+      "note": "a place occupied by people has them inside it, so the rebels sit within the word for frequently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a minor road",
+      "gives": "BYWAY",
+      "note": "a byway is a small side road"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFT",
+      "note": "oft is an old word for often"
+     },
+     {
+      "clueFragment": "anti-government forces",
+      "gives": "CONTRAS",
+      "note": "the Contras were rebels fighting the Sandinista government of Nicaragua in the 1980s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BYWAY",
+      "OF",
+      "CONTRAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic report: a country lane often taken over by rebel guerrillas.",
+     "walkthrough": "The definition borrows Monty Python's catchphrase, used to introduce something quite unlike what came before.",
+     "definitionFit": "The phrase introduces a comparison with something unlike what preceded it, which is what that famous comedy link line does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "forces"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +450,67 @@
     "text": "Jokes, say, pranksters initiated in quiet intervals",
     "enumeration": "8"
    },
-   "solution": "LEGPULLS"
+   "solution": "LEGPULLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEGPULLS",
+    "definitions": [
+     {
+      "text": "Jokes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initiated",
+      "for": "letter_selection",
+      "note": "what initiates a word is its opening letter, so only the start of pranksters counts"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the preceding pieces go inside the word for quiet intervals"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet intervals",
+      "gives": "LULLS",
+      "note": "lulls are calm, quiet spells"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, which is what say can mean"
+     },
+     {
+      "clueFragment": "pranksters",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EG",
+      "P",
+      "ULLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Practical jokers start up in the quiet moments between other activities.",
+     "definitionFit": "A leg-pull is a playful hoax or tease, so the plural is a set of jokes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +524,54 @@
     "text": "Sharpened points in coal-scuttle",
     "enumeration": "5"
    },
-   "solution": "HONED"
+   "solution": "HONED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HONED",
+    "definitions": [
+     {
+      "text": "Sharpened",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the compass points are placed inside the word for the coal container"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coal-scuttle",
+      "gives": "HOD",
+      "note": "a hod is a scuttle for carrying coal"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "NE",
+      "note": "N and E, two compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "NE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Pointed tips sharpened inside a coal bucket.",
+     "definitionFit": "To hone a blade is to whet it on a stone, giving it a keen edge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +585,52 @@
     "text": "Tester, long suffering, handled spectacles",
     "enumeration": "10"
    },
-   "solution": "LORGNETTES"
+   "solution": "LORGNETTES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LORGNETTES",
+    "definitions": [
+     {
+      "text": "handled spectacles",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "letters that are suffering are in distress and knocked out of their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tester, long",
+      "gives": "TESTERLONG",
+      "note": "the letters of tester and long together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TESTERLONG",
+       "gives": "LORGNETTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An examiner who has long endured has seen sights worth noting.",
+     "walkthrough": "'Handled' looks like a verb about the tester, but it is an adjective: the glasses have a handle.",
+     "definitionFit": "Lorgnettes are eyeglasses held up to the face by a long handle rather than worn over the ears."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "handled"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +644,55 @@
     "text": "Manuscript concealed in tree in Cheshire",
     "enumeration": "8"
    },
-   "solution": "WILMSLOW"
+   "solution": "WILMSLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WILMSLOW",
+    "definitions": [
+     {
+      "text": "in Cheshire",
+      "at": 29,
+      "note": "the answer is a town; the definition names where it is"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealed in",
+      "for": "container",
+      "note": "something concealed in a tree is hidden inside it, wrapped round by the tree's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "WILLOW",
+      "note": "the willow is a tree"
+     },
+     {
+      "clueFragment": "Manuscript",
+      "gives": "MS",
+      "note": "MS is the standard abbreviation for manuscript"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIL",
+      "MS",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A document hidden inside a tree somewhere in the English county of Cheshire.",
+     "definitionFit": "Wilmslow is a well-off market town in the northwest English county of Cheshire, near Manchester."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +706,47 @@
     "text": "Classes an officer does not complete",
     "enumeration": "6"
    },
-   "solution": "GENERA"
+   "solution": "GENERA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GENERA",
+    "definitions": [
+     {
+      "text": "Classes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "does not complete",
+      "for": "deletion",
+      "note": "a word that is not completed stops short, losing its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an officer",
+      "gives": "GENERAL",
+      "note": "a general is a senior army officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENERA"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer who fails to finish his training classes.",
+     "definitionFit": "Genera, plural of genus, are classes in biological taxonomy, ranking between family and species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Classes"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +766,50 @@
      }
     ]
    },
-   "solution": "HASTYPUDDING"
+   "solution": "HASTYPUDDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HASTY PUDDING",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "queer",
+      "for": "anagram",
+      "note": "queer in its old sense of odd or strange, so the letters are put into a strange order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gay didn't push",
+      "gives": "GAYDIDNTPUSH",
+      "note": "all the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAYDIDNTPUSH",
+       "gives": "HASTYPUDDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Gay held back from pushing, which seems strange.",
+     "definitionFit": "Hasty pudding is a quick dish of flour or oatmeal stirred into boiling milk or water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queer"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +823,64 @@
     "text": "Fed up with loving? That's injurious to reputation",
     "enumeration": "10"
    },
-   "solution": "DEFAMATORY"
+   "solution": "DEFAMATORY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEFAMATORY",
+    "definitions": [
+     {
+      "text": "injurious to reputation",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word is written bottom to top"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fed",
+      "gives": "FED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "loving",
+      "gives": "AMATORY",
+      "note": "amatory means concerned with love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "AMATORY"
+     ],
+     "reversals": [
+      {
+       "from": "FED",
+       "to": "DEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sick of romance claims love is bad for one's good name.",
+     "walkthrough": "'Fed up' reads as the idiom for weary, but it splits: the first word is turned upwards.",
+     "definitionFit": "Defamatory statements damage someone's good name by false claims, the essence of libel or slander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +894,55 @@
     "text": "Live with a socially acceptable boyfriend",
     "enumeration": "4"
    },
-   "solution": "BEAU"
+   "solution": "BEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEAU",
+    "definitions": [
+     {
+      "text": "boyfriend",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to exist or live"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "socially acceptable",
+      "gives": "U",
+      "note": "U means upper-class, the socially acceptable usage in Nancy Mitford's U and non-U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "A",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to move in with a respectable young man.",
+     "definitionFit": "A beau is an old-fashioned word for a male admirer or sweetheart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +956,80 @@
     "text": "Nuts, if over a pound, disturbed rest",
     "enumeration": "8"
    },
-   "solution": "FILBERTS"
+   "solution": "FILBERTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "anagram"
+    ],
+    "answer": "FILBERTS",
+    "definitions": [
+     {
+      "text": "Nuts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, so the little word if is read from back to front"
+     },
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "letters that are disturbed are shaken out of their places into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written before turning"
+     },
+     {
+      "clueFragment": "a pound",
+      "gives": "LB",
+      "note": "lb is the abbreviation for a pound in weight"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "the four letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "LB",
+      "ERTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REST",
+       "gives": "ERTS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "IF",
+       "to": "FI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Losing more than a pound would leave you crazy with poor sleep.",
+     "walkthrough": "'Nuts' looks like the adjective for mad; it is the plural noun.",
+     "definitionFit": "Filberts are hazelnuts, the cultivated kind with a long husk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nuts"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1043,54 @@
     "text": "Beer in German spa causes resentment",
     "enumeration": "9"
    },
-   "solution": "EMBITTERS"
+   "solution": "EMBITTERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMBITTERS",
+    "definitions": [
+     {
+      "text": "causes resentment",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the drink is placed inside the name of the spa town"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German spa",
+      "gives": "EMS",
+      "note": "Bad Ems is a spa town in Germany, a crossword regular"
+     },
+     {
+      "clueFragment": "Beer",
+      "gives": "BITTER",
+      "note": "bitter is a type of English beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BITTER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The beer served at a German health resort upsets visitors.",
+     "definitionFit": "To embitter someone is to make them feel aggrieved and resentful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beer"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1104,49 @@
     "text": "Assuming everyone's to be paid",
     "enumeration": "8"
    },
-   "solution": "ALLOWING"
+   "solution": "ALLOWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOWING",
+    "definitions": [
+     {
+      "text": "Assuming",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "to be paid",
+      "gives": "OWING",
+      "note": "money owing is still to be paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OWING"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking it for granted that every worker will get wages.",
+     "definitionFit": "Allowing that something is so means granting or supposing it, as in allowing for argument's sake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Assuming"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1160,67 @@
     "text": "Battle settled later in court",
     "enumeration": "8"
    },
-   "solution": "WATERLOO"
+   "solution": "WATERLOO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WATERLOO",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "settled",
+      "for": "anagram",
+      "note": "settled letters have been sorted out and put into a new arrangement"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters go inside the word for court"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     },
+     {
+      "clueFragment": "later",
+      "gives": "LATER",
+      "note": "the five letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERL",
+      "OO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATER",
+       "gives": "ATERL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legal dispute settled afterwards in a court of law.",
+     "walkthrough": "'Court' suggests a lawsuit, but it is the verb for romancing.",
+     "definitionFit": "Waterloo was the 1815 battle in Belgium where Wellington and Blücher defeated Napoleon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1234,55 @@
     "text": "South African pugilist a kiss knocked out",
     "enumeration": "4"
    },
-   "solution": "BOER"
+   "solution": "BOER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BOER",
+    "definitions": [
+     {
+      "text": "South African",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked out",
+      "for": "deletion",
+      "note": "something knocked out is removed, so that letter is dropped from the fighter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pugilist",
+      "gives": "BOXER",
+      "note": "a pugilist is a boxer"
+     },
+     {
+      "clueFragment": "a kiss",
+      "gives": "X",
+      "note": "X is the conventional sign for a kiss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African fighter knocked out after a kiss.",
+     "walkthrough": "'Knocked out' fits a boxer too well; it tells you to remove the kiss, not to floor anyone.",
+     "definitionFit": "A Boer is a South African of Dutch descent, an Afrikaner farmer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1296,57 @@
     "text": "Artist holding recipe for beetroot soup",
     "enumeration": "6"
    },
-   "solution": "BORSCH"
+   "solution": "BORSCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BORSCH",
+    "definitions": [
+     {
+      "text": "beetroot soup",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the painter's name holds the other letter inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "BOSCH",
+      "note": "Hieronymus Bosch, the Dutch painter"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe on a prescription"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "R",
+      "SCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter keeps a cooking recipe for a beetroot dish.",
+     "definitionFit": "Borsch is the eastern European soup made with beetroot, giving its deep red colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Artist"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1366,71 @@
      }
     ]
    },
-   "solution": "RAINBOWTROUT"
+   "solution": "RAINBOWTROUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RAINBOW TROUT",
+    "definitions": [
+     {
+      "text": "fish?",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "the solicitor goes over the river, covering it on both sides"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, a Royal Academician, is a stock abbreviation for an artist"
+     },
+     {
+      "clueFragment": "London-based",
+      "gives": "INBOW",
+      "note": "Bow is a district of east London"
+     },
+     {
+      "clueFragment": "solicitor",
+      "gives": "TOUT",
+      "note": "a tout solicits custom, for instance selling tickets"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "INBOW",
+      "T",
+      "R",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist living in London hires a lawyer to fish across the river.",
+     "walkthrough": "Solicitor suggests a British lawyer, but here it is someone who solicits trade. The question mark flags a wordplay-heavy definition.",
+     "definitionFit": "The rainbow trout is a freshwater game fish with a pink stripe along its side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1444,48 @@
     "text": "Leaders of naval expeditions always raid southern approaches",
     "enumeration": "5"
    },
-   "solution": "NEARS"
+   "solution": "NEARS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NEARS",
+    "definitions": [
+     {
+      "text": "approaches",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of a group of words are the ones at the front, their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naval expeditions always raid southern",
+      "gives": "NEARS",
+      "select": "first",
+      "note": "the first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEARS"
+     ]
+    },
+    "explanation": {
+     "surface": "Commanders of sea voyages always attacking southern coasts.",
+     "definitionFit": "Approaches as a verb means draws close to, just as nears does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "approaches"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1499,55 @@
     "text": "Be keenly sensible of fisherman's first fish",
     "enumeration": "4"
    },
-   "solution": "FEEL"
+   "solution": "FEEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FEEL",
+    "definitions": [
+     {
+      "text": "Be keenly sensible of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of the fisherman is his opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fisherman's",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EEL"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's first catch, which he is acutely aware of.",
+     "definitionFit": "To be sensible of something in the older sense is to be aware of it, to sense it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sensible"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1561,47 @@
     "text": "African note: this country was formerly French Sudan",
     "enumeration": "6"
    },
-   "solution": "SOMALI"
+   "solution": "SOMALI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOMALI",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "SO",
+      "note": "so, or soh, is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "this country was formerly French Sudan",
+      "gives": "MALI",
+      "note": "French Sudan became independent as Mali in 1960"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "MALI"
+     ]
+    },
+    "explanation": {
+     "surface": "A history note about a West African country's colonial name.",
+     "walkthrough": "The clue invites you to think the whole sentence describes the answer's land, but Somalia lies far to the east.",
+     "definitionFit": "Somali names a person or language of Somalia in the Horn of Africa, so a native of that continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1615,42 @@
     "text": "Some politicians were definitely refuted",
     "enumeration": "8"
    },
-   "solution": "ANSWERED"
+   "solution": "ANSWERED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANSWERED",
+    "definitions": [
+     {
+      "text": "refuted",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are used, a run lying across the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politicians were definitely",
+      "gives": "ANSWERED",
+      "note": "the run spans the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A statement that certain politicians were disproved.",
+     "definitionFit": "To refute an argument is to reply to it and counter it, so a refuted charge has been met in reply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1664,48 @@
     "text": "I mention sound and vision",
     "enumeration": "8"
    },
-   "solution": "EYESIGHT"
+   "solution": "EYESIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYESIGHT",
+    "definitions": [
+     {
+      "text": "vision",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "the sound of the phrase is what counts, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I mention",
+      "gives": "EYESIGHT",
+      "soundsLike": "I CITE",
+      "note": "to cite is to mention, so the phrase is said as I cite"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone listing two senses: hearing and seeing.",
+     "walkthrough": "'Sound and vision' looks like a pair of senses, but sound is the instruction and only vision defines.",
+     "definitionFit": "Eyesight is the faculty of seeing, which is what vision means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1719,53 @@
     "text": "Sleuth resolved to earn money illicitly",
     "enumeration": "6"
    },
-   "solution": "HUSTLE"
+   "solution": "HUSTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HUSTLE",
+    "definitions": [
+     {
+      "text": "earn money illicitly",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved is broken down and worked into a new form, so the letters change order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleuth",
+      "gives": "SLEUTH",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLEUTH",
+       "gives": "HUSTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective decides to turn to crime for cash.",
+     "definitionFit": "To hustle, in slang, is to make a living by shady schemes or swindling people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   }
  ]
 }
