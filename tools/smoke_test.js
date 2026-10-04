@@ -1832,8 +1832,9 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
       return out;
     })();
     const columns = PARTS.map(colOf);
-    assert(tracks.length === Math.max(...columns),
-      `the wide list declares one track per column (${Math.max(...columns)}), got ` +
+    // One more than the row's parts: the archive row's "answers" link.
+    assert(tracks.length === Math.max(...columns) + 1,
+      `the wide list declares one track per column (${Math.max(...columns)} + answers), got ` +
       tracks.length + ": " + tracks.join(" "));
     const elastic = PARTS.filter((cls) =>
       /ellipsis/.test(prop(base, "." + cls, "text-overflow") || ""));

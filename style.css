@@ -1607,10 +1607,19 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 }
 .s-index li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
 .s-index a {
-  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid;
+  grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: subgrid;
   padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
 }
 .s-index a:hover { background: var(--accent-soft); }
+/* An archive row's small link to the answer page, beside the row link that
+   opens the puzzle in the app. Two-line rows put it at the end of the badge
+   line, which leaves it room; the wide row gives it a track of its own. */
+.s-index a.p-answers {
+  grid-column: -2 / -1; grid-row: 1; display: block; z-index: 1;
+  align-self: end; justify-self: end; padding: 0 10px 11px;
+  font-size: .78rem; color: var(--muted); text-decoration: underline;
+}
+.s-index li:has(.p-answers) .p-tags { padding-right: 4.5em; }
 .s-index .p-num { min-width: 5.4em; }
 .s-index .p-meta { font-size: .82rem; }
 /* The archive is a full-width page rather than a 430px panel, so once there is
@@ -1628,7 +1637,10 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      at a setter's width and the rare long one uses the ellipsis .p-setter has
      been carrying all along. The badges then take the slack, which is what
      keeps them on one line. */
-  .s-index { grid-template-columns: auto fit-content(14ch) minmax(0, 1fr) auto; }
+  .s-index { grid-template-columns: auto fit-content(14ch) minmax(0, 1fr) auto auto; }
+  .s-index a { grid-column: 1 / -2; }
+  .s-index a.p-answers { grid-column: -2 / -1; align-self: center; padding: 4px 6px; }
+  .s-index li:has(.p-answers) .p-tags { padding-right: 0; }
   .s-index a { align-items: center; }
   /* Every item on this line names its row as well as its column. Grid's
      auto-placement is sparse: the date is column 4 and comes before the badges
