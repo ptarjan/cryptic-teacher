@@ -18,8 +18,9 @@ _MARK = r"(?:[,\-–—\u2011.;:/'’′]|\band\b)"
 _PRINTED = r"\d+(?:(?:\s*" + _MARK + r"){0,2}\s*\d+)*"
 
 # The trailing bracket: an enumeration, or "()" where a feed lost it. A stray
-# trailing comma inside ("(9,)") is a misprint of the same count.
-_TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)\s*$")
+# trailing comma inside ("(9,)") is a misprint of the same count, and a closing
+# quote after it ("(4)’", a blog's markup leaking) is no part of the clue.
+_TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)[\s’”\"']*$")
 
 #: The stored form (the schema's `enumeration` pattern): marks unspaced,
 #: dashes as "-", apostrophes as "'", a lone space or " and " between counts.
@@ -30,7 +31,7 @@ FORM = re.compile(r"\d+(?:(?:[,\-.;:/']| | and )\d+)*")
 #: total and how many words, with no breaks. It stays in the clue's text as
 #: printed, since `enumeration` holds counts and marks alone.
 WORDED = re.compile(r"\(\s*(\d{1,2})\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$",
-                    re.I)
+                    re.IGNORECASE)
 NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}
 
 
