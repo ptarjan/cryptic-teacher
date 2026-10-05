@@ -219,7 +219,7 @@ ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|ente
                      r"not be entered|non-words|entries are all|required entry|\bmodified\b|\bclash")
 #: The competition's small print, which is not the preamble.
 SMALL_PRINT = re.compile(r"(?i)\b(?:deadline|closing date|register once|sign (?:in|on) to|"
-                         r"online competition|competition closes|monthly prize|£\d+|the winner)\b")
+                         r"online competition|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )?winners?|personal data|don[’']t respond)\b")
 SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|Across)\b(?=\s*\d)"),
               "down": re.compile(r"\b(?:DOWN|Down)\b(?=\s*\d)")}
 #: One clue at the head of the text: its lights ("22,17,3", "20/4", "4 down"),
@@ -291,8 +291,11 @@ def parse_text(text):
     rest = [FURNITURE.sub("", x) for x in rest]
     rest = [re.sub(r"(?i)^\s*Clues\b|\b(?:Instructions|RULES AND REQUESTS|Preamble)\b:?", "", x) for x in rest]
     sentences = re.split(r"(?<=[.?!])\s+", " ".join(x.strip() for x in rest if x.strip()))
-    keep = [x for x in sentences if x and not SMALL_PRINT.search(x)
-            and not re.fullmatch(r"(?i)\W*(?:clues|rules and requests)?\W*", x)]
+    # Small print run on from an instruction with no full stop between keeps
+    # the instruction ("... first letter Competition closes ...").
+    cut = [x[:m.start()].strip() if (m := SMALL_PRINT.search(x)) and m.start() > 40 else
+           ("" if m else x) for x in sentences]
+    keep = [x for x in cut if x and not re.fullmatch(r"(?i)\W*(?:clues|rules and requests)?\W*", x)]
     out["preamble"] = " ".join(keep).strip() or None
     return out
 
