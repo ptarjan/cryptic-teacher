@@ -3354,13 +3354,31 @@
   // the one about definitions living at one end that used to print 25 times a
   // puzzle. Falls back to a bare full stop when the definition has no span in
   // the clue (a blog underline that is not a literal substring) rather than guessing.
-  function defPlace(clue, def) {
+  //
+  // A link word touching the definition is the seam itself, not wordplay, so it
+  // is dropped from the quoted side: "Inventive musician's remote control sound"
+  // quotes "remote control sound", never "'s remote control sound".
+  function defPlace(clue, def, links) {
     const c = String(clue || "");
     const i = def && def.text && def.at >= 0 ? cpToIdx(c, def.at) : -1;
     if (i < 0 || c.slice(i, i + def.text.length) !== def.text) return ".";
     const trim = (s) => s.trim().replace(/^[,;:.—–-]+|[,;:—–-]+$/g, "").trim();
-    const before = trim(c.slice(0, i));
-    const after = trim(c.slice(i + def.text.length).replace(/\s*\([^)]*\)\s*$/, ""));
+    const apos = (s) => s.replace(/[‘’]/g, "'").toLowerCase();
+    const lws = (links || []).map((w) => apos(String(w || "").trim())).filter(Boolean);
+    const unlink = (s, atStart) => {
+      for (const w of lws) {
+        const k = apos(s);
+        // Whole words only: the next character past the link word must not be
+        // a letter, so "for" never eats the front of "forest".
+        if (atStart && k.startsWith(w) && !/[a-z0-9]/i.test(k.charAt(w.length)) && trim(s.slice(w.length)))
+          return trim(s.slice(w.length));
+        if (!atStart && k.endsWith(w) && !/[a-z0-9]/i.test(k.charAt(k.length - w.length - 1)) && trim(s.slice(0, -w.length)))
+          return trim(s.slice(0, -w.length));
+      }
+      return s;
+    };
+    const before = unlink(trim(c.slice(0, i)), false);
+    const after = unlink(trim(c.slice(i + def.text.length).replace(/\s*\([^)]*\)\s*$/, "")), true);
     if (!before && !after) return " — which is the whole clue, and that is what makes this one unusual.";
     if (!before) return `, so the clue opens with it and “${esc(after)}” is the wordplay.`;
     if (!after) return `, right at the end — so “${esc(before)}” is the wordplay.`;
@@ -3838,7 +3856,7 @@
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>The definition is <mark class="def">${esc(defs[0].text)}</mark>${defPlace(clue, defs[0])}</p>`
+        html: `<p>The definition is <mark class="def">${esc(defs[0].text)}</mark>${defPlace(clue, defs[0], ann.linkWords)}</p>`
       });
     }
 

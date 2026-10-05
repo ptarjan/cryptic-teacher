@@ -2462,6 +2462,28 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   assert(registry["hint-clue"].innerHTML.includes('mark class="link"'),
     "link words are highlighted in the clue: " + registry["hint-clue"].innerHTML);
 
+  // A link word touching the definition is the seam, not wordplay: the
+  // definition rung must not quote it as the wordplay's first word.
+  const seamLink = (a, e) => {
+    const d = (a.definitions || [])[0];
+    if (!d || d.at !== 0 || !d.text) return null;
+    const rest = clueText(e).slice(d.text.length).trimStart().toLowerCase();
+    return (a.linkWords || []).find((w) => w && rest.startsWith(w.toLowerCase())
+      && !/[a-z0-9]/i.test(rest.charAt(w.length))) || null;
+  };
+  let seam = null;
+  for (const id of Object.keys(puzzles).sort().reverse()) {
+    const e = (puzzles[id].entries || []).find((x) => x.annotation && seamLink(x.annotation, x));
+    if (e) { seam = { id, e }; break; }
+  }
+  if (seam) {
+    openClue(seam);
+    const w = seamLink(seam.e.annotation, seam.e);
+    assert(!registry["hint-body"].innerHTML.includes("“" + w),
+      `a link word next to the definition is not quoted as wordplay (${seam.id} ${entryId(seam.e)}): ` +
+      registry["hint-body"].innerHTML);
+  }
+
   // A definition's `note` explains why the definition does not agree with the ANSWER,
   // so it is written about the answer and routinely names it — 16 in the corpus
   // did, and one of them handed TRUMP CARDS over on rung 2.
