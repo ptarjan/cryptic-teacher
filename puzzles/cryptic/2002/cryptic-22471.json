@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Pick up lock key then lay down",
     "enumeration": "6"
    },
-   "solution": "ASSERT"
+   "solution": "ASSERT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ASSERT",
+    "definitions": [
+     {
+      "text": "lay down",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pick up",
+      "for": "reversal",
+      "note": "to pick something up is to lift it, and lifting the letters turns them back to front in this reading"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "A",
+      "note": "A is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SSERT"
+     ],
+     "reversals": [
+      {
+       "from": "TRESSA",
+       "to": "ASSERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a burglar or locksmith: pick the lock, use a key, then put it down.",
+     "walkthrough": "TRESS then A, picked up, reads ASSERT. 'Lay down' is meant in the sense of laying down the law.",
+     "definitionFit": "To assert something is to state it firmly, as when one lays down a rule or principle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,56 @@
     "text": "Roman Io stirred Cupid",
     "enumeration": "7"
    },
-   "solution": "AMORINO"
+   "solution": "AMORINO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMORINO",
+    "definitions": [
+     {
+      "text": "Cupid",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirred",
+      "for": "anagram",
+      "note": "stirring mixes things up, so the letters of the two words are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman",
+      "gives": "ROMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Io",
+      "gives": "IO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANIO",
+       "gives": "AMORINO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman is aroused by Io, the maiden loved by Jupiter, so Cupid has been at work.",
+     "walkthrough": "Io is the nymph from classical myth whom Jupiter seduced, which fits the Roman scene.",
+     "definitionFit": "An amorino is a small chubby winged figure in art, a putto representing the god of love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirred"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,36 @@
     "text": "See 27",
     "enumeration": "5"
    },
-   "solution": "STATE"
+   "solution": "STATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STATE",
+    "definitions": [
+     {
+      "text": "See 27",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See 27",
+      "note": "surface reading: a pointer sending the solver to another clue"
+     },
+     {
+      "clueFragment": "27",
+      "note": "setter's reading: this light holds the last word of the name clued at 27 across"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The clue at 27 across defines a former South African province, and this light completes its three-word name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +213,67 @@
     "text": "All lit up in rave to raise charity",
     "enumeration": "7"
    },
-   "solution": "RADIANT"
+   "solution": "RADIANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RADIANT",
+    "definitions": [
+     {
+      "text": "All lit up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to raise",
+      "for": "reversal",
+      "note": "in a down answer, raising letters means writing them from bottom to top, so they read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rave",
+      "gives": "RANT",
+      "note": "to rave is to rant"
+     },
+     {
+      "clueFragment": "charity",
+      "gives": "AID",
+      "note": "aid given to those in need is charity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "DIA",
+      "NT"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A charity fundraiser held at a rave, with everyone lit up and glowing.",
+     "walkthrough": "'All lit up' suggests a drunk raver, but here it means shining; in a down clue, raising a word turns it upside down.",
+     "definitionFit": "Radiant means glowing or shining brightly, which is what something lit up all over does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rave"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +287,58 @@
     "text": "Covert introduction of Scripture to cult",
     "enumeration": "6"
    },
-   "solution": "SECRET"
+   "solution": "SECRET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SECRET",
+    "definitions": [
+     {
+      "text": "Covert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "container",
+      "note": "something introduced into a group goes inside it, so one piece is put inside the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scripture",
+      "gives": "RE",
+      "note": "RE, religious education, is the school subject once called Scripture"
+     },
+     {
+      "clueFragment": "cult",
+      "gives": "SECT",
+      "note": "a sect is a cult or breakaway religious group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "RE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cult covertly bringing new recruits into its own version of Scripture.",
+     "walkthrough": "In British schools RE (religious education) used to be called Scripture.",
+     "definitionFit": "Something covert is hidden from view, kept quiet and not openly revealed, which is what secret means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +352,67 @@
     "text": "Strangely overlooked old solvers smuggling currency",
     "enumeration": "6"
    },
-   "solution": "EERILY"
+   "solution": "EERILY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EERILY",
+    "definitions": [
+     {
+      "text": "Strangely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "smugglers hide goods inside something else, so one piece is carried inside the other"
+     },
+     {
+      "text": "overlooked",
+      "for": "reversal",
+      "note": "read as looked over, as in turned over, the whole construction is flipped end to end in this down answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old solvers",
+      "gives": "YE",
+      "note": "solvers are addressed as you, and ye is the old form of that word"
+     },
+     {
+      "clueFragment": "currency",
+      "gives": "LIRE",
+      "note": "lire are units of Italy's currency, replaced by the euro in 2002"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ERIL",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YLIREE",
+       "to": "EERILY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of forgotten veteran crossword solvers caught running contraband money, oddly unnoticed.",
+     "walkthrough": "YE holds LIRE to make YLIREE, which turned over reads EERILY. 'Overlooked' looks like 'ignored' but signals the turn.",
+     "definitionFit": "Eerily is an adverb meaning in a weird, uncanny or unsettling manner, close to strangely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +426,53 @@
     "text": "Commentary about the mother of two monarchs",
     "enumeration": "9"
    },
-   "solution": "REMARKING"
+   "solution": "REMARKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMARKING",
+    "definitions": [
+     {
+      "text": "Commentary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "the mother",
+      "gives": "MA",
+      "note": "ma is a homely word for mother"
+     },
+     {
+      "clueFragment": "of two monarchs",
+      "gives": "RKING",
+      "note": "the first monarch is R, for rex or regina, the second is KING written out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MA",
+      "RKING"
+     ]
+    },
+    "explanation": {
+     "surface": "Commentary on a royal mother who bore two monarchs, like a TV report on the Queen Mother.",
+     "walkthrough": "The Queen Mother was mother to Elizabeth II; here the two monarchs give R and KING.",
+     "definitionFit": "Remarking is the act of passing comments on something, so it can stand for a running commentary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +492,63 @@
      }
     ]
    },
-   "solution": "TUNEDIN"
+   "solution": "TUNEDIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TUNED IN",
+    "definitions": [
+     {
+      "text": "Au fait with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     },
+     {
+      "text": "form",
+      "for": "anagram",
+      "note": "putting letters into a new form rearranges them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newcastle",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of the city's name"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "UNITED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUNITED",
+       "gives": "TUNEDIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan who keeps up with how Newcastle United are playing at the top of the league.",
+     "walkthrough": "Newcastle United is an English Premier League football club, so 'form' reads naturally as its results.",
+     "definitionFit": "Being tuned in to something means being alert and well informed about it, which is au fait with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +568,76 @@
      }
     ]
    },
-   "solution": "SPECIALBRANCH"
+   "solution": "SPECIALBRANCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPECIAL BRANCH",
+    "definitions": [
+     {
+      "text": "part of the bill",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "a short name is missing its last letter"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down answer, raising letters means writing them upwards, so they read backwards"
+     }
+    ],
+    "linkWords": [
+     "added",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tony",
+      "gives": "BLAI",
+      "note": "Tony Blair, then Prime Minister, with his surname's last letter dropped"
+     },
+     {
+      "clueFragment": "fungi",
+      "gives": "CEPS",
+      "note": "ceps are edible mushrooms"
+     },
+     {
+      "clueFragment": "the farm",
+      "gives": "RANCH",
+      "note": "a ranch is a large farm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPECIALB",
+      "RANCH"
+     ],
+     "reversals": [
+      {
+       "from": "BLAICEPS",
+       "to": "SPECIALB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tony Blair, briefly, adding mushrooms grown on the farm to the restaurant bill.",
+     "walkthrough": "'The bill' is British slang for the police; Special Branch is the police unit for national security. Tony was then Prime Minister Blair; 'on' puts the farm below the raised pair.",
+     "definitionFit": "Special Branch is a department of British police forces, so it is one division of the Old Bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +651,49 @@
     "text": "Lisa is keener, they say",
     "enumeration": "4"
    },
-   "solution": "MONA"
+   "solution": "MONA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MONA",
+    "definitions": [
+     {
+      "text": "Lisa",
+      "at": 0,
+      "note": "the name that comes before Lisa in Leonardo's portrait title"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what people say is heard rather than read, so the sound of a word is what counts"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keener",
+      "gives": "MONA",
+      "soundsLike": "MOANER",
+      "note": "a keener wails over the dead, a moaner; in a non-rhotic accent the two sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that Lisa is the more eager of two people.",
+     "walkthrough": "'Keener' looks like an adjective, more eager, but it is the noun for a mourner who wails.",
+     "definitionFit": "The Mona Lisa is Leonardo da Vinci's portrait, so Lisa calls up her partner word Mona."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "keener"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +707,50 @@
     "text": "Division intended to report after leave",
     "enumeration": "10"
    },
-   "solution": "DEPARTMENT"
+   "solution": "DEPARTMENT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "DEPARTMENT",
+    "definitions": [
+     {
+      "text": "Division",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to report",
+      "for": "homophone",
+      "note": "a report is spoken, so the word is wanted for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leave",
+      "gives": "DEPART",
+      "note": "to leave is to depart"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "MENT",
+      "soundsLike": "MEANT",
+      "note": "intended means meant, which sounds like this word ending"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone meant to file a report before going on leave from their division.",
+     "walkthrough": "'After' puts the sound-alike piece behind DEPART; the surface makes leave a holiday.",
+     "definitionFit": "A department is a section or division of a larger organisation such as a firm or government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +764,65 @@
     "text": "Flicks off hospital machine switch",
     "enumeration": "6"
    },
-   "solution": "CINEMA"
+   "solution": "CINEMA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CINEMA",
+    "definitions": [
+     {
+      "text": "Flicks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "turning something off removes it, so a letter is taken out"
+     },
+     {
+      "text": "switch",
+      "for": "anagram",
+      "note": "to switch things round is to change their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     },
+     {
+      "clueFragment": "machine",
+      "gives": "MACHINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CINEMA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MACINE",
+       "gives": "CINEMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flicks the switch to turn off a hospital machine.",
+     "walkthrough": "'Flicks' looks like a verb but is the old slang noun for films; MACHINE loses its H and the rest is rearranged.",
+     "definitionFit": "The flicks is informal for the cinema, from the flickering image of early films."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flicks"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +836,42 @@
     "text": "2 type of beetle",
     "enumeration": "8"
    },
-   "solution": "COLORADO"
+   "solution": "COLORADO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLORADO",
+    "definitions": [
+     {
+      "text": "2",
+      "at": 0,
+      "note": "2 refers to the answer at 2, which is STATE"
+     },
+     {
+      "text": "type of beetle",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "note": "first meaning: one of the states of the USA"
+     },
+     {
+      "clueFragment": "type of beetle",
+      "note": "second meaning: a striped pest of potato crops"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bare number points to the answer at 2-down, which is STATE.",
+     "definitionFit": "Colorado is a western American state, and the Colorado beetle is a notorious potato-eating pest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +885,45 @@
     "text": "The pledge of confinement",
     "enumeration": "9"
    },
-   "solution": "COMMITTAL"
+   "solution": "COMMITTAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMMITTAL",
+    "definitions": [
+     {
+      "text": "The pledge",
+      "at": 0
+     },
+     {
+      "text": "confinement",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The pledge",
+      "note": "first meaning: the act of committing oneself to something"
+     },
+     {
+      "clueFragment": "confinement",
+      "note": "second meaning: sending someone to prison or a hospital"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase, like a promise made by a prisoner, but splits into two senses.",
+     "definitionFit": "Committal covers both binding oneself by promise and the legal act of committing someone to custody or an institution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pledge"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +937,89 @@
     "text": "Depressed spirit sinks off without energy into the gloom",
     "enumeration": "9"
    },
-   "solution": "MURKINESS"
+   "solution": "MURKINESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "MURKINESS",
+    "definitions": [
+     {
+      "text": "the gloom",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Depressed",
+      "for": "reversal",
+      "note": "pushed down the other way, the letters read upward in this down answer"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong, so these letters are jumbled"
+     },
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the jumbled letters go round the other piece"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     },
+     {
+      "clueFragment": "sinks",
+      "gives": "SINKS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUR",
+      "KIN",
+      "E",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINKS",
+       "gives": "KINSS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RUM",
+       "to": "MUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A depressed person's mood sinks, lacking energy, into gloom.",
+     "walkthrough": "Every word of the surface sounds like low spirits, but 'spirit' is a drink and 'without' means outside.",
+     "definitionFit": "Murkiness is darkness and dimness, the condition of being gloomy and hard to see through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1033,50 @@
     "text": "The last charge to Jerusalem",
     "enumeration": "4"
    },
-   "solution": "ZION"
+   "solution": "ZION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZION",
+    "definitions": [
+     {
+      "text": "Jerusalem",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The last",
+      "gives": "Z",
+      "note": "Z is the last letter of the alphabet"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "ION",
+      "note": "an ion is an electrically charged particle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A final military charge on Jerusalem, as in a crusade.",
+     "walkthrough": "'The last charge' reads as one battle, but it splits into the alphabet's last letter and a charged particle.",
+     "definitionFit": "Zion is the hill on which Jerusalem stands, and its name is used for the city itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1090,68 @@
     "text": "Middlebrows regret backing common currency",
     "enumeration": "4"
    },
-   "solution": "EURO"
+   "solution": "EURO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "EURO",
+    "definitions": [
+     {
+      "text": "common currency",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Middle",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards, the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brows",
+      "gives": "O",
+      "select": "middle",
+      "note": "the central letter of the five-letter word, once the clue's first word is split as middle plus brows"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUR",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "ORUE",
+       "to": "EURO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Middlebrow types regret backing the single European currency.",
+     "walkthrough": "'Middlebrows' must be split into middle and brows. The euro was the shared currency of the European Union, launched as notes and coins in 2002.",
+     "definitionFit": "The euro is the single money shared by many European Union countries, hence common currency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Middlebrows"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1165,56 @@
     "text": "Given new powers, penal centre became sanguinary",
     "enumeration": "7"
    },
-   "solution": "ENABLED"
+   "solution": "ENABLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENABLED",
+    "definitions": [
+     {
+      "text": "Given new powers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penal",
+      "gives": "ENA",
+      "select": "middle",
+      "note": "the three middle letters of the word"
+     },
+     {
+      "clueFragment": "became sanguinary",
+      "gives": "BLED",
+      "note": "sanguinary means bloody, so to become so is to bleed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENA",
+      "BLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison, given new powers, became a bloody place.",
+     "walkthrough": "'Sanguinary' usually means bloodthirsty, but here it is just covered in blood.",
+     "definitionFit": "To be enabled is to be given the power or means to do something one could not before."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sanguinary"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1228,39 @@
     "text": "They'll make short work of things",
     "enumeration": "9"
    },
-   "solution": "ABRIDGERS"
+   "solution": "ABRIDGERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ABRIDGERS",
+    "definitions": [
+     {
+      "text": "They'll make short work of things",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They'll make short work of things",
+      "note": "surface reading: people who finish jobs quickly"
+     },
+     {
+      "clueFragment": "make short work",
+      "note": "setter's reading: people who literally make texts shorter, editors who cut them down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for doing something fast is taken literally, as shortening written works.",
+     "definitionFit": "An abridger shortens a book or text by cutting it, so they produce short versions of works."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1274,64 @@
     "text": "Endlessly abuse a right to be withdrawn",
     "enumeration": "7"
    },
-   "solution": "INSULAR"
+   "solution": "INSULAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INSULAR",
+    "definitions": [
+     {
+      "text": "withdrawn",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abuse",
+      "gives": "INSUL",
+      "note": "abuse is insult, minus its final letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSUL",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps on abusing a right will end up being taken away.",
+     "walkthrough": "'Withdrawn' looks like taken back, a right withdrawn, but it means reserved in character.",
+     "definitionFit": "An insular person is inward-looking and cut off from others, as an island is, so withdrawn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawn"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1345,67 @@
     "text": "Flush out Peter, the French prisoner",
     "enumeration": "7"
    },
-   "solution": "REPLETE"
+   "solution": "REPLETE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REPLETE",
+    "definitions": [
+     {
+      "text": "Flush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means wrong or disordered, so the name's letters are rearranged"
+     },
+     {
+      "text": "prisoner",
+      "for": "container",
+      "note": "a prisoner is held inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter",
+      "gives": "PETER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LE",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PETER",
+       "gives": "REPTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peter flushes out a French prisoner hiding somewhere.",
+     "walkthrough": "'Flush out' reads as a single verb, but 'Flush' is the definition and 'out' the anagram signal.",
+     "definitionFit": "To be flush is to be full or well supplied, as replete means filled or well stocked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flush"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1419,65 @@
     "text": "For example, lead and drive high up, finding top gear",
     "enumeration": "6"
    },
-   "solution": "BOLERO"
+   "solution": "BOLERO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BOLERO",
+    "definitions": [
+     {
+      "text": "top gear",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, lead",
+      "gives": "ORE",
+      "note": "lead is one example of a metal mined as ore"
+     },
+     {
+      "clueFragment": "drive high",
+      "gives": "LOB",
+      "note": "to lob is to hit a ball high"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOL",
+      "ERO"
+     ],
+     "reversals": [
+      {
+       "from": "ORELOB",
+       "to": "BOLERO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Golf or tennis talk: leading and hitting high shots puts a player in top gear.",
+     "walkthrough": "'Top gear' sounds like a car's highest gear, but it is clothing worn on top.",
+     "definitionFit": "A bolero is a short open jacket worn over the upper body, so it is a garment for the top half."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1491,75 @@
     "text": "Absurd ambition, not one to end in a province",
     "enumeration": "8"
    },
-   "solution": "MANITOBA"
+   "solution": "MANITOBA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MANITOBA",
+    "definitions": [
+     {
+      "text": "a province",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not one",
+      "for": "deletion",
+      "note": "not having one means a letter standing for one is taken away"
+     },
+     {
+      "text": "Absurd",
+      "for": "anagram",
+      "note": "something absurd is nonsensical, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ambition",
+      "gives": "AMBITION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "to end",
+      "gives": "A",
+      "note": "the letter A from the clue is put at the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANITOB",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMBITON",
+       "gives": "MANITOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An absurd ambition, not one that will end in a province.",
+     "walkthrough": "One I comes out of AMBITION, the remainder is rearranged, and A is added at the end.",
+     "definitionFit": "Manitoba is one of the ten provinces of Canada, in the middle of the country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Absurd"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1573,56 @@
     "text": "Washington Irving's hollow shelter bagged by mole",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEEPY",
+    "definitions": [
+     {
+      "text": "Washington Irving's hollow",
+      "at": 0,
+      "note": "the adjective in the title of his tale of the headless horseman"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagged by",
+      "for": "container",
+      "note": "something bagged is put inside a bag, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side"
+     },
+     {
+      "clueFragment": "mole",
+      "gives": "SPY",
+      "note": "a mole is a spy working inside an organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A mole hides in a hollow, an animal's shelter as in an American tale.",
+     "walkthrough": "'Mole' looks like the burrowing animal, but it is an undercover agent.",
+     "definitionFit": "Washington Irving wrote The Legend of Sleepy Hollow, so the hollow he made famous is the sleepy one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mole"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1636,48 @@
     "text": "Dainty morsel of mackerel, finely sliced",
     "enumeration": "5"
    },
-   "solution": "ELFIN"
+   "solution": "ELFIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELFIN",
+    "definitions": [
+     {
+      "text": "Dainty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "morsel of",
+      "for": "hidden_word",
+      "note": "a morsel is a small piece, so the answer is a small part of the following words"
+     },
+     {
+      "text": "sliced",
+      "for": "hidden_word",
+      "note": "sliced across the words, a run of letters is cut out of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mackerel, finely",
+      "gives": "ELFIN",
+      "note": "found inside the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A dainty piece of mackerel, thinly sliced, as on a plate of sashimi.",
+     "walkthrough": "'Finely sliced' adds to the cooking scene but also hints the answer is cut from the words.",
+     "definitionFit": "Elfin means small and delicately built, like an elf, which is to say dainty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "morsel"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1697,50 @@
      }
     ]
    },
-   "solution": "BLUEPENCIL"
+   "solution": "BLUEPENCIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUE PENCIL",
+    "definitions": [
+     {
+      "text": "Cut out",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occasionally Prussian",
+      "gives": "BLUE",
+      "note": "blue is a colour that is sometimes Prussian, as in Prussian blue"
+     },
+     {
+      "clueFragment": "style of skirt",
+      "gives": "PENCIL",
+      "note": "a pencil skirt is a narrow straight style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "PENCIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dressmaker cutting out a skirt in a Prussian style.",
+     "walkthrough": "'Cut out' sounds like a dressmaking verb, but it is the editor's act of deleting text. Prussian blue is a deep blue pigment.",
+     "definitionFit": "To blue-pencil a text is to censor or delete parts of it, from the colour editors used to mark cuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirt"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1754,36 @@
     "text": "See 27",
     "enumeration": "4"
    },
-   "solution": "FREE"
+   "solution": "FREE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FREE",
+    "definitions": [
+     {
+      "text": "See 27",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See 27",
+      "note": "surface reading: a pointer sending the solver to another clue"
+     },
+     {
+      "clueFragment": "27",
+      "note": "setter's reading: this light holds the middle word of the name clued at 27 across"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The clue at 27 across defines a former South African province, and this light holds the middle part of its three-word name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1797,39 @@
     "text": "He has the power to cut blades - grass?",
     "enumeration": "6"
    },
-   "solution": "DESPOT"
+   "solution": "DESPOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DESPOT",
+    "definitions": [
+     {
+      "text": "He has the power to cut blades - grass?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He has the power to cut blades - grass?",
+      "note": "surface reading: someone with a powered mower cutting blades of grass"
+     },
+     {
+      "clueFragment": "He has the power",
+      "note": "setter's reading: an absolute ruler who holds all power, and can cut down anyone, even an informer, or grass"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The mower image misleads: a grass is British slang for an informer, the kind a tyrant has dealt with, and the word ends in grass's slang sense, pot.",
+     "definitionFit": "A despot is a tyrant who rules with absolute power and can have opponents removed at will."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blades"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1843,39 @@
     "text": "(and 25, 2) The once fruitless condition re-called by Nelson?",
     "enumeration": "6"
    },
-   "solution": "ORANGE"
+   "solution": "ORANGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORANGE",
+    "definitions": [
+     {
+      "text": "The once fruitless condition re-called by Nelson?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The once fruitless condition",
+      "note": "surface reading: a former barren state; setter's reading: a former name meaning a state free of a fruit"
+     },
+     {
+      "clueFragment": "re-called by Nelson?",
+      "note": "setter's reading: renamed under Nelson Mandela's government, which dropped the fruit from the name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The whole answer runs across 27, 25 and 2. 'Re-called' means given a new name, not summoned again: the province dropped the fruit in 1995 under President Nelson Mandela.",
+     "definitionFit": "The Orange Free State was a Boer republic and later a South African province, renamed simply Free State after apartheid ended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fruitless"
+    }
+   }
   }
  ]
 }
