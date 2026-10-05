@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Sweet air I must circulate",
     "enumeration": "8"
    },
-   "solution": "TIRAMISU"
+   "solution": "TIRAMISU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIRAMISU",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulate",
+      "for": "anagram",
+      "note": "letters that circulate move around and settle in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air I must",
+      "gives": "AIRIMUST",
+      "note": "the three words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIRIMUST",
+       "gives": "TIRAMISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists on wafting a pleasant breeze around the room.",
+     "definitionFit": "Tiramisu is an Italian dessert of coffee-soaked sponge and mascarpone, and a dessert is a sweet in British usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,43 @@
     "text": "Weedy plant cut",
     "enumeration": "4"
    },
-   "solution": "DOCK"
+   "solution": "DOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOCK",
+    "definitions": [
+     {
+      "text": "Weedy plant",
+      "at": 0
+     },
+     {
+      "text": "cut",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weedy plant",
+      "note": "first meaning: a broad-leaved weed of fields and verges"
+     },
+     {
+      "clueFragment": "cut",
+      "note": "second meaning: to reduce or take away, as with wages or a tail"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener lops a straggly plant.",
+     "walkthrough": "The surface reads as a weak plant being pruned; the two parts are separate meanings of one word.",
+     "definitionFit": "The common weed with big leaves rubbed on nettle stings shares its name with the verb for docking pay or a tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weedy"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +143,67 @@
     "text": "Inept Conservative in a huge muddle",
     "enumeration": "6"
    },
-   "solution": "GAUCHE"
+   "solution": "GAUCHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GAUCHE",
+    "definitions": [
+     {
+      "text": "Inept",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter sits in the middle of the other jumbled letters"
+     },
+     {
+      "text": "muddle",
+      "for": "anagram",
+      "note": "a muddle is a confused mess, so the words are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "a huge",
+      "gives": "AHUGE",
+      "note": "taken as written, to be mixed up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAU",
+      "C",
+      "HE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AHUGE",
+       "gives": "GAUHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician is caught floundering in a massive mess.",
+     "walkthrough": "The jumbled letters of 'a huge' split around C.",
+     "definitionFit": "Gauche describes someone socially awkward and clumsy, which is close in sense to incompetent or bungling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +217,62 @@
     "text": "Spotty headgear capturing one's heart",
     "enumeration": "7"
    },
-   "solution": "BRINDLE"
+   "solution": "BRINDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRINDLE",
+    "definitions": [
+     {
+      "text": "Spotty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "the headgear captures a letter by holding it inside"
+     },
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "a word's heart is its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headgear",
+      "gives": "BRIDLE",
+      "note": "a bridle is the headgear of a horse"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "N",
+      "select": "middle",
+      "note": "the central letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "N",
+      "DLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hat with a pattern of dots has somehow taken someone's affections.",
+     "walkthrough": "Headgear suggests a hat, but here it is the harness on a horse's head.",
+     "definitionFit": "Brindle describes an animal's coat that is streaked or flecked with darker patches, so it fits a patchy, speckled appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "headgear"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +286,56 @@
     "text": "Rex is ideal playing old 23 leader",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "old 23 leader",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "letters that are playing are moving about freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rex",
+      "gives": "R",
+      "note": "R is the abbreviation for rex, Latin for king"
+     },
+     {
+      "clueFragment": "is ideal",
+      "gives": "ISIDEAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISIDEAL",
+       "gives": "DISRAELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog called Rex is the perfect companion for an old politician.",
+     "walkthrough": "23 is GOVERNMENT, so the definition means a former head of government: Benjamin Disraeli was a Victorian British Prime Minister.",
+     "definitionFit": "Disraeli was Conservative Prime Minister twice in the nineteenth century, so a past leader of a British administration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rex"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +349,74 @@
     "text": "Hoodwinked airline's doctor about alcohol left in",
     "enumeration": "10"
    },
-   "solution": "BAMBOOZLED"
+   "solution": "BAMBOOZLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BAMBOOZLED",
+    "definitions": [
+     {
+      "text": "Hoodwinked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the doctor's letters wrap about what follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the side letter goes in the drink word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airline's",
+      "gives": "BA",
+      "note": "BA is British Airways"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MD",
+      "note": "MD, Doctor of Medicine"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "BOOZE",
+      "note": "informal word for drink"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "M",
+      "BOOZ",
+      "L",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger complains that the airline's medic was drinking on duty.",
+     "walkthrough": "There are two nestings: the side letter goes into the drink, and the doctor's letters wrap round the result.",
+     "definitionFit": "To be bamboozled is to be tricked or deceived, the same idea as being duped or conned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +430,60 @@
     "text": "More nasty fellows surrounding a queen",
     "enumeration": "6"
    },
-   "solution": "MEANER"
+   "solution": "MEANER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MEANER",
+    "definitions": [
+     {
+      "text": "More nasty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "the men are surrounding the single letter, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellows",
+      "gives": "MEN",
+      "note": "fellows are men"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "N",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Some unpleasant men crowd around a monarch.",
+     "definitionFit": "Meaner is the comparative of mean in its sense of unkind or spiteful, so nastier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +497,50 @@
     "text": "One considered out of date is around after broadcast",
     "enumeration": "8"
    },
-   "solution": "DINOSAUR"
+   "solution": "DINOSAUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DINOSAUR",
+    "definitions": [
+     {
+      "text": "One considered out of date",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after broadcast",
+      "for": "anagram",
+      "note": "after being broadcast, scattered like seed, the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is around",
+      "gives": "ISAROUND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISAROUND",
+       "gives": "DINOSAUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned presenter is still hanging about once the show has aired.",
+     "definitionFit": "Calling a person a dinosaur is an idiom for someone hopelessly old-fashioned, like the extinct reptiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +554,50 @@
     "text": "Setter's given a long time to make pictures",
     "enumeration": "6"
    },
-   "solution": "IMAGES"
+   "solution": "IMAGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMAGES",
+    "definitions": [
+     {
+      "text": "pictures",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "given",
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "IM",
+      "note": "the setter says 'I am', shortened"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "AGES",
+      "note": "ages, a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle compiler is granted plenty of time to draw something.",
+     "walkthrough": "The setter is the crossword's author, so 'setter's' means 'I am', written I'M.",
+     "definitionFit": "Images are visual representations such as drawings or photographs, which plain pictures are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +611,42 @@
     "text": "Foul-smelling row of soldiers",
     "enumeration": "4"
    },
-   "solution": "RANK"
+   "solution": "RANK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RANK",
+    "definitions": [
+     {
+      "text": "Foul-smelling",
+      "at": 0
+     },
+     {
+      "text": "row of soldiers",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foul-smelling",
+      "note": "first meaning: giving off an offensive odour"
+     },
+     {
+      "clueFragment": "row of soldiers",
+      "note": "second meaning: a line of troops standing side by side"
+     }
+    ],
+    "explanation": {
+     "surface": "A line of troops gives off a terrible stink.",
+     "definitionFit": "The adjective describes a stench, and the noun is a single line of troops on parade, as in 'the ranks'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +660,71 @@
     "text": "Smuggled pictures returned after trick associated with group",
     "enumeration": "10"
    },
-   "solution": "CONTRABAND"
+   "solution": "CONTRABAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CONTRABAND",
+    "definitions": [
+     {
+      "text": "Smuggled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word for pictures is read from its end"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "pictures",
+      "gives": "ART",
+      "note": "pictures are works of art"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TRA",
+      "BAND"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stolen paintings are sent back after a scam involving a gang.",
+     "walkthrough": "'After' fixes the order: the trick comes first, then the reversed pictures, then the group.",
+     "definitionFit": "Contraband means goods brought in illegally, so used adjectivally it describes smuggled items."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +738,57 @@
     "text": "The end of almost great drink",
     "enumeration": "6"
    },
-   "solution": "FINALE"
+   "solution": "FINALE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FINALE",
+    "definitions": [
+     {
+      "text": "The end",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great",
+      "gives": "FINE",
+      "note": "fine, excellent"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is lamenting the last drop of a wonderful beer.",
+     "definitionFit": "A finale is the closing part of a show or piece of music, its conclusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +802,64 @@
     "text": "Chief ordered demise of Greek mathematician",
     "enumeration": "10"
    },
-   "solution": "ARCHIMEDES"
+   "solution": "ARCHIMEDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ARCHIMEDES",
+    "definitions": [
+     {
+      "text": "Greek mathematician",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief",
+      "gives": "ARCH",
+      "note": "arch- as in archenemy means chief"
+     },
+     {
+      "clueFragment": "demise",
+      "gives": "DEMISE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "IMEDES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMISE",
+       "gives": "IMEDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss commanded the death of a mathematician from ancient Greece.",
+     "walkthrough": "'Ordered' looks like the boss giving orders, but it is the signal to rearrange 'demise'.",
+     "definitionFit": "Archimedes of Syracuse was the ancient scholar famous for buoyancy and approximating pi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +873,52 @@
     "text": "Load beer clumsily with device for restricting sideways movement at sea",
     "enumeration": "8"
    },
-   "solution": "LEEBOARD"
+   "solution": "LEEBOARD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEEBOARD",
+    "definitions": [
+     {
+      "text": "device for restricting sideways movement at sea",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clumsily",
+      "for": "anagram",
+      "note": "doing something clumsily leaves things in a mess and out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Load beer",
+      "gives": "LOADBEER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOADBEER",
+       "gives": "LEEBOARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crew sloppily stow beer aboard a sailing boat.",
+     "definitionFit": "A leeboard is a board lowered over a boat's side to stop it drifting downwind, acting like a keel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +932,66 @@
     "text": "Actors furious about opening in unisex garment",
     "enumeration": "7"
    },
-   "solution": "SURCOAT"
+   "solution": "SURCOAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SURCOAT",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furious",
+      "for": "anagram",
+      "note": "furious suggests wild agitation, throwing the letters into disorder"
+     },
+     {
+      "text": "opening in",
+      "for": "letter_selection",
+      "note": "the opening in a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors",
+      "gives": "ACTORS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unisex",
+      "gives": "U",
+      "select": "first",
+      "note": "the initial of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTORSU",
+       "gives": "SURCOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Performers are angry about the start of a gender-neutral costume.",
+     "walkthrough": "'Unisex garment' reads as the definition, but only 'garment' defines; 'unisex' supplies its opening letter.",
+     "definitionFit": "A surcoat is a loose outer robe, historically worn by knights over armour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unisex"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +1005,73 @@
     "text": "Tanned suspect going round old island smeared in oil",
     "enumeration": "8"
    },
-   "solution": "ANOINTED"
+   "solution": "ANOINTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANOINTED",
+    "definitions": [
+     {
+      "text": "smeared in oil",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is not quite right, so the letters are not in their proper order"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "the jumbled letters go round the others, enclosing them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tanned",
+      "gives": "TANNED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "O",
+      "I",
+      "NTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TANNED",
+       "gives": "ANNTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sunburnt suspect is found on an old island, covered in suntan lotion.",
+     "walkthrough": "'Suspect' looks like a person in the surface but is the anagram signal.",
+     "definitionFit": "To anoint is to rub or pour oil over someone, often in ceremony, so anointed means greased with it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1085,59 @@
     "text": "Drop lecturer with old degree qualification",
     "enumeration": "7"
    },
-   "solution": "DIPLOMA"
+   "solution": "DIPLOMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIPLOMA",
+    "definitions": [
+     {
+      "text": "qualification",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "DIP",
+      "note": "a dip is a drop, as in a road"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "MA",
+      "note": "MA, Master of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIP",
+      "L",
+      "O",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic gives up an outdated postgraduate award.",
+     "walkthrough": "'Drop' looks like a verb meaning abandon, but it is the noun for a fall.",
+     "definitionFit": "A diploma is a certificate awarded on completing a course of study, an educational credential."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1151,67 @@
     "text": "Staff do nothing about instrument",
     "enumeration": "8"
    },
-   "solution": "MANDOLIN"
+   "solution": "MANDOLIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MANDOLIN",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word for zero is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "MAN",
+      "note": "to man is to staff, as in manning a desk"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "DO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil is zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DO",
+      "LIN"
+     ],
+     "reversals": [
+      {
+       "from": "NIL",
+       "to": "LIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Employees idle about, doing nothing at all.",
+     "walkthrough": "'Staff' looks like a noun for employees, but it is the verb meaning to provide workers for.",
+     "definitionFit": "A mandolin is a stringed musical instrument of the lute family, plucked with a plectrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1225,63 @@
     "text": "One leaving medicine out for native",
     "enumeration": "7"
    },
-   "solution": "ENDEMIC"
+   "solution": "ENDEMIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENDEMIC",
+    "definitions": [
+     {
+      "text": "native",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "One leaving",
+      "for": "deletion",
+      "note": "one is the Roman numeral, and it is leaving, so it is taken away"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of its place, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medicine",
+      "gives": "MEDICINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDEMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEDICNE",
+       "gives": "ENDEMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient walks away from their prescription in favour of a home-grown remedy.",
+     "walkthrough": "One I goes from MEDICINE, and the remaining seven letters are rearranged.",
+     "definitionFit": "An endemic species or disease is one found naturally and only in a particular region, so indigenous to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "medicine"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1295,71 @@
     "text": "Died in home drunkenly clutching top of Jameson bottle",
     "enumeration": "8"
    },
-   "solution": "DEMIJOHN"
+   "solution": "DEMIJOHN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DEMIJOHN",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunkenly",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "clutching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Died",
+      "gives": "D",
+      "note": "D is the abbreviation for died"
+     },
+     {
+      "clueFragment": "in home",
+      "gives": "INHOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Jameson",
+      "gives": "J",
+      "select": "first",
+      "note": "the initial of the whiskey brand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DINHOMEJ",
+       "gives": "DEMIJOHN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk passed away at home holding a whiskey bottle.",
+     "walkthrough": "Jameson is an Irish whiskey; 'in' is part of the anagram letters, not a container signal.",
+     "definitionFit": "A demijohn is a large, narrow-necked glass or stone vessel used for wine or home brewing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1373,60 @@
     "text": "English radical taking overdose crumbled away",
     "enumeration": "6"
    },
-   "solution": "ERODED"
+   "solution": "ERODED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ERODED",
+    "definitions": [
+     {
+      "text": "crumbled away",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the radical is taking something in, holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "radical",
+      "gives": "RED",
+      "note": "a Red is a radical left-winger"
+     },
+     {
+      "clueFragment": "overdose",
+      "gives": "OD",
+      "note": "OD is short for overdose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "R",
+      "OD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An English revolutionary took too many drugs and fell apart.",
+     "definitionFit": "To erode is to wear down gradually, as rock under water or wind, which is to crumble away bit by bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1440,62 @@
     "text": "Nit-picker removing end of chain from necklace",
     "enumeration": "6"
    },
-   "solution": "PEDANT"
+   "solution": "PEDANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PEDANT",
+    "definitions": [
+     {
+      "text": "Nit-picker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing means taking something out of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chain",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "necklace",
+      "gives": "PENDANT",
+      "note": "a pendant is a necklace with a hanging ornament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy jeweller detaches the clasp end of a chain from a necklace.",
+     "definitionFit": "A pedant is someone overly concerned with minor details and rules, a fusser over trivia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1509,43 @@
     "text": "Spot a tortoise eating a tuber",
     "enumeration": "6"
    },
-   "solution": "POTATO"
+   "solution": "POTATO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "POTATO",
+    "definitions": [
+     {
+      "text": "a tuber",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "hidden_word",
+      "note": "the phrase is eating the word, holding it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot a tortoise",
+      "gives": "POTATO",
+      "note": "inside the phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone notices a tortoise munching a vegetable.",
+     "walkthrough": "The letters run from inside 'Spot' through 'a' into 'tortoise'.",
+     "definitionFit": "The potato is the swollen underground stem of its plant, the best-known tuber of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spot"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1559,77 @@
     "text": "Domination shown in good bowling spell by new chaps at last",
     "enumeration": "10"
    },
-   "solution": "GOVERNMENT"
+   "solution": "GOVERNMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GOVERNMENT",
+    "definitions": [
+     {
+      "text": "Domination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "shown in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "bowling spell",
+      "gives": "OVER",
+      "note": "in cricket an over is a spell of six balls"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the little word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OVER",
+      "N",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team's supremacy comes from a fine spell by fresh bowlers at the end.",
+     "walkthrough": "In cricket an over is six balls bowled in a row. 'At last' reads as finally, but means the last letter of 'at'.",
+     "definitionFit": "Government is the exercise of authority and control over a people, so rule or domination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "at"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1643,54 @@
     "text": "Mist envelopes rare creature",
     "enumeration": "4"
    },
-   "solution": "FROG"
+   "solution": "FROG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FROG",
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "envelopes",
+      "for": "container",
+      "note": "to envelop is to wrap round, so the mist holds a letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mist",
+      "gives": "FOG",
+      "note": "fog is thick mist"
+     },
+     {
+      "clueFragment": "rare",
+      "gives": "R",
+      "note": "R is the abbreviation for rare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "OG"
+     ]
+    },
+    "explanation": {
+     "surface": "A haze shrouds an elusive animal.",
+     "definitionFit": "A frog is an amphibian, an animal, so it is an example of a living being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "envelopes"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1704,45 @@
     "text": "Touch female fish",
     "enumeration": "4"
    },
-   "solution": "FEEL"
+   "solution": "FEEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FEEL",
+    "definitions": [
+     {
+      "text": "Touch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "an eel is a long snake-like fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone handles a fish of the female sex.",
+     "definitionFit": "To feel something is to explore it with the hands, the sense of contact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1756,56 @@
     "text": "Serious cut close to ankle",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SEVER",
+      "note": "to sever is to cut off"
+     },
+     {
+      "clueFragment": "ankle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A grave wound has been inflicted near someone's foot.",
+     "walkthrough": "'Close to' reads as near, but means the last letter.",
+     "definitionFit": "A severe injury or problem is grave and acute, matching the sense of grave or critical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1819,50 @@
     "text": "Greatly daring, I printed translation",
     "enumeration": "8"
    },
-   "solution": "INTREPID"
+   "solution": "INTREPID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTREPID",
+    "definitions": [
+     {
+      "text": "Greatly daring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translation",
+      "for": "anagram",
+      "note": "a translation turns words into a different form, so the letters are rendered anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I printed",
+      "gives": "IPRINTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IPRINTED",
+       "gives": "INTREPID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bold publisher boasts of having issued a foreign version of a work.",
+     "definitionFit": "Intrepid describes someone fearless and adventurous, bold in facing danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   }
  ]
 }
