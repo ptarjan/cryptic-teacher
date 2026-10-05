@@ -523,11 +523,13 @@ const corpus = (() => {
     newest((p) => !p.annotated && p.hasSolutions).slice(0, 20),
     // The degraded panel wants one with no blog and no annotation at all, which
     // the newest twenty stop holding once the blogs cover them.
-    newest((p) => !p.annotated && p.hasSolutions).filter((p) => {
+    // find, not filter: it stops at the first match instead of loading every
+    // un-annotated puzzle in the index to throw all but one away.
+    [newest((p) => !p.annotated && p.hasSolutions).find((p) => {
       load(p);
       const puz = global.window.CRYPTIC_PUZZLES[p.id];
       return puz && !puz.blog && puz.entries.every((e) => !e.annotation);
-    }).slice(0, 1),
+    })].filter(Boolean),
     newest((p) => p.solutionsUnofficial).slice(0, 1),
     newest((p) => p.annotated && p.hasSolutions && !p.solutionsUnofficial).slice(0, 1),
     newest((p) => !p.date && p.annotated).slice(0, 1),
