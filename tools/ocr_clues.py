@@ -539,7 +539,11 @@ def consensus(read, before=None, after=None):
     next, a tie going to the one that fits its neighbours in the corpus's
     clues FIT_MARGIN better. At least two readings must lie within one
     change (or a quarter of its letters' changes) of it, and a spelling
-    most readings share gives way only to a word one slip from it ("Ciry" is "City"; "Jenkyns" stays a name)."""
+    most readings share gives way only to a word one slip from it, and
+    never when it is a word formed() knows ("Ciry" is "City"; "Jenkyns"
+    stays a name, "unscared" a word). Nor does it settle anything when one
+    reading's spelling lies more than one change nearer all the readings
+    than it does: they read a word the lexicon lacks."""
     read = [r.lower() for r in read if r and re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", r)]
     size = sorted(map(len, read))[len(read) // 2] if read else 0
     if len(read) < 2 or size < CONSENSUS_MIN:
@@ -559,7 +563,12 @@ def consensus(read, before=None, after=None):
     best = ranked[0][1]
     if len(best) < CONSENSUS_MIN or max(abs(len(best) - size), abs(len(best) - len(read[0]))) > 1 or sum(slips(best, r) <= max(1.0, len(best) / 4) for r in read) < 2:
         return None
-    if held and slips(best, shared) > SLIP_COST:
+    if held and (slips(best, shared) > SLIP_COST or formed(shared)):
+        return None
+    # Readings nearer one another than the word is to them read a word the
+    # lexicon lacks ("cameelious", not "cancellous").
+    medoid = min(sum(min(slips(r, o), CONSENSUS_CAP) for o in read) for r in set(read))
+    if sum(min(slips(best, r), CONSENSUS_CAP) for r in read) > medoid + 1:
         return None
     rivals = [c for k, c in ranked[1:] if k - ranked[0][0] < CONSENSUS_MARGIN]
     if rivals and all(fit(best, before, after) - fit(c, before, after) < FIT_MARGIN for c in rivals):
@@ -1676,13 +1685,16 @@ WORD = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
 COMPOUND = re.compile(r"\b([A-Za-z]+)-([A-Za-z]+)\b")
 
 
-def printed_words(text, theirs):
+def printed_words(text, theirs, broken=()):
     """`text` with each word as the readings `theirs` (each one's clue text)
     print it: the clue's first word takes the capital a reading prints
     ("Involve", not "involve"), a word loses a capital inside it most
     readings lack ("bacK"); a word no lexicon knows where most readings that have a word
     there have one known word takes it; two words most readings join with a
-    hyphen ("re-forms") are joined so, and only those."""
+    hyphen ("re-forms") are joined so, and only those. A word in `broken`
+    (lower case, hyphened only at a line end in the readings' columns) is
+    left as clean() joined it: a line end breaks "en-closed" and
+    "horse-race" alike."""
     words = list(WORD.finditer(text))
     if not words or not theirs:
         return text
@@ -1724,6 +1736,8 @@ def printed_words(text, theirs):
             joined[w.lower()] = joined.get(w.lower(), 0) + 1
     for key, heads in hyphened.items():
         for head in heads:
+            if key in broken:
+                continue
             n = sum(1 for t in theirs if re.search(rf"\b{head}-{key[len(head):]}\b", t, re.IGNORECASE))
             if n >= joined.get(key, 0):
                 out = re.sub(rf"\b({head})({key[len(head):]})\b", r"\1-\2", out, flags=re.IGNORECASE)
@@ -1740,7 +1754,7 @@ def printed_words(text, theirs):
             out = out[:b.end()] + out[a.start():]
     for m in list(COMPOUND.finditer(out))[::-1]:
         key = (m.group(1) + m.group(2)).lower()
-        if key not in hyphened and joined.get(key, 0) * 2 > len(theirs):
+        if key not in broken and key not in hyphened and joined.get(key, 0) * 2 > len(theirs):
             out = out[:m.start()] + m.group(1) + m.group(2) + out[m.end():]
     return out
 
@@ -1753,6 +1767,12 @@ def as_printed(texts, laid, blank, parse, lengths):
     count no reading settles files the clue blank. The last check before
     filing, after the vote and the VLM's pick alike."""
     laid, blank = dict(laid), dict(blank)
+    # A hyphen the columns print only at a line end says nothing of the word.
+    ends = {(m.group(1) + m.group(2)).lower() for t in texts.values()
+            for m in re.finditer(r"([A-Za-z]+)-[ \t]*\n\s*([A-Za-z]+)", t)}
+    inside = {(m.group(1) + m.group(2)).lower() for t in texts.values()
+              for m in re.finditer(r"([A-Za-z]+)-([A-Za-z]+)", t)}
+    broken = ends - inside
     for lid, (text, enum, group) in list(laid.items()):
         if not text or lid in blank or SEE_RE.match(text):
             continue
@@ -1762,7 +1782,7 @@ def as_printed(texts, laid, blank, parse, lengths):
         if why:
             laid[lid], blank[lid] = ("", None, group), why
             continue
-        laid[lid] = (printed_words(text, [t for t, _ in theirs]), enum, group)
+        laid[lid] = (printed_words(text, [t for t, _ in theirs], broken), enum, group)
     return laid, blank
 
 
