@@ -75,6 +75,16 @@ check("a word split at a line end, the hyphen read as a mark, is joined (times-1
                         "Mike Valon whom Wordsworth loved and left"]))
 check("mirror: two words a reading prints apart stay apart",
       "Put in to land", oc.printed_words("Put in to land", ["Put into land", "Put in to land"]))
+texts = {"en5": "ACROSS\n1 What Cleopatra did to the en-\nclosed reptile? (7)\nDOWN\n2 Pet (3)",
+         "vlm": "ACROSS\n1 What Cleopatra did to the en-\nclosed reptile? (7)\nDOWN\n2 Pet (3)"}
+laid, _ = oc.as_printed(texts, {"1-across": ("What Cleopatra did to the enclosed reptile?", "7", None)}, {},
+                        fa.parse, {"1-across": 7})
+check("as_printed: a line end's hyphen is not put in (times-19158 7D)",
+      "What Cleopatra did to the enclosed reptile?", laid["1-across"][0])
+texts = {k: t.replace("Cleopatra did to the en-", "Ride a horse-").replace("closed reptile", "race")
+         for k, t in texts.items()}
+laid, _ = oc.as_printed(texts, {"1-across": ("Ride a horse-race?", "7", None)}, {}, fa.parse, {"1-across": 7})
+check("mirror: nor taken out of a compound a line end breaks", "Ride a horse-race?", laid["1-across"][0])
 check("a clue's first word takes the capital a reading printed",
       "Involve in charge", oc.printed_words("involve in charge", ["Involve in charge", "involve in charge"]))
 check("a non-word takes the known word most readings have there",
@@ -117,6 +127,10 @@ check("mirror: a word as rare as the vote's pick does not unsettle it (times-202
       "English flier joins", oc.agree("English lier joins", [["#", "English", "flier", "joins"], ["#", "English", "Dier", "joins"]])[0])
 check("mirror: words every reading runs together stay apart without a mark between (times-13678 16A)",
       "but not for a man", oc.printed_words("but not for a man", ["but not fora man"] * 3))
+check("mirror: a word the lexicon lacks that the readings nearly agree on stays theirs (times-14794 1A)",
+      None, oc.consensus(["camoeUbus", "camcelious", "camceljous", "cameelious", "cancellious"]))
+check("mirror: a formed word most readings share stands (times-14583 12A)",
+      None, oc.consensus(["unscared", "unscared", "uncared"]))
 check("mirror: one reading alone settles nothing", None, oc.consensus(["auotber"]))
 
 print(f"FAILS {fails}")
