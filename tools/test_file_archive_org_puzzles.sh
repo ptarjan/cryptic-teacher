@@ -586,6 +586,30 @@ rows = f.merge_rows([(4264, 4302, 2279, 2590, "3 The friends got sea sick in"), 
 check("a short line under an overhanging box kept, a copy dropped, a number beside joined",
       ["5 3 The friends got sea sick in", "turn (6)"], [r[4] for r in rows])
 
+# RapidOCR's boxes off 1975-06-06 (times-14013): "Am-" sits a little above
+# "understood", and both above "1 Fistorlan", all one printed row.
+rows = f.merge_rows([(4188, 4211, 232, 351, "understood"), (4188, 4205, 363, 409, "Am-"),
+                     (4192, 4221, 97, 217, "1 Fistorlan"), (4212, 4241, 119, 223, "erica (7)."),
+                     (4226, 4268, 96, 411, "2 Some well-endowed girl (5).")])
+check("a clue's number joins its row when the row's pieces sit at different heights",
+      ["1 Fistorlan understood Am-", "erica (7).", "2 Some well-endowed girl (5)."], [r[4] for r in rows])
+# A clue's first line with its number run into a speck or read as one
+# (real readings: 1977-10-05 ch, 1976-03-24 ch, 1978-09-27 djvu and ch,
+# 1980-10-07 ch, 1997-04-01 ch and en5, 1985-02-01 djvu, 1976 ch, 1979 en5).
+starts = ["1'Iathe direcdion ofthe -Netberlands ? (7)", "1.Aesociatc's cry of pain (6)",
+          "l^Floisiicd curl asainst the blower (6)", "1_Fiaishcd curl agzinst the blower (6)",
+          "1'Humphrey's artless look (8)", "JTool able to retract nails (4-3)",
+          ") With physical training, is able to see (6)", "IPheasant for instance (4,4)",
+          ". 1. Maltreat composer's daughter (7)", "-1--He said No, oddly enough (5)", "'Twas brillig (5)"]
+check("a list's first clue keeps its number through a speck; a number lost to specks is left for the grid",
+      ["1 Iathe", "1 Aesociatc's", "1 Floisiicd", "1 Fiaishcd", "1 Humphrey's", "1 Tool", "? With",
+       "1 Pheasant", "1 Maltreat", "1 He", "'Twas brillig"],
+      [" ".join(f.tidy("ACROSS\n" + t).splitlines()[1].split()[:2]) for t in starts])
+check("a count with both brackets torn: ( read as T, ) as j or l; 12l is 12 or 2, unsure",
+      ["9 Leggy beatera (10)", "12 Only about two penny pieces (6)", "19 Settle with a judge in vulgar money (6)",
+       "14 Fish 12l"],
+      f.counts_mended(["9 Leggy beatera T10", "12 Only about two penny pieces 16j",
+                       "19 Settle with a judge in vulgar money I6l", "14 Fish 12l", "15 End (4)"])[:4])
 # A comma one reading lacks costs less than a word: the words after it pair.
 others = [ocr_clues.marked(ocr_clues.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
                                                       "28 A leisurely drink, doubtless, inslde (8) 29 The")]
