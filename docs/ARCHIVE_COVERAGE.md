@@ -70,7 +70,8 @@ The tick itself rebuilds nothing, so it returns in seconds; the job rebuilds
 until `corpus_queue.py release NAME`.
 
 A job with a `gate` (a check a person must make first) waits until
-`corpus_queue.py pass-gate NAME "evidence"` is run. `status` lists every job.
+`corpus_queue.py pass-gate NAME "evidence"` is run. A job with
+`"needs": "vlm"` waits until the desktop VLM answers. `status` lists every job.
 
 To add work, append a job to the queue file and commit it.
 

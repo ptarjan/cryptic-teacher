@@ -13,6 +13,8 @@
   {"name": "scan_rereads", "requested": true,
    "why": "the editions of puzzles with a source_clue_wrong row not read since 0c3f15f, plus annotation re-read requests (tools/scan_queue.py requested archive <paper>)"},
   {"name": "times_lost_clue_ends", "list": "~/.cache/times_lost_clue_ends_reread_all.txt",
-   "why": "re-read the editions whose clues lost their ends"}
+   "why": "re-read the editions whose clues lost their ends"},
+  {"name": "times_blank_novlm", "list": "~/.cache/times_blank_novlm_reread.txt", "needs": "vlm",
+   "why": "blank-clues editions read without the VLM (795 not in another job): laid editions blank 83-100% without it, 9-52% with it"}
  ]
 }
