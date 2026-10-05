@@ -190,6 +190,7 @@ F.vlm.reachable, F.vlm.version = (lambda: True), (lambda: "v1")
 check("Trove: an article read without the VLM is read again once it answers", 3, len(tread()))
 F.vlm.version = lambda: "v2"
 check("Trove: a new VLM model alone makes nothing due", [], tread())
+check("Trove: articles= reads those again, and no other", ["200"], tread(articles=["200"]))
 
 print(f"FAILS {fails}")
 EOF

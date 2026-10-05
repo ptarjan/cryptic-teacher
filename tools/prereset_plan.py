@@ -1042,10 +1042,18 @@ def round_robin(rows):
 
 def print_backlog(annotate_blocked, solve_blocked):
     """The queue's ids on stdout, from the index; its head and how many of it
-    are to be solved first on stderr, which is the burn's log. $CT_SERIES, a
-    space-separated list of series keys, narrows it to those papers."""
+    are to be solved first on stderr, which is the burn's log. A puzzle whose
+    scan is queued for an OCR re-read (scan_queue.open_requests) is left out
+    like an annotate-blocked one: its clue may be misread, and the re-read
+    decides. $CT_SERIES, a space-separated list of series keys, narrows it to
+    those papers."""
+    import scan_queue
     index = json.loads(INDEX.read_text(encoding="utf-8"))
-    todo = backlog(index["puzzles"], annotate_blocked.split(), solve_blocked.split(),
+    rereads = {r["id"] for r in scan_queue.open_requests()}
+    if rereads:
+        print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
+              file=sys.stderr)
+    todo = backlog(index["puzzles"], annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
     for p in todo[:5]:
         when = (f"{p['year']:<10}" if "year" in p

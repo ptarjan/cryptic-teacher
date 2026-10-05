@@ -15,15 +15,33 @@ tools/file_trove_puzzles.py).
     one bad page never stops a run.
   - lock(): one run per ledger, so a long full pass and the nightly never
     write the same ledger at once.
+  - request_reread(): an annotation that met a misread clue on an OCR'd
+    puzzle (tools/annotate_check.py: a printedClue filed, or a rejection on a
+    clue-text check) asks for its source to be read again. A request is open
+    while the filer's ledger row for that source was last read before it
+    ("readAt"), so the re-read itself closes it; the burn
+    (tools/prereset_plan.py --backlog) leaves a puzzle with an open request
+    alone, and tools/ocr_full_pass.sh reads the requested sources
+    (`python3 tools/scan_queue.py requested <filer> [paper]`). One request per
+    puzzle per reading of its clues: a re-read that gives the same clues
+    leaves the puzzle annotatable, and its next failure asks for nothing.
+
+    python3 tools/scan_queue.py requested archive times   # open editions, one a line
+    python3 tools/scan_queue.py requested trove           # open articles
+    python3 tools/scan_queue.py open                      # puzzle ids waiting on a re-read
 """
 import contextlib
 import datetime
+import hashlib
+import json
 import multiprocessing
+import os
 import sys
 import time
 import traceback
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 from concurrent.futures.process import BrokenProcessPool
+from pathlib import Path
 
 
 def now():
@@ -166,3 +184,107 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                     continue
                 yield item, result
             top_up()
+
+
+#: Each filer's ledger, the one place a source's last read ("readAt") is kept.
+LEDGERS = {"archive": Path(os.path.expanduser("~/.cache/archive_org_editions/filed.jsonl")),
+           "trove": Path(os.path.expanduser("~/.cache/trove/filed.jsonl"))}
+#: The re-read requests, appended to by annotation runs in any worktree.
+REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
+                or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
+
+
+def _rows(path):
+    """A jsonl file's rows; none when it is missing. A filer replaces its
+    ledger whole (a rename), so a line is never half-written."""
+    try:
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return []
+    return [json.loads(line) for line in text.splitlines() if line.strip()]
+
+
+def sources():
+    """{puzzle id: (filer, source key, ledger row)} for every puzzle a scan
+    filer's ledger says it read: an archive.org edition's verdicts, a Trove
+    article's id."""
+    out = {}
+    for row in _rows(LEDGERS["archive"]):
+        for v in row.get("verdicts") or ():
+            if v.get("id"):
+                out[v["id"]] = ("archive", row["edition"], row)
+    for row in _rows(LEDGERS["trove"]):
+        if row.get("id"):
+            out[row["id"]] = ("trove", row["article"], row)
+    return out
+
+
+def clue_key(entries):
+    """A hash of the clues as read: [(entry id, printed clue)]."""
+    return hashlib.sha256(json.dumps(sorted(entries)).encode()).hexdigest()[:16]
+
+
+def is_open(req, ledgers=None):
+    """Whether request `req` waits on its source's re-read: the ledger row for
+    it was last read before the request (no row: never read since)."""
+    rows = {}
+    for filer, key, row in (ledgers or sources()).values():
+        rows[(filer, key)] = row
+    row = rows.get((req["filer"], req["source"]))
+    return row is None or read_before(row, when(req["requestedAt"]))
+
+
+def requests():
+    return _rows(REQUESTS)
+
+
+def open_requests():
+    """The requests whose source has not been read since."""
+    known = sources()
+    return [r for r in requests() if is_open(r, known)]
+
+
+def request_reread(puzzle, clues, why):
+    """Ask for `puzzle`'s source to be read again; `clues` is [(entry id,
+    printed clue)] as the source gave them, `why` the checks that met a
+    misread. Returns the request filed, or None: not an OCR channel
+    (provenance.OCR_CHANNELS, read off source.retrievedFrom), no filer
+    ledger names its source (a book has no re-read), or these clues were
+    asked about already."""
+    import provenance
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return None
+    found = sources().get(puzzle["id"])
+    if found is None:
+        return None
+    key = clue_key(clues)
+    if any(r["id"] == puzzle["id"] and r["clues"] == key for r in requests()):
+        return None
+    req = {"id": puzzle["id"], "filer": found[0], "source": found[1], "clues": key,
+           "why": sorted(set(why)), "requestedAt": now()}
+    REQUESTS.parent.mkdir(parents=True, exist_ok=True)
+    with open(REQUESTS, "a", encoding="utf-8") as f:
+        f.write(json.dumps(req) + "\n")
+    return req
+
+
+def main(argv):
+    if argv[:1] == ["open"]:
+        print("\n".join(sorted({r["id"] for r in open_requests()})))
+        return 0
+    if argv[:1] == ["requested"] and len(argv) >= 2:
+        filer, paper = argv[1], (argv[2] if len(argv) > 2 else None)
+        want = None
+        if paper:
+            import file_archive_org_puzzles
+            want = file_archive_org_puzzles.PAPERS[paper].series
+        import provenance
+        print("\n".join(sorted({r["source"] for r in open_requests() if r["filer"] == filer
+                                and (want is None or provenance.series_of_id(r["id"]) == want)})))
+        return 0
+    print(__doc__, file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

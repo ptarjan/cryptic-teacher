@@ -925,9 +925,13 @@ commit_puzzle() {
     alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
     # Recorded against the puzzle's inputs, not the window: this run finished
     # and was rejected, which is the one failure that says something about the
-    # grid. It stays out of the queue until those inputs change.
-    python3 tools/failed_inputs.py record annotate "$num" --judged \
-      --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
+    # grid. It stays out of the queue until those inputs change. A misread
+    # clue on an OCR'd puzzle is the scan's to read again instead: the re-read
+    # decides, and the queue leaves the puzzle out until it lands
+    # (annotate_check.py --reread; once per reading of its clues).
+    python3 tools/annotate_check.py --reread "$num" ||
+      python3 tools/failed_inputs.py record annotate "$num" --judged \
+        --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
     discard_puzzle "$num"
     return 1
   fi
@@ -936,6 +940,9 @@ commit_puzzle() {
   loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
     alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
   echo "$loss"
+  # A printedClue this run filed on an OCR'd puzzle asks its scan to be read
+  # again, so the OCR learns what the annotator mended.
+  python3 tools/annotate_check.py --reread "$num" || true
   if [ -n "$(git status --porcelain -- "$(puzzle_spec "$num")")" ]; then
     # One puzzle, on purpose: this job runs for hours and publishes as it goes,
     # so each finished puzzle reaches the site without waiting for the rest.
