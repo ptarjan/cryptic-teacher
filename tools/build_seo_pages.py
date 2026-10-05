@@ -790,7 +790,7 @@ def hub_row(p, note=None):
     ours = ('<span class="badge auto">unverified answers</span>'
             if p.get("solutionsUnofficial") else "")
     if note is not None:
-        hints, ours = (f'<span class="badge full">{esc(note)}</span>' if note else ""), ""
+        hints, ours = (f'<span class="badge feature">{esc(note)}</span>' if note else ""), ""
     # Every row is badged, because the numbers alone ("No 1,393" among the
     # 30,000s) don't explain themselves and an unbadged row reads as one we
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
@@ -1683,7 +1683,7 @@ def learn_indicators(m):
     """A /learn/ marker, <!-- indicators: TYPE --> or <!-- indicators: table -->,
     as the most used indicators with how many clues used each."""
     def run(t, n):
-        return ", ".join(f'<em>{esc(indicator_label(k))}</em>&nbsp;<span class="muted">{c:,}</span>'
+        return ", ".join(f'<em>{esc(indicator_label(k))}</em>{build_abbreviations.count_html(c)}'
                          for k, c in ranked_indicators(t)[:n])
     if m.group(1) != "table":
         return run(m.group(1), LEARN_INLINE)
@@ -1723,7 +1723,7 @@ def indicators_page(found):
         if (t, k) in found:
             _, pid, eid = found[(t, k)]
             label = f'<a href="{solve_url(pid, eid)}">{label}</a>'
-        return f'{label} <span class="muted">{n:,}</span>'
+        return label + build_abbreviations.count_html(n)
 
     title = f"Cryptic crossword indicators — {total:,} words, by type"
     desc = (f"{total:,} cryptic crossword indicators, grouped by what they tell you to do "
