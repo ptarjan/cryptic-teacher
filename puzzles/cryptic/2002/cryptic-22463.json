@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "25 caught drinking, reportedly",
     "enumeration": "8"
    },
-   "solution": "CINNABAR"
+   "solution": "CINNABAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CINNABAR",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as told by word of mouth, so we want what the phrase sounds like rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "drinking",
+      "gives": "INNABAR",
+      "soundsLike": "IN A BAR",
+      "note": "someone drinking is in a bar"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is rumoured to have been caught drinking somewhere they should not.",
+     "walkthrough": "Spoken, C IN A BAR is CINNABAR; the cinnabar is a red-and-black moth whose striped caterpillars eat ragwort.",
+     "definitionFit": "The cinnabar moth is a winged creature, so it is an example of the insect named at 25."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,49 @@
     "text": "One such as William Wallace, of course, decapitated",
     "enumeration": "4"
    },
-   "solution": "SCOT"
+   "solution": "SCOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCOT",
+    "definitions": [
+     {
+      "text": "One such as William Wallace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitated",
+      "for": "deletion",
+      "note": "decapitated means the head is cut off, so the first letter of the word is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of course",
+      "gives": "ASCOT",
+      "note": "Ascot is a famous racecourse in Berkshire, so a racecourse name answers 'of course'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry aside that William Wallace, being executed, of course lost his head.",
+     "walkthrough": "Wallace really was beheaded, so 'decapitated' seems to describe him; it acts on ASCOT, the racecourse.",
+     "definitionFit": "William Wallace was a medieval Scottish patriot, so he is one native of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,60 @@
     "text": "25 being its mutant",
     "enumeration": "6"
    },
-   "solution": "MANTIS"
+   "solution": "MANTIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MANTIS",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mutant",
+      "for": "anagram",
+      "note": "a mutant is a changed form, so the letters of the little word beside it are altered in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being",
+      "gives": "MAN",
+      "note": "a man is a human being"
+     },
+     {
+      "clueFragment": "its",
+      "gives": "ITS",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "TIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "TIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A science-fiction note that some creature exists only as a mutation.",
+     "definitionFit": "The mantis is a predatory insect with folded forelegs held as if in prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,42 @@
     "text": "Play game",
     "enumeration": "7"
    },
-   "solution": "OTHELLO"
+   "solution": "OTHELLO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OTHELLO",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play",
+      "note": "first meaning: Shakespeare's tragedy of the Moor of Venice"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: a board game of black and white discs, also called reversi"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the two words look like an instruction to play a game; they are two separate meanings.",
+     "definitionFit": "Shakespeare's tragedy shares its title with a two-player board game of flipping counters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +265,66 @@
     "text": "US President heading off a lot into kind of republic, endlessly",
     "enumeration": "8"
    },
-   "solution": "BUCHANAN"
+   "solution": "BUCHANAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BUCHANAN",
+    "definitions": [
+     {
+      "text": "US President",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, a word loses its first letter"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into tells us one piece goes inside another"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means the final letter of the word before it is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind of republic",
+      "gives": "BANANA",
+      "note": "a banana republic is a small unstable state run for a few"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "MUCH",
+      "note": "much means a lot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UCH",
+      "ANAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A president heads off with plenty of people into some dubious regime.",
+     "walkthrough": "A banana republic is a small unstable state run for a few; two separate deletions trim the pieces before one goes inside the other.",
+     "definitionFit": "James Buchanan was the fifteenth President of the United States, serving just before Lincoln."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +338,51 @@
     "text": "Sings, getting drunk and worn",
     "enumeration": "10"
    },
-   "solution": "SHOPSOILED"
+   "solution": "SHOPSOILED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHOPSOILED",
+    "definitions": [
+     {
+      "text": "worn",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sings",
+      "gives": "SHOPS",
+      "note": "to sing is slang for informing on someone, as is to shop them"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "OILED",
+      "note": "oiled is slang for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOPS",
+      "OILED"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer gets drunk and ends up worn out.",
+     "walkthrough": "'Sings' means grasses to the police here, not makes music.",
+     "definitionFit": "Shop-soiled goods are slightly damaged or faded from display, so they look worn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sings"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +396,45 @@
     "text": "Bit of a jumper, holding the record?",
     "enumeration": "6"
    },
-   "solution": "SLEEVE"
+   "solution": "SLEEVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEEVE",
+    "definitions": [
+     {
+      "text": "Bit of a jumper",
+      "at": 0
+     },
+     {
+      "text": "holding the record",
+      "at": 17,
+      "note": "describes what the answer does: a thing holding the record"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of a jumper",
+      "note": "first meaning: the arm part of a jumper, the British word for a sweater"
+     },
+     {
+      "clueFragment": "holding the record",
+      "note": "second meaning: the card cover a vinyl record sits in"
+     }
+    ],
+    "explanation": {
+     "surface": "Something about a jumper, perhaps an athlete, holding a record.",
+     "walkthrough": "A jumper is a British sweater, though the surface suggests a record-holding athlete.",
+     "definitionFit": "One part of a sweater covers the arm, and a vinyl disc is kept in a card cover of the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumper"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +448,50 @@
     "text": "Wellington, for instance, had to show guile",
     "enumeration": "8"
    },
-   "solution": "AIRCRAFT"
+   "solution": "AIRCRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRCRAFT",
+    "definitions": [
+     {
+      "text": "Wellington, for instance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "had to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show",
+      "gives": "AIR",
+      "note": "to air is to show or display"
+     },
+     {
+      "clueFragment": "guile",
+      "gives": "CRAFT",
+      "note": "craft means cunning or guile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "CRAFT"
+     ]
+    },
+    "explanation": {
+     "surface": "The Duke of Wellington needed cunning to win.",
+     "walkthrough": "The Vickers Wellington was a Second World War bomber, not the duke.",
+     "definitionFit": "The Wellington was a twin-engined RAF bomber, so it is one example of a flying machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wellington"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +505,54 @@
     "text": "Stand by for armed robbery? On the contrary",
     "enumeration": "6"
    },
-   "solution": "UPHOLD"
+   "solution": "UPHOLD",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "UPHOLD",
+    "definitions": [
+     {
+      "text": "Stand by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the contrary",
+      "for": "cycling",
+      "note": "on the contrary says the phrase is taken the opposite way round, its back half brought to the front"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "armed robbery",
+      "gives": "HOLDUP",
+      "note": "a hold-up is an armed robbery"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOLDUP",
+       "gives": "UPHOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting ready for an armed raid, then saying the opposite.",
+     "walkthrough": "HOLD-UP becomes UP-HOLD when its two halves trade places.",
+     "definitionFit": "To stand by a decision or person is to support it, which is what upholding means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +566,56 @@
     "text": "25 with flavour rolled over",
     "enumeration": "4"
    },
-   "solution": "GNAT"
+   "solution": "GNAT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GNAT",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolled over",
+      "for": "reversal",
+      "note": "something rolled over is turned upside down, so in a down or across light it reads backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flavour",
+      "gives": "TANG",
+      "note": "a tang is a sharp flavour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNAT"
+     ],
+     "reversals": [
+      {
+       "from": "TANG",
+       "to": "GNAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect with some flavour gets rolled over.",
+     "definitionFit": "The gnat is a small two-winged fly, so it is an example of an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rolled"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +635,62 @@
      }
     ]
    },
-   "solution": "TREEHOPPER"
+   "solution": "TREEHOPPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TREE HOPPER",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in tells us the preceding letters sit inside the headgear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "what?",
+      "gives": "EH",
+      "note": "eh? is a request to repeat, like what?"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "TOPPER",
+      "note": "a topper is a top hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REEH",
+      "OPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about an insect found sitting in a hat.",
+     "walkthrough": "'What?' is the slangy request to repeat yourself, and a topper is the tall formal hat; the question marks hide that both are just wordplay.",
+     "definitionFit": "The treehopper is a sap-sucking bug that leaps among branches, so it is an example of an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "what"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +704,71 @@
     "text": "A Hackney revolutionary at the Guardian? You can count on it!",
     "enumeration": "6"
    },
-   "solution": "ABACUS"
+   "solution": "ABACUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABACUS",
+    "definitions": [
+     {
+      "text": "You can count on it!",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolutionary thing turns round, so the vehicle's name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Hackney",
+      "gives": "CAB",
+      "note": "a hackney carriage is the formal name for a London taxi"
+     },
+     {
+      "clueFragment": "the Guardian",
+      "gives": "US",
+      "note": "the setter writes for the Guardian, so from its point of view the paper is us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAC",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "CAB",
+       "to": "BAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel from the London borough of Hackney works at the Guardian newspaper, and you can rely on him.",
+     "walkthrough": "Hackney is a London borough, but a hackney is also a taxi. 'Count on it' is the idiom for relying, used literally.",
+     "definitionFit": "A bead frame is a counting device, so it is literally a thing one counts on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hackney"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +782,63 @@
     "text": "25 sees dog imbibing beverage loudly",
     "enumeration": "10"
    },
-   "solution": "COCKCHAFER"
+   "solution": "COCKCHAFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COCKCHAFER",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imbibing",
+      "for": "container",
+      "note": "imbibing means drinking in, so the dog's name takes the drink inside it"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "COCKER",
+      "note": "a cocker is a cocker spaniel"
+     },
+     {
+      "clueFragment": "beverage",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "loudly",
+      "gives": "F",
+      "note": "f is forte, the musical direction for loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "CHAF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect watches a dog noisily slurping a drink.",
+     "definitionFit": "The cockchafer is a large brown beetle, also called the maybug, so it is an example of an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loudly"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +852,56 @@
     "text": "Capitalist recluse entertains Spanish gentleman",
     "enumeration": "8"
    },
-   "solution": "LONDONER"
+   "solution": "LONDONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LONDONER",
+    "definitions": [
+     {
+      "text": "Capitalist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "to entertain is to receive a guest within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recluse",
+      "gives": "LONER",
+      "note": "a loner keeps to himself"
+     },
+     {
+      "clueFragment": "Spanish gentleman",
+      "gives": "DON",
+      "note": "Don is a Spanish title for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DON",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A reclusive financier hosts a Spanish nobleman.",
+     "walkthrough": "'Capitalist' suggests a money man; here it is a resident of the capital city.",
+     "definitionFit": "Someone living in the capital of England is a resident of that capital city, a quirky reading of capitalist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Capitalist"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +915,45 @@
     "text": "25 with long legs, for instance?",
     "enumeration": "7"
    },
-   "solution": "CRICKET"
+   "solution": "CRICKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRICKET",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     },
+     {
+      "text": "with long legs, for instance?",
+      "at": 3,
+      "note": "describes the game, which has fielders called long leg"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "25",
+      "note": "first meaning: a chirping jumping insect"
+     },
+     {
+      "clueFragment": "with long legs, for instance?",
+      "note": "second meaning: the bat-and-ball game, whose fielding positions include long leg"
+     }
+    ],
+    "explanation": {
+     "surface": "An insect described by its long legs.",
+     "walkthrough": "Long leg is a fielding position in cricket, a British bat-and-ball game, so the game is a thing with long legs.",
+     "definitionFit": "The chirping grasshopper relative and the bat-and-ball sport share one name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "legs"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +967,51 @@
     "text": "Teatime's wobbly hazard",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTIMATE",
+    "definitions": [
+     {
+      "text": "hazard",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbly",
+      "for": "anagram",
+      "note": "something wobbly is unsteady, so the letters are shaken into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teatime's",
+      "gives": "TEATIMES",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEATIMES",
+       "gives": "ESTIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something at teatime is unsteady and dangerous.",
+     "walkthrough": "'Hazard' is a verb, as in hazard a guess, not a danger.",
+     "definitionFit": "To hazard a figure is to venture a rough guess at it, which is to give an approximate value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hazard"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1025,57 @@
     "text": "25 offering 25 to beast",
     "enumeration": "7"
    },
-   "solution": "ANTLION"
+   "solution": "ANTLION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTLION",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to",
+      "for": "charade",
+      "note": "to here means placed against, so one piece is set next to the next"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "25",
+      "gives": "ANT",
+      "note": "the second 25 is an example of an insect, a small one"
+     },
+     {
+      "clueFragment": "beast",
+      "gives": "LION",
+      "note": "a lion is a big beast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "LION"
+     ]
+    },
+    "explanation": {
+     "surface": "One insect is offered to a beast as a meal.",
+     "walkthrough": "The same cross-reference does two jobs: first the definition, then an example giving letters.",
+     "definitionFit": "The antlion is a winged insect whose larva digs pits to trap ants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offering"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1095,58 @@
      }
     ]
    },
-   "solution": "ONIONFLY"
+   "solution": "ONIONFLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ONION FLY",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the cross-referenced word is taken by its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "continuing",
+      "gives": "ON",
+      "note": "to carry on is to continue"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "ION",
+      "note": "an ion is a particle carrying an electric charge"
+     },
+     {
+      "clueFragment": "24 down",
+      "gives": "FLY",
+      "soundsLike": "FLEE",
+      "note": "24 down is FLEA, which is said like flee, meaning to run away"
+     }
+    ],
+    "explanation": {
+     "surface": "An insect keeps charging at a flea.",
+     "walkthrough": "The sound of FLEA is FLEE, and to flee is to fly in the sense of escaping.",
+     "definitionFit": "The onion fly is a small fly whose maggots burrow into onion bulbs, so it is an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1160,54 @@
     "text": "Taunt outlaw on instrument of torture",
     "enumeration": "7"
    },
-   "solution": "BARRACK"
+   "solution": "BARRACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARRACK",
+    "definitions": [
+     {
+      "text": "Taunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down light, on means placed above, so the first piece sits atop the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outlaw",
+      "gives": "BAR",
+      "note": "to outlaw is to bar or forbid"
+     },
+     {
+      "clueFragment": "instrument of torture",
+      "gives": "RACK",
+      "note": "the rack stretched its victims"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "RACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking a bandit who has been strapped to a torture device.",
+     "walkthrough": "'Outlaw' is a verb here, not a bandit.",
+     "definitionFit": "To barrack is to jeer or heckle a speaker or player, which is taunting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlaw"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1221,56 @@
     "text": "Asian city state crossed by reservists",
     "enumeration": "8"
    },
-   "solution": "CALCUTTA"
+   "solution": "CALCUTTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALCUTTA",
+    "definitions": [
+     {
+      "text": "Asian city",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "Cal is a short form for California"
+     },
+     {
+      "clueFragment": "crossed",
+      "gives": "CUT",
+      "note": "to cut across a road is to cross it"
+     },
+     {
+      "clueFragment": "reservists",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAL",
+      "CUT",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A city state is invaded by reserve soldiers.",
+     "walkthrough": "'City state' looks like one phrase; the city is the definition and the state is wordplay.",
+     "definitionFit": "Calcutta, now Kolkata, is a major Indian city on the Hooghly river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crossed"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1284,62 @@
     "text": "Getting on a horse, in German one's restrained",
     "enumeration": "6"
    },
-   "solution": "AGEING"
+   "solution": "AGEING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGEING",
+    "definitions": [
+     {
+      "text": "Getting on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained",
+      "for": "container",
+      "note": "restrained means held in, so the German word is held inside the horse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee is childish slang for a horse"
+     },
+     {
+      "clueFragment": "German one",
+      "gives": "EIN",
+      "note": "ein is German for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "EIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A German mounting a horse is held back.",
+     "walkthrough": "'Getting on' looks like mounting the horse; it means growing old.",
+     "definitionFit": "Getting on is an idiom for growing older, which is what ageing describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Getting"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1353,50 @@
     "text": "European city that's wild and free",
     "enumeration": "6"
    },
-   "solution": "MADRID"
+   "solution": "MADRID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADRID",
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild",
+      "gives": "MAD",
+      "note": "mad means wild or crazy"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAD",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "A city with a reputation for wild, free living.",
+     "definitionFit": "Madrid is the capital of Spain, so it is a city in Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1410,59 @@
     "text": "Mature chap, male not female",
     "enumeration": "6"
    },
-   "solution": "MELLOW"
+   "solution": "MELLOW",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MELLOW",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "substitution",
+      "note": "male not female says one gender's letter takes the place of the other's"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "FELLOW",
+      "note": "a fellow is a chap"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ELLOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up man, described as male rather than female.",
+     "walkthrough": "The F at the front of FELLOW is swapped for M.",
+     "definitionFit": "Mellow and mature are both used of wine, cheese or people softened and improved by age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1482,56 @@
      }
     ]
    },
-   "solution": "REDADMIRAL"
+   "solution": "REDADMIRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED ADMIRAL",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrashing",
+      "for": "anagram",
+      "note": "a thrashing beats something about, so the words are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real",
+      "gives": "REAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "22",
+      "gives": "MADRID",
+      "note": "22 across is MADRID"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALMADRID",
+       "gives": "REDADMIRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: someone gives Real Madrid a hiding.",
+     "walkthrough": "Real Madrid is a famous Spanish football club, so 'thrashing' reads as a big win.",
+     "definitionFit": "The red admiral is a common butterfly with red bands on black wings, so an example of an insect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrashing"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1545,48 @@
     "text": "Consider, some 14s might say, being a spy",
     "enumeration": "4"
    },
-   "solution": "FINK"
+   "solution": "FINK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FINK",
+    "definitions": [
+     {
+      "text": "being a spy",
+      "at": 30,
+      "note": "a phrase describing the answer, a person who is a spy"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some 14s might say",
+      "for": "homophone",
+      "note": "some London speakers pronounce th as f, so we want what the word sounds like in that accent"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consider",
+      "gives": "FINK",
+      "soundsLike": "THINK",
+      "note": "to think is to consider; a Cockney says it with an f"
+     }
+    ],
+    "explanation": {
+     "surface": "Think about it, a Londoner might say, being a spy.",
+     "walkthrough": "14 across is LONDONER; many Londoners say f for th, so THINK comes out as FINK.",
+     "definitionFit": "A fink is American slang for an informer or stool pigeon, someone who acts as a spy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Consider"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1600,54 @@
     "text": "25 and caterpillar grub back to front",
     "enumeration": "4"
    },
-   "solution": "FLEA"
+   "solution": "FLEA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "FLEA",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "back to front here means the back letter is moved round to the front"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caterpillar grub",
+      "gives": "LEAF",
+      "note": "caterpillars feed on leaves, so a leaf is their grub, or food"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAF",
+       "gives": "FLEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect and a caterpillar grub get mixed up.",
+     "walkthrough": "'Grub' is food, not a larva, despite the caterpillar beside it.",
+     "definitionFit": "The flea is a tiny wingless jumping insect that lives on animals' blood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grub"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1661,45 @@
     "text": "Creature having been brainwashed?",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSECT",
+    "definitions": [
+     {
+      "text": "Creature",
+      "at": 0
+     },
+     {
+      "text": "having been brainwashed?",
+      "at": 9,
+      "note": "split as IN SECT, a description of a person"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creature",
+      "note": "first meaning: a six-legged creepy-crawly"
+     },
+     {
+      "clueFragment": "having been brainwashed?",
+      "note": "second meaning, read as two words: inside a cult"
+     }
+    ],
+    "explanation": {
+     "surface": "A creature that has been brainwashed.",
+     "walkthrough": "Split the answer as IN SECT: someone brainwashed has joined a sect, or cult.",
+     "definitionFit": "An insect is a small six-legged animal, so it is one kind of creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brainwashed"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1713,62 @@
     "text": "A hundred left in pretty Devon village",
     "enumeration": "8"
    },
-   "solution": "CLOVELLY"
+   "solution": "CLOVELLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLOVELLY",
+    "definitions": [
+     {
+      "text": "Devon village",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says the letter goes inside the adjective that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "pretty",
+      "gives": "LOVELY",
+      "note": "lovely means pretty"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOVE",
+      "L",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A hundred of something left behind in a pretty Devon village.",
+     "walkthrough": "'Pretty' does double duty: part of the definition's picture and the word that holds the L.",
+     "definitionFit": "Clovelly is a steep cobbled fishing village on the north coast of Devon, an English county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   }
  ]
 }
