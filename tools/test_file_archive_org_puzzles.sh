@@ -1254,6 +1254,18 @@ check("a line across the gutter is cut at a misread number (\"l4\", \"I6\") and 
                                                             "I6 DeniedhrJack-aaed ton.", "24 Paper. set up balf their"]),
       ([t for t in c15328[0] if t.startswith(("12 ", "13"))],
        [t for t in c15328[1] if t.startswith(("l4", "I6", "24"))]))
+c17231 = case_columns("times-17231")
+check("a skewed page's right-column line overhanging the grid by under the crop's reach is kept, not its"
+      " continuation alone (Times 17,231 17D, 24D)",
+      ["17 Top position for apprentice", "in boat (8).", "24 Unusuafly close to the foot", "of the cofumn (5)."],
+      [t for t in c17231[1] if t.startswith(("17 ", "in boat", "24 ", "of the"))])
+c17001 = case_columns("times-17001")
+check("a skewed page's right-column line starting just left of the gutter is the right column's, not run into"
+      " the left column's row (Times 17,001 24D, 26A)",
+      (["26 Unhappily forgel rule-"], True),
+      ([t for t in c17001[0] if t.startswith("26 ")], "24 Present from the queen (5)." in c17001[1]))
+check("a column opening on clue 1 read as \"I\" keeps that line (Times 21,083 1A)",
+      ["I Very late at night louts, having", "lost out, run wild (4.5)."], case_columns("times-21083")[0][:2])
 c13696 = case_columns("times-13696")
 check("a line across the gutter at two rows' heights is cut so the line under its right half is kept"
       " (Times 13,696 24D)",
