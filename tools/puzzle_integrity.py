@@ -27,7 +27,8 @@ The flags, in the order they matter:
             clues under a new id, which DUPLICATE misses when one clue differs.
             Found through an index of clue text -> ids, not pairwise.
             clue_index.REPRINTS lists the pairs known to be a setter's rerun,
-            clue_index.SYNDICATED the series that reprint another's puzzles.
+            clue_index.SYNDICATED the series that reprint another's puzzles;
+            a DUPLICATE group every pair of which is one of those is not flagged.
   LENGTH    an answer that contradicts the length the data itself states. Two
             statements exist per entry and both are checked: the grid's `length`
             field, and the (5,4)-style enumeration at the end of the clue. On a
@@ -154,7 +155,7 @@ import time
 import unicodedata
 from collections import defaultdict
 from datetime import datetime, timezone
-from itertools import pairwise, zip_longest
+from itertools import combinations, pairwise, zip_longest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1503,7 +1504,10 @@ def audit(files, paths, today, only=None):
     for a, b, k, na, nb in pairs:
         cross.append(("NEARDUP", a, f"{k} of {na} clues are the same as {b}'s ({nb}) "
                                     "— one is another's copy filed under a wrong id"))
-    copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
+    # A group every pair of which clue_index lists as a known copy (a reprint,
+    # a syndication) is the paper printing one puzzle twice, not a filing slip.
+    copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1
+                    and not all(known_copy(a, b) for a, b in combinations(ids, 2)))
     if only is not None:
         mine = {rows[p][0] for p in judged}
         names = re.compile(r"\b(?:" + "|".join(map(re.escape, sorted(mine))) + r")\b")
