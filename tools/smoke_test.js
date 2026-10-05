@@ -4495,9 +4495,11 @@ global.realSetTimeout(() => {
   } else if (missing.length) {
     console.log(`(no example here of: ${missing.join("; ")}; the nightly run checks the corpus holds them)`);
   }
+  // The puzzles this run swept are the list it loaded, not what
+  // window.CRYPTIC_PUZZLES holds by now: the later boots replace window.
   if (process.env.CT_RESULTS_OUT && !failures) {
     fs.writeFileSync(process.env.CT_RESULTS_OUT, JSON.stringify(ciCache.resultsFor("tools/smoke_test.js",
-      Object.keys(global.window.CRYPTIC_PUZZLES), shapesSeen)));
+      corpus.map((p) => p.id), shapesSeen)));
   }
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);
