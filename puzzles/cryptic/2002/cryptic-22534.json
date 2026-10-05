@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,75 @@
     "text": "Capital sum a lender's first withdrawn from Italy, or Monaco?",
     "enumeration": "12"
    },
-   "solution": "PRINCIPALITY"
+   "solution": "PRINCIPALITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "PRINCIPALITY",
+    "definitions": [
+     {
+      "text": "Monaco?",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the word just before it is wanted"
+     },
+     {
+      "text": "withdrawn from",
+      "for": "deletion",
+      "note": "letters withdrawn from a word are taken out of it, leaving the rest behind"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capital sum",
+      "gives": "PRINCIPAL",
+      "note": "the principal is the capital sum of a loan, as against the interest"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lender",
+      "gives": "L",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "ITALY",
+      "note": "the country, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRINCIPAL",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A banker pulls a big loan out of Italy and wonders whether to take it to Monaco instead.",
+     "walkthrough": "Capital sum reads as money, but here it is the principal of a loan. The question mark flags Monaco as just one example of the answer.",
+     "definitionFit": "Monaco is a small state ruled by a prince, the textbook example of this kind of territory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +118,49 @@
     "text": "Docile and quiet subject",
     "enumeration": "7"
    },
-   "solution": "PLIABLE"
+   "solution": "PLIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLIABLE",
+    "definitions": [
+     {
+      "text": "Docile",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quiet"
+     },
+     {
+      "clueFragment": "subject",
+      "gives": "LIABLE",
+      "note": "subject to, as in liable to tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a meek, silent pupil or citizen who does as told.",
+     "definitionFit": "A docile person is easily bent to another's will, flexible and compliant in temperament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +174,61 @@
     "text": "In a perfect world I do business and play alternately",
     "enumeration": "7"
    },
-   "solution": "IDEALLY"
+   "solution": "IDEALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IDEALLY",
+    "definitions": [
+     {
+      "text": "In a perfect world",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternately",
+      "for": "letter_selection",
+      "note": "taking every other letter of the word before it, skipping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "do business",
+      "gives": "DEAL",
+      "note": "to deal is to trade or do business"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "LY",
+      "select": "alternate",
+      "note": "the second and fourth letters of play"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dreaming of a life spent half in work and half at leisure, if only the world were perfect.",
+     "definitionFit": "The adverb means in the best possible circumstances, matching the phrase about a world without flaws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +242,57 @@
     "text": "Medicine found by little girl on a lorry",
     "enumeration": "9"
    },
-   "solution": "CATHARTIC"
+   "solution": "CATHARTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATHARTIC",
+    "definitions": [
+     {
+      "text": "Medicine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one thing on another sits above it, so the girl comes first"
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little girl",
+      "gives": "CATH",
+      "note": "short form of the name Catherine"
+     },
+     {
+      "clueFragment": "a lorry",
+      "gives": "ARTIC",
+      "note": "an artic is an articulated lorry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATH",
+      "ARTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A child discovers some medicine lying in the back of a lorry.",
+     "walkthrough": "An artic is the everyday British name for an articulated lorry, a large truck with a separate cab.",
+     "definitionFit": "As a noun the word names a purgative, a medicine that clears the bowels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lorry"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +306,45 @@
     "text": "Puppets making pledges",
     "enumeration": "5"
    },
-   "solution": "PAWNS"
+   "solution": "PAWNS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PAWNS",
+    "definitions": [
+     {
+      "text": "Puppets",
+      "at": 0
+     },
+     {
+      "text": "pledges",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puppets",
+      "note": "first meaning: people used and manipulated by others"
+     },
+     {
+      "clueFragment": "pledges",
+      "note": "second meaning: items left with a broker as security"
+     }
+    ],
+    "explanation": {
+     "surface": "Puppet politicians making promises they will never keep.",
+     "definitionFit": "Chess's weakest pieces give the word for manipulated people, and goods left at a broker's shop are security deposits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pledges"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +358,55 @@
     "text": "Record leads to Lohengrin's original German libretto",
     "enumeration": "7"
    },
-   "solution": "LOGBOOK"
+   "solution": "LOGBOOK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOGBOOK",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leads of words are their opening letters, so only the start of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lohengrin's original German",
+      "gives": "LOG",
+      "select": "first",
+      "note": "first letters of Lohengrin, original and German"
+     },
+     {
+      "clueFragment": "libretto",
+      "gives": "BOOK",
+      "note": "the book of an opera or musical is its libretto"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOG",
+      "BOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about where the record of Wagner's Lohengrin came from: an original German libretto.",
+     "definitionFit": "A ship's or driver's official journal of events is a written record kept day by day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +420,49 @@
     "text": "Shaving the head is in fashion, certainly",
     "enumeration": "7"
    },
-   "solution": "TONSURE"
+   "solution": "TONSURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONSURE",
+    "definitions": [
+     {
+      "text": "Shaving the head",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in fashion",
+      "gives": "TON",
+      "note": "the ton is high fashion, as in bon ton"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure! means certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insisting the shaved-head look really is trendy.",
+     "definitionFit": "Monks traditionally had the crown of the scalp shaved bare, a practice with this specific religious name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +476,52 @@
     "text": "Byers' sell-out affected current transport",
     "enumeration": "12"
    },
-   "solution": "TROLLEYBUSES"
+   "solution": "TROLLEYBUSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROLLEYBUSES",
+    "definitions": [
+     {
+      "text": "current transport",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Byers' sell-out",
+      "gives": "BYERSSELLOUT",
+      "note": "the letters of both words together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYERSSELLOUT",
+       "gives": "TROLLEYBUSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stephen Byers, a Labour transport secretary, accused of selling out and so changing present-day transport policy.",
+     "walkthrough": "'Current' looks like 'present-day' but means electric current: these buses draw power from overhead wires.",
+     "definitionFit": "These buses run on electricity collected from overhead wires, so they are transport powered by a current."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +535,55 @@
     "text": "What designer has put into slit dress?",
     "enumeration": "7"
    },
-   "solution": "RAIMENT"
+   "solution": "RAIMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAIMENT",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put into",
+      "for": "container",
+      "note": "one thing put into another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slit",
+      "gives": "RENT",
+      "note": "a rent is a tear or slit"
+     },
+     {
+      "clueFragment": "What designer has",
+      "gives": "AIM",
+      "note": "a designer has a design, that is an aim or purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AIM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what a fashion designer has added to a dress with a slit.",
+     "definitionFit": "The word is an old, literary term for clothing or attire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "designer"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +597,54 @@
     "text": "Driver missing in military action",
     "enumeration": "7"
    },
-   "solution": "WAGONER"
+   "solution": "WAGONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WAGONER",
+    "definitions": [
+     {
+      "text": "Driver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes in the other, enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military action",
+      "gives": "WAR",
+      "note": "warfare"
+     },
+     {
+      "clueFragment": "missing",
+      "gives": "GONE",
+      "note": "gone means absent, missing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "GONE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver goes missing in action during a military campaign.",
+     "definitionFit": "Historically a man who drove a horse-drawn cart or wagon for a living was given this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Driver"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +658,52 @@
     "text": "Test acid user, possibly given a quick fix?",
     "enumeration": "12"
    },
-   "solution": "RESUSCITATED"
+   "solution": "RESUSCITATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESUSCITATED",
+    "definitions": [
+     {
+      "text": "given a quick fix?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests the letters might be ordered some other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test acid user",
+      "gives": "TESTACIDUSER",
+      "note": "the letters of all three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TESTACIDUSER",
+       "gives": "RESUSCITATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug-testing an LSD user who may have just had a fix.",
+     "walkthrough": "A fix is a dose of drugs in the surface; in the definition a quick fix is a speedy repair, playfully describing bringing someone back to life.",
+     "definitionFit": "Someone revived from collapse has been quickly restored to working order, a jokey version of emergency repair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +717,49 @@
     "text": "Ball thrown by essayist may be found in bed",
     "enumeration": "7"
    },
-   "solution": "LOBELIA"
+   "solution": "LOBELIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOBELIA",
+    "definitions": [
+     {
+      "text": "may be found in bed",
+      "at": 24,
+      "note": "a descriptive phrase for a plant, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ball thrown",
+      "gives": "LOB",
+      "note": "a lob is a ball thrown or hit high"
+     },
+     {
+      "clueFragment": "essayist",
+      "gives": "ELIA",
+      "note": "Elia was the pen name of essayist Charles Lamb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOB",
+      "ELIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A ball tossed by a writer ends up under someone's bed.",
+     "walkthrough": "The bed is a flower bed, not a bed for sleeping.",
+     "definitionFit": "This small blue-flowered plant is a garden favourite grown in borders and flower beds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +773,52 @@
     "text": "Timeless weapons for military commanders",
     "enumeration": "7"
    },
-   "solution": "SHOGUNS"
+   "solution": "SHOGUNS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SHOGUNS",
+    "definitions": [
+     {
+      "text": "military commanders",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "less means without, so the time abbreviation is dropped from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "weapons",
+      "gives": "SHOTGUNS",
+      "note": "guns with a spread of shot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOGUNS"
+     ]
+    },
+    "explanation": {
+     "surface": "Generals given ageless weapons.",
+     "definitionFit": "These were the hereditary military rulers of feudal Japan, nominally generals serving the emperor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Timeless"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +832,60 @@
     "text": "Mourning song at start and end of evensong in cathedral",
     "enumeration": "5"
    },
-   "solution": "ELEGY"
+   "solution": "ELEGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELEGY",
+    "definitions": [
+     {
+      "text": "Mourning song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at start and end of",
+      "for": "letter_selection",
+      "note": "only the first and last letters of the following word are wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the selected letters go inside the cathedral city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cathedral",
+      "gives": "ELY",
+      "note": "Ely is an English cathedral city"
+     },
+     {
+      "clueFragment": "evensong",
+      "gives": "EG",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "EG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad hymn sung at the beginning and close of evening service in a cathedral.",
+     "definitionFit": "This is a poem or song of lament, typically for someone who has died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +899,65 @@
     "text": "Henry left Theresa outside - that's not appreciated",
     "enumeration": "9"
    },
-   "solution": "THANKLESS"
+   "solution": "THANKLESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THANKLESS",
+    "definitions": [
+     {
+      "text": "not appreciated",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the woman's short name goes around the other letters"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theresa",
+      "gives": "TESS",
+      "note": "a short form of Theresa"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "HANK",
+      "note": "Hank is a familiar form of Henry"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HANK",
+      "L",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man walks out on his partner, and nobody shows any gratitude.",
+     "walkthrough": "'Left' looks like a verb about Henry leaving; it is just the letter L.",
+     "definitionFit": "A task that earns no gratitude or recognition from anyone is described with this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +971,60 @@
     "text": "Dismay about curtailed increase in salary review",
     "enumeration": "9"
    },
-   "solution": "APPRAISAL"
+   "solution": "APPRAISAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "APPRAISAL",
+    "definitions": [
+     {
+      "text": "review",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means cut short, so the last letter is lost"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismay",
+      "gives": "APPAL",
+      "note": "to dismay is to appal"
+     },
+     {
+      "clueFragment": "increase in salary",
+      "gives": "RAISE",
+      "note": "a pay rise, in American usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "RAIS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "An employee dismayed by the tiny pay rise offered at an annual review.",
+     "definitionFit": "An assessment of performance or value, such as a staff evaluation, is the same as a review."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dismay"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1038,51 @@
     "text": "A flower that's yellow and black, say, is given a prize",
     "enumeration": "9"
    },
-   "solution": "BUTTERCUP"
+   "solution": "BUTTERCUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTERCUP",
+    "definitions": [
+     {
+      "text": "A flower that's yellow",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "is given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black, say",
+      "gives": "BUTTER",
+      "note": "black butter, beurre noir, is one kind of butter"
+     },
+     {
+      "clueFragment": "a prize",
+      "gives": "CUP",
+      "note": "a trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTER",
+      "CUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A yellow-and-black bloom wins first prize at a flower show.",
+     "walkthrough": "'Yellow and black' reads as one colour scheme; the definition stops at yellow, and black is an example of a sauce: black butter.",
+     "definitionFit": "This common meadow wildflower has small glossy golden petals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1096,48 @@
     "text": "Capital leads to totalitarian bourgeois imperialism losing its social infrastructure",
     "enumeration": "7"
    },
-   "solution": "TBILISI"
+   "solution": "TBILISI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TBILISI",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leads of words are their opening letters, so only those are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "totalitarian bourgeois imperialism losing its social infrastructure",
+      "gives": "TBILISI",
+      "select": "first",
+      "note": "the opening letter of each of the seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TBILISI"
+     ]
+    },
+    "explanation": {
+     "surface": "A Marxist slogan about a capital city stripped of its social fabric by bourgeois rule.",
+     "definitionFit": "The city is the capital of Georgia, the former Soviet republic, fitting the political tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Capital"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1151,50 @@
     "text": "Athlone is a source of alcohol",
     "enumeration": "7"
    },
-   "solution": "ETHANOL"
+   "solution": "ETHANOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHANOL",
+    "definitions": [
+     {
+      "text": "alcohol",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is a source of",
+      "for": "anagram",
+      "note": "the name is raw material from which something new is made by reworking it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athlone",
+      "gives": "ATHLONE",
+      "note": "the Irish town, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATHLONE",
+       "gives": "ETHANOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that the Irish town of Athlone is where the drink comes from.",
+     "definitionFit": "This is the chemical name for the alcohol found in beer, wine and spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "source"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1208,61 @@
     "text": "Conductor exposed in the Sun with a couple of timpanists",
     "enumeration": "5"
    },
-   "solution": "SOLTI"
+   "solution": "SOLTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOLTI",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a couple of",
+      "for": "letter_selection",
+      "note": "just two letters, those at the start, are taken from the word that follows"
+     }
+    ],
+    "linkWords": [
+     "exposed in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Sun",
+      "gives": "SOL",
+      "note": "Sol is the Latin name for the Sun"
+     },
+     {
+      "clueFragment": "timpanists",
+      "gives": "TI",
+      "select": "first",
+      "note": "its first two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "TI"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid exposes a famous conductor caught out with two of his drummers.",
+     "walkthrough": "The Sun reads as the British tabloid newspaper but is just the heavenly body.",
+     "definitionFit": "Sir Georg Solti was a celebrated Hungarian-born orchestral conductor, long at Chicago and Covent Garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sun"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1276,49 @@
     "text": "Magnificent tree planted by newspaper employee",
     "enumeration": "7"
    },
-   "solution": "SUBLIME"
+   "solution": "SUBLIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBLIME",
+    "definitions": [
+     {
+      "text": "Magnificent",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "planted by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper employee",
+      "gives": "SUB",
+      "note": "a sub is a sub-editor"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "LIME",
+      "note": "the linden tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand tree planted by someone who works on a newspaper.",
+     "definitionFit": "Something awe-inspiringly grand or splendid is described with this lofty adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "planted"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1332,47 @@
     "text": "Medicine was our bond, we hear",
     "enumeration": "7"
    },
-   "solution": "LINCTUS"
+   "solution": "LINCTUS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LINCTUS",
+    "definitions": [
+     {
+      "text": "Medicine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the spelling may differ"
+     }
+    ],
+    "linkWords": [
+     "was"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our bond",
+      "gives": "LINCTUS",
+      "soundsLike": "LINK TO US",
+      "note": "a link to us is a bond with us"
+     }
+    ],
+    "explanation": {
+     "surface": "Nostalgia about a shared cough mixture that once bound a family together.",
+     "definitionFit": "A syrupy cough medicine, soothing to the throat, goes by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bond"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1386,59 @@
     "text": "Saint in front of station inside the city walls",
     "enumeration": "7"
    },
-   "solution": "SWITHIN"
+   "solution": "SWITHIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWITHIN",
+    "definitions": [
+     {
+      "text": "Saint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "only the front, the first letter, of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "station",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "inside the city walls",
+      "gives": "WITHIN",
+      "note": "within the walls is an old phrase for inside a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WITHIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A church to a saint standing in front of a station inside the old City of London walls.",
+     "walkthrough": "St Swithin's church once stood opposite Cannon Street station, within the old walled City of London.",
+     "definitionFit": "Swithin was a ninth-century Bishop of Winchester, remembered in the saying about rain on his feast day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "station"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1452,45 @@
     "text": "Bridge player taking unorthodox part",
     "enumeration": "5"
    },
-   "solution": "NORTH"
+   "solution": "NORTH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NORTH",
+    "definitions": [
+     {
+      "text": "Bridge player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "hidden_word",
+      "note": "only part of the next word is used, a run of its letters"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unorthodox",
+      "gives": "NORTH",
+      "note": "letters two to six"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player taking an unconventional role at the table.",
+     "definitionFit": "In contract bridge the four players are named after compass points, partnered with South."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unorthodox"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1504,64 @@
     "text": "Saint with first-class return for the country",
     "enumeration": "7"
    },
-   "solution": "ALBANIA"
+   "solution": "ALBANIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALBANIA",
+    "definitions": [
+     {
+      "text": "the country",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ALBAN",
+      "note": "St Alban, Britain's first martyr"
+     },
+     {
+      "clueFragment": "first-class",
+      "gives": "AI",
+      "note": "A1 means first-class, with the 1 read as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALBAN",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint travelling first-class, booking a return ticket to a foreign land.",
+     "definitionFit": "This is a Balkan nation on the Adriatic coast, a country in south-eastern Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1575,43 @@
     "text": "Top bowler?",
     "enumeration": "7"
    },
-   "solution": "SPINNER"
+   "solution": "SPINNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPINNER",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     },
+     {
+      "text": "bowler",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "note": "first meaning: a child's toy that whirls on its point"
+     },
+     {
+      "clueFragment": "bowler",
+      "note": "second meaning: a cricket bowler who makes the ball turn"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as 'the best bowler' or a bowler hat; in cricket a bowler is the player who delivers the ball, here one who imparts spin.",
+     "definitionFit": "A whirling toy and a cricketer who turns the ball off the pitch are both called by this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1625,76 @@
     "text": "Gear in street and lane, not an item in an alley",
     "enumeration": "7"
    },
-   "solution": "SKITTLE"
+   "solution": "SKITTLE",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SKITTLE",
+    "definitions": [
+     {
+      "text": "item in an alley",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is placed in the other, enclosed by it"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us to leave the next two letters out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "Gear",
+      "gives": "KIT",
+      "note": "kit is equipment or gear"
+     },
+     {
+      "clueFragment": "lane",
+      "gives": "LANE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the letters to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIT",
+      "T",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Kit left lying in the street and back lane, not something you'd find in a bowling alley.",
+     "walkthrough": "The surface seems to say 'not an item in an alley', but 'not an' belongs with lane, leaving LE.",
+     "definitionFit": "A pin in a skittle alley is knocked down by a rolled ball, so it is a piece of that game's equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1714,43 @@
      }
     ]
    },
-   "solution": "TITLEHOLDERS"
+   "solution": "TITLEHOLDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TITLE-HOLDERS",
+    "definitions": [
+     {
+      "text": "Champions",
+      "at": 0
+     },
+     {
+      "text": "of the aristocracy",
+      "at": 10,
+      "note": "read as a noun phrase: those of the aristocracy"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Champions",
+      "note": "first meaning: people who hold a sporting title"
+     },
+     {
+      "clueFragment": "of the aristocracy",
+      "note": "second meaning: people who hold a noble title, such as earls"
+     }
+    ],
+    "explanation": {
+     "surface": "Aristocratic champions, as if the winners all came from noble families.",
+     "definitionFit": "Sporting winners and nobles both possess a title, one won in competition and the other inherited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
