@@ -224,18 +224,22 @@ ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|ente
                      r"for entry|must be (?:modified|altered|changed|treated)|too (?:long|short) for|"
                      r"not be entered|non-words|entries are all|required entry|\bmodified\b|\bclash")
 #: The competition's small print, which is not the preamble.
-SMALL_PRINT = re.compile(r"(?i)\b(?:deadline|closing date|register once|sign (?:in|on) to|"
+SMALL_PRINT = re.compile(r"(?i)register\s*once|\b(?:deadline|closing date|register\s*once|sign\s*(?:in|on)\s*to|"
                          r"online competition|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )?winners?|personal data|don[’']t respond)\b")
-SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|Across)\b(?=\s*\d)"),
-              "down": re.compile(r"\b(?:DOWN|Down)\b(?=\s*\d)")}
+#: A section's heading, as the PDFs case it ("ACross", "DoWN" too).
+SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
+              "down": re.compile(r"\b(?:DOWN|D[Oo][Ww]N|Down)\b(?=\s*\d)")}
 #: One clue at the head of the text: its lights ("22,17,3", "20/4", "4 down"),
 #: then its words up to the first enumeration, "See N" or "[unclued]".
 CLUE_AT = re.compile(
     r"\s*(?P<head>\d{1,2}(?:\s*(?:across|down))?(?:\s*[,/&]\s*\d{1,2}(?:\s*(?:across|down))?)*)"
     r"(?P<star>\*)?\s+(?P<text>(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
-    r"|\[unclued\]"
+    r"|\[unclued\]|\(See (?:special )?instructions\)"
     r"|\S.*?\(\s*\d{1,2}(?:\s*[,\-–.'’\s]\s*\d{1,2})*(?:\s*words?)?\s*\)))",
     re.IGNORECASE)
+
+
+UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)")
 
 
 def flat(raw):
@@ -306,40 +310,46 @@ def parse_text(text):
     return out
 
 
-def image_grid(pages):
-    """The grid ["..#..", ...] of the page's largest image, or None: the side
-    is the fewest cells n (5 to 27) at which the lower-right of every cell,
-    clear of its number, is one colour throughout."""
+def image_grid(pages, clues=()):
+    """The grid ["..#..", ...] of the page's largest image, or None. The
+    image is cropped to its ink (a margin or frame off the lattice shifts
+    every cell), and the side is the fewest cells n (5 to 27) at which the
+    lower-right of every cell, clear of its number, is either white or the
+    image's own block shade (black, or the grey some PDFs print); of several
+    such sides, the first whose lights are the clue list's."""
     import numpy as np
     best = None
     for im in (im for page in pages for im in page.images):
         a = np.asarray(im.image.convert("L"), dtype=np.float32) / 255
-        if a.shape[0] < 100 or abs(a.shape[0] - a.shape[1]) > 0.02 * a.shape[0]:
+        if a.shape[0] < 100 or abs(a.shape[0] - a.shape[1]) > 0.05 * a.shape[0]:
             continue
         if best is None or a.size > best.size:
             best = a
     if best is None:
         return None
+    ink = best < 0.9
+    ys, xs = np.nonzero(ink.sum(axis=1) > 0.3 * ink.shape[1])[0], np.nonzero(ink.sum(axis=0) > 0.3 * ink.shape[0])[0]
+    if len(ys) and len(xs):
+        best = best[ys[0]:ys[-1] + 1, xs[0]:xs[-1] + 1]
     h, w = best.shape
+    listed = {l for c in clues for l in c["lights"]}
+    first = None
     for n in range(5, 28):
         ph, pw = h / n, w / n
-        rows, ok = [], True
-        for y in range(n):
-            row = ""
-            for x in range(n):
-                cell = best[int(y * ph + ph * 0.45):int(y * ph + ph * 0.85),
-                            int(x * pw + pw * 0.45):int(x * pw + pw * 0.85)]
-                m = float(cell.mean())
-                if 0.2 < m < 0.8:
-                    ok = False
-                    break
-                row += "." if m >= 0.5 else "#"
-            if not ok:
-                break
-            rows.append(row)
-        if ok:
-            return rows
-    return None
+        means = np.array([[float(best[int(y * ph + ph * 0.45):int(y * ph + ph * 0.85),
+                                     int(x * pw + pw * 0.45):int(x * pw + pw * 0.85)].mean())
+                           for x in range(n)] for y in range(n)])
+        block = means.min()
+        if block > 0.75:
+            continue
+        white = means >= 0.85
+        dark = np.abs(means - block) <= 0.12
+        if (white | dark).all():
+            grid = ["".join("." if c else "#" for c in row) for row in white]
+            if set(rg.light_cells(grid)) == listed:
+                return grid
+            first = first or grid
+    return first
 
 
 def read_pdf(path):
@@ -353,11 +363,14 @@ def read_pdf(path):
     raw, ops = fpp.ops_of(Path(path).read_bytes())
     raw += "\n" + "\n".join(pg.extract_text() or "" for pg in reader.pages[1:])
     out = parse_text(flat(raw))
+    # A light printed "[unclued]" or "(See instructions)" has no clue: it is
+    # left out, as an unclued light the clue list skips is.
+    out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
     grid = fpp.read_grid(fpp.filled_rects(ops))
     out["kind"] = "vector" if grid else None
     if grid is None:
-        grid = image_grid(reader.pages)
+        grid = image_grid(reader.pages, out["clues"])
         out["kind"] = "image" if grid else None
     out["grid"] = grid
     out["text"] = bool(raw.strip())
@@ -622,7 +635,7 @@ def unique_fill(slots, limit=2):
         k = min(left, key=lambda k: len(fits(k)))
         cells, _ = slots[k]
         for w in fits(k):
-            put = [c for c in cells if c not in at]
+            put = list(dict.fromkeys(c for c in cells if c not in at))
             for c, ch in zip(cells, w):
                 at.setdefault(c, ch)
             chosen[k] = w
@@ -656,10 +669,19 @@ def assemble_altered(number, pdf, post, date, url):
     lights = rg.light_cells(pdf["grid"])
     clued = [c for c in pdf["clues"] if c["enumeration"]]
     listed = {l for c in pdf["clues"] for l in c["lights"]}
-    if listed != set(lights):
+    if not listed <= set(lights):
         return None, "lights and clue list differ"
+    # A numbered light the clue list leaves out is unclued: it takes a word
+    # the post prints beside its number, else its crossings' letters.
+    unclued = [l for l in lights if l not in listed]
+    if unclued and not re.search(r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", pdf["preamble"]):
+        return None, f"{len(unclued)} lights unclued, and the preamble says none is"
+    if len(unclued) > MOST_UNCLUED:
+        return None, f"{len(unclued)} lights unclued: more than a preamble leaves, so the clue list is misread"
+    clued = sorted(clued + [{"lights": [l], "enumeration": str(len(lights[l])), "clue": None}
+                            for l in unclued], key=lambda c: (c["lights"][0][1], c["lights"][0][0]))
     rendered = DASHES.sub("-", re.sub(r"&#(?:820[89]|821[012]|x201[0-4]);", "-", post["content"]["rendered"]))
-    answers, wins = blog_answers(rendered, pdf["clues"]), windows(rendered, pdf["clues"])
+    answers, wins = blog_answers(rendered, pdf["clues"]), windows(rendered, clued)
     rule, ops = ALTERED_BY.get(number, (None, set()))
     slots, said = {}, {}
     for c in clued:
@@ -667,6 +689,10 @@ def assemble_altered(number, pdf, post, date, url):
         cells = [cell for l in c["lights"] for cell in lights[l]]
         said[first] = sources(wins.get(first, []), answers.get(first))
         words = {w for w in candidates(said[first], rule) if len(w) == len(cells)}
+        if first in unclued:
+            if words:
+                slots[first] = (cells, words)
+            continue
         if not words:
             return None, f"no entry the post or rule gives fits {first[0]} {first[1]}"
         slots[first] = (cells, words)
@@ -674,6 +700,13 @@ def assemble_altered(number, pdf, post, date, url):
     if len(fills) != 1:
         return None, f"{len(fills) or 'no'} fills of the post's entries agree at every crossing"
     fill = fills[0]
+    at = {cell: ch for k, w in fill.items() for cell, ch in zip(slots[k][0], w)}
+    for l in unclued:
+        if l not in fill:
+            if not all(cell in at for cell in lights[l]):
+                return None, f"unclued {l[0]} {l[1]}: the post prints no entry and crossings leave a square open"
+            fill[l] = "".join(at[cell] for cell in lights[l])
+            said[l] = [fill[l]]
     # The answer is the first word the post prints that is the entry or
     # that an op the preamble allows turns into it.
     altered = {}
@@ -685,7 +718,9 @@ def assemble_altered(number, pdf, post, date, url):
             altered[k] = frm
     if not altered and ALTERED.search(pdf["preamble"]):
         return None, "the post prints entries alone: no answer before its alteration"
-    entries = fpp.entries_of(pdf, fill, pdf["grid"])
+    entries = fpp.entries_of(pdf, {k: w for k, w in fill.items() if k not in unclued}, pdf["grid"])
+    entries += [{"number": n, "direction": d, "answer": fill[(n, d)], "clue": "Unclued",
+                 "enumeration": str(len(fill[(n, d)]))} for n, d in unclued]
     rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
            "date": post["date"][:10], "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
@@ -694,6 +729,8 @@ def assemble_altered(number, pdf, post, date, url):
     if why:
         return None, why
     by = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
+    for k in unclued:
+        by[k]["clue"] = {"missing": True}
     for k, frm in altered.items():
         if len(next(c for c in clued if c["lights"][0] == k)["lights"]) > 1:
             return None, f"{k[0]} {k[1]} is a linked answer entered altered"
@@ -709,10 +746,13 @@ def assemble_altered(number, pdf, post, date, url):
     return puzzle, None
 
 
+#: The most unclued lights a Genius leaves; more says the clue list was misread.
+MOST_UNCLUED = 10
 #: The classes assemble() leaves that the altered-entry path may file.
 ALTERABLE = {"preamble alters entries (needs an alteration per answer)",
              "answers cross wrongly (entries altered)", "enumeration is not the entry's length",
-             "a light's answer not read off the post"}
+             "a light's answer not read off the post", "lights left unclued",
+             "grid numbering differs from clue list"}
 
 
 def file(write=True, numbers=None, log=print):
