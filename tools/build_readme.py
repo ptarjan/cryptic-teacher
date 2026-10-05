@@ -848,8 +848,10 @@ def build_knobs(k):
         f"{k['ANNOTATE_MAX_WEEKLY_PCT']}% of the week (and "
         f"{k['ANNOTATE_MAX_SESSION_PCT']}% of the rolling five-hour window, "
         f"re-checked between puzzles), while the hourly one spends everything "
-        f"else with no gate: every wave at full width, waiting out each "
-        f"five-hour lockout, until the weekly meter is spent or the week resets."
+        f"else with no gate: as many runs as land the weekly meter at its limit "
+        f"right at the weekly reset, net of the bridge's own spend, waiting out "
+        f"any five-hour lockout, until the weekly meter is spent or the week "
+        f"resets."
     )
 
 

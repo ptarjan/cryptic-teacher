@@ -1,12 +1,12 @@
 #!/bin/bash
-# Spend the weekly usage window on backfills: every five-hour window to 100%.
+# Spend the weekly usage window on backfills: the week to EXHAUSTED at its reset.
 #
 # Why this exists, separately from daily_update.sh: unspent quota does not roll
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. It keeps as many runs in flight as spends the five-hour window by its
-# reset (tools/prereset_plan.py --width), from the moment it starts until the
+# gate. It keeps as many runs in flight as spends the weekly window evenly up to
+# its reset (tools/prereset_plan.py --width), from the moment it starts until the
 # week resets: a rolling pool, where a finished run's slot is refilled at once.
 #
 # The only stops are the meters and the reset itself:
@@ -85,10 +85,10 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
-# what spends the five-hour window by its reset, capped by free memory and CPU
-# pressure (tools/prereset_plan.py, which logs its inputs). If it prints no
+# what spends the weekly window to EXHAUSTED by its reset, capped by free memory
+# and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
 # width the current one stands. At 0 (the bridge alone will spend what the
-# window has left, or the machine has no room) nothing new starts, and once the
+# week has left, or the machine has no room) nothing new starts, and once the
 # runs in flight are done the pool naps a checkpoint interval and asks again.
 wave_width() {
   local w
@@ -104,7 +104,7 @@ wave_width() {
 # says "You've hit your monthly spend limit" for BOTH — there is no dollar cap
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
-EXHAUSTED="${EXHAUSTED:-99}"
+export EXHAUSTED="${EXHAUSTED:-99}"
 # Below this on the five-hour meter a failed run was not locked out: the window
 # had room, so waiting for it to turn over buys nothing.
 LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
