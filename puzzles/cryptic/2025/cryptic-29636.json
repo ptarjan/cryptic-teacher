@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "More than £1.50 for magazine",
     "enumeration": "4"
    },
-   "solution": "CLIP"
+   "solution": "CLIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLIP",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than £1.50",
+      "gives": "CLI",
+      "note": "£1.50 is 150 pence, CL in Roman numerals; one more is CLI, 151"
+     },
+     {
+      "clueFragment": "More than £1.50",
+      "gives": "P",
+      "note": "the unit stays pence, abbreviated P"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLI",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that a magazine now costs over one pound fifty.",
+     "walkthrough": "The price works as Roman numerals: CLI P is 151 pence, just more than £1.50. The magazine is the ammunition kind, not the paper kind.",
+     "definitionFit": "A clip is the detachable holder of cartridges fed into a gun, also called a magazine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,82 @@
     "text": "Easy for text to include name fully, finally on magazine’s cover: this could get a gut reaction",
     "enumeration": "6"
    },
-   "solution": "ENZYME"
+   "solution": "ENZYME",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENZYME",
+    "definitions": [
+     {
+      "text": "this could get a gut reaction",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include something is to hold it inside, so one piece goes within the other"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word before it"
+     },
+     {
+      "text": "cover",
+      "for": "letter_selection",
+      "note": "a cover is the outside, so only the two outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easy for text",
+      "gives": "EZ",
+      "note": "EZ is the texting spelling of easy"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "fully",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of fully"
+     },
+     {
+      "clueFragment": "magazine’s",
+      "gives": "ME",
+      "select": "outer",
+      "note": "the first and last letters of magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "Z",
+      "Y",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling instruction about text messages and magazine covers that ends in a gut reaction.",
+     "walkthrough": "E(N)Z, then Y and ME. 'Gut reaction' sounds like instinct, but it is literal: a chemical reaction in the gut.",
+     "definitionFit": "Enzymes are proteins that catalyse chemical processes, including digestion inside the intestines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gut"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +189,65 @@
      }
     ]
    },
-   "solution": "PRIVATEEYE"
+   "solution": "PRIVATEEYE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRIVATE EYE",
+    "definitions": [
+     {
+      "text": "Magazine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report",
+      "for": "homophone",
+      "note": "a report is something spoken, so the word is to be heard rather than spelt"
+     },
+     {
+      "text": "even",
+      "for": "letter_selection",
+      "note": "even means taking the letters in the second, fourth, sixth and eighth positions"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to look into",
+      "gives": "PRI",
+      "soundsLike": "PRY",
+      "note": "to pry is to look nosily into something"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax, the UK sales tax"
+     },
+     {
+      "clueFragment": "teletype",
+      "gives": "EEYE",
+      "select": "alternate",
+      "note": "the even letters of teletype"
+     }
+    ],
+    "explanation": {
+     "surface": "A clumsy note about a magazine reporting on a tax, sent by teletype machine.",
+     "walkthrough": "PRI (sounds like pry) + VAT + EEYE. Private Eye is a British satirical and investigative fortnightly.",
+     "definitionFit": "Private Eye is the long-running British satirical news magazine, named after a slang term for a detective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +267,46 @@
      }
     ]
    },
-   "solution": "INTIME"
+   "solution": "INTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN TIME",
+    "definitions": [
+     {
+      "text": "soon enough",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covered by",
+      "gives": "IN",
+      "note": "something covered by a thing is in it"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "TIME",
+      "note": "Time is the American weekly news magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A story that a magazine covered just before it was too late.",
+     "definitionFit": "To arrive in time is to come early enough, before a deadline has passed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Covered"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +320,63 @@
     "text": "Araucaria: say a dream that is gone, on dying",
     "enumeration": "8"
    },
-   "solution": "REVEREND"
+   "solution": "REVEREND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REVEREND",
+    "definitions": [
+     {
+      "text": "Araucaria: say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is gone",
+      "for": "deletion",
+      "note": "something that is gone has been taken away, so those letters leave the word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a dream",
+      "gives": "REVERIE",
+      "note": "a reverie is a daydream"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "IE",
+      "note": "i.e. stands for id est, that is; these letters are removed"
+     },
+     {
+      "clueFragment": "dying",
+      "gives": "END",
+      "note": "dying is coming to an end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVER",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A tribute to the late setter Araucaria, whose dream has gone with his death.",
+     "walkthrough": "'That is' is the abbreviation i.e. Araucaria was the pseudonym of the Rev John Graham, a revered Guardian setter, so 'Araucaria: say' gives an example.",
+     "definitionFit": "Araucaria was a Church of England clergyman, so he is an example of a reverend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dying"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +390,51 @@
     "text": "Early victim of a brother’s envious loathing from the start",
     "enumeration": "4"
    },
-   "solution": "ABEL"
+   "solution": "ABEL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ABEL",
+    "definitions": [
+     {
+      "text": "Early victim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the start",
+      "for": "letter_selection",
+      "note": "from the start points to the opening letter of each following word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a brother’s envious loathing",
+      "gives": "ABEL",
+      "select": "first",
+      "note": "the initial letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABEL"
+     ]
+    },
+    "explanation": {
+     "surface": "The story of Cain and Abel, the first murder in Genesis, born of a brother's jealousy.",
+     "walkthrough": "The wordplay also describes the story: Cain killed his brother out of envy, so the whole clue reads as a description.",
+     "definitionFit": "In Genesis, the son of Adam was killed by Cain, making him the first murder victim in the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +454,59 @@
      }
     ]
    },
-   "solution": "THEONION"
+   "solution": "THEONION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE ONION",
+    "definitions": [
+     {
+      "text": "news magazine",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Misrepresented",
+      "for": "anagram",
+      "note": "misrepresented means shown falsely, so the letters are put in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no-one",
+      "gives": "NOONE",
+      "note": "taken as written, without the hyphen"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "HIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOONEHIT",
+       "gives": "THEONION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news magazine has had a hit by misrepresenting nobody, or perhaps everybody.",
+     "walkthrough": "Fitting, since The Onion misrepresents the news for laughs: it is an American satirical paper that invents its stories.",
+     "definitionFit": "The Onion is a satirical publication presenting made-up stories in the style of real news reporting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +520,46 @@
     "text": "Magazine is virtual, if excelling in visuals",
     "enumeration": "4"
    },
-   "solution": "LIFE"
+   "solution": "LIFE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LIFE",
+    "definitions": [
+     {
+      "text": "Magazine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in visuals",
+      "for": "hidden_word",
+      "note": "visuals are things seen, so the answer is plainly visible inside these words"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtual, if excelling",
+      "gives": "LIFE",
+      "note": "the end of virtual, all of if and the start of excelling"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for a magazine whose striking pictures make it almost virtual.",
+     "walkthrough": "Life was indeed famous for its photojournalism, so the surface describes it too.",
+     "definitionFit": "Life was the American weekly picture magazine celebrated for its photography through the mid twentieth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visuals"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +579,58 @@
      }
     ]
    },
-   "solution": "LONGRANGE"
+   "solution": "LONGRANGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LONG-RANGE",
+    "definitions": [
+     {
+      "text": "Looking to the future",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no boundaries",
+      "for": "deletion",
+      "note": "removing boundaries takes away a word's outermost letters at both ends"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isolated",
+      "gives": "ALONE",
+      "note": "isolated means alone; its outer letters go"
+     },
+     {
+      "clueFragment": "farmstead",
+      "gives": "GRANGE",
+      "note": "a grange is a farmhouse with its outbuildings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "GRANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Planning ahead for a remote farm with no fences around it.",
+     "walkthrough": "'No boundaries' suggests fields without fences, but it trims only the first word's ends.",
+     "definitionFit": "A long-range plan or forecast covers a distant period, so it looks well ahead in time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boundaries"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +644,65 @@
     "text": "Sounding surprised to be in Big Issue, initially showing faith",
     "enumeration": "5"
    },
-   "solution": "BAHAI"
+   "solution": "BAHAI",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "BAHAI",
+    "definitions": [
+     {
+      "text": "faith",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "to be in something is to sit inside it, so one piece goes within the other"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially takes only the opening letter of each word it follows"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big Issue",
+      "gives": "BI",
+      "select": "first",
+      "note": "the first letters of Big and Issue, with the other piece going between them"
+     },
+     {
+      "clueFragment": "Sounding surprised",
+      "gives": "AHA",
+      "note": "aha is the noise of surprised discovery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AHA",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A seller of The Big Issue is surprised to find faith featured in it.",
+     "walkthrough": "The Big Issue is a British magazine sold on the street by homeless vendors.",
+     "definitionFit": "The Bahá'í faith is a religion founded in nineteenth-century Persia stressing the unity of all religions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sounding"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +722,65 @@
      }
     ]
    },
-   "solution": "PAYTV"
+   "solution": "PAYTV",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PAY TV",
+    "definitions": [
+     {
+      "text": "Subscribe here to view",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letters sent out",
+      "for": "deletion",
+      "note": "letters sent out are expelled, so the named letters are removed from the word"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the remaining letters are in no fixed order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depravity",
+      "gives": "DEPRAVITY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Dire",
+      "gives": "DIRE",
+      "note": "these four letters are taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAYTV"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAVTY",
+       "gives": "PAYTV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disapproving question about subscription television showing wild depravity, with letters of complaint sent.",
+     "walkthrough": "Remove D, I, R and E from DEPRAVITY to leave PAVTY, which rearranges. 'Dire letters sent out' reads as angry letters posted.",
+     "definitionFit": "Pay TV is television available only to customers who pay a subscription fee for the channels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +800,53 @@
      }
     ]
    },
-   "solution": "IDEALHOME"
+   "solution": "IDEALHOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL HOME",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boatman",
+      "gives": "I",
+      "note": "Boatman is the setter, who refers to himself as I"
+     },
+     {
+      "clueFragment": "bargains",
+      "gives": "DEAL",
+      "note": "to bargain is to deal"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HOME",
+      "note": "someone who is in is at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL",
+      "HOME"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter boasts of finding bargains in a magazine.",
+     "walkthrough": "Ideal Home is a British magazine about home decor and design.",
+     "definitionFit": "Ideal Home is a long-running British monthly devoted to interior decoration, gardens and house improvement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +866,76 @@
      }
     ]
    },
-   "solution": "PEEPTOE"
+   "solution": "PEEPTOE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PEEP-TOE",
+    "definitions": [
+     {
+      "text": "where nails are visible",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hollow",
+      "for": "letter_selection",
+      "note": "a hollow word has had its insides scooped out, leaving only the outer letters"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of points to the final letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pine",
+      "gives": "PE",
+      "select": "outer",
+      "note": "pine emptied of its middle"
+     },
+     {
+      "clueFragment": "eggcup",
+      "gives": "EP",
+      "select": "outer",
+      "note": "eggcup emptied of its middle"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "balustrade",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of balustrade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "EP",
+      "TO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Carpentry: a hollowed pine eggcup is fixed to a banister with the nails showing.",
+     "walkthrough": "The nails are toenails, not carpentry nails.",
+     "definitionFit": "A peep-toe shoe has a small opening at the front through which the toes, and their nails, can be seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nails"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +949,71 @@
     "text": "Joke by foremost of cartoonists, second place in this magazine",
     "enumeration": "5"
    },
-   "solution": "PUNCH"
+   "solution": "PUNCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PUNCH",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost of",
+      "for": "letter_selection",
+      "note": "foremost means first, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "second place in",
+      "for": "letter_selection",
+      "note": "second place points to the letter in position two of the following word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "cartoonists",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cartoonists"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "H",
+      "select": 2,
+      "note": "the second letter of this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A cartoonist's joke takes second place in a humour magazine.",
+     "walkthrough": "Punch was the British weekly humour magazine famous for its cartoons.",
+     "definitionFit": "Punch was a British satirical weekly running from 1841 to 2002, best known for its cartoons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1027,53 @@
     "text": "Queries resolved in magazine",
     "enumeration": "7"
    },
-   "solution": "ESQUIRE"
+   "solution": "ESQUIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESQUIRE",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolved",
+      "for": "anagram",
+      "note": "something resolved has been broken down and settled anew, so the letters are reorganised"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queries",
+      "gives": "QUERIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUERIES",
+       "gives": "ESQUIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Readers' questions are answered in a magazine's advice column.",
+     "definitionFit": "Esquire is an American men's monthly covering fashion, culture and long-form journalism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resolved"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1087,79 @@
     "text": "Inquirer Magazine: ‘Viz at last matures!’ I fall about",
     "enumeration": "10"
    },
-   "solution": "QUIZMASTER"
+   "solution": "QUIZMASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "QUIZMASTER",
+    "definitions": [
+     {
+      "text": "Inquirer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before it"
+     },
+     {
+      "text": "fall about",
+      "for": "anagram",
+      "note": "to fall about is to tumble around, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magazine",
+      "gives": "Q",
+      "note": "Q is a British music magazine"
+     },
+     {
+      "clueFragment": "Viz",
+      "gives": "Z",
+      "select": "last",
+      "note": "the last letter of Viz"
+     },
+     {
+      "clueFragment": "matures",
+      "gives": "MATURES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Q",
+      "UIZMASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ZMATURESI",
+       "gives": "UIZMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine headline joking that the crude comic Viz has finally grown up, and the writer falls about laughing.",
+     "walkthrough": "Viz is a crude British comic magazine. 'Inquirer' looks like part of a magazine's name, but it is the definition.",
+     "definitionFit": "A quizmaster is the person who asks the questions on a quiz, so he is someone who inquires."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Inquirer"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1173,47 @@
     "text": "Live as misogynist? Principally pointless",
     "enumeration": "5"
    },
-   "solution": "EXIST"
+   "solution": "EXIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EXIST",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Principally pointless",
+      "for": "deletion",
+      "note": "principally means at the start, and pointless means that opening part has no place there"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as misogynist",
+      "gives": "SEXIST",
+      "note": "a misogynist is a sexist; its first letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A rhetorical question about whether living as a misogynist is basically pointless.",
+     "definitionFit": "To exist is to be alive, so the verb live is a synonym here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1227,65 @@
     "text": "Good Housekeeping’s first to be incorporated: it’s a limited market",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "a limited market",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be incorporated",
+      "for": "container",
+      "note": "something incorporated is taken into the body of another, so it goes inside"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "NICE",
+      "note": "good means nice; the other piece goes inside"
+     },
+     {
+      "clueFragment": "Housekeeping’s",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Housekeeping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Good Housekeeping, the American and British homemaking magazine, being bought up as a company serving a small market.",
+     "walkthrough": "'Good Housekeeping' reads as the magazine's title, but the two words are split: one is the outside, the other supplies a letter.",
+     "definitionFit": "A niche is a specialised segment of the market with a narrow, particular group of customers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1299,60 @@
     "text": "Surrey perhaps cold for Frenchman in union",
     "enumeration": "8"
    },
-   "solution": "CARRIAGE"
+   "solution": "CARRIAGE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CARRIAGE",
+    "definitions": [
+     {
+      "text": "Surrey perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one letter stands where another was"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is short for monsieur, the French title; it is removed"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "MARRIAGE",
+      "note": "a marriage is a union of two people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARRIAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman's marriage in the county of Surrey turns cold.",
+     "walkthrough": "Surrey looks like the English county, but a surrey is also a light four-wheeled horse-drawn carriage.",
+     "definitionFit": "A surrey is a light horse-drawn vehicle with two seats, one type of carriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Surrey"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1366,54 @@
     "text": "This magazine made millions before our time",
     "enumeration": "3"
    },
-   "solution": "MAD"
+   "solution": "MAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAD",
+    "definitions": [
+     {
+      "text": "This magazine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "note": "a link to the wordplay; that it starts with the same three letters is a coincidence"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     },
+     {
+      "clueFragment": "our time",
+      "gives": "AD",
+      "note": "AD, anno domini, marks the present era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine that earned a fortune before the present generation was born.",
+     "walkthrough": "'Before our time' suggests the past (BC), but it only places one piece in front of the era of our time. MAD is an American humour magazine.",
+     "definitionFit": "MAD was the long-running American satirical humour magazine famous for parodies and its mascot Alfred E Neuman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1427,54 @@
     "text": "Boatman’s post allegedly went astray when picked up",
     "enumeration": "8"
    },
-   "solution": "MASTERED"
+   "solution": "MASTERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MASTERED",
+    "definitions": [
+     {
+      "text": "picked up",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "allegedly",
+      "for": "homophone",
+      "note": "allegedly means according to what is said, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boatman’s post",
+      "gives": "MAST",
+      "note": "a mast is the upright pole on a sailing boat"
+     },
+     {
+      "clueFragment": "went astray",
+      "gives": "ERED",
+      "soundsLike": "ERRED",
+      "note": "to err is to go astray"
+     }
+    ],
+    "explanation": {
+     "surface": "The setter's letters went missing in the post and were later collected.",
+     "walkthrough": "MAST + 'erred' together sound like the answer. 'Post' looks like mail, but it is a pole.",
+     "definitionFit": "To pick up a skill is to learn it, and to master a skill is to learn it thoroughly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1498,56 @@
      }
     ]
    },
-   "solution": "IANDI"
+   "solution": "IANDI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "I-AND-I",
+    "definitions": [
+     {
+      "text": "In West Indies, US",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disarray",
+      "for": "anagram",
+      "note": "disarray is disorder, so the letters fall out of their given order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USAid",
+      "gives": "AID",
+      "note": "the word splits: its US closes the definition, and only Aid is fodder"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIDIN",
+       "gives": "IANDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about American aid efforts going chaotically in the Caribbean.",
+     "walkthrough": "USAid looks like one word, the US aid agency, but it splits: US ends the definition and Aid begins the fodder. I-and-I is Rastafarian speech for we or us.",
+     "definitionFit": "In Jamaican Rastafarian usage, the phrase I and I stands for the speaker together with others, meaning we or us."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "USAid"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1561,51 @@
     "text": "Magazine for more keen cycling",
     "enumeration": "7"
    },
-   "solution": "HARPERS"
+   "solution": "HARPERS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HARPERS",
+    "definitions": [
+     {
+      "text": "Magazine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling means going round, so a letter moves from one end of the word to the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more keen",
+      "gives": "SHARPER",
+      "note": "keen means sharp, so more keen is sharper; its first letter moves to the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARPERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cycling enthusiast wants a magazine about their sport.",
+     "walkthrough": "Harper's Bazaar is the American fashion magazine, often called simply Harper's.",
+     "definitionFit": "Harper's is shorthand for Harper's Bazaar, a fashion title, or Harper's Magazine, a monthly of literature and politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1625,47 @@
      }
     ]
    },
-   "solution": "TIMEOUT"
+   "solution": "TIMEOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIME OUT",
+    "definitions": [
+     {
+      "text": "Clue for item",
+      "at": 0
+     },
+     {
+      "text": "magazine",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clue for item",
+      "note": "first meaning: a phrase that, read as an anagram instruction, would clue the word item"
+     },
+     {
+      "clueFragment": "magazine",
+      "note": "second meaning: a London listings magazine"
+     }
+    ],
+    "explanation": {
+     "surface": "An editor asks for a clue to accompany a piece in a magazine.",
+     "walkthrough": "TIME OUT: TIME with 'out' as an anagram signal gives ITEM, so the answer itself would clue item. Time Out is a London listings magazine.",
+     "definitionFit": "Time Out is the London entertainment and listings guide, now published in many cities worldwide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clue"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1679,51 @@
     "text": "Magazine: ‘Rattle needs new arrangement’",
     "enumeration": "6"
    },
-   "solution": "TATLER"
+   "solution": "TATLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TATLER",
+    "definitions": [
+     {
+      "text": "Magazine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs new arrangement",
+      "for": "anagram",
+      "note": "a new arrangement means the letters are set in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rattle",
+      "gives": "RATTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATTLE",
+       "gives": "TATLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine story that the conductor Simon Rattle needs a new orchestral arrangement.",
+     "walkthrough": "Tatler is a British society and fashion magazine.",
+     "definitionFit": "Tatler is a long-established British glossy covering high society, fashion and upper-class lifestyle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1737,52 @@
     "text": "One seen on a rostrum or a rock",
     "enumeration": "6"
    },
-   "solution": "ORATOR"
+   "solution": "ORATOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORATOR",
+    "definitions": [
+     {
+      "text": "One seen on a rostrum",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "TOR",
+      "note": "a tor is a rocky hilltop, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "A",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Something might be spotted standing on a platform or on a boulder.",
+     "definitionFit": "A public speaker addresses audiences from a raised platform, so an orator is often seen on one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1796,57 @@
     "text": "Association of spoof rapper with magazine and books",
     "enumeration": "9"
    },
-   "solution": "ALIGNMENT"
+   "solution": "ALIGNMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALIGNMENT",
+    "definitions": [
+     {
+      "text": "Association",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoof rapper",
+      "gives": "ALIG",
+      "note": "Ali G is Sacha Baron Cohen's comic rapper character"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "NME",
+      "note": "the NME, New Musical Express, is a British music paper"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIG",
+      "NME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedy rap character teams up with a music magazine and a publisher.",
+     "walkthrough": "Ali G is a spoof gangster rapper played by Sacha Baron Cohen.",
+     "definitionFit": "An alignment is an alliance or affiliation between parties, as in political alignments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 24,
@@ -469,7 +1860,43 @@
     "text": "A daily occurrence in Australia, witnessed in popular vote",
     "enumeration": "4"
    },
-   "solution": "ARVO"
+   "solution": "ARVO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARVO",
+    "definitions": [
+     {
+      "text": "A daily occurrence in Australia",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "witnessed in",
+      "for": "hidden_word",
+      "note": "something witnessed in a scene can be seen there, so the answer is visible within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular vote",
+      "gives": "ARVO",
+      "note": "the end of popular and the start of vote"
+     }
+    ],
+    "explanation": {
+     "surface": "An event in Australian life seen in a public vote.",
+     "walkthrough": "'Arvo' is Australian slang for afternoon, which happens every day.",
+     "definitionFit": "Australians shorten afternoon to this slang word, and an afternoon comes around every day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "occurrence"
+    }
+   }
   },
   {
    "number": 25,
@@ -483,7 +1910,54 @@
     "text": "Perhaps wedge lifted root",
     "enumeration": "4"
    },
-   "solution": "NEEP"
+   "solution": "NEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NEEP",
+    "definitions": [
+     {
+      "text": "root",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down entry, lifting something turns it upside down, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps wedge",
+      "gives": "PEEN",
+      "note": "a peen is the wedge-shaped end of a hammer head, one example of a wedge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEEN",
+       "to": "NEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wedge has perhaps been used to prise up a tree root.",
+     "walkthrough": "A neep is a Scottish word for a turnip or swede, a root vegetable.",
+     "definitionFit": "Neep is the Scottish name for a swede or turnip, which is a root vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wedge"
+    }
+   }
   },
   {
    "number": 26,
@@ -507,7 +1981,44 @@
    "group": [
     "26-across",
     "27-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SMASH HITS",
+    "definitions": [
+     {
+      "text": "Clue for this",
+      "at": 0
+     },
+     {
+      "text": "magazine",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clue for this",
+      "note": "first meaning: a phrase that, read as an anagram instruction, would clue the word this"
+     },
+     {
+      "clueFragment": "magazine",
+      "note": "second meaning: a former British pop music magazine"
+     }
+    ],
+    "explanation": {
+     "surface": "An editor asks for a clue that describes this very magazine.",
+     "walkthrough": "SMASH HITS: 'smash' as an anagram signal on HITS gives THIS. Smash Hits was a British teen pop magazine of the 1980s and 1990s.",
+     "definitionFit": "Smash Hits was a fortnightly British pop music magazine popular from 1978 until 2006."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clue"
+    }
+   }
   },
   {
    "number": 27,
@@ -534,7 +2045,63 @@
     "text": "Nothing to replace article dropped from unspecified magazine",
     "enumeration": "5"
    },
-   "solution": "VOGUE"
+   "solution": "VOGUE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "VOGUE",
+    "definitions": [
+     {
+      "text": "magazine",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "to replace something is to take its place, so one letter swaps in for another"
+     }
+    ],
+    "linkWords": [
+     "dropped from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unspecified",
+      "gives": "VAGUE",
+      "note": "something unspecified is vague"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article; it is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "O",
+      "GUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story that an article was dropped from an unnamed magazine, with nothing put in its place.",
+     "walkthrough": "Vogue is the fashion magazine.",
+     "definitionFit": "Vogue is the famous fashion and lifestyle monthly founded in New York in 1892."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 29,
@@ -554,7 +2121,80 @@
      }
     ]
    },
-   "solution": "EVENEDOUT"
+   "solution": "EVENEDOUT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EVENED OUT",
+    "definitions": [
+     {
+      "text": "levelled",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed on all sides",
+      "for": "letter_selection",
+      "note": "trimming on all sides cuts off the outer edges, keeping only the inner letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fever",
+      "gives": "EVE",
+      "select": "middle",
+      "note": "fever without its outer letters"
+     },
+     {
+      "clueFragment": "any",
+      "gives": "N",
+      "select": "middle",
+      "note": "any without its outer letters"
+     },
+     {
+      "clueFragment": "beds",
+      "gives": "ED",
+      "select": "middle",
+      "note": "beds without its outer letters"
+     },
+     {
+      "clueFragment": "Job",
+      "gives": "O",
+      "select": "middle",
+      "note": "job without its outer letters"
+     },
+     {
+      "clueFragment": "cuts",
+      "gives": "UT",
+      "select": "middle",
+      "note": "cuts without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "N",
+      "ED",
+      "O",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital crisis: fever patients but no beds, because of job cuts.",
+     "walkthrough": "The surface reads as an NHS hospital crisis; each of the five words loses its first and last letters.",
+     "definitionFit": "To even something out is to make it level or equal, removing peaks and troughs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trimmed"
+    }
+   }
   }
  ]
 }
