@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Man taking up arms",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0,
+      "note": "a stag is a man on his own at a social event"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking up",
+      "for": "reversal",
+      "note": "in a down clue, taking a word up means reading it from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arms",
+      "gives": "GATS",
+      "note": "gats are guns, old American gangster slang for firearms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAG"
+     ],
+     "reversals": [
+      {
+       "from": "GATS",
+       "to": "STAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man picks up weapons and goes off to fight.",
+     "walkthrough": "A gat is slang for a pistol; read upward in the grid, the plural gives the answer.",
+     "definitionFit": "A stag is a man who goes to a party without a female partner, hence a stag night for the groom and his friends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,43 @@
     "text": "Blunt point",
     "enumeration": "6"
    },
-   "solution": "DIRECT"
+   "solution": "DIRECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIRECT",
+    "definitions": [
+     {
+      "text": "Blunt",
+      "at": 0
+     },
+     {
+      "text": "point",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blunt",
+      "note": "first meaning: frank, straightforward in speech"
+     },
+     {
+      "clueFragment": "point",
+      "note": "second meaning: to aim or steer something toward a target"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The pair looks like a contradiction, a point that is blunt; each word is a separate meaning of the answer.",
+     "definitionFit": "The word is an adjective for plain-spoken frankness and a verb for aiming or guiding something toward a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blunt"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +148,75 @@
     "text": "With the current trend, a woman's not in need of an order",
     "enumeration": "10"
    },
-   "solution": "DOWNSTREAM"
+   "solution": "DOWNSTREAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DOWNSTREAM",
+    "definitions": [
+     {
+      "text": "With the current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "the word not tells us the following pair of letters is to be left out of the collection"
+     },
+     {
+      "text": "in need of an order",
+      "for": "anagram",
+      "note": "letters that need ordering are currently jumbled and must be rearranged into sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trend",
+      "gives": "TREND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "woman's",
+      "gives": "WOMANS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written; these two letters are the ones removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWNSTREAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRENDAWOMS",
+       "gives": "DOWNSTREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion-conscious woman following the latest trend has no need to place an order.",
+     "walkthrough": "The 'an' of 'an order' does double duty: it is removed from the letters of 'a woman's', and what remains is rearranged.",
+     "definitionFit": "Moving downstream means travelling in the same direction as the flow of a river, carried along by its water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +236,59 @@
      }
     ]
    },
-   "solution": "TOPHAT"
+   "solution": "TOPHAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOP HAT",
+    "definitions": [
+     {
+      "text": "and tails",
+      "at": 46,
+      "note": "the answer is the hat that goes with a tailcoat"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads",
+      "for": "letter_selection",
+      "note": "heads are the tops of things, so the opening letters of each word are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tossing of pennies",
+      "gives": "TOP",
+      "select": "first",
+      "note": "first letters of these three words"
+     },
+     {
+      "clueFragment": "heads and tails",
+      "gives": "HAT",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "HAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A coin toss: heads, tails, heads, called out excitedly as the pennies land.",
+     "walkthrough": "Heads and tails look like coin talk, but heads means initial letters. The definition is cheeky: top hat and tails is formal morning dress, so the answer is what partners tails.",
+     "definitionFit": "A tall silk hat is traditionally worn with a tailcoat, the pairing known as formal morning or evening dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +312,68 @@
    "group": [
     "5-down",
     "27-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PRIMROSE HILL",
+    "definitions": [
+     {
+      "text": "in 25",
+      "at": 30,
+      "note": "a place among the London parks"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so these letters come out in a mangled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Particular",
+      "gives": "PRIM",
+      "note": "prim means fussy, particular about propriety"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "HORSE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "ill is a plain synonym for sick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIM",
+      "ROSEH",
+      "ILL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HORSE",
+       "gives": "ROSEH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy horse falls badly ill out in the park.",
+     "walkthrough": "25 is PARK, and the puzzle's theme is London parks; 'in 25' marks each one. Primrose Hill is a park beside Regent's Park in north London.",
+     "definitionFit": "Primrose Hill is a public open space in north London, one of the city's Royal Parks, famous for its skyline view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Particular"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +387,55 @@
     "text": "Questions for sage, or letters read out",
     "enumeration": "4"
    },
-   "solution": "WHYS"
+   "solution": "WHYS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHYS",
+    "definitions": [
+     {
+      "text": "Questions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading out means saying the words, so we go by how they are heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sage",
+      "gives": "WHYS",
+      "soundsLike": "WISE",
+      "note": "a sage is wise"
+     },
+     {
+      "clueFragment": "letters",
+      "gives": "WHYS",
+      "soundsLike": "YS",
+      "note": "more than one of the letter Y"
+     }
+    ],
+    "explanation": {
+     "surface": "Questions posed to a wise man, or letters read aloud to him.",
+     "walkthrough": "Both wordplays give the same sound: the adjective for a sage, and the plural of the letter Y.",
+     "definitionFit": "Whys are reasons asked about, as in the whys and wherefores, so the plural noun means questions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +449,39 @@
     "text": "Does pool need topping up in 25?",
     "enumeration": "8"
    },
-   "solution": "WATERLOW"
+   "solution": "WATERLOW",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WATERLOW",
+    "definitions": [
+     {
+      "text": "Does pool need topping up in 25",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does pool need topping up",
+      "note": "surface reading: a question about a swimming pool or pond that is running dry"
+     },
+     {
+      "clueFragment": "in 25",
+      "note": "setter's reading: the answer to the question, said as two words, names one of the London parks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Asked whether a pool needs filling, you'd answer that its level is down, in two words; joined, that reply is the name of a park in Highgate, north London.",
+     "definitionFit": "Waterlow Park is a public park in Highgate, north London, given to the public by Sir Sydney Waterlow in 1889."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pool"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +495,39 @@
     "text": "A colleague's been laid off",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "A colleague's been laid off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A colleague's been laid off",
+      "note": "surface reading: a co-worker has been made redundant"
+     },
+     {
+      "clueFragment": "colleague's been",
+      "note": "setter's reading: a female colleague has, contracted, plus the sense of staff cast off by a firm"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A firm that lays off staff is said to have cast them off, using this verb. Read differently, a colleague had becomes she'd, which sounds like the answer.",
+     "definitionFit": "To shed jobs or workers is to cut them, so staff who have been laid off have been dropped by the firm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "colleague's"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +541,48 @@
     "text": "Standard of leaking hosepipe to be reported",
     "enumeration": "9"
    },
-   "solution": "TRICOLOUR"
+   "solution": "TRICOLOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TRICOLOUR",
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be reported",
+      "for": "homophone",
+      "note": "something reported is spoken, so we go by how the words would be heard"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaking hosepipe",
+      "gives": "TRICOLOUR",
+      "soundsLike": "TRICKLER",
+      "note": "a leaking hose is something that trickles"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener complains about the quality of a hosepipe that keeps leaking.",
+     "walkthrough": "'Standard' looks like a measure of quality; it is a flag. A three-coloured flag such as the French one is said to sound like a thing that trickles.",
+     "definitionFit": "A standard is a flag or banner, and a tricolour is a flag with three bands of colour, like the French or Irish flags."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +610,41 @@
     "text": "Sick in 25",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "Sick",
+      "at": 0
+     },
+     {
+      "text": "in 25",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick",
+      "note": "first meaning: looking nauseous, pale-faced and queasy"
+     },
+     {
+      "clueFragment": "in 25",
+      "note": "second meaning: part of the name of a London park beside Buckingham Palace"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "25 is PARK, so 'in 25' asks for the first word of a London park's name; Green Park lies next to Buckingham Palace.",
+     "definitionFit": "Someone feeling nauseous is said to look green about the gills, and Green Park is one of London's Royal Parks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +668,81 @@
    "group": [
     "12-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "HAMPSTEAD HEATH",
+    "definitions": [
+     {
+      "text": "in 25",
+      "at": 37,
+      "note": "a place among the London parks"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "anagram",
+      "note": "turned out means rearranged or overturned, so these letters come in a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter goes inside the other word, as if placed in it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat",
+      "gives": "HAM",
+      "note": "ham is a kind of meat"
+     },
+     {
+      "clueFragment": "paste",
+      "gives": "PASTE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "the end",
+      "gives": "DEATH",
+      "note": "death is the end of life"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "PSTEA",
+      "D",
+      "H",
+      "EATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PASTE",
+       "gives": "PSTEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meat paste goes bad when it ends up overheated in the park.",
+     "walkthrough": "'Meat paste' looks like one item to rearrange, but only the second word is shuffled. Hampstead Heath is a large open common in north London, not strictly a park.",
+     "definitionFit": "Hampstead Heath is a large ancient common in north London, treated here as one of the city's green spaces like its parks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paste"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +766,61 @@
      }
     ]
    },
-   "solution": "RATATAT"
+   "solution": "RATATAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAT-A-TAT",
+    "definitions": [
+     {
+      "text": "Knock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the closing letter of the word is kept"
+     },
+     {
+      "text": "to open it",
+      "for": "charade",
+      "note": "this phrase places one piece at the very start, opening the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of door"
+     },
+     {
+      "clueFragment": "three times at",
+      "gives": "ATATAT",
+      "note": "the little word at written out three times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ATATAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a secret knock: three raps at the door, then it opens.",
+     "walkthrough": "'Knock three times' looks like part of one instruction; Knock alone is the definition, and 'three times at' means repeat that word thrice.",
+     "definitionFit": "A rat-a-tat is the sound of a series of sharp raps, the noise made by knocking quickly on a door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +834,51 @@
     "text": "Getting on public transport is a problem",
     "enumeration": "5"
    },
-   "solution": "REBUS"
+   "solution": "REBUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REBUS",
+    "definitions": [
+     {
+      "text": "problem",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "Getting",
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning, as in business letters"
+     },
+     {
+      "clueFragment": "public transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "BUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Boarding public transport turns out to be a real hassle.",
+     "walkthrough": "RE, meaning concerning, comes from the Latin 'in the matter of' and is a crossword staple for 'on'.",
+     "definitionFit": "A rebus is a puzzle in which pictures or symbols stand for words, so it is a problem set for solving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +892,50 @@
     "text": "Mystically, so clear they see",
     "enumeration": "7"
    },
-   "solution": "ORACLES"
+   "solution": "ORACLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORACLES",
+    "definitions": [
+     {
+      "text": "they see",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mystically",
+      "for": "anagram",
+      "note": "something done mystically is done in strange, inexplicable ways, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so clear",
+      "gives": "SOCLEAR",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOCLEAR",
+       "gives": "ORACLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seers who, through mystical means, can perceive everything so clearly.",
+     "walkthrough": "'they see' stands for seers, those who see what is to come.",
+     "definitionFit": "Oracles were priests or priestesses who foresaw events and gave prophecies, so they are seers of the future."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +949,59 @@
     "text": "Enemy destroying 1 nation",
     "enumeration": "10"
    },
-   "solution": "ANTAGONIST"
+   "solution": "ANTAGONIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ANTAGONIST",
+    "definitions": [
+     {
+      "text": "Enemy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroying",
+      "for": "anagram",
+      "note": "destroying breaks things up, so these letters are wrecked and rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1",
+      "gives": "STAG",
+      "note": "the answer to 1 down"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "NATION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTAGONIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAGNATION",
+       "gives": "ANTAGONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foe sets about destroying a whole nation.",
+     "walkthrough": "The cross-reference 1 is 1 down, the four-letter male deer answer, joined to nation before the shuffle.",
+     "definitionFit": "An antagonist is an opponent or adversary, someone actively hostile, which is what an enemy is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1015,47 @@
     "text": "Up-and-down performances",
     "enumeration": "5"
    },
-   "solution": "SOLOS"
+   "solution": "SOLOS",
+   "annotation": {
+    "type": [
+     "palindrome"
+    ],
+    "answer": "SOLOS",
+    "definitions": [
+     {
+      "text": "performances",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Up-and-down",
+      "for": "palindrome",
+      "note": "in a down entry, a word reading the same going up as going down is one that reads alike in both directions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performances",
+      "note": "pieces played or sung by one performer alone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A run of uneven shows, some good and some bad.",
+     "walkthrough": "'Up-and-down' looks like a judgement on quality; in this down entry it means the word reads the same either way.",
+     "definitionFit": "Solos are pieces performed by a single musician or dancer, so they are individual performances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Up-and-down"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1069,45 @@
     "text": "A medium intellect, according to Australian pronouncement?",
     "enumeration": "5"
    },
-   "solution": "BRINE"
+   "solution": "BRINE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRINE",
+    "definitions": [
+     {
+      "text": "A medium",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Australian pronouncement",
+      "for": "homophone",
+      "note": "the words are to be said with an Australian accent, where the long A vowel shifts toward I"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intellect",
+      "gives": "BRINE",
+      "soundsLike": "BRAIN",
+      "note": "intellect is the brain, said the Aussie way"
+     }
+    ],
+    "explanation": {
+     "surface": "A psychic of only average intelligence, by Australian reckoning.",
+     "walkthrough": "'A medium intellect' reads as moderate intelligence; 'A medium' is the definition, a substance things are kept in.",
+     "definitionFit": "Brine is salted water used as a medium for pickling and preserving food, and also the sea itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1121,65 @@
     "text": "Popular psychologist accepts the teaching of religion may be damaging",
     "enumeration": "8"
    },
-   "solution": "INJURING"
+   "solution": "INJURING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INJURING",
+    "definitions": [
+     {
+      "text": "damaging",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "to accept is to take in, so one piece is held within the other"
+     }
+    ],
+    "linkWords": [
+     "may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable, popular"
+     },
+     {
+      "clueFragment": "psychologist",
+      "gives": "JUNG",
+      "note": "Carl Jung, the Swiss psychologist"
+     },
+     {
+      "clueFragment": "the teaching of religion",
+      "gives": "RI",
+      "note": "RI is religious instruction, the school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "JU",
+      "RI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated psychologist warns that religious teaching may do harm.",
+     "walkthrough": "RI, religious instruction, is the old British school-timetable name for religious education.",
+     "definitionFit": "Injuring means harming or hurting someone, which is what damaging them does; both are present participles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1193,52 @@
     "text": "Ghost writer for the Bard abridged",
     "enumeration": "3"
    },
-   "solution": "POE"
+   "solution": "POE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POE",
+    "definitions": [
+     {
+      "text": "Ghost writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text is shortened, so the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Bard",
+      "gives": "POET",
+      "note": "the Bard is Shakespeare, the poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POE"
+     ]
+    },
+    "explanation": {
+     "surface": "A ghostwriter hired to produce a shortened version of Shakespeare.",
+     "walkthrough": "'Ghost writer' suggests someone writing for another under their name; here it is a writer of ghost stories. Edgar Allan Poe wrote tales of the macabre.",
+     "definitionFit": "Edgar Allan Poe wrote famous tales of terror and the supernatural, making him a writer of ghost stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ghost"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1252,57 @@
     "text": "With which to admit in France that's just not cricket",
     "enumeration": "8"
    },
-   "solution": "PASSPORT"
+   "solution": "PASSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSPORT",
+    "definitions": [
+     {
+      "text": "With which to admit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in France",
+      "for": "charade",
+      "note": "the following word is to be put into French"
+     }
+    ],
+    "linkWords": [
+     "that's just"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "PAS",
+      "note": "pas is French for not"
+     },
+     {
+      "clueFragment": "cricket",
+      "gives": "SPORT",
+      "note": "cricket is an example of a sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "SPORT"
+     ]
+    },
+    "explanation": {
+     "surface": "Something French people might admit is simply not cricket, meaning unfair.",
+     "walkthrough": "'Not cricket' is the British idiom for unsporting behaviour, which hides the split: the French word for not, then cricket as a sport.",
+     "definitionFit": "A passport is the document by which a traveller is admitted into a foreign country at its border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1316,56 @@
     "text": "School expels head student for a rub down",
     "enumeration": "5"
    },
-   "solution": "TOWEL"
+   "solution": "TOWEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TOWEL",
+    "definitions": [
+     {
+      "text": "for a rub down",
+      "at": 27,
+      "note": "describes the thing used for rubbing down"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expels head",
+      "for": "deletion",
+      "note": "a head expelled is a first letter thrown out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School",
+      "gives": "STOWE",
+      "note": "Stowe is an English public school in Buckinghamshire"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, from the L plate on cars"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOWE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A school expels its head boy and sends him off for a massage.",
+     "walkthrough": "Stowe is a well-known English boarding school; L for learner comes from the plates British learner drivers display.",
+     "definitionFit": "A towel is the cloth used to dry the body by rubbing it after bathing, so it is what you take for a rub down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1385,68 @@
      }
     ]
    },
-   "solution": "STJAMES"
+   "solution": "STJAMES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ST JAMES",
+    "definitions": [
+     {
+      "text": "in 25",
+      "at": 33,
+      "note": "a place among the London parks"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around means facing the opposite way, so the word is read backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word is placed around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what it does",
+      "gives": "SETS",
+      "note": "a spread like jam sets as it cools"
+     },
+     {
+      "clueFragment": "Spread",
+      "gives": "JAM",
+      "note": "jam is a sweet spread for bread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "JAM",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SETS",
+       "to": "STES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Butter spread on toast melts and runs around in the park.",
+     "walkthrough": "'what it does' refers back to the spread: jam sets. St James's Park lies between Buckingham Palace and Whitehall in London.",
+     "definitionFit": "St James's Park is the oldest of London's Royal Parks, beside Buckingham Palace, so these words begin its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1460,55 @@
     "text": "Touching in front of toilets in 25",
     "enumeration": "7"
    },
-   "solution": "REGENTS"
+   "solution": "REGENTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGENTS",
+    "definitions": [
+     {
+      "text": "in 25",
+      "at": 29,
+      "note": "a place among the London parks"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in front of",
+      "for": "charade",
+      "note": "one piece placed before the other in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching",
+      "gives": "RE",
+      "note": "re means concerning or touching on"
+     },
+     {
+      "clueFragment": "toilets",
+      "gives": "GENTS",
+      "note": "the gents is the British term for a men's lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone touching up in front of the public toilets in the park.",
+     "walkthrough": "The gents is everyday British for a men's public toilet. Regent's Park, in north-west central London, houses London Zoo.",
+     "definitionFit": "Regent's Park is one of London's Royal Parks, laid out by John Nash and named for the Prince Regent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Touching"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1522,53 @@
     "text": "25 for rugby, 24 down we hear",
     "enumeration": "6"
    },
-   "solution": "RUSKIN"
+   "solution": "RUSKIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RUSKIN",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 0,
+      "note": "names a London park; with 'for' it is the park the answer stands for"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "24 down",
+      "gives": "SKIN",
+      "soundsLike": "HIDE",
+      "note": "the answer to 24 down sounds like a word meaning an animal's pelt"
+     }
+    ],
+    "explanation": {
+     "surface": "A park named for a rugby side, linked by sound to another park two clues away.",
+     "walkthrough": "24 down's park name sounds like hide, which is skin. Ruskin Park is a public park in south London near Denmark Hill, named after the critic John Ruskin.",
+     "definitionFit": "Ruskin Park is a public park in Camberwell, south London, named after the Victorian writer John Ruskin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1582,58 @@
     "text": "Country it's absolutely not right to enter",
     "enumeration": "6"
    },
-   "solution": "NORWAY"
+   "solution": "NORWAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NORWAY",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "a piece entering another goes inside it"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "absolutely not",
+      "gives": "NOWAY",
+      "note": "no way means certainly not"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "R",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation where it is utterly wrong to cross the border.",
+     "walkthrough": "'absolutely not right' reads as one phrase meaning wrong; it splits after 'not'.",
+     "definitionFit": "Norway is a Scandinavian country in northern Europe, on the western side of the peninsula it shares with Sweden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1647,74 @@
     "text": "Sailors in dance, ones taking exercise in their dances?",
     "enumeration": "9"
    },
-   "solution": "HORNPIPES"
+   "solution": "HORNPIPES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HORNPIPES",
+    "definitions": [
+     {
+      "text": "their dances",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other word"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "HOP",
+      "note": "a hop is an informal dance"
+     },
+     {
+      "clueFragment": "Sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     },
+     {
+      "clueFragment": "ones",
+      "gives": "IS",
+      "note": "the Roman numeral one, I, in the plural"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "RN",
+      "P",
+      "I",
+      "PE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors at a dance, keen exercisers showing off their moves.",
+     "walkthrough": "The sailors in the definition are the Sailors of the opening, so 'their dances' are sailors' dances; the answer is the traditional seamen's jig.",
+     "definitionFit": "The hornpipe is a lively solo dance traditionally associated with sailors in the Royal Navy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ones"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1728,50 @@
     "text": "Consecutive characters in comedy have flipped in 25",
     "enumeration": "4"
    },
-   "solution": "HYDE"
+   "solution": "HYDE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "HYDE",
+    "definitions": [
+     {
+      "text": "in 25",
+      "at": 46,
+      "note": "a place among the London parks"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Consecutive characters in",
+      "for": "hidden_word",
+      "note": "letters running consecutively inside the words make up the piece"
+     },
+     {
+      "text": "have flipped",
+      "for": "reversal",
+      "note": "flipped over means turned the other way, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedy have",
+      "gives": "EDYH",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "In a comedy sketch, the characters do somersaults in the park.",
+     "walkthrough": "'have flipped' needs the pieces read backwards: the end of comedy and start of have. Hyde Park is London's best-known central park.",
+     "definitionFit": "Hyde Park is one of London's largest Royal Parks, home to Speakers' Corner and the Serpentine lake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1785,43 @@
     "text": "Find a space for a public one",
     "enumeration": "4"
    },
-   "solution": "PARK"
+   "solution": "PARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARK",
+    "definitions": [
+     {
+      "text": "Find a space for",
+      "at": 0
+     },
+     {
+      "text": "a public one",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find a space for",
+      "note": "first meaning: to leave a car in a spot"
+     },
+     {
+      "clueFragment": "a public one",
+      "note": "second meaning: an open green space for everyone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'a public one' is a public open space, taking 'space' from the first half as its noun.",
+     "definitionFit": "To leave a vehicle in a bay is the verb sense, and a public green area of a town is the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 26,
@@ -481,7 +1835,39 @@
     "text": "Quarter of 10 or 3",
     "enumeration": "5"
    },
-   "solution": "NORTH"
+   "solution": "NORTH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NORTH",
+    "definitions": [
+     {
+      "text": "Quarter of 10 or 3",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quarter",
+      "note": "surface reading: a fraction, a fourth of a number"
+     },
+     {
+      "clueFragment": "of 10 or 3",
+      "note": "setter's reading: the compass quarter of London in which the cross-referenced places lie"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The numbers look like arithmetic but are cross-references: Hampstead Heath (10) lies in this part of London; the link to 3 is less clear, perhaps the compass point opposite down on a map.",
+     "definitionFit": "North is one of the four compass points, which divide a map into quarters, and names a district of London."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Quarter"
+    }
+   }
   },
   {
    "number": 27,
@@ -509,7 +1895,63 @@
     "text": "Benefactor has no right contributing to party",
     "enumeration": "5"
    },
-   "solution": "DONOR"
+   "solution": "DONOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONOR",
+    "definitions": [
+     {
+      "text": "Benefactor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributing to",
+      "for": "charade",
+      "note": "a part contributing to another is added on to it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy patron has no say in contributing to the political party.",
+     "walkthrough": "'party' suggests a political party; here it is a do, a social gathering.",
+     "definitionFit": "A donor is someone who gives money or goods to a cause, which is what a benefactor does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 29,
@@ -523,7 +1965,47 @@
     "text": "Checks very difficult to set up again",
     "enumeration": "9"
    },
-   "solution": "REINSTALL"
+   "solution": "REINSTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINSTALL",
+    "definitions": [
+     {
+      "text": "to set up again",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Checks",
+      "gives": "REINS",
+      "note": "reins check a horse, holding it back"
+     },
+     {
+      "clueFragment": "very difficult",
+      "gives": "TALL",
+      "note": "tall as in a tall order, something hard to do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REINS",
+      "TALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Software checks that make it hard to install a program again.",
+     "walkthrough": "A tall order is a demand that is hard to meet, which is how tall comes to mean very difficult.",
+     "definitionFit": "To reinstall is to install once more, putting software or equipment back in place after removal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Checks"
+    }
+   }
   }
  ]
 }
