@@ -218,7 +218,7 @@ Terms used below:
   See `checkCells()` and `announceCheck()` in `app.js`, and the check
   assertions in the smoke test.
 - **Paper mode hides every right/wrong signal until "I'm done".** A
-  per-device switch under the picker list. On paper there is no tick, star or
+  per-device switch in the puzzle's toolbar, beside the checks. On paper there is no tick, star or
   lock on a solved clue, no meter, ladder, reveal or vote, and the letter, word
   and grid checks give way to one "I'm done" button; Clear and Reset stay.
   "I'm done" is Check grid plus the end of paper mode for that puzzle.
@@ -231,9 +231,13 @@ Terms used below:
     `checkSolvedEntries`, so each correct clue is frozen at the rungs it had up,
     which on paper is none. The finish (`timing.solvedAt`) is stamped at the
     check, which is when the streak counts it. Stats stay derived from the saves.
-  - **A puzzle goes on paper** when it is started or reset with the switch on,
-    or is on screen and unfinished when the switch goes on. One already under
-    way stays as it was. Switching off ends paper everywhere.
+  - **The switch shows whether the puzzle on screen is on paper.** Ticking it
+    puts that puzzle on paper and turns the device setting on, so every puzzle
+    started or reset after it is on paper too; one already under way elsewhere
+    stays as it was. Unticking it turns the setting off and ends paper
+    everywhere. "I'm done" ends it for that puzzle and leaves the setting on.
+    The switch is hidden where there is nothing to hide (a finished grid, or
+    one with no answers). There is one switch, and it is not on the picker.
   - **`ct:paper` is a setting, never a save, and is not synced** (`paper` in
     `SYNC_RESERVED`): `{ on, open }`, where `open` is the puzzles on paper now.
     Paper on one device and the ladder on another is a fair way to solve; the

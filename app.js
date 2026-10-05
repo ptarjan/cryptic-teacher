@@ -1015,9 +1015,11 @@
      The setting and the set of puzzles on paper are this DEVICE's, held under
      a reserved name and never synced: paper on the phone and the ladder on the
      laptop is a reasonable way to solve, and the letters still move between
-     them as usual. A puzzle goes on paper when it is started (or reset) with
-     the setting on, or is on screen and unfinished when it is switched on;
-     one already under way stays as it was. */
+     them as usual. The switch sits in the puzzle's toolbar and shows whether
+     the puzzle on screen is on paper. Ticking it puts that puzzle on paper
+     and turns the setting on, so every puzzle started (or reset) after it
+     starts on paper too; one already under way elsewhere stays as it was.
+     Unticking it turns the setting off and takes every puzzle off paper. */
   const PAPER_KEY = "ct:paper";
   let paper = store.get(PAPER_KEY, null) || {};
   const onPaper = (id) => !!(paper.open && paper.open[id]);
@@ -5656,11 +5658,15 @@
     return frozenCharge(solvedWith, entries.filter((g) => entryKey(g) === key).map(entryId));
   }
   // Paper keeps Clear and Reset and swaps the three checks for "I'm done",
-  // which is Check grid and the end of paper mode in one press.
+  // which is Check grid and the end of paper mode in one press. The switch
+  // says whether this puzzle is on paper, and is gone where there is nothing
+  // to hide.
   function drawPaperTools() {
     const on = paperHides();
     ["chk-label", "chk-letter", "chk-entry", "chk-grid"].forEach((id) => $(id).classList.toggle("hidden", on));
     $("paper-done").classList.toggle("hidden", !on);
+    $("paper-toggle").checked = on;
+    $("paper-switch").classList.toggle("hidden", !on && !paperable());
   }
   // A solved clue's price given a save's solvedWith and the ids of its legs:
   // the largest leg's snapshot. Takes the map rather than reading the live one
@@ -7413,7 +7419,6 @@
     };
     $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
     $("paper-done").onclick = () => { if (paperHides()) endPaper(); };
-    $("paper-toggle").checked = !!paper.on;
     $("paper-toggle").onchange = () => togglePaper($("paper-toggle").checked);
     $("clear-entry").onclick = () => {
       const e = gridEntry();

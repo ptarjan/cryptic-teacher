@@ -17,8 +17,14 @@
       and solves no clue on the stats sheet; the same save off paper does both.
    4. doneCredits: "I'm done" ends paper mode for the puzzle, checks the grid,
       and credits every correct clue as solved with no rungs (solvedWith 0,
-      the clean star), stamping the finish so the streak can count it. */
+      the clean star), stamping the finish so the streak can count it.
+   5. switchInPuzzle: the one paper switch is in the puzzle's toolbar, not on
+      the puzzle list. Ticking it in a puzzle under way puts that puzzle on
+      paper and makes paper the device default; unticking it hands every
+      signal back and turns the default off. */
 "use strict";
+const fs = require("fs");
+const path = require("path");
 const { boot } = require("./fake_dom.js");
 
 const ID = "cryptic-30066";
@@ -96,6 +102,8 @@ for (const paperOn of [true, false]) {
     check(t.hidden("chk-letter") && t.hidden("chk-entry") && t.hidden("chk-grid") && !t.hidden("paper-done"),
       `paperTools (${tag}): the letter, word and grid checks give way to I'm done`);
     check(!t.hidden("clear-entry") && !t.hidden("reset-puzzle"), `paperTools (${tag}): Clear and Reset stay`);
+    check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === true,
+      `paperTools (${tag}): the switch is shown, ticked`);
 
     // --- 4 (partial grid): I'm done credits the one clue, clean ---
     t.reg["paper-done"].onclick();
@@ -116,6 +124,8 @@ for (const paperOn of [true, false]) {
     check(/clue-done/.test(clue), `typingGivesNoSignal (${tag}): and ticks the clue`);
     check(solvedWith[entryId(entry)] === 0, `typingGivesNoSignal (${tag}): and freezes it in solvedWith`);
     check(!t.hidden("chk-entry") && t.hidden("paper-done"), `paperTools (${tag}): the usual checks, no I'm done`);
+    check(!t.hidden("paper-switch") && t.reg["paper-toggle"].checked === false,
+      `paperTools (${tag}): the switch is shown, unticked`);
   }
 }
 
@@ -147,6 +157,37 @@ for (const paperOn of [true, false]) {
     check(/solved ✓/.test(pickerSays(t)), "doneCredits: and the picker now reads solved ✓");
     check(statsSolved(t) > 0, "doneCredits: and the stats sheet counts its clues");
   }
+}
+
+// --- 5: the switch lives in the puzzle, and works there ---
+{
+  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+  const main = html.slice(html.indexOf('<main id="app"'), html.indexOf("</main>"));
+  check(html.split('id="paper-toggle"').length === 2, "switchInPuzzle: one paper switch in the page");
+  check(main.includes('id="paper-toggle"') && main.includes('id="paper-switch"'),
+    "switchInPuzzle: it is inside the puzzle view");
+  const picker = html.slice(html.indexOf('id="picker-panel"'), html.indexOf('<main id="app"'));
+  check(!/paper-toggle|paper-switch/.test(picker), "switchInPuzzle: and not on the puzzle list");
+
+  const t = open({});
+  const entry = t.puz.entries.find((e) => e.solution && e.length >= 5);
+  t.reg["clue-" + entryId(entry)].listeners.click[0]();
+  for (const ch of entry.solution) t.key(ch);
+  const li = t.reg["clue-" + entryId(entry)];
+  check(li.classList.contains("solved"), "switchInPuzzle (mirror, off paper): the typed clue shows solved");
+  t.reg["paper-toggle"].checked = true;
+  t.reg["paper-toggle"].onchange();
+  const on = JSON.parse(t.d.storage["ct:paper"]);
+  check(on.on === true && !!on.open[ID], "switchInPuzzle: ticking it puts this puzzle on paper and the default on");
+  check(!li.classList.contains("solved") && t.hidden("chk-entry") && !t.hidden("paper-done")
+        && t.reg["paper-toggle"].checked === true,
+    "switchInPuzzle: the tick and the checks go, I'm done comes");
+  t.reg["paper-toggle"].checked = false;
+  t.reg["paper-toggle"].onchange();
+  const off = JSON.parse(t.d.storage["ct:paper"]);
+  check(off.on === false && !off.open[ID], "switchInPuzzle: unticking it takes the puzzle off paper and the default off");
+  check(li.classList.contains("solved") && !t.hidden("chk-entry") && t.hidden("paper-done"),
+    "switchInPuzzle: the tick and the checks come back");
 }
 
 if (failures) { console.log(failures + " failure(s)"); process.exit(1); }
