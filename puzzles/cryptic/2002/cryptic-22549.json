@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "What's left after demolishing university lodge",
     "enumeration": "6"
    },
-   "solution": "RESIDE"
+   "solution": "RESIDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RESIDE",
+    "definitions": [
+     {
+      "text": "lodge",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolishing",
+      "for": "deletion",
+      "note": "demolishing something knocks it down and clears it away, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's left",
+      "gives": "RESIDUE",
+      "note": "the residue is whatever remains behind"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Builders tearing down a university lodge, picking through the rubble left behind.",
+     "walkthrough": "'Lodge' looks like a noun, a building, but it is a verb here: RESIDUE without its U leaves RESIDE.",
+     "definitionFit": "To lodge somewhere is to live or stay there, which is exactly what reside means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lodge"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,44 @@
     "text": "Frill lacking finish by the sound of it",
     "enumeration": "4"
    },
-   "solution": "RUFF"
+   "solution": "RUFF",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RUFF",
+    "definitions": [
+     {
+      "text": "Frill",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "this phrase says we go by how a word is pronounced, not how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lacking finish",
+      "gives": "RUFF",
+      "soundsLike": "ROUGH",
+      "note": "something rough has not been smoothed or finished off"
+     }
+    ],
+    "explanation": {
+     "surface": "A dress frill left unfinished, its edges raw.",
+     "walkthrough": "A ruff is the stiff pleated collar seen in Elizabethan portraits.",
+     "definitionFit": "A ruff is a starched, pleated frill worn round the neck, also a frill of feathers on a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,39 @@
     "text": "Result of over-exposure outside the darkroom?",
     "enumeration": "7"
    },
-   "solution": "SUNBURN"
+   "solution": "SUNBURN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUNBURN",
+    "definitions": [
+     {
+      "text": "Result of over-exposure outside the darkroom?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Result of over-exposure outside the darkroom?",
+      "note": "surface reading: a photographic print ruined by too much light"
+     },
+     {
+      "clueFragment": "Result of over-exposure outside the darkroom?",
+      "note": "setter's reading: skin damaged by too long in bright daylight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Over-exposure and darkroom both suggest photography, but the exposure is of skin outdoors in strong sunshine.",
+     "definitionFit": "Spending too long under strong rays reddens and blisters skin, the painful consequence of too much exposure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "darkroom"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +196,58 @@
     "text": "MA misled, confused in difficult situations",
     "enumeration": "8"
    },
-   "solution": "DILEMMAS"
+   "solution": "DILEMMAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DILEMMAS",
+    "definitions": [
+     {
+      "text": "difficult situations",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused things are muddled up, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MA",
+      "gives": "MA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "misled",
+      "gives": "MISLED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAMISLED",
+       "gives": "DILEMMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate with a Master of Arts misled and baffled in tricky circumstances.",
+     "definitionFit": "Dilemmas are predicaments where every available choice is unpleasant, tight spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "MA"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +261,69 @@
     "text": "A hundred plus - possibly rising for a Rodin, say",
     "enumeration": "8"
    },
-   "solution": "SCULPTOR"
+   "solution": "SCULPTOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCULPTOR",
+    "definitions": [
+     {
+      "text": "a Rodin, say",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests the letters could be arranged some other way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "plus",
+      "gives": "PLUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rising",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, a piece of rising ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCULP",
+      "TOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CPLUS",
+       "gives": "SCULP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a sale price climbing past a hundred for a Rodin artwork at auction.",
+     "walkthrough": "'Rising' looks like a verb about the price going up; it is a noun, a tor, a hill on the moors.",
+     "definitionFit": "Auguste Rodin, maker of The Thinker, is a famous example of an artist who carves or casts statues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +337,65 @@
     "text": "Well-informed person on northern cruise - so excited!",
     "enumeration": "11"
    },
-   "solution": "CONNOISSEUR"
+   "solution": "CONNOISSEUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONNOISSEUR",
+    "definitions": [
+     {
+      "text": "Well-informed person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited particles move about wildly, so the letters are stirred up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "cruise",
+      "gives": "CRUISE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONNCRUISESO",
+       "gives": "CONNOISSEUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An expert thrilled to be aboard a cruise to the fjords.",
+     "definitionFit": "A connoisseur is an expert judge in matters of taste, someone deeply knowledgeable about fine things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +409,47 @@
     "text": "City trial in the news",
     "enumeration": "6"
    },
-   "solution": "LATEST"
+   "solution": "LATEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATEST",
+    "definitions": [
+     {
+      "text": "in the news",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A big court case in a city making headlines.",
+     "walkthrough": "'Trial' suggests a court case; it is just a test.",
+     "definitionFit": "The most recent, newest happenings are those currently reported and topical in the media."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +469,55 @@
      }
     ]
    },
-   "solution": "TEATIME"
+   "solution": "TEATIME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEA TIME",
+    "definitions": [
+     {
+      "text": "around four?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first idea inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "season",
+      "gives": "TIME",
+      "note": "a season is a time of year"
+     },
+     {
+      "clueFragment": "Take in food",
+      "gives": "EAT",
+      "note": "to eat is to take in food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EAT",
+      "IME"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to eat what is in season, around four o'clock.",
+     "walkthrough": "'Take in' looks like the container signal, but it belongs to the food phrase; the lone 'in' does the work. The definition plays on the English hour for afternoon tea.",
+     "definitionFit": "Four in the afternoon is the traditional hour for a cup of tea and cake in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +531,51 @@
     "text": "Poet Frost's to stimulate, we hear",
     "enumeration": "9"
    },
-   "solution": "RHYMESTER"
+   "solution": "RHYMESTER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RHYMESTER",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear tells us to go by the spoken sound of the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frost's",
+      "gives": "RHYME",
+      "soundsLike": "RIME",
+      "note": "rime is hoar frost"
+     },
+     {
+      "clueFragment": "to stimulate",
+      "gives": "STER",
+      "soundsLike": "STIR",
+      "note": "to stir is to rouse or stimulate"
+     }
+    ],
+    "explanation": {
+     "surface": "Suggests the poet Robert Frost's aim was to stimulate his readers.",
+     "walkthrough": "'Frost' wants to be Robert Frost the American poet; it is frozen dew, rime.",
+     "definitionFit": "A rhymester is a writer of verse, usually a mediocre one, which still makes him a poet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frost's"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +589,49 @@
     "text": "End bit of fish by the drink",
     "enumeration": "6"
    },
-   "solution": "FINALE"
+   "solution": "FINALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINALE",
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of fish",
+      "gives": "FIN",
+      "note": "a fin is part of a fish"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is a drink, beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scrap of fish left beside a pint at the end of a meal.",
+     "definitionFit": "A finale is the closing part of a show or piece of music, its concluding section."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +645,61 @@
     "text": "Study an English novel without regularity",
     "enumeration": "8"
    },
-   "solution": "UNSTEADY"
+   "solution": "UNSTEADY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNSTEADY",
+    "definitions": [
+     {
+      "text": "without regularity",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "STUDY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STUDYANE",
+       "gives": "UNSTEADY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to read an English novel in an irregular, haphazard way.",
+     "walkthrough": "'Novel' looks like the book being studied; it is the signal to rearrange.",
+     "definitionFit": "Something unsteady wobbles or varies, moving without a regular, even pattern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +719,64 @@
      }
     ]
    },
-   "solution": "SUMMERSOLSTICE"
+   "solution": "SUMMERSOLSTICE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUMMER SOLSTICE",
+    "definitions": [
+     {
+      "text": "a turning point in time",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replayed",
+      "for": "anagram",
+      "note": "something replayed is played again, here performed in a different order"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most",
+      "gives": "MOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reel",
+      "gives": "REEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "music's",
+      "gives": "MUSICS",
+      "note": "taken as written, with the S of the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOSTREELMUSICS",
+       "gives": "SUMMERSOLSTICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Folk dance tunes played again at some momentous point in history.",
+     "walkthrough": "A reel is a lively Scottish dance, which suits the musical surface; the word just supplies letters.",
+     "definitionFit": "At the June solstice the sun reaches its northern limit and days begin shortening, a turning point of the year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "replayed"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +796,55 @@
      }
     ]
    },
-   "solution": "RIBTICKLING"
+   "solution": "RIBTICKLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIB-TICKLING",
+    "definitions": [
+     {
+      "text": "very amusing",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make fun of",
+      "gives": "RIB",
+      "note": "to rib is to tease"
+     },
+     {
+      "clueFragment": "the moment",
+      "gives": "TICK",
+      "note": "a tick is a moment, as in 'just a tick'"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "the ling is a sea fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIB",
+      "TICK",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking the instant someone goes fishing, all great fun.",
+     "definitionFit": "Something rib-tickling is funny enough to make one laugh, highly entertaining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moment"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +864,39 @@
      }
     ]
    },
-   "solution": "SUNDAYBEST"
+   "solution": "SUNDAYBEST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUNDAY BEST",
+    "definitions": [
+     {
+      "text": "Occasional wear?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Occasional wear?",
+      "note": "surface reading: clothes worn now and then, not every day"
+     },
+     {
+      "clueFragment": "Occasional wear?",
+      "note": "setter's reading: the finest clothes kept for special occasions, traditionally church on the Sabbath"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Occasional' seems to mean infrequent, but it means for an occasion: the smart outfit kept for church on the Lord's day.",
+     "definitionFit": "This phrase names a person's smartest clothes, kept for church and special events rather than daily use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Occasional"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +910,76 @@
     "text": "Torpor surrounding Alice mainly represented in canvas",
     "enumeration": "9"
    },
-   "solution": "SAILCLOTH"
+   "solution": "SAILCLOTH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "SAILCLOTH",
+    "definitions": [
+     {
+      "text": "canvas",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most of it, so the word loses its final letter"
+     },
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "represented means shown in another form, so the letters are rearranged"
+     },
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means going around the outside, so the first word wraps the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Torpor",
+      "gives": "SLOTH",
+      "note": "sloth is laziness, torpor"
+     },
+     {
+      "clueFragment": "Alice",
+      "gives": "ALICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AILC",
+      "LOTH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALIC",
+       "gives": "AILC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painting of a sluggish girl called Alice on canvas.",
+     "walkthrough": "'Represented in canvas' sounds like a portrait; 'canvas' alone is the definition.",
+     "definitionFit": "Sailcloth is a heavy canvas fabric used for making sails, and canvas is the general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +993,42 @@
     "text": "Considered the material",
     "enumeration": "4"
    },
-   "solution": "FELT"
+   "solution": "FELT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FELT",
+    "definitions": [
+     {
+      "text": "Considered",
+      "at": 0
+     },
+     {
+      "text": "the material",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Considered",
+      "note": "first meaning: believed, held as an opinion"
+     },
+     {
+      "clueFragment": "the material",
+      "note": "second meaning: a fabric of matted, pressed wool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests weighing up some cloth; the two parts are separate meanings.",
+     "definitionFit": "One word is the past tense of a verb for holding an opinion and also names a pressed woollen fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Considered"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1042,65 @@
     "text": "Favourite aunt left in a tizzy, rather irritable",
     "enumeration": "8"
    },
-   "solution": "PETULANT"
+   "solution": "PETULANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PETULANT",
+    "definitions": [
+     {
+      "text": "rather irritable",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a tizzy",
+      "for": "anagram",
+      "note": "a tizzy is a state of agitation, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite, as in teacher's pet"
+     },
+     {
+      "clueFragment": "aunt",
+      "gives": "AUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PET",
+      "ULANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AUNTL",
+       "gives": "ULANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A favourite aunt left flustered and somewhat cross.",
+     "definitionFit": "Petulant describes someone sulky and peevish, childishly bad-tempered over small things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1114,55 @@
     "text": "The instant when Jack leaves is uncertain",
     "enumeration": "4"
    },
-   "solution": "IFFY"
+   "solution": "IFFY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IFFY",
+    "definitions": [
+     {
+      "text": "uncertain",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves they go away, so that letter departs from the word"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The instant",
+      "gives": "JIFFY",
+      "note": "a jiffy is a moment, an instant"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in playing cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IFFY"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like doubt hanging over the very moment a man called Jack walks out.",
+     "definitionFit": "Iffy is informal for doubtful or questionable, full of ifs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1176,50 @@
     "text": "The fellow's not just in a place of entertainment",
     "enumeration": "7"
    },
-   "solution": "FUNFAIR"
+   "solution": "FUNFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FUNFAIR",
+    "definitions": [
+     {
+      "text": "a place of entertainment",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The fellow's",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow, as in FRS"
+     },
+     {
+      "clueFragment": "not just",
+      "gives": "UNFAIR",
+      "note": "not just means unjust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "UNFAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man treated unjustly at some entertainment venue.",
+     "walkthrough": "'Just' looks like 'merely'; it means fair, so 'not just' is unfair.",
+     "definitionFit": "A funfair is an outdoor show with rides, stalls and sideshows, a venue for amusement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1233,43 @@
     "text": "Watch the sports official",
     "enumeration": "10"
    },
-   "solution": "TIMEKEEPER"
+   "solution": "TIMEKEEPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIMEKEEPER",
+    "definitions": [
+     {
+      "text": "Watch",
+      "at": 0
+     },
+     {
+      "text": "the sports official",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watch",
+      "note": "first meaning: a clock or watch that keeps time"
+     },
+     {
+      "clueFragment": "the sports official",
+      "note": "second meaning: the official who records the time in a race or match"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Watch' looks like a verb, an instruction to observe the official; it is a noun.",
+     "definitionFit": "A timepiece is called this, and so is the official who logs times at a sporting event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Watch"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1283,55 @@
     "text": "The head's allowed in a range of colours",
     "enumeration": "7"
    },
-   "solution": "PALETTE"
+   "solution": "PALETTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PALETTE",
+    "definitions": [
+     {
+      "text": "a range of colours",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the second word inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The head's",
+      "gives": "PATE",
+      "note": "the pate is the top of the head"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "LET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher being permitted to choose a colour scheme.",
+     "walkthrough": "'The head' suggests a headteacher; it is the pate, the crown of the skull.",
+     "definitionFit": "An artist's palette is the set of colours used, the board holding them, or a whole range of hues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head's"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1345,44 @@
     "text": "Spend lavishly on the display",
     "enumeration": "6"
    },
-   "solution": "LAYOUT"
+   "solution": "LAYOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAYOUT",
+    "definitions": [
+     {
+      "text": "Spend lavishly",
+      "at": 0
+     },
+     {
+      "text": "display",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "on the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spend lavishly",
+      "note": "first meaning: to ... money, spend a lot"
+     },
+     {
+      "clueFragment": "display",
+      "note": "second meaning: an arrangement, the way something is set out"
+     }
+    ],
+    "explanation": {
+     "surface": "Splashing out heavily on a showy exhibition.",
+     "definitionFit": "As a phrasal verb it means to pay out money freely; as a noun it is the arrangement or design of a page or room."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1396,67 @@
     "text": "Prison ship: lousy, revolting in a bad-tempered way",
     "enumeration": "14"
    },
-   "solution": "CANTANKEROUSLY"
+   "solution": "CANTANKEROUSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CANTANKEROUSLY",
+    "definitions": [
+     {
+      "text": "in a bad-tempered way",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolting",
+      "for": "anagram",
+      "note": "revolting things turn over or rise up, so the letters are overturned and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prison",
+      "gives": "CAN",
+      "note": "the can is slang for prison"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "TANKER",
+      "note": "a tanker is a ship carrying oil or liquid cargo"
+     },
+     {
+      "clueFragment": "lousy",
+      "gives": "LOUSY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "TANKER",
+      "OUSLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOUSY",
+       "gives": "OUSLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Convicts on a filthy prison hulk, infested and in revolt.",
+     "walkthrough": "Prison ships, the hulks, really were lousy and their inmates mutinous, so 'revolting' reads as a mutiny rather than a signal.",
+     "definitionFit": "Cantankerous means grumpy and quarrelsome, and the adverb describes acting with that cross, argumentative temper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolting"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1470,57 @@
     "text": "It''s grating to be a bore, but not new",
     "enumeration": "4"
    },
-   "solution": "GRID"
+   "solution": "GRID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GRID",
+    "definitions": [
+     {
+      "text": "grating",
+      "at": 6
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not tells us to drop that item from the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bore",
+      "gives": "GRIND",
+      "note": "a grind is a tedious, boring task"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRID"
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining that something irritating is also tediously familiar.",
+     "walkthrough": "'Grating' looks like an adjective meaning irritating; it is a noun, a framework of bars.",
+     "definitionFit": "A grid is a lattice of crossing bars, which is what a grating over a drain or window is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grating"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1534,53 @@
     "text": "Speaker: \"I love 'The Creation', for example\"",
     "enumeration": "8"
    },
-   "solution": "ORATORIO"
+   "solution": "ORATORIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORATORIO",
+    "definitions": [
+     {
+      "text": "'The Creation', for example",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speaker",
+      "gives": "ORATOR",
+      "note": "an orator is a public speaker"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORATOR",
+      "I",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A public speaker gushing about a favourite piece of music.",
+     "walkthrough": "The quotation marks make it look like a speech; Speaker, I and love are separate pieces.",
+     "definitionFit": "Haydn's The Creation is a large-scale sacred work for soloists, chorus and orchestra, the classic form of that genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speaker"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1594,47 @@
     "text": "Buffet for a cricketer",
     "enumeration": "6"
    },
-   "solution": "BATTER"
+   "solution": "BATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATTER",
+    "definitions": [
+     {
+      "text": "Buffet",
+      "at": 0
+     },
+     {
+      "text": "a cricketer",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buffet",
+      "note": "first meaning: to strike or pound repeatedly"
+     },
+     {
+      "clueFragment": "a cricketer",
+      "note": "second meaning: the player who bats"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket tea laid out as a buffet for the players.",
+     "walkthrough": "'Buffet' wants to be a meal of cold food; here it is the verb meaning to knock about.",
+     "definitionFit": "To pound something with blows is this verb, and in cricket the player facing the bowling has the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Buffet"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1648,64 @@
     "text": "One ticket in this place is a birthright",
     "enumeration": "8"
    },
-   "solution": "HERITAGE"
+   "solution": "HERITAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HERITAGE",
+    "definitions": [
+     {
+      "text": "a birthright",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the opening pair of clue items inside the place named afterwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this place",
+      "gives": "HERE",
+      "note": "here means this place"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "ticket",
+      "gives": "TAG",
+      "note": "a tag is a label or ticket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "I",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A single admission ticket handed down as an inherited right.",
+     "definitionFit": "Heritage is what one inherits by birth, property or tradition passed down the generations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ticket"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1719,41 @@
     "text": "Go along to listen",
     "enumeration": "6"
    },
-   "solution": "ATTEND"
+   "solution": "ATTEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ATTEND",
+    "definitions": [
+     {
+      "text": "Go along to",
+      "at": 0
+     },
+     {
+      "text": "listen",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go along to",
+      "note": "first meaning: be present at an event"
+     },
+     {
+      "clueFragment": "listen",
+      "note": "second meaning: pay attention, heed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone told to turn up to a talk and just hear it out.",
+     "definitionFit": "One verb means both to be present at a meeting and to pay heed to what is said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
