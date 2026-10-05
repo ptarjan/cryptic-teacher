@@ -950,7 +950,19 @@ if [ -n "$pending" ]; then
       # The run reads a copy of the puzzle without its solutions detail, which
       # names the blog the key came from (see annotate_check.py VIEW_KEYS). Blind runs
       # have no web and write their answers into the puzzle itself.
-      ann_file=$(python3 tools/annotate_check.py --view "$num")
+      # A crashed view leaves the run nothing to read, and the crash is in the
+      # tool, so every later puzzle would crash the same way: stop annotating
+      # and alert with the traceback rather than pay for sessions that work
+      # around a broken checker.
+      view_err="$(mktemp "${TMPDIR:-/tmp}/cryptic-view.XXXXXX")"
+      if ! ann_file=$(python3 tools/annotate_check.py --view "$num" 2>"$view_err") || [ -z "$ann_file" ]; then
+        alert "tools/annotate_check.py --view $num failed, so no puzzle is annotated tonight:"$'\n'"\`\`\`"$'\n'"$(tail -n 20 "$view_err")"$'\n'"\`\`\`"
+        rm -f "$view_err"
+        stop_reason="annotate_check.py --view crashed on $num"
+        break
+      fi
+      cat "$view_err" >&2
+      rm -f "$view_err"
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
       if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
         ann_file=$(python3 tools/puzzle_paths.py "$num")
