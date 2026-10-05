@@ -147,10 +147,21 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     # and every page in the tree names them by content hash — long before the
     # job reaches its own build step, so they are rebuilt once, here, where the
     # tree changed.
-    (cd "$_ct_tree" && python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
-      echo "WORKTREE: could not rebuild puzzles/index.* in $_ct_tree — the job will read a stale or missing manifest" >&2
-    (cd "$_ct_tree" && python3 tools/build_abbreviations.py >/dev/null) ||
-      echo "WORKTREE: could not rebuild abbreviations.js in $_ct_tree — every tool that stamps a page referencing it will stop" >&2
+    # A rebuild reads every puzzle (40k files): minutes of CPU, past the hourly
+    # queue tick's 600s timeout on a loaded box. Untracked files survive the
+    # reset, so when HEAD is where the last fully successful rebuild stamped it
+    # they are current and the rebuild is skipped.
+    _ct_head="$(git -C "$_ct_tree" rev-parse HEAD)"
+    _ct_stamp="$(git -C "$_ct_tree" rev-parse --absolute-git-dir)/generated.stamp"
+    if [ "$(cat "$_ct_stamp" 2>/dev/null)" != "$_ct_head" ] || [ ! -e "$_ct_tree/puzzles/index.json" ]; then
+      rm -f "$_ct_stamp"
+      _ct_ok=1
+      (cd "$_ct_tree" && python3 tools/fetch_puzzle.py --reindex >/dev/null) ||
+        { _ct_ok=0; echo "WORKTREE: could not rebuild puzzles/index.* in $_ct_tree — the job will read a stale or missing manifest" >&2; }
+      (cd "$_ct_tree" && python3 tools/build_abbreviations.py >/dev/null) ||
+        { _ct_ok=0; echo "WORKTREE: could not rebuild abbreviations.js in $_ct_tree — every tool that stamps a page referencing it will stop" >&2; }
+      [ "$_ct_ok" = 1 ] && printf '%s\n' "$_ct_head" >"$_ct_stamp"
+    fi
     # One copy of each, in the main checkout, reached from everywhere.
     for _ct_share in .claude .alert-state .usage_cache.json; do
       [ -e "$_ct_tree/$_ct_share" ] && continue
