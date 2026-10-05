@@ -1,49 +1,35 @@
 #!/bin/bash
-# Do puzzle_integrity's two exception tables still mean EXACT, and only exact?
+# Does puzzle_integrity catch every kind of defect it claims to, and do its two
+# exception tables forgive exactly the findings they name, and nothing else?
 #
 #     bash tools/test_puzzle_integrity.sh
 #
+# This tests the CHECKER, on fixtures: real puzzles copied into memory or into
+# a scratch puzzles/ directory and mutated there, so it runs in seconds and
+# never writes under the repo's puzzles/. Whether the corpus itself is clean is
+# a different question, answered by running the checker over all of it:
+#
+#     python3 tools/puzzle_integrity.py --quiet
+#
+# CI runs that once, as its own step, not here.
+#
+# Every flag in puzzle_integrity.FLAGS, plus DUPLICATE, has a fixture below
+# that raises it and only it (a DUPLICATE shares every clue, so NEARDUP comes
+# with it); the test fails if FLAGS grows a kind that has no fixture here.
+#
 # PUBLISHED_WRONG and UNLINKED_IN_SOURCE are keyed by (puzzle id, whole finding
 # string), so that forgiving one sentence forgives nothing else about that
-# clue. Nothing in the type system enforces that shape — a future edit could
-# turn the lookup into a prefix or substring match and start swallowing real
-# defects, silently, because there was no test file for puzzle_integrity.py at
-# all until this one. Their exactness was proved once by hand, in the commit
-# that added UNLINKED_IN_SOURCE, and then the proof was thrown away; this
-# rebuilds it as something CI runs on every push instead of something a human
-# remembers to redo.
-#
-# The property under test: lengthening every key's finding string by one
-# trailing space must reproduce every finding the tables currently forgive —
-# a prefix or substring match would still swallow at least some of them. And
-# baselining a finding must never blank out its whole puzzle: injecting an
-# unrelated LENGTH defect into cryptic-24104, which already holds two
-# baselined findings, must still report the new one while the two stay silent.
-#
-# Both tables are consulted independently, so their entry counts — read off
-# the tables themselves with len(), never typed in here — are asserted
-# separately: a merge that drops one table's contents must fail loudly rather
-# than being absorbed into a combined total. Building the cache of
-# (puzzle, checkable-entries) once and re-running check_length against it in
-# memory is what makes six passes over a corpus this size cheap enough to run
-# on every push; check_shape does not depend on either table, so it only ever
-# needs to run once.
-#
-# Run against the real corpus on purpose, for the first, second and fourth
-# properties above -- an exception table is only meaningful against the data
-# it actually excuses. The third property (non-blanket suppression) mutates an
-# in-memory copy of one real puzzle and never writes to disk, so nothing under
-# puzzles/ is ever touched.
-#
-# "The real corpus" means the files fetch_puzzle.puzzle_files() walks off disk,
-# not the rows in puzzles/index.json. The index is a build artefact, generated
-# and not committed, and every tool that reads it rebuilds it first — so the
-# two agree by construction and the disk is the shorter way to say it. Walking
-# it here also keeps this test off the eleven-second rebuild it does not need:
-# the exception tables are keyed on clue text, which no index carries.
+# clue. The property under test: lengthening every key's finding string by one
+# trailing space must reproduce every finding the tables forgive, since a
+# prefix or substring match would still swallow some of them. Both tables are
+# checked separately, with their sizes read off len(), so a key that no longer
+# matches a live finding fails the run. Every key names its puzzle, so only the
+# puzzles the tables name are read for this.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 REPO="$PWD"
+scratch=$(mktemp -d)
+trap 'rm -rf "$scratch"' EXIT
 fails=0
 check() { if grep -qF -- "$2" <<<"$1"; then echo "  ok: $3"; else
   echo "  FAIL: $3"$'\n'"    wanted to find: $2"$'\n'"    in: $1"; fails=$((fails + 1)); fi; }
@@ -53,48 +39,164 @@ absent() { if grep -qF -- "$2" <<<"$1"; then
 same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 field() { awk -v k="$1" '$1==k {print $2}' <<<"$2"; }
+# A heredoc that died prints no fields, and empty fields say nothing of why.
+died() { if grep -q '^Traceback' <<<"$1"; then echo "  FAIL: $2 crashed:"
+  sed 's/^/    /' <<<"$1"; fails=$((fails + 1)); fi; }
 
-echo "the CLI's own LENGTH, GRID and NUMBER tallies are zero (DUPLICATE/CROSS/SHAPE are not this test's concern)"
-out=$(python3 tools/puzzle_integrity.py 2>&1)
-rc=$?
-# A run that died prints no tallies, and three empty counts say nothing of why.
-if ! grep -q '^  LENGTH' <<<"$out"; then
-  echo "  FAIL: puzzle_integrity.py printed no tallies (exit $rc); it ended:"
-  tail -n 20 <<<"$out" | sed 's/^/    /'
-  fails=$((fails + 1))
-fi
-same "LENGTH tally" "$(awk '/^  LENGTH/ {print $2}' <<<"$out")" "0"
-same "GRID tally" "$(awk '/^  GRID/ {print $2}' <<<"$out")" "0"
-same "NUMBER tally" "$(awk '/^  NUMBER/ {print $2}' <<<"$out")" "0"
-same "APOSTROPHE tally" "$(awk '/^  APOSTROPHE/ {print $2}' <<<"$out")" "0"
+echo "each per-file check flags its own defect, and nothing else"
+out1=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
+import copy
+from datetime import date
+import puzzle_integrity as pi
+from groups import entry_id
+
+TODAY = date(2026, 10, 5)
+# cryptic-24104 holds two findings UNLINKED_IN_SOURCE forgives, so every
+# mutation below also proves forgiving them does not blank out the rest of it.
+# cryptic-24447 holds the corpus's three-plus-light group ALL AND SUN DRY.
+base = {pid: pi.read_puzzle_file(pi.puzzle_paths.find(pid))
+        for pid in ("cryptic-24104", "cryptic-24447")}
+
+
+def kinds(pid, mutate=None):
+    p = copy.deepcopy(base[pid])
+    if mutate:
+        mutate(p, {entry_id(e): e for e in p["entries"]})
+    flags = []
+    pi.check_puzzle(p, TODAY, flags)
+    return ",".join(sorted({f[0] for f in flags})) or "none"
+
+
+def reorder(p, by):
+    g = by["13-across"]["group"]
+    by["13-across"]["group"] = [g[0]] + g[1:][::-1]
+
+
+def alter(p, by):
+    p["preamble"] = "Some answers are altered."
+    by["2-down"]["alteration"] = {"from": "YANKS", "steps": [{"op": "anagram"}]}
+
+
+def off_board(p, by):
+    # Unanswered, so the shifted light breaks no crossing: GRID alone.
+    by["1-across"]["position"]["x"] = 1
+    del by["1-across"]["solution"]
+
+
+MUTATIONS = {
+    "LENGTH": ("cryptic-24104", lambda p, by: by["1-across"]["clue"].update(enumeration="3,4,2,1,6")),
+    "ORDER": ("cryptic-24447", reorder),
+    "APOSTROPHE": ("cryptic-24104", lambda p, by: by["1-across"]["clue"].update(enumeration="3,4,2,1'5")),
+    "CROSS": ("cryptic-24104", lambda p, by: by["1-across"].update(solution="Z" + by["1-across"]["solution"][1:])),
+    "CELLS": ("cryptic-24104", lambda p, by: p.update(printed=[{"x": 0, "y": 0, "letter": "Z"}])),
+    "ALTERED": ("cryptic-24104", alter),
+    "GRID": ("cryptic-24104", off_board),
+    "NUMBER": ("cryptic-24104", lambda p, by: by["30-across"].update(number=31)),
+    "SETTER": ("cryptic-24104", lambda p, by: p.update(setter="Unknown")),
+    "SHAPE": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(text="")),
+    "PROV": ("cryptic-24104", lambda p, by: p["solutions"].update(origin="bogus")),
+}
+for pid in base:
+    print("PRISTINE", pid, kinds(pid))
+for flag, (pid, mutate) in MUTATIONS.items():
+    print("FLAG", flag, kinds(pid, mutate))
+# DATE, FILED and NEARDUP are cross-file; the CLI section below raises them.
+print("UNCOVERED", ",".join(sorted(set(pi.FLAGS) - set(MUTATIONS) - {"DATE", "FILED", "NEARDUP"})) or "none")
+PY
+)
+died "$out1" "the per-file fixtures"
+for pid in cryptic-24104 cryptic-24447; do
+  same "$pid as published is clean" "$(awk -v p="$pid" '$1=="PRISTINE" && $2==p {print $3}' <<<"$out1")" "none"
+done
+while read -r _ flag raised; do
+  same "a $flag defect is flagged $flag alone" "$raised" "$flag"
+done < <(grep '^FLAG ' <<<"$out1")
+same "every flag in FLAGS has a fixture" "$(field UNCOVERED "$out1")" "none"
+
+echo "the CLI on a scratch corpus: clean exits 0; DUPLICATE, NEARDUP and DATE across files exit 1"
+out2=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/cli" python3 - 2>&1 <<'PY'
+import contextlib, copy, io, json, os, re
+from datetime import date, timedelta
+from pathlib import Path
+import puzzle_integrity as pi
+import puzzle_paths
+
+real = pi.read_puzzle_file(puzzle_paths.find("cryptic-24447"))
+root = Path(os.environ["SCRATCH"])
+puzzle_paths.PUZZLE_DIR = root / "puzzles"
+pi.CACHE = root / "integrity-rows.pickle"
+puzzle_paths.PUZZLE_DIR.mkdir(parents=True)
+
+
+def put(p):
+    path = puzzle_paths.file_for(p)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(p))
+    return path
+
+
+def sibling(day, same_clues=0):
+    """cryptic-24448 on `day`; its first `same_clues` clues are 24447's, the
+    rest made its own."""
+    p = copy.deepcopy(real)
+    p.update(id="cryptic-24448", number=24448, date=day)
+    p["source"]["url"] = p["source"]["url"].replace("24447", "24448")
+    for i, e in enumerate(p["entries"]):
+        if i >= same_clues and e["clue"].get("text"):
+            e["clue"]["text"] = f"Other {i} " + e["clue"]["text"]
+    return p
+
+
+def cli(name):
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        rc = pi.main([])
+    text = out.getvalue()
+    tallies = {m[0]: int(m[1]) for m in re.findall(r"^  (\w+) +(\d+)", text, re.M)}
+    raised = ",".join(sorted(k for k, n in tallies.items() if n)) or "none"
+    print(name, rc, raised)
+
+
+put(real)
+day = date.fromisoformat(real["date"])
+later, earlier = str(day + timedelta(days=7)), str(day - timedelta(days=7))
+for name, p in [("CLEAN", sibling(later)),
+                ("DATE", sibling(earlier)),
+                ("NEARDUP", sibling(later, same_clues=len(real["entries"]) - 1)),
+                ("DUPLICATE", sibling(later, same_clues=len(real["entries"])))]:
+    path = put(p)
+    cli(name)
+    path.unlink()
+PY
+)
+died "$out2" "the scratch-corpus CLI"
+same "two clean puzzles: exit 0, every tally 0" "$(grep '^CLEAN ' <<<"$out2" | cut -d' ' -f2-)" "0 none"
+same "a later number dated earlier: exit 1, DATE alone" "$(grep '^DATE ' <<<"$out2" | cut -d' ' -f2-)" "1 DATE"
+same "all but one clue shared: exit 1, NEARDUP alone" "$(grep '^NEARDUP ' <<<"$out2" | cut -d' ' -f2-)" "1 NEARDUP"
+# A copy shares every clue too, so NEARDUP rides along with DUPLICATE.
+same "the same puzzle under another id: exit 1, DUPLICATE" "$(grep '^DUPLICATE ' <<<"$out2" | cut -d' ' -f2-)" "1 DUPLICATE,NEARDUP"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
-combo=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+combo=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
 from datetime import datetime, timezone
-import fetch_puzzle
 import puzzle_integrity as pi
 
 today = datetime.now(timezone.utc).date()
 
-# Walked straight off disk, not off puzzles/index.json -- see the file header
-# for why the committed index is not "the real corpus" for this test's
-# purposes. check_shape does not read either exception table, so the corpus
-# is read from disk exactly once here; every variant below reruns
-# check_length in memory.
+# Every key names its puzzle, so the puzzles the tables name are the only
+# ones whose findings the tables can change. check_shape reads neither table,
+# so it runs once per puzzle; every variant below reruns the rest in memory.
+named = sorted({pid for pid, _ in [*pi.PUBLISHED_WRONG, *pi.UNLINKED_IN_SOURCE]})
 cache = []
-for path in fetch_puzzle.puzzle_files():
-    puzzle = pi.read_puzzle_file(path)
-    flags = []
-    checkable = pi.check_shape(puzzle, today, flags)
-    cache.append((puzzle, checkable))
+for pid in named:
+    puzzle = pi.read_puzzle_file(pi.puzzle_paths.find(pid))
+    cache.append((puzzle, pi.check_shape(puzzle, today, [])))
 
 def length_count():
-    # EVERY check that consults the tables, so a dropped key shows up in this
+    # Every check that consults the tables, so a dropped key shows up in this
     # total whichever check would have produced its finding. The counts below
     # are read off len(table), so a check left out here reads as keys that
-    # forgive nothing and fails the run — which is what caught check_cross
-    # being absent from this list the day it started consulting PUBLISHED_WRONG,
-    # and check_numbering the day it started doing the same.
+    # forgive nothing and fails the run.
     flags = []
     for puzzle, checkable in cache:
         pi.check_length(puzzle, checkable, flags)
@@ -130,9 +232,10 @@ pi.UNLINKED_IN_SOURCE = orig_uis
 print("RESTORED", length_count())
 PY
 )
+died "$combo" "the exactness check"
 n_pw=$(awk '$1=="TABLE_SIZES" {print $2}' <<<"$combo")
 n_uis=$(awk '$1=="TABLE_SIZES" {print $3}' <<<"$combo")
-same "audit() finds no LENGTH defects on the real corpus today" \
+same "the puzzles the tables name report nothing with both tables in place" \
   "$(field BASELINE "$combo")" "0"
 same "lengthening every key by one trailing space reproduces all $((n_pw + n_uis)) findings" \
   "$(field LENGTHENED_BOTH "$combo")" "$((n_pw + n_uis))"
@@ -140,7 +243,7 @@ same "dropping PUBLISHED_WRONG alone reproduces its own $n_pw finding(s), not UN
   "$(field DROP_PUBLISHED_WRONG "$combo")" "$n_pw"
 same "dropping UNLINKED_IN_SOURCE alone reproduces its own $n_uis finding(s), not PUBLISHED_WRONG's" \
   "$(field DROP_UNLINKED_IN_SOURCE "$combo")" "$n_uis"
-same "both tables restored, corpus clean again" "$(field RESTORED "$combo")" "0"
+same "both tables restored, clean again" "$(field RESTORED "$combo")" "0"
 
 echo "non-blanket suppression: baselining a finding must not blank out the rest of its puzzle"
 out3=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
@@ -309,8 +412,6 @@ same "a date that is not a calendar day is flagged" "$(field PAPER_NO_DAY "$out6
 same "a date not written YYYY-MM-DD is flagged" "$(field PAPER_COMPACT "$out6")" "1"
 
 echo "a file not at file_for is FILED: wrong year, flat stray, wrong name"
-scratch=$(mktemp -d)
-trap 'rm -rf "$scratch"' EXIT
 out7=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch" python3 - <<'PY'
 import json, os, shutil
 from datetime import date
@@ -321,6 +422,7 @@ import puzzle_paths
 real = puzzle_paths.find("cryptic-24104")
 puzzle = pi.read_puzzle_file(real)
 puzzle_paths.PUZZLE_DIR = Path(os.environ["SCRATCH"]) / "puzzles"
+pi.CACHE = Path(os.environ["SCRATCH"]) / "integrity-rows.pickle"
 right = puzzle_paths.file_for(puzzle)
 right.parent.mkdir(parents=True)
 shutil.copy(real, right)

@@ -22,22 +22,28 @@
    `--needs-pages` answers that for a shard's list. A page reader missing from
    PAGES fails loudly on the missing file, it does not pass quietly.
 
+   A script in PARALLEL is single-threaded and touches nothing but its own
+   output, so a shard runs all of its PARALLEL items at once beside the rest
+   (the runner has CORES cores); LPT charges such an item COST/CORES.
+   `--parallel` prints the PARALLEL items of a shard's list, `--serial` the rest.
+
    Usage: printf '%s\n' tools/test_a.sh ... | node tools/ci_shards.js <i> <n>
           printf '%s\n' <shard's items> | node tools/ci_shards.js --needs-pages */
 "use strict";
 
-// Runner seconds, measured 2026-09-28. Every script that took three seconds or
+// Runner seconds, measured 2026-09-28 (smoke and the three slow scripts
+// re-measured 2026-10-05 from run 37311849285). Every script that took three seconds or
 // more is here; the default covers the rest and any test written since.
 const COST = {
-  // One slice of six. As four slices, one took 280-360s (run 36387064566):
-  // about 70s every slice pays plus its share of ~1000s of sweeps.
-  "tools/smoke_test.js": 240,
-  // 554s in a shard that had just written the pages, 185s in one that had not.
-  "tools/test_push_conflict.sh": 185,
-  "tools/test_puzzle_integrity.sh": 318,
+  // One slice of SLICES: about 70s every slice pays plus its share of ~4500s
+  // of sweeps over the 40,000-puzzle corpus (a sixth took over 740s).
+  "tools/smoke_test.js": 260,
+  "tools/test_push_conflict.sh": 60,
   "tools/test_reconstruct_grid.sh": 106,
+  "tools/test_paper_mode.js": 62,
+  "tools/test_file_trove_puzzles.sh": 56,
   "tools/test_solve_queue_clues.sh": 88,
-  "tools/test_shim_format.sh": 63,
+  "tools/test_shim_format.sh": 79,
   "tools/test_acquire_book.sh": 59,
   "tools/test_provenance.sh": 28,
   "tools/test_blog_facts.sh": 13,
@@ -50,7 +56,11 @@ const COST = {
 const DEFAULT_COST = 3;
 
 // How many slices each splittable script runs as (see the header).
-const SLICES = { "tools/smoke_test.js": 6 };
+const SLICES = { "tools/smoke_test.js": 24 };
+
+// See the header: run concurrently within a shard, CORES at a time.
+const PARALLEL = new Set(["tools/smoke_test.js"]);
+const CORES = 4;
 
 // The scripts that read what tools/build_seo_pages.py writes.
 const PAGES = new Set(["tools/smoke_test.js", "tools/test_og_tags.js"]);
@@ -75,7 +85,11 @@ const needsPages = (list) => list.some((item) => PAGES.has(fileOf(item)));
    in. */
 function shards(files, count) {
   const bins = Array.from({ length: count }, () => ({ load: 0, pages: false, files: [] }));
-  const cost = (item) => { const f = fileOf(item); return f in COST ? COST[f] : DEFAULT_COST; };
+  const cost = (item) => {
+    const f = fileOf(item);
+    const c = f in COST ? COST[f] : DEFAULT_COST;
+    return PARALLEL.has(f) ? c / CORES : c;
+  };
   const extra = (bin, item) => (PAGES.has(fileOf(item)) && !bin.pages ? PAGE_BUILD : 0);
   items(files)
     .sort((a, b) => cost(b) - cost(a) || (a < b ? -1 : a > b ? 1 : 0))
@@ -90,11 +104,15 @@ function shards(files, count) {
   return bins.map((b) => b.files);
 }
 
-module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES };
+module.exports = { shards, items, fileOf, needsPages, COST, DEFAULT_COST, SLICES, PAGES, PARALLEL };
 
+const stdinList = () => require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
 if (require.main === module && process.argv[2] === "--needs-pages") {
-  const list = require("fs").readFileSync(0, "utf8").split("\n").filter(Boolean);
-  process.exit(needsPages(list) ? 0 : 1);
+  process.exit(needsPages(stdinList()) ? 0 : 1);
+} else if (require.main === module && /^--(parallel|serial)$/.test(process.argv[2] || "")) {
+  const want = process.argv[2] === "--parallel";
+  const out = stdinList().filter((item) => PARALLEL.has(fileOf(item)) === want);
+  if (out.length) console.log(out.join("\n"));
 } else if (require.main === module) {
   const index = Number(process.argv[2]);
   const count = Number(process.argv[3]);

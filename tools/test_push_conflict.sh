@@ -31,14 +31,25 @@ fn=$(awk '/^  rebuild_generated_conflicts\(\) \{$/,/^  \}$/' tools/daily_update.
 [ -n "$fn" ] ||
   { echo "FAIL: rebuild_generated_conflicts is no longer where this test reads it from"; exit 1; }
 
-# A throwaway clone, because every case here ends mid-rebase and the real
-# checkout is not a place to leave one.
+# A throwaway repo, because every case here ends mid-rebase and the real
+# checkout is not a place to leave one. It holds HEAD's tree with the corpus cut
+# to the first few puzzles of each series: every builder below scales with the
+# corpus and none of the checks depends on its size, so a full copy only buys
+# minutes of reindexing and checkout. It borrows this repo's objects as an
+# alternate, so the cut tree is written from objects that exist, never rehashed.
 sand=$(mktemp -d)
 trap 'rm -rf "$sand"' EXIT
-git clone -q --local --no-hardlinks "$REPO" "$sand/work" || { echo "FAIL: clone"; exit 1; }
-cd "$sand/work" || exit 1
-git config user.email nobody@example.com
-git config user.name "test"
+objects=$(cd "$(git rev-parse --git-common-dir)" && pwd)/objects
+tree=$(git ls-tree -r --full-tree HEAD |
+  awk -F'\t' '$2 !~ /^puzzles\// || (split($2, p, "/") == 4 && n[p[2]]++ < 3)' |
+  GIT_INDEX_FILE="$sand/cut.idx" git update-index --add --index-info &&
+  GIT_INDEX_FILE="$sand/cut.idx" git write-tree) || { echo "FAIL: cut tree"; exit 1; }
+git init -q "$sand/work" && cd "$sand/work" || exit 1
+echo "$objects" > .git/objects/info/alternates
+git config user.email nobody@example.com && git config user.name "test" &&
+  git read-tree -u --reset "$tree" &&
+  git reset -q --soft "$(git commit-tree -m base "$tree")" ||
+  { echo "FAIL: snapshot"; exit 1; }
 eval "$fn"
 
 # The builders the function runs are the real ones, with two cuts that change
