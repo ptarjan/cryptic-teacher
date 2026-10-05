@@ -625,6 +625,36 @@ check("a word the other readings split over a line end is the clue's whole last 
 check("a clue whose last word the reading lost, the others disagreeing on it, still blanks", ["21-across"],
       sorted(ocr_clues.reconcile({"21-across": ("Vain display with a severe hair", "9", None)},
                                  [stream[0], stream[0].replace("Style", "Stylus")])[1]))
+# A list's heading is never a clue's text: a line of its own wherever the
+# column read it (times-16363 1D "Down i Beginning", times-18195 13A "on
+# the DOWN board"), and a clue still holding one is unfit.
+check("a heading read onto its first clue's line, after a count or inside a line is no clue's text",
+      ["ACROSS\n1 Fish dish (4)\n5 Sign on the board (5)\nDOWN\n1 Beginning to take a chance (6)\n2 Toast (4)"] * 2,
+      [f.tidy("ACROSS\n1 Fish dish (4)\n5 Sign on the DOWN board (5) DOWN\n1 Beginning to take a chance (6)\n2 Toast (4)"),
+       f.tidy("ACROSS\n1 Fish dish (4)\n5 Sign on the board (5)\nDown i Beginning to take a chance (6)\n2 Toast (4)")])
+check("a heading left in a clue's text is cut", ["Beginning to take a chance", "Bilingual agreement on the board",
+                                               "Down payment covering openers", "Flag is down, and safe"],
+      [ocr_clues.trimmed(t, lid) for t, lid in (("Down i Beginning to take a chance", "1-down"),
+                                                ("Bilingual agreement on the DOWN board", "13-across"),
+                                                ("Down payment covering openers", "3-down"),
+                                                ("Flag is down, and safe", "1-across"))])
+# A bracket a clue never pairs is a speck or a count torn open: cut where
+# it opens or closes the text, and unfit anywhere else.
+check("a torn count closing a clue, or a speck bracket opening it, is cut",
+      ["Wave provided by hair-dresser", "Try to get money from low land", "Headed paper?",
+       "During which Nature tried her hand on man (Burns)", "Wildly excited when it's put up in foreign currency",
+       "Order flowers on island", "Conflict with the law", "Looking back to Solomon's", "Taken from Henry (2 Hen. IV) on stage"],
+      [ocr_clues.trimmed(t, "5-down") for t in (
+          "Wave provided by hair-dresser (6", "Try to get money from low land (5.41.", "Headed paper? ( 8 .",
+          "During which Nature tried her hand on man (Burns) +).",
+          "Wildly excited when it's put up in foreign currency 1 7).", "( Order flowers on island",
+          ")Conflict with the law", "Looking back to Solomon's [9]", "Taken from Henry (2 Hen. IV) on stage")])
+check("a heading or an unpaired or square bracket is unfit; paired brackets and a lower-case down are not",
+      [True, True, True, True, True, False, False, False],
+      [bool(ocr_clues.fault(t, None, None)) for t in (
+          "Bilingual agreement on the DOWN board", "Down i Beginning to take a chance", "Just a Liberal) reformer beheaded!",
+          "A chance (out east) to) go wild", "Rum [sounding] idol", "Bottom (of a ship) here", "Flag is down, and safe",
+          "Across the border the outsiders exercise")])
 check("a bracket the clue never closes is a misread; a closed one stands",
       ([("(this", "a bracket never closed or opened")], []),
       (ocr_clues.suspect("Information influencing children initially is (this"),

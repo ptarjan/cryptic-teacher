@@ -1037,11 +1037,36 @@ PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
                        r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.I)
 
 
+#: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
+#: which no clue prints, or either opening the text before the first
+#: clue's number ("Down i Beginning", "ACROSS 1 Fish").
+HEADING_IN = re.compile(r"(?<![\w'])(?:ACROSS|DOWN)(?![\w'])"
+                        r"|^\W*(?i:across|down)\W*\s+(?:\d{1,2}|[iIl|!])\W?\s+(?=[A-Z\"'])")
+
+#: The brackets a clue pairs.
+PAIRS = {")": "(", "]": "["}
+
+
+def unpaired(text):
+    """The index of the first bracket `text` never closes or never opened
+    ("is (this", "for ) record", "[9)"), or None."""
+    stack = []
+    for i, c in enumerate(text or ""):
+        if c in "([":
+            stack.append((c, i))
+        elif c in PAIRS:
+            if not stack or stack[-1][0] != PAIRS[c]:
+                return i
+            stack.pop()
+    return stack[0][1] if stack else None
+
+
 def bled(text):
     """Why a clue OCR read holds text that is not its own, or None: a clue
     number opening a capitalised clue (NUMBERED_IN), another clue run in,
-    or the page's own words (PAGE_TEXT). No OCR filer writes such a clue
-    (scan_queue.file_puzzle)."""
+    the page's own words (PAGE_TEXT), a list's heading (HEADING_IN), a
+    bracket it never closes or opened (unpaired: a speck, or a count torn
+    off), or a square bracket or brace (a misread count or speck). No OCR filer writes such a clue (scan_queue.file_puzzle)."""
     text = text or ""
     m = NUMBERED_IN.search(text)
     if m:
@@ -1049,6 +1074,15 @@ def bled(text):
     m = PAGE_TEXT.search(text)
     if m:
         return f"holds the page's text: {text[max(0, m.start() - 8):m.end() + 8].strip()!r}"
+    m = HEADING_IN.search(text)
+    if m:
+        return f"holds a list's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
+    k = unpaired(text)
+    if k is not None:
+        return f"holds a bracket it never pairs: {text[max(0, k - 12):k + 12].strip()!r}"
+    m = re.search(r"[\[\]{}]", text)
+    if m:
+        return f"holds a square bracket or brace, which no clue prints: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
     return None
 
 
@@ -1079,8 +1113,11 @@ def trimmed(text, lid, voted=True):
         the pronoun is "I", and the newspaper i is quoted or ends a clue;
       - a line end's hyphen with specks between the halves ("buy- 4 ing",
         "like- .wise"), joined as clean() joins a bare one;
+      - a list's heading in capitals anywhere ("on the DOWN board");
       - a last token with no word in it and a bracket the clue never opened
-        ("0,6)", "S).") or a digit among symbols ("&%S4),").
+        ("0,6)", "S).", "writer 1 7).") or a digit among symbols ("&%S4),");
+      - a count torn open at its end ("hair-dresser (6", "(5.41.", "( 8 .")
+        and a speck read as a bracket before its first word (") The man").
     The lone i goes only from a `voted` text: before the vote, the other
     readings may have the word it is a remnant of ("raised i sharp" for
     "raised in sharp")."""
@@ -1094,14 +1131,26 @@ def trimmed(text, lid, voted=True):
         text = re.sub(r"(?<=[A-Za-z,;:] )i (?=[A-Za-z])", "", text)
     if own == "1":
         word = lid.split("-")[1]
-        text = re.sub(rf"^(?:{word}|{word.capitalize()}|{word.upper()})\W+(?=[A-Z][a-z])", "", text)
+        text = re.sub(rf"^(?:{word}|{word.capitalize()}|{word.upper()})(?:\W+|\W*\s+[1iIl|!]\W?\s+)(?=[A-Z][a-z])",
+                      "", text)
+    text = re.sub(r"\s*(?<![\w'])(?:ACROSS|DOWN)(?![\w'])\W*?(?=\s|$)", "", text).strip()
     text = re.sub(r"\b([A-Za-z]+)-\s+(?=[^\w\s]|\d)[^\w\s]*\d?[^\w\s]*\s*([a-z]+)\b", line_end_hyphen, text)
-    while "(" not in text:
+    while "(" not in text or ((k := unpaired(text)) is not None and text[k] in ")]"):
         head, _, last = text.rpartition(" ")
         if not head or re.search(r"[A-Za-z]{2}", last) or not (
                 ")" in last or (re.search(r"\d", last) and re.search(r"[&#@]", last))):
             break
         text = head.rstrip()
+        if re.fullmatch(r"[1l]", text.rpartition(" ")[2]) and re.search(r"\d", last):
+            text = text.rpartition(" ")[0].rstrip()  # "currency 1 7).": the count's "(" read as 1
+    text = re.sub(r"\s*\[\s*\d{1,2}(?:\s*[,\-]\s*\d{1,2})*\s*[\])][^\w(\[]*$", "", text)
+    k = unpaired(text)
+    if k is not None and text[k] in "([" and re.fullmatch(r"[(\[]\s*[\dSIl$]{0,2}(?:\s*[,.\-]\s*[\dSIl]{0,2})*[^\w(\[]*",
+                                                         text[k:]):
+        text = text[:k].rstrip()
+    k = unpaired(text)
+    if k is not None and not text[:k].strip():
+        text = text[k + 1:].lstrip()
     return text
 
 
@@ -1359,8 +1408,9 @@ def suspect(text, vouched=()):
                 break
     # A bracket the clue never closes, or never opened, is a letter or a
     # count misread ("is (this", "for ) record").
-    if (text or "").count("(") != (text or "").count(")"):
-        out.append((next(r for r in text.split() if "(" in r or ")" in r), "a bracket never closed or opened"))
+    k = unpaired(text)
+    if k is not None:
+        out.append((next(r for r in text.split() if text[k] in r), "a bracket never closed or opened"))
     return out
 
 
