@@ -202,7 +202,8 @@ def clues(word, letters):
 
 
 def count_html(n):
-    """A clue count beside a reading, as /learn/ shows one beside an indicator."""
+    """A clue count beside a word: the one way /abbreviations/, /indicators/
+    and /learn/ print one."""
     return f'&nbsp;<span class="muted n">{n:,}</span>' if n else ""
 
 

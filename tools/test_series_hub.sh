@@ -88,11 +88,17 @@ print("ONEWAY", src.count('class="badge diff') == 1 and src.count('class="badge 
       and B.harder_than("${d.percentile}") in app)
 chips = dict(re.findall(r'^\s{4}(\w+): \["([^"]*)"', app.split("const SERIES_BADGE = {", 1)[1]
                         .split("\n  };", 1)[0], re.M))
+# Clue counts beside words (/learn/, /indicators/, /abbreviations/) come from
+# build_abbreviations.count_html() alone; a showcase note wears the app's
+# feature-tag look, not the coverage badge's.
+print("COUNTS", not re.search(r'class="muted[^"]*">\{[^}]*:,\}', src))
+print("NOTE", '<span class="badge feature">65 letters</span>' in B.hub_row(ps[0], "65 letters")
+      and 'class="badge feature"' in app)
 print("CHIPS", bool(chips) and all(S.badge(k) == v for k, v in chips.items()))
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY CHIPS; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY COUNTS NOTE CHIPS; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
