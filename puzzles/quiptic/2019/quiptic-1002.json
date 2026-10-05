@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Explodes sculptures, including the head of Rodin",
     "enumeration": "6"
    },
-   "solution": "BURSTS"
+   "solution": "BURSTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BURSTS",
+    "definitions": [
+     {
+      "text": "Explodes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "the sculptures take in and hold the other piece inside themselves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sculptures",
+      "gives": "BUSTS",
+      "note": "busts are sculptures of head and shoulders"
+     },
+     {
+      "clueFragment": "Rodin",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the sculptor's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "R",
+      "STS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smashes statues, beginning with the head of a famous Rodin piece.",
+     "walkthrough": "Rodin was the French sculptor of The Thinker, which makes the scene of broken sculpture convincing.",
+     "definitionFit": "Bursts and explodes are both verbs for blowing apart suddenly under pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rodin"
+    }
+   }
   },
   {
    "number": 1,
@@ -66,7 +124,45 @@
     "text": "Recites aloud instrumental parts?",
     "enumeration": "5"
    },
-   "solution": "REEDS"
+   "solution": "REEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REEDS",
+    "definitions": [
+     {
+      "text": "instrumental parts?",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aloud",
+      "for": "homophone",
+      "note": "aloud tells us the word is heard rather than seen, so we want its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recites",
+      "gives": "REEDS",
+      "soundsLike": "READS",
+      "note": "to recite a text is to read it out"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer reads out the separate parts of a musical score.",
+     "walkthrough": "The question mark flags that the definition is playful: the vibrating strips in oboes and clarinets are literally parts of instruments.",
+     "definitionFit": "Reeds are the thin vibrating strips that produce sound in woodwind instruments such as clarinets and oboes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "instrumental"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +176,61 @@
     "text": "First to tie knot, went ahead and saw the world",
     "enumeration": "9"
    },
-   "solution": "TRAVELLED"
+   "solution": "TRAVELLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAVELLED",
+    "definitions": [
+     {
+      "text": "saw the world",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First to",
+      "for": "letter_selection",
+      "note": "first to a word means its opening letter is the one taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of tie"
+     },
+     {
+      "clueFragment": "knot",
+      "gives": "RAVEL",
+      "note": "a ravel is a tangle or knot"
+     },
+     {
+      "clueFragment": "went ahead",
+      "gives": "LED",
+      "note": "to lead is to go ahead of others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAVEL",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tied the knot, then set off on a round-the-world honeymoon.",
+     "definitionFit": "To have seen the world is to have journeyed widely, which is what a person who has been abroad a lot has done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knot"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +257,71 @@
     "text": "Awful mess leaves businessmen scrabbling for some bucks?",
     "enumeration": "7"
    },
-   "solution": "BUNNIES"
+   "solution": "BUNNIES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BUNNIES",
+    "definitions": [
+     {
+      "text": "some bucks?",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves here means departs from, so those letters go out of the longer word"
+     },
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "awful suggests a disorderly state, so the removed letters may come out in any order"
+     },
+     {
+      "text": "scrabbling",
+      "for": "anagram",
+      "note": "scrabbling is scrambling about frantically, so the remaining letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "businessmen",
+      "gives": "BUSINESSMEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "MESS",
+      "note": "taken as written, these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNNIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUINENS",
+       "gives": "BUNNIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Businessmen scramble for a few dollars after leaving an awful mess behind.",
+     "walkthrough": "Remove M, E, S, S from anywhere in BUSINESSMEN to leave BUINENS, then rearrange. 'Bucks' looks like dollars, but a buck is also a male rabbit.",
+     "definitionFit": "A buck is a male rabbit, and bunnies is a pet name for rabbits, so some bunnies are bucks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bucks"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +335,58 @@
     "text": "Underwear with visible edges — that's audacious",
     "enumeration": "5"
    },
-   "solution": "BRAVE"
+   "solution": "BRAVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAVE",
+    "definitions": [
+     {
+      "text": "audacious",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters at each end"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underwear",
+      "gives": "BRA",
+      "note": "a bra is an item of underwear"
+     },
+     {
+      "clueFragment": "visible",
+      "gives": "VE",
+      "select": "outer",
+      "note": "first and last letters of visible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wearing lingerie with its trim on show is a daring fashion choice.",
+     "definitionFit": "Brave and audacious are both adjectives for someone bold enough to take risks without fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +400,55 @@
     "text": "Mob allows production of natural fibre",
     "enumeration": "9"
    },
-   "solution": "LAMBSWOOL"
+   "solution": "LAMBSWOOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAMBSWOOL",
+    "definitions": [
+     {
+      "text": "natural fibre",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "production of",
+      "for": "anagram",
+      "note": "a production is something made from raw materials, so the letters are worked into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mob",
+      "gives": "MOB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "allows",
+      "gives": "ALLOWS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOBALLOWS",
+       "gives": "LAMBSWOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd permits the making of a natural textile.",
+     "definitionFit": "Lambswool is the soft wool shorn from young sheep, an animal-derived textile rather than a synthetic one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mob"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +462,53 @@
     "text": "Felt testicle, a bit round and complete",
     "enumeration": "6"
    },
-   "solution": "SETTLE"
+   "solution": "SETTLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SETTLE",
+    "definitions": [
+     {
+      "text": "complete",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit of the phrase means a piece sitting inside the words"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the piece is read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Felt testicle",
+      "gives": "ELTTES",
+      "note": "letters inside these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheeky medical self-examination, feeling for a lump that is roundish.",
+     "walkthrough": "The letters run across the join of the first two words and must be read from right to left.",
+     "definitionFit": "To settle a bill or a deal is to complete it, finishing the matter by paying or agreeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +522,47 @@
     "text": "Fifty-one pounds held in cash",
     "enumeration": "6"
    },
-   "solution": "LIQUID"
+   "solution": "LIQUID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIQUID",
+    "definitions": [
+     {
+      "text": "held in cash",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifty-one",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "QUID",
+      "note": "quid is British slang for pounds sterling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "QUID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has fifty-one pounds tucked away in banknotes.",
+     "walkthrough": "A quid is a pound, and the plural is also quid.",
+     "definitionFit": "Liquid assets are those kept as money or easily turned into money, unlike property or investments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +576,75 @@
     "text": "Process musical work with rocky intro — not right!",
     "enumeration": "9"
    },
-   "solution": "OPERATION"
+   "solution": "OPERATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OPERATION",
+    "definitions": [
+     {
+      "text": "Process",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "not right tells us the abbreviation for right is taken away"
+     },
+     {
+      "text": "rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady and shaken, so the letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical work",
+      "gives": "OPERA",
+      "note": "an opera is a sung dramatic work"
+     },
+     {
+      "clueFragment": "intro",
+      "gives": "INTRO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical piece with a shaky opening that is somehow off.",
+     "walkthrough": "Drop the R from INTRO first, then rearrange the four letters left.",
+     "definitionFit": "An operation is a process or procedure, a series of actions carried out to achieve something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocky"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +658,48 @@
     "text": "Leads in amateur drama may insist theatregoers come clean",
     "enumeration": "5"
    },
-   "solution": "ADMIT"
+   "solution": "ADMIT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADMIT",
+    "definitions": [
+     {
+      "text": "come clean",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leads in",
+      "for": "letter_selection",
+      "note": "the leads of words are those at the front, so each word supplies its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amateur drama may insist theatregoers",
+      "gives": "ADMIT",
+      "select": "first",
+      "note": "opening letters of five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADMIT"
+     ]
+    },
+    "explanation": {
+     "surface": "The stars of a village play demand that the audience confess something.",
+     "definitionFit": "To come clean is an idiom for confessing, owning up to something one had kept secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leads"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +713,61 @@
     "text": "Writer sues miserable publication",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "publication",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "miserable",
+      "for": "anagram",
+      "note": "miserable means wretched and out of sorts, so the letters are knocked out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "I",
+      "note": "the writer of a clue refers to themself as I"
+     },
+     {
+      "clueFragment": "sues",
+      "gives": "SUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SSUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUES",
+       "gives": "SSUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unhappy author takes a wretched magazine to court.",
+     "walkthrough": "'Miserable publication' reads as one phrase, but 'miserable' works on the word before it.",
+     "definitionFit": "An issue is one numbered edition of a magazine or newspaper, the thing that is published."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "miserable"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +781,42 @@
     "text": "Studios for all",
     "enumeration": "9"
    },
-   "solution": "UNIVERSAL"
+   "solution": "UNIVERSAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNIVERSAL",
+    "definitions": [
+     {
+      "text": "Studios",
+      "at": 0
+     },
+     {
+      "text": "for all",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Studios",
+      "note": "first meaning: the Hollywood film company and its studios"
+     },
+     {
+      "clueFragment": "for all",
+      "note": "second meaning: applying to everyone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first definition completes the name of the famous film studio; the second is the ordinary adjective.",
+     "definitionFit": "Universal Studios is a major Hollywood company, and universal as an adjective means applying to every person everywhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Studios"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +830,69 @@
     "text": "Expressed anger as wanton lodger embraced wife",
     "enumeration": "7"
    },
-   "solution": "GROWLED"
+   "solution": "GROWLED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GROWLED",
+    "definitions": [
+     {
+      "text": "Expressed anger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanton",
+      "for": "anagram",
+      "note": "wanton means unrestrained and wild, so the letters run riot"
+     },
+     {
+      "text": "embraced",
+      "for": "container",
+      "note": "to embrace is to wrap your arms around, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lodger",
+      "gives": "LODGER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRO",
+      "W",
+      "LED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LODGER",
+       "gives": "GROLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband snarled when a lusty lodger hugged his wife.",
+     "definitionFit": "To growl is to make a low angry noise, so someone who growled gave voice to their annoyance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wanton"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +906,55 @@
     "text": "Voting her out within a very short time",
     "enumeration": "9"
    },
-   "solution": "OVERNIGHT"
+   "solution": "OVERNIGHT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERNIGHT",
+    "definitions": [
+     {
+      "text": "within a very short time",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or askew, so the letters are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Voting",
+      "gives": "VOTING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VOTINGHER",
+       "gives": "OVERNIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electorate removed a leader from office almost immediately.",
+     "definitionFit": "An overnight success happens suddenly, so the word describes change that arrives with surprising speed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +968,73 @@
     "text": "Drunk labourites not able, unfortunately for lover",
     "enumeration": "6"
    },
-   "solution": "SUITOR"
+   "solution": "SUITOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SUITOR",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells us the following letters are missing from the longer word"
+     },
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things gone wrong, so the removed letters may be taken in any order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "labourites",
+      "gives": "LABOURITES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "able",
+      "gives": "ABLE",
+      "note": "taken as written, these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUITOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OURITS",
+       "gives": "SUITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy Labour Party members, sadly incapable, are no use as a partner.",
+     "walkthrough": "Take A, B, L, E out of LABOURITES to leave OURITS, then rearrange. Labourites are supporters of Britain's Labour Party.",
+     "definitionFit": "A suitor is a man courting a woman, an admirer or wooer, as a lover might be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "able"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1063,63 @@
     "16-down",
     "1-down",
     "4-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "I'M FOREVER BLOWING BUBBLES",
+    "definitions": [
+     {
+      "text": "hit",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compiler's",
+      "gives": "IM",
+      "note": "the compiler speaking of themself: I am, shortened"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "FOREVER",
+      "note": "forever means always"
+     },
+     {
+      "clueFragment": "spending recklessly",
+      "gives": "BLOWING",
+      "note": "to blow money is to spend it wastefully"
+     },
+     {
+      "clueFragment": "champagne",
+      "gives": "BUBBLES",
+      "note": "bubbles, or bubbly, is informal for champagne"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "FOREVER",
+      "BLOWING",
+      "BUBBLES"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses to splurging on fizz, then celebrates with a toast.",
+     "walkthrough": "The answer is a 1919 popular song, now famous as the anthem sung by fans of West Ham United football club.",
+     "definitionFit": "The song was a successful popular number, and a hit is a record or song that sells well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1133,63 @@
     "text": "Extremely literate and eager editorial",
     "enumeration": "6"
    },
-   "solution": "LEADER"
+   "solution": "LEADER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LEADER",
+    "definitions": [
+     {
+      "text": "editorial",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters, taken from each of the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "literate",
+      "gives": "LE",
+      "select": "outer",
+      "note": "end letters of literate"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AD",
+      "select": "outer",
+      "note": "end letters of and"
+     },
+     {
+      "clueFragment": "eager",
+      "gives": "ER",
+      "select": "outer",
+      "note": "end letters of eager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "AD",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a newspaper opinion piece that is highly cultured and enthusiastic.",
+     "walkthrough": "'Extremely' looks like an intensifier for literate, but it acts on all three following words, even the little 'and'.",
+     "definitionFit": "In British newspapers a leader is the editorial article giving the paper's own opinion on a topical matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1203,64 @@
     "text": "Goes back for ringleader fomenting unrest",
     "enumeration": "7"
    },
-   "solution": "RETURNS"
+   "solution": "RETURNS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RETURNS",
+    "definitions": [
+     {
+      "text": "Goes back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fomenting",
+      "for": "anagram",
+      "note": "fomenting means stirring up, so the letters are stirred into another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ringleader",
+      "gives": "R",
+      "note": "read as ring-leader: the leading letter of ring"
+     },
+     {
+      "clueFragment": "unrest",
+      "gives": "UNREST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETURNS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNREST",
+       "gives": "ETURNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The chief agitator comes back to stir up trouble once more.",
+     "walkthrough": "'Ringleader' reads as one word, but it splits into ring and leader, the opening letter of ring.",
+     "definitionFit": "Returns as a verb means comes or goes back to an earlier place, the same sense as the definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ringleader"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1274,67 @@
     "text": "Corrupts sweetheart in rolling fields",
     "enumeration": "7"
    },
-   "solution": "DEFILES"
+   "solution": "DEFILES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEFILES",
+    "definitions": [
+     {
+      "text": "Corrupts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "anagram",
+      "note": "rolling means tumbling over, so the letters tumble into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "read as sweet-heart: the central letter of sweet"
+     },
+     {
+      "clueFragment": "fields",
+      "gives": "FIELDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "FILES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIELDS",
+       "gives": "DFILES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic picture of a lover out in the rolling countryside, with a darker twist.",
+     "walkthrough": "'Sweetheart' reads as a lover, but it is the heart of sweet.",
+     "definitionFit": "To defile is to make impure or spoil something, which is what corrupting it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1348,42 @@
     "text": "Frank, call the shots!",
     "enumeration": "6"
    },
-   "solution": "DIRECT"
+   "solution": "DIRECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIRECT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     },
+     {
+      "text": "call the shots",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "note": "first meaning: straightforward and candid"
+     },
+     {
+      "clueFragment": "call the shots",
+      "note": "second meaning: to be in charge, give the orders"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Frank looks like a man's name being addressed, but it is the adjective for honest speech.",
+     "definitionFit": "As an adjective the word means blunt and honest; as a verb it means managing or giving instructions to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 20,
@@ -360,7 +1397,59 @@
     "text": "Shylock's first: his job is meagre",
     "enumeration": "7"
    },
-   "solution": "SLENDER"
+   "solution": "SLENDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLENDER",
+    "definitions": [
+     {
+      "text": "meagre",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the name before it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shylock's",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of the name"
+     },
+     {
+      "clueFragment": "his job",
+      "gives": "LENDER",
+      "note": "Shylock is a moneylender by trade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment on Shakespeare's Shylock: his trade brings in little.",
+     "walkthrough": "Shylock is the moneylender in Shakespeare's The Merchant of Venice, so 'his job' points to what he does.",
+     "definitionFit": "Slender means small or scanty, as in slender means or a slender chance, just like meagre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "job"
+    }
+   }
   },
   {
    "number": 21,
@@ -374,7 +1463,42 @@
     "text": "Twenties sheet music",
     "enumeration": "6"
    },
-   "solution": "SCORES"
+   "solution": "SCORES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCORES",
+    "definitions": [
+     {
+      "text": "Twenties",
+      "at": 0
+     },
+     {
+      "text": "sheet music",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twenties",
+      "note": "first meaning: groups of twenty"
+     },
+     {
+      "clueFragment": "sheet music",
+      "note": "second meaning: written musical parts for performers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Twenties suggests the decade or banknotes, but it means sets of twenty.",
+     "definitionFit": "A score is an old word for a group of twenty, and also the written notation of a musical composition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twenties"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1512,46 @@
     "text": "Rattle copper, as an example",
     "enumeration": "9"
    },
-   "solution": "CONDUCTOR"
+   "solution": "CONDUCTOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONDUCTOR",
+    "definitions": [
+     {
+      "text": "Rattle",
+      "at": 0
+     },
+     {
+      "text": "copper",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "as an example"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rattle",
+      "note": "first meaning: Sir Simon Rattle, the British orchestra leader"
+     },
+     {
+      "clueFragment": "copper",
+      "note": "second meaning: a metal that carries electricity well"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rattle looks like a verb meaning to shake or unsettle, and copper suggests a police officer; both are examples of the answer. Sir Simon Rattle has led the Berlin Philharmonic and London Symphony Orchestra.",
+     "definitionFit": "Simon Rattle directs orchestras with a baton, and copper is a metal that transmits electricity and heat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rattle"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1565,49 @@
     "text": "Say goat lost head",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "Say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost head",
+      "for": "deletion",
+      "note": "losing its head means the word's opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goat",
+      "gives": "BUTTER",
+      "note": "a goat is an animal that butts, so it is a butter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about a goat that has been decapitated.",
+     "walkthrough": "A goat butts with its horns, so in crossword logic it is a 'butter'.",
+     "definitionFit": "To utter is to speak or voice words aloud, the same as saying something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "goat"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1621,50 @@
     "text": "Played losing sides for loot",
     "enumeration": "5"
    },
-   "solution": "RIFLE"
+   "solution": "RIFLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIFLE",
+    "definitions": [
+     {
+      "text": "loot",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing sides",
+      "for": "deletion",
+      "note": "losing its sides means the word's first and last letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Played",
+      "gives": "TRIFLED",
+      "note": "to trifle is to play or toy idly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIFLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team that played badly and lost on all fronts went in search of plunder.",
+     "definitionFit": "To rifle a place is to search through it in order to steal, which is what looting means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1678,39 @@
     "text": "Transport for Bryan?",
     "enumeration": "5"
    },
-   "solution": "FERRY"
+   "solution": "FERRY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FERRY",
+    "definitions": [
+     {
+      "text": "Transport for Bryan?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transport for Bryan?",
+      "note": "surface reading: a vehicle laid on for a man called Bryan"
+     },
+     {
+      "clueFragment": "Transport for Bryan?",
+      "note": "setter's reading: a kind of boat that is also the surname of the Roxy Music singer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bryan points to the singer who fronted the 1970s band Roxy Music; his surname is a kind of boat carrying passengers across water.",
+     "definitionFit": "The answer is a boat that carries passengers or vehicles across a stretch of water, and also the singer's surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bryan"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1724,43 @@
     "text": "Correct pen by the sound of it",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it means we want a word heard the same, not spelt the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "RIGHT",
+      "soundsLike": "WRITE",
+      "note": "to pen a letter is to write it"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that a writing implement seems to be the proper one.",
+     "definitionFit": "Right and correct are both adjectives for something accurate and free of error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1774,47 @@
     "text": "Got better and renewed insurance",
     "enumeration": "9"
    },
-   "solution": "RECOVERED"
+   "solution": "RECOVERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECOVERED",
+    "definitions": [
+     {
+      "text": "Got better",
+      "at": 0
+     },
+     {
+      "text": "renewed insurance",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got better",
+      "note": "first meaning: returned to health"
+     },
+     {
+      "clueFragment": "renewed insurance",
+      "note": "second meaning: ..., having taken out cover again"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone back on their feet after illness signs up for a fresh health policy.",
+     "walkthrough": "Read the answer as RE-COVERED: insurance is called cover in Britain, so renewing it means being covered again.",
+     "definitionFit": "To have recovered is to have regained health; split as re-covered it means insured again with a new policy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "renewed"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1828,63 @@
     "text": "Uterus repaired with small stitches",
     "enumeration": "7"
    },
-   "solution": "SUTURES"
+   "solution": "SUTURES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUTURES",
+    "definitions": [
+     {
+      "text": "stitches",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repaired",
+      "for": "anagram",
+      "note": "something repaired has been put back together, so the letters are rebuilt in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uterus",
+      "gives": "UTERUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUTURE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UTERUS",
+       "gives": "SUTURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon closes up a womb after an operation with a few neat stitches.",
+     "definitionFit": "Sutures are the stitches surgeons use to close a wound or incision after an operation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 29,
@@ -486,7 +1898,54 @@
     "text": "Plea for each to let in some light",
     "enumeration": "6"
    },
-   "solution": "PRAYER"
+   "solution": "PRAYER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRAYER",
+    "definitions": [
+     {
+      "text": "Plea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to let in",
+      "for": "container",
+      "note": "letting in means admitting something inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "some light",
+      "gives": "RAY",
+      "note": "a ray is a beam, a small amount of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAY",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A request from everyone that the curtains be opened to brighten the room.",
+     "definitionFit": "A prayer is an earnest request or appeal, whether to God or to a person, much like a plea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   }
  ]
 }
