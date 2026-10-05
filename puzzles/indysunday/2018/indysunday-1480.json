@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Slaughter back-seat driver? Essentially, yes",
     "enumeration": "7"
    },
-   "solution": "CARNAGE"
+   "solution": "CARNAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CARNAGE",
+    "definitions": [
+     {
+      "text": "Slaughter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back-seat driver?",
+      "gives": "CARNAG",
+      "note": "someone who nags you in the car, read as a car nag"
+     },
+     {
+      "clueFragment": "yes",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the three-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARNAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A grisly hint that a back-seat driver's nagging might drive someone to murder.",
+     "walkthrough": "The question mark flags that back-seat driver is to be taken as a playful description: a nagger in a car.",
+     "definitionFit": "Carnage is wholesale bloody killing, a close synonym for a massacre or slaughter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Essentially"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,62 @@
     "text": "Kid told off outside The Crown in Lowestoft",
     "enumeration": "5"
    },
-   "solution": "CHILD"
+   "solution": "CHILD",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CHILD",
+    "definitions": [
+     {
+      "text": "Kid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one word sits on the outside of another, wrapping around it"
+     },
+     {
+      "text": "The Crown in",
+      "for": "letter_selection",
+      "note": "the crown of a word is its top, so in a down answer we take its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told off",
+      "gives": "CHID",
+      "note": "past tense of chide, to scold"
+     },
+     {
+      "clueFragment": "Lowestoft",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the Suffolk town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster gets a telling-off outside a pub called The Crown in the seaside town of Lowestoft.",
+     "walkthrough": "The Crown looks like a pub name, but it means the top letter. Chid is an old past tense of chide.",
+     "definitionFit": "A kid is an informal word for a child, a young person or offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crown"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,42 @@
     "text": "Piece of paper",
     "enumeration": "3"
    },
-   "solution": "RAG"
+   "solution": "RAG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAG",
+    "definitions": [
+     {
+      "text": "Piece",
+      "at": 0
+     },
+     {
+      "text": "paper",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece",
+      "note": "first meaning: a scrap of cloth"
+     },
+     {
+      "clueFragment": "paper",
+      "note": "second meaning: a low-quality newspaper"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it looks like one definition, a scrap of paper; split, it is two senses of one short word.",
+     "definitionFit": "A rag is a scrap of fabric, and also a slangy dismissive term for a tabloid newspaper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piece"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,66 @@
     "text": "One helping Texan behind on time isn't a rogue",
     "enumeration": "9"
    },
-   "solution": "ASSISTANT"
+   "solution": "ASSISTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ASSISTANT",
+    "definitions": [
+     {
+      "text": "One helping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down answer one piece placed on another sits above it, so the Texan's word comes first"
+     },
+     {
+      "text": "a rogue",
+      "for": "anagram",
+      "note": "something gone rogue behaves wildly, so these letters break out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Texan behind",
+      "gives": "ASS",
+      "note": "American slang for the backside, as a Texan might say"
+     },
+     {
+      "clueFragment": "time isn't a",
+      "gives": "TISNTA",
+      "note": "time is abbreviated to T, and the remaining words are taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ISTANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TISNTA",
+       "gives": "ISTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Texan running late insists he is no villain.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the rest. The fodder is 'time isn't a', so the 'a' belongs to the letters, not to 'a rogue'.",
+     "definitionFit": "An assistant is a person who aids or supports another in their work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +291,62 @@
     "text": "Preface of exceptionally good book summary",
     "enumeration": "7"
    },
-   "solution": "EPITOME"
+   "solution": "EPITOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPITOME",
+    "definitions": [
+     {
+      "text": "summary",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Preface of",
+      "for": "letter_selection",
+      "note": "a preface comes at the front, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exceptionally",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "PI",
+      "note": "short for pious, a crossword standby for good"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a large, weighty volume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PI",
+      "TOME"
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for the introduction to a book summary.",
+     "walkthrough": "PI, short for pious, is a common crossword abbreviation for good.",
+     "definitionFit": "An epitome can mean an abstract or condensed account of a work, which is a summary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +360,59 @@
     "text": "Large cups full of spirit for Hoskins?",
     "enumeration": "7"
    },
-   "solution": "MUGGINS"
+   "solution": "MUGGINS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MUGGINS",
+    "definitions": [
+     {
+      "text": "Hoskins",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "a vessel full of something holds it inside, so one word is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large cups",
+      "gives": "MUGS",
+      "note": "big drinking cups"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "a common spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUG",
+      "GIN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Big mugs brimming with liquor for the setter.",
+     "walkthrough": "Hoskins is the setter of this puzzle; muggins is a jokey self-deprecating name for oneself, so it stands for the setter.",
+     "definitionFit": "Muggins is a humorous way of referring to oneself as the fool who gets lumbered, here the setter himself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hoskins"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +426,43 @@
     "text": "Social conduct of people at station, perhaps",
     "enumeration": "7"
    },
-   "solution": "MANNERS"
+   "solution": "MANNERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MANNERS",
+    "definitions": [
+     {
+      "text": "Social conduct",
+      "at": 0
+     },
+     {
+      "text": "people at station, perhaps",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social conduct",
+      "note": "first meaning: polite behaviour"
+     },
+     {
+      "clueFragment": "people at station, perhaps",
+      "note": "second meaning: those who staff a post or station, read as a whimsical coinage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a playful coinage: those who man a station would be its 'manners'.",
+     "definitionFit": "Manners are the accepted forms of polite behaviour in society, and in jest the crew who staff a post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "station"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +476,61 @@
     "text": "Posh Liberal bound in restraint here?",
     "enumeration": "5"
    },
-   "solution": "GULAG"
+   "solution": "GULAG",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "GULAG",
+    "definitions": [
+     {
+      "text": "Posh Liberal bound in restraint here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bound in",
+      "for": "container",
+      "note": "something bound in a restraint is held inside it, so these pieces go within another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "the party abbreviation"
+     },
+     {
+      "clueFragment": "restraint",
+      "gives": "GAG",
+      "note": "something that stops the mouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "L",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-to-do liberal ends up shackled and silenced somewhere grim.",
+     "walkthrough": "U is the old label for upper-class usage. Read whole, the clue describes the place: a liberal locked up and gagged, as dissidents were in Soviet camps.",
+     "definitionFit": "The gulag was the Soviet system of forced labour camps where political prisoners were held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -159,7 +558,59 @@
      }
     ]
    },
-   "solution": "INAGOODSEAM"
+   "solution": "INAGOODSEAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN A GOOD SEAM",
+    "definitions": [
+     {
+      "text": "doing well",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weirdly",
+      "for": "anagram",
+      "note": "done weirdly means done in a strange, disordered way, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm a sod",
+      "gives": "IMASOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "an ego",
+      "gives": "ANEGO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMASODANEGO",
+       "gives": "INAGOODSEAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-confessed swine with a big head who is somehow prospering.",
+     "walkthrough": "The phrase comes from mining: a miner working a rich vein of ore is doing well.",
+     "definitionFit": "To be in a good seam is an idiom for being prosperous or enjoying a successful run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sod"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +638,51 @@
      }
     ]
    },
-   "solution": "SONOFAGUN"
+   "solution": "SONOFAGUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SON OF A GUN",
+    "definitions": [
+     {
+      "text": "bad hat",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "issue",
+      "gives": "SON",
+      "note": "issue means offspring"
+     },
+     {
+      "clueFragment": "Maybe Billy the Kid's",
+      "gives": "OFAGUN",
+      "note": "the outlaw was a famous gunman, so his child is the child of a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SON",
+      "OFAGUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether the Wild West outlaw's problem was a rotten hat.",
+     "walkthrough": "Issue looks like a problem but means offspring; Billy the Kid, the gunslinger, is cast as 'a gun'. A bad hat is old British slang for a rogue.",
+     "definitionFit": "Son of a gun is an affectionate term for a rascal, much as bad hat is an old term for a scoundrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 9,
@@ -201,7 +696,72 @@
     "text": "Gents in Ohio regularly suffering consumption",
     "enumeration": "9"
    },
-   "solution": "INGESTION"
+   "solution": "INGESTION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "INGESTION",
+    "definitions": [
+     {
+      "text": "consumption",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is battered out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gents",
+      "gives": "GENTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ohio",
+      "gives": "OI",
+      "select": "alternate",
+      "note": "the first and third letters of the state name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENTSINOI",
+       "gives": "INGESTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men in an American state are said to be ill with tuberculosis.",
+     "walkthrough": "Consumption is the old name for TB, which fits the surface of men suffering, but here it means eating. Only the first 'in' is fodder.",
+     "definitionFit": "Ingestion is the act of taking food or drink into the body, that is, consumption."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "consumption"
+    }
+   }
   },
   {
    "number": 10,
@@ -215,7 +775,58 @@
     "text": "Study bit of lovemaking and make some money",
     "enumeration": "5"
    },
-   "solution": "LEARN"
+   "solution": "LEARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LEARN",
+    "definitions": [
+     {
+      "text": "Study",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "just a small bit is taken, the opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovemaking",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "make some money",
+      "gives": "EARN",
+      "note": "to be paid for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sounds like advice to research sex and turn a profit from it.",
+     "definitionFit": "To learn is to study a subject and acquire knowledge of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lovemaking"
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +846,54 @@
      }
     ]
    },
-   "solution": "DIMESTORE"
+   "solution": "DIMESTORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIME STORE",
+    "definitions": [
+     {
+      "text": "US outlet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "present in a different way",
+      "for": "anagram",
+      "note": "showing words in another form means rearranging their letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some tried",
+      "gives": "SOMETRIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMETRIED",
+       "gives": "DIMESTORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American shop where some staff attempted a new style of display.",
+     "walkthrough": "A dime store is the American name for a shop selling cheap goods, like a British pound shop.",
+     "definitionFit": "A dime store is an American retail outlet selling inexpensive everyday goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +907,69 @@
     "text": "I hate folk confusing metaphors and similes essentially",
     "enumeration": "11"
    },
-   "solution": "MISANTHROPE"
+   "solution": "MISANTHROPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "MISANTHROPE",
+    "definitions": [
+     {
+      "text": "I hate folk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence is the heart, so the central letter of each of the last two words"
+     },
+     {
+      "text": "confusing",
+      "for": "anagram",
+      "note": "to confuse is to mix things up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metaphors",
+      "gives": "METAPHORS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "N",
+      "select": "middle",
+      "note": "the middle letter"
+     },
+     {
+      "clueFragment": "similes",
+      "gives": "I",
+      "select": "middle",
+      "note": "the central of seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METAPHORSNI",
+       "gives": "MISANTHROPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pedant's complaint about people who muddle their figures of speech.",
+     "walkthrough": "'Essentially' works on both 'and' and 'similes'. The definition is what such a person would say: 'I hate folk'.",
+     "definitionFit": "A misanthrope dislikes humankind in general, so their motto could be a declared loathing of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "confusing"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +989,41 @@
      }
     ]
    },
-   "solution": "GOOFF"
+   "solution": "GOOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO OFF",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     },
+     {
+      "text": "leave",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "note": "first meaning: become sour or spoilt, as milk does"
+     },
+     {
+      "clueFragment": "leave",
+      "note": "second meaning: depart"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrasal verb means both to spoil, as food or milk does, and to depart from a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1037,52 @@
     "text": "Seaside breezes? That could be good for one!",
     "enumeration": "7"
    },
-   "solution": "DISEASE"
+   "solution": "DISEASE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DISEASE",
+    "definitions": [
+     {
+      "text": "Seaside breezes? That could be good for one!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breezes",
+      "for": "anagram",
+      "note": "a breeze blows things about, so the letters before it are tossed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside",
+      "gives": "SEASIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEASIDE",
+       "gives": "DISEASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh sea air is touted as a tonic for the sick.",
+     "walkthrough": "Read whole, the clue points at the answer: sea breezes were long prescribed as a cure, so they would be good for an illness, the 'one'.",
+     "definitionFit": "A disease is an illness, the kind of ailment a seaside convalescence was once supposed to relieve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "breezes"
+    }
+   }
   },
   {
    "number": 14,
@@ -297,7 +1096,60 @@
     "text": "I left Don messing about with a wood-stripper",
     "enumeration": "9"
    },
-   "solution": "DEFOLIANT"
+   "solution": "DEFOLIANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEFOLIANT",
+    "definitions": [
+     {
+      "text": "wood-stripper",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messing about",
+      "for": "anagram",
+      "note": "messing about means fooling around without order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I left Don",
+      "gives": "ILEFTDON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILEFTDONA",
+       "gives": "DEFOLIANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walked out on a man who was playing about with a stripper.",
+     "walkthrough": "'Stripper' suggests something racy or a paint remover; here it is a chemical stripping leaves from woodland.",
+     "definitionFit": "A defoliant is a chemical that makes trees shed their leaves, so it strips a forest bare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wood-stripper"
+    }
+   }
   },
   {
    "number": 15,
@@ -311,7 +1163,65 @@
     "text": "Do wrong snarfing heroin and a little punch?",
     "enumeration": "7"
    },
-   "solution": "SHINDIG"
+   "solution": "SHINDIG",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SHINDIG",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snarfing",
+      "for": "container",
+      "note": "to snarf is to gobble up, so one word swallows another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a wrongdoing"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "drug slang abbreviation"
+     },
+     {
+      "clueFragment": "a little punch",
+      "gives": "DIG",
+      "note": "a light poke or jab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "IN",
+      "DIG"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether gobbling drugs and drinking a drop of spiked punch counts as misbehaving at a party.",
+     "walkthrough": "'Do' looks like a verb, but it is the noun for a party. 'Punch' suggests the party drink; here it is a jab.",
+     "definitionFit": "A do and a shindig are both informal British words for a lively party or celebration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "punch"
+    }
+   }
   },
   {
    "number": 16,
@@ -331,7 +1241,43 @@
      }
     ]
    },
-   "solution": "INCONCERT"
+   "solution": "INCONCERT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN CONCERT",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     },
+     {
+      "text": "together",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "note": "first meaning: performed on stage before an audience"
+     },
+     {
+      "clueFragment": "together",
+      "note": "second meaning: acting jointly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Live together' reads as cohabiting, with 'live' a verb; it is the adjective, rhyming with five.",
+     "definitionFit": "The phrase describes a performance given live in public and also people acting jointly in agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Live"
+    }
+   }
   },
   {
    "number": 17,
@@ -345,7 +1291,64 @@
     "text": "Huge Lover? Cool down, taking a short moment!",
     "enumeration": "7"
    },
-   "solution": "FANATIC"
+   "solution": "FANATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FANATIC",
+    "definitions": [
+     {
+      "text": "Huge Lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the last letter is chopped off"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool down",
+      "gives": "FAN",
+      "note": "to cool by moving air"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "TICK",
+      "note": "a very short time, as in 'just a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAN",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "An over-eager admirer is told to calm down and take a breather.",
+     "walkthrough": "Huge Lover is a big fan, an enthusiast taken to extremes; 'tick' is British for a moment.",
+     "definitionFit": "A fanatic is an extreme enthusiast, a devotee whose love for something is excessive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lover"
+    }
+   }
   },
   {
    "number": 18,
@@ -359,7 +1362,67 @@
     "text": "When to support actors touring independent houses",
     "enumeration": "7"
    },
-   "solution": "CASITAS"
+   "solution": "CASITAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CASITAS",
+    "definitions": [
+     {
+      "text": "houses",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down answer a support sits underneath, so this goes below"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour is to travel around, so the pair go around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "the actors in a production"
+     },
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as in 'as I left'"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "I",
+      "T",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks when to back performers on a tour of independent theatres.",
+     "walkthrough": "Casitas is borrowed from Spanish, small houses, often holiday cottages in the American south-west.",
+     "definitionFit": "A casita is a small house or cottage, so casitas are houses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1436,64 @@
     "text": "Dirty old man's brother has one after stripping",
     "enumeration": "7"
    },
-   "solution": "UNCLEAN"
+   "solution": "UNCLEAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNCLEAN",
+    "definitions": [
+     {
+      "text": "Dirty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after stripping",
+      "for": "letter_selection",
+      "note": "stripping removes the outer layer, so each word loses its outside letters and keeps its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man's brother",
+      "gives": "UNCLE",
+      "note": "old man is slang for father, and his brother is this relation"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "A",
+      "select": "middle",
+      "note": "the middle letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "N",
+      "select": "middle",
+      "note": "the middle letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty old man's brother is a relative who also takes off his clothes.",
+     "walkthrough": "'Dirty old man' looks like one phrase, but the definition ends after 'Dirty'; 'old man' is father.",
+     "definitionFit": "Unclean means soiled or filthy, the same as dirty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stripping"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1507,60 @@
     "text": "A French editor welcoming singer without standing?",
     "enumeration": "7"
    },
-   "solution": "UNRATED"
+   "solution": "UNRATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNRATED",
+    "definitions": [
+     {
+      "text": "without standing",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone takes them in, so a word goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "the French for a"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "RAT",
+      "note": "an informer who sings to the police"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A French editor greets a singer who doesn't stand up.",
+     "walkthrough": "A rat 'sings', that is, informs to the police. 'A French editor' is read as one unit that takes the singer in between its two parts.",
+     "definitionFit": "Unrated means having no assessed ranking, so lacking any standing or rating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1574,42 @@
     "text": "Composer of simple harmonies",
     "enumeration": "5"
    },
-   "solution": "LEHAR"
+   "solution": "LEHAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEHAR",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "made of means drawn out of the following words, which contain the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "simple harmonies",
+      "gives": "LEHAR",
+      "note": "runs across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A composer known for uncomplicated harmony.",
+     "walkthrough": "Franz Lehár wrote the operetta The Merry Widow.",
+     "definitionFit": "Franz Lehár was an Austro-Hungarian composer, best known for operettas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1623,41 @@
     "text": "Flowers and chocolates",
     "enumeration": "5"
    },
-   "solution": "ROSES"
+   "solution": "ROSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSES",
+    "definitions": [
+     {
+      "text": "Flowers",
+      "at": 0
+     },
+     {
+      "text": "chocolates",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flowers",
+      "note": "first meaning: blooms on thorny shrubs"
+     },
+     {
+      "clueFragment": "chocolates",
+      "note": "second meaning: a well-known British boxed assortment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Roses is a brand of Cadbury chocolates sold in tins, a British gift staple.",
+     "definitionFit": "Roses are classic flowers, and Roses is also a popular British brand of boxed chocolates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -429,7 +1671,39 @@
     "text": "Guy responsible for the phonebook's demise?",
     "enumeration": "9"
    },
-   "solution": "STRONGMAN"
+   "solution": "STRONGMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STRONGMAN",
+    "definitions": [
+     {
+      "text": "Guy responsible for the phonebook's demise?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy responsible for the phonebook's demise?",
+      "note": "surface reading: the person whose invention made printed directories obsolete"
+     },
+     {
+      "clueFragment": "phonebook's demise",
+      "note": "setter's reading: a fairground muscleman who tears a phone directory in half"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "We think of mobile phones or the internet killing the directory; the demise is literal, a circus performer ripping one apart.",
+     "definitionFit": "Tearing a thick telephone directory in two is a classic feat of a circus muscleman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "demise"
+    }
+   }
   },
   {
    "number": 23,
@@ -443,7 +1717,58 @@
     "text": "Those against holding onto Troy's fivers?",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTES",
+    "definitions": [
+     {
+      "text": "fivers",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding onto",
+      "for": "container",
+      "note": "holding onto something keeps it gripped within, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those against",
+      "gives": "NOES",
+      "note": "votes against in a division"
+     },
+     {
+      "clueFragment": "Troy",
+      "gives": "T",
+      "note": "abbreviation for troy, the weight system"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "T",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Opponents clinging to a man called Troy's five-pound notes.",
+     "walkthrough": "Troy looks like a name; it is troy weight, used for precious metals, abbreviated t. A fiver is a five-pound note.",
+     "definitionFit": "Fivers are banknotes worth five pounds, so they are notes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Troy"
+    }
+   }
   },
   {
    "number": 24,
@@ -457,7 +1782,68 @@
     "text": "Toilet trips (finally) after a pair of spicy dishes?",
     "enumeration": "5"
    },
-   "solution": "ALOOS"
+   "solution": "ALOOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ALOOS",
+    "definitions": [
+     {
+      "text": "pair of spicy dishes",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "the final letter only is taken"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the toilet and the end letter come after the article, so it heads the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Toilet",
+      "gives": "LOO",
+      "note": "British informal word for a toilet"
+     },
+     {
+      "clueFragment": "trips",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LOO",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Curry eaten twice leads to repeated dashes to the lavatory.",
+     "walkthrough": "Aloo is potato in Indian cookery, as in aloo gobi, so two of them are aloos.",
+     "definitionFit": "An aloo is a spiced Indian potato dish, so a pair of them is plural aloos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trips"
+    }
+   }
   },
   {
    "number": 25,
@@ -481,7 +1867,46 @@
      }
     ]
    },
-   "solution": "TOTHELEFT"
+   "solution": "TOTHELEFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO THE LEFT",
+    "definitions": [
+     {
+      "text": "How a man might dress",
+      "at": 0
+     },
+     {
+      "text": "having a non-conservative bent",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How a man might dress",
+      "note": "first meaning: the side a tailor asks about when fitting trousers"
+     },
+     {
+      "clueFragment": "having a non-conservative bent",
+      "note": "second meaning: leaning politically leftwards"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tailors ask a man which side he dresses on, meaning where his genitals sit in the trousers; 'bent' nods to that too.",
+     "definitionFit": "The phrase is a tailor's term for which trouser leg a man favours, and also means politically left-wing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 26,
@@ -495,7 +1920,52 @@
     "text": "Attention: clothes should come with no top",
     "enumeration": "3"
    },
-   "solution": "EAR"
+   "solution": "EAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAR",
+    "definitions": [
+     {
+      "text": "Attention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no top",
+      "for": "deletion",
+      "note": "in a down answer the top is the first letter, which is removed"
+     }
+    ],
+    "linkWords": [
+     "should come"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clothes",
+      "gives": "GEAR",
+      "note": "informal word for clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion rule: clothes should be worn without a top.",
+     "walkthrough": "'Top' suggests a garment, which suits the clothes surface, but it is the first letter.",
+     "definitionFit": "To give someone your ear is to pay attention to them, so ear means attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 27,
@@ -509,7 +1979,39 @@
     "text": "Headlocks!",
     "enumeration": "7"
    },
-   "solution": "TRESSES"
+   "solution": "TRESSES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRESSES",
+    "definitions": [
+     {
+      "text": "Headlocks",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Headlocks",
+      "note": "surface reading: wrestling holds around the neck"
+     },
+     {
+      "clueFragment": "Headlocks",
+      "note": "setter's reading: locks of hair growing on the head"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A headlock is a wrestling hold; split it as head locks and it means long hair.",
+     "definitionFit": "Tresses are long locks of hair, the locks on a person's head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Headlocks"
+    }
+   }
   },
   {
    "number": 28,
@@ -523,7 +2025,71 @@
     "text": "Old fools point poets away from Brighton's front",
     "enumeration": "7"
    },
-   "solution": "DOTARDS"
+   "solution": "DOTARDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "DOTARDS",
+    "definitions": [
+     {
+      "text": "Old fools",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter"
+     },
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "one thing moving away from another leaves it behind, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "DOT",
+      "note": "a small mark"
+     },
+     {
+      "clueFragment": "poets",
+      "gives": "BARDS",
+      "note": "poets, as in the Bard"
+     },
+     {
+      "clueFragment": "Brighton",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of the seaside town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOT",
+      "ARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly duffers direct poets away from the seafront at Brighton.",
+     "walkthrough": "Brighton's front sounds like its seafront promenade, but it is the town's first letter, removed from the poets.",
+     "definitionFit": "A dotard is an old person whose mind has weakened with age, so dotards are old fools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "front"
+    }
+   }
   }
  ]
 }
