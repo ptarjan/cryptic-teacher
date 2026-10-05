@@ -52,6 +52,7 @@ SOURCES = {
     "ftcryptic": (None, "fifteensquared.net's FT posts start in 2009, the FT PDFs "
                         "Wayback holds in 2006 (tools/ft_pdf_puzzles.py index), and the "
                         "archive.org FT scans in 1971 (tools/file_archive_org_puzzles.py)"),
+    "genius": (None, "the Guardian's Genius PDFs start around No 147 in 2016 (tools/genius_puzzles.py)"),
     "azed": (None, "fifteensquared.net's Azed posts start in 2006 (tools/azed_puzzles.py)"),
     "listener": (None, "filed from the Listener Team's archive by tools/listener_puzzles.py"),
     "telegraph": (None, _TELEGRAPH),

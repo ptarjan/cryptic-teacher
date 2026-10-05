@@ -260,6 +260,10 @@ ACQUIRED_BY = {
         "what": "a fifteensquared write-up of the Observer's Azed: its clues and "
                 "numbered answers, the bars rebuilt from them by "
                 "tools/barred_grid.py's search"},
+    "tools/genius_puzzles.py": {
+        "channel": "publisher",
+        "what": "the Guardian's printable Genius PDF on uploads.guim.co.uk, its "
+                "clues and grid read from it, the answers fifteensquared's"},
     "tools/ft_pdf_puzzles.py": {
         "channel": "publisher",
         "what": "the FT's printable crossword PDF on media.ft.com, its grid read "
@@ -326,6 +330,7 @@ ACQUISITION_BY_SOURCE = {
                                     "tools/ft_pdf_puzzles.py --wayback"),
     # A second series off fifteensquared, which BLOG_FILER names the FT's filer for.
     ("azed", "fifteensquared.net"): ("tools/azed_puzzles.py",),
+    ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),

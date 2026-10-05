@@ -73,6 +73,9 @@ CATEGORIES = {
     # The Observer's barred Azed, filed by tools/azed_puzzles.py: the posts
     # print every clue beside its answer, and the bars rebuild from those.
     "Azed": None,
+    # The Guardian's monthly Genius, filed by tools/genius_puzzles.py: its
+    # clues and grid come from the Guardian's printable PDF, the answers here.
+    "Guardian Genius": None,
 }
 
 _last_request = [0.0]

@@ -478,6 +478,13 @@ tools/azed_puzzles.py                        files the Observer's barred Azed fr
                                              and numbered answers with the FT's reader and
                                              rebuilds the bars from them, so a special whose
                                              answers go in altered is not filed
+tools/genius_puzzles.py                      files the Guardian's monthly Genius from its
+                                             printable PDFs on uploads.guim.co.uk (clues and
+                                             preamble read as text, the grid from its image)
+                                             with fifteensquared's answers, filed only when the
+                                             grid's numbering matches the clue list and every
+                                             answer crosses, so a trick that alters entries is
+                                             not filed
 tools/listener_puzzles.py                    files the Listener crossword from the Listener
                                              Team's archive PDFs (clues, bars and letters read
                                              from the vector pages) and from Wayback copies of
