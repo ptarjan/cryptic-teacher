@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Uncertain moment not starting",
     "enumeration": "4"
    },
-   "solution": "IFFY"
+   "solution": "IFFY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IFFY",
+    "definitions": [
+     {
+      "text": "Uncertain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "a word that is not starting has lost its opening letter, so the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moment",
+      "gives": "JIFFY",
+      "note": "a jiffy is a very short moment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IFFY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitating at a moment when things refuse to get going.",
+     "definitionFit": "Iffy is informal for doubtful or not certain, used of plans or outcomes that may not happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moment"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,58 @@
     "text": "Wish for large kind of pudding outside",
     "enumeration": "6"
    },
-   "solution": "PLEASE"
+   "solution": "PLEASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEASE",
+    "definitions": [
+     {
+      "text": "Wish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the pudding sits outside, wrapping round the other letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind of pudding",
+      "gives": "PEASE",
+      "note": "pease pudding is a dish of boiled split peas"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hankering after a large helping of some sort of pudding.",
+     "walkthrough": "Pease pudding is a traditional British dish of boiled split peas. The answer is the verb in 'do as you please', meaning do as you wish.",
+     "definitionFit": "As a verb, to please means to like or choose, as in 'take whatever you please'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wish"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +155,55 @@
     "text": "It's important to put out flame in gun",
     "enumeration": "10"
    },
-   "solution": "MEANINGFUL"
+   "solution": "MEANINGFUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEANINGFUL",
+    "definitions": [
+     {
+      "text": "important",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put out",
+      "for": "anagram",
+      "note": "to be put out is to be disturbed or thrown into disorder, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flame in gun",
+      "gives": "FLAMEINGUN",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLAMEINGUN",
+       "gives": "MEANINGFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A safety instruction: it matters to extinguish a flare-up inside a firearm.",
+     "walkthrough": "'Put out' reads as extinguish, matching the flame, but it signals disorder.",
+     "definitionFit": "Something meaningful carries significance or consequence, which is what being important amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +217,67 @@
     "text": "Correct error about a lion, perhaps",
     "enumeration": "6"
    },
-   "solution": "ROARER"
+   "solution": "ROARER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROARER",
+    "definitions": [
+     {
+      "text": "lion, perhaps",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Correct",
+      "for": "anagram",
+      "note": "an error that is corrected gets put right by rearranging what went wrong"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the rearranged letters surround the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "error",
+      "gives": "ERROR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "A",
+      "RER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERROR",
+       "gives": "RORER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to fix a mistake concerning some lion.",
+     "walkthrough": "'Correct' looks like an adjective or a request to mark homework, but it tells you to rearrange the letters.",
+     "definitionFit": "A roarer is any creature that bellows loudly, and a lion is the classic example, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +297,52 @@
      }
     ]
    },
-   "solution": "ADAMSALE"
+   "solution": "ADAMSALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAMS ALE",
+    "definitions": [
+     {
+      "text": "water",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First man",
+      "gives": "ADAM",
+      "note": "in Genesis Adam is the first man"
+     },
+     {
+      "clueFragment": "trade",
+      "gives": "SALE",
+      "note": "a sale is a piece of trade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADAM",
+      "SALE"
+     ]
+    },
+    "explanation": {
+     "surface": "The first man in history to go into business dealing in water.",
+     "walkthrough": "Adam's ale is a jocular old phrase for plain water, since Adam had nothing else to drink.",
+     "definitionFit": "Adam's ale is a humorous idiom for drinking water, the only drink available in Eden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +356,50 @@
     "text": "Suffering keeps father at home",
     "enumeration": "4"
    },
-   "solution": "PAIN"
+   "solution": "PAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAIN",
+    "definitions": [
+     {
+      "text": "Suffering",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "keeps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Illness confines Dad to the house.",
+     "walkthrough": "'Keeps' suggests a container, but the pieces simply follow one another.",
+     "definitionFit": "Pain and suffering are near synonyms for physical or mental distress or hurt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +413,65 @@
     "text": "Expert is in shape, initially every day",
     "enumeration": "8"
    },
-   "solution": "INFORMED"
+   "solution": "INFORMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INFORMED",
+    "definitions": [
+     {
+      "text": "Expert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word that follows it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in shape",
+      "gives": "INFORM",
+      "note": "in form, meaning in good shape or condition"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of every"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the standard abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFORM",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist who keeps fit by starting each day with exercise.",
+     "walkthrough": "'Initially' seems to modify 'every day' as a whole, but it takes only the first letter of 'every'.",
+     "definitionFit": "An informed person is well briefed and knowledgeable, close to the adjective sense of being skilled or knowing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shape"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +485,42 @@
     "text": "Footballer deep into Trollope letters",
     "enumeration": "4"
    },
-   "solution": "PELE"
+   "solution": "PELE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PELE",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deep into",
+      "for": "hidden_word",
+      "note": "the name lies buried deep inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trollope letters",
+      "gives": "PELE",
+      "note": "found across the end of the novelist's name and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A football star absorbed in reading the correspondence of the Victorian novelist Trollope.",
+     "definitionFit": "Pelé, the Brazilian striker who won three World Cups, is often called the greatest footballer of all time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +534,50 @@
     "text": "Lie with deceitful poet",
     "enumeration": "9"
    },
-   "solution": "FALSEHOOD"
+   "solution": "FALSEHOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALSEHOOD",
+    "definitions": [
+     {
+      "text": "Lie",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deceitful",
+      "gives": "FALSE",
+      "note": "false means dishonest or deceitful"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "HOOD",
+      "note": "Thomas Hood, the 19th-century English poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALSE",
+      "HOOD"
+     ]
+    },
+    "explanation": {
+     "surface": "A lying, two-faced poet telling untruths.",
+     "walkthrough": "Thomas Hood wrote 'The Song of the Shirt'; setters often use him for these four letters.",
+     "definitionFit": "A falsehood is an untrue statement, exactly what a lie is as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poet"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +591,42 @@
     "text": "Girl hiding in a pannier",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "hidden_word",
+      "note": "something hiding in a word is tucked away among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pannier",
+      "gives": "ANNIE",
+      "note": "sits inside the word for a saddlebag or basket"
+     }
+    ],
+    "explanation": {
+     "surface": "A little girl concealing herself inside a big basket.",
+     "definitionFit": "Annie is a female first name, and a clue may define any given name simply by gender."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +640,59 @@
     "text": "Desire to be paid at the end of May",
     "enumeration": "5"
    },
-   "solution": "YEARN"
+   "solution": "YEARN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "YEARN",
+    "definitions": [
+     {
+      "text": "Desire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "May",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of May"
+     },
+     {
+      "clueFragment": "be paid",
+      "gives": "EARN",
+      "note": "to earn is to be paid for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hoping their wages will arrive at the close of the month of May.",
+     "definitionFit": "To yearn is to long for something intensely, a strong form of wanting or craving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +712,52 @@
      }
     ]
    },
-   "solution": "ROMANNOSE"
+   "solution": "ROMANNOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROMAN NOSE",
+    "definitions": [
+     {
+      "text": "Such a feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "makes",
+      "for": "anagram",
+      "note": "makes says the letters that follow are made from something else, the other two words reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ann morose",
+      "gives": "ANNMOROSE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANNMOROSE",
+       "gives": "ROMANNOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A facial feature so unflattering it makes poor Ann gloomy.",
+     "walkthrough": "The answer's own letters rearrange into 'Ann morose', so the clue doubles as a comment on the nose itself.",
+     "definitionFit": "A Roman nose is a facial feature, a prominent nose with a high bridge seen on Roman statues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "morose"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +771,47 @@
     "text": "Mrs Mopp is more hygienic",
     "enumeration": "7"
    },
-   "solution": "CLEANER"
+   "solution": "CLEANER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEANER",
+    "definitions": [
+     {
+      "text": "Mrs Mopp",
+      "at": 0
+     },
+     {
+      "text": "more hygienic",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Mopp",
+      "note": "first meaning: the charwoman in the wartime BBC radio comedy ITMA"
+     },
+     {
+      "clueFragment": "more hygienic",
+      "note": "second meaning: comparative of an adjective for free of dirt"
+     }
+    ],
+    "explanation": {
+     "surface": "A charlady keeps things more sanitary.",
+     "walkthrough": "Mrs Mopp, a charlady in the 1940s radio show ITMA, became a byword for a household help; a charlady is a paid domestic help.",
+     "definitionFit": "A charwoman is a domestic help, and as an adjective the word is the comparative of spotless or tidy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mrs"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +825,49 @@
     "text": "Chanel needs a bedtime drink",
     "enumeration": "5"
    },
-   "solution": "COCOA"
+   "solution": "COCOA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCOA",
+    "definitions": [
+     {
+      "text": "bedtime drink",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chanel",
+      "gives": "COCO",
+      "note": "Coco Chanel, the French fashion designer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous designer wanting a warm drink before bed.",
+     "definitionFit": "Hot chocolate made with powdered cacao is a traditional warm milky drink taken before sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chanel"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +881,55 @@
     "text": "A bogus journalist is full of remorse",
     "enumeration": "7"
    },
-   "solution": "ASHAMED"
+   "solution": "ASHAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHAMED",
+    "definitions": [
+     {
+      "text": "full of remorse",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bogus",
+      "gives": "SHAM",
+      "note": "sham means fake or bogus"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the crossword's stock journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHAM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fake reporter feels sorry for what he has done.",
+     "definitionFit": "Being ashamed means feeling guilt or embarrassment over one's conduct, which is regret or contrition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bogus"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +943,55 @@
     "text": "Mad Theresa's broken beak",
     "enumeration": "10"
    },
-   "solution": "HEADMASTER"
+   "solution": "HEADMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADMASTER",
+    "definitions": [
+     {
+      "text": "beak",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, ready to be reassembled in another order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad Theresa",
+      "gives": "MADTHERESA",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADTHERESA",
+       "gives": "HEADMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazed woman named Theresa has damaged her nose.",
+     "walkthrough": "'Mad' looks like the anagram signal but is part of the letters; 'broken' does that job. Beak is British school slang for the person in charge of a school.",
+     "definitionFit": "Beak is old British slang for a schoolmaster or magistrate, especially the head of a school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beak"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1005,51 @@
     "text": "Actor to give all - nearly!",
     "enumeration": "5"
    },
-   "solution": "DONAT"
+   "solution": "DONAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DONAT",
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly all of something means all but its final bit, so the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "give all",
+      "gives": "DONATE",
+      "note": "to donate is to give away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea for a performer to give everything he has, or almost.",
+     "walkthrough": "Robert Donat was the British film star of 'The 39 Steps' and 'Goodbye, Mr Chips'.",
+     "definitionFit": "Robert Donat was an Oscar-winning English film star of the 1930s, a performer of stage and screen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "all"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1063,50 @@
     "text": "Clown seen in cold mood",
     "enumeration": "5"
    },
-   "solution": "CHUFF"
+   "solution": "CHUFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHUFF",
+    "definitions": [
+     {
+      "text": "Clown",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     },
+     {
+      "clueFragment": "mood",
+      "gives": "HUFF",
+      "note": "a huff is a sulky, offended mood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HUFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A circus clown spotted in a frosty, sulky temper.",
+     "walkthrough": "The definition uses an old sense of clown, meaning a boor or country bumpkin rather than a circus performer.",
+     "definitionFit": "Chambers gives chuff as a dialect word for a rustic boor, the older sense of clown meaning lout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clown"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1120,60 @@
     "text": "I run with a fly spray, but without justice",
     "enumeration": "8"
    },
-   "solution": "UNFAIRLY"
+   "solution": "UNFAIRLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNFAIRLY",
+    "definitions": [
+     {
+      "text": "without justice",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spray",
+      "for": "anagram",
+      "note": "a spray scatters things, so these letters are dispersed and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I run",
+      "gives": "IRUN",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "a fly",
+      "gives": "AFLY",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRUNAFLY",
+       "gives": "UNFAIRLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chasing an insect with insecticide, an unjust end for the fly.",
+     "walkthrough": "'Spray' reads as a noun, the insecticide, but works as the instruction to mix the letters.",
+     "definitionFit": "Doing something in an unjust or inequitable manner is acting with no fairness, the adverb's plain meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spray"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1187,40 @@
     "text": "Step on it to get to the rag-and-bone man",
     "enumeration": "3"
    },
-   "solution": "TOE"
+   "solution": "TOE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TOE",
+    "definitions": [
+     {
+      "text": "Step on it to get to the rag-and-bone man",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Step on it",
+      "note": "surface reading: hurry up to catch the scrap collector"
+     },
+     {
+      "clueFragment": "to get to the rag-and-bone man",
+      "note": "setter's reading: tack this word on after Step and the result is the name of the famous TV scrap dealer"
+     }
+    ],
+    "explanation": {
+     "surface": "Urging someone to hurry to catch the rag-and-bone man's cart.",
+     "walkthrough": "Steptoe and Son was a BBC sitcom about a father and son who were rag-and-bone men, door-to-door collectors of junk; put this word on Step to get their name.",
+     "definitionFit": "The part of the foot you stand on tiptoe with completes the surname of the sitcom's scrap-dealing family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Step"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1240,65 @@
      }
     ]
    },
-   "solution": "TIAMARIA"
+   "solution": "TIAMARIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TIA MARIA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revival",
+      "for": "anagram",
+      "note": "a revival brings something back in a new form, so the radio show's letters come back reshaped"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ITMA",
+      "gives": "ITMA",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is a song in an opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIAM",
+      "ARIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITMA",
+       "gives": "TIAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a glass to a comeback of the old radio comedy ITMA, with a song.",
+     "walkthrough": "ITMA, short for 'It's That Man Again', was a hugely popular BBC radio comedy of the Second World War.",
+     "definitionFit": "Tia Maria is a brand of coffee liqueur, a drink in the sense of an alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revival"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1312,50 @@
     "text": "Poet takes gold to hideaway",
     "enumeration": "5"
    },
-   "solution": "AUDEN"
+   "solution": "AUDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUDEN",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "hideaway",
+      "gives": "DEN",
+      "note": "a den is a private retreat or lair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet carrying his treasure off to a secret retreat.",
+     "definitionFit": "W. H. Auden was the Anglo-American author of 'Funeral Blues', one of the major twentieth-century writers of verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1369,51 @@
     "text": "Little twin boys, one demanding fodder",
     "enumeration": "7"
    },
-   "solution": "ALFALFA"
+   "solution": "ALFALFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALFALFA",
+    "definitions": [
+     {
+      "text": "fodder",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "demanding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little twin boys",
+      "gives": "ALFALF",
+      "note": "two of the short form of Alfred, side by side like twins"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALFALF",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Small twin brothers, one of them clamouring for food.",
+     "walkthrough": "'Little' signals a shortened name rather than small size: Alf is short for Alfred, and the twins give it twice.",
+     "definitionFit": "Alfalfa, also called lucerne, is a leguminous plant grown as feed for cattle and horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fodder"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1427,60 @@
     "text": "Humpback returning to King Arthur's city",
     "enumeration": "7"
    },
-   "solution": "CAMELOT"
+   "solution": "CAMELOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAMELOT",
+    "definitions": [
+     {
+      "text": "King Arthur's city",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means heading back the way it came, so the short word that follows is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Humpback",
+      "gives": "CAMEL",
+      "note": "a camel is the animal with a hump on its back"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMEL",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hunchback travelling back to the court of the legendary British king.",
+     "definitionFit": "In Arthurian legend Camelot is the castle and court where the king held his Round Table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Humpback"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1494,62 @@
     "text": "Found European leader in decrepit aircraft",
     "enumeration": "6"
    },
-   "solution": "CREATE"
+   "solution": "CREATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CREATE",
+    "definitions": [
+     {
+      "text": "Found",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of European"
+     },
+     {
+      "clueFragment": "decrepit aircraft",
+      "gives": "CRATE",
+      "note": "crate is slang for a rickety old plane or car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "E",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European statesman discovered in a broken-down old plane.",
+     "walkthrough": "'Found' looks like the past tense of find, but it is the verb meaning to establish.",
+     "definitionFit": "To found something is to establish or originate it, so it means bring into being."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Found"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1563,49 @@
     "text": "No priest set to join the human race",
     "enumeration": "6"
    },
-   "solution": "LAYMAN"
+   "solution": "LAYMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAYMAN",
+    "definitions": [
+     {
+      "text": "No priest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to join"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "LAY",
+      "note": "to lay is to set down"
+     },
+     {
+      "clueFragment": "the human race",
+      "gives": "MAN",
+      "note": "man in the sense of mankind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who gives up the priesthood to rejoin ordinary humanity.",
+     "definitionFit": "A layman is someone not ordained, one of the laity rather than the clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1619,50 @@
     "text": "I carry papers for temporary patient",
     "enumeration": "9"
    },
-   "solution": "BRIEFCASE"
+   "solution": "BRIEFCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIEFCASE",
+    "definitions": [
+     {
+      "text": "I carry papers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temporary",
+      "gives": "BRIEF",
+      "note": "brief means short-lived"
+     },
+     {
+      "clueFragment": "patient",
+      "gives": "CASE",
+      "note": "a doctor speaks of a patient as a case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIEF",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital worker carrying the records of a short-stay patient.",
+     "walkthrough": "The definition speaks in the first person as the object itself.",
+     "definitionFit": "A briefcase is a flat bag for holding documents, so it describes itself as a carrier of papers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "patient"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1676,53 @@
     "text": "Bachelor, when half-cut, wrote many cantatas",
     "enumeration": "4"
    },
-   "solution": "BACH"
+   "solution": "BACH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BACH",
+    "definitions": [
+     {
+      "text": "wrote many cantatas",
+      "at": 25,
+      "note": "describes the composer by what he did rather than naming him"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "cut by half means only the first half of the word survives"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "BACHELOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man who, while tipsy, composed lots of choral works.",
+     "walkthrough": "Half-cut is British slang for drunk, which gives the surface its picture.",
+     "definitionFit": "Johann Sebastian Bach composed over two hundred surviving sacred and secular cantatas for Leipzig churches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1736,61 @@
     "text": "Politician too fine to be promoted",
     "enumeration": "4"
    },
-   "solution": "FOOT"
+   "solution": "FOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FOOT",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be promoted",
+      "for": "reversal",
+      "note": "in a down clue, promoted means moved upwards, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too",
+      "gives": "TOO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F for fine, as on pencil grades; that the letters also run backwards across these two words is a coincidence of this parse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OOT"
+     ],
+     "reversals": [
+      {
+       "from": "TOOF",
+       "to": "FOOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician deemed too good to be moved up the ranks.",
+     "walkthrough": "Michael Foot was leader of Britain's Labour Party from 1980 to 1983.",
+     "definitionFit": "Michael Foot was a British Labour MP and party leader, a politician by profession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "promoted"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1810,46 @@
      }
     ]
    },
-   "solution": "SAYSO"
+   "solution": "SAYSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAY-SO",
+    "definitions": [
+     {
+      "text": "An unsupported claim",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conveys",
+      "gives": "SAYS",
+      "note": "says means conveys or expresses"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAYS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A baseless assertion communicates nothing at all.",
+     "definitionFit": "Someone's say-so is their bare word or assertion, offered without any proof or backing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conveys"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1863,60 @@
     "text": "Large trees - very large to hide a king",
     "enumeration": "4"
    },
-   "solution": "OAKS"
+   "solution": "OAKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OAKS",
+    "definitions": [
+     {
+      "text": "Large trees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hide",
+      "for": "container",
+      "note": "hiding something means wrapping round it, so the outer letters enclose the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS stands for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "AK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Huge trees big enough to conceal a monarch, as Charles II hid in one.",
+     "walkthrough": "The surface recalls the Royal Oak, where Charles II hid after the Battle of Worcester.",
+     "definitionFit": "Oaks are big deciduous hardwood trees of the genus Quercus, noted for their spreading size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1930,57 @@
     "text": "String found in hole behind monk's room",
     "enumeration": "5"
    },
-   "solution": "CELLO"
+   "solution": "CELLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELLO",
+    "definitions": [
+     {
+      "text": "String",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first-named piece after the monastic room, so the round letter goes second"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monk's room",
+      "gives": "CELL",
+      "note": "a cell is the small room a monk lives in"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "O",
+      "note": "O is round like a hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A length of cord discovered in a gap at the back of a monastery bedroom.",
+     "walkthrough": "'String' is not twine: it is a member of the string section of an orchestra.",
+     "definitionFit": "The cello is a bowed instrument of the violin family, one of the orchestra's string section."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "String"
+    }
+   }
   },
   {
    "number": 29,
@@ -515,7 +2004,43 @@
      }
     ]
    },
-   "solution": "INTHEDARK"
+   "solution": "INTHEDARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE DARK",
+    "definitions": [
+     {
+      "text": "Ignorant",
+      "at": 0
+     },
+     {
+      "text": "like Blind Pew",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ignorant",
+      "note": "first meaning: not knowing what is going on"
+     },
+     {
+      "clueFragment": "like Blind Pew",
+      "note": "second meaning: unable to see, as the sightless pirate in Treasure Island"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Blind Pew is the sightless old pirate who delivers the black spot in Stevenson's 'Treasure Island'.",
+     "definitionFit": "Being kept uninformed is an idiom for lacking knowledge, and literally describes someone who cannot see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blind"
+    }
+   }
   }
  ]
 }
