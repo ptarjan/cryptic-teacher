@@ -2740,10 +2740,13 @@ def reindex():
     # mirrored nowhere.
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
+    # The series whose number is a print date (numberIsDate): app.js prints
+    # those as the day, as display_number() does, and cannot read series.py.
+    dated = sorted(s for s in series_meta.SERIES if "numberIsDate" in series_meta.meta(s))
     # The clue types, their families and blurbs: app.js names and explains a
     # type from this and has no table of its own.
     index = {"latest": puzzles[0]["id"] if puzzles else None,
-             "papers": papers, "groups": groups, "books": books,
+             "papers": papers, "groups": groups, "books": books, "dateNumbered": dated,
              "clueTypes": clue_types.DATA, "tags": puzzle_tags.TAGS,
              "snitchRanges": snitch, "puzzles": puzzles, "unlisted": unlisted}
     compact = json.dumps(index, ensure_ascii=False, separators=COMPACT)

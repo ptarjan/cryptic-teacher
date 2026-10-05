@@ -615,15 +615,14 @@ def puzzle_page(puz, meta, prev_p, next_p):
         facts.append(f"Published: <strong>{esc(when)}</strong>")
     if diff.get("band"):
         pct = diff.get("percentile")
-        extra = f" (harder than {pct}% of the puzzles on this site)" if pct is not None else ""
+        extra = f" ({harder_than(pct)})" if pct is not None else ""
         # A band is a word this site made up the meaning of, and a puzzle page is
         # where most people meet it first — arrived at from a search, having
         # never seen the archive index that explains it. So the label is the
         # link to that explanation rather than leaving "Brutal" to read as a
         # fact about the crossword.
         facts.append(f'<a href="{BASE}/difficulty/">Difficulty</a>: '
-                     f'<strong class="diff-{esc(diff["band"].lower())}">'
-                     f'{esc(diff["band"])}</strong>{esc(extra)}')
+                     f'{diff_badge(diff["band"])}{esc(extra)}')
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
                  f'{puz["dimensions"]["rows"]}</strong> squares')
 
@@ -754,6 +753,24 @@ def puzzle_page(puz, meta, prev_p, next_p):
 
 # ------------------------------------------------------------------ hub page
 
+def diff_badge(band):
+    """A difficulty band, the one way every page shows it: the lowercase pill
+    the app's difficultyBadge() draws."""
+    b = esc(band.lower())
+    return f'<span class="badge diff diff-{b}">{b}</span>'
+
+
+def harder_than(pct):
+    """A difficulty percentile in words, the one way every page says it. The
+    app's difficultyBadge() tooltip says it the same way."""
+    return f"harder than {pct}% of rated puzzles here"
+
+
+def series_badge(series):
+    """A series' pill, as the app's seriesChip() draws it."""
+    return f'<span class="badge series">{esc(series_meta.badge(series))}</span>'
+
+
 def hub_row(p, note=None):
     """One archive row. Every listing page is made of these and nothing else.
     With `note` it is a showcase row: what is unusual about the puzzle takes
@@ -762,8 +779,7 @@ def hub_row(p, note=None):
     its answer page, which is how a crawler reaches every one (homepage_nav)."""
     d = p.get("difficulty") or {}
     when = datestr(p)
-    badge = (f'<span class="badge diff diff-{esc(d["band"].lower())}">'
-             f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
+    badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
     # `blog`, see has_blog_hints), or none.
     hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
@@ -778,8 +794,7 @@ def hub_row(p, note=None):
     # Every row is badged, because the numbers alone ("No 1,393" among the
     # 30,000s) don't explain themselves and an unbadged row reads as one we
     # forgot rather than as the default. Mirrors seriesBadge() in app.js.
-    series = (f'<span class="badge series">'
-              f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
+    series = series_badge(p.get("series") or "cryptic")
     answers = ("" if note is not None else
                f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
     return (f'<li><a href="{solve_url(p["id"])}">'
@@ -878,7 +893,7 @@ BADGE_KEY = ("<strong>full hints</strong>: every clue explained. "
              "<strong>unverified answers</strong>: our own solve, not yet confirmed by the "
              "paper. Difficulty runs <strong>gentle</strong>, <strong>moderate</strong>, "
              f'<strong>tough</strong>, <strong>brutal</strong> (<a href="{BASE}/difficulty/">'
-             'how it is judged</a>).')
+             'how difficulty is rated</a>).')
 
 
 STRIP_BINS, STRIP_MIN = 20, 10
@@ -915,12 +930,11 @@ def difficulty_strip(name, ps):
                 f'<text x="0" y="{H + 15}">easier</text>'
                 f'<text x="{W}" y="{H + 15}" text-anchor="end">harder</text>')
     band = med_band.lower()
-    label = (f"{name}: its typical puzzle is {band}, harder than {med_pct}% of the rated "
-             "puzzles on this site.")
+    label = f"{name}: its typical puzzle is {band}, {harder_than(med_pct)}."
     return (f'<figure class="chart strip"><svg viewBox="0 -2 {W} {H + 19}" role="img" '
             f'aria-label="{esc(label)}">{"".join(body)}</svg>'
-            f'<figcaption>Typical puzzle <span class="badge diff diff-{esc(band)}">{esc(band)}'
-            f'</span>, harder than {med_pct}% of rated puzzles here.</figcaption></figure>')
+            f'<figcaption>Typical puzzle {diff_badge(band)}, {harder_than(med_pct)}.'
+            '</figcaption></figure>')
 
 
 def hub_page(idx):
@@ -940,7 +954,7 @@ def hub_page(idx):
         sections.append(
             f'<section class="s-series" id="{esc(s)}">'
             f'<h2><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a> '
-            f'<span class="badge series">{esc(series_meta.badge(s))}</span></h2>'
+            f'{series_badge(s)}</h2>'
             + (f'<p>{esc(b)}</p>' if (b := series_blurb(s, every)) else "")
             + difficulty_strip(series_name(s), every)
             + '<p class="muted">Pick a year:</p>'
@@ -954,21 +968,22 @@ def hub_page(idx):
         '<main class="static-main">',
         "<h1>Cryptic crossword answers and explanations</h1>",
         f"<p>All {n_all:,} puzzles on this site, sorted by paper and year. Pick a year to see "
-        "its puzzles. Each puzzle is labelled <strong>full hints</strong> if every clue is "
-        "explained (its definition, its wordplay and how they fit), <strong>hints via</strong> a "
-        "solving blog if its hints are marked up from that blog's write-up, or <strong>answers "
-        "only</strong> if we have the answers and no explanations yet.</p>",
-        "<p class=\"muted small-note\" id=\"difficulty\">Difficulty runs Gentle, Moderate, "
-        "Tough, Brutal. It compares each puzzle with the others on this site, from its grid, "
-        f'clues and answers: <a href="{BASE}/difficulty/">how difficulty is rated</a>. '
-        "Under each paper, the bars show where its rated puzzles fall from easiest to "
-        "hardest, coloured by band, and the line marks its middle puzzle. "
+        "its puzzles.</p>",
+        f'<p class="muted small-note" id="difficulty">{BADGE_KEY} Difficulty compares each '
+        "puzzle with the others on this site, from its grid, clues and answers. Under each "
+        "paper, the bars show where its rated puzzles fall from easiest to hardest, coloured "
+        "by band, and the line marks its middle puzzle. "
         f'New to cryptic crosswords? <a href="{BASE}/learn/">Start with how the clues work</a>.</p>',
         *sections,
         "</main>",
     ]
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+def hub_link():
+    """The way back to /puzzles/ from a series' pages, in the footer's words."""
+    return f'<a href="{BASE}/puzzles/">All puzzles</a>'
 
 
 def year_links(series, years):
@@ -1017,8 +1032,8 @@ def listing_page(series, year, ps, prev_year, next_year):
         '<main class="static-main">',
         f"<h1>{esc(label)}</h1>",
         *([f'<p>{esc(b)}</p>'] if (b := series_blurb(series, ps)) else []),
-        (f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. '
-         f'<a href="{BASE}/puzzles/">All papers and years</a>.</p>'),
+        difficulty_strip(label, ps),
+        f'<p>{len(ps):,} puzzle{"s" if len(ps) != 1 else ""}, newest first. {hub_link()}.</p>',
         f'<p class="muted small-note">{BADGE_KEY}</p>',
         f'<ul class="s-index">{"".join(hub_row(p) for p in ps)}</ul>',
         *([f'<nav class="s-pager">{" ".join(nav)}</nav>'] if nav else []),
@@ -1088,7 +1103,7 @@ def series_page(series, years, today):
                 else f"{name} crosswords") + ", by year, with the answer to every clue."
         body += [*([f"<p>{esc(blurb)}</p>"] if blurb else []), difficulty_strip(name, every)]
     body += ["<h2>Every year</h2>", f'<p class="s-years">{links}</p>',
-             f'<p><a href="{BASE}/puzzles/">All papers</a>.</p>', "</main>"]
+             f'<p>{hub_link()}.</p>', "</main>"]
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
@@ -1204,8 +1219,7 @@ def difficulty_bands(idx):
         nitch = "".join(
             f"<td>{r["q1"]}&ndash;{r["q3"]}</td>" if (r := ranges[s].get(band)) else "<td>&ndash;</td>"
             for s in quoted)
-        rows.append(f'<tr><td><span class="badge diff diff-{esc(band.lower())}">'
-                    f'{esc(band.lower())}</span></td><td>{cut}</td>'
+        rows.append(f'<tr><td>{diff_badge(band)}</td><td>{cut}</td>'
                     f"<td>{n:,} ({round(100 * n / total)}%)</td>{nitch}</tr>")
         lo = hi
     return f"<table>{head}{''.join(rows)}</table>"
@@ -1538,9 +1552,9 @@ def abbreviations_page(blocks):
     n = len(senses)
     links = clue_links(senses, blocks)
     title = f"Cryptic crossword abbreviations — {n:,} of them, A to Z"
-    desc = (f"All {n} abbreviations cryptic crossword setters use in these puzzles, listed "
+    desc = (f"All {n:,} abbreviations cryptic crossword setters use in these puzzles, listed "
             "by word: street is ST, company is CO, right is R. Every one comes from a real "
-            f"published puzzle, and {len(links)} of them link to a clue that uses it, "
+            f"published puzzle, and {len(links):,} of them link to a clue that uses it, "
             "explained.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
@@ -1571,7 +1585,7 @@ def abbreviations_page(blocks):
         "Every one is an abbreviation Wiktionary or Wikipedia's list of crossword "
         "abbreviations gives and a clue "
         "here uses, plus the codes in the sets below.</p>",
-        f"<p>{len(links)} of the words are links to a real clue that uses that "
+        f"<p>{len(links):,} of the words are links to a real clue that uses that "
         "abbreviation, explained step by step.</p>",
         '<h2 id="most-common">Most common</h2>',
         f"<p>The {COMMON_TOP} abbreviations clues use most, with how many clues used "

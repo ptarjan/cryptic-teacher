@@ -71,10 +71,28 @@ with tempfile.TemporaryDirectory() as tmp:
     print("STAGE", len(stage_site.stage(src, pathlib.Path(tmp, "out"))) == 3)
 print("LINKED", f'{B.BASE}/puzzles/series/times/"' in page
       and f'{B.BASE}/puzzles/series/times/"' in B.listing_page("times", "2025", ps, None, None))
+# One way to say each thing. The hub, a series page and a year listing carry
+# the same badge legend, and a year listing the same difficulty strip and the
+# same link back; the badges and the percentile sentence are built by one
+# helper each, and the app's chips and tooltip say what the pages say.
+listing = B.listing_page("times", "2025", ps, None, None)
+print("LEGEND", all(B.BADGE_KEY in pg for pg in (page, today, listing))
+      and "Gentle, Moderate" not in page)
+print("YEARSTRIP", listing.count('class="chart strip"') == 1)
+print("HUBLINK", all(B.hub_link() in pg and "All papers" not in pg for pg in (today, listing)))
+import pathlib, series as S
+src = pathlib.Path(B.__file__).read_text()
+app = (pathlib.Path(B.__file__).parent.parent / "app.js").read_text()
+print("ONEWAY", src.count('class="badge diff') == 1 and src.count('class="badge series"') == 1
+      and src.count("harder than ") == 1
+      and B.harder_than("${d.percentile}") in app)
+chips = dict(re.findall(r'^\s{4}(\w+): \["([^"]*)"', app.split("const SERIES_BADGE = {", 1)[1]
+                        .split("\n  };", 1)[0], re.M))
+print("CHIPS", bool(chips) and all(S.badge(k) == v for k, v in chips.items()))
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED LEGEND YEARSTRIP HUBLINK ONEWAY CHIPS; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
