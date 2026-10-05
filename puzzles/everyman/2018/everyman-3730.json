@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Film area held by group back in the news",
     "enumeration": "7"
    },
-   "solution": "TOPICAL"
+   "solution": "TOPICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "TOPICAL",
+    "definitions": [
+     {
+      "text": "in the news",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word for a group is read from its end to its start"
+     },
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another sits inside it, so the first pair of pieces goes inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "PIC",
+      "note": "pic is informal for a film or picture"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group or batch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "PICA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LOT",
+       "to": "TOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film location being occupied by a crowd of people makes the news again.",
+     "walkthrough": "The reversed group splits open to take the film and area in its middle.",
+     "definitionFit": "Something topical concerns current affairs, the matters people are currently reading and talking about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +122,62 @@
      }
     ]
    },
-   "solution": "TOPWHACK"
+   "solution": "TOPWHACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOP WHACK",
+    "definitions": [
+     {
+      "text": "maximum price",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W for west or western"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "HACK",
+      "note": "a hack is a jobbing journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OP",
+      "W",
+      "HACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy-film reporter clocks on and earns the highest fee.",
+     "walkthrough": "The journalist comes after time and work, as 'after' says; top whack is British slang.",
+     "definitionFit": "Top whack is informal British for the highest rate or most money someone will pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Western"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +197,61 @@
      }
     ]
    },
-   "solution": "PERSONALPRONOUN"
+   "solution": "PERSONALPRONOUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PERSONAL PRONOUN",
+    "definitions": [
+     {
+      "text": "That could be us",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "runners who are struggling lose their shape, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runners on a loop",
+      "gives": "RUNNERSONALOOP",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUNNERSONALOOPP",
+       "gives": "PERSONALPRONOUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Athletes going round a circuit are flagging under strain, and the speaker admits that might describe us.",
+     "walkthrough": "The pressure letter joins the runners' letters before the rearranging.",
+     "definitionFit": "Us is a first-person plural personal pronoun, so this grammar term covers it by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Runners"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +265,50 @@
     "text": "Attackers? Odd characters in cars in this case",
     "enumeration": "7"
    },
-   "solution": "CRITICS"
+   "solution": "CRITICS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CRITICS",
+    "definitions": [
+     {
+      "text": "Attackers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd characters in",
+      "for": "letter_selection",
+      "note": "odd characters are the first, third, fifth and so on, taken from the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cars in this case",
+      "gives": "CRITICS",
+      "select": "alternate",
+      "note": "letters in the odd positions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRITICS"
+     ]
+    },
+    "explanation": {
+     "surface": "Car-crime suspects who look a bit strange.",
+     "walkthrough": "'Odd characters' looks like weird people but means the odd-numbered letters.",
+     "definitionFit": "Critics attack or censure works and people verbally, so they are attackers in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +322,87 @@
     "text": "Sluggish husband getting into scrape left upset and sick at heart",
     "enumeration": "9"
    },
-   "solution": "LETHARGIC"
+   "solution": "LETHARGIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LETHARGIC",
+    "definitions": [
+     {
+      "text": "Sluggish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something puts one inside it, so the husband goes inside the scrape word"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the scrape and left read bottom to top"
+     },
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart is the centre, so only the middle letters of sick are taken"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrape",
+      "gives": "GRATE",
+      "note": "to grate is to scrape"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "IC",
+      "select": "middle",
+      "note": "the two central letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LETHARG",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "GRAHTEL",
+       "to": "LETHARG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A listless husband scrapes himself, then feels nauseous and wretched.",
+     "walkthrough": "The husband goes inside the scrape word between its A and T, left is added, and the whole is turned over.",
+     "definitionFit": "Lethargic means lacking energy, drowsy and slow-moving, which is what sluggish describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +416,80 @@
     "text": "Account by bishop in cold fury turning bitter",
     "enumeration": "7"
    },
-   "solution": "ACERBIC"
+   "solution": "ACERBIC",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ACERBIC",
+    "definitions": [
+     {
+      "text": "bitter",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it, so the bishop goes within the anger"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the cold fury with its bishop read from right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "AC",
+      "note": "AC is the usual abbreviation for an account"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "fury",
+      "gives": "IRE",
+      "note": "ire is anger or fury"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "ERBIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIBRE",
+       "to": "ERBIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop's report delivered in icy rage becomes harsh.",
+     "walkthrough": "The bishop sits inside the fury, cold goes in front, and that whole run is turned round after the account.",
+     "definitionFit": "Acerbic remarks are sharp and harsh in tone, much as bitter words are resentful and cutting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Account"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +503,65 @@
     "text": "Sadly accepting expert's conclusion in geographical book",
     "enumeration": "5"
    },
-   "solution": "ATLAS"
+   "solution": "ATLAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATLAS",
+    "definitions": [
+     {
+      "text": "geographical book",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion",
+      "for": "letter_selection",
+      "note": "a conclusion is an ending, so only the last letter of expert's is taken"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something means taking it in, so the word for sadly holds the last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sadly",
+      "gives": "ALAS",
+      "note": "alas is an expression of sorrow"
+     },
+     {
+      "clueFragment": "expert's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "LAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Regretfully, the specialist's findings appear in a geography text.",
+     "walkthrough": "The final letter of expert slots in after the first letter of the sad word.",
+     "definitionFit": "An atlas is a bound volume of maps, the standard book for geography."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sadly"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +575,63 @@
     "text": "Issue with electronic speech, not constant",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the constant's letter is taken out of the speech word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E as in e-mail"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "DICTION",
+      "note": "diction is manner of speech"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the constant for the speed of light in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DITION"
+     ]
+    },
+    "explanation": {
+     "surface": "A problem with computer-generated speech that keeps changing.",
+     "walkthrough": "'Issue' looks like a problem, but here it means a published version.",
+     "definitionFit": "An edition is one issue of a newspaper or magazine, the copies printed at one time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +655,77 @@
      }
     ]
    },
-   "solution": "BEERANDSKITTLES"
+   "solution": "BEERANDSKITTLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BEER AND SKITTLES",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges are the outermost parts, so the first and last letters of notepad are used"
+     },
+     {
+      "text": "filled in by",
+      "for": "container",
+      "note": "something filled in by other material holds it inside, so the insects go round the rest"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insects",
+      "gives": "BEETLES",
+      "note": "beetles are insects"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "notepad",
+      "gives": "ND",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "sketch",
+      "gives": "SKIT",
+      "note": "a skit is a comic sketch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "RANDSKIT",
+      "TLES"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist doodles bugs in the margins of a notebook for amusement.",
+     "walkthrough": "The insects open after their third letter to take the artist, notepad edges and sketch; 'all beer and skittles' is a British idiom.",
+     "definitionFit": "Beer and skittles, as in 'life isn't all beer and skittles', means pleasure and amusement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sketch"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +739,69 @@
     "text": "Pretty tentative initially about large portion of meat",
     "enumeration": "6"
    },
-   "solution": "CUTLET"
+   "solution": "CUTLET",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CUTLET",
+    "definitions": [
+     {
+      "text": "portion of meat",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pretty word goes round the large letter"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of tentative is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pretty",
+      "gives": "CUTE",
+      "note": "cute means pretty"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation"
+     },
+     {
+      "clueFragment": "tentative",
+      "gives": "T",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "L",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fairly hesitant at first about a big plate of meat.",
+     "walkthrough": "'Pretty' reads as the adverb 'fairly' but is the adjective cute; the tentative initial comes last.",
+     "definitionFit": "A cutlet is a small slice of meat, typically lamb or veal, cut from the neck or ribs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pretty"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +815,43 @@
     "text": "Average young salmon, reportedly",
     "enumeration": "3"
    },
-   "solution": "PAR"
+   "solution": "PAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAR",
+    "definitions": [
+     {
+      "text": "Average",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly signals that the word is heard rather than read, so a spoken version gives the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young salmon",
+      "gives": "PAR",
+      "soundsLike": "PARR",
+      "note": "a young salmon before it goes to sea"
+     }
+    ],
+    "explanation": {
+     "surface": "A typical small fish, so people say.",
+     "definitionFit": "Par is the normal or expected standard, as in 'feeling below par', so it means average."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Average"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +865,58 @@
     "text": "In command, one man, thinking",
     "enumeration": "11"
    },
-   "solution": "INTELLIGENT"
+   "solution": "INTELLIGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTELLIGENT",
+    "definitions": [
+     {
+      "text": "thinking",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "command",
+      "gives": "TELL",
+      "note": "to tell someone to do something is to command them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "a gent is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TELL",
+      "I",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone officer in charge, deep in thought.",
+     "definitionFit": "A thinking person, in the sense of one who is rational and clever, is intelligent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "command"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +930,64 @@
     "text": "Troublemakers in hour in gaol so out of order",
     "enumeration": "9"
    },
-   "solution": "HOOLIGANS"
+   "solution": "HOOLIGANS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HOOLIGANS",
+    "definitions": [
+     {
+      "text": "Troublemakers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of order",
+      "for": "anagram",
+      "note": "things out of order are jumbled, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "standard abbreviation for hour"
+     },
+     {
+      "clueFragment": "in gaol so",
+      "gives": "INGAOLSO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OOLIGANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INGAOLSO",
+       "gives": "OOLIGANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowdy prisoners spend an hour behaving badly in jail.",
+     "walkthrough": "'Out of order' looks like a comment on the prisoners' conduct but tells the solver to rearrange the letters.",
+     "definitionFit": "Hooligans are rowdy, violent young people who cause disturbances, the classic troublemakers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +1001,45 @@
     "text": "Some complain anecdote's fatuous",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "fatuous",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following words are used, a run of consecutive letters inside them"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complain anecdote",
+      "gives": "INANE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumbling story is judged pointless.",
+     "walkthrough": "The answer straddles the end of complain and the start of anecdote; the apostrophe-s is 'is'.",
+     "definitionFit": "Inane and fatuous both describe something silly, empty and lacking sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +1059,51 @@
      }
     ]
    },
-   "solution": "COARSEGRAINED"
+   "solution": "COARSEGRAINED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COARSE-GRAINED",
+    "definitions": [
+     {
+      "text": "Crude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "a corrupt text is damaged and changed, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rag is read once",
+      "gives": "RAGISREADONCE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAGISREADONCE",
+       "gives": "COARSEGRAINED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vulgar, crooked tabloid gets glanced at only one time.",
+     "walkthrough": "'Crude, corrupt' reads as a pair of insults for the rag, but only the first is the definition.",
+     "definitionFit": "Coarse-grained figuratively means rough, unrefined or vulgar in manner, matching crude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rag"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1117,64 @@
     "text": "Last section of tar we newly put on road",
     "enumeration": "9"
    },
-   "solution": "AFTERWORD"
+   "solution": "AFTERWORD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AFTERWORD",
+    "definitions": [
+     {
+      "text": "Last section",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly",
+      "for": "anagram",
+      "note": "something made newly is formed afresh, so the letters are rearranged into a new order"
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of tar we",
+      "gives": "OFTARWE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERWO",
+      "RD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OFTARWE",
+       "gives": "AFTERWO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The final stage of resurfacing: fresh asphalt laid on the street.",
+     "walkthrough": "'Last section' borrows 'of' from the surface; the definition ends at 'section' and the anagram starts with 'of'.",
+     "definitionFit": "An afterword is a concluding section added at the end of a book, after the main text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tar"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1188,75 @@
     "text": "Brave one, not losing heart, clear about record",
     "enumeration": "8"
    },
-   "solution": "INTREPID"
+   "solution": "INTREPID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "INTREPID",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing its heart means the middle letter of not drops out"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the clear word wraps round the record"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written before losing its middle"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "RID",
+      "note": "to rid is to clear"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NT",
+      "R",
+      "EP",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A courageous person stays strong while cleaning up a recording.",
+     "walkthrough": "'Not losing heart' sounds like courage, but it tells the solver to remove the middle letter of not.",
+     "definitionFit": "Intrepid means fearless and bold, an exact synonym of brave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1276,75 @@
      }
     ]
    },
-   "solution": "PANICSTRICKEN"
+   "solution": "PANICSTRICKEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PANIC-STRICKEN",
+    "definitions": [
+     {
+      "text": "scared",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting someone lets them in, so the swindle goes inside the good name"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "NICE",
+      "note": "nice means pleasant or good"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "standard abbreviation for name"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation"
+     },
+     {
+      "clueFragment": "swindle",
+      "gives": "TRICK",
+      "note": "a trick is a con or swindle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NIC",
+      "STRICK",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A father with a decent reputation confesses to a minor fraud and is frightened.",
+     "walkthrough": "The good name splits after its third letter to take in the small swindle.",
+     "definitionFit": "Panic-stricken describes someone overcome with sudden fear, an extreme form of being scared."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1358,42 @@
     "text": "Claws of crustaceans, young ones",
     "enumeration": "7"
    },
-   "solution": "NIPPERS"
+   "solution": "NIPPERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIPPERS",
+    "definitions": [
+     {
+      "text": "Claws of crustaceans",
+      "at": 0
+     },
+     {
+      "text": "young ones",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claws of crustaceans",
+      "note": "first meaning: the pincers of crabs and lobsters"
+     },
+     {
+      "clueFragment": "young ones",
+      "note": "second meaning: informal British word for small children"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nipper is British slang for a small child.",
+     "definitionFit": "The word names both the pinching claws of a crab and, informally, little children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1407,72 @@
     "text": "Giant that is guarding thousand people, foremost in story",
     "enumeration": "7"
    },
-   "solution": "IMMENSE"
+   "solution": "IMMENSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IMMENSE",
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "guarding something means surrounding it protectively, so the that-is abbreviation wraps the rest"
+     },
+     {
+      "text": "foremost in",
+      "for": "letter_selection",
+      "note": "foremost means first, so only the opening letter of story is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, that is"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MMENS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fairy-tale giant stands guard over a thousand people, the main figure in the story.",
+     "walkthrough": "'Giant' is an adjective here, not the ogre of the surface.",
+     "definitionFit": "Immense means extremely large, which is the adjectival sense of giant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Giant"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1486,49 @@
     "text": "Street due to be packed",
     "enumeration": "6"
    },
-   "solution": "STOWED"
+   "solution": "STOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOWED",
+    "definitions": [
+     {
+      "text": "packed",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "OWED",
+      "note": "a sum due is owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "A road that is expected to be crowded.",
+     "definitionFit": "Stowed means put away or loaded into storage, which is what packed means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "packed"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1542,62 @@
     "text": "Run into extremely quiet band",
     "enumeration": "5"
    },
-   "solution": "TROOP"
+   "solution": "TROOP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TROOP",
+    "definitions": [
+     {
+      "text": "band",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed within it, so the run sits inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "extremely",
+      "gives": "TOO",
+      "note": "too means excessively or extremely"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p for piano, the musical instruction to play softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "OO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of musicians that play very softly hurry on stage.",
+     "walkthrough": "'Extremely' is not taking the outer letters of quiet here; it simply gives too.",
+     "definitionFit": "A troop is a band or company of people, such as soldiers or scouts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1611,61 @@
     "text": "Indicator of change, portent endlessly disrupting trade",
     "enumeration": "9"
    },
-   "solution": "BAROMETER"
+   "solution": "BAROMETER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BAROMETER",
+    "definitions": [
+     {
+      "text": "Indicator of change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the final letter of the word for a portent is dropped"
+     },
+     {
+      "text": "disrupting",
+      "for": "container",
+      "note": "breaking into something splits it apart, so the shortened portent goes inside the trade word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade",
+      "gives": "BARTER",
+      "note": "to barter is to trade by exchange"
+     },
+     {
+      "clueFragment": "portent",
+      "gives": "OMEN",
+      "note": "an omen is a portent or sign"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "OME",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign of coming change, an ill omen, upsets commerce.",
+     "walkthrough": "The trade word splits after its third letter to take the clipped portent.",
+     "definitionFit": "A barometer measures air pressure to forecast weather changes, and figuratively it is any gauge of shifting conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1679,50 @@
     "text": "Coach perhaps with past item of headgear",
     "enumeration": "5"
    },
-   "solution": "BUSBY"
+   "solution": "BUSBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSBY",
+    "definitions": [
+     {
+      "text": "item of headgear",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach perhaps",
+      "gives": "BUS",
+      "note": "a coach is one kind of bus"
+     },
+     {
+      "clueFragment": "past",
+      "gives": "BY",
+      "note": "by means past, as in walking by"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach trip, probably, with a bygone hat.",
+     "walkthrough": "A busby is the tall fur hat worn by some British soldiers.",
+     "definitionFit": "A busby is a tall fur military cap, so it is a specific piece of headgear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1742,68 @@
      }
     ]
    },
-   "solution": "WOODENSPOON"
+   "solution": "WOODENSPOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WOODEN SPOON",
+    "definitions": [
+     {
+      "text": "award for loser",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     },
+     {
+      "clueFragment": "studies",
+      "gives": "DENS",
+      "note": "a den is a private study"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "standard abbreviation for page"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter shaped like zero"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOO",
+      "DENS",
+      "P",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A court considers documents about a booby prize.",
+     "walkthrough": "A wooden spoon is a mock prize, traditionally in Britain, for whoever comes last in a contest.",
+     "definitionFit": "The booby prize for finishing last in a competition is jokingly called this kitchen utensil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Court"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1817,52 @@
     "text": "Cut and run, missing finish",
     "enumeration": "3"
    },
-   "solution": "LOP"
+   "solution": "LOP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOP",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing finish",
+      "for": "deletion",
+      "note": "missing its finish means the final letter of the running word is left off"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "LOPE",
+      "note": "to lope is to run with a long, easy stride"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOP"
+     ]
+    },
+    "explanation": {
+     "surface": "Slash at something then flee before the end.",
+     "walkthrough": "'Cut and run' looks like the idiom for fleeing, but cut is the definition.",
+     "definitionFit": "To lop is to chop off a branch or limb, so it means to cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1876,64 @@
     "text": "House in yard, on reflection, unpleasant",
     "enumeration": "7"
    },
-   "solution": "DYNASTY"
+   "solution": "DYNASTY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DYNASTY",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things mirrored, so the abbreviation for yard is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yard",
+      "gives": "YD",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "unpleasant",
+      "gives": "NASTY",
+      "note": "nasty means unpleasant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "NASTY"
+     ],
+     "reversals": [
+      {
+       "from": "YD",
+       "to": "DY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A property with a garden turns out, looking back, to be horrible.",
+     "walkthrough": "House means a royal or noble family line, as in the House of Windsor.",
+     "definitionFit": "A dynasty is a line of rulers from one family, which is the sense of house in the House of Tudor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1947,67 @@
     "text": "Day after day seer's unusually attired",
     "enumeration": "7"
    },
-   "solution": "DRESSED"
+   "solution": "DRESSED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DRESSED",
+    "definitions": [
+     {
+      "text": "attired",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "done unusually means not in the normal way, so these letters come in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "D",
+      "note": "standard abbreviation for day"
+     },
+     {
+      "clueFragment": "seer's",
+      "gives": "SEERS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "standard abbreviation again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RESSE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEERS",
+       "gives": "RESSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Day after day, a fortune-teller wears strange clothes.",
+     "walkthrough": "One day goes at each end, with the rearranged seer between them.",
+     "definitionFit": "Dressed and attired both mean wearing clothes, clothed in a particular way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusually"
+    }
+   }
   }
  ]
 }
