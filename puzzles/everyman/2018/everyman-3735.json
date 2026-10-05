@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Cold island, country without an insect",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CICADA",
+    "definitions": [
+     {
+      "text": "an insect",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' asks for the country to go short of the two letters that follow it in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on a tap"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "CANADA",
+      "note": "the North American country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "I",
+      "CADA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold island state that somehow has no insects.",
+     "walkthrough": "'an' does double duty in the surface but here it is the letters removed: CANADA without AN leaves CADA, giving C + I + CADA = CICADA.",
+     "definitionFit": "The cicada is a large chirping bug of warm climates, famous for its loud summer song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,61 @@
     "text": "Nonsense about large fitting followed by rebuke",
     "enumeration": "8"
    },
-   "solution": "CLAPTRAP"
+   "solution": "CLAPTRAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAPTRAP",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "apt means suitable or fitting"
+     },
+     {
+      "clueFragment": "rebuke",
+      "gives": "RAP",
+      "note": "a rap is a sharp reprimand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "APT",
+      "RAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish about a large fitting, then a telling-off.",
+     "definitionFit": "Claptrap is empty, pretentious talk meant to win applause, hence rubbish or drivel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fitting"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,42 @@
     "text": "Island held by fanatic or fugitive",
     "enumeration": "5"
    },
-   "solution": "CORFU"
+   "solution": "CORFU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CORFU",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "hidden_word",
+      "note": "held by means contained within, so the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fanatic or fugitive",
+      "gives": "CORFU",
+      "note": "the run of letters spanning the end of the first word, the middle one and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "An island sheltering a zealot or a runaway.",
+     "definitionFit": "Corfu is a Greek island in the Ionian Sea, a popular holiday destination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,70 @@
     "text": "Not clear about a graph distorted in partition",
     "enumeration": "9"
    },
-   "solution": "DIAPHRAGM"
+   "solution": "DIAPHRAGM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIAPHRAGM",
+    "definitions": [
+     {
+      "text": "partition",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distorted",
+      "for": "anagram",
+      "note": "distorted means twisted out of shape, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for not clear goes around the jumble"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not clear",
+      "gives": "DIM",
+      "note": "dim means faint or not clear"
+     },
+     {
+      "clueFragment": "a graph",
+      "gives": "AGRAPH",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "APHRAG",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGRAPH",
+       "gives": "APHRAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddled chart that fails to separate things clearly.",
+     "walkthrough": "The rearranged A GRAPH goes inside DIM.",
+     "definitionFit": "The diaphragm is the muscular sheet dividing chest from abdomen; in general it is any dividing membrane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partition"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +298,50 @@
     "text": "Write song that's repetitive, showing weakness",
     "enumeration": "8"
    },
-   "solution": "PENCHANT"
+   "solution": "PENCHANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENCHANT",
+    "definitions": [
+     {
+      "text": "weakness",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "song that's repetitive",
+      "gives": "CHANT",
+      "note": "a chant is a song or slogan repeated over and over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "CHANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Composing a monotonous ditty reveals a flaw in the songwriter.",
+     "walkthrough": "'Weakness' is meant in the sense 'a weakness for chocolate', a liking rather than a flaw.",
+     "definitionFit": "A penchant is a strong liking or fondness, which we also call having a weakness for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "weakness"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +355,76 @@
     "text": "Varied in themes, securing honour with lines providing decorative detail",
     "enumeration": "13"
    },
-   "solution": "EMBELLISHMENT"
+   "solution": "EMBELLISHMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EMBELLISHMENT",
+    "definitions": [
+     {
+      "text": "decorative detail",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Varied",
+      "for": "anagram",
+      "note": "varied means altered or changed, so these letters are rearranged"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding fast, so the jumble wraps around the other pieces"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in themes",
+      "gives": "INTHEMES",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "honour",
+      "gives": "MBE",
+      "note": "the MBE, Member of the Order of the British Empire, is a British honour"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MBE",
+      "LL",
+      "ISHMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTHEMES",
+       "gives": "EISHMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Themes adorned with honours and lines of ornament.",
+     "walkthrough": "The honour and the lines sit together inside the jumble, just after its first letter; an MBE is a British honour often used by setters.",
+     "definitionFit": "An embellishment is an ornamental addition that makes something more attractive or elaborate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honour"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +438,66 @@
     "text": "Funny in taxi? Not a bit",
     "enumeration": "5"
    },
-   "solution": "CRUMB"
+   "solution": "CRUMB",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "CRUMB",
+    "definitions": [
+     {
+      "text": "bit",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the word for funny inside the word for taxi"
+     },
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "'not' tells us to leave out the following letter from the result"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Funny",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or funny"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, the letter to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Is anything funny in this cab? Not even slightly.",
+     "walkthrough": "'Not a' removes the letter A after the insertion is made; 'bit' at the end is the definition, not part of the instruction.",
+     "definitionFit": "A crumb is a tiny fragment, so a small piece or scrap of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +511,62 @@
     "text": "Outraged article supplied, filled with pretence",
     "enumeration": "9"
    },
-   "solution": "AFFRONTED"
+   "solution": "AFFRONTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AFFRONTED",
+    "definitions": [
+     {
+      "text": "Outraged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "filled with means holding something inside, so the word for supplied contains the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "supplied",
+      "gives": "FED",
+      "note": "to feed is to supply"
+     },
+     {
+      "clueFragment": "pretence",
+      "gives": "FRONT",
+      "note": "a front is a false show or pretence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FRONT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An item of goods was provided, packed with fakery, causing outrage.",
+     "walkthrough": "'Article' reads as an item in the surface, but in crosswords it usually means a, an or the.",
+     "definitionFit": "To be affronted is to feel insulted or offended, which is close to feeling outraged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +580,56 @@
     "text": "Tango with husband ill-judged in party",
     "enumeration": "6"
    },
-   "solution": "THRASH"
+   "solution": "THRASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THRASH",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "Tango is the radio code word for T"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "ill-judged",
+      "gives": "RASH",
+      "note": "rash means hasty and ill-judged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish tango with one's husband at a party.",
+     "walkthrough": "A thrash is informal British for a lively party.",
+     "definitionFit": "In British slang a thrash is a big, noisy celebration or social gathering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tango"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +643,77 @@
     "text": "Postal system in trouble after beginning to reach breaking point",
     "enumeration": "7"
    },
-   "solution": "AIRMAIL"
+   "solution": "AIRMAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AIRMAIL",
+    "definitions": [
+     {
+      "text": "Postal system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only the start of the next word is kept"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking another forces its way into the middle of it, splitting it open"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' places the first piece behind what follows it in the clue"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "AIM",
+      "note": "to point a gun is to aim it"
+     },
+     {
+      "clueFragment": "reach",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of reach"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "R",
+      "M",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "The post office is in a mess, stretched to its limit.",
+     "walkthrough": "The surface pairs 'breaking point' as a phrase, but 'breaking' is the insertion and 'point' is the word broken into, with the trouble word coming last.",
+     "definitionFit": "Airmail is the service carrying letters by aircraft, one form of postal delivery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +733,90 @@
      }
     ]
    },
-   "solution": "LESMISERABLES"
+   "solution": "LESMISERABLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "LES MISERABLES",
+    "definitions": [
+     {
+      "text": "Novel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end for",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that is kept"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry 'up' means read from bottom to top, so the word is reversed"
+     },
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping means enclosing, so the word for beams goes around the next piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of festival"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "beams",
+      "gives": "SMILES",
+      "note": "to beam is to smile broadly"
+     },
+     {
+      "clueFragment": "displays",
+      "gives": "BARES",
+      "note": "to bare something is to display it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "SMI",
+      "SERAB",
+      "LES"
+     ],
+     "reversals": [
+      {
+       "from": "BARES",
+       "to": "SERAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book's ending at a festival, where screens beam light upwards.",
+     "walkthrough": "'Beams' looks like light rays but means grins, and 'up' works only because this is a down entry.",
+     "definitionFit": "Victor Hugo's Les Misérables is a celebrated nineteenth-century French book, later a musical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beams"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +830,61 @@
     "text": "Deceiver hearty about retiring",
     "enumeration": "7"
    },
-   "solution": "BLUFFER"
+   "solution": "BLUFFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BLUFFER",
+    "definitions": [
+     {
+      "text": "Deceiver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the short word for about is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hearty",
+      "gives": "BLUFF",
+      "note": "bluff means frank and hearty in manner"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin for 'about', as in a letter's subject line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUFF",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A con man who is jolly but shy.",
+     "walkthrough": "'Retiring' looks like shy, describing the deceiver, but it is the instruction to turn the short word round.",
+     "definitionFit": "A bluffer pretends to have knowledge or strength he lacks, so he is a kind of deceiver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hearty"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +912,73 @@
      }
     ]
    },
-   "solution": "TOUGHASOLDBOOTS"
+   "solution": "TOUGHASOLDBOOTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TOUGH AS OLD BOOTS",
+    "definitions": [
+     {
+      "text": "Resilient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perturbed",
+      "for": "anagram",
+      "note": "perturbed means thrown into disorder, so the preceding words are jumbled"
+     },
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "moved means shifted about, so the two short words before it are rearranged too"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soul had got",
+      "gives": "SOULHADGOT",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "to sob",
+      "gives": "TOSOB",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOUGHASOLD",
+      "BOOTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOULHADGOT",
+       "gives": "TOUGHASOLD"
+      },
+      {
+       "fodder": "TOSOB",
+       "gives": "BOOTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone upset and moved to tears, yet still bouncing back.",
+     "walkthrough": "Two separate jumbles: SOUL HAD GOT makes TOUGH AS OLD, and TO SOB makes BOOTS.",
+     "definitionFit": "Tough as old boots is an idiom for someone hardy who withstands hardship without complaint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +992,63 @@
     "text": "First letter from Lauren? Not right – second letter from Lauren",
     "enumeration": "5"
    },
-   "solution": "ALPHA"
+   "solution": "ALPHA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALPHA",
+    "definitions": [
+     {
+      "text": "First letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not right",
+      "for": "deletion",
+      "note": "'not right' tells us to drop the letter standing for right from the name"
+     },
+     {
+      "text": "second letter",
+      "for": "letter_selection",
+      "note": "'second letter' asks for just the letter in position two of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Lauren",
+      "gives": "RALPH",
+      "note": "Ralph Lauren is the American fashion designer, so the name that comes with Lauren is Ralph"
+     },
+     {
+      "clueFragment": "Lauren",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALPH",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about which letters to take from a woman named Lauren.",
+     "walkthrough": "'First letter' does double duty: it is the definition, and with 'from Lauren' it suggests Lauren's first name, Ralph. Remove R (right) and add A.",
+     "definitionFit": "Alpha opens the Greek alphabet, so it is literally that alphabet's initial character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lauren"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1062,49 @@
     "text": "Game bird with split rib",
     "enumeration": "9"
    },
-   "solution": "PARTRIDGE"
+   "solution": "PARTRIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTRIDGE",
+    "definitions": [
+     {
+      "text": "Game bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "PART",
+      "note": "to part is to split or divide"
+     },
+     {
+      "clueFragment": "rib",
+      "gives": "RIDGE",
+      "note": "a rib is a raised strip or ridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shot game bird with a broken rib.",
+     "definitionFit": "The partridge is a plump ground bird hunted for sport and food in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1118,80 @@
     "text": "Popular appeal that is receiving cheers around launch",
     "enumeration": "8"
    },
-   "solution": "INITIATE"
+   "solution": "INITIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "INITIATE",
+    "definitions": [
+     {
+      "text": "launch",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "around means turned about, so the word for cheers is read backwards"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the abbreviation for that is holds the next piece inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "it is old slang for sex appeal"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of Latin id est, that is"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British informal for thanks, as is cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "IT",
+      "I",
+      "AT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular campaign greeted with applause at its launch.",
+     "walkthrough": "'Cheers' is British informal thanks, and 'appeal' is the old slang sense of sex appeal; 'launch' is a verb here.",
+     "definitionFit": "To initiate something is to set it going, which is what launching a project means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1205,61 @@
     "text": "Translation of fine story beyond description",
     "enumeration": "9"
    },
-   "solution": "INEFFABLE"
+   "solution": "INEFFABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INEFFABLE",
+    "definitions": [
+     {
+      "text": "beyond description",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Translation of",
+      "for": "anagram",
+      "note": "a translation renders words in a new form, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "FINE",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "FABLE",
+      "note": "a fable is a story, often with a moral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INEF",
+      "FABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINE",
+       "gives": "INEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beautifully translated tale that words cannot capture.",
+     "walkthrough": "FINE rearranged gives INEF, followed by FABLE.",
+     "definitionFit": "Ineffable means too great or extreme to be expressed in words, so it cannot be described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Translation"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1273,55 @@
     "text": "Quiet resolution with certain force",
     "enumeration": "8"
    },
-   "solution": "PRESSURE"
+   "solution": "PRESSURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESSURE",
+    "definitions": [
+     {
+      "text": "force",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p is piano, the musical direction for quiet"
+     },
+     {
+      "clueFragment": "resolution",
+      "gives": "RES",
+      "note": "res is the abbreviation for resolution, as of a screen or a motion"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RES",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm, determined approach applied with confident strength.",
+     "definitionFit": "Pressure is a force pressing on a surface, and also coercion applied to a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resolution"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1335,83 @@
     "text": "Ancient monument from century before end of paganism in part connected with church",
     "enumeration": "8"
    },
-   "solution": "CROMLECH"
+   "solution": "CROMLECH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CROMLECH",
+    "definitions": [
+     {
+      "text": "Ancient monument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last letter is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the single letter inside the word for part"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "'before' puts the century abbreviation ahead of what follows"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "century",
+      "gives": "C",
+      "note": "C is the abbreviation for century"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "an actor's part is a role"
+     },
+     {
+      "clueFragment": "paganism",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter of paganism"
+     },
+     {
+      "clueFragment": "connected with church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RO",
+      "M",
+      "LE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A prehistoric site from pagan times later linked to the church.",
+     "walkthrough": "'Paganism' suits the ancient monument in the surface, but only its last letter is used.",
+     "definitionFit": "A cromlech is a prehistoric megalithic structure, a stone circle or dolmen, and so an ancient monument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paganism"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1425,41 @@
     "text": "Tree of greater age",
     "enumeration": "5"
    },
-   "solution": "ELDER"
+   "solution": "ELDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELDER",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     },
+     {
+      "text": "of greater age",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "note": "first meaning: a shrub or small tree bearing dark berries"
+     },
+     {
+      "clueFragment": "of greater age",
+      "note": "second meaning: older, as in an older sibling"
+     }
+    ],
+    "explanation": {
+     "surface": "A tree older than the others around it.",
+     "definitionFit": "The word names the berry-bearing Sambucus shrub and is also the comparative of old used for people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1473,70 @@
     "text": "One in climbing stumbles, showing courage",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "courage",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry climbing means going upward, so the word is read from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the numeral for one inside the other word"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "stumbles",
+      "gives": "TRIPS",
+      "note": "to trip is to stumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIR",
+      "I",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TRIPS",
+       "to": "SPIRT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps stumbling while climbing shows bravery.",
+     "walkthrough": "TRIPS reversed is SPIRT, and I goes in before its final T.",
+     "definitionFit": "Spirit is mettle or boldness, the quality of bravery shown in hard times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1556,84 @@
      }
     ]
    },
-   "solution": "PERSONALEFFECTS"
+   "solution": "PERSONALEFFECTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PERSONAL EFFECTS",
+    "definitions": [
+     {
+      "text": "Property",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so the words before it are broken up and remade"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the jumbled letters inside the word for absolute"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fleas on",
+      "gives": "FLEASON",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "absolute",
+      "gives": "PERFECT",
+      "note": "absolute and perfect both mean complete or utter"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of mess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "SONALEF",
+      "FECT",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLEASON",
+       "gives": "SONALEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Belongings crawling with fleas, left in a complete mess.",
+     "walkthrough": "The rearranged FLEAS ON goes inside PERFECT, then S is added.",
+     "definitionFit": "Personal effects are the belongings a person carries or owns, their movable property."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1647,53 @@
     "text": "Award mark below zero",
     "enumeration": "5"
    },
-   "solution": "OSCAR"
+   "solution": "OSCAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSCAR",
+    "definitions": [
+     {
+      "text": "Award",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry below places the mark underneath the round letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "O looks like zero"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "SCAR",
+      "note": "a scar is a mark left on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SCAR"
+     ]
+    },
+    "explanation": {
+     "surface": "An award earned by scoring less than nothing.",
+     "definitionFit": "The Oscar is the statuette given by the Academy for achievement in film, a famous prize."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1707,63 @@
     "text": "Belief in team lacking weight with editor",
     "enumeration": "5"
    },
-   "solution": "CREED"
+   "solution": "CREED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CREED",
+    "definitions": [
+     {
+      "text": "Belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the abbreviation for weight is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "CREW",
+      "note": "a crew is a team"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Faith in an underweight team and its editor.",
+     "walkthrough": "CREW without W leaves CRE, then ED.",
+     "definitionFit": "A creed is a set of religious or guiding principles, a system of faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weight"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1777,70 @@
     "text": "Revolutionary artist, bitter, turned and left",
     "enumeration": "7"
    },
-   "solution": "RADICAL"
+   "solution": "RADICAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RADICAL",
+    "definitions": [
+     {
+      "text": "Revolutionary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means facing the other way, so the word for bitter is read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the crossword's usual artist"
+     },
+     {
+      "clueFragment": "bitter",
+      "gives": "ACID",
+      "note": "acid means sharp or bitter in taste or tone"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "DICA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "ACID",
+       "to": "DICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious painter who turned sour and walked out.",
+     "walkthrough": "ACID reversed is DICA, so RA + DICA + L.",
+     "definitionFit": "A radical wants sweeping political change, so used as a noun it is a revolutionary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1854,50 @@
     "text": "Put forward gold in dramatic scene",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLEAU",
+    "definitions": [
+     {
+      "text": "dramatic scene",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put forward",
+      "gives": "TABLE",
+      "note": "to table a motion is to put it forward for discussion"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLE",
+      "AU"
+     ]
+    },
+    "explanation": {
+     "surface": "Offering gold as a prop in a theatrical scene.",
+     "walkthrough": "In British usage, to table a proposal is to put it forward; in American usage it means to shelve it.",
+     "definitionFit": "A tableau is a striking group of figures arranged as on stage, a picturesque, theatrical arrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1911,53 @@
     "text": "Thinker, hot, tires badly",
     "enumeration": "8"
    },
-   "solution": "THEORIST"
+   "solution": "THEORIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEORIST",
+    "definitions": [
+     {
+      "text": "Thinker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly means done wrongly, so the letters before it come out in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot, tires",
+      "gives": "HOTTIRES",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEORIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOTTIRES",
+       "gives": "THEORIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker who gets hot and tired easily.",
+     "definitionFit": "A theorist develops ideas and abstract explanations, so is someone who reasons and speculates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tires"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1971,45 @@
     "text": "Push lever operated by foot in pronounced way",
     "enumeration": "6"
    },
-   "solution": "PEDDLE"
+   "solution": "PEDDLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEDDLE",
+    "definitions": [
+     {
+      "text": "Push",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in pronounced way",
+      "for": "homophone",
+      "note": "pronounced means spoken, so the word is wanted for its sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lever operated by foot",
+      "gives": "PEDDLE",
+      "soundsLike": "PEDAL",
+      "note": "a pedal is a lever worked by the foot, as on a bicycle or piano"
+     }
+    ],
+    "explanation": {
+     "surface": "Pressing down on a foot pedal with emphasis.",
+     "walkthrough": "'Push' here means sell, as in pushing drugs or wares, not pressing.",
+     "definitionFit": "To peddle goods is to hawk or sell them, and push is slang for selling illicitly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Push"
+    }
+   }
   }
  ]
 }
