@@ -610,6 +610,12 @@ check("a count with both brackets torn: ( read as T, ) as j or l; 12l is 12 or 2
        "14 Fish 12l"],
       f.counts_mended(["9 Leggy beatera T10", "12 Only about two penny pieces 16j",
                        "19 Settle with a judge in vulgar money I6l", "14 Fish 12l", "15 End (4)"])[:4])
+# Tesseract's reading of 1974-05-07 (times-13681) loses a count's "(": the
+# count before the next clue's number still ends the clue.
+got, _ = f.parse("ACROSS\n5 Littlewood carries every-\nthing from the break-\ndown 8).\n"
+                 "9 Engineer takes part in flight\nwith bishop 10).\nDOWN\n1 Fish (4)")
+check("a count read without its opening bracket ends its clue",
+      [([5], ["8"]), ([9], ["10"])], [(sorted(c["tokens"][0]), sorted(c["enums"])) for c in got["across"]])
 # A comma one reading lacks costs less than a word: the words after it pair.
 others = [ocr_clues.marked(ocr_clues.clean(t), breaks=True) for t in ("27 Only. 28 A leisurely drink, doubtless, inside (8) 29 The",
                                                       "28 A leisurely drink, doubtless, inslde (8) 29 The")]
