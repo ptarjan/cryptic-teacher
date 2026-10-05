@@ -92,7 +92,9 @@ The flags, in the order they matter:
             puzzle, a date in the future or before EARLIEST_YEAR, a date that
             is not a real calendar day written YYYY-MM-DD, a book puzzle whose `year` is not its
             book's `published` year or that holds a date, a `year` on a paper's
-            puzzle, no date at all where the source prints one, a blog's brace markup left in a clue, a
+            puzzle, no date at all where the source prints one, a blog's brace markup left in a clue,
+            a count closing a clue with marks after it that its entry cannot
+            have (another entry's text, or a misread count), a
             clue transcribed from a blog with no enumeration or opening with
             what is left of the blog's clue number ("a Bizarre ..."), and — from
             validate_annotations — markup or an undecodable character in the
@@ -638,12 +640,20 @@ def check_shape(puzzle, today, flags):
         if enumeration.unsplit(e["clue"], {e.get("length"), group_total}):
             flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} ends in its "
                           f"enumeration; enumeration.split() it into clue.enumeration"))
-        # Marks left after the count ("(4))", "(7)!", "(8,5);") are a feed's or
-        # a blog's markup, whatever the count says; split() cuts them with it.
-        elif enumeration.stray(e["clue"]):
+        # Marks left after the clue's own count ("(4))", "(7)!") are a feed's
+        # or a blog's markup; split() cuts them with it.
+        elif enumeration.stray(e["clue"], {e.get("length"), group_total}):
             flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} has stray "
                           f"marks after its enumeration; enumeration.split() "
                           f"it into clue.enumeration"))
+        # A count the source printed that this entry cannot have: the text is
+        # another entry's or the count was misread. It is the evidence of
+        # which, so it is never cut; the clue is re-read from its source.
+        elif (printed := enumeration.disagrees(e["clue"], {e.get("length"), group_total})):
+            flags.append(("SHAPE", pid, (f"{eid}: clue text {clue!r} prints "
+                                         f"({printed}), which is not this entry's "
+                                         f"{e.get('length')} letters; re-read it "
+                                         f"from the source")))
         # A letter left stuck to the clue's last mark ("gateau?d") is a source's
         # stray character: no clue prints a letter directly after "?" or "!".
         if re.search(r"[?!][A-Za-z]{1,2}$", clue):

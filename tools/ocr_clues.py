@@ -33,6 +33,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import enumeration
 
 #: A "See N" clue, which carries no words of its own.
 SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
@@ -1100,6 +1101,11 @@ def fault(text, enum, cells):
         return why
     if enum and cells and sum(int(n) for n in re.findall(r"\d+", enum)) != cells:
         return f"its count ({enum}) does not fill its {cells} squares"
+    # A count left on the words with marks after it, read off the same print
+    # as `enum` but not the same: "(7.8) ' -" over a voted "(7,6)".
+    clue = {"text": text, **({"enumeration": enum} if enum else {})}
+    if cells and (printed := enumeration.disagrees(clue, {cells})):
+        return f"its words end in a count ({printed}) that does not fill its {cells} squares"
     return None
 
 
