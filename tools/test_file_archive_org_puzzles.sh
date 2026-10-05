@@ -1151,7 +1151,20 @@ check("a grid box keeps its last row of cells when its foot frame is too faint t
       ("below", 838), (side, box[3]))
 cut = Path(os.environ["TMP"]) / "20778.png"
 Image.open(fix / "times-20778-faint-foot.jpg").crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(cut)
-check("its grid reads whole off the box", 15, len(f.trove_grid.read_grid(cut, block_above=f.BLOCK_ABOVE)[0] or ()))
+check("its grid reads whole off the box", 15, len(f.trove_grid.read_grid(cut)[0] or ()))
+# The 1970s-80s Times prints its blocks as a halftone stipple, in places so
+# pale that the paper between its dots is a patch as big as a light's
+# (Times 15,725 read "not 180-degree symmetric", 16,331 "r4c8 is neither a
+# light nor a block").
+for name in ("times-15725-grey-blocks", "times-16331-grey-blocks-noisy"):
+    check(f"grey stippled blocks read as blocks, cell for cell ({name})",
+          (cases[name]["grid"], None), f.trove_grid.read_grid(fix / f"{name}.jpg"))
+check("a light with no neighbouring light is no crossword's", "the light at r1c1 has no neighbouring light",
+      f.trove_grid.unchecked([".#.", "#..", "..."]))
+check("lights in two patches are no crossword's", "the lights are not one connected patch",
+      f.trove_grid.unchecked(["..#", "###", "#.."]))
+check("one patch of lights, each with a neighbour, is a crossword's", None,
+      f.trove_grid.unchecked(["...", ".#.", "..."]))
 side, shaped, box = located("times-16357-title")
 check("a grid whose top frame reaches into its title's box is the title's grid (Times 16,357)",
       ("below", True), (side, shaped))
