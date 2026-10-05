@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,69 @@
      }
     ]
    },
-   "solution": "FAILSAFE"
+   "solution": "FAILSAFE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FAIL-SAFE",
+    "definitions": [
+     {
+      "text": "It shouldn't be dangerous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "move",
+      "for": "anagram",
+      "note": "a move shifts things about, so the word it follows is rearranged"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "FA",
+      "note": "fa (fah) is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "false",
+      "gives": "FALSE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "I",
+      "LSAFE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FALSE",
+       "gives": "LSAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about some hazard: one wrong step and disaster follows.",
+     "definitionFit": "A fail-safe mechanism is designed so that any breakdown leaves things in a harmless state rather than a hazardous one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +132,44 @@
     "text": "Range of Ford models?",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     },
+     {
+      "text": "Ford models",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Range",
+      "note": "first meaning: a mountain range with a jagged profile"
+     },
+     {
+      "clueFragment": "Ford models",
+      "note": "second meaning: a family car Ford sold through the 1980s and 1990s"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks about the line-up of cars a manufacturer offers.",
+     "walkthrough": "'Range' looks like a product range of cars, but it is the mountain sense.",
+     "definitionFit": "A sierra is a long jagged chain of mountains, and the Ford Sierra was a popular saloon car model."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Range"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +183,38 @@
     "text": "Blackwidow.com?",
     "enumeration": "7"
    },
-   "solution": "WEBSITE"
+   "solution": "WEBSITE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WEBSITE",
+    "definitions": [
+     {
+      "text": "Blackwidow.com?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blackwidow.com?",
+      "note": "surface reading: an internet address for something called Blackwidow"
+     },
+     {
+      "clueFragment": "Blackwidow.com?",
+      "note": "setter's reading: the black widow is a spider, and its home is a web, so this is where it sits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The dot-com makes you think of an internet address, which it also is; the joke is that a spider's place really is a web.",
+     "definitionFit": "An internet page address is a location on the web, and a black widow spider's location is literally its web."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +228,53 @@
     "text": "The marine creature is fairly quick, according to Spooner",
     "enumeration": "8"
    },
-   "solution": "STARFISH"
+   "solution": "STARFISH",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "STARFISH",
+    "definitions": [
+     {
+      "text": "The marine creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "according to Spooner",
+      "for": "spoonerism",
+      "note": "Dr Spooner famously swapped the opening sounds of words, so the sounds of the phrase are exchanged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fairly quick",
+      "gives": "STARFISH",
+      "soundsLike": "FASTISH",
+      "note": "fairly quick is fast-ish; Spooner swaps its opening F with the ST sound in its middle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STARFISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that some sea animal moves at a decent pace.",
+     "walkthrough": "In non-rhotic British speech STAR and STA- sound alike, so swapping the sounds F and ST in fast-ish gives the answer.",
+     "definitionFit": "A starfish is a sea-dwelling echinoderm with five arms, plainly a creature of the ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fairly"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +288,64 @@
     "text": "Say \"you naughty beast\" in farewell to the variety show",
     "enumeration": "10"
    },
-   "solution": "VAUDEVILLE"
+   "solution": "VAUDEVILLE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade",
+     "container"
+    ],
+    "answer": "VAUDEVILLE",
+    "definitions": [
+     {
+      "text": "variety show",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Say",
+      "for": "homophone",
+      "note": "say asks for a word as it is spoken, so a single letter that sounds like it stands in"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within another, so the first part sits inside the word for goodbye"
+     }
+    ],
+    "linkWords": [
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is pronounced like this word"
+     },
+     {
+      "clueFragment": "naughty beast",
+      "gives": "DEVIL",
+      "note": "a mischievous person is a little devil"
+     },
+     {
+      "clueFragment": "farewell",
+      "gives": "VALE",
+      "note": "vale is Latin for goodbye, used in English too"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone bids a cheeky farewell, calling out a playful insult, as an old music-hall show closes.",
+     "walkthrough": "Vale is the Latin word for goodbye, still used in English; the spoken 'you' needs only its letter.",
+     "definitionFit": "Vaudeville is a theatrical entertainment made up of a mix of song, dance and comic acts, the American music hall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +359,42 @@
     "text": "Calling for speed",
     "enumeration": "6"
    },
-   "solution": "CAREER"
+   "solution": "CAREER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAREER",
+    "definitions": [
+     {
+      "text": "Calling",
+      "at": 0
+     },
+     {
+      "text": "speed",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calling",
+      "note": "first meaning: one's profession or vocation"
+     },
+     {
+      "clueFragment": "speed",
+      "note": "second meaning: to rush along headlong, as a verb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Calling for speed' reads like demanding haste; the two words are separate meanings.",
+     "definitionFit": "A calling is a lifelong occupation, and to career is to move swiftly and uncontrollably."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Calling"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +408,53 @@
     "text": "Get up off yours and cheer on the team!",
     "enumeration": "8"
    },
-   "solution": "BACKSIDE"
+   "solution": "BACKSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSIDE",
+    "definitions": [
+     {
+      "text": "yours",
+      "at": 11,
+      "note": "in 'get up off yours', yours stands for the thing you sit on"
+     }
+    ],
+    "linkWords": [
+     "Get up off",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer on",
+      "gives": "BACK",
+      "note": "to back a team is to support it"
+     },
+     {
+      "clueFragment": "the team",
+      "gives": "SIDE",
+      "note": "a side is a team in sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rallying call to a lazy spectator: stand up and support your team!",
+     "walkthrough": "'Get up off yours' is a polite stand-in for 'get up off your bottom'.",
+     "definitionFit": "The phrase 'get up off your backside' means stop sitting, so yours here is one's rear or bottom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "yours"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +468,66 @@
     "text": "Something suspicious smelt returns to pinch one crown",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "crown",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so the phrase is read from the end"
+     },
+     {
+      "text": "to pinch",
+      "for": "container",
+      "note": "to pinch is to grab and hold, so the result holds a letter inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something suspicious smelt",
+      "gives": "ARAT",
+      "note": "when you suspect foul play you smell a rat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "ARA"
+     ],
+     "reversals": [
+      {
+       "from": "ARAIT",
+       "to": "TIARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone senses something fishy as a thief tries to steal a crown.",
+     "definitionFit": "A tiara is a jewelled ornamental headband, a kind of small crown worn by women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smelt"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +551,82 @@
    "group": [
     "10-across",
     "11-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution",
+     "anagram"
+    ],
+    "answer": "ALAN RUSBRIDGER",
+    "definitions": [
+     {
+      "text": "himself",
+      "at": 74,
+      "note": "the Guardian editor himself"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "a heading sits at the top, so only the opening letter of the word is kept"
+     },
+     {
+      "text": "off to",
+      "for": "substitution",
+      "note": "going off to somewhere means leaving one place for another, so one letter departs and another takes its place"
+     },
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order, so the letters are thrown into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardian rebels",
+      "gives": "GUARDIANREBELS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "editor's",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the word for the newspaper's chief"
+     },
+     {
+      "clueFragment": "the right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALANRUSBRIDGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUARDIANRRBELS",
+       "gives": "ALANRUSBRIDGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebels at the Guardian newspaper rise up, and their editor heads off to the right politically to find himself.",
+     "walkthrough": "Swap the E in the fodder for R, then rearrange. Alan Rusbridger was editing the Guardian, the paper this puzzle ran in, when it was set.",
+     "definitionFit": "The clue points at the paper's own editor of the time, so 'himself' means that very man, named in full."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +664,51 @@
    "group": [
     "12-across",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANANA SKIN",
+    "definitions": [
+     {
+      "text": "Potential downfall",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requiring asylum",
+      "gives": "BANANAS",
+      "note": "someone needing a mental asylum is crazy, or bananas"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "one's kin are one's relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANANAS",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family seeking refuge faces possible ruin.",
+     "walkthrough": "'Asylum' suggests refugees, but here it is the old word for a mental hospital. The family come after the madness in the answer: bananas kin.",
+     "definitionFit": "A banana skin is a slapstick cause of a fall, and figuratively any blunder or trap that could cause someone's undoing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "asylum"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +722,58 @@
     "text": "Old drug dealer offers a drug to man, Grant",
     "enumeration": "10"
    },
-   "solution": "APOTHECARY"
+   "solution": "APOTHECARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APOTHECARY",
+    "definitions": [
+     {
+      "text": "Old drug dealer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "offers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a drug",
+      "gives": "APOT",
+      "note": "a taken as written, then pot, slang for cannabis"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "a man is referred to as he"
+     },
+     {
+      "clueFragment": "Grant",
+      "gives": "CARY",
+      "note": "Cary Grant was the Hollywood film star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POT",
+      "HE",
+      "CARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A seedy scene in which a dealer pushes narcotics to a man called Grant.",
+     "walkthrough": "'Old drug dealer' sounds criminal, but it is the historical chemist.",
+     "definitionFit": "An apothecary was a historical pharmacist who prepared and sold medicines, so literally a supplier of remedies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dealer"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +787,54 @@
     "text": "One caught by the actual crime",
     "enumeration": "8"
    },
-   "solution": "THIEVERY"
+   "solution": "THIEVERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THIEVERY",
+    "definitions": [
+     {
+      "text": "crime",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught is held within whatever grabbed it, so the letter sits inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "the actual",
+      "gives": "THEVERY",
+      "note": "'the very thing' means the actual thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "I",
+      "EVERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A culprit is nabbed by police for the offence itself.",
+     "definitionFit": "Thievery is the act of stealing, which is a specific criminal offence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +848,64 @@
     "text": "Ruddy British abroad about to retreat",
     "enumeration": "7"
    },
-   "solution": "REDOUBT"
+   "solution": "REDOUBT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REDOUBT",
+    "definitions": [
+     {
+      "text": "retreat",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word before it wraps around the letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruddy",
+      "gives": "RED",
+      "note": "ruddy means reddish in colour"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "abroad can mean out and about, away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "OU",
+      "B",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Red-faced British tourists overseas are about to turn back.",
+     "definitionFit": "A redoubt is a fortified stronghold, a place of refuge to which defenders can withdraw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +919,71 @@
     "text": "Fat couch potato standing around, causing an obstruction to motorists",
     "enumeration": "8"
    },
-   "solution": "BOLLARDS"
+   "solution": "BOLLARDS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BOLLARDS",
+    "definitions": [
+     {
+      "text": "obstruction to motorists",
+      "at": 45,
+      "note": "the answer is plural, together forming an obstruction"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing",
+      "for": "reversal",
+      "note": "in a down clue standing up means reading from the bottom, so the word goes backwards"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "causing an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couch potato",
+      "gives": "SLOB",
+      "note": "a slob is a lazy, idle person"
+     },
+     {
+      "clueFragment": "Fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOL",
+      "LARD",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SLOB",
+       "to": "BOLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fat layabout stands about in the road holding up the traffic.",
+     "definitionFit": "Bollards are short posts set in a road or kerb to stop vehicles entering an area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +997,45 @@
     "text": "Curtly announce that you're not having any more vegetable",
     "enumeration": "7"
    },
-   "solution": "SHALLOT"
+   "solution": "SHALLOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHALLOT",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Curtly announce",
+      "for": "homophone",
+      "note": "to announce is to say out loud, and curtly means clipped, so a shortened spoken phrase is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that you're not having any more",
+      "gives": "SHALLOT",
+      "soundsLike": "SHALL NOT",
+      "note": "'you shall not' have any more, said quickly with the N clipped"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tersely tells a diner that there will be no second helpings of vegetables.",
+     "walkthrough": "A brusque 'shall not', the N swallowed, sounds like the answer.",
+     "definitionFit": "A shallot is a small onion-like bulb from the allium family, used in cooking as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Curtly"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1049,57 @@
     "text": "Date lacks a very soft, soothing influence",
     "enumeration": "8"
    },
-   "solution": "OINTMENT"
+   "solution": "OINTMENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OINTMENT",
+    "definitions": [
+     {
+      "text": "soothing influence",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "something that lacks things is without them, so those letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Date",
+      "gives": "APPOINTMENT",
+      "note": "a date is an appointment"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very soft",
+      "gives": "PP",
+      "note": "pp, pianissimo, is the musical marking for very soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OINTMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tender, gentle date is missing something.",
+     "definitionFit": "An ointment is a salve rubbed on the skin to ease pain or irritation, so it calms and heals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Date"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1113,64 @@
     "text": "Strong drink in free-for-all at artless get-together",
     "enumeration": "7"
    },
-   "solution": "SCRUMPY"
+   "solution": "SCRUMPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCRUMPY",
+    "definitions": [
+     {
+      "text": "Strong drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means without, so those letters are removed from the following word"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free-for-all",
+      "gives": "SCRUM",
+      "note": "a scrum is a disorderly crush or melee"
+     },
+     {
+      "clueFragment": "get-together",
+      "gives": "PARTY",
+      "note": "a party is a social gathering"
+     },
+     {
+      "clueFragment": "artless",
+      "gives": "ART",
+      "note": "the word splits as art plus less, and art is the part removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRUM",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "Potent liquor flows at a rowdy, unsophisticated gathering.",
+     "walkthrough": "'Artless' looks like an adjective meaning naive, but it splits into art and less. Scrumpy is rough cider from the West Country of England.",
+     "definitionFit": "Scrumpy is a cloudy farmhouse cider known for being very potent alcohol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artless"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1184,60 @@
     "text": "Heady mixture of pale and chic",
     "enumeration": "8"
    },
-   "solution": "CEPHALIC"
+   "solution": "CEPHALIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CEPHALIC",
+    "definitions": [
+     {
+      "text": "Heady",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture of",
+      "for": "anagram",
+      "note": "a mixture combines things in a jumbled way, so the letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pale",
+      "gives": "PALE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chic",
+      "gives": "CHIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALECHIC",
+       "gives": "CEPHALIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail of pallid and stylish looks makes for an intoxicating combination.",
+     "walkthrough": "'Heady' suggests intoxicating, but it is used literally: to do with the head.",
+     "definitionFit": "Cephalic is the anatomical adjective meaning relating to the cranium, so heady in a literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heady"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1251,58 @@
     "text": "P-Prokofiev turns up appearing way out",
     "enumeration": "6"
    },
-   "solution": "EGRESS"
+   "solution": "EGRESS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EGRESS",
+    "definitions": [
+     {
+      "text": "way out",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue turning up means reading from bottom to top, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "appearing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "P-Prokofiev",
+      "gives": "SSERGE",
+      "note": "Prokofiev's first name Serge, stuttered as the clue stutters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGRESS"
+     ],
+     "reversals": [
+      {
+       "from": "SSERGE",
+       "to": "EGRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stammered name and a composer rising to exit the stage.",
+     "walkthrough": "The composer Sergei Prokofiev was known in France as Serge; the stammered initial letter in the clue asks for a stammered first name.",
+     "definitionFit": "An egress is an exit, a place or means of going out of a building or area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1334,54 @@
    "group": [
     "22-across",
     "23-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ODE ON A GRECIAN URN",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the words are wanted for their sound and not their spelling"
+     }
+    ],
+    "linkWords": [
+     "was a joke for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's outstanding",
+      "gives": "ODE",
+      "soundsLike": "OWED",
+      "note": "money outstanding is money owed"
+     },
+     {
+      "clueFragment": "a thousand drachmas a day",
+      "gives": "ONAGRECIANURN",
+      "soundsLike": "ON A GRECIAN EARN",
+      "note": "a day's pay is what a Greek might earn, the drachma being the old Greek currency"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone scoffs at a debt that was trifling for a Greek earning a thousand drachmas daily.",
+     "walkthrough": "Said aloud, 'owed on a Grecian earn' is the title of Keats's poem.",
+     "definitionFit": "Ode on a Grecian Urn is a famous poem by John Keats, so it is a literary work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Work"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1395,57 @@
     "text": "Speak about point that's embellished",
     "enumeration": "6"
    },
-   "solution": "ORNATE"
+   "solution": "ORNATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORNATE",
+    "definitions": [
+     {
+      "text": "embellished",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for speaking goes round the letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speak",
+      "gives": "ORATE",
+      "note": "to orate is to make a speech"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "N",
+      "note": "N, north, is a point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "N",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker talks around a point, padding it out with flourishes.",
+     "definitionFit": "Ornate means elaborately decorated, which is what something adorned with ornament is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1479,57 @@
     "text": "Retiring satisfied with oneself, with toothless grin",
     "enumeration": "4"
    },
-   "solution": "GUMS"
+   "solution": "GUMS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GUMS",
+    "definitions": [
+     {
+      "text": "toothless grin",
+      "at": 38,
+      "note": "what a toothless grin shows"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retiring",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the word is read in the other direction"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satisfied with oneself",
+      "gives": "SMUG",
+      "note": "smug means self-satisfied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUMS"
+     ],
+     "reversals": [
+      {
+       "from": "SMUG",
+       "to": "GUMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy, self-satisfied person smiles without any teeth.",
+     "definitionFit": "When a person without teeth smiles, only the pink flesh of the jaw is on show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Retiring"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1543,42 @@
     "text": "Catch bird",
     "enumeration": "4"
    },
-   "solution": "GULL"
+   "solution": "GULL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GULL",
+    "definitions": [
+     {
+      "text": "Catch",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "note": "first meaning: to trick or dupe someone, catching them out"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a seabird with white and grey plumage"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Catch bird' reads as an instruction to trap a bird; the words are two separate meanings.",
+     "definitionFit": "To gull someone is to deceive them, and a gull is a common seabird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1592,58 @@
     "text": "Fliers in pub sent round for a costly fiddle",
     "enumeration": "5"
    },
-   "solution": "STRAD"
+   "solution": "STRAD",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRAD",
+    "definitions": [
+     {
+      "text": "a costly fiddle",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent round",
+      "for": "reversal",
+      "note": "something sent round turns back on itself, so the word runs the other way"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fliers in pub",
+      "gives": "DARTS",
+      "note": "darts are thrown across the pub, the classic pub game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAD"
+     ],
+     "reversals": [
+      {
+       "from": "DARTS",
+       "to": "STRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pub-goers are scammed in some expensive swindle.",
+     "walkthrough": "'Fiddle' looks like a con, but it is the violin.",
+     "definitionFit": "A Strad, short for Stradivarius, is a violin made by Antonio Stradivari and worth millions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1657,69 @@
     "text": "Pouting, having to blow instrument held the wrong way round",
     "enumeration": "8"
    },
-   "solution": "PETULANT"
+   "solution": "PETULANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PETULANT",
+    "definitions": [
+     {
+      "text": "Pouting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way round",
+      "for": "reversal",
+      "note": "the wrong way round means backwards, so the instrument's name is read from its end"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped inside another, so the instrument goes within the breathing word"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instrument",
+      "gives": "LUTE",
+      "note": "a lute is a stringed instrument"
+     },
+     {
+      "clueFragment": "to blow",
+      "gives": "PANT",
+      "note": "to pant is to blow, breathing hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ETUL",
+      "ANT"
+     ],
+     "reversals": [
+      {
+       "from": "LUTE",
+       "to": "ETUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sulky musician has to play a wind instrument upside down.",
+     "definitionFit": "Pouting is pushing out the lips in sulky displeasure, which is how a petulant person behaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blow"
+    }
+   }
   }
  ]
 }
