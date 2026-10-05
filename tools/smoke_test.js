@@ -362,8 +362,8 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
     `every glossary link lands on a clue that exists — ${dead.length} do not, e.g. `
       + dead.slice(0, 3).map(([, id, frag]) => `puzzles/${id}/#${frag}`).join(", "));
   const promised = (page.match(
-    /<meta name="description" content="[^"]*?(\d+) of them link/) || [])[1];
-  assert(Number(promised) === clueLinks.length,
+    /<meta name="description" content="[^"]*?([\d,]+) of them link/) || [])[1];
+  assert(Number(String(promised).replace(/,/g, "")) === clueLinks.length,
     `the glossary's description counts the links the table actually has `
       + `(it claims ${promised}, the table has ${clueLinks.length})`);
 
