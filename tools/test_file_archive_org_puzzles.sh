@@ -425,6 +425,23 @@ check("a number filed for another day is refused",
 check("six issues a week, none on Sunday", [1, 6, 7], [f.issues_between(D("1992-03-21"), D("1992-03-23")),
       f.issues_between(D("1992-03-21"), D("1992-03-28")), f.issues_between(D("1992-03-21"), D("1992-03-30"))])
 
+# same_scan(): a scan page already filed under another number for that day
+# is refused (times-19130 was times-19129 misread); a refile of the same
+# number, or the page on another day, is not.
+scan_root = Path(os.environ["TMP"]) / "scan_root"
+(scan_root / "puzzles" / "times" / "1993").mkdir(parents=True)
+url = f.PAGE_URL.format(item="NewsUK1993UKEnglish", leaf=17)
+(scan_root / "puzzles" / "times" / "1993" / "times-19129.json").write_text(
+    json.dumps({"date": "1993-01-16", "source": {"url": url}}))
+real_root, f.ROOT = f.ROOT, scan_root
+check("a scan page held under another number that day is refused, naming both",
+      True, "19130" in (f.same_scan(19130, url, D("1993-01-16"), "times") or "")
+      and "19129" in f.same_scan(19130, url, D("1993-01-16"), "times"))
+check("a refile of the number holding the page, and the page on another day, are not",
+      [None, None], [f.same_scan(19129, url, D("1993-01-16"), "times"),
+                     f.same_scan(19130, url, D("1993-01-18"), "times")])
+f.ROOT = real_root
+
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
 parsed = {"across": [{"tokens": [{1}], "text": "Top", "enums": {"3"}, "see": None},
