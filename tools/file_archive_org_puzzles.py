@@ -1912,6 +1912,23 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
     return None
 
 
+#: Days after an edition whose scans a run limited to it reads afresh: the
+#: next day's paper prints its solution, after a Sunday or a holiday later.
+SOLUTION_DAYS = 7
+
+
+def scan_near(dirs, rels, editions):
+    """The edition dirs a run limited to `editions` scans: each named one and
+    those of its item dated within SOLUTION_DAYS after it."""
+    named = [d for d in dirs if rels[d] in editions]
+    out = set(named)
+    for n in named:
+        start = datetime.date.fromisoformat(n.name[:10])
+        out |= {d for d in dirs if d.parent == n.parent
+                and 0 < (datetime.date.fromisoformat(d.name[:10]) - start).days <= SOLUTION_DAYS}
+    return out
+
+
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
@@ -1930,9 +1947,16 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     dirs = edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
     # Every heading first: a puzzle's solution is in a later edition.
+    # With `editions`, only those and the days after them (where their
+    # solutions print) are scanned afresh; every other edition's last scan
+    # stands, stale or not, and one never scanned offers no solution.
+    near = scan_near(dirs, rels, editions) if editions else None
     scans, unscanned = {}, {}
     for d in dirs:
         row = known.get(rels[d])
+        if near is not None and d not in near:
+            scans[rels[d]] = (row or {}).get("scan") or {"puzzles": [], "solutions": []}
+            continue
         fh = input_hash(d)
         if row and row.get("filesHash") == fh and row.get("scanKey") == scan_key() and "scan" in row:
             scans[rels[d]] = row["scan"]
@@ -1965,9 +1989,11 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     due = {}
     for d in dirs:
         rel = rels[d]
+        if editions and rel not in editions:
+            continue
         h = known[rel]["filesHash"]
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-        if (rel in editions) if editions else due_reason(known[rel], h, sol_seen, seen_by, reread):
+        if editions or due_reason(known[rel], h, sol_seen, seen_by, reread):
             due[d] = (h, sol_seen)
     queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
@@ -2023,7 +2049,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             for v in verdicts) or "nothing filed"))
     if write:
         save(ledger, known)
-    tally = report(known[rels[d]] for d in dirs)
+    tally = report(known[rels[d]] for d in dirs if rels[d] in known)
     if len(due) > fresh:
         tally["left for the next run"] = len(due) - fresh
     print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run", file=out)
