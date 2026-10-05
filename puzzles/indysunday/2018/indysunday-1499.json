@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Lonely day spent without a break",
     "enumeration": "7"
    },
-   "solution": "ENDLESS"
+   "solution": "ENDLESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENDLESS",
+    "definitions": [
+     {
+      "text": "without a break",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "deletion",
+      "note": "something spent is used up and gone, so the abbreviated day disappears from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lonely",
+      "gives": "FRIENDLESS",
+      "note": "someone with no friends is lonely"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "FRI",
+      "note": "FRI is the short form of Friday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A solitary person drags through a long, uninterrupted day on their own.",
+     "walkthrough": "FRIENDLESS loses FRI, the abbreviation for Friday, leaving ENDLESS.",
+     "definitionFit": "Something that goes on with no pause or stopping point is unending, continuing indefinitely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spent"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,47 @@
     "text": "Cut out for duty",
     "enumeration": "6"
    },
-   "solution": "EXCISE"
+   "solution": "EXCISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXCISE",
+    "definitions": [
+     {
+      "text": "Cut out",
+      "at": 0
+     },
+     {
+      "text": "duty",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut out",
+      "note": "first meaning: a verb, to remove surgically or edit away"
+     },
+     {
+      "clueFragment": "duty",
+      "note": "second meaning: a noun, a tax charged on goods such as alcohol"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone seems fitted by nature for a particular job.",
+     "walkthrough": "'Cut out for' reads as the idiom for being suited to something; split it, and 'for' merely joins two meanings.",
+     "definitionFit": "As a verb it means remove by surgery or editing; as a noun it is a tax levied on goods like tobacco."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,69 @@
     "text": "Losing heirloom ultimately for duke, servant gets dismissal",
     "enumeration": "6"
    },
-   "solution": "DENIAL"
+   "solution": "DENIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "DENIAL",
+    "definitions": [
+     {
+      "text": "dismissal",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word heirloom"
+     },
+     {
+      "text": "Losing",
+      "for": "substitution",
+      "note": "losing one letter in exchange for another, as 'for duke' says, swaps a single letter"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "servant",
+      "gives": "MENIAL",
+      "note": "a menial is a domestic servant"
+     },
+     {
+      "clueFragment": "heirloom",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the standard abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ENIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A servant is sacked after a family heirloom goes missing on the duke's watch.",
+     "walkthrough": "MENIAL swaps its M for D to give DENIAL.",
+     "definitionFit": "A denial is a refusal or rejection, as when a claim or request is turned down out of hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Losing"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,72 @@
     "text": "Piece of furniture Eric's damaged before suppressing anger",
     "enumeration": "10"
    },
-   "solution": "ESCRITOIRE"
+   "solution": "ESCRITOIRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESCRITOIRE",
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "damaged things are knocked out of shape, so the letters of the name are rearranged"
+     },
+     {
+      "text": "suppressing",
+      "for": "charade",
+      "note": "in a down answer, to suppress is to sit on top of, so the earlier piece lies above the anger"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eric's",
+      "gives": "ESCRI",
+      "note": "the letters of the name with its S, rearranged"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "TO",
+      "note": "as in ten to six, to means before the hour"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is a literary word for anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCRI",
+      "TO",
+      "IRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERICS",
+       "gives": "ESCRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eric has broken some furniture and is trying to keep his temper in check.",
+     "walkthrough": "'Before' meaning to is the clock usage, as in ten to six. In a down answer, suppressing means sitting on top of the anger.",
+     "definitionFit": "An escritoire is a writing desk, typically with drawers and a hinged flap, so it is an item of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +305,55 @@
     "text": "Stone put on, blooming beer!",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOUT",
+    "definitions": [
+     {
+      "text": "beer",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down answer, to be put on something is to sit above it, so the weight comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for stone, the weight"
+     },
+     {
+      "clueFragment": "blooming",
+      "gives": "OUT",
+      "note": "flowers that are blooming are out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has gained a stone in weight blames their blessed beer.",
+     "walkthrough": "A stone is a British unit of body weight, 14 pounds. 'Blooming' looks like a mild British curse, but it means in flower.",
+     "definitionFit": "Stout is a dark, strong kind of beer brewed with roasted malt, such as porter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +367,70 @@
     "text": "Perfect example of soldier working to defend head of Government",
     "enumeration": "7"
    },
-   "solution": "PARAGON"
+   "solution": "PARAGON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PARAGON",
+    "definitions": [
+     {
+      "text": "Perfect example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "to defend",
+      "for": "container",
+      "note": "defending something means surrounding and protecting it, so the outer pieces enclose it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "G",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An exemplary soldier on duty guards the head of state.",
+     "walkthrough": "A para is a member of a parachute regiment, a common crossword soldier alongside GI and OR.",
+     "definitionFit": "A paragon is a model of excellence, the ideal instance that others are measured against."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +444,47 @@
     "text": "Essential broadcast for leading actor",
     "enumeration": "9"
    },
-   "solution": "PRINCIPAL"
+   "solution": "PRINCIPAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRINCIPAL",
+    "definitions": [
+     {
+      "text": "leading actor",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard rather than read, so it is the sound that counts"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Essential",
+      "gives": "PRINCIPAL",
+      "soundsLike": "PRINCIPLE",
+      "note": "a principle is an essential, a fundamental rule"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcast needs its star performer above all.",
+     "walkthrough": "PRINCIPLE and PRINCIPAL sound the same; the second is spelt to fit the definition.",
+     "definitionFit": "In theatre and ballet the principal is the performer who takes a main role in a production."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +498,61 @@
     "text": "Attack personal record briefly in review",
     "enumeration": "4"
    },
-   "solution": "RAID"
+   "solution": "RAID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RAID",
+    "definitions": [
+     {
+      "text": "Attack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "a brief version is cut short, so the word loses its final letter"
+     },
+     {
+      "text": "in review",
+      "for": "reversal",
+      "note": "to review is to look back, so the letters run back the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "personal record",
+      "gives": "DIARY",
+      "note": "a diary is a personal record of daily events"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAID"
+     ],
+     "reversals": [
+      {
+       "from": "DIAR",
+       "to": "RAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete looks back at a personal best, attacking it in review.",
+     "walkthrough": "'Personal record' suggests an athlete's best time; here it is a journal. DIARY loses its Y and is turned around.",
+     "definitionFit": "A raid is a sudden assault on a place, as by troops or police, so it is a kind of strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +566,68 @@
     "text": "Present from eccentric artist guy shunned by society",
     "enumeration": "8"
    },
-   "solution": "GRATUITY"
+   "solution": "GRATUITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GRATUITY",
+    "definitions": [
+     {
+      "text": "Present",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "eccentric means odd and off-centre, so the letters go into a strange new order"
+     },
+     {
+      "text": "shunned by",
+      "for": "deletion",
+      "note": "a thing shunned is avoided and left out, so the abbreviation is dropped"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist guy",
+      "gives": "ARTISTGUY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRATUITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTITGUY",
+       "gives": "GRATUITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd artist, cold-shouldered by polite society, hands over a gift.",
+     "walkthrough": "Take one S out of ARTIST GUY, then rearrange the remaining eight letters.",
+     "definitionFit": "A gratuity is a tip, a gift of money given in thanks for service on top of what is owed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +641,89 @@
     "text": "Extremely loud backfiring inside reconditioned engine, it's irritating",
     "enumeration": "8"
    },
-   "solution": "NEEDLING"
+   "solution": "NEEDLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "NEEDLING",
+    "definitions": [
+     {
+      "text": "irritating",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its first and last letters"
+     },
+     {
+      "text": "backfiring",
+      "for": "reversal",
+      "note": "something that backfires goes backwards, so the pair of letters is turned around"
+     },
+     {
+      "text": "reconditioned",
+      "for": "anagram",
+      "note": "a reconditioned engine has been taken apart and rebuilt, so its letters are rearranged"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us the reversed pair sits within the rearranged letters"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "LD",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "engine",
+      "gives": "NEEING",
+      "note": "the six letters of the word, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEE",
+      "DL",
+      "ING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENGINE",
+       "gives": "NEEING"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LD",
+       "to": "DL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebuilt engine keeps backfiring loudly, which is very annoying.",
+     "walkthrough": "The engine is fodder, not machinery: the reversed pair from 'loud' sits after its first three rearranged letters.",
+     "definitionFit": "Needling is a present participle meaning provoking or annoying someone persistently, which fits irritating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backfiring"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +737,62 @@
     "text": "Pessimist occasionally crying is melancholic at heart",
     "enumeration": "5"
    },
-   "solution": "CYNIC"
+   "solution": "CYNIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CYNIC",
+    "definitions": [
+     {
+      "text": "Pessimist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is taken"
+     },
+     {
+      "text": "at heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crying is",
+      "gives": "CYNI",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     },
+     {
+      "clueFragment": "melancholic",
+      "gives": "C",
+      "select": "middle",
+      "note": "the sixth of eleven letters is the middle one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYNI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy person who weeps now and then is sad deep down.",
+     "walkthrough": "The alternate letters run across two words, 'crying is'.",
+     "definitionFit": "A cynic expects the worst of people's motives, so is a kind of pessimist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "occasionally"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +806,69 @@
     "text": "Start of uncontrolled emigration seeing millions leave",
     "enumeration": "9"
    },
-   "solution": "ORIGINATE"
+   "solution": "ORIGINATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ORIGINATE",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncontrolled",
+      "for": "anagram",
+      "note": "something uncontrolled runs wild, so the letters of the word fall into disorder"
+     },
+     {
+      "text": "leave",
+      "for": "deletion",
+      "note": "the millions leaving means that abbreviation is removed from the letters"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emigration",
+      "gives": "EMIGRATION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIGINATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EIGRATION",
+       "gives": "ORIGINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper line about the beginning of mass emigration, with millions departing.",
+     "walkthrough": "'Start of' looks like it wants a first letter, but Start is the definition and 'of' a link. Remove M from EMIGRATION and rearrange.",
+     "definitionFit": "To originate is to begin or come into being, so it is a verb meaning to commence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +882,39 @@
     "text": "They're vital for those who model data",
     "enumeration": "10"
    },
-   "solution": "STATISTICS"
+   "solution": "STATISTICS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STATISTICS",
+    "definitions": [
+     {
+      "text": "They're vital for those who model data",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They're vital for those who model data",
+      "note": "surface reading: figures essential to analysts who build models from data"
+     },
+     {
+      "clueFragment": "vital",
+      "note": "setter's reading: a fashion model's vital ones are bust, waist and hip measurements"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as data science, it is merely a plain definition; the twist is 'vital' and 'model', pointing to a catwalk model's measurements.",
+     "definitionFit": "Numerical figures are what data modellers work with, and a fashion model's measurements are known as their vital ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +928,62 @@
     "text": "Influence university lecturer to visit public library",
     "enumeration": "4"
    },
-   "solution": "PULL"
+   "solution": "PULL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PULL",
+    "definitions": [
+     {
+      "text": "Influence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to visit",
+      "for": "container",
+      "note": "a visitor goes inside a place, so the first pieces go inside the library letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     },
+     {
+      "clueFragment": "public library",
+      "gives": "PL",
+      "note": "PL is the abbreviation for public library"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "U",
+      "L",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A university academic drops in on the local library to sway opinion.",
+     "walkthrough": "U and L together sit inside PL.",
+     "definitionFit": "Pull in this sense is clout or sway, the power to get things done through connections."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "visit"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +997,65 @@
     "text": "Jocularity of agricultural working class, welcoming introduction from landowner",
     "enumeration": "10"
    },
-   "solution": "PLEASANTRY"
+   "solution": "PLEASANTRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLEASANTRY",
+    "definitions": [
+     {
+      "text": "Jocularity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction from",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening letter"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the class surrounds the letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agricultural working class",
+      "gives": "PEASANTRY",
+      "note": "the peasantry are the class of farm labourers"
+     },
+     {
+      "clueFragment": "landowner",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EASANTRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Farm workers greet the landowner's arrival with good humour.",
+     "walkthrough": "L goes into PEASANTRY after its first letter: P-L-EASANTRY.",
+     "definitionFit": "A pleasantry is a light joke or good-humoured remark, an instance of jocularity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1069,42 @@
     "text": "Sophisticated cocktail",
     "enumeration": "12"
    },
-   "solution": "COSMOPOLITAN"
+   "solution": "COSMOPOLITAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COSMOPOLITAN",
+    "definitions": [
+     {
+      "text": "Sophisticated",
+      "at": 0
+     },
+     {
+      "text": "cocktail",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sophisticated",
+      "note": "first meaning: worldly and cultured"
+     },
+     {
+      "clueFragment": "cocktail",
+      "note": "second meaning: a vodka, cranberry and lime drink"
+     }
+    ],
+    "explanation": {
+     "surface": "A refined drink for a refined crowd.",
+     "walkthrough": "It looks like one phrase describing a classy drink, but it is two separate meanings.",
+     "definitionFit": "The adjective means at home in many cultures and worldly; the noun is a pink vodka-based mixed drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1118,88 @@
     "text": "Walrus, typically floppy stomach gathering mud, discovered close to shore",
     "enumeration": "9"
    },
-   "solution": "MOUSTACHE"
+   "solution": "MOUSTACHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "MOUSTACHE",
+    "definitions": [
+     {
+      "text": "Walrus, typically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "floppy",
+      "for": "anagram",
+      "note": "something floppy hangs loose and out of shape, so the letters are rearranged"
+     },
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover taken off, so the outer letters go and the inside remains"
+     },
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "gathering means taking something in, so the rearranged letters surround the inner one"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stomach",
+      "gives": "MOSTACH",
+      "note": "the seven letters of the word, rearranged"
+     },
+     {
+      "clueFragment": "mud",
+      "gives": "U",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "shore",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "U",
+      "STACH",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STOMACH",
+       "gives": "MOSTACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walrus heaves its sagging belly through the mud and is spotted near the beach.",
+     "walkthrough": "The walrus seems to be the animal on the shore; it is the drooping style of facial hair named after its whiskers.",
+     "definitionFit": "A walrus is a thick drooping style of upper-lip hair, so it is one example of this kind of facial hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Walrus"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1213,67 @@
     "text": "Learner pursues first in Art painting outdoors",
     "enumeration": "8"
    },
-   "solution": "ALFRESCO"
+   "solution": "ALFRESCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALFRESCO",
+    "definitions": [
+     {
+      "text": "outdoors",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter"
+     },
+     {
+      "text": "pursues",
+      "for": "charade",
+      "note": "to pursue is to come after, so the learner's letter follows the art letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Art",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     },
+     {
+      "clueFragment": "painting",
+      "gives": "FRESCO",
+      "note": "a fresco is a painting done on wet plaster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "FRESCO"
+     ]
+    },
+    "explanation": {
+     "surface": "An art student follows the class in painting outside in the open air.",
+     "walkthrough": "'Painting outdoors' reads as one phrase, but painting gives FRESCO and outdoors is the definition.",
+     "definitionFit": "Al fresco is borrowed from Italian and means in the open air, describing activities done outside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "painting"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1287,47 @@
     "text": "Become agitated about race",
     "enumeration": "8"
    },
-   "solution": "OVERHEAT"
+   "solution": "OVERHEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERHEAT",
+    "definitions": [
+     {
+      "text": "Become agitated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "OVER",
+      "note": "over can mean about, as in arguing over money"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "HEAT",
+      "note": "a heat is a qualifying race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "HEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets worked up over a race.",
+     "walkthrough": "'About' looks like a container or reversal indicator but simply gives OVER.",
+     "definitionFit": "To overheat figuratively is to get too excited or worked up, losing calm and composure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1341,78 @@
     "text": "Northerner's meat pie left in bagging area",
     "enumeration": "12"
    },
-   "solution": "LIVERPUDLIAN"
+   "solution": "LIVERPUDLIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIVERPUDLIAN",
+    "definitions": [
+     {
+      "text": "Northerner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "to bag something is to put it inside, so the word in holds the area letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "LIVER",
+      "note": "liver is offal eaten as meat"
+     },
+     {
+      "clueFragment": "pie",
+      "gives": "PUD",
+      "note": "pud is short for pudding, as in a steak and kidney pie or pud"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIVER",
+      "PUD",
+      "L",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-checkout announcement: the Northerner's meat pie has been left in the bagging area.",
+     "walkthrough": "'Unexpected item in the bagging area' is the familiar supermarket self-checkout warning. IN bags A to make IAN. A Liverpudlian comes from Liverpool, in north-west England.",
+     "definitionFit": "A native of Liverpool in north-west England is someone from the north, so a Northerner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bagging"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1426,63 @@
     "text": "No end of affection for intense colour",
     "enumeration": "6"
    },
-   "solution": "VIOLET"
+   "solution": "VIOLET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "VIOLET",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no here means without, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intense",
+      "gives": "VIOLENT",
+      "note": "violent colours or feelings are intense"
+     },
+     {
+      "clueFragment": "affection",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIOLET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has fallen out of love with a vivid shade.",
+     "walkthrough": "VIOLENT without its N gives VIOLET.",
+     "definitionFit": "Violet is a bluish-purple hue at the short-wavelength end of the visible spectrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affection"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1496,50 @@
     "text": "Complete agreement from offspring studying for degree?",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "Complete agreement",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studying for degree",
+      "gives": "UNI",
+      "note": "a student working for a degree is at uni"
+     },
+     {
+      "clueFragment": "offspring",
+      "gives": "SON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A student child agrees with everything at home.",
+     "walkthrough": "The question mark flags the playful reading: a child who is at university. Uni is the British short word for university.",
+     "definitionFit": "In unison means all together in full accord, so it names total concord between people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offspring"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1553,56 @@
     "text": "Gunners drew after dismissal of both wingers. Extraordinary!",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "Extraordinary!",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after dismissal of both wingers",
+      "for": "letter_selection",
+      "note": "wingers play on the two flanks, so losing both leaves only the middle of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gunners",
+      "gives": "RA",
+      "note": "RA is the Royal Artillery, the army's gunners"
+     },
+     {
+      "clueFragment": "drew",
+      "gives": "RE",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Arsenal, nicknamed the Gunners, drew after sending off both wide players: remarkable!",
+     "walkthrough": "Gunners suggests Arsenal Football Club, but in crosswords it is RA, the Royal Artillery.",
+     "definitionFit": "Rare can mean exceptional or remarkably good, used as an exclamation of approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunners"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1616,65 @@
     "text": "Inactivity of Ugandan oddly disregarded when filling position",
     "enumeration": "10"
    },
-   "solution": "STAGNATION"
+   "solution": "STAGNATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STAGNATION",
+    "definitions": [
+     {
+      "text": "Inactivity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly disregarded",
+      "for": "letter_selection",
+      "note": "ignoring the odd letters means only the even ones are kept"
+     },
+     {
+      "text": "when filling",
+      "for": "container",
+      "note": "filling something means going inside it, so the kept letters sit within the other word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "position",
+      "gives": "STATION",
+      "note": "one's station is one's position"
+     },
+     {
+      "clueFragment": "Ugandan",
+      "gives": "GNA",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "GNA",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy Ugandan official is oddly overlooked when a post is being filled.",
+     "walkthrough": "'Oddly disregarded' keeps the even letters, not the odd ones; the kept letters go after the first three of the position word.",
+     "definitionFit": "Stagnation is a state of no movement or development, like still water, so it means inactivity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1688,44 @@
     "text": "Visitor, supposed to be announced",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "Visitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be announced",
+      "for": "homophone",
+      "note": "an announcement is spoken out, so the sound of the word is what matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supposed",
+      "gives": "GUEST",
+      "soundsLike": "GUESSED",
+      "note": "to suppose is to guess"
+     }
+    ],
+    "explanation": {
+     "surface": "A caller who is expected to be formally introduced on arrival.",
+     "walkthrough": "GUESSED and GUEST sound the same when spoken.",
+     "definitionFit": "A guest is someone invited to stay or call at another's home, so a visitor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "announced"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1739,56 @@
     "text": "Starts to stroll through ornate ancient colonnade",
     "enumeration": "4"
    },
-   "solution": "STOA"
+   "solution": "STOA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STOA",
+    "definitions": [
+     {
+      "text": "colonnade",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "starts are opening letters, so the first letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stroll through ornate",
+      "gives": "STO",
+      "select": "first",
+      "note": "the first letters of these three words"
+     },
+     {
+      "clueFragment": "ancient",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word, which also belongs to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A walk begins through a decorative old portico.",
+     "walkthrough": "Ancient gives its first letter, and also hints that a stoa belongs to classical Greece.",
+     "definitionFit": "A stoa was a covered walkway lined with columns in ancient Greek cities, a portico or covered walk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stroll"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1802,43 @@
     "text": "Disrespect a cleric hosting exhibition",
     "enumeration": "9"
    },
-   "solution": "SPECTACLE"
+   "solution": "SPECTACLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SPECTACLE",
+    "definitions": [
+     {
+      "text": "exhibition",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosting",
+      "for": "hidden_word",
+      "note": "a host holds a guest within, so the words contain the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disrespect a cleric",
+      "gives": "SPECTACLE",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Showing contempt for a clergyman by putting on a public show.",
+     "walkthrough": "Inside disreSPECT A CLEric.",
+     "definitionFit": "A spectacle is a striking public display or show, so it means an exhibition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosting"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1852,52 @@
     "text": "Summit of tall chimney having opening at the back",
     "enumeration": "5"
    },
-   "solution": "TALKS"
+   "solution": "TALKS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "TALKS",
+    "definitions": [
+     {
+      "text": "Summit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having opening at the back",
+      "for": "cycling",
+      "note": "the opening letter is moved from the front of the word to its end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tall chimney",
+      "gives": "STALK",
+      "note": "a stalk is a tall factory chimney"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALKS"
+     ]
+    },
+    "explanation": {
+     "surface": "The top of a tall chimney has a hole at the rear.",
+     "walkthrough": "Summit looks like the top of the chimney; it is a meeting of leaders. STALK moves its S to the end.",
+     "definitionFit": "A summit is a high-level meeting between heads of government for negotiations, so the plural noun for discussions fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Summit"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1911,58 @@
     "text": "During power cut there is right indignation",
     "enumeration": "7"
    },
-   "solution": "OUTRAGE"
+   "solution": "OUTRAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OUTRAGE",
+    "definitions": [
+     {
+      "text": "indignation",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "During",
+      "for": "container",
+      "note": "something happening during an event falls within it, so the letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "there is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power cut",
+      "gives": "OUTAGE",
+      "note": "an outage is a power cut"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "R",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "People are rightly furious during a blackout.",
+     "walkthrough": "R goes inside OUTAGE.",
+     "definitionFit": "Outrage is strong anger at something felt to be unjust, which is what indignation means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1986,47 @@
      }
     ]
    },
-   "solution": "TRYITON"
+   "solution": "TRYITON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRY IT ON",
+    "definitions": [
+     {
+      "text": "Attempt to deceive",
+      "at": 0
+     },
+     {
+      "text": "how to choose particular suit?",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt to deceive",
+      "note": "first meaning: a British idiom for chancing one's luck with a deception"
+     },
+     {
+      "clueFragment": "how to choose particular suit?",
+      "note": "second meaning: what a shopper does in a fitting room before buying clothes"
+     }
+    ],
+    "explanation": {
+     "surface": "A tailor's patter about picking a suit, with a hint of a con.",
+     "walkthrough": "To 'try it on' in British English is to see what you can get away with; the question mark marks the literal second reading.",
+     "definitionFit": "The idiom means test someone's tolerance by bluffing, and literally means putting on clothing to check the fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   }
  ]
 }
