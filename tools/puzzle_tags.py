@@ -9,12 +9,17 @@ same name, blurb and tags.
 Every tag is a fact the file states, never a judgement: a pangram is 26 letters
 counted in the grid, not a guess that the setter meant one. A feature with no
 such fact behind it gets no tag. A message hidden in the grid counts only when
-the note above the clues says where to look: any edge spells something if you
-look for words in it, so a search of the grid would tag accidents.
+the note above the clues says where to look, or a blog's write-up of the puzzle
+quotes it and our grid spells it where the blog points (tools/ninas.py): any
+edge spells something if you look for words in it, so a search of the grid
+alone would tag accidents.
 """
 
+import json
 import re
 import string
+from functools import lru_cache
+from pathlib import Path
 
 # A grid where every letter appears at least n times is an n-fold pangram,
 # tagged with the word for n. Past the last word the tag says the last word,
@@ -45,8 +50,9 @@ TAGS = {
     "hidden-message": {
         "label": "hidden message",
         "blurb": "Words run round the edge of the finished grid, along a diagonal "
-                 "or through marked squares, and the note above the clues says "
-                 "where to look.",
+                 "or through the squares no other answer crosses. The note above "
+                 "the clues says where to look, or the paper kept quiet and a "
+                 "blogger spotted them.",
     },
     "numbered-jigsaw": {
         "label": "numbered jigsaw",
@@ -124,6 +130,20 @@ MESSAGE = re.compile(
     r"|perimeter[^.]{0,60}(?:clockwise|spell|reads?\b)|perimeter letters spell"
     r"|in the diagonals|displays [^.]* on the perimeter|\(see perimeter\)",
     re.IGNORECASE)
+
+# Ninas a blog's write-up quotes and our grid spells, which tools/ninas.py
+# finds in the cached posts and writes here.
+NINAS = Path(__file__).resolve().parent / "data" / "ninas.json"
+
+
+@lru_cache(maxsize=1)
+def blogged_ninas():
+    return frozenset(json.loads(NINAS.read_text(encoding="utf-8")))
+
+
+def has_message(puzzle):
+    return bool(MESSAGE.search(puzzle.get("preamble", ""))) or puzzle.get("id") in blogged_ninas()
+
 
 # A preamble that sets a rule, as opposed to one that corrects a clue, thanks a
 # sponsor or links a PDF. Phrases only a rule-setting note uses: every one of
@@ -283,7 +303,7 @@ def tags(puzzle):
     puzzle with the rest of its series, so reindex() adds it (big_grids)."""
     found = {
         "special-rules": bool(RULE_PHRASES.search(puzzle.get("preamble", ""))),
-        "hidden-message": bool(MESSAGE.search(puzzle.get("preamble", ""))),
+        "hidden-message": has_message(puzzle),
         "unclued": has_unclued(puzzle),
         "alphabetical": is_alphabetical(puzzle),
         "barred": "bars" in puzzle,
