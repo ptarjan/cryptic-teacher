@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "A bogus journalist feeling guilty",
     "enumeration": "7"
    },
-   "solution": "ASHAMED"
+   "solution": "ASHAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHAMED",
+    "definitions": [
+     {
+      "text": "feeling guilty",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bogus",
+      "gives": "SHAM",
+      "note": "a sham is something bogus, a fake"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, short for editor, is the crossword's usual journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHAM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A fraudulent reporter is wracked with guilt over invented stories.",
+     "definitionFit": "To be ashamed is to be overcome by remorse or embarrassment about something one has done wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bogus"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +95,68 @@
     "text": "Crossing in America turning up in Germany",
     "enumeration": "7"
    },
-   "solution": "SPANDAU"
+   "solution": "SPANDAU",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPANDAU",
+    "definitions": [
+     {
+      "text": "in Germany",
+      "at": 31,
+      "note": "a prepositional phrase defining a place name, fair because the clue asks for somewhere that is located in Germany, and Spandau is such a place"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up makes the letters read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first word goes in, inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crossing",
+      "gives": "PANDA",
+      "note": "a panda crossing was a type of British pedestrian crossing"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the abbreviation for the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PANDA",
+      "U"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road crossing in the USA that somehow reappears in Germany.",
+     "walkthrough": "A panda crossing was a short-lived British pedestrian crossing of the 1960s, a cousin of the zebra crossing.",
+     "definitionFit": "Spandau is a district of Berlin, famous for its prison where Nazi war criminals were held, so it lies in Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crossing"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +170,62 @@
     "text": "Trelawney's somewhat taken aback by warning",
     "enumeration": "5"
    },
-   "solution": "ALERT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the word is used, a run of its letters"
+     },
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "taken aback is read literally as taken backwards, against the reading direction"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trelawney's",
+      "gives": "TRELA",
+      "note": "the opening run of letters in the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALERT"
+     ],
+     "reversals": [
+      {
+       "from": "TRELA",
+       "to": "ALERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Trelawney is a little startled by a warning he has been given.",
+     "definitionFit": "An alert is a signal that warns of danger, so the two words are synonyms as nouns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aback"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +239,58 @@
     "text": "Concerto offers more per performance",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "Concerto",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "performance",
+      "for": "anagram",
+      "note": "a performance is a rendering, so the letters are played out in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "offers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more",
+      "gives": "MORE",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "per",
+      "gives": "PER",
+      "note": "taken as written, as anagram material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOREPER",
+       "gives": "EMPEROR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A concert hall offering a bigger fee each time a work is played.",
+     "definitionFit": "Beethoven's fifth piano concerto is universally known by its nickname, so the name stands for that piece of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +304,52 @@
     "text": "People turn valleys into hills",
     "enumeration": "7"
    },
-   "solution": "MENDIPS"
+   "solution": "MENDIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENDIPS",
+    "definitions": [
+     {
+      "text": "hills",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "turn",
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "valleys",
+      "gives": "DIPS",
+      "note": "dips are hollows or small valleys in the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "DIPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fanciful picture of people reshaping the landscape, filling valleys up into hills.",
+     "walkthrough": "The Mendips, or Mendip Hills, are a range of limestone hills in Somerset, in south-west England.",
+     "definitionFit": "The Mendips is the everyday name for a particular English upland range, so it is a specific example of hills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +363,77 @@
     "text": "Where one may regret turning up to work, having to start early",
     "enumeration": "6"
    },
-   "solution": "EUROPE"
+   "solution": "EUROPE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EUROPE",
+    "definitions": [
+     {
+      "text": "Where",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up makes the letters read from bottom to top"
+     },
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "the start of a word is only its opening letter"
+     }
+    ],
+    "linkWords": [
+     "one may"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue something is to regret it"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "early",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of early"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUR",
+      "OP",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble about the commute, regretting an early start at the office.",
+     "walkthrough": "'Where' alone is the definition: a place one might be; the rest is all wordplay.",
+     "definitionFit": "Europe is a continent, a place, which answers the question 'where' in the loose crossword sense of a location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +447,57 @@
     "text": "Tyranny makes its mark in religion",
     "enumeration": "9"
    },
-   "solution": "DESPOTISM"
+   "solution": "DESPOTISM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESPOTISM",
+    "definitions": [
+     {
+      "text": "Tyranny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the mark is placed in, inside the faith word"
+     }
+    ],
+    "linkWords": [
+     "makes its"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mark",
+      "gives": "SPOT",
+      "note": "a spot is a mark or blemish"
+     },
+     {
+      "clueFragment": "religion",
+      "gives": "DEISM",
+      "note": "deism is belief in a creator god based on reason"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SPOT",
+      "ISM"
+     ]
+    },
+    "explanation": {
+     "surface": "Oppressive rule that leaves its stamp on a nation's faith.",
+     "definitionFit": "Despotism is government by a single ruler with absolute power, the same oppressive rule as tyranny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mark"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +511,58 @@
     "text": "It's coarse to be nosy without a show of modesty",
     "enumeration": "7"
    },
-   "solution": "PRUDERY"
+   "solution": "PRUDERY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRUDERY",
+    "definitions": [
+     {
+      "text": "a show of modesty",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so one word goes around the other"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be nosy",
+      "gives": "PRY",
+      "note": "to pry is to be nosy, to snoop"
+     },
+     {
+      "clueFragment": "coarse",
+      "gives": "RUDE",
+      "note": "rude means coarse or vulgar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUDE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A prim remark that it is vulgar to poke into others' business without some decorum.",
+     "walkthrough": "'Without' reads as lacking, but here it means outside.",
+     "definitionFit": "Prudery is excessive concern with propriety, an outward display of being easily shocked by indecency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +582,57 @@
      }
     ]
    },
-   "solution": "ACCIDENTPRONE"
+   "solution": "ACCIDENTPRONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ACCIDENT PRONE",
+    "definitions": [
+     {
+      "text": "Such a one may need concerted pain treatment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "treatment means the words are worked on and processed into a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerted",
+      "gives": "CONCERTED",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "PAIN",
+      "note": "taken as written, as anagram material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONCERTEDPAIN",
+       "gives": "ACCIDENTPRONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps getting hurt may need a concentrated course of pain relief.",
+     "walkthrough": "The whole clue is the definition: a person forever having mishaps often needs medical help for pain.",
+     "definitionFit": "Someone accident-prone keeps suffering mishaps and injuries, so such a person often needs treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "concerted"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +646,47 @@
     "text": "Beware of grot",
     "enumeration": "4"
    },
-   "solution": "CAVE"
+   "solution": "CAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAVE",
+    "definitions": [
+     {
+      "text": "Beware",
+      "at": 0
+     },
+     {
+      "text": "grot",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beware",
+      "note": "first meaning: the Latin warning cry once used by schoolboys to signal a teacher approaching"
+     },
+     {
+      "clueFragment": "grot",
+      "note": "second meaning: a grot is a poetic word for a grotto, an underground hollow"
+     }
+    ],
+    "explanation": {
+     "surface": "A warning to steer clear of grot, which in British slang means dirt or rubbish.",
+     "walkthrough": "'Grot' looks like British slang for grime, but here it is the literary short form of grotto.",
+     "definitionFit": "Cave is Latin for 'look out', used as a warning in English school slang, and a cave is a natural hollow in rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grot"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +700,57 @@
     "text": "Characteristic of a rogue, taking umbrage over responsibilities",
     "enumeration": "10"
    },
-   "solution": "PICARESQUE"
+   "solution": "PICARESQUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PICARESQUE",
+    "definitions": [
+     {
+      "text": "Characteristic of a rogue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "one word taking another holds it inside itself, wrapped around it"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "umbrage",
+      "gives": "PIQUE",
+      "note": "pique is resentment or offence, which is what taking umbrage means"
+     },
+     {
+      "clueFragment": "responsibilities",
+      "gives": "CARES",
+      "note": "cares are worries or charges one is responsible for"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "CARES",
+      "QUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A roguish type who sulks and takes offence when burdened with duties.",
+     "definitionFit": "Picaresque fiction follows the adventures of a likeable scoundrel, so the adjective describes things typical of such a rascal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "umbrage"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +764,39 @@
     "text": "On paper, one should have some influence",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "On paper, one should have some influence",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On paper, one should have some influence",
+      "note": "surface reading: in theory, someone ought to carry some weight"
+     },
+     {
+      "clueFragment": "On paper",
+      "note": "setter's reading: on a newspaper, the person in charge of content certainly has influence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'On paper' means 'in theory' in the surface, but cryptically it means working on a newspaper.",
+     "definitionFit": "The person who runs a newspaper decides what is printed, and so wields real influence over its readers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +810,54 @@
     "text": "One makes better vehicle to follow outdated model",
     "enumeration": "8"
    },
-   "solution": "IMPROVER"
+   "solution": "IMPROVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPROVER",
+    "definitions": [
+     {
+      "text": "One makes better",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "the vehicle is placed to come after the model, so the second piece sits on the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outdated model",
+      "gives": "IMP",
+      "note": "the Hillman Imp was a small British car made in the 1960s and 70s, long out of production"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "ROVER",
+      "note": "Rover is a British make of car, and a rover is also a roaming vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ROVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A car buff upgrading from an old model to a newer vehicle.",
+     "walkthrough": "The Hillman Imp was a British car of the 1960s and 70s; Rover is another British car make.",
+     "definitionFit": "An improver is literally someone or something that brings about improvement, making things better than before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +871,70 @@
     "text": "Backer of the right in corrupt purpose",
     "enumeration": "9"
    },
-   "solution": "SUPPORTER"
+   "solution": "SUPPORTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SUPPORTER",
+    "definitions": [
+     {
+      "text": "Backer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "something corrupt has been spoilt and twisted out of its proper form"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in, inside the other, rather than beside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purpose",
+      "gives": "PURPOSE",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "the right",
+      "gives": "RT",
+      "note": "Rt is the standard abbreviation for right, as in Rt Hon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPPO",
+      "RT",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PURPOSE",
+       "gives": "SUPPOER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political backer of the right wing whose aims have been corrupted.",
+     "walkthrough": "'Backer of the right' looks like a single political phrase, but the definition stops at Backer.",
+     "definitionFit": "A backer and a supporter are both people who give help, money or encouragement to a cause or person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +948,56 @@
     "text": "Dolly bird installed in temple of Athene",
     "enumeration": "9"
    },
-   "solution": "PARTHENON"
+   "solution": "PARTHENON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARTHENON",
+    "definitions": [
+     {
+      "text": "temple of Athene",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed",
+      "for": "container",
+      "note": "something installed is put in place inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dolly",
+      "gives": "PARTON",
+      "note": "Dolly Parton is the American country singer"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "HEN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive young woman given a place in a Greek goddess's shrine.",
+     "walkthrough": "'Dolly bird' is old British slang for a pretty young woman, but the words split: Dolly is the singer, bird is a hen.",
+     "definitionFit": "The Parthenon on the Athenian Acropolis was built as a sanctuary dedicated to Athena, patron goddess of the city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dolly"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1011,63 @@
     "text": "Party always backed by the state",
     "enumeration": "5"
    },
-   "solution": "LIBYA"
+   "solution": "LIBYA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIBYA",
+    "definitions": [
+     {
+      "text": "the state",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means put into reverse, so the word for always runs back to front"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "LIB",
+      "note": "Lib is short for the Liberal party"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay (or aye) is an old word for always, ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIB",
+      "YA"
+     ],
+     "reversals": [
+      {
+       "from": "AY",
+       "to": "YA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party that is forever supported by the state.",
+     "definitionFit": "Libya is a North African country, so it is an example of a sovereign nation, the sense of state here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1081,56 @@
     "text": "Priest having billet with soldiers",
     "enumeration": "5"
    },
-   "solution": "PADRE"
+   "solution": "PADRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PADRE",
+    "definitions": [
+     {
+      "text": "Priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with puts one piece alongside the next, joining them end to end"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "billet",
+      "gives": "PAD",
+      "note": "a pad is slang for a place to sleep, as a billet is a soldier's lodging"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a corps of the British Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAD",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An army chaplain lodging alongside the troops.",
+     "walkthrough": "RE stands for the Royal Engineers, a common crossword source of soldiers.",
+     "definitionFit": "Padre is the informal name for a military chaplain, a clergyman serving with the armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1144,56 @@
     "text": "A bribe given to 12 was effective",
     "enumeration": "7"
    },
-   "solution": "AVAILED"
+   "solution": "AVAILED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVAILED",
+    "definitions": [
+     {
+      "text": "was effective",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bribe",
+      "gives": "VAIL",
+      "note": "a vail is an archaic word for a tip or gratuity, a sweetener"
+     },
+     {
+      "clueFragment": "12",
+      "gives": "ED",
+      "note": "the answer to 12 across is editor, abbreviated ED"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VAIL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Slipping a backhander to a newspaper chief did the trick.",
+     "walkthrough": "The cross-reference points to 12 across, whose answer is commonly shortened to ED.",
+     "definitionFit": "Availed means was of use or helped, which is to say it worked or had the desired effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bribe"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1207,51 @@
     "text": "Partner going off creates deadlock",
     "enumeration": "9"
    },
-   "solution": "STALEMATE"
+   "solution": "STALEMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STALEMATE",
+    "definitions": [
+     {
+      "text": "deadlock",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "going off",
+      "gives": "STALE",
+      "note": "food going off is becoming stale"
+     },
+     {
+      "clueFragment": "Partner",
+      "gives": "MATE",
+      "note": "a mate is a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STALE",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse walking out leaves a marriage at an impasse.",
+     "walkthrough": "'Going off' reads as leaving, but it means turning bad, like food.",
+     "definitionFit": "In chess a stalemate leaves neither side able to win, so the word is used for any situation where no progress is possible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1265,66 @@
     "text": "Nearly broke, but pinching a cent is an offence",
     "enumeration": "7"
    },
-   "solution": "LARCENY"
+   "solution": "LARCENY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "LARCENY",
+    "definitions": [
+     {
+      "text": "an offence",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broke",
+      "for": "anagram",
+      "note": "broke is read as broken apart, so the letters are smashed and reassembled"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "pinching means grabbing and holding something within"
+     }
+    ],
+    "linkWords": [
+     "but",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nearly",
+      "gives": "NEARLY",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "a cent",
+      "gives": "C",
+      "note": "c is the abbreviation for cent"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEARLYC",
+       "gives": "LARCENY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone almost penniless, yet stealing even a single cent is still a crime.",
+     "walkthrough": "'Nearly broke' reads as almost bankrupt, but Nearly is the fodder and broke the signal.",
+     "definitionFit": "Larceny is the legal term for theft, the unlawful taking of another's property, which is a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1338,56 @@
     "text": "Gordius is lean without something to give nourishment",
     "enumeration": "7"
    },
-   "solution": "THIAMIN"
+   "solution": "THIAMIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THIAMIN",
+    "definitions": [
+     {
+      "text": "something to give nourishment",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lean",
+      "gives": "THIN",
+      "note": "lean means thin"
+     },
+     {
+      "clueFragment": "Gordius is",
+      "gives": "IAM",
+      "note": "the setter Gordius, speaking of himself, says I am"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "IAM",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter confesses to being skinny for lack of food.",
+     "walkthrough": "Setters often refer to themselves by name; Gordius is the setter of this puzzle, so his name stands for I or ME, here I AM.",
+     "definitionFit": "Thiamin is vitamin B1, a nutrient the body needs from food, so it is a substance that nourishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lean"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1401,39 @@
     "text": "They are drawn whoever wins",
     "enumeration": "6"
    },
-   "solution": "STUMPS"
+   "solution": "STUMPS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STUMPS",
+    "definitions": [
+     {
+      "text": "They are drawn whoever wins",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They are drawn whoever wins",
+      "note": "surface reading: a paradox of a match ending drawn even though someone wins"
+     },
+     {
+      "clueFragment": "drawn",
+      "note": "setter's reading: in cricket the wooden posts are pulled out of the ground when play ends, whatever the result"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Drawn' suggests a tied game; in cricket, the posts of the wicket are drawn, pulled up, at the close of play.",
+     "definitionFit": "Stumps are the three upright posts of a cricket wicket, removed at the close of every day's play regardless of the result."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drawn"
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1447,56 @@
     "text": "Provide article used in urology",
     "enumeration": "8"
    },
-   "solution": "CATHETER"
+   "solution": "CATHETER",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "CATHETER",
+    "definitions": [
+     {
+      "text": "Provide article used in urology",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "container",
+      "note": "something used in another thing is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provide",
+      "gives": "CATER",
+      "note": "to cater is to provide food or what is needed"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "THE",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A supply request for a piece of urological equipment.",
+     "walkthrough": "The whole clue doubles as the definition: the answer is an article used in urology.",
+     "definitionFit": "A catheter is a thin tube inserted into the bladder to drain urine, a standard tool of the urinary specialist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1510,53 @@
     "text": "Inexperienced type that's after a bird",
     "enumeration": "6"
    },
-   "solution": "ROOKIE"
+   "solution": "ROOKIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROOKIE",
+    "definitions": [
+     {
+      "text": "Inexperienced type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named piece behind the second, at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bird",
+      "gives": "ROOK",
+      "note": "a rook is a black bird of the crow family"
+     },
+     {
+      "clueFragment": "that's",
+      "gives": "IE",
+      "note": "i.e., id est, means 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOK",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice birdwatcher chasing a particular bird.",
+     "definitionFit": "A rookie is a raw recruit or newcomer, someone new to a job or sport who lacks experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1570,42 @@
     "text": "Function of police in Omagh or Derry?",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "Function of police",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters sit inside the following words, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Omagh or Derry",
+      "gives": "ORDER",
+      "note": "a run of letters across the middle of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about policing in Northern Ireland, naming two of its towns.",
+     "walkthrough": "Omagh and Derry are towns in Northern Ireland, where policing has been a fraught issue.",
+     "definitionFit": "Keeping law and order is the stated purpose of a police force, so order is what police maintain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -389,7 +1619,69 @@
     "text": "Canteen's last gamble can break the mould",
     "enumeration": "10"
    },
-   "solution": "BLANCMANGE"
+   "solution": "BLANCMANGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BLANCMANGE",
+    "definitions": [
+     {
+      "text": "the mould",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last asks for only the final letter of the word before it"
+     },
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "to break the words is to smash them up and rebuild them in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canteen's",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of canteen"
+     },
+     {
+      "clueFragment": "gamble",
+      "gives": "GAMBLE",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written, as anagram material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NGAMBLECAN",
+       "gives": "BLANCMANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A works canteen takes a daring risk that breaks with convention.",
+     "walkthrough": "'Break the mould' looks like an idiom for innovating, but the mould is the pudding, and 'can' is fodder rather than a verb.",
+     "definitionFit": "A blancmange is a set milk pudding turned out of a mould, so it can be called 'the mould', as the British once called it 'a shape'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 27,
@@ -403,7 +1695,45 @@
     "text": "A couple of notes for a white elephant",
     "enumeration": "4"
    },
-   "solution": "DOME"
+   "solution": "DOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOME",
+    "definitions": [
+     {
+      "text": "a white elephant",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A couple of notes",
+      "gives": "DOME",
+      "note": "do and me (or mi) are the first two notes of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A small payment in banknotes for a useless, costly possession.",
+     "walkthrough": "This dates from 2002, when London's Millennium Dome stood empty and was widely mocked as a costly white elephant.",
+     "definitionFit": "A white elephant is a showy, expensive thing nobody can use; the Millennium Dome was notoriously labelled one after the year 2000."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 28,
@@ -417,7 +1747,39 @@
     "text": "Prime property, apart from 2",
     "enumeration": "7"
    },
-   "solution": "ODDNESS"
+   "solution": "ODDNESS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ODDNESS",
+    "definitions": [
+     {
+      "text": "Prime property, apart from 2",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prime property",
+      "note": "surface reading: an estate agent's top-quality house or land"
+     },
+     {
+      "clueFragment": "apart from 2",
+      "note": "setter's reading: a feature that every prime number shares, except the number two"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Prime property' sounds like real estate, but it means a mathematical attribute of prime numbers; every prime except two is not divisible by two.",
+     "definitionFit": "The quality of not being divisible by two is shared by all primes except the first one, the only even prime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "property"
+    }
+   }
   },
   {
    "number": 29,
@@ -431,7 +1793,58 @@
     "text": "Its issue is other than dry",
     "enumeration": "7"
    },
-   "solution": "HYDRANT"
+   "solution": "HYDRANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "HYDRANT",
+    "definitions": [
+     {
+      "text": "Its issue is other than dry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "other",
+      "for": "anagram",
+      "note": "other suggests a different form, so the letters are rearranged into something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "than",
+      "gives": "THAN",
+      "note": "taken as written, as anagram material"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "DRY",
+      "note": "taken as written, as anagram material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THANDRY",
+       "gives": "HYDRANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something whose output is anything but dry.",
+     "walkthrough": "The whole clue is the definition: what comes out of the answer is water, the very opposite of dry.",
+     "definitionFit": "A fire hydrant is a street outlet from a water main, so what it issues is decidedly wet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   }
  ]
 }
