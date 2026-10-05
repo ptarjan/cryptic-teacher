@@ -7,3 +7,8 @@ tools/data/corroboration_ledger.json merge=json-keys filter=json-keys
 tools/data/setter_error.json merge=json-keys filter=json-keys
 tools/data/source_answer_wrong.json merge=json-keys filter=json-keys
 tools/data/source_clue_wrong.json merge=json-keys filter=json-keys
+
+# Puzzle files the daily update and the pre-reset burn can both annotate in one
+# night: merged entry by entry by `tools/json_merge.py --puzzle`, registered as
+# puzzle-json by tools/nightly_worktree.sh.
+puzzles/**/*.json merge=puzzle-json

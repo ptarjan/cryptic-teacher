@@ -71,6 +71,8 @@ fi
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.name "per-key JSON merge (tools/json_merge.py)"
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
 git -C "$(dirname "${BASH_SOURCE[0]}")" config filter.json-keys.clean "python3 tools/json_merge.py --clean"
+git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.name "per-entry puzzle merge (tools/json_merge.py --puzzle)"
+git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
 
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
