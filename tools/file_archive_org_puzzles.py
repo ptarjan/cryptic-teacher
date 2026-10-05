@@ -545,7 +545,21 @@ def tidy(text):
     straight after a line that ended on a count) marked "?", which
     file_trove_puzzles.match places by the grid alone."""
     out, prev = [], ""
+    lines = []
     for line in text.splitlines():
+        # A heading read onto the line of its first clue ("Down i Beginning",
+        # "ACROSS 1 Fish"), or after the last clue of the list before
+        # ("chance (5) DOWN"), is a line of its own; one inside a line,
+        # another column's read across ("on the DOWN board"), is no word.
+        m = HEADING_LEAD.match(line)
+        if m:
+            lines += [m[1].upper(), (m[2] if m[2].isdigit() else "1") + " " + line[m.end():]]
+            continue
+        m = HEADING_TAIL.search(line)
+        tail = [m[1]] if m else []
+        line = line[:m.start()] if m else line
+        lines += [re.sub(r"(?<=\S)\s+(?:ACROSS|DOWN)(?=\s+\S)", "", line)] + tail
+    for line in lines:
         line = line.translate(BRACKETS).strip()
         heading = heading_of(line) or numbered_heading(line)
         if heading:
@@ -584,6 +598,13 @@ def tidy(text):
         if k + 1 == len(out) or heading_of(out[k + 1]):
             out[k] = re.sub(r"\((\d{1,2})[^\d)\s]?$", r"(\1)", line)
     return "\n".join(uncounted_dropped(counts_mended(out)))
+
+
+#: A list's heading opening a line before its first clue's number, a 1
+#: read as i, I, l or |: "Down i Beginning", "ACROSS 1 Fish".
+HEADING_LEAD = re.compile(r"^\W*(ACROSS|DOWN|Across|Down)\W*\s+(\d{1,2}|[iIl|!])\W?\s+(?=[A-Z\"'])")
+#: A heading in capitals closing a line after a clue's count: "(5) DOWN".
+HEADING_TAIL = re.compile(r"(?<=\))\W{0,2}\s+(ACROSS|DOWN)\W*$")
 
 
 #: A count torn at a clue's end: "(" read as 1, I or l ("17).", "IS).") or

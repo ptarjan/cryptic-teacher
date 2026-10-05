@@ -57,6 +57,8 @@ check("a write that goes through says so", (True, {"wrote": True}),
 # middle) or the page's text is never written, whatever the filer.
 wrote = []
 for what, text in (("another clue's number and text", "Did Newman, for the life of 2 Flower sacred to Lake Poet him, so express regret?"),
+                   ("a list's heading", "Bilingual agreement on the DOWN board"),
+                   ("a bracket it never pairs", "Just a Liberal) reformer beheaded!"),
                    ("the page's text", "There's some depression about the pages being spotty (6. The solution of Saturday's Prize Puzzle No 18,262 will appear next Saturday")):
     v = {}
     ok = q.file_puzzle(lambda path, puzzle, generator: wrote.append(path), "t", "p",
