@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Family doctor, popular person who's most important",
     "enumeration": "7"
    },
-   "solution": "KINGPIN"
+   "solution": "KINGPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINGPIN",
+    "definitions": [
+     {
+      "text": "person who's most important",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "kin are one's family"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "GP",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A family doctor turns out to be the most important, popular figure in the community.",
+     "walkthrough": "'Family doctor' reads as one phrase meaning a GP, but it splits: family is one piece and doctor another.",
+     "definitionFit": "A kingpin is the central figure in an organisation, the one on whom everything else depends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Family"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,53 @@
     "text": "Captain releasing small fish",
     "enumeration": "6"
    },
-   "solution": "KIPPER"
+   "solution": "KIPPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "KIPPER",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releasing",
+      "for": "deletion",
+      "note": "releasing something lets it go, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captain",
+      "gives": "SKIPPER",
+      "note": "a skipper is the captain of a ship or team"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's captain lets a tiny fish go back into the water.",
+     "walkthrough": "'Small fish' reads as one phrase; small is the letter to drop and fish alone is the definition.",
+     "definitionFit": "A kipper is a split, salted and smoked herring, a fish familiar at British breakfast tables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,57 @@
     "text": "Relative conclusions of Einstein accurate? What a relief",
     "enumeration": "6"
    },
-   "solution": "NEPHEW"
+   "solution": "NEPHEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEPHEW",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusions of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter, one from each of the two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Einstein accurate",
+      "gives": "NE",
+      "select": "last",
+      "note": "last letters of Einstein and accurate"
+     },
+     {
+      "clueFragment": "What a relief",
+      "gives": "PHEW",
+      "note": "phew is the exclamation of relief"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "PHEW"
+     ]
+    },
+    "explanation": {
+     "surface": "Relief that Einstein's relativity conclusions proved accurate.",
+     "walkthrough": "'Relative' playfully suggests relativity and Einstein, but here it means a family member.",
+     "definitionFit": "A nephew is the son of one's brother or sister, so he is a kind of family member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Relative"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,83 @@
      }
     ]
    },
-   "solution": "PRESSCONFERENCE"
+   "solution": "PRESSCONFERENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "PRESS CONFERENCE",
+    "definitions": [
+     {
+      "text": "meeting with journalists",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned upside down, which in a down answer reads the word backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the next one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the abbreviation for singular"
+     },
+     {
+      "clueFragment": "fraud",
+      "gives": "CON",
+      "note": "a con is a fraud or swindle"
+     },
+     {
+      "clueFragment": "arbiter",
+      "gives": "REF",
+      "note": "a ref, or referee, is an arbiter"
+     },
+     {
+      "clueFragment": "attendance",
+      "gives": "PRESENCE",
+      "note": "presence is being in attendance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRES",
+      "S",
+      "CON",
+      "FER",
+      "ENCE"
+     ],
+     "reversals": [
+      {
+       "from": "REF",
+       "to": "FER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual fraud upsets the referee present at a meeting with the media.",
+     "walkthrough": "In a down clue, 'upset' fits a reversal well: the word is literally turned upside down.",
+     "definitionFit": "A press conference is an event where someone answers questions put by reporters, a meeting held for journalists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Singular"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +316,47 @@
     "text": "Retreat certainly not all right",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "Retreat",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certainly not",
+      "gives": "NO",
+      "note": "no is a firm refusal"
+     },
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "note": "OK means all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "Retreating is definitely not acceptable.",
+     "walkthrough": "'Retreat' looks like a verb, but it is a noun for a hideaway.",
+     "definitionFit": "A nook is a secluded corner or sheltered spot, a small place of retreat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retreat"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +370,61 @@
     "text": "Own son breaking model steamship",
     "enumeration": "7"
    },
-   "solution": "POSSESS"
+   "solution": "POSSESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "POSSESS",
+    "definitions": [
+     {
+      "text": "Own",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "POSE",
+      "note": "a model poses, or strikes a pose"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     },
+     {
+      "clueFragment": "steamship",
+      "gives": "SS",
+      "note": "SS is the prefix for a steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "S",
+      "E",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A son smashes his prized model steamship, which he owns.",
+     "definitionFit": "To possess something is to have it as your property, the plain verb sense of own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +438,69 @@
     "text": "Playing solo, hippy capturing hearts with outlook",
     "enumeration": "10"
    },
-   "solution": "PHILOSOPHY"
+   "solution": "PHILOSOPHY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PHILOSOPHY",
+    "definitions": [
+     {
+      "text": "outlook",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing with things moves them about, so these letters change order"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing something means taking it in, so a piece is held within"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solo, hippy",
+      "gives": "SOLOHIPPY",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "hearts",
+      "gives": "H",
+      "note": "H is the card-game abbreviation for hearts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "ILOSOPHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLOHIPPY",
+       "gives": "PILOSOPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hippy performing alone wins hearts with a particular world view.",
+     "definitionFit": "A philosophy is a personal set of beliefs about life, which is what an outlook means here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hearts"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +524,67 @@
      }
     ]
    },
-   "solution": "SPOILTFORCHOICE"
+   "solution": "SPOILTFORCHOICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SPOILT FOR CHOICE",
+    "definitions": [
+     {
+      "text": "Having many options",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is left off"
+     },
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "something admitted is let inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impaired",
+      "gives": "SPOILT",
+      "note": "spoilt means damaged or impaired"
+     },
+     {
+      "clueFragment": "intensity",
+      "gives": "FORCE",
+      "note": "force is strength or intensity"
+     },
+     {
+      "clueFragment": "group of singers",
+      "gives": "CHOIR",
+      "note": "a choir is a group of singers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOILT",
+      "FOR",
+      "CHOI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "With so many options, a choir's power was weakened before most of the singers were let in.",
+     "definitionFit": "Spoilt for choice is an idiom for having so many alternatives that deciding becomes hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impaired"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +598,64 @@
     "text": "Ecstatic about electronic volume being raised",
     "enumeration": "8"
    },
-   "solution": "ELEVATED"
+   "solution": "ELEVATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELEVATED",
+    "definitions": [
+     {
+      "text": "raised",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the next pieces go inside"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ecstatic",
+      "gives": "ELATED",
+      "note": "elated means ecstatic"
+     },
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "V is the abbreviation for volume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "E",
+      "V",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is thrilled that the volume on the electronic gear has been turned up.",
+     "definitionFit": "Elevated means lifted up to a higher position, a past-participle synonym for raised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 8,
@@ -181,7 +675,74 @@
      }
     ]
    },
-   "solution": "SWANLAKE"
+   "solution": "SWANLAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SWAN LAKE",
+    "definitions": [
+     {
+      "text": "ballet",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those pieces inside the next one"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scene",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of scene"
+     },
+     {
+      "clueFragment": "Note",
+      "gives": "LA",
+      "note": "la is the sixth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "WANE",
+      "note": "to wane is to decline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAN",
+      "LA",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A king's fall from power is noted after the opening scene of a ballet.",
+     "definitionFit": "Swan Lake is Tchaikovsky's famous ballet, so the answer is an example of a ballet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +756,67 @@
     "text": "Pioneer prepared to accept very soft pizza topping",
     "enumeration": "9"
    },
-   "solution": "PEPPERONI"
+   "solution": "PEPPERONI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PEPPERONI",
+    "definitions": [
+     {
+      "text": "pizza topping",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made ready or worked up, so these letters are rearranged"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so another piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pioneer",
+      "gives": "PIONEER",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "very soft",
+      "gives": "PP",
+      "note": "pp is pianissimo, the musical marking for very soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "PP",
+      "ERONI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIONEER",
+       "gives": "PEERONI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trailblazer gets ready to try a very soft pizza topping.",
+     "walkthrough": "pp, short for pianissimo, is the musical marking crosswords use for very soft.",
+     "definitionFit": "Pepperoni is a spicy sausage sliced thin and spread over pizzas, among the commonest toppings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pioneer"
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +830,61 @@
     "text": "Letter for example retained by old mother",
     "enumeration": "5"
    },
-   "solution": "OMEGA"
+   "solution": "OMEGA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OMEGA",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retained by",
+      "for": "container",
+      "note": "something retained by another thing is held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "M",
+      "EG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly mother keeps hold of a sample letter.",
+     "definitionFit": "Omega is the last letter of the Greek alphabet, so it is one example of a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 11,
@@ -229,7 +904,48 @@
      }
     ]
    },
-   "solution": "EVENSO"
+   "solution": "EVENSO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EVEN SO",
+    "definitions": [
+     {
+      "text": "all the same",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart from last quarter",
+      "for": "deletion",
+      "note": "apart from means without, so the final fourth of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "gives": "EVENSONG",
+      "note": "evensong is the Anglican evening church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENSO"
+     ]
+    },
+    "explanation": {
+     "surface": "A church service that skips its last quarter is otherwise just the same.",
+     "walkthrough": "EVENSONG has eight letters, so its last quarter is NG; removing that leaves EVEN SO.",
+     "definitionFit": "Even so and all the same are both concessive phrases meaning nevertheless or despite that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +965,49 @@
      }
     ]
    },
-   "solution": "ROLLCALL"
+   "solution": "ROLLCALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROLL CALL",
+    "definitions": [
+     {
+      "text": "procedure to establish attendance",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start moving",
+      "gives": "ROLL",
+      "note": "to roll is to get under way, as in 'cameras, roll'"
+     },
+     {
+      "clueFragment": "occasion",
+      "gives": "CALL",
+      "note": "call means occasion or need, as in 'there was no call for that'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLL",
+      "CALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A procedure is set in motion to check who is present.",
+     "definitionFit": "A roll call reads out a list of names so that each person present can answer, recording attendance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "occasion"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +1021,76 @@
     "text": "Poor soul consumed by duty is working diligently",
     "enumeration": "10"
    },
-   "solution": "STUDIOUSLY"
+   "solution": "STUDIOUSLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STUDIOUSLY",
+    "definitions": [
+     {
+      "text": "diligently",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so these letters are knocked into a new order"
+     },
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "something consumed is taken inside, so this piece is enclosed"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means operating or in motion, so these letters are shifted around too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soul",
+      "gives": "SOUL",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "duty is",
+      "gives": "DUTYIS",
+      "note": "taken as written, for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUDI",
+      "OUSL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOUL",
+       "gives": "OUSL"
+      },
+      {
+       "fodder": "DUTYIS",
+       "gives": "STUDIY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wretched soul, consumed by duty, works hard.",
+     "walkthrough": "There are two separate anagrams: one of soul, placed inside one of duty is.",
+     "definitionFit": "Studiously means with careful, painstaking attention, so it matches diligently as an adverb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1110,69 @@
      }
     ]
    },
-   "solution": "CONTROLFREAK"
+   "solution": "CONTROLFREAK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CONTROL FREAK",
+    "definitions": [
+     {
+      "text": "One demanding power",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means unruly or out of control, so these letters run riot into a new order"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking something in, so a piece is placed inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk for once",
+      "gives": "TALKFORONCE",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONT",
+      "R",
+      "OLFREAK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALKFORONCE",
+       "gives": "CONTOLFREAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hungry for power, for once in a heated discussion, meets opposition.",
+     "definitionFit": "A control freak is someone who insists on dictating everything, an obsessive need to be in charge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1186,69 @@
     "text": "Candidate with dodgy past going round nation",
     "enumeration": "8"
    },
-   "solution": "ASPIRANT"
+   "solution": "ASPIRANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ASPIRANT",
+    "definitions": [
+     {
+      "text": "Candidate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or shifty, so these letters are not to be trusted in their order"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round something means surrounding it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "PAST",
+      "note": "taken as written, for rearranging"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "IRAN",
+      "note": "Iran is a nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASP",
+      "IRAN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAST",
+       "gives": "ASPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political candidate with a shady history tours the country.",
+     "definitionFit": "An aspirant is someone seeking a position or honour, so in noun form it is an applicant or candidate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nation"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1262,65 @@
     "text": "Franchise hurt, losing energy over time",
     "enumeration": "8"
    },
-   "solution": "SUFFRAGE"
+   "solution": "SUFFRAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUFFRAGE",
+    "definitions": [
+     {
+      "text": "Franchise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it drops out of the word"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down answer, over means placed above, so the first part comes before the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "SUFFER",
+      "note": "to suffer is to be hurt"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUFFR",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A business franchise suffers, losing its drive as time passes.",
+     "walkthrough": "'Franchise' suggests a business licence, but here it is the right to vote. SUFFER loses one E.",
+     "definitionFit": "Suffrage and franchise both mean the right to vote in public elections."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Franchise"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1340,77 @@
      }
     ]
    },
-   "solution": "STUFFEDSHIRT"
+   "solution": "STUFFEDSHIRT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "STUFFED SHIRT",
+    "definitions": [
+     {
+      "text": "Pompous person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter only"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "STUFF",
+      "note": "stuff is cloth or material"
+     },
+     {
+      "clueFragment": "expose",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of expose"
+     },
+     {
+      "clueFragment": "scandal",
+      "gives": "DIRT",
+      "note": "dirt is scandalous gossip, as in 'dishing the dirt'"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUFF",
+      "E",
+      "D",
+      "SH",
+      "IRT"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-important figure, armed with documents, starts exposing a scandal while staying silent about it.",
+     "definitionFit": "A stuffed shirt is an idiom for a pompous, conventional and self-important person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1424,64 @@
     "text": "Scoff after United lead, being optimistic",
     "enumeration": "6"
    },
-   "solution": "UPBEAT"
+   "solution": "UPBEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPBEAT",
+    "definitions": [
+     {
+      "text": "optimistic",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says that piece comes behind the others in order"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United, as in football club names"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for the metal lead"
+     },
+     {
+      "clueFragment": "Scoff",
+      "gives": "EAT",
+      "note": "to scoff is to eat greedily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PB",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Football fans are hopeful after United take the lead.",
+     "walkthrough": "'Lead' reads as a scoring advantage, but it is the metal, symbol PB.",
+     "definitionFit": "Upbeat means cheerful and hopeful about the future, an informal synonym for optimistic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1495,48 @@
     "text": "Run away from church and cheat",
     "enumeration": "6"
    },
-   "solution": "FLEECE"
+   "solution": "FLEECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLEECE",
+    "definitions": [
+     {
+      "text": "cheat",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run away from",
+      "gives": "FLEE",
+      "note": "to flee is to run away from"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEE",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs off from church after swindling it.",
+     "definitionFit": "To fleece someone is to swindle them out of money, as a sheep is shorn of its wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1550,70 @@
     "text": "Substandard data about terrain omitting odd features? Right",
     "enumeration": "8"
    },
-   "solution": "INFERIOR"
+   "solution": "INFERIOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INFERIOR",
+    "definitions": [
+     {
+      "text": "Substandard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     },
+     {
+      "text": "omitting odd features",
+      "for": "letter_selection",
+      "note": "dropping the odd-numbered letters keeps only the even ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "data",
+      "gives": "INFO",
+      "note": "info is short for information, i.e. data"
+     },
+     {
+      "clueFragment": "terrain",
+      "gives": "ERI",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of terrain"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "ERI",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Data on a landscape is poor when it leaves out unusual features, apparently rightly.",
+     "walkthrough": "'Odd features' looks like strange landmarks, but it means the odd-numbered letters.",
+     "definitionFit": "Inferior means lower in quality, so it is a straight synonym for substandard as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1627,58 @@
     "text": "Man felt free from boundaries in place of worship",
     "enumeration": "6"
    },
-   "solution": "CHAPEL"
+   "solution": "CHAPEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHAPEL",
+    "definitions": [
+     {
+      "text": "place of worship",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free from boundaries",
+      "for": "letter_selection",
+      "note": "freed from its boundaries, a word loses its first and last letters, keeping only the inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "CHAP",
+      "note": "chap is an informal word for a man"
+     },
+     {
+      "clueFragment": "felt",
+      "gives": "EL",
+      "select": "middle",
+      "note": "the inner letters of felt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man felt liberated from constraints inside a church.",
+     "definitionFit": "A chapel is a small church or a room set aside for prayer, a kind of building for worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1692,65 @@
     "text": "Boat in sea initially north of Guernsey?",
     "enumeration": "4"
    },
-   "solution": "SCOW"
+   "solution": "SCOW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCOW",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter counts"
+     },
+     {
+      "text": "north of",
+      "for": "charade",
+      "note": "in a down answer, north of means placed above, so this letter comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sea"
+     },
+     {
+      "clueFragment": "Guernsey?",
+      "gives": "COW",
+      "note": "a Guernsey is a breed of dairy cow; the question mark flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COW"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat at sea just to the north of the island of Guernsey.",
+     "walkthrough": "Guernsey looks like the Channel Island, but it is the cattle breed named after it.",
+     "definitionFit": "A scow is a flat-bottomed boat used to carry cargo, so it is a kind of boat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guernsey"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1764,49 @@
     "text": "Once more in Narnia, gather round",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "Once more",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Narnia, gather",
+      "gives": "NIAGA",
+      "note": "the run of letters across the end of Narnia and the start of gather"
+     }
+    ],
+    "explanation": {
+     "surface": "Back in Narnia, the children gather round once more.",
+     "walkthrough": "'Gather' looks like a synonym to use, but it only supplies letters: read backwards across the two words.",
+     "definitionFit": "Again means one more time, a plain adverbial equivalent of once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1820,62 @@
     "text": "Profanity? Wise to restrain cold anger",
     "enumeration": "9"
    },
-   "solution": "SACRILEGE"
+   "solution": "SACRILEGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SACRILEGE",
+    "definitions": [
+     {
+      "text": "Profanity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to restrain",
+      "for": "container",
+      "note": "restraining something means holding it in, so pieces are put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wise",
+      "gives": "SAGE",
+      "note": "sage as an adjective means wise"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RILE",
+      "note": "to rile is to anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "C",
+      "RILE",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is swearing wise as a way of keeping a cold fury in check?",
+     "walkthrough": "'Anger' must be read as a verb here, to provoke someone.",
+     "definitionFit": "Sacrilege is the violation of something sacred, and profanity in its older sense means irreverence toward holy things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "anger"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1889,78 @@
     "text": "Be revolutionary in speculation, losing nothing as a result of that",
     "enumeration": "7"
    },
-   "solution": "THEREBY"
+   "solution": "THEREBY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "THEREBY",
+    "definitions": [
+     {
+      "text": "as a result of that",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things over, so the two letters are read in the opposite direction"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be",
+      "gives": "BE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "speculation",
+      "gives": "THEORY",
+      "note": "a theory is a speculation"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THER",
+      "EB",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "BE",
+       "to": "EB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Be radical in your theorising, and you may lose everything as a consequence.",
+     "walkthrough": "Nothing is the round zero, the letter O, a standard crossword substitution.",
+     "definitionFit": "Thereby is a formal adverb meaning by that means or in consequence of that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1974,69 @@
     "text": "Break line between west and east in struggle",
     "enumeration": "7"
    },
-   "solution": "WRESTLE"
+   "solution": "WRESTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WRESTLE",
+    "definitions": [
+     {
+      "text": "struggle",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "between places these pieces with something on either side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "west",
+      "gives": "W",
+      "note": "W is the abbreviation for west"
+     },
+     {
+      "clueFragment": "Break",
+      "gives": "REST",
+      "note": "a rest is a break"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking the line that divides West and East is a struggle.",
+     "definitionFit": "To wrestle is to grapple or fight with effort, so it is a verb synonym for struggle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   }
  ]
 }
